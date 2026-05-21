@@ -1,3 +1,13 @@
+<!--
+file: project-manager/references/review-and-quality.md
+purpose: Review checklists for design docs, interface specs, and Coder output before declaring work complete.
+audience: PM
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Review and Quality Protocol
 
 The PM reviews three types of output: design documents (self-review and Nick's review), interface specifications (self-review), and Coder output (code review). Each type has its own checklist. Apply the appropriate checklist BEFORE declaring any work product complete.

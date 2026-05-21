@@ -1,3 +1,13 @@
+<!--
+file: context/strategy/Revenue_Model_and_Licensing_Strategy.md
+purpose: Locked strategic decision on Apache 2.0 licensing and revenue model.
+audience: PM, Nick
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Revenue Model & Licensing Strategy
 
 **Purpose:** One-page reference for the foundational revenue and licensing decisions. Any agent making dependency choices, feature-boundary decisions, or assessing whether a capability belongs in the free tier vs. a paid tier must consult this document.

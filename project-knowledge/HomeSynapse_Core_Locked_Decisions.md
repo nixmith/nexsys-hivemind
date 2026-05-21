@@ -1,3 +1,13 @@
+<!--
+file: project-knowledge/HomeSynapse_Core_Locked_Decisions.md
+purpose: Locked technical decisions register (LTD-NN) constraining all implementation across the codebase.
+audience: All
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # HomeSynapse — Locked Technical Decisions Register (v1)
 
 **Document type:** Governance — locked implementation choices

@@ -1,3 +1,13 @@
+<!--
+file: project-manager/references/cross-subsystem-awareness.md
+purpose: Map of critical cross-subsystem boundaries the PM must consider when issuing instructions.
+audience: PM
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Cross-Subsystem Awareness Guide
 
 HomeSynapse Core consists of 13 subsystems that interact through defined interfaces. The PM must understand how subsystems connect so that work on one subsystem doesn't inadvertently break or constrain another. This guide maps the critical boundaries.

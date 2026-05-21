@@ -1,3 +1,13 @@
+<!--
+file: benchmarks/grading-protocol.md
+purpose: Execution manual for running smoke, regression, and comprehensive benchmarks and grading the results.
+audience: Cowork, Nick
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Grading Protocol — Execution Manual
 
 ## How to Run a Benchmark

@@ -1,3 +1,13 @@
+<!--
+file: coder/references/freshness-preflight.md
+purpose: Session-start preflight for the Coder to detect hivemind drift before executing instructions.
+audience: Coder
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Coder Freshness Preflight
 
 **Run this at the start of every Coder session, immediately after loading Tier 1 context (PROJECT_SNAPSHOT.md, coder-handoff.md, cross-agent-notes.md, the active coding instruction).** The preflight detects hivemind drift before you act on stale assumptions. Skipping it is how the M2.2 / M2.4 arch-debt violations shipped undetected — see `../../context/audits/2026-04-11_m2.5-arch-debt-retrospective.md`.

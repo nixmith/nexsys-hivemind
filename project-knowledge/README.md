@@ -1,3 +1,13 @@
+<!--
+file: project-knowledge/README.md
+purpose: Explains that project-knowledge/ holds the writable source for files uploaded to the Claude Project.
+audience: All
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Project Knowledge — Canonical Source Files
 
 This directory holds the writable source copies of all files uploaded to the

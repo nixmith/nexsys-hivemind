@@ -1,3 +1,13 @@
+<!--
+file: project-knowledge/HomeSynapse_Current_State.md
+purpose: Authoritative current-state document for HomeSynapse Core; uploaded to the Claude Project.
+audience: All
+update-cadence: per-WU
+state-type: current
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # HomeSynapse Core — Current State
 
 Last updated: 2026-05-20 (post-M3.6c + M3.6d-a WUCP Phase 2 + DEC-M3-17 logged + M3.6d sub-divided into d-a + d-b)

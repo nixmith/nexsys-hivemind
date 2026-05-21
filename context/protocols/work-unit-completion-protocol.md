@@ -1,3 +1,13 @@
+<!--
+file: context/protocols/work-unit-completion-protocol.md
+purpose: Mandatory work-unit completion protocol (WUCP) for Phase 2 blocks and Phase 3 milestones.
+audience: PM, Coder
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Work Unit Completion Protocol (WUCP)
 
 **Authority:** This protocol is mandatory for every work unit completion in Phase 2 and Phase 3. A work unit is not DONE until all applicable WUCP phases are complete.

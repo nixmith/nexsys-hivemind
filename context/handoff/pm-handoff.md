@@ -1,3 +1,13 @@
+<!--
+file: context/handoff/pm-handoff.md
+purpose: PM session continuity — current task, work-unit status, open risks, outstanding instructions.
+audience: PM, Coder
+update-cadence: per-WU
+state-type: current
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # PM Session Handoff
 
 **Last updated:** 2026-05-20 (WUCP Phase 2 — M3.6c + M3.6d-a closure, DEC-M3-17 logged, M3.6d sub-divided into d-a + d-b)

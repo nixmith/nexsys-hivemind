@@ -1,3 +1,13 @@
+<!--
+file: context/lessons/pm-lessons.md
+purpose: Append-only record of design-to-code translation patterns and review-finding insights from PM sessions.
+audience: PM
+update-cadence: append-only
+state-type: history
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # PM Lessons Log
 
 Append-only record of design-to-code translation patterns, task brief effectiveness observations, constraint enforcement discoveries, and review findings. Read this at session start. Append new entries at the end when discoveries are made.

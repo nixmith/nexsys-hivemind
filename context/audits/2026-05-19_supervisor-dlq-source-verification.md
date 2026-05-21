@@ -1,3 +1,13 @@
+<!--
+file: context/audits/2026-05-19_supervisor-dlq-source-verification.md
+purpose: Source verification report for the Supervisor DLQ wiring task.
+audience: PM, Nick
+update-cadence: frozen
+state-type: history
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Source Verification Report: Supervisor DLQ Wiring
 
 **Task:** Supervisor DLQ Wiring — Source Verification & Instruction Refinement

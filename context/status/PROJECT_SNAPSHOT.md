@@ -1,3 +1,13 @@
+<!--
+file: context/status/PROJECT_SNAPSHOT.md
+purpose: Current operational state hub — current WU, code state, deferred gates, build status.
+audience: All
+update-cadence: per-WU
+state-type: current
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Project Snapshot
 
 **Last updated:** 2026-05-20 by PM (WUCP Phase 2 — M3.6c + M3.6d-a closure, DEC-M3-17 added, M3.6d sub-divided)

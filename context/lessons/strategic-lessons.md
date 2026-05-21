@@ -1,3 +1,13 @@
+<!--
+file: context/lessons/strategic-lessons.md
+purpose: Append-only record of strategic decomposition patterns and task-brief calibration notes.
+audience: PM, Nick
+update-cadence: append-only
+state-type: history
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Strategic Lessons Log
 
 Append-only record of strategic decomposition patterns, task brief effectiveness, information routing observations, and planning calibration notes. Maintained by Nick (previously by the Hivemind agent, now absorbed into Nick's direct role). Append new entries at the end when discoveries are made.

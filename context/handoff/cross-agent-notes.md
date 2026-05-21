@@ -1,3 +1,13 @@
+<!--
+file: context/handoff/cross-agent-notes.md
+purpose: Shared bulletin board for inter-agent communication outside the formal task queue.
+audience: All
+update-cadence: ad-hoc
+state-type: comms
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Cross-Agent Notes
 
 Shared bulletin board for information that one agent needs to communicate to another outside of the formal task queue. Any agent can append. Every agent reads this at session start.

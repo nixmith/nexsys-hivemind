@@ -1,3 +1,13 @@
+<!--
+file: coder/references/testing-standards.md
+purpose: Test-first discipline, JUnit 5 patterns, test categories, and ArchUnit rules for HomeSynapse Core.
+audience: Coder
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Testing Standards for HomeSynapse
 
 Tests define "correct." Write them first. Make them fail. Then implement.

@@ -1,3 +1,13 @@
+<!--
+file: benchmarks/comprehensive/results/benchmark-4-results.md
+purpose: Graded results of benchmark-4 (questions 1–25).
+audience: Nick, PM
+update-cadence: frozen
+state-type: history
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Architecture Audit — Grading Report (Questions 1–25)
 
 **Grading Scale:** ✅ CORRECT | ⚠️ PARTIALLY CORRECT | ❌ INCORRECT | 🎯 EXCEPTIONAL (correct + insightful beyond what was asked)

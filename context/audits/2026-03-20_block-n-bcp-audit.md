@@ -1,3 +1,13 @@
+<!--
+file: context/audits/2026-03-20_block-n-bcp-audit.md
+purpose: Post-mortem of Block N (websocket-api), the first block executed under the Block Completion Protocol.
+audience: PM, Nick
+update-cadence: frozen
+state-type: history
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Block N Post-Mortem — BCP Benchmark Audit
 
 **Date:** 2026-03-20

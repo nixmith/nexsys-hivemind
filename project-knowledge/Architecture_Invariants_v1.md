@@ -1,3 +1,13 @@
+<!--
+file: project-knowledge/Architecture_Invariants_v1.md
+purpose: Locked architectural and directional invariants governing every implementation decision.
+audience: All
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # HomeSynapse — Architecture & Directional Invariants (v1)
 
 **Document type:** Governance — foundational architectural contract

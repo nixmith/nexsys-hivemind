@@ -1,3 +1,13 @@
+<!--
+file: context/strategy/Six_Battlefields_MVP_Strategy.md
+purpose: Quick-reference extract of the Six Battlefields MVP competitive-strategy frame.
+audience: PM, Nick
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Six Battlefields — MVP Competitive Strategy Quick Reference
 
 **Source:** HomeSynapse_Core_v1_Project_MVP.md §2.1–2.2

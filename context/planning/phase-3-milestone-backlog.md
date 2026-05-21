@@ -1,3 +1,13 @@
+<!--
+file: context/planning/phase-3-milestone-backlog.md
+purpose: Active Phase 3 milestone backlog — DONE/NEXT/PLANNED/FUTURE rows for every milestone.
+audience: All
+update-cadence: per-milestone
+state-type: current
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Phase 3 Milestone Backlog — ACTIVE
 
 **Current phase:** P3 Implementation (test-first).

@@ -1,3 +1,13 @@
+<!--
+file: project-manager/references/constraint-enforcement.md
+purpose: How the PM operationalizes governance rules into specific, verifiable requirements in work products.
+audience: PM
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Constraint Enforcement Guide
 
 The PM is the primary enforcement layer for all governance rules. Task briefs cite constraints, but you must understand them deeply enough to operationalize them — to turn abstract rules into specific, verifiable requirements in your work products.

@@ -1,3 +1,13 @@
+<!--
+file: AUDIT_REPORT.md
+purpose: Superseded May 1 workflow audit; findings carried into AUDIT_2026-05-20.md.
+audience: All
+update-cadence: ad-hoc
+state-type: history
+status: DEPRECATED
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # NexSys / HomeSynapse Development Workflow Audit
 
 **Auditor:** Claude (read-only inspection)

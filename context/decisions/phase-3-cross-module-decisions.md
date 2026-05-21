@@ -1,3 +1,13 @@
+<!--
+file: context/decisions/phase-3-cross-module-decisions.md
+purpose: Running D-NN register of Phase 3 implementation decisions affecting modules beyond the one being implemented.
+audience: All
+update-cadence: per-milestone
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Phase 3 Cross-Module Decisions
 
 Running register of decisions made during Phase 3 implementation that cross module boundaries or reshape a Locked Design Document contract in a way that other modules' implementors need to know. These are **not** amendments to Locked Design Documents (those go through the AMD process) — they are implementation-level decisions that materially affect how downstream modules will be written.

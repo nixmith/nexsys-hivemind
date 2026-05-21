@@ -1,3 +1,13 @@
+<!--
+file: benchmarks/prompts/regression-prompt.md
+purpose: Template prompt for the regression bank benchmark.
+audience: Cowork
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Regression Bank Prompt
 
 Copy the block below into a fresh Claude Project conversation.

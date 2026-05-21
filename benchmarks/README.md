@@ -1,3 +1,13 @@
+<!--
+file: benchmarks/README.md
+purpose: Orientation to the Claude Project benchmark system for detecting knowledge drift.
+audience: Cowork, Nick
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # HomeSynapse Core — Claude Project Benchmark System
 
 This directory contains the testing infrastructure for validating the HomeSynapse Core Claude Project's architectural knowledge. The Claude Project is unaware of this system — it cannot see these files, study the answer keys, or anticipate the questions.

@@ -1,3 +1,13 @@
+<!--
+file: project-knowledge/HomeSynapse_Knowledge_Primer.md
+purpose: Compressed architectural mental model of HomeSynapse Core (modules, types, gotchas).
+audience: All
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # HomeSynapse Core — Knowledge Primer
 
 Compressed architectural context for the HomeSynapse Core Claude project. This file provides the "mental model" — what each module does, how they connect, where types actually live, and the gotchas that cause mistakes. For full type inventories, read the MODULE_CONTEXT.md files (paths in the Navigation Index).

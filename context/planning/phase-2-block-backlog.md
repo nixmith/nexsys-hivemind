@@ -1,3 +1,13 @@
+<!--
+file: context/planning/phase-2-block-backlog.md
+purpose: Frozen historical record of all Phase 2 implementation blocks (A–S).
+audience: All
+update-cadence: frozen
+state-type: history
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Phase 2 Block Backlog — FROZEN
 
 **FROZEN — Phase 2 Interface Specification complete 2026-03-20.**

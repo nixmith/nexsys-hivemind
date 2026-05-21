@@ -1,3 +1,13 @@
+<!--
+file: context/strategic-context-map.md
+purpose: Map of the entire NexSys knowledge base; routes agents to the right context before acting.
+audience: All
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Strategic Context Map
 
 This is the NexSys development system's map of the entire knowledge base. Use it to quickly locate relevant context before acting on any request. Nick maintains strategic context via claude.ai Projects; the PM and Coder use this map for operational context.

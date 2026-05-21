@@ -1,3 +1,13 @@
+<!--
+file: context/protocols/block-completion-protocol.md
+purpose: Deprecated redirect to the Work Unit Completion Protocol (WUCP).
+audience: All
+update-cadence: frozen
+state-type: reference
+status: DEPRECATED
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Block Completion Protocol — Redirect
 
 **This protocol has been generalized and renamed.** The authoritative file is now `work-unit-completion-protocol.md` (WUCP), which covers both Phase 2 "blocks" and Phase 3 "milestones" uniformly.

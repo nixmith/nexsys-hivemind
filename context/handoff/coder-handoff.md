@@ -1,3 +1,13 @@
+<!--
+file: context/handoff/coder-handoff.md
+purpose: Coder session continuity — current task, deferred build gate, next WU, recent closeouts.
+audience: Coder, PM
+update-cadence: per-WU
+state-type: current
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Coder Session Handoff
 
 **Last updated:** 2026-05-20 (M3.6d-a delivered — Independent satellite changes for the composition root; M3.6d split into d-a + d-b)

@@ -1,3 +1,13 @@
+<!--
+file: project-manager/references/repo-state-protocol.md
+purpose: Defines what the PM verifies about the codebase and context files before issuing any work product.
+audience: PM
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Repository State Protocol
 
 The PM must always know the current state of the codebase and context files before issuing any work product. Incorrect assumptions about what exists lead to instructions that don't compile, design docs that contradict existing decisions, or tests that target nonexistent interfaces.

@@ -1,3 +1,13 @@
+<!--
+file: benchmarks/prompts/smoke-test-prompt.md
+purpose: Template prompt for post-milestone smoke test benchmarks.
+audience: Cowork
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Smoke Test Prompt Template
 
 Replace `[MILESTONE]` and `[QUESTIONS]` with the actual milestone smoke test content.

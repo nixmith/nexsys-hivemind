@@ -1,3 +1,13 @@
+<!--
+file: project-manager/references/freshness-preflight.md
+purpose: PM session-start preflight for detecting hivemind drift before issuing any work product.
+audience: PM, Coder
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Freshness Preflight
 
 **Run this at the start of every PM session and at the start of every WUCP Phase 2 review.** The preflight detects hivemind drift before you act on stale assumptions. Skipping it is the single highest-leverage mistake the PM can make — it is how M2.2 and M2.4 shipped arch-debt that the governance layer didn't catch until M2.5 (see `../../context/audits/2026-04-11_m2.5-arch-debt-retrospective.md`).

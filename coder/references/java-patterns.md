@@ -1,3 +1,13 @@
+<!--
+file: coder/references/java-patterns.md
+purpose: Concrete Java 21 patterns used throughout HomeSynapse Core (ULIDs, sealed types, SQLite, Jackson).
+audience: Coder
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Java Implementation Patterns for HomeSynapse
 
 Concrete code patterns used throughout HomeSynapse Core. Reference this when writing any Java code.

@@ -1,3 +1,13 @@
+<!--
+file: context/planning/master-release-plan.md
+purpose: 258-day execution roadmap for HomeSynapse V1 (March 13 – November 25, 2026).
+audience: All
+update-cadence: ad-hoc
+state-type: future
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # HomeSynapse V1 — Master Release Plan
 
 **258-Day Execution Roadmap | March 13 – November 25, 2026**

@@ -1,3 +1,13 @@
+<!--
+file: project-manager/references/coding-instruction-format.md
+purpose: Canonical format for coding instructions sent from the PM to the Coder.
+audience: PM
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Coding Instruction Format — Coder Communication Protocol
 
 This is the canonical format for all coding instructions sent from the PM to the Coder. The Coder should be able to produce correct, constraint-compliant code from this document alone, while retaining freedom on minor implementation details.

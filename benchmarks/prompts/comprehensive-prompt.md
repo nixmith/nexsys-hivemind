@@ -1,3 +1,13 @@
+<!--
+file: benchmarks/prompts/comprehensive-prompt.md
+purpose: Generation guide for quarterly comprehensive benchmark prompts.
+audience: Cowork
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Comprehensive Benchmark Prompt — Generation Guide
 
 ## When to Generate

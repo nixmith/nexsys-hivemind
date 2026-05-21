@@ -1,3 +1,13 @@
+<!--
+file: REORGANIZATION_PLAN_2026-05-20.md
+purpose: Phase 2 reorganization plan implementing the AUDIT_2026-05-20.md findings; authorizes Phase 3 batches.
+audience: All
+update-cadence: ad-hoc
+state-type: future
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Nexsys Hivemind — Reorganization Plan
 
 **Author:** Claude Code (Opus 4.7), Phase 2 design

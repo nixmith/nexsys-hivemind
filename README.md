@@ -1,3 +1,13 @@
+<!--
+file: README.md
+purpose: Top-level orientation to NexSys's two-agent (PM + Coder) development system and directory layout.
+audience: All
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # NexSys Development System — Two-Agent Architecture
 
 Two agents working in a chain of command to develop HomeSynapse Core with engineering rigor and quality control at every layer. Nick (founder) handles strategic direction directly via claude.ai Projects.

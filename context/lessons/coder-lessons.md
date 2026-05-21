@@ -1,3 +1,13 @@
+<!--
+file: context/lessons/coder-lessons.md
+purpose: Append-only record of patterns, pitfalls, anti-patterns, and discoveries from coding sessions.
+audience: Coder
+update-cadence: append-only
+state-type: history
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Coder Lessons Log
 
 Append-only record of patterns, pitfalls, anti-patterns, and discoveries from coding sessions. Read this at session start. Append new entries at the end when discoveries are made.

@@ -1,3 +1,13 @@
+<!--
+file: project-knowledge/HomeSynapse_Navigation_Index.md
+purpose: Index of exact file paths for every module's documentation chain; start here for any module work.
+audience: All
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # HomeSynapse Core — Navigation Index
 
 When working on any module or topic, use this index to find the exact files you need. Paths are relative to the repo root.

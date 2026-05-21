@@ -1,3 +1,13 @@
+<!--
+file: coder/references/homesynapse-mental-model.md
+purpose: Internalized architectural understanding of HomeSynapse Core; reason-from-it rather than rules-to-follow.
+audience: Coder
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # HomeSynapse Mental Model
 
 This is the internalized understanding of HomeSynapse Core. Not rules to follow — understanding to reason from. When instructions are incomplete or a detail is unspecified, this mental model tells you what the correct choice is.

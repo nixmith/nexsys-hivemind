@@ -1,3 +1,13 @@
+<!--
+file: coder/references/deviation-and-quality.md
+purpose: Self-review checklist and deviation-report format applied before reporting any work complete.
+audience: Coder
+update-cadence: ad-hoc
+state-type: reference
+status: CURRENT
+last-verified: 2026-05-20 against commit 25bc23b
+-->
+
 # Deviation Protocol and Quality Standards
 
 Apply the self-review checklist BEFORE reporting any work as complete. Document every deviation, no matter how small.

@@ -363,3 +363,7 @@ The **MODULE_CONTEXT.md header count of 32** (14 public + 18 package-private) re
 - Checkpoint advancement: no changes needed (Section 5)
 - DeliveryResult enum: no changes needed (Section 5.3)
 - `park(DlqEntry)` method: preserved for TransitionCoordinator use, not deprecated (Watch-Out #5)
+
+---
+
+**Last verified against:** `homesynapse-core` HEAD at audit date (`2026-05-19`).

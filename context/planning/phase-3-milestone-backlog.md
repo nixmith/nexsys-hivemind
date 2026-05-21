@@ -227,3 +227,7 @@ These are referenced from milestone instructions but are not themselves work uni
 - This backlog is the high-level roadmap only; the authoritative spec for each milestone lives in its coding instruction.
 - Deferred-build-gate risk: if a coder-handoff defers `./gradlew check`, the PM must track it here under the milestone row until resolved.
 - Intra-milestone work units (Bus-Fix Piece A, projection-checkpoint wiring, supervisor DLQ wiring) are tracked as standalone rows when they ship as independent commits, even if they don't carry a `M{x}.{y}` identifier. Each still requires a full WUCP Phase 2 closeout.
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

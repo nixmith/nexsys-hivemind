@@ -201,3 +201,7 @@ But persistence MODULE_CONTEXT.md (gotcha at line ~341 in the pre-2026-05-15 ver
 Did NOT investigate or modify within this work unit (out of scope per brief). Flagged for PM-led reconciliation. Action item: read `SqliteEventStore.doAppend()` bind logic and either update the MODULE_CONTEXT.md gotcha to match, or fix the bind logic, or relax the V001 schema (V001 has not shipped, so all three are options).
 
 **Resolution:** Pending PM triage.
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

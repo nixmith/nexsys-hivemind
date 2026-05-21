@@ -342,3 +342,7 @@ HomeSynapse v1 ships when ALL of the following are true:
 | 10 | Documentation site live with Getting Started, API Reference, Config Reference | Manual: verify all three sections exist and are accurate |
 
 *End of Document*
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

@@ -187,3 +187,7 @@ None. No unresolved deferred build gates. All M3.6a/b/c/d-a build gates GREEN at
 | 2026-05-01 | Coder | M2 persistence subsystem complete — SqlitePersistenceLifecycle wired, boot-order composition. |
 | 2026-04-11 | PM | Governance overhaul — WUCP generalization, freshness preflight, retroactive Phase 2 catch-up for M2.1–M2.5. |
 | 2026-04-11 | Coder | M2.5 SqliteEventStore landed (`5279e7a`). Arch-debt fix (`d6a6065`) resolved NO_DIRECT_TIME_ACCESS violations. |
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

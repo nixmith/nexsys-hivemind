@@ -444,3 +444,7 @@ M3.6d-b → M3.6e.1 → M3.6e.2 → M3.7 (M3.6a/b/c/d-a all DONE 2026-05-20)
 - **Bus-Fix WU — DerivedWriteRateLimit Visibility (tracked 2026-05-18)** → CLOSED 2026-05-18 by `fceafe8`. The split-out Tier 9 test enablement and `bus.resume()` fix are now tracked as M3.6 dependencies, not as standalone risks.
 
 **Next work unit (at the time):** M3.5b (subsequently DONE).
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

@@ -957,3 +957,7 @@ Amendments are expected to be rare. The reversal criteria exist precisely to pre
 ---
 
 *This document is the authoritative locked technical decisions register for HomeSynapse Core. It supersedes the decision table in Project MVP §5. It is governed by the amendment process defined in §14 and referenced by all Phase 1 subsystem design documents.*
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

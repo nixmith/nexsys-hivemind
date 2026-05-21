@@ -391,3 +391,7 @@ The snapshot doesn't know about: SqliteCheckpointStore (M2.6), SqliteViewCheckpo
 ---
 
 *Report generated 2026-05-01. All findings based on read-only inspection. No files were modified.*
+
+---
+
+**Last verified against:** `homesynapse-core` commit `25bc23b` on `2026-05-01`.

@@ -428,3 +428,7 @@ Two cross-amendment interaction points identified during the M0 amendment tracea
 **Dev machine:** Windows (Git Bash / MINGW64). GitHub credential manager account: `nixmith`. Both repos use HTTPS remotes.
 
 ---
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

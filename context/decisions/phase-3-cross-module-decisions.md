@@ -111,3 +111,7 @@ Entries are numbered in ratification order and are append-only.
 3. Update the relevant MODULE_CONTEXT.md files with a pointer to the decision: `See `context/decisions/phase-3-cross-module-decisions.md` D-NN`.
 4. If the decision originated from an audit or retrospective, link the audit file.
 5. If the decision raises the bar for an architecture invariant, consider whether an AMD is also required — decisions here cannot override LDDs.
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

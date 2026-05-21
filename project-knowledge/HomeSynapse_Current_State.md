@@ -349,3 +349,7 @@ homesynapse-core-docs/research/2026-05-20_M3_Audit_Gap_Closure_v1.md     # Q1-Q4
 homesynapse-core-docs/design/2026-05-20_M3.6_Composition_Root_Design.md  # M3.6a..M3.6e WU sequence
 ClaudeFolder/HomeSynapse_Core_CrossTier_Deployment_Audit.md              # 2026-05-19 audit report
 ```
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

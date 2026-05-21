@@ -325,3 +325,7 @@ The first symptoms will be:
 **Recommended mitigation for cross-agent notes:** Add an "ARCHIVED" section separator. When an agent reads a note and confirms the action is complete, move it below the separator. Only notes above the separator are active. This keeps the file append-only while managing the signal-to-noise ratio.
 
 **Recommended mitigation for MODULE_CONTEXT.md drift:** In BCP Phase 2, the PM should verify that the MODULE_CONTEXT.md "Consumers" section of every module this block depends on lists the new module. This is already implicitly required by the drift check in Phase 3, but making it explicit in Phase 2 catches it earlier.
+
+---
+
+**Last verified against:** `homesynapse-core` HEAD at audit date (`2026-03-20`).

@@ -425,3 +425,7 @@ These rules make update obligations explicit. Agents cannot end sessions without
 - Phase/scope rules → `homesynapse-core-docs/governance/HomeSynapse_Core_v1_Project_MVP.md`
 - Terminology → `homesynapse-core-docs/foundations/HomeSynapse_Core_v1_Glossary.md`
 - Market/competitive data → `homesynapse-core-docs/research/`
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

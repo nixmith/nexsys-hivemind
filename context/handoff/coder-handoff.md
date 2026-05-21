@@ -480,3 +480,7 @@ Phase 1 spike producing `D1WalStarvationTest.java` under `spike/wal-validation/`
 ### M2→M3 Bridge — Amendments, V003 Migration, Phase 2 Interfaces (2026-05-15)
 
 AMD-34..40, V001→25 columns, V002 DLQ table, V003 snapshots + index drop, 10 new Java types (state-store: 5, persistence: 5).
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

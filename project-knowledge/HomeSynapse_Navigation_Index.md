@@ -375,3 +375,7 @@ In `homesynapse-core/`:
 ./gradlew test                         # unit tests only
 ./gradlew :core:event-model:test       # single module test
 ```
+
+---
+
+**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.

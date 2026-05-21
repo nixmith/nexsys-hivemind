@@ -24,13 +24,13 @@ An infrastructure company building the operating system and trust layer for the 
 
 **Founder:** Nick (nick@nexsys.io)
 **Domains:** nexsys.io (company), homesynapse.com (product)
-**Current phase:** P3 — Implementation (test-first). Pre-revenue. 14 design docs Locked. **~476+ production Java files across 16 JPMS-compiled modules** (plus 3 scaffold-only modules: platform-systemd, test-support, dashboard; plus 1 classpath-only test module: testing/integration-tests — 20 Gradle modules total). Phase 2 FROZEN 2026-03-20 after Blocks A–S. Phase 3 through M3.6b complete (2026-05-20); next work unit M3.6c.
+**Current phase:** P3 — Implementation (test-first). Pre-revenue. 14 design docs Locked. **~476+ production Java files across 16 JPMS-compiled modules** (plus 3 scaffold-only modules: platform-systemd, test-support, dashboard; plus 1 classpath-only test module: testing/integration-tests — 20 Gradle modules total). Phase 2 FROZEN 2026-03-20 after Blocks A–S. Phase 3 through M3.6d-a complete (2026-05-20); next work unit M3.6d-b.
 
 ### Product Constellation
 
 | Product | Type | Phase | Status |
 |---|---|---|---|
-| **HomeSynapse Core** | Smart home OS (free, Apache 2.0) | P3 Test-First Impl | 14 design docs Locked; Phase 2 FROZEN; 20 Gradle modules (16 JPMS-compiled + 3 scaffold + 1 IT); **~476+ production Java files**; ~1,465+ tests; M3.6b complete 2026-05-20, M3.6c NEXT |
+| **HomeSynapse Core** | Smart home OS (free, Apache 2.0) | P3 Test-First Impl | 14 design docs Locked; Phase 2 FROZEN; 20 Gradle modules (16 JPMS-compiled + 3 scaffold + 1 IT); **~476+ production Java files**; ~1,465+ tests; M3.6d-a complete 2026-05-20, M3.6d-b NEXT |
 | **HomeSynapse Connect** | Cloud subscription ($7.99/mo) | Phase 1 | Spec'd, not built |
 | **HomeSynapse Cloud Pro** | Premium cloud ($14.99/mo) | Phase 1 | Spec'd, not built |
 | **HomeSynapse Hub** | Hardware ($149) | Phase 1 | Spec'd, no manufacturing |
@@ -205,9 +205,9 @@ Currently: `template.md` + `0001-adr-adoption.md`.
 | `pm-lessons.md` | Architecture patterns, constraint application insights, cross-subsystem observations | Appended during or after each session |
 | `coder-lessons.md` | Implementation patterns, pitfalls, workarounds, testing discoveries | Appended during or after each session |
 
-#### `queue/`
+#### Task flow
 
-File-based task handoff between agents. `briefs/` for Nick→PM, `instructions/` for PM→Coder.
+Direct conversation (Nick → PM, PM → Coder), supplemented by `coder-handoff.md` for asynchronous handoff. The legacy `context/queue/` directory was removed 2026-04-11.
 
 #### `strategy/`
 
@@ -348,8 +348,8 @@ These are documented in the strategy files and governance documents. They constr
 **Code:** 20-module Gradle layout (16 JPMS-compiled production modules + 3 scaffold-only: platform-systemd, test-support, dashboard + 1 classpath-only test module: testing/integration-tests); **~476+ production Java files** across the 16 compiled production modules; ~145+ test files, ~35+ testFixtures files. Reproducible: `find homesynapse-core -path "*/src/main/java/*.java" | wc -l` — always exclude worktrees and build outputs.
 **Tests:** **~1,465+ @Test methods** across the full test suite. Contract test suites: EventStoreContractTest (27), EventBusContractTest (50), WriteCoordinatorContractTest (11), CheckpointStoreContractTest (9), ViewCheckpointStoreContractTest (10), DeadLetterStoreContractTest (10). Integration tests (Pi-profile gated): BurstLoadIT, HeapBudgetIT, Pi4SustainedLoadIT, Pi4D1SpikeIT, CrashRecoveryIT.
 **Interface specs complete:** 16 modules (Phase 2 Blocks A–S) — FROZEN
-**Current milestone:** M3.6a + M3.6b COMPLETE 2026-05-20. M3.6c NEXT (per-module event-class manifests).
-**Next critical path:** M3.6c → M3.6d → M3.6e.1 → M3.6e.2 → M3.7 (end-to-end integration tests).
+**Current milestone:** M3.6a + M3.6b + M3.6c + M3.6d-a COMPLETE 2026-05-20. M3.6d-b NEXT (PersistenceFactory + HomeSynapseCore wiring).
+**Next critical path:** M3.6d-b → M3.6e.1 → M3.6e.2 → M3.7 (end-to-end integration tests).
 **Schedule:** Significantly ahead of the original 37-week Master Release Plan. The 37-week plan placed Weeks 1–10 as "Interface Specification" — finished in 7 days (Mar 14–20). Phase 3 persistence subsystem (M2.x) complete. Event bus production implementation with full REPLAY→LIVE algorithm + backpressure + persistent DLQ + state projection + integration tests all landed in the M3.1–M3.4b window (May 16–19). M3.6a/M3.6b composition-root prep landed May 20. See Phase 3 Progress Annotation in `master-release-plan.md` for actuals.
 **Launch target:** November 25, 2026
 **Design docs:** All 14 Locked. Amendments through AMD-43. DEC-M3-01 through DEC-M3-16 locked.

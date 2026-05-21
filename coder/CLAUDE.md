@@ -23,7 +23,7 @@ Before doing anything, read `SKILL.md` in this directory. It defines how you wri
 2. Read the current week's plan in `../context/planning/weeks/` — what Nick is working on
 3. Read `../context/handoff/cross-agent-notes.md` — check for notes from Nick or PM
 4. Read `../context/handoff/coder-handoff.md` (if it exists) — restore session-specific context
-5. Check `../context/queue/instructions/` for any instructions with status `PENDING`
+5. Check `../context/handoff/coder-handoff.md` Current Task section for the next assignment, or wait for a direct task instruction in conversation.
 6. If the repo exists: run `git status` and `./gradlew check` to verify current state
 
 **After completing a work unit — Work Unit Completion Protocol (WUCP) Phase 1:**
@@ -92,8 +92,8 @@ The WUCP document has the full specification for each step. The PM will verify t
 - `../context/lessons/coder-lessons.md` — your append-only lesson log
 - `../context/handoff/cross-agent-notes.md` — shared bulletin board for all agents
 
-### Task Queue
-- `../context/queue/instructions/` — Coding instructions from the PM (you read these)
+### Task Instructions
+- Task instructions flow via `../context/handoff/coder-handoff.md` or direct conversation. The `context/queue/` directory was removed 2026-04-11.
 
 ### Repos
 - `../../homesynapse-core/` — The codebase you work in

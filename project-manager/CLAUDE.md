@@ -23,9 +23,8 @@ Before doing anything, read `SKILL.md` in this directory. It defines your three 
 2. Read the current week's plan in `../context/planning/weeks/` — what Nick is working on this week
 3. Read `../context/handoff/cross-agent-notes.md` — check for notes from Nick or Coder
 4. Read `../context/handoff/pm-handoff.md` (if it exists) — restore session-specific context
-5. Check `../context/queue/briefs/` for any briefs with status `PENDING`
-6. Check `../context/queue/instructions/` for any instructions with status `COMPLETE` or `BLOCKED` (Coder feedback)
-7. If the repo exists: verify current state per `references/repo-state-protocol.md`
+5. Check `../context/handoff/cross-agent-notes.md` and `../context/open-questions.md` for outstanding messages requiring PM action.
+6. If the repo exists: verify current state per `references/repo-state-protocol.md`
 
 **After reviewing a completed work unit — Work Unit Completion Protocol (WUCP) Phase 2:**
 
@@ -33,7 +32,7 @@ Read and execute `../context/protocols/work-unit-completion-protocol.md` §Phase
 
 1. Freshness preflight — run `references/freshness-preflight.md` first; if the hivemind is stale, the only allowed activity is retroactive WUCP Phase 2 for the last completed work unit
 2. Verify the Coder's WUCP Phase 1 checklist is complete (reject if not), including the Deferred Build Gate flag
-3. Update (or create) the traceability index in `../context/traceability/` for the work unit's module
+3. Update (or create) the traceability index in `../../homesynapse-core/docs/traceability/` for the work unit's module (template at `../context/traceability/TEMPLATE.md`).
 4. Mark the work unit DONE in `../context/planning/phase-3-milestone-backlog.md` (or `phase-2-block-backlog.md` for retroactive corrections) with commit and date
 5. Update `../context/handoff/pm-handoff.md` with work unit review state — including the Open Risks section for any deferred build gates
 6. Append discoveries to `../context/lessons/pm-lessons.md` (if new patterns found)
@@ -42,7 +41,8 @@ Read and execute `../context/protocols/work-unit-completion-protocol.md` §Phase
 9. Deferred build gate audit — reconcile every deferred `./gradlew check` flag against pm-handoff.md Open Risks
 10. Drift check — MODULE_CONTEXT.md, traceability, backlog, handoff files, Open Risks
 11. Dual skill-location sync check — `diff -rq` of both skill source trees vs `.claude/skills/nexsys-*` mirrors (both must return empty)
-12. Append the WUCP Phase 2 checklist to the bottom of the review output
+12. Inter-agent message sweep — confirm no blocking `[OPEN-QUESTION]`/`[VERIFY-NEEDED]` entries in `../context/open-questions.md`; `[FORESIGHT-NOTE]` entries in `coder-handoff.md §Foresight Notes` carried forward
+13. Append the WUCP Phase 2 checklist to the bottom of the review output
 
 The WUCP document has the full specification for each step.
 
@@ -87,10 +87,6 @@ The WUCP document has the full specification for each step.
 - `../context/lessons/pm-lessons.md` — your append-only lesson log
 - `../context/handoff/cross-agent-notes.md` — shared bulletin board for all agents
 
-### Task Queues
-- `../context/queue/briefs/` — Task briefs from Nick (you read these)
-- `../context/queue/instructions/` — Coding instructions you produce (Coder reads these)
-
 ### Traceability
 - `../context/traceability/` — Contains `TEMPLATE.md` only. Actual traceability indexes are in `homesynapse-core/docs/traceability/`.
 
@@ -100,15 +96,7 @@ The WUCP document has the full specification for each step.
 
 ## Coding Instruction Output
 
-When producing coding instructions, write them to `../context/queue/instructions/` using:
-`YYYY-MM-DD_NNN_instruction-title.md` (e.g., `2026-03-20_001_event-publisher-implementation.md`)
-
-Include a status line as the first line:
-```
-Status: PENDING
-```
-
-Valid statuses: `PENDING` | `IN_PROGRESS` | `COMPLETE` | `BLOCKED`
+When producing coding instructions, deliver them via direct conversation to the Claude Code session (the current workflow), or append them to `../context/handoff/coder-handoff.md` Current Task section. The `context/queue/instructions/` directory was removed 2026-04-11.
 
 ## Build Verification Requirement
 

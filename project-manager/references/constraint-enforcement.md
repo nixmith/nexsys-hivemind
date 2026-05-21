@@ -192,7 +192,6 @@ Blocking: [Does this block current work? yes/no]
 
 ### Routing
 
-- File the finding in `../context/queue/briefs/` as a brief with the prefix `GOV_` (e.g., `2026-04-01_GOV_001_ltd03-reversal-criteria-met.md`)
-- Set status to `PENDING` — Nick will process it
+- File the finding in `../context/handoff/cross-agent-notes.md` as a `[DECISION-REQUESTED]` entry per PLAN §5b (template), tagged with `GOV_` prefix in the title (e.g., `DR-MM-NN — GOV_LTD03_reversal_criteria_met`). Escalate to Nick if blocking.
 - If BLOCKING: stop current work and notify immediately. Do not work around a governance issue.
 - If NOT blocking: continue current work but ensure the finding is filed before session end

@@ -76,6 +76,7 @@ Compile Gate passes (or is deferred + tracked)
 │  Deferred build gate audit      │
 │  Drift check (all artifacts)    │
 │  Dual skill-location sync check │
+│  Inter-agent message sweep      │
 │  Checklist appended to review   │
 └─────────────────────────────────┘
 ```
@@ -184,7 +185,7 @@ Check the WUCP Phase 1 checklist in the Completion Report. Verify:
 
 Update (or create) the traceability file for this work unit's module.
 
-**Location:** `nexsys-hivemind/context/traceability/[NN]-[module-name].md`
+**Location:** `homesynapse-core/docs/traceability/[NN]-[module-name].md`
 **Template:** `nexsys-hivemind/context/traceability/TEMPLATE.md`
 
 For Phase 2 (interface specification), populate:
@@ -255,7 +256,7 @@ Verify documentation state is current. Check each item:
 | Artifact | Check | Source of Truth |
 |---|---|---|
 | MODULE_CONTEXT.md | Exists and current for every module with a completed work unit | `homesynapse-core/[module]/MODULE_CONTEXT.md` |
-| Traceability index | Exists for every module with a completed work unit | `nexsys-hivemind/context/traceability/` |
+| Traceability index | Exists for every module with a completed work unit | `homesynapse-core/docs/traceability/` |
 | Milestone backlog | All completed work units marked DONE with commits and dates | `phase-3-milestone-backlog.md` |
 | Agent handoff files | PM and Coder handoffs reflect current state | `nexsys-hivemind/context/handoff/` |
 | Cross-agent notes | No unresolved active items older than 1 week | `nexsys-hivemind/context/handoff/cross-agent-notes.md` |
@@ -270,11 +271,11 @@ The hivemind maintains two copies of each agent skill directory:
 - Writable source: `ClaudeFolder/nexsys-hivemind/{coder,project-manager}/`
 - Mirror (what agents actually load): `.claude/skills/nexsys-{coder,project-manager}/`
 
-Both must be byte-identical at the end of every WUCP Phase 2. Run:
+Both must be byte-identical at the end of every WUCP Phase 2. Resolve `$SESSION_ROOT` via path traversal at runtime (matching `project-manager/references/freshness-preflight.md`), then run:
 
 ```
-diff -rq /sessions/awesome-admiring-clarke/mnt/ClaudeFolder/nexsys-hivemind/coder /sessions/awesome-admiring-clarke/mnt/.claude/skills/nexsys-coder
-diff -rq /sessions/awesome-admiring-clarke/mnt/ClaudeFolder/nexsys-hivemind/project-manager /sessions/awesome-admiring-clarke/mnt/.claude/skills/nexsys-project-manager
+diff -rq "$SESSION_ROOT/mnt/ClaudeFolder/nexsys-hivemind/coder" "$SESSION_ROOT/mnt/.claude/skills/nexsys-coder"
+diff -rq "$SESSION_ROOT/mnt/ClaudeFolder/nexsys-hivemind/project-manager" "$SESSION_ROOT/mnt/.claude/skills/nexsys-project-manager"
 ```
 
 Both commands should return empty when the mirror is in sync with the source.
@@ -288,7 +289,11 @@ Both commands should return empty when the mirror is in sync with the source.
 
 **The PM never writes to `.claude/skills/`.** All edits go to the `ClaudeFolder/nexsys-hivemind/{coder,project-manager}/` source tree. Nick runs the external mirror sync. The PM's role is verification, not propagation.
 
-### Step 11 — Append WUCP Checklist to Review Output
+### Step 11 — Inter-Agent Message Sweep
+
+Confirm no unresolved `[OPEN-QUESTION]` or `[VERIFY-NEEDED]` entries in `nexsys-hivemind/context/open-questions.md` are blocking the next work unit. Confirm any `[FORESIGHT-NOTE]` entries in `nexsys-hivemind/context/handoff/coder-handoff.md §Foresight Notes` have been incorporated into the next brief or explicitly carried forward.
+
+### Step 12 — Append WUCP Checklist to Review Output
 
 At the bottom of the PM's review response, append:
 
@@ -311,6 +316,7 @@ At the bottom of the PM's review response, append:
   - Handoff files current: [yes / no — list gaps]
   - Open Risks current: [yes / no — list gaps]
 - [x/ ] Dual skill-location sync check: PASS (both diffs empty)
+- [x/ ] Inter-agent message sweep: no blocking `[OPEN-QUESTION]`/`[VERIFY-NEEDED]`; `[FORESIGHT-NOTE]` entries carried forward.
 - Timestamp: YYYY-MM-DD HH:MM UTC
 ```
 

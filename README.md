@@ -33,7 +33,6 @@ Each agent has:
 ```
 ~/Desktop/Code/ClaudeFolder/
 ├── nexsys-hivemind/              ← This directory
-│   ├── hivemind/                 ← Strategic references (maintained by Nick)
 │   ├── project-manager/          ← PM agent
 │   ├── coder/                    ← Implementation agent
 │   └── context/                  ← Shared knowledge base
@@ -45,10 +44,7 @@ Each agent has:
 │       │   └── weeks/            ← Weekly plans with day-by-day + retrospectives
 │       ├── lessons/              ← Append-only lesson logs (PM, Coder, strategic)
 │       ├── handoff/              ← Session continuity files + cross-agent notes
-│       ├── queue/                ← File-based task handoff
-│       │   ├── briefs/           ← Nick → PM
-│       │   └── instructions/     ← PM → Coder
-│       ├── traceability/         ← Design-to-code traceability indexes
+│       ├── traceability/         ← TEMPLATE.md only (real indexes in homesynapse-core/docs/traceability/)
 │       └── protocols/            ← Block Completion Protocol
 ├── homesynapse-core/             ← Code repo (clone here)
 └── homesynapse-core-docs/        ← Docs repo (clone here)
@@ -80,11 +76,9 @@ cd ~/Desktop/Code/ClaudeFolder/nexsys-hivemind/coder && claude
 ```
 
 ### Workflow
-Nick maintains strategic context and produces task briefs via claude.ai Projects. The PM and Coder operate as Claude Code agents:
+Nick maintains strategic context and produces task briefs via claude.ai Projects. The PM and Coder operate as Claude Code agents.
 
-1. Nick writes a task brief to `context/queue/briefs/` (or gives direction to the PM directly)
-2. Tell the PM to process pending briefs → it writes instructions to `context/queue/instructions/`
-3. Tell the Coder to process pending instructions → it writes code and completion reports
+Nick gives tasks directly to the PM (in claude.ai or via Claude Code), and the PM gives instructions to the Coder (in conversation or by appending to `coder-handoff.md`). The `queue/` directory was removed 2026-04-11; instructions no longer use a file-based queue. Inter-agent messages use the typed protocol (`[OPEN-QUESTION]`, `[VERIFY-NEEDED]`, `[DECISION-REQUESTED]`, `[SCOPE-CHANGE-PROPOSED]`, `[FORESIGHT-NOTE]`); see `context/canonical-paths.md` for routing.
 
 ### Session Continuity
 Each agent reads/writes a handoff file in `context/handoff/` to maintain continuity across sessions. The CLAUDE.md files instruct agents to read their handoff file at session start and update it at session end. Agents also read `context/status/PROJECT_SNAPSHOT.md` for instant project orientation and check `context/handoff/cross-agent-notes.md` for inter-agent messages.

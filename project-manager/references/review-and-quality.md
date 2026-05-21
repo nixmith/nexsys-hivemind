@@ -195,10 +195,10 @@ After approving a completed work unit (Phase 2 block or Phase 3 milestone), exec
 
 **Then verify the Coder's WUCP Phase 1 checklist** is present and complete at the bottom of the Completion Report. If it's missing or incomplete, return the report to the Coder.
 
-**After approving the work unit (11 steps — see the protocol for full detail):**
+**After approving the work unit (13 steps — see the protocol for full detail):**
 1. Freshness preflight PASS
 2. Verify Coder WUCP Phase 1 complete
-3. Update (or create) traceability index in `../context/traceability/` for the module
+3. Update (or create) the traceability index in `../../homesynapse-core/docs/traceability/` for the module (template at `../context/traceability/TEMPLATE.md`).
 4. Mark the work unit DONE in `../context/planning/phase-3-milestone-backlog.md` (or `phase-2-block-backlog.md` for Phase 2 retroactive corrections) with commit and date
 5. Update `../context/handoff/pm-handoff.md` — including the Open Risks section for deferred build gates
 6. Append to `../context/lessons/pm-lessons.md` (if new patterns)
@@ -207,6 +207,7 @@ After approving a completed work unit (Phase 2 block or Phase 3 milestone), exec
 9. Deferred build gate audit — reconcile every deferred `./gradlew check` against Open Risks
 10. Drift check across all artifacts
 11. Dual skill-location sync check (`diff -rq` of both skill source trees vs `.claude/skills/nexsys-*` mirrors)
-12. Append WUCP Phase 2 checklist to review output
+12. Inter-agent message sweep — confirm no blocking `[OPEN-QUESTION]`/`[VERIFY-NEEDED]` entries in `../context/open-questions.md`; `[FORESIGHT-NOTE]` entries carried forward
+13. Append WUCP Phase 2 checklist to review output
 
-The WUCP Phase 2 checklist format is documented in `work-unit-completion-protocol.md` Step 11. Use it verbatim.
+The WUCP Phase 2 checklist format is documented in `work-unit-completion-protocol.md` Step 12. Use it verbatim.

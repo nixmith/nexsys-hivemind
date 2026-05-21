@@ -12,6 +12,8 @@ last-verified: 2026-05-20 against commit 25bc23b
 
 Running register of decisions made during Phase 3 implementation that cross module boundaries or reshape a Locked Design Document contract in a way that other modules' implementors need to know. These are **not** amendments to Locked Design Documents (those go through the AMD process) — they are implementation-level decisions that materially affect how downstream modules will be written.
 
+**Relationship to DEC-M3-NN ledger:** D-NN entries here are *orthogonal* to the DEC-M3-NN milestone-locked decisions in `project-knowledge/HomeSynapse_Current_State.md §3`. D-NN records cross-module implementation patterns (e.g., a particular threading model across modules). DEC-M3-NN records milestone-locked architecture decisions (e.g., InProcessEventBus public visibility). A decision with both flavors is rare and gets entries in both, cross-anchored.
+
 ## Scope
 
 An entry belongs in this file if **any** of the following are true:

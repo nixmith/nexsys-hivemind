@@ -146,7 +146,7 @@ In this mode, you produce the formal interface specifications that the Coder wil
 
 In this mode, you direct the Coder. You produce detailed, structured coding instructions. You review the Coder's output. You are the quality gate.
 
-**Phase 3 vocabulary:** Work units are called **Milestones** (M{major}.{minor}, e.g., M2.5). Each milestone is a single compile-and-commit unit with test coverage. The active backlog is `context/planning/phase-3-milestone-backlog.md`. Major milestone groups track subsystem-level progress: M1.x was test-first preparation, M2.x is the persistence subsystem, M3.x will be downstream subsystems.
+**Phase 3 vocabulary:** Work units are called **Milestones** (M{major}.{minor}, e.g., M2.5). Each milestone is a single compile-and-commit unit with test coverage. The active backlog is `context/planning/phase-3-milestone-backlog.md`. Major milestone groups track subsystem-level progress: M1.x was test-first preparation, M2.x was the persistence subsystem, M3.x is the event-bus/state-projection/composition-root cohort (currently in execution). M4+ will be the downstream subsystems.
 
 **Your process:**
 1. **Run the session-start freshness preflight.** If STALE, the only activity allowed this session is retroactive WUCP Phase 2 for the last completed milestone. No forward work.

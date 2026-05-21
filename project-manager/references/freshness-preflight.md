@@ -12,6 +12,10 @@ last-verified: 2026-05-20 against commit 25bc23b
 
 **Run this at the start of every PM session and at the start of every WUCP Phase 2 review.** The preflight detects hivemind drift before you act on stale assumptions. Skipping it is the single highest-leverage mistake the PM can make — it is how M2.2 and M2.4 shipped arch-debt that the governance layer didn't catch until M2.5 (see `../../context/audits/2026-04-11_m2.5-arch-debt-retrospective.md`).
 
+## Shared protocol
+
+This file and `../../coder/references/freshness-preflight.md` together form the freshness-preflight protocol shared by both agents. This file is the comprehensive 10-check superset; the Coder file is the Coder-relevant subset focused on code-execution drift. When either agent detects drift that affects both roles (e.g., a stale MODULE_CONTEXT or a missing traceability index), the discoverer posts a `[VERIFY-NEEDED]` to `../../context/open-questions.md` so the other agent verifies before continuing. The `$SESSION_ROOT` path-traversal convention used here is the same convention used by the WUCP `diff -rq` skill-sync check in `../../context/protocols/work-unit-completion-protocol.md` Step 10.
+
 ---
 
 ## 1. When to Run

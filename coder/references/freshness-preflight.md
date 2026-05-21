@@ -14,6 +14,10 @@ last-verified: 2026-05-20 against commit 25bc23b
 
 This is the Coder mirror of the PM's `project-manager/references/freshness-preflight.md`. The PM's preflight has 10 checks; the Coder's preflight is a smaller subset — the Coder only needs to detect drift that would make the current coding instruction unsafe to execute, not drift across the full governance layer.
 
+## Shared protocol
+
+This file and `../../project-manager/references/freshness-preflight.md` together form the freshness-preflight protocol shared by both agents. The PM file is the comprehensive 10-check superset; this file is the Coder-relevant subset. When either agent detects drift that affects both roles (e.g., a stale MODULE_CONTEXT or a missing traceability index), the discoverer posts a `[VERIFY-NEEDED]` to `../../context/open-questions.md` so the other agent verifies before continuing. The `$SESSION_ROOT` path-traversal convention used here is the same convention used by the WUCP `diff -rq` skill-sync check in `../../context/protocols/work-unit-completion-protocol.md` Step 10.
+
 ---
 
 ## 1. When to Run

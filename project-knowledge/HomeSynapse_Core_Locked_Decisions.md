@@ -921,7 +921,9 @@ Every architectural invariant must be served by at least one locked decision. Th
 
 ## 16. Phase 3 Milestone Decision Ledger (DEC-M3-NN)
 
-This section captures DEC-M3-NN entries that emerge from Phase 3 implementation work. These are milestone-specific implementation decisions distinct from the LTD-NN locked technical decisions registered in §§1–13. The full M3 decision ledger (DEC-M3-01 through DEC-M3-17) is maintained in `HomeSynapse_Current_State.md` §3 — only the entries with cross-amendment or long-term locking significance are mirrored here for formal record.
+This section captures DEC-M3-NN entries that emerge from Phase 3 implementation work. These are milestone-specific implementation decisions distinct from the LTD-NN locked technical decisions registered in §§1–13.
+
+**Canonical home:** `HomeSynapse_Current_State.md §3 — M3 Locked Decisions Ledger`. This file mirrors only entries with cross-amendment or long-term locking significance (currently DEC-M3-16 and DEC-M3-17). Update both files when adding a new mirrored entry.
 
 ### DEC-M3-17 — HealthSignal + HealthLevel public visibility (DEC-M3-16 addendum)
 

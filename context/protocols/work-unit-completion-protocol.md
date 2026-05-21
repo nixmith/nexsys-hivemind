@@ -401,7 +401,7 @@ The WUCP is phase-agnostic. The vocabulary changes but the obligations do not. T
 
 1. **Freshness preflight** — 10 checks; PASS required before forward work.
 2. **Verify Coder Phase 1** — MODULE_CONTEXT populated, handoff updated, lesson logged, cross-agent note filed.
-3. **Traceability index** — `homesynapse-core-docs/traceability/10-websocket-api.md` updated with all 26 types mapped to Doc 10 sections.
+3. **Traceability index** — `homesynapse-core/docs/traceability/10-websocket-api.md` updated with all 26 types mapped to Doc 10 sections.
 4. **Block backlog** — `phase-2-block-backlog.md` Block N row marked DONE with commit SHA. (Note: this backlog is FROZEN post-2026-03-20; retroactive corrections only.)
 5. **pm-handoff.md** — Block N closed, Block O as next, any new Open Risks added.
 6. **PROJECT_SNAPSHOT.md** — Completed Phase 2 blocks count incremented, Recent Session Log entry added.
@@ -422,7 +422,7 @@ The WUCP is phase-agnostic. The vocabulary changes but the obligations do not. T
 
 1. **Freshness preflight** — 10 checks; PASS required. The preflight is what catches the "my snapshot is 3 weeks behind" state that caused the 2026-04-11 arch-debt retrospective.
 2. **Verify Coder Phase 1** — MODULE_CONTEXT populated, handoff updated with deferred-build-gate flag if applicable, lessons logged.
-3. **Traceability index** — `homesynapse-core-docs/traceability/04-persistence.md` updated. (Stub indexes acceptable during Phase 3 catch-up batch.)
+3. **Traceability index** — `homesynapse-core/docs/traceability/04-persistence.md` updated. (Stub indexes acceptable during Phase 3 catch-up batch.)
 4. **Milestone backlog** — `phase-3-milestone-backlog.md` M2.5 row marked DONE with commit SHA, deviations documented.
 5. **pm-handoff.md** — M2.5 closed, M2.6+M2.7 as next, **every deferred build gate logged in Open Risks** until Nick resolves it with a GREEN `./gradlew check`.
 6. **pm-lessons.md** — Append entries for any new pattern (e.g., the "deferred build gate must be tracked as risk" governance lesson).

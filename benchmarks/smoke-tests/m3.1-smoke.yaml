@@ -1,0 +1,66 @@
+# M3.1 Smoke Test — InProcessEventBus Core
+#
+# Run after M3.1 milestone completion (2026-05-16).
+# Created retroactively on 2026-05-17 based on Benchmark 4 findings.
+
+metadata:
+  milestone: "M3.1"
+  date_created: "2026-05-17"
+  date_run: "2026-05-17"
+  result: "Embedded in Benchmark 4 (not run standalone)"
+  notes: "Retroactive — questions derived from Benchmark 4 Q24-33"
+
+questions:
+  - id: "SMOKE-M31-001"
+    category: "A"
+    question: "How many production types did M3.1 produce in the event-bus module? Break down public vs package-private."
+    expected:
+      contains_all: ["14", "9", "5"]
+    source: "event-bus/MODULE_CONTEXT.md, Current State"
+
+  - id: "SMOKE-M31-002"
+    category: "A"
+    question: "What are the 5 SubscriberMode FSM values?"
+    expected:
+      contains_all: ["COLD", "REPLAY", "TRANSITION", "LIVE", "SUSPENDED"]
+    source: "event-bus/MODULE_CONTEXT.md"
+
+  - id: "SMOKE-M31-003"
+    category: "A"
+    question: "How does the event bus notify subscribers of new events? Does it push EventEnvelope objects?"
+    expected:
+      contains_any: ["LockSupport.unpark", "pull", "notification only"]
+      must_not_contain: ["pushes EventEnvelopes", "push model"]
+    source: "Knowledge Primer, event-bus/MODULE_CONTEXT.md"
+
+  - id: "SMOKE-M31-004"
+    category: "C"
+    question: "Is there an ArchUnit rule in the event-bus module's test directory that prevents JDBC imports?"
+    expected:
+      contains_any: ["no", "does not exist", "JPMS only", "module-info"]
+      must_not_contain: ["yes", "EVENT_BUS_DOES_NOT_IMPORT"]
+    source: "event-bus/src/test/ (verified empty of ArchUnit files)"
+
+  - id: "SMOKE-M31-005"
+    category: "A"
+    question: "How many INV-SUB-ISO invariants were added? What do they cover?"
+    expected:
+      contains_any: ["6"]
+      contains_any_2: ["isolation", "per-subscriber"]
+    source: "Architecture_Invariants_v1.md §19"
+
+  - id: "SMOKE-M31-006"
+    category: "A"
+    question: "How many EventBusContractTest methods exist after M3.1? Which tiers are active and which are disabled?"
+    expected:
+      contains_all: ["44"]
+      contains_any: ["Tiers 1-8 active", "Tiers 9-10 disabled", "5-8 active"]
+    source: "InProcessEventBusTest.java class comment"
+
+  - id: "SMOKE-M31-007"
+    category: "C"
+    question: "Is coalescing implemented and active in M3?"
+    expected:
+      contains_any: ["no", "deferred", "DEC-M3-07", "inert"]
+      must_not_contain: ["yes", "active", "implemented"]
+    source: "DEC-M3-07"

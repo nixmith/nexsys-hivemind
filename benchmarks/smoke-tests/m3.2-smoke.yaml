@@ -1,0 +1,56 @@
+# M3.2 Smoke Test — REPLAY→TRANSITION→LIVE (bus-side)
+#
+# Run IMMEDIATELY after M3.2 milestone completion.
+# Questions target M3.2-specific deliverables.
+
+metadata:
+  milestone: "M3.2"
+  date_created: "2026-05-17"
+  date_run: null
+  result: null
+
+questions:
+  - id: "SMOKE-M32-001"
+    category: "A"
+    question: "Describe the three-phase REPLAY→LIVE transition. What happens in each phase?"
+    expected:
+      contains_all: ["REPLAY", "TRANSITION", "LIVE"]
+      contains_any: ["catch-up", "drain", "ReplayWindowQueue", "onCaughtUp"]
+    source: "DEC-M3-03, AMD-42 §3.4.2"
+
+  - id: "SMOKE-M32-002"
+    category: "A"
+    question: "What fires exactly once when a subscriber transitions from TRANSITION to LIVE?"
+    expected:
+      contains_any: ["onCaughtUp", "onCaughtUp()"]
+    source: "AMD-42 §3.4.2"
+
+  - id: "SMOKE-M32-003"
+    category: "A"
+    question: "During REPLAY phase, what is the page size for catch-up reads from the EventStore?"
+    expected:
+      contains_any: ["500"]
+    source: "ProjectionAdvancer contract (≤500 rows)"
+
+  - id: "SMOKE-M32-004"
+    category: "A"
+    question: "What does gap detection check during the TRANSITION phase?"
+    expected:
+      contains_any: ["lastReplayedPosition", "gap", "queue"]
+    source: "DEC-M3-03, AMD-42"
+
+  - id: "SMOKE-M32-005"
+    category: "C"
+    question: "During REPLAY mode, does the SelfProducedFilter detect self-produced events?"
+    expected:
+      contains_any: ["no", "false", "empty", "inactive", "always returns false"]
+      must_not_contain: ["yes", "filters", "detects"]
+    source: "DEC-M3-02"
+    notes: "In REPLAY, all events are historical — none can be self-produced"
+
+  - id: "SMOKE-M32-006"
+    category: "A"
+    question: "Which tiers of EventBusContractTest should become active (un-@Disabled) after M3.2?"
+    expected:
+      contains_any: ["Tier 9", "9"]
+    source: "EventBusContractTest @Disabled annotations"

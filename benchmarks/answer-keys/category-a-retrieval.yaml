@@ -1,0 +1,253 @@
+# Category A — Retrieval Facts (Machine-Gradable)
+# Tests whether project knowledge search returns correct factual content.
+# Grading: exact match or contains-based. No human judgment needed.
+#
+# Update protocol: When a milestone changes a fact (e.g., field count increases),
+# update the expected answer AND note the milestone that changed it.
+
+questions:
+
+  # ─── Field Counts ────────────────────────────────────────────────────────
+  - id: "A-001"
+    question: "How many fields does EventEnvelope have?"
+    expected:
+      exact: "14"
+    source: "event-model/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+    notes: "14th field is actorRef (promoted from CausalContext)"
+
+  - id: "A-002"
+    question: "How many fields does CausalContext have?"
+    expected:
+      exact: "2"
+    source: "event-model/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+    notes: "correlationId + causationId. actorRef was promoted to EventEnvelope."
+
+  - id: "A-003"
+    question: "How many fields does EventDraft have?"
+    expected:
+      exact: "9"
+    source: "event-model/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+    notes: "8th=actorRef, 9th=idempotencyKey (AMD-35)"
+
+  - id: "A-004"
+    question: "How many fields does EntityState have?"
+    expected:
+      exact: "9"
+    source: "state-store/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+    notes: "9th is stale (boolean, derived at read time from staleAfter + Clock)"
+
+  - id: "A-005"
+    question: "How many fields does CommandStatusResponse have?"
+    expected:
+      exact: "8"
+    source: "rest-api/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+    notes: "8th is terminal (boolean)"
+
+  - id: "A-006"
+    question: "How many fields does IntegrationContext have?"
+    expected:
+      exact: "10"
+    source: "integration-api/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+
+  - id: "A-007"
+    question: "How many fields does IntegrationHealthRecord have?"
+    expected:
+      exact: "13"
+    source: "integration-runtime/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+    notes: "Includes weighted healthScore and plannedRestart (boolean)"
+
+  # ─── Type Locations ──────────────────────────────────────────────────────
+  - id: "A-010"
+    question: "What module does Availability live in?"
+    expected:
+      contains_any: ["state-store", "com.homesynapse.state"]
+      must_not_contain: ["device-model", "com.homesynapse.device"]
+    source: "Knowledge Primer type location table"
+    added: "2026-05-17"
+
+  - id: "A-011"
+    question: "What module does HomeSynapseException live in?"
+    expected:
+      contains_any: ["event-model", "com.homesynapse.event"]
+      must_not_contain: ["common", "platform", "shared"]
+    source: "Knowledge Primer type location table"
+    added: "2026-05-17"
+
+  - id: "A-012"
+    question: "What module does CheckpointStore live in?"
+    expected:
+      contains_any: ["event-bus", "com.homesynapse.event.bus"]
+      must_not_contain: ["state-store", "persistence"]
+    source: "Knowledge Primer type location table"
+    added: "2026-05-17"
+
+  - id: "A-013"
+    question: "What module does ViewCheckpointStore live in?"
+    expected:
+      contains_any: ["state-store", "com.homesynapse.state"]
+      must_not_contain: ["event-bus", "persistence"]
+    source: "Knowledge Primer type location table"
+    added: "2026-05-17"
+
+  - id: "A-014"
+    question: "What module and source set does InMemoryEventStore live in?"
+    expected:
+      contains_all: ["event-model", "testFixtures", "com.homesynapse.event.test"]
+    source: "Knowledge Primer type location table"
+    added: "2026-05-17"
+    notes: "Stale copy at com.homesynapse.event was deleted in M1.9"
+
+  - id: "A-015"
+    question: "What module does WriteCoordinator live in? Is it public or package-private?"
+    expected:
+      contains_all: ["persistence", "package-private"]
+    source: "Knowledge Primer type location table"
+    added: "2026-05-17"
+
+  # ─── Counts and Values ───────────────────────────────────────────────────
+  - id: "A-020"
+    question: "How many columns does the V001 events table have?"
+    expected:
+      exact: "25"
+    source: "persistence/MODULE_CONTEXT.md, Knowledge Primer"
+    added: "2026-05-17"
+
+  - id: "A-021"
+    question: "How many bind positions does SqliteEventStore's INSERT have?"
+    expected:
+      exact: "24"
+    source: "persistence/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+    notes: "25 columns minus global_position (AUTOINCREMENT)"
+
+  - id: "A-022"
+    question: "How many ArchUnit rules are in HomeSynapseArchRules.java?"
+    expected:
+      exact: "7"
+    source: "HomeSynapseArchRules.java (verified from source)"
+    added: "2026-05-17"
+
+  - id: "A-023"
+    question: "How many modules apply test-fixtures-conventions?"
+    expected:
+      exact: "6"
+    source: "Knowledge Primer, build-logic source"
+    added: "2026-05-17"
+    notes: "event-model, device-model, state-store, persistence, integration-api, configuration"
+
+  - id: "A-024"
+    question: "How many requires transitive directives does integration-api's module-info.java have?"
+    expected:
+      exact: "7"
+    source: "integration-api/src/main/java/module-info.java"
+    added: "2026-05-17"
+    notes: "platform, event, device, state, persistence, config, java.net.http"
+
+  - id: "A-025"
+    question: "How many values does the SubscriberMode FSM have? Name them."
+    expected:
+      contains_all: ["5", "COLD", "REPLAY", "TRANSITION", "LIVE", "SUSPENDED"]
+    source: "event-bus/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+
+  - id: "A-026"
+    question: "What are the WritePriority levels in order (highest to lowest)?"
+    expected:
+      contains_all: ["EVENT_PUBLISH", "STATE_PROJECTION", "WAL_CHECKPOINT", "RETENTION", "BACKUP"]
+    source: "persistence/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+
+  - id: "A-027"
+    question: "What are the FixedCheckpointPolicy.HOME_DEFAULT parameters?"
+    expected:
+      contains_all: ["200", "2"]
+    source: "Knowledge Primer, AMD-38"
+    added: "2026-05-17"
+    notes: "200 events, 2 s maxInterval, 1 s minInterval"
+
+  - id: "A-028"
+    question: "What Jackson version is pinned in the version catalog? What is the floor?"
+    expected:
+      contains_all: ["2.18.6", "2.18.4"]
+    source: "gradle/libs.versions.toml, Knowledge Primer"
+    added: "2026-05-17"
+
+  - id: "A-029"
+    question: "How many production types does event-bus have after M3.1? Break down public vs package-private."
+    expected:
+      contains_all: ["14", "9", "5"]
+    source: "event-bus/MODULE_CONTEXT.md, Current State"
+    added: "2026-05-17"
+
+  - id: "A-030"
+    question: "How many EventBusContractTest methods are there? How many tiers?"
+    expected:
+      contains_all: ["44", "10"]
+    source: "InProcessEventBusTest.java class comment, Current State"
+    added: "2026-05-17"
+
+  # ─── Amendment Attributions ──────────────────────────────────────────────
+  - id: "A-040"
+    question: "Which amendment introduced idempotencyKey on EventDraft?"
+    expected:
+      contains_any: ["AMD-35"]
+    source: "Knowledge Primer, event-model/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+
+  - id: "A-041"
+    question: "Which amendment governs the chain_hash NOT NULL constraint?"
+    expected:
+      contains_any: ["AMD-37"]
+    source: "Knowledge Primer, persistence/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+
+  - id: "A-042"
+    question: "Which amendment was WITHDRAWN regarding journal_size_limit?"
+    expected:
+      contains_any: ["AMD-39"]
+    source: "Knowledge Primer"
+    added: "2026-05-17"
+
+  - id: "A-043"
+    question: "Which amendment defines the MaintenanceSubscriber contract?"
+    expected:
+      contains_any: ["AMD-40"]
+    source: "Knowledge Primer"
+    added: "2026-05-17"
+
+  - id: "A-044"
+    question: "Which amendment introduced HomeId as SqliteEventStore's 5th constructor parameter?"
+    expected:
+      contains_any: ["AMD-34"]
+    source: "persistence/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+
+  # ─── D1 Spike Quantitative ──────────────────────────────────────────────
+  - id: "A-050"
+    question: "In the D1 WAL spike, what size did the WAL grow to at 5 events/s with a continuous reader over 120 seconds?"
+    expected:
+      contains_any: ["20.6 MB", "20.6"]
+    source: "Knowledge Primer, AMD-38"
+    added: "2026-05-17"
+
+  - id: "A-051"
+    question: "What is the write amplification ratio in the V001 schema?"
+    expected:
+      contains_all: ["34 KB", "600", "50"]
+    source: "Knowledge Primer"
+    added: "2026-05-17"
+    notes: "~34 KB WAL per ~600 B event, ~50× ratio"
+
+  - id: "A-052"
+    question: "What WAL size does the bounded-window reader maintain under nominal load?"
+    expected:
+      contains_any: ["4 MB", "~4 MB"]
+    source: "Knowledge Primer, AMD-38"
+    added: "2026-05-17"

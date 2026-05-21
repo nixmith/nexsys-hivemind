@@ -1,0 +1,128 @@
+# Category C — Negative Knowledge (Machine-Gradable)
+# Tests whether the Claude Project correctly identifies things that DO NOT exist.
+# These catch hallucination, stale beliefs, and confabulation.
+#
+# The correct answer is always some form of "no" or "does not exist."
+# Any answer that affirms existence is a failure.
+
+questions:
+
+  # ─── Ghost Types and Methods ─────────────────────────────────────────────
+  - id: "C-001"
+    question: "Does EventPublisher have an emit() method?"
+    expected:
+      contains_any: ["no", "does not", "only publish() and publishRoot()", "two methods"]
+      must_not_contain: ["yes", "emit() provides", "async"]
+    source: "EventPublisher.java"
+    added: "2026-05-17"
+    failure_history: "Benchmark 4 Q13 — Claude Project correctly identified this"
+
+  - id: "C-002"
+    question: "Is there an ArchUnit rule in the event-bus module's test directory?"
+    expected:
+      contains_any: ["no", "does not exist", "no ArchUnit", "JPMS only", "JPMS-enforced"]
+      must_not_contain: ["yes", "EVENT_BUS_DOES_NOT_IMPORT", "separate rule", "belt-and-braces"]
+    source: "event-bus/src/test/ (verified — no ArchUnit files exist)"
+    added: "2026-05-17"
+    failure_history: "Benchmark 4 Q43 — Claude Project incorrectly affirmed existence"
+
+  - id: "C-003"
+    question: "Does a stale copy of InMemoryEventStore exist at com.homesynapse.event.InMemoryEventStore?"
+    expected:
+      contains_any: ["no", "deleted", "does not exist", "M1.9"]
+      must_not_contain: ["yes", "exists at", "both copies"]
+    source: "Knowledge Primer type location table"
+    added: "2026-05-17"
+    notes: "Deleted in M1.9. Only canonical copy at com.homesynapse.event.test.InMemoryEventStore"
+
+  - id: "C-004"
+    question: "Does rest-api have any requires directives in its Phase 2 module-info.java?"
+    expected:
+      contains_any: ["no", "zero", "none", "unique"]
+      must_not_contain: ["yes", "requires com.homesynapse"]
+    source: "Knowledge Primer, rest-api/MODULE_CONTEXT.md"
+    added: "2026-05-17"
+
+  - id: "C-005"
+    question: "Is there an 8th ArchUnit rule called EVENT_BUS_DOES_NOT_IMPORT_SQLITE_DRIVER?"
+    expected:
+      contains_any: ["no", "does not exist", "7 rules", "JPMS", "not ArchUnit"]
+      must_not_contain: ["yes", "8 rules", "8th rule"]
+    source: "HomeSynapseArchRules.java (7 rules only)"
+    added: "2026-05-17"
+    failure_history: "Benchmark 4 Q22+Q43 — stale M3 Plan §4.5 caused this belief"
+
+  # ─── Ghost Behaviors ─────────────────────────────────────────────────────
+  - id: "C-010"
+    question: "Does the WebSocket API accept commands?"
+    expected:
+      contains_any: ["no", "read-only", "does not", "commands go through REST"]
+      must_not_contain: ["yes", "commands are accepted", "both REST and WebSocket"]
+    source: "Knowledge Primer"
+    added: "2026-05-17"
+
+  - id: "C-011"
+    question: "Does the WebSocket API produce domain events?"
+    expected:
+      contains_any: ["no", "does not produce", "read-only"]
+      must_not_contain: ["yes", "publishes", "emits events"]
+    source: "Knowledge Primer"
+    added: "2026-05-17"
+
+  - id: "C-012"
+    question: "Does JEP 491 (Java 25) fix the sqlite-jdbc JNI pinning problem?"
+    expected:
+      contains_any: ["no", "does not fix JNI", "JNI pinning remains", "platform thread still required"]
+      must_not_contain: ["yes", "fixes the problem", "no longer needed"]
+    source: "Knowledge Primer, AMD-26"
+    added: "2026-05-17"
+
+  - id: "C-013"
+    question: "Can the NO_SYNCHRONIZED_METHODS ArchUnit rule detect synchronized blocks?"
+    expected:
+      contains_any: ["no", "cannot", "methods only", "grep in CI"]
+      must_not_contain: ["yes", "catches both", "detects blocks"]
+    source: "HomeSynapseArchRules.java source comment"
+    added: "2026-05-17"
+    failure_history: "Benchmark 4 Q22 — Claude Project incorrectly said it catches blocks"
+
+  - id: "C-014"
+    question: "Is IEEEAddress in the zigbee module a ULID?"
+    expected:
+      contains_any: ["no", "not a ULID", "64-bit long", "EUI-64", "raw long"]
+      must_not_contain: ["yes", "ULID", "typed wrapper"]
+    source: "Knowledge Primer"
+    added: "2026-05-17"
+
+  - id: "C-015"
+    question: "Is CoordinatorTransport thread-safe?"
+    expected:
+      contains_any: ["no", "not thread-safe", "single dedicated platform thread"]
+      must_not_contain: ["yes", "thread-safe", "safe for concurrent"]
+    source: "Knowledge Primer"
+    added: "2026-05-17"
+
+  # ─── Ghost Decisions ─────────────────────────────────────────────────────
+  - id: "C-020"
+    question: "Is AMD-39 (journal_size_limit increase to 64 MB) in effect?"
+    expected:
+      contains_any: ["no", "withdrawn", "not in effect", "stays at 6 MB"]
+      must_not_contain: ["yes", "applied", "64 MB"]
+    source: "Knowledge Primer, Navigation Index"
+    added: "2026-05-17"
+
+  - id: "C-021"
+    question: "Is coalescing implemented in M3?"
+    expected:
+      contains_any: ["no", "deferred", "DEC-M3-07", "past M3", "inert"]
+      must_not_contain: ["yes", "implemented", "active in M3"]
+    source: "DEC-M3-07, Knowledge Primer"
+    added: "2026-05-17"
+
+  - id: "C-022"
+    question: "Does EventPublisher.publish() block on bus queue depth?"
+    expected:
+      contains_any: ["no", "non-blocking", "rejected", "INV-BUS-02", "DEC-M3-08"]
+      must_not_contain: ["yes", "blocks when queue full", "backpressure blocks publish"]
+    source: "DEC-M3-08, INV-BUS-02"
+    added: "2026-05-17"

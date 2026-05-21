@@ -1,0 +1,69 @@
+# Category B — Document Priority (Machine-Gradable)
+# Tests whether the Claude Project follows the correct authority chain
+# when documents disagree. The expected answer is ALWAYS the post-implementation
+# document's version (MODULE_CONTEXT > Plan, Knowledge Primer > Plan).
+#
+# These questions are specifically designed to have conflicting answers
+# across different documents. The Claude Project must choose correctly.
+
+questions:
+
+  # ─── Plan vs Reality ─────────────────────────────────────────────────────
+  - id: "B-001"
+    question: "The M3 Plan §4.5 lists EVENT_BUS_DOES_NOT_IMPORT_SQLITE_DRIVER as an ArchUnit rule. The Knowledge Primer says the JDBC isolation constraint for event-bus is JPMS-enforced. Which is correct — is it an ArchUnit rule or a JPMS constraint?"
+    expected:
+      contains_any: ["JPMS", "module-info", "not ArchUnit", "does not exist as an ArchUnit"]
+      must_not_contain: ["ArchUnit rule in event-bus", "both", "belt-and-braces"]
+    source: "event-bus module-info.java, HomeSynapseArchRules.java (no such rule exists)"
+    added: "2026-05-17"
+    notes: |
+      Root cause of Benchmark 4 Q22+Q43 failures. The M3 Plan prescribed an ArchUnit
+      rule; implementation chose JPMS enforcement instead. Post-implementation docs win.
+    priority_rule: "Plans describe intent. MODULE_CONTEXT and Knowledge Primer describe implemented reality. When they conflict, reality wins."
+
+  - id: "B-002"
+    question: "The original Knowledge Primer referenced EventPublisher.emit() as an async, best-effort method. The actual EventPublisher.java interface has only publish() and publishRoot(). Does emit() exist?"
+    expected:
+      contains_any: ["does not exist", "no", "only publish", "only two methods"]
+      must_not_contain: ["emit() is", "async and best-effort", "yes"]
+    source: "EventPublisher.java (verified — only publish() and publishRoot() exist)"
+    added: "2026-05-17"
+    notes: |
+      Tests whether source code trumps a stale Knowledge Primer reference.
+      The Primer has been corrected, but this tests the principle.
+
+  - id: "B-003"
+    question: "DEC-M3-11 specifies the implementation order as M3.1 → M3.5a → M3.2. The Current State says M3.2 is being run before M3.5a. Which ordering is actually being followed and why?"
+    expected:
+      contains_any: ["M3.2 before M3.5a", "deliberate reorder", "Nick approved", "bus isolation"]
+      must_not_contain: ["M3.5a is next", "following DEC-M3-11 strictly"]
+    source: "Current State §2"
+    added: "2026-05-17"
+    notes: "Tests whether Current State (actual state) trumps a locked decision (intended order)"
+
+  # ─── Authority Chain ─────────────────────────────────────────────────────
+  - id: "B-010"
+    question: "If the Knowledge Primer says a type has N fields, but the MODULE_CONTEXT for that module says N+1 fields (with a specific field name and rationale), which document should you trust?"
+    expected:
+      contains_any: ["MODULE_CONTEXT", "source of truth", "closer to source", "more authoritative"]
+      must_not_contain: ["Knowledge Primer wins", "average them"]
+    source: "Project governance authority chain"
+    added: "2026-05-17"
+    notes: "MODULE_CONTEXT > Knowledge Primer for implementation details. Primer is compressed summary."
+
+  - id: "B-011"
+    question: "An amendment (e.g., AMD-39) was proposed but later WITHDRAWN. Should you treat its specifications as applying to the codebase?"
+    expected:
+      contains_any: ["no", "withdrawn", "does not apply", "not in effect"]
+      must_not_contain: ["yes", "partially applies", "the spirit of"]
+    source: "Navigation Index amendment status, governance protocol"
+    added: "2026-05-17"
+    notes: "Benchmark 1 failure pattern — treating rejected/withdrawn amendments as applied"
+
+  - id: "B-012"
+    question: "A design document (Doc 05) specifies a pattern for cross-layer communication. The Architecture_Invariants_v1.md does not mention this pattern. The MODULE_CONTEXT for the relevant module describes a different implementation approach. Which takes precedence for describing what EXISTS in the code?"
+    expected:
+      contains_any: ["MODULE_CONTEXT", "what exists", "implemented reality"]
+      must_not_contain: ["design document wins", "Doc 05 takes precedence"]
+    source: "Authority chain: MODULE_CONTEXT > design docs for implementation facts"
+    added: "2026-05-17"

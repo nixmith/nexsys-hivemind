@@ -1,0 +1,29 @@
+# Smoke Test Template
+#
+# Use this template when creating a post-milestone smoke test.
+# Each smoke test targets the specific milestone's deliverables.
+#
+# Rules:
+# - 5–8 questions per smoke test
+# - Mix of Category A (retrieval) and Category C (negative knowledge)
+# - At least 1 negative knowledge question per smoke test
+# - Questions should be answerable from the MODULE_CONTEXT + Knowledge Primer
+#   updates that landed with the milestone
+# - Run the smoke test the SAME DAY the milestone completes
+# - If any question fails, investigate before the next work unit starts
+
+# metadata:
+#   milestone: "M3.X"
+#   date_created: "YYYY-MM-DD"
+#   date_run: "YYYY-MM-DD"
+#   result: "X/Y passed"
+#   failures: []
+
+# questions:
+#   - id: "SMOKE-M3X-001"
+#     category: "A"  # or "C"
+#     question: "..."
+#     expected:
+#       contains_any: ["..."]
+#       must_not_contain: ["..."]
+#     source: "..."

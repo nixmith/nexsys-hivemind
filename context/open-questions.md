@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: comms
 status: CURRENT
-last-verified: 2026-05-21 against `homesynapse-core` commit `dfb045e`
+last-verified: 2026-05-22 against `homesynapse-core` commit `dfb045e`
 -->
 
 # Open Questions Register
@@ -28,17 +28,17 @@ Inter-agent typed-message surface for `[OPEN-QUESTION]` and `[VERIFY-NEEDED]`. S
 
 ---
 
+---
+
+## Resolved (this milestone)
+
 ## [OPEN-QUESTION] OQ-05-03 — M3.6d-b prerequisite infrastructure: bundle into the brief or split into its own WU?
 **Posed by:** Coder (mid-M3.6d execution)
 **Posed:** 2026-05-20
 **Blocking:** M3.6d-b (PersistenceFactory + HomeSynapseCore composition-root wiring).
 **Question:** Are the three M3.6d-b prerequisite gaps (SqlitePersistenceLifecycle constructing SqliteStateStore + SqliteDeadLetterStore, `WriteCoordinator.queueSize()` exposure, production `SubscriberReadConnectionFactory`) bundled into the revised M3.6d-b coding instruction, or split into a separate prerequisite WU before M3.6d-b begins?
-**Context:** The original M3.6d brief assumed all three existed; they do not. (1) `SqlitePersistenceLifecycle` constructs only the four main stores today (EventStore, EventBusCheckpointStore, ViewCheckpointStore, WriteCoordinator) — must also construct `SqliteStateStore` + `SqliteDeadLetterStore`. (2) `WriteCoordinator` interface needs `queueSize()` exposure for the bus's writer-queue-depth `IntSupplier` (DEC-M3-14). (3) Today only the testFixtures `RecordingReadConnectionFactory` exists; M3.6d-b needs a production `SubscriberReadConnectionFactory`. Estimated work-unit-size impact: bundling grows M3.6d-b from 6–8h to 10–12h. Cross-reference: `pm-handoff.md` OR-M3-14. *Note: as of 2026-05-21 the source repo is at `dfb045e` (M3.6d-b 4/4 shipped), so this question has been answered by execution; the hivemind catches up to that state in a future WUCP Phase 2 — not in this batch.*
-**Resolution:** _(open)_
-
----
-
-## Resolved (this milestone)
+**Context:** The original M3.6d brief assumed all three existed; they do not. (1) `SqlitePersistenceLifecycle` constructs only the four main stores today (EventStore, EventBusCheckpointStore, ViewCheckpointStore, WriteCoordinator) — must also construct `SqliteStateStore` + `SqliteDeadLetterStore`. (2) `WriteCoordinator` interface needs `queueSize()` exposure for the bus's writer-queue-depth `IntSupplier` (DEC-M3-14). (3) Today only the testFixtures `RecordingReadConnectionFactory` exists; M3.6d-b needs a production `SubscriberReadConnectionFactory`. Estimated work-unit-size impact: bundling grows M3.6d-b from 6–8h to 10–12h. Cross-reference: `pm-handoff.md` OR-M3-14.
+**Resolution:** RESOLVED 2026-05-21. Bundled into the revised M3.6d-b coding instruction. All three prerequisite pieces shipped as part of the M3.6d-b 4-commit cohort: `WriteCoordinator.queueSize()` at `a33ee40`, production `SqliteSubscriberReadConnectionFactory` at `a59b64e`, `SqlitePersistenceLifecycle` 6-store expansion + `PersistenceFactory` at `725353d`, `HomeSynapseCore` composition root at `dfb045e`. Build GREEN at `dfb045e`.
 
 ## [OPEN-QUESTION] OQ-05-01 — DEC-M3-16 addendum to record the transitive 3-type promotion chain
 **Posed by:** PM (M3.6d-a closeout)

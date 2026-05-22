@@ -5,12 +5,12 @@ audience: Coder, PM
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-05-22 against commit dfb045e
 -->
 
 # Coder Session Handoff
 
-**Last updated:** 2026-05-20 (M3.6d-a delivered — Independent satellite changes for the composition root; M3.6d split into d-a + d-b)
+**Last updated:** 2026-05-22 (M3.6e.1 delivered — MaterializedStateQueryService + ReadinessFilter + Javalin bootstrap; **M3.6 capstone**)
 
 Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/handoff/coder-handoff.md`). A duplicate at `homesynapse-core/docs/handoff/coder-handoff.md` (created during a Cowork session) was consolidated into this file on 2026-05-15 and removed.
 
@@ -18,9 +18,41 @@ Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/h
 
 ## Deferred Build Gate
 
-**Status:** ZERO OPEN — all resolved at commit. M3.6a (`17c40b6`), M3.6b (`df2743a`), M3.6c (`38d3e30`), and M3.6d-a (`25bc23b`) all reached GREEN at their respective commit times. The prior "FOUR OPEN" framing was inaccurate: it conflated "Nick has not yet run the build" with "the build gate is open." A.6a/b/c were GREEN at commit (verified post-hoc); only M3.6d-a was actually pending Nick's verification at the time this section was written. All four are now PM-accepted and GREEN.
+**Status:** 1 OPEN — M3.6e.1 build gate deferred to Nick (sandbox prohibits `./gradlew` per project CLAUDE.md). Prior milestones M3.6a through M3.6d-b all reached GREEN.
+
+### M3.6e.1 + XLINT_EXPORTS_FIX — MaterializedStateQueryService + REST Readiness Gate (2026-05-22)
+**Commit:** (uncommitted in working tree). **Build:** NOT VERIFIED in-session — Nick owns the compile gate per project CLAUDE.md. Initial M3.6e.1 commit failed `./gradlew check` with `-Xlint:exports` errors on `ReadinessFilter` (Javalin types leaked through a non-transitive `requires`). PM issued a follow-up fix brief (`M3.6e.1_XLINT_EXPORTS_FIX.md`) on the same day; the fix is applied in the same uncommitted working tree as the original WU.
+
+**Fix delta (2026-05-22):**
+- `ReadinessFilter.java` — class declaration `public final class` → `final class` (now package-private). No other changes.
+- `RestFilters.java` (NEW) — public final utility class. Single method `static void installReadinessGate(Object javalinApp, ReadinessSource readinessSource)`. The `Object` typing of `javalinApp` deliberately avoids exposing `io.javalin.Javalin` in the public API surface of a module that requires Javalin non-transitively.
+- `HomeSynapseCore.java` — import `ReadinessFilter` → `RestFilters`; constructor call `new ReadinessFilter(this)` → `RestFilters.installReadinessGate(app, this)`; Javadoc `{@link ReadinessFilter}` → `{@link RestFilters#installReadinessGate}`.
+- `api/rest-api/src/main/java/module-info.java` — module Javadoc updated to point at `RestFilters.installReadinessGate` instead of `ReadinessFilter`. No `requires`/`exports` changes.
+- `api/rest-api/MODULE_CONTEXT.md` — added `RestFilters` to the type inventory (public final utility), updated `ReadinessFilter` row to mark it package-private, expanded the M3.6e.1 Phase 3 Note with the DEC-M3-16 rationale for why `requires transitive io.javalin` is the wrong fix (would chain Javalin into websocket-api → homesynapse-app).
+
+The change spans 13 modified/created files across `core/state-store`, `api/rest-api`, `core/persistence`, `lifecycle/lifecycle`, plus MODULE_CONTEXT.md updates across 4 modules.
+
+**Commands Nick must run against the working tree:**
+1. `./gradlew :core:persistence:check` — verifies the two new `DeploymentProfile` accessors (`javalinMinThreads()`, `javalinMaxThreads()`) compile and the new `DeploymentProfileTest` (4 tests, all 3 profiles + min ≤ max invariant + HOME defaults regression guard) passes.
+2. `./gradlew :core:state-store:check` — verifies the new package-private `MaterializedStateQueryService` compiles, the new public static factory `StateQueryService.materialized(...)` resolves through the imports (`java.time.Clock`, `java.util.function.LongSupplier`), and the new `MaterializedStateQueryServiceTest` (10 tests including 4 staleness-recomputation, 3 snapshot variants, 1 unmodifiable-map, 1 view-position, 1 isReady-delegation across 5 modes) passes. The InMemoryStateStore testFixture is consumed for the backing store; ReadinessSource is stubbed via `AtomicReference<SubscriberMode>` lambdas.
+3. `./gradlew :api:rest-api:check` — verifies the new `ReadinessFilter` (public final class implementing `io.javalin.http.Handler`) compiles against the new `requires com.homesynapse.state`, `requires com.homesynapse.event.bus`, `requires io.javalin`, `requires org.slf4j` module-info edges, and that the new `ReadinessFilterTest` (8 tests: 1 LIVE pass-through, 3 non-LIVE 503 with diagnostic headers, 1 RFC 9457 problem detail body shape, 1 mode-freshness assertion, plus the nested classes for LIVE/non-LIVE/fresh-read) passes. **CHECK Javalin's JPMS module name** — if `requires io.javalin;` fails to resolve, the actual module name may differ (Javalin is Kotlin-based and may use a different automatic-module-name convention).
+4. `./gradlew :lifecycle:lifecycle:check` — verifies the `HomeSynapseCore.start()` 14-step bootstrap compiles with the new `MaterializedStateQueryService` wiring (step 11) + the Javalin server bootstrap (step 12), the `HomeSynapseCoreTest.stateQueryServiceReturnsMaterializedAfterM3_6e_1` test passes, and the new module-info edges resolve (`requires com.homesynapse.api.rest`, `requires io.javalin`, `requires org.eclipse.jetty.util`). **CHECK Jetty's module name** — `org.eclipse.jetty.util` is the expected Jetty 12 module name carrying `QueuedThreadPool`; if it resolves to a different module under Javalin 6.7.0's Jetty dependency, adjust accordingly.
+5. `./gradlew check` (full project) — catches any consumer of the old `ThrowingStateQueryService`-based `stateQueryService()` accessor (no production callers expected) and verifies no ArchUnit regressions (`NO_DIRECT_TIME_ACCESS` is satisfied — `MaterializedStateQueryService` uses the injected `Clock`; tests use `Clock.fixed(...)` from `java.time`).
+6. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — verifies the M3.4a/M3.4b integration tests still pass on `HomeSynapseConfig.HOME_DEFAULT`. The new HTTP server binding port 7070 should NOT affect integration tests (which use `HomeSynapseCore` directly without HTTP).
+
+**Risk profile:** Medium. Two new-edge risks: (a) the Javalin JPMS module name `io.javalin` is the conventional Kotlin-library name but could resolve differently — the brief explicitly flagged this as a watch-out. (b) Port 7070 binding in `HomeSynapseCoreTest` — each test in `HomeSynapseCoreTest` starts the core sequentially with `@AfterEach core.stop()` releasing the port. Jetty's default `SO_REUSEADDR=true` should handle `TIME_WAIT` between tests. If CI runs the test class in parallel with another test that also binds 7070, flakes possible — none such exist today. The hardcoded port is per PLAN-M3 §10 ("Port 7070 hardcoded for MVP").
+
+**Deviations (full report below — none BLOCKING):**
+- **[REVIEW] D-1** — `MaterializedStateQueryService` constructor takes 4 params (added `LongSupplier viewPosition`), not the brief's 3 params. STOP-on-Mismatch gate G5 found `StateStore` does not have a `getViewPosition()` method (the brief acknowledged this with "or equivalents"). The view position is sourced via the supplier from `StateProjection.cursorPosition()`. This keeps `StateStore` a pure key-value port and the query service decoupled from `StateProjection` (DEC-M3-16). Public static factory `StateQueryService.materialized(...)` exposes the construction surface.
+- **[REVIEW] D-2** — `ReadinessFilter` exposes a package-private `Responder` SPI and a pure `apply(Responder)` decision method for unit testing instead of mocking Javalin's thick `Context` interface (the brief invited this pushback under "Coder Pushback Welcome").
+- **[INFO] D-3 through D-7** — see Completion Report.
 
 ### Resolved at commit
+
+### M3.6d-b — PersistenceFactory + HomeSynapseCore Composition-Root Wiring (2026-05-21)
+**Commit:** `dfb045e` (4-commit cohort: `a33ee40`, `a59b64e`, `725353d`, `dfb045e`). **Build:** GREEN at HEAD. Confirmed by Nick.
+
+Shipped as 4 commits: (1) `WriteCoordinator.queueSize()` accessor (`a33ee40`), (2) production `SqliteSubscriberReadConnectionFactory` + `SqliteSubscriberReadExecutor` (`a59b64e`), (3) `PersistenceFactory` public gateway + `SqlitePersistenceLifecycle` 6-store expansion (`725353d`), (4) `HomeSynapseCore` composition root implementing `ReadinessSource` (`dfb045e`). 20 files changed, +1,432 insertions, -14 deletions. All three OR-M3-14 prerequisite infrastructure gaps resolved. No deviations from the revised M3.6d-b coding instruction.
 
 ### M3.6d-a — Composition-Root Satellite Changes (2026-05-20)
 **Commit:** `25bc23b`. **Build:** GREEN at HEAD (full `./gradlew check` PASS, 137 actionable tasks). Resolved 2026-05-20 after SLF4J follow-up fix.
@@ -114,11 +146,19 @@ Per the user's M3.6d sub-divide decision (Option A), this WU (M3.6d-a) delivers 
 
 ## Current Task
 
-None. Awaiting M3.6d-b coding instruction from PM. M3.6a/b/c/d-a all committed and GREEN at HEAD `25bc23b`. PM is producing a revised M3.6d-b instruction addressing the three OR-M3-14 prerequisite infrastructure gaps (SqlitePersistenceLifecycle store-construction expansion, `WriteCoordinator.queueSize()`, production `SubscriberReadConnectionFactory`).
+None. M3.6e.1 work tree complete and awaiting Nick's build gate (see Deferred Build Gate above). After Nick verifies GREEN, the **next work unit is M3.6e.2** per PLAN-M3-CONSOLIDATED-02 §10 — Admin endpoints (DlqAdminEndpoint, ProjectionRebuildEndpoint, ProjectionStatusEndpoint), the 6 new ArchUnit rules (including QUERY_SERVICE_READ_ONLY), and the first REST endpoint handlers for entity queries. PM should issue the M3.6e.2 coding instruction when ready.
 
 ## Last Completed Milestone
 
-**M3.6d-a — Composition-Root Satellite Changes** (2026-05-20). Build gate DEFERRED (see Deferred Build Gate section).
+**M3.6e.1 — MaterializedStateQueryService + REST Readiness Gate + Javalin Bootstrap** (2026-05-22). Build gate DEFERRED to Nick (see Deferred Build Gate section). **M3.6 capstone** — the composition root is now externally queryable.
+
+### Prior Last-Completed Milestone
+
+**M3.6d-b — PersistenceFactory + HomeSynapseCore Composition-Root Wiring** (2026-05-21). Build GREEN at `dfb045e`. See Deferred Build Gate section for details.
+
+### Prior Last-Completed Milestone
+
+**M3.6d-a — Composition-Root Satellite Changes** (2026-05-20). Build GREEN at `25bc23b`.
 
 Files delivered (3 new production types + 1 new public test + 1 new public production interface + 1 modified disabled test + 4 modified production files + 1 modified test + 1 module-info + 1 build.gradle.kts + 4 MODULE_CONTEXT files):
 
@@ -294,29 +334,16 @@ MODULE_CONTEXT.md updated: `core/persistence/MODULE_CONTEXT.md` (added M3.4b got
 
 ## Next Work Unit
 
-**M3.6d-b.** The actual composition-root wiring (`PersistenceFactory` + `HomeSynapseCore`) — what the original M3.6d brief described, minus the satellite changes already delivered in M3.6d-a. The brief must be revised to address the prerequisite gaps M3.6d-a discovered:
-
-1. **`SqlitePersistenceLifecycle` must construct `SqliteStateStore` and `SqliteDeadLetterStore`** during `start()`. Today it constructs only `SqliteEventStore`, `SqliteCheckpointStore`, `SqliteViewCheckpointStore`, and `AtomicCheckpointWriter`. The new constructions require a separate `Include.ALWAYS`-configured `ObjectMapper` for `CheckpointSerializer` (the existing `PersistenceObjectMapper.create()` is `NON_NULL` and would drop nullable `staleAfter` and null attribute values — documented divergence gotcha).
-
-2. **`WriteCoordinator` interface needs a `queueSize()` method** (or `PersistenceFactory` needs another way to expose the writer queue depth as an `IntSupplier` to `InProcessEventBus`'s 7-arg constructor). Today the interface has only `submit(WritePriority, Callable)` and `shutdown()`.
-
-3. **A production `SubscriberReadConnectionFactory` implementation is needed.** Today only the testFixtures `RecordingReadConnectionFactory` exists. Production wiring needs per-subscriber dedicated platform-thread executors with their own SQLite read connections (the M3.4a harness Javadoc explicitly notes M3.6 production wiring would introduce this).
-
-4. **`SqlitePersistenceLifecycle` accessors needed** for `stateStore()` (returning `StateStore`), `stateCheckpointSource()` (returning `StateCheckpointSource` — the M3.6d-a promotion means both can return the same underlying `SqliteStateStore`), `deadLetterStore()` (or a `PersistentDlqWriter` adapter).
-
-5. **`PersistenceFactory` itself** is the bridge from the now-richer `SqlitePersistenceLifecycle` to consumers outside the persistence module — pure delegation through public-interface return types.
-
-6. **`HomeSynapseCore`** + `HomeSynapseCoreTest` wires it all together using the M3.6d-a primitives (`HomeSynapseConfig`, `SharedScheduler`, `ThrowingStateQueryService`) plus the now-public `QueueSaturationHealthCheck` / `HealthSignal` / `HealthLevel` and the now-implementing `SqliteStateStore`.
-
-Once Nick's compile gate resolves the M3.6a, M3.6b, M3.6c, and M3.6d-a deferrals, M3.6d-b can land on top. Awaiting PM coding instruction.
+**M3.6e.1 — StateQueryService + REST gate.** The M3.6 capstone (first of two e sub-WUs). Scope: `MaterializedStateQueryService` implementing `StateQueryService`, `ReadinessFilter` as Javalin `before` handler, Javalin server bootstrap in `HomeSynapseCore`, thread pool sizing on `DeploymentProfile`. Awaiting PM coding instruction.
 
 ### Key context for the next coder session
 
-1. **M3.6 design is committed.** Read `homesynapse-core-docs/design/2026-05-20_M3.6_Composition_Root_Design.md` — it specifies the five sub-WUs and their scope. M3.6a (§3) covers profile-driven persistence config (audit C-01, D1-05, D1-13, D2-11, D5-04). M3.6b (§4) covers `EventBusConfig` + DEC-M3-16 visibility promotion of `InProcessEventBus` (audit D1-07, D4-09).
-2. **`EventBusConfig` is now the canonical bus-tuning seam.** The composition root (M3.6d) consumes it via the public 7-arg `InProcessEventBus` constructor; cross-module test code reaches it via `InProcessEventBusFactory.createWithConfig(...)`. `HOME_DEFAULT` reproduces the prior 10,000 / 5,000 behaviour exactly, so adopting it produces zero behaviour change. Per-deployment tuning is a future operational concern — `EventBusConfig` may eventually derive from `DeploymentProfile` like `PersistenceConfig` does.
-3. **`InProcessEventBus` is now public (M3.6b, DEC-M3-16).** The composition root can construct it directly without going through the testFixtures factory. `QueueSaturationHealthCheck` remains package-private and is M3.6d scope (DEC-M3-16 part 3).
-4. **`IntegrationTestHarness` has three factory methods (M3.4b).** `start(Path, Clock)` for standard, `startThrottled(Path, Clock, BusMetrics)` for disk simulation, `startForCrashSimulation(Path, Clock)` for crash tests. All three were untouched by M3.6b because `createWithMetrics(...)` delegates with `HOME_DEFAULT`. M3.6d may simplify this by routing through `HomeSynapseCore` facade.
-5. **Decorator-function injection pattern is established.** `Function<WriteCoordinator, WriteCoordinator>` parameter on `DatabaseExecutor` and `SqlitePersistenceLifecycle` constructors. M3.6a may need to extend this pattern for PRAGMA parameterization.
+1. **Composition root is fully wired.** `HomeSynapseCore` at `dfb045e` implements the 12-step bootstrap: PersistenceFactory → bus → rate limiter → state projection → subscribers → health check → scheduler → started. `stateQueryService()` currently returns `ThrowingStateQueryService` — M3.6e.1 replaces this with the real `MaterializedStateQueryService`.
+2. **`ReadinessSource` interface exists** (M3.6d-a, `core/state-store`). Single method `mode() → SubscriberMode`. `HomeSynapseCore` implements it via delegation to `stateProjection.currentMode()` when started, `COLD` otherwise. `ReadinessFilter` will consume this.
+3. **`ThrowingStateQueryService` is the placeholder** (M3.6d-a, `lifecycle`). Package-private final, all 5 methods throw `IllegalStateException("StateQueryService not yet wired — available after M3.6e")`. M3.6e.1 replaces this with the real implementation.
+4. **Javalin thread pool sizing decided:** STUDIO(1/4), HOME(2/8), PERFORMANCE(4/16) on `DeploymentProfile`.
+5. **`ReadinessFilter` decided:** Javalin `before` handler (option a from the M3.6 design doc).
+6. **M3.6e.2 follows** with admin endpoints (DlqAdminEndpoint, ProjectionRebuildEndpoint, ProjectionStatusEndpoint) + 6 ArchUnit rules.
 
 ### M3.6b Lessons (2026-05-20)
 
@@ -340,7 +367,7 @@ Once Nick's compile gate resolves the M3.6a, M3.6b, M3.6c, and M3.6d-a deferrals
 
 ## Build Status
 
-Working tree clean. HEAD at `25bc23b` on `main`. Last GREEN full-project `./gradlew check`: `25bc23b` (2026-05-20, post-SLF4J follow-up fix; 137 actionable tasks, 134 executed + 3 up-to-date). M3.6a (`17c40b6`), M3.6b (`df2743a`), M3.6c (`38d3e30`), and M3.6d-a (`25bc23b`) all committed and GREEN.
+Working tree clean. HEAD at `dfb045e` on `main`. Last GREEN full-project `./gradlew check`: `dfb045e` (2026-05-21, confirmed by Nick). M3.6a through M3.6d-b all committed and GREEN.
 
 ---
 

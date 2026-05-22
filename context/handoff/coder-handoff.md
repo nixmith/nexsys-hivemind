@@ -10,7 +10,7 @@ last-verified: 2026-05-22 against commit [PENDING-COMMIT]
 
 # Coder Session Handoff
 
-**Last updated:** 2026-05-22 (M3.6e.1 delivered — MaterializedStateQueryService + ReadinessFilter + Javalin bootstrap; **M3.6 capstone**)
+**Last updated:** 2026-05-22 (M3.6e.2 delivered — entity query endpoints + admin endpoints + ArchUnit rules; **M3.6 milestone complete**)
 
 Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/handoff/coder-handoff.md`). A duplicate at `homesynapse-core/docs/handoff/coder-handoff.md` (created during a Cowork session) was consolidated into this file on 2026-05-15 and removed.
 
@@ -18,12 +18,43 @@ Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/h
 
 ## Deferred Build Gate
 
-**Status:** 0 OPEN — all milestones through M3.6e.1 have reached GREEN.
+**Status:** 1 OPEN — M3.6e.2 deferred to Nick (sandbox does not run Gradle).
+
+### OPEN — M3.6e.2 Admin Endpoints + ArchUnit Rules (2026-05-22)
+**Commit:** `[PENDING-COMMIT]`. **Build:** DEFERRED. `./gradlew check` was NOT run in-session — Nick owns the compile gate per project CLAUDE.md ("You do NOT run builds, compilation, or tests").
+
+The change spans 16 files: 8 new production files (`EndpointContext.java`, `JavalinEndpointContext.java`, `EndpointResponses.java`, `ListEntitiesEndpoint.java`, `GetEntityEndpoint.java`, `GetEntityStateEndpoint.java`, `DlqStatusEndpoint.java`, `ProjectionStatusEndpoint.java`), 1 modified production file (`RestFilters.java` — 2 new public methods), 1 modified composition root (`HomeSynapseCore.java` — 14-step → 16-step bootstrap), 1 modified ArchUnit rules file (`HomeSynapseArchRules.java` — 2 new rules), 1 modified ArchUnit test (`HomeSynapseArchRulesTest.java` — 2 new `@ArchTest` fields), 2 new test helpers (`RecordingEndpointContext.java`, `FakeStateQueryService.java`), 5 new test classes (`ListEntitiesEndpointTest`, `GetEntityEndpointTest`, `GetEntityStateEndpointTest`, `DlqStatusEndpointTest`, `ProjectionStatusEndpointTest`), plus MODULE_CONTEXT.md updates in `api/rest-api` and `lifecycle/lifecycle`.
+
+**Commands Nick must run against the working tree:**
+1. `./gradlew :api:rest-api:check` — verifies the 8 new package-private classes compile cleanly against the existing `requires com.homesynapse.state` + `requires com.homesynapse.event.bus` + `requires io.javalin` module-info edges (no module-info changes needed). Confirms the 5 new test classes (~18 test methods) pass against `RecordingEndpointContext` and `FakeStateQueryService`.
+2. `./gradlew :lifecycle:lifecycle:check` — verifies `HomeSynapseCore.start()`'s expanded 16-step bootstrap compiles with the two new `RestFilters` gateway calls and the new bootstrap-sequence Javadoc bullets.
+3. `./gradlew :app:homesynapse-app:check` — verifies the two new ArchUnit rules (`QUERY_SERVICE_READ_ONLY`, `REST_ENDPOINTS_NO_EVENT_PUBLISHING`) evaluate without violations against the production codebase. `REST_ENDPOINTS_NO_EVENT_PUBLISHING` references `com.homesynapse.event.EventPublisher.class` — the app module already depends on event-model.
+4. `./gradlew check` (full project) — catches any cross-module fallout (none expected) and verifies that the existing `NO_DIRECT_TIME_ACCESS` ArchUnit rule still holds (the new handlers use the injected `Clock` for response timestamps; the test classes use `Clock.fixed(...)`).
+5. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — verifies the M3.4a/M3.4b/M3.6e.1 integration tests still pass; the new route registrations do not change the existing readiness-gate behaviour.
+
+**Risk profile:** Low. The change is purely additive: new package-private classes, 2 new public methods on an existing utility class, 2 new bootstrap steps that fit cleanly between existing steps 12 and (renumbered) 15, and 2 new ArchUnit rules. No existing tests are modified. The single edge risk is the ArchUnit rule syntax (`belongToAnyOf(EventPublisher.class)`) — the brief explicitly invited adjustment if needed; the chosen form mirrors the existing `NO_SERVICE_LOADER` rule and should compile cleanly.
+
+**Deviations (none BLOCKING):**
+- **[REVIEW] D-1** — `ListEntitiesEndpoint` summary fields omit `subjectType` because `EntityState` has no such field. The brief's PLAN-M3 §10.6 sketch included it; the actual record carries `entityId`, `attributes`, `availability`, `stateVersion`, three timestamps, `staleAfter`, `stale`. Documented in the handler's Javadoc.
+- **[REVIEW] D-2** — `DlqStatusEndpoint` response shape uses `dlqDepth` and `crashCount` (the fields actually on `SubscriberSnapshot`) instead of the brief's example `parkedCount` and `oldestParkedAt`. The brief's "Coder Pushback Welcome" section explicitly invited this adjustment.
+- **[REVIEW] D-3** — `REST_ENDPOINTS_NO_EVENT_PUBLISHING` uses `accessClassesThat().belongToAnyOf(EventPublisher.class)` instead of the brief's `callMethodWhere(target(name("publish"))...)` form. The chosen form mirrors the existing `NO_SERVICE_LOADER` rule and achieves the same intent (REST cannot publish events) — `EventPublisher` has only publish-related methods, so any class access implies publish intent. The brief explicitly invited this adjustment.
+- **[INFO] D-4** — Both `LongSupplier viewPositionSupplier` arguments at the `RestFilters.installAdminEndpoints` call site are wired to `stateProjection::cursorPosition` (the same source the M3.6e.1 `MaterializedStateQueryService` uses). Consistent with the composition-root pattern; the `ProjectionStatusEndpoint`'s `viewPosition` field will track the projection cursor.
+- **[INFO] D-5** — Added one extra "sortDescReversesOrder" test to `ListEntitiesEndpointTest` (6 tests total instead of the brief's 5) to cover the case-insensitive DESC path. Net effect: 19 new test methods total across 5 test classes (close to the brief's ~20 target).
+
+### Next Work Unit
+
+**Awaiting PM direction.** M3.6 is the M3 capstone; with M3.6e.2 complete, the composition root is fully wired with externally queryable HTTP endpoints and operational visibility. Open follow-ups that may shape the next WU:
+- **OR-M3-15** (`NO_OP_DERIVATION` placeholder in `HomeSynapseCore`) — must be resolved before M3.7.
+- **OR-M3-16** (`NO_OP_ADVANCER` placeholder in `HomeSynapseCore`) — must be resolved before M3.7.
+- **End-to-end HTTP integration test** for the M3.6e.2 endpoints (real Jetty + real client) — currently deferred; would close the in-session test-coverage gap.
+- **DLQ `oldestParkedAt` field** — requires plumbing parked-at timestamps in `SubscriberDlq`; would close the brief's response-shape deviation.
 
 ### Resolved at commit
 
 ### M3.6e.1 + XLINT_EXPORTS_FIX — MaterializedStateQueryService + REST Readiness Gate (2026-05-22)
-**Commit:** `[PENDING-COMMIT]`. **Build:** GREEN. Full `./gradlew check` PASS (139 tasks, 0 failures). Confirmed by Nick. Initial M3.6e.1 commit failed `./gradlew check` with `-Xlint:exports` errors on `ReadinessFilter` (Javalin types leaked through a non-transitive `requires`). PM issued a follow-up fix brief (`M3.6e.1_XLINT_EXPORTS_FIX.md`) on the same day; the fix is applied in the same working tree as the original WU. Second fix round corrected Gradle/JPMS scope alignment (`implementation` → `api` for state-store in rest-api). Both fix rounds resolved before GREEN.
+
+### M3.6e.1 + XLINT_EXPORTS_FIX — MaterializedStateQueryService + REST Readiness Gate (2026-05-22)
+**Commit:** `b71ed37`. **Build:** GREEN. Full `./gradlew check` PASS (139 tasks, 0 failures). Confirmed by Nick. Initial M3.6e.1 commit failed `./gradlew check` with `-Xlint:exports` errors on `ReadinessFilter` (Javalin types leaked through a non-transitive `requires`). PM issued a follow-up fix brief (`M3.6e.1_XLINT_EXPORTS_FIX.md`) on the same day; the fix is applied in the same working tree as the original WU. Second fix round corrected Gradle/JPMS scope alignment (`implementation` → `api` for state-store in rest-api). Both fix rounds resolved before GREEN.
 
 **Fix delta (2026-05-22):**
 - `ReadinessFilter.java` — class declaration `public final class` → `final class` (now package-private). No other changes.

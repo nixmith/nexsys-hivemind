@@ -1,5 +1,5 @@
 <!--
-file: AUDIT_REPORT.md
+file: context/audits/2026-05-01_hivemind-workflow-audit.md
 purpose: Superseded May 1 workflow audit; findings carried into AUDIT_2026-05-20.md.
 audience: All
 update-cadence: ad-hoc

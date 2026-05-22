@@ -1,5 +1,5 @@
 <!--
-file: REORGANIZATION_PLAN_2026-05-20.md
+file: context/audits/REORGANIZATION_PLAN_2026-05-20.md
 purpose: Phase 2 reorganization plan implementing the AUDIT_2026-05-20.md findings; authorizes Phase 3 batches.
 audience: All
 update-cadence: ad-hoc

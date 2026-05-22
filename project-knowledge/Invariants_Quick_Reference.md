@@ -1,0 +1,236 @@
+<!--
+file: project-knowledge/Invariants_Quick_Reference.md
+purpose: Token-efficient index of all 94 architecture invariants. Agents use this for constraint lookup; full text lives in homesynapse-core-docs/governance/Architecture_Invariants_v1.md for JIT reading when detail is needed.
+audience: All (PM, Coder, Cowork)
+update-cadence: per-phase (changes only via amendment process INV-GA-01)
+state-type: reference
+status: CURRENT
+freshness-tier: COLD
+last-verified: 2026-05-21 against Architecture_Invariants_v1.md (94 invariants, 19 categories)
+full-text-location: homesynapse-core-docs/governance/Architecture_Invariants_v1.md
+-->
+
+# Architecture Invariants — Quick Reference
+
+**Total: 94 invariants across 19 categories.**
+**Amendment process:** INV-GA-01. Requires written proposal, impact analysis, architecture owner approval, migration plan.
+**Identifiers are permanent:** INV-GA-02. Retired IDs are never reused.
+
+---
+
+## §1 Local-First Operation (LF) — 5 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-LF-01 | All core functionality operates without internet. Core = device control, automation, events, state, dashboard, history, scenes, config, health. | Yes |
+| INV-LF-02 | Cloud enhances, never required. No core code path includes a network call that degrades core on failure. Module architecture enforces: core has no HTTP/WebSocket imports. | Yes |
+| INV-LF-03 | Graceful WAN degradation — no error dialogs, no blocked queues, cloud features show "unavailable" not "error." | Yes |
+| INV-LF-04 | No required cloud account for any core function. | Yes |
+| INV-LF-05 | Convergent sync architecture — data model supports CRDT-compatible sync (per-entity sequences, commutative ops). MVP is single-instance but model must accommodate multi-instance. | Architecture only |
+
+## §2 Event Sourcing Guarantees (ES) — 8 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-ES-01 | Events are immutable. Append-only log. Removal only by retention policy past oldest checkpoint. | Yes |
+| INV-ES-02 | All state derivable from event replay from checkpoint. No state exists without a recorded event. | Yes |
+| INV-ES-03 | Per-entity monotonic sequence numbers. Cross-entity ordering via ULID timestamps + causal metadata, not global sequence. | Yes |
+| INV-ES-04 | Write-ahead persistence. Events durable before delivery. Crash recovery replays persisted-but-undelivered. | Yes |
+| INV-ES-05 | At-least-once delivery. Subscribers must be idempotent. System provides event ID + sequence for idempotency checks. | Yes |
+| INV-ES-06 | Every state change explainable. "Why is this device in this state?" traceable to causal event chain. | Yes |
+| INV-ES-07 | Event schema forward-compatible within major version. Open-world assumption (tolerate unknown fields). Breaking changes only at major boundaries. | Yes |
+| INV-ES-08 | Event time (when it happened) vs ingest time (when bus accepted it) are distinct required fields. Automations evaluate event time. Retention uses event time. Log ordering uses ingest time. | Yes |
+
+## §3 Reliability and Fault Tolerance (RF) — 6 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-RF-01 | Integration isolation. Crash/hang/OOM in one integration cannot affect core, other integrations, or event bus. Isolation mechanism is an impl detail — API is topology-independent. | Yes |
+| INV-RF-02 | Resource quotas for integrations (memory, CPU, event rate, FDs). Exceed → throttle/terminate, never degrade system. | Yes |
+| INV-RF-03 | Startup independence. Failing integration does not block boot. Dashboard accessible regardless. | Yes |
+| INV-RF-04 | Crash safety. Consistent state after unclean shutdown without user intervention. No manual repair, no DB rebuild. | Yes |
+| INV-RF-05 | Bounded storage growth. Configurable retention with sensible defaults. SD card must survive years. | Yes |
+| INV-RF-06 | Graceful degradation under partial failure. Total failure requires core event bus or persistence failure, not any single integration. | Yes |
+
+## §4 Compatibility and Stability (CS) — 7 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-CS-01 | Semantic Versioning 2.0.0 enforced. No breaking changes within major version. | Yes |
+| INV-CS-02 | Entity identifiers stable across upgrades. System changes never alter entity IDs. | Yes |
+| INV-CS-03 | Configuration schema backward-compatible within major version. New options have behavior-preserving defaults. | Yes |
+| INV-CS-04 | Integration API versioned independently. Integration compiled against X.Y works on any core supporting X.Z (Z≥Y). | Yes |
+| INV-CS-05 | Update safety: auto-snapshot before update, documented rollback, dry-run validation. | Yes |
+| INV-CS-06 | Deprecation discipline: announce ≥1 major version ahead, migration path, runtime warnings, migration tooling. | Yes |
+| INV-CS-07 | No forced hardware obsolescence. Prior major version gets security fixes for documented window. | Architecture only |
+
+## §5 Household Operability (HO) — 5 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-HO-01 | Physical control supremacy. Physical action always wins over automation. HomeSynapse failure never removes "dumb" functionality. | Yes |
+| INV-HO-02 | Operable under degradation. Non-technical member can operate unaffected devices and understand errors. | Yes |
+| INV-HO-03 | No debugging for daily operation. All daily ops via GUI. No logs, YAML, CLI for routine use. | Yes |
+| INV-HO-04 | Self-explaining errors. Human-readable: what happened, what's affected, what to do. | Yes |
+| INV-HO-05 | The Partner Test. Non-technical household member validates daily ops, error states, no internal terminology. Release gate. | Yes |
+
+## §6 Privacy and Data Sovereignty (PD) — 8 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-PD-01 | Zero telemetry by default. No dark patterns, no pre-checked boxes. Default install transmits zero bytes. | Yes |
+| INV-PD-02 | Data residency user-controlled. All data local by default. Cloud opt-in with user control over what/where/how long. | Yes |
+| INV-PD-03 | Encrypted storage for sensitive data (credentials, keys, tokens, PII). AES-256-GCM. User-owned keys. | Yes |
+| INV-PD-04 | Transparent data boundaries. Machine-readable manifest of what data exists, what can leave, which services each integration talks to. | Yes |
+| INV-PD-05 | Consent is granular, informed, revocable. States what data, to which service, for what purpose, how long retained. | Yes |
+| INV-PD-06 | Offline integrity. Write operations transactional and crash-safe. Power loss is normal, not exceptional. | Yes |
+| INV-PD-07 | Crypto-shredding for sensitive data lifecycle. Per-scope keys. Destroy key = irrecoverable. Reconciles immutable log with GDPR. Applies to: behavioral, energy, identity/presence data. MVP: infrastructure + ≥1 category. | Infra only |
+| INV-PD-08 | Tamper-evident system integrity. Crypto integrity chain for firmware, config changes, integration provenance. Extensible to automation auditing (§16.5). | Infra only |
+
+## §7 Transparency and Observability (TO) — 4 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-TO-01 | System behavior observable: live event stream, active automations, integration status, causal chains, performance metrics. | Yes |
+| INV-TO-02 | Automation determinism. Identical events + config = identical outcomes. Traceable: trigger, conditions, actions, results. | Yes |
+| INV-TO-03 | No hidden state. All behavior-influencing state inspectable. No hidden caches or implicit timing-derived state. | Yes |
+| INV-TO-04 | Structured, queryable logs with correlation IDs. "Why did lights turn on at 3 AM?" answerable via UI. | Yes |
+
+## §8 Configuration and Extensibility (CE) — 6 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-CE-01 | Canonical human-readable config. Single YAML source of truth. UI reads/writes same representation. No dual storage. | Yes |
+| INV-CE-02 | Zero-configuration first run. Sensible defaults. Install → start → dashboard → add devices. | Yes |
+| INV-CE-03 | Config schema documented, versioned, validated at startup. Every option typed with default, range, and behavior. | Yes |
+| INV-CE-04 | Protocol agnosticism in device model. Same "turn on light" interface for Zigbee, Z-Wave, Matter, Wi-Fi. | Yes |
+| INV-CE-05 | Extension model with stability guarantees. Isolated execution, resource quotas, independent versioning, graceful degradation. | Yes |
+| INV-CE-06 | Migration tooling with schema evolution. Idempotent, reversible, preview-able. Users never manually rewrite config. | Yes |
+
+## §9 Performance and Resource Discipline (PR) — 4 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-PR-01 | Constrained hardware is primary design target. Pi 4 (4 GB) = validation floor. "Upgrade hardware" is never the answer. | Yes |
+| INV-PR-02 | Quantitative performance targets (constitutional, on Pi 4): startup <10s, device command <300ms, automation p99 <100ms, REST p99 <50ms, dashboard <500ms, memory <512MB. Operational budgets in subsystem docs. | Yes |
+| INV-PR-03 | Resource usage bounded and predictable. No unbounded growth over time. | Yes |
+| INV-PR-04 | Architecture accommodates 1,000 devices without redesign. MVP need not achieve, must not prevent. | Architecture only |
+
+## §10 Security (SE) — 6 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-SE-01 | No default credentials. First-run requires user-created credentials. | Yes |
+| INV-SE-02 | Authentication required for all network interfaces. No "local network trust" exception. | Yes |
+| INV-SE-03 | Secrets encrypted at rest. AES-256-GCM. Never plaintext in config, DB, or logs. | Yes |
+| INV-SE-04 | Least privilege for integrations. Light controller can't access locks or cameras. Declared in manifest, enforced at runtime. | Yes |
+| INV-SE-05 | Remote access (optional) is end-to-end encrypted. NexSys relay cannot see plaintext. | Architecture only |
+| INV-SE-06 | Security updates deliverable without feature churn. Foundation for future LTS channel. | Architecture only |
+
+## §11 AI and Intelligence (AI) — 5 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-AI-01 | AI is enhancement, never foundation. Disable all AI → full core capability. | Yes |
+| INV-AI-02 | AI requires explicit consent via INV-PD-05 framework. | Yes |
+| INV-AI-03 | AI decisions explainable to non-experts. "Based on your pattern of X, this would Y" minimum standard. | Yes |
+| INV-AI-04 | Local AI capability. On-device inference for Pi-class: LightGBM (0.4–1.2ms), TinyLSTM (3–7ms), ONNX. [SCALES] to cloud/NPU at higher tiers. | Architecture only |
+| INV-AI-05 | On-device behavior modeling. Interpretable, correctable, deletable. Training data never leaves device without federated learning consent. | Architecture only |
+
+## §12 Energy Intelligence (EI) — 5 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-EI-01 | Energy as first-class domain. Meters, inverters, batteries, EV chargers, controllable loads have same model fidelity as lighting/climate. MVP: energy entity types and event categories in model. | Model only |
+| INV-EI-02 | Grid-interactive by design. OpenADR 3.0 VEN role. Automation engine evaluates grid signals locally. MVP: grid signal event types + time-based triggers. | Model only |
+| INV-EI-03 | Carbon-aware scheduling. Shift deferrable loads to low-carbon periods within user constraints. MVP: time-window constraints + external data source inputs in automation. | Model only |
+| INV-EI-04 | Energy data sovereignty. Energy data governed by §6 privacy invariants + per-program consent for grid/DR sharing. | Architecture only |
+| INV-EI-05 | Hardware-agnostic energy metering. Switching inverter/battery vendor doesn't lose history or break automations. | Architecture only |
+
+## §13 Multi-User Identity and Presence (MU) — 5 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-MU-01 | Identity-aware device model. Per-user context for behavior, visibility, controllability. Event envelope has optional user identity field (populated/causal-ref/null). MVP: identity field in envelope + user-identity conditions in automation. | Model only |
+| INV-MU-02 | Spatial presence as core primitive. Room/zone-level presence is first-class state. BLE/UWB/mmWave layered model. MVP: presence event types and state representations. | Model only |
+| INV-MU-03 | Preference arbitration framework. ACRA/MeCRA/HyCRA modes. Transparent, inspectable rules. MVP: multi-condition evaluation with user identity. | Architecture only |
+| INV-MU-04 | Household role model. Admin/adult/child/guest with per-user per-device RBAC. MVP: admin + member roles. | Architecture only |
+| INV-MU-05 | Graceful identity degradation. Uncertain → most permissive common preference. Unknown → last known state. Offline → all-users-present fallback. Never locks anyone out. | Architecture only |
+
+## §14 Mesh and Network Intelligence (MN) — 4 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-MN-01 | Protocol-agnostic network telemetry. Unified schema across Zigbee/Thread/Wi-Fi/Z-Wave. MVP: Zigbee RSSI/LQI/route in event pipeline. | Yes (Zigbee) |
+| INV-MN-02 | Mesh health as observable state. First-class entity. Per-device signal, per-link reliability, topology, aggregate health. Surfaced in dashboard. | Yes |
+| INV-MN-03 | Predictive network diagnostics. Detect degradation trends before failure. MVP: store telemetry with sufficient granularity for future trend analysis. | Data foundation |
+| INV-MN-04 | Battery-aware network optimization. Track energy consumption as function of network behavior. Surface elevated overhead as diagnostic. | Data foundation |
+
+## §15 Governance and Amendment (GA) — 3 invariants
+
+| ID | Rule | MVP-Critical |
+|---|---|---|
+| INV-GA-01 | Invariant stability. Amendment requires written proposal, impact analysis, owner approval, migration plan. Convenience/schedule/competitive parity are not sufficient reasons. | Process |
+| INV-GA-02 | Identifiers are permanent. Retired IDs marked, never reused. | Process |
+| INV-GA-03 | Compliance verified in design review. Subsystem designs must demonstrate invariant compliance. | Process |
+
+## §19 Event Distribution, Projection & Subscriber Lifecycle — 15 invariants
+
+Added by AMD-41/42/43 (applied 2026-05-16). Four sub-categories:
+
+### Event Bus and Distribution (BUS) — 3
+
+| ID | Rule | Source |
+|---|---|---|
+| INV-BUS-01 | Exactly-once delivery per subscriber (normal operation). Crash recovery bounded by checkpoint position. | AMD-42 |
+| INV-BUS-02 | Publish is non-blocking on backpressure. No semaphores, no depth-gated locks. Natural backpressure from single-writer. ArchUnit rule enforces. | AMD-43 |
+| INV-BUS-03 | Subscriber isolation. Failure in A cannot affect B's mode, queue, connection, DLQ, or delivery. Implemented by INV-SUB-ISO-01..06. | AMD-42 |
+
+### State Projection (PROJ) — 3
+
+| ID | Rule | Source |
+|---|---|---|
+| INV-PROJ-01 | Projection determinism. Same events + same replay order = same state. No wall-clock, no RNG, no external state. Clock via injected `java.time.Clock`. | AMD-41 |
+| INV-PROJ-04 | Checkpoint-position monotonicity. Strictly non-decreasing. Rewind only on operator-initiated reconciliation (projectionVersion mismatch). | AMD-41 |
+| INV-PROJ-NEW-01 | Self-produced event isolation. `SelfProducedFilter` (60s TTL, lazy eviction) prevents re-derivation. Bypassed during REPLAY/TRANSITION. Defence-in-depth: `stateVersion` comparison. | AMD-41 |
+
+### Single-Writer Discipline (WRITER) — 1
+
+| ID | Rule | Source |
+|---|---|---|
+| INV-WRITER-01 | All SQLite writes through single bounded platform-thread executor (WriteCoordinator). One thread holds writer position at any instant. Foundation for contiguous globalPosition + INV-BUS-02 backpressure. | AMD-26 elevated |
+
+### Subscriber Isolation (SUB-ISO) — 6
+
+| ID | Rule | Source |
+|---|---|---|
+| INV-SUB-ISO-01 | One virtual thread per subscriber (`hs-sub-<subscriberId>`). No sharing. | AMD-42 §3.4.4 |
+| INV-SUB-ISO-02 | One dedicated SQLite read connection per subscriber. No sharing at any instant. | AMD-42 §3.4.4 |
+| INV-SUB-ISO-03 | One DLQ instance per subscriber. Per-subscriber rows in `subscriber_dead_letters`. Ring cap 1024 per subscriber. | AMD-42 §3.4.4 |
+| INV-SUB-ISO-04 | One mode AtomicReference per subscriber (COLD/REPLAY/TRANSITION/LIVE/SUSPENDED). CAS transitions. | AMD-42 §3.4.4 |
+| INV-SUB-ISO-05 | One ReplayWindowQueue per subscriber (bounded; default 10,000, configurable via EventBusConfig). Created on REPLAY, drained in TRANSITION, GC'd after LIVE. | AMD-42 §3.4.4 |
+| INV-SUB-ISO-06 | One SelfProducedFilter per derivation-producing subscriber. Non-producing subscribers don't instantiate. | AMD-42 §3.4.4 |
+
+---
+
+## §16 Long-Term Ecosystem Direction (Directional, not formal invariants)
+
+These are directional commitments that guide architectural decisions. Unlike invariants, they may be revised. Reference only when making forward-looking architecture choices.
+
+| § | Direction | Foundation Invariants |
+|---|---|---|
+| 16.1 | Energy as self-funding value proposition. $3.99–7.99/mo subscription, 2–8× ROI. | EI-01, EI-02, EI-03 |
+| 16.2 | Multi-user identity as killer feature. First platform with identity-aware presence + preference arbitration. | MU-01 through MU-05 |
+| 16.3 | Unified RF health dashboard. First consumer 802.15.4 diagnostic tool. | MN-01 through MN-04, TO-01 |
+| 16.4 | On-device intelligence pipeline. Nest-class intelligence, no cloud. Pi 5 runs full ML at <3W. | AI-01 through AI-05, PR-02 |
+| 16.5 | Privacy-preserving cloud + verifiable transparency. ZK backup, tamper-evident automation auditing. | PD-07, PD-08 |
+| 16.6 | Multi-protocol convergence. Matter/Thread, Z-Wave, Wi-Fi via stable extension model. | CE-04, CE-05 |
+| 16.7 | Multi-instance operation. Small Peer / Big Peer. | LF-05 |
+| 16.8 | LTS release channel. Security fixes without feature churn. | SE-06 |
+| 16.9 | Community ecosystem. "Works With HomeSynapse" certification ($1K–10K/device). | CE-05, CS-04 |
+| 16.10 | Ambient interfaces. Sound event detection, ultrasonic sensing, spatial computing (2028+). | AI-02, PD-01 |
+| 16.11 | Formal verification of automation rules. TLA+ embedded for safety/liveness/conflict-freedom. | TO-02 |
+
+---
+
+*94 invariants verified against Architecture_Invariants_v1.md §17 Invariant Index. For full invariant text including rationale, test criteria, MVP scope, and [SCALES] annotations, read the full document at homesynapse-core-docs/governance/Architecture_Invariants_v1.md.*

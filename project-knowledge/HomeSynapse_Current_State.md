@@ -5,20 +5,22 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-22 against commit dfb045e
+last-verified: 2026-05-22 against commit [PENDING-COMMIT]
 -->
 
 # HomeSynapse Core — Current State
 
-Last updated: 2026-05-22 (post-M3.6d-b WUCP Phase 2 — OR-M3-14 RESOLVED, OQ-05-03 RESOLVED, composition root fully wired)
+Last updated: 2026-05-22 (post-M3.6e.1 WUCP Phase 2 — composition root externally queryable via HTTP, sixteen CC WUs)
 
 ---
 
 ## 1. Current Milestone Status
 
-**M3.6d-b (PersistenceFactory + HomeSynapseCore Composition-Root Wiring) — COMPLETE** (committed 2026-05-21 `dfb045e`, build GREEN — confirmed by Nick).
+**M3.6e.1 (MaterializedStateQueryService + REST Readiness Gate + Javalin Bootstrap) — COMPLETE** (committed 2026-05-22 `[PENDING-COMMIT]`, build GREEN — 139 tasks, 0 failures, confirmed by Nick).
 
-Shipped as 4-commit cohort (`a33ee40`..`dfb045e`): (1) `WriteCoordinator.queueSize()` accessor for bus writer-queue-depth `IntSupplier`; (2) production `SqliteSubscriberReadConnectionFactory` + `SqliteSubscriberReadExecutor` in core/persistence; (3) `PersistenceFactory` public gateway wrapping package-private `SqlitePersistenceLifecycle` (DEC-M3-16 factory pattern) + `SqlitePersistenceLifecycle` 6-store expansion (added `SqliteStateStore` + `SqliteDeadLetterStore`); (4) `HomeSynapseCore` public final class implementing `ReadinessSource` — 12-step bootstrap (PersistenceFactory.start → BusMetrics.jfr → InProcessEventBus → DerivedWriteRateLimit → StateProjection.create → subscribeRuntime → healthSignalHandler → QueueSaturationHealthCheck → SharedScheduler → started=true). 20 files changed, +1,432 lines, -14 deletions. OR-M3-14 RESOLVED (all three prerequisite infrastructure gaps closed). Fifteenth work unit via Claude Code.
+`MaterializedStateQueryService` (public final in state-store, static factory `create(StateProjection)`, implements all 5 `StateQueryService` methods — returns `Optional.empty()` / empty `Map` when projection not LIVE). `ReadinessFilter` (package-private in rest-api, Javalin `before` handler, 503 + JSON when not LIVE). `RestFilters` (public final in rest-api, DEC-M3-16 gateway with `Object`-typed parameter erasing `io.javalin.Javalin` from public API surface). `ProblemType.STATE_STORE_REPLAYING` (new enum constant). `HomeSynapseCore` 14-step bootstrap (expanded from 12: added `MaterializedStateQueryService.create(stateProjection)` wiring + Javalin server on port 7070 with readiness filter). `DeploymentProfile` gains `httpThreads()` and `httpMaxThreads()` (STUDIO 1/4, HOME 2/8, PERFORMANCE 4/16). Two fix rounds: (1) `-Xlint:exports` on `ReadinessFilter` — demoted to package-private, `RestFilters` gateway created per DEC-M3-16; (2) Gradle/JPMS scope alignment — `implementation` → `api` for state-store in rest-api `build.gradle.kts`. 6 files created, 13 modified, +22 test methods. Sixteenth work unit via Claude Code.
+
+**Previous: M3.6d-b (PersistenceFactory + HomeSynapseCore) — COMPLETE** (committed 2026-05-21 `dfb045e`, build GREEN)
 
 **Previous: M3.6d-a (Composition-Root Satellite Changes) — COMPLETE** (committed 2026-05-20 `25bc23b`, build GREEN)
 
@@ -51,7 +53,9 @@ Created `EventBusConfig` record (replayQueueCapacity, publisherBlockedDepthThres
 
 ### Recent governance work (no code, design-only)
 
-**2026-05-22 WUCP Phase 2 — M3.6d-b (Cowork)** — Governance/context maintenance session closing M3.6d-b (`dfb045e`). OR-M3-14 RESOLVED (all three prerequisite infrastructure gaps closed). OQ-05-03 RESOLVED (prerequisites bundled into M3.6d-b). All hivemind artifacts updated to reflect composition root fully wired.
+**2026-05-22 WUCP Phase 2 — M3.6e.1 (Cowork)** — Governance/context maintenance session closing M3.6e.1 (`[PENDING-COMMIT]`). OR-M3-15 (Xlint:exports gateway pattern) + OR-M3-16 (Gradle/JPMS scope alignment) logged and resolved. M3.6e.2 coding instruction produced. All hivemind artifacts updated.
+
+**2026-05-22 WUCP Phase 2 — M3.6d-b (Cowork)** — Governance/context maintenance session closing M3.6d-b (`dfb045e`). OR-M3-14 RESOLVED. OQ-05-03 RESOLVED. M3.6e.1 coding instruction produced.
 
 **2026-05-20 WUCP Phase 2 — M3.6c + M3.6d-a + DEC-M3-17 (Cowork)** — Governance/context maintenance session closing M3.6c (`38d3e30`) and M3.6d-a (`25bc23b`). M3.6d sub-divide propagated through Current_State/Knowledge_Primer/backlog/weekly plan. DEC-M3-17 logged (HealthSignal + HealthLevel transitive promotion; DEC-M3-16 addendum). coder-handoff.md "FOUR OPEN" framing corrected to "ZERO OPEN" (all four 2026-05-20 WUs were GREEN at commit). OR-M3-12 (resolved in this closeout), OR-M3-13 (reconciliation metadata feature gap), OR-M3-14 (M3.6d-b prerequisite infrastructure) added.
 
@@ -65,13 +69,12 @@ Created `EventBusConfig` record (replayQueueCapacity, publisherBlockedDepthThres
 
 ### Next sequence
 
-1. **M3.6e.1 coding instruction** — PM produces (this session). StateQueryService + REST gate: `MaterializedStateQueryService`, `ReadinessFilter` Javalin `before` handler, Javalin server bootstrap in `HomeSynapseCore`, thread pool sizing on `DeploymentProfile`. Estimated 4–5h Coder time.
-2. **M3.6e.1 execution** — Claude Code.
-3. **M3.6e.2** (admin endpoints + ArchUnit rules) → **M3.7** (E2E integration tests). Total M3.6/3.7 remaining: **~15–20h** Coder time.
+1. **M3.6e.2 execution** — Claude Code. Admin endpoints (DlqAdminEndpoint, ProjectionRebuildEndpoint, ProjectionStatusEndpoint) + entity query endpoints (GetStateEndpoint, GetStatesEndpoint, GetSnapshotEndpoint) + ArchUnit rules. Coding instruction produced 2026-05-22. Estimated 4–6h Coder time.
+2. **M3.7** — E2E integration tests. Total M3 remaining: **~10–14h** Coder time (M3.6e.2 + M3.7).
 
-**Build:** GREEN at `dfb045e`. ~1,550+ @Test methods across ~700+ Java files, 20 modules.
+**Build:** GREEN at `[PENDING-COMMIT]`. ~1,575+ @Test methods across ~706+ Java files, 20 modules.
 
-**Active governance:** AMD-41/42/43 APPLIED (2026-05-16). DEC-M3-14, DEC-M3-15 added (2026-05-17). DEC-M3-16 added (2026-05-20). DEC-M3-17 added (2026-05-20 — DEC-M3-16 addendum, HealthSignal + HealthLevel transitive promotion). No pending amendments.
+**Active governance:** AMD-41/42/43 APPLIED (2026-05-16). DEC-M3-14, DEC-M3-15 added (2026-05-17). DEC-M3-16 added (2026-05-20). DEC-M3-17 added (2026-05-20 — DEC-M3-16 addendum). No pending amendments.
 
 ---
 
@@ -98,16 +101,16 @@ M3.6b EventBusConfig + InProcessEventBus     ← COMPLETE (2026-05-20) df2743a
 M3.6c Per-module event-class manifests       ← COMPLETE (2026-05-20) 38d3e30
 M3.6d-a Composition-root satellite changes   ← COMPLETE (2026-05-20) 25bc23b
 M3.6d-b PersistenceFactory + HomeSynapseCore ← COMPLETE (2026-05-21) dfb045e (4-commit cohort)
-M3.6e.1 StateQueryService + REST gate        ← NEXT — M3.6 CAPSTONE (PLAN-M3 §10)
-M3.6e.2 Admin endpoints + ArchUnit rules
+M3.6e.1 StateQueryService + REST gate        ← COMPLETE (2026-05-22) [PENDING-COMMIT]
+M3.6e.2 Admin endpoints + ArchUnit rules     ← NEXT
 M3.7  End-to-end integration tests
 ```
 
-M3.6d was sub-divided into d-a (satellite changes — landed 2026-05-20 `25bc23b`) and d-b (composition-root wiring — landed 2026-05-21 `dfb045e`) per the user's Option A decision after Coder pushback identified 7 source-vs-brief mismatches. M3.6d-b incorporated all three OR-M3-14 prerequisite infrastructure pieces and shipped as a 4-commit cohort. OR-M3-14 RESOLVED.
+M3.6d was sub-divided into d-a + d-b per the user's Option A decision. M3.6e.1 delivered the StateQueryService + REST readiness gate + Javalin bootstrap (2026-05-22). M3.6e.2 is the final M3.6 sub-WU.
 
-The M3.6 sub-WUs are specified in `homesynapse-core-docs/design/2026-05-20_M3.6_Composition_Root_Design.md`. Critical path: M3.6e.1 → M3.6e.2 → M3.7. M3.6e scope expanded (2026-05-20): +Javalin server, +3 admin endpoints (M3.5b gap), +6 ArchUnit rules. Split into M3.6e.1/M3.6e.2 to manage risk.
+The M3.6 sub-WUs are specified in `homesynapse-core-docs/design/2026-05-20_M3.6_Composition_Root_Design.md`. Critical path: **M3.6e.2 → M3.7**. M3.6e scope expanded (2026-05-20): +Javalin server, +3 admin endpoints (M3.5b gap), +6 ArchUnit rules. Split into M3.6e.1/M3.6e.2 to manage risk.
 
-Estimated total Coder time remaining for M3.6 + M3.7: M3.6e.1 (4–5h) + M3.6e.2 (5–7h) + M3.7 (6–8h) = **15–20h** spread across three separate compile-and-commit units.
+Estimated total Coder time remaining for M3: M3.6e.2 (4–6h) + M3.7 (6–8h) = **10–14h** spread across two separate compile-and-commit units.
 
 ---
 
@@ -146,10 +149,10 @@ For full decision rationale and future re-opening conditions, see `PLAN-M3-CONSO
 | Surface | Role | Primary Output |
 |---------|------|----------------|
 | **This Claude Project** | PM / architect | Task instructions, design decisions, governance artifacts, architecture compliance |
-| **Claude Code** | Java implementation | Production code, tests, MODULE_CONTEXT updates (**M3.1 through M3.6d-b executed via Claude Code — fifteen WUs**) |
+| **Claude Code** | Java implementation | Production code, tests, MODULE_CONTEXT updates (**M3.1 through M3.6e.1 executed via Claude Code — sixteen WUs**) |
 | **Cowork** | Documentation, audits, design docs, context relay | Documentation updates, cross-tier audits, design sessions (e.g. 2026-05-19 cross-tier audit, 2026-05-20 gap-closure + M3.6 composition-root design), spot-check reviews |
 
-Claude Code is the primary implementation surface. M3.1 through M3.6d-b validated the workflow across fifteen work units: PM generates task instruction → Claude Code executes in `acceptEdits` mode with `git commit/push/gradlew` denied → Nick reviews with `git diff`, runs build gate, commits. Cowork handles documentation-only tasks, audits, and design sessions where the output is markdown rather than code.
+Claude Code is the primary implementation surface. M3.1 through M3.6e.1 validated the workflow across sixteen work units: PM generates task instruction → Claude Code executes in `acceptEdits` mode with `git commit/push/gradlew` denied → Nick reviews with `git diff`, runs build gate, commits. Cowork handles documentation-only tasks, audits, and design sessions where the output is markdown rather than code.
 
 ### Claude Code Configuration
 
@@ -177,7 +180,7 @@ Every work unit requires two phases before the next unit can start:
 
 A stale hivemind (WUCP Phase 2 not run) blocks all forward work. The PM skill's freshness preflight enforces this.
 
-**CURRENT:** M3.6d-b reconciled in WUCP Phase 2 (2026-05-22). Hivemind status: PASS. No outstanding prerequisites block M3.6e.1.
+**CURRENT:** M3.6e.1 reconciled in WUCP Phase 2 (2026-05-22). Hivemind status: PASS. No outstanding prerequisites block M3.6e.2.
 
 ---
 
@@ -215,7 +218,7 @@ Self-contained documents. All context is inlined because Cowork has no persisten
 
 Six work units reconciled: Bus-Fix Piece A (`fceafe8`), M3.5b (`08d0136`), Projection-Checkpoint Wiring (`56aaa4b`), Supervisor DLQ Wiring (`ed5862c`), M3.4a (`5ae7912`), M3.4b (`adf04d2`). Two design sessions logged: cross-tier deployment audit (2026-05-19), gap-closure + M3.6 design (2026-05-20). `testing/integration-tests/MODULE_CONTEXT.md` populated. Freshness preflight: PASS.
 
-**No outstanding prerequisites block M3.6e.1.**
+**No outstanding prerequisites block M3.6e.2.**
 
 ### Audit Findings Folded into M3.6 (2026-05-19 cross-tier audit + 2026-05-20 design)
 
@@ -250,7 +253,13 @@ Audit findings NOT addressed in M3.6 (stay open as documented MINOR per audit ve
 **Projection-checkpoint wiring — RESOLVED** (2026-05-19 `56aaa4b`).
 **Supervisor DLQ wiring — RESOLVED** (2026-05-19 `ed5862c`).
 **SqliteStateStore implements StateCheckpointSource — RESOLVED** (2026-05-20 `25bc23b` / M3.6d-a). `serialize(int)` renamed to `serializeCheckpoint(int)` and promoted to public via the interface; `loadedProjectionVersion()` promoted to public via the interface. Class itself remains package-private — only the two interface methods are externally visible.
-**Composition-root wiring — COMPLETE** (M3.6d-a `25bc23b` + M3.6d-b `dfb045e`). M3.6d-a shipped skeletons (`HomeSynapseConfig`, `SharedScheduler`, `ThrowingStateQueryService`). M3.6d-b shipped the actual wiring: `PersistenceFactory` (public gateway, 8 accessors), `HomeSynapseCore` (12-step bootstrap, implements `ReadinessSource`), plus three OR-M3-14 prerequisite pieces. The `stateQueryService()` method currently returns `ThrowingStateQueryService` — replaced by `MaterializedStateQueryService` in M3.6e.1.
+**Composition-root wiring — COMPLETE** (M3.6d-a `25bc23b` + M3.6d-b `dfb045e` + M3.6e.1 `[PENDING-COMMIT]`). M3.6d-a shipped skeletons. M3.6d-b shipped the actual wiring: `PersistenceFactory` (public gateway), `HomeSynapseCore` (12-step bootstrap). M3.6e.1 expanded to 14-step bootstrap: added `MaterializedStateQueryService` wiring (replacing `ThrowingStateQueryService`) + Javalin HTTP server on port 7070 with readiness filter. The composition root is now externally queryable.
+
+### Tracked Items from M3.6e.1 (2026-05-22)
+
+**OR-M3-15 — Xlint:exports gateway pattern — RESOLVED.** `ReadinessFilter` (public) referenced `io.javalin.http.Handler` from non-transitive `requires io.javalin`. Fix: demote `ReadinessFilter` to package-private, create `RestFilters` public gateway with `Object`-typed parameter per DEC-M3-16 pattern. Pattern codified for future REST endpoints: any public class in an exported package that references a framework type from a non-transitive dependency must use the gateway pattern.
+
+**OR-M3-16 — Gradle/JPMS scope alignment — RESOLVED.** `requires transitive com.homesynapse.state` in rest-api module-info required `api(project(":core:state-store"))` in build.gradle.kts (was `implementation`). Rule: `requires transitive` → `api`; plain `requires` → `implementation`. Lesson added to coder-lessons.md.
 
 ### Tracked Items from M3.6d-a (2026-05-20)
 
@@ -356,4 +365,4 @@ nexsys-hivemind/context/audits/2026-05-19_cross-tier-deployment-audit.md # 2026-
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.
+**Last verified against:** `homesynapse-core` commit `[PENDING-COMMIT]` on `2026-05-22`.

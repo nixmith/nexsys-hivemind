@@ -5,7 +5,7 @@ audience: All
 update-cadence: per-milestone
 state-type: current
 status: CURRENT
-last-verified: 2026-05-22 against commit dfb045e
+last-verified: 2026-05-22 against commit [PENDING-COMMIT]
 -->
 
 # Phase 3 Milestone Backlog — ACTIVE
@@ -65,7 +65,7 @@ The first real production implementation. M2.x delivers the event-sourced storag
 
 ## Major M3 — Event Bus & Downstream Subsystem Implementation
 
-*Updated 2026-05-22 (Post-M3.6d-b WUCP Phase 2 closure; OR-M3-14 RESOLVED).* M3 governance (AMD-41/42/43, PLAN-M3-CONSOLIDATED-02, DEC-M3-01..17) defines the authoritative implementation plan and milestone ordering. DEC-M3-11 specifies: M3.1 → M3.5a → M3.2 → M3.3 → M3.4 → M3.5b → M3.6 → M3.7. The actual landing order (driven by Nick's session sequencing) is: M3.1 → M3.2 → M3.3 → M3.5a → Bus-Fix Piece A → M3.5b → projection-checkpoint wiring → supervisor DLQ wiring → M3.4a → M3.4b → M3.6a → M3.6b → M3.6c → M3.6d-a → M3.6d-b. M3.6e.1 NEXT.
+*Updated 2026-05-22 (Post-M3.6e.1 WUCP Phase 2 closure; sixteen CC WUs total).* M3 governance (AMD-41/42/43, PLAN-M3-CONSOLIDATED-02, DEC-M3-01..17) defines the authoritative implementation plan and milestone ordering. DEC-M3-11 specifies: M3.1 → M3.5a → M3.2 → M3.3 → M3.4 → M3.5b → M3.6 → M3.7. The actual landing order (driven by Nick's session sequencing) is: M3.1 → M3.2 → M3.3 → M3.5a → Bus-Fix Piece A → M3.5b → projection-checkpoint wiring → supervisor DLQ wiring → M3.4a → M3.4b → M3.6a → M3.6b → M3.6c → M3.6d-a → M3.6d-b → M3.6e.1. M3.6e.2 NEXT.
 
 ### M3 Milestones and intra-milestone work units
 
@@ -86,8 +86,8 @@ The first real production implementation. M2.x delivers the event-sourced storag
 | **M3.6c** | Per-module event-class manifests. `EventTypes.CORE_PRODUCTION_EVENT_CLASSES` (22) + `IntegrationEvents.LIFECYCLE_EVENT_CLASSES` (5) aggregated via `Stream.concat` at composition root. Closes Q3 gap closure (Artifact 1). Third of five M3.6 sub-WUs. | core/event-model + integration/integration-api + core/persistence (test) + testing/integration-tests (test) | **DONE 2026-05-20** | `38d3e30` | 1 new file + 4 modified. Refactor-only — no net test additions. Thirteenth CC WU. |
 | **M3.6d-a** | Composition-root satellite changes. SqliteStateStore implements StateCheckpointSource (serialize → serializeCheckpoint rename + public via interface). QueueSaturationHealthCheck + HealthSignal + HealthLevel promoted to public (DEC-M3-17 — transitive chain). ReadinessSource public interface in core/state-store. ReconciliationTest 4 of 5 methods (5th deferred — OR-M3-13). Tier 9 reconciliationOnVersionMismatch un-disabled + implemented. Lifecycle module skeletons: HomeSynapseConfig (public record) + SharedScheduler (package-private final, 50 ms refill + 1 s tick) + ThrowingStateQueryService (package-private final). Module-info `requires transitive` for persistence/event.bus/state-store + non-transitive `requires org.slf4j`. SLF4J follow-up fix applied same-day. Closes audit D3-08. Fourth of six (was five — d-a + d-b split) M3.6 sub-WUs. | core/persistence + core/event-bus + core/state-store + lifecycle | **DONE 2026-05-20** | `25bc23b` | 18 files (6 new + 12 modified). Tests added: SharedSchedulerTest (5) + ReconciliationTest (4) + Tier 9 un-disabled (1). Fourteenth CC WU. |
 | **M3.6d-b** | PersistenceFactory + HomeSynapseCore (composition-root wiring). 4-commit cohort: WriteCoordinator.queueSize(), SqliteSubscriberReadConnectionFactory, PersistenceFactory + SqlitePersistenceLifecycle 6-store expansion, HomeSynapseCore 12-step bootstrap. OR-M3-14 RESOLVED. Fifth of six M3.6 sub-WUs. Fifteenth CC WU. | persistence + lifecycle | **DONE 2026-05-21** | `dfb045e` | 20 files, +1,432 lines. Build GREEN. |
-| **M3.6e.1** | StateQueryService + REST gate (M3.6 capstone). First half of expanded M3.6e scope. | state-store + rest-api + lifecycle | **NEXT** | — | M3.6e scope expansion: split into e.1 (query + REST) and e.2 (admin + ArchUnit). Estimated 4–5h Coder time. |
-| **M3.6e.2** | Admin endpoints + ArchUnit rules. Second half of expanded M3.6e scope. | rest-api + multiple | **PLANNED** | — | — |
+| **M3.6e.1** | MaterializedStateQueryService + ReadinessFilter + RestFilters (DEC-M3-16 gateway) + Javalin bootstrap (14-step) + DeploymentProfile thread pool sizing. Two fix rounds (Xlint:exports, Gradle/JPMS scope). 7 deviations (none blocking). Sixth of seven M3.6 sub-WUs. Sixteenth CC WU. | state-store + rest-api + persistence + lifecycle | **DONE 2026-05-22** | `[PENDING-COMMIT]` | 6 created, 13 modified. +22 test methods. Build GREEN (139 tasks). OR-M3-15 + OR-M3-16 logged and resolved. |
+| **M3.6e.2** | Admin endpoints (DlqAdminEndpoint, ProjectionRebuildEndpoint, ProjectionStatusEndpoint) + entity query endpoints (GetStateEndpoint, GetStatesEndpoint, GetSnapshotEndpoint) + ArchUnit rules. Final M3.6 sub-WU. | rest-api + multiple | **NEXT** | — | Coding instruction produced 2026-05-22. |
 | **M3.7** | End-to-end integration tests across the full subsystem graph. | testing/integration-tests + multiple | **PLANNED** | — | Sequenced after M3.6 (composition root must exist before E2E can wire the full stack). |
 
 ### Committed M3 design artifacts (not milestones — informational)
@@ -104,7 +104,7 @@ These are referenced from milestone instructions but are not themselves work uni
 
 | Major group | Subsystem | Dependencies | Status | Notes |
 |---|---|---|---|---|
-| **M3** | Event Bus (production impl) | persistence (M2) | **ACTIVE** | M3.1–M3.6d-b + intra-milestone WUs done (fifteen Claude Code WUs total). M3.6e.1 NEXT. M3.6e.2 + M3.7 PLANNED. See M3 Milestones above. |
+| **M3** | Event Bus (production impl) | persistence (M2) | **ACTIVE** | M3.1–M3.6e.1 + intra-milestone WUs done (sixteen Claude Code WUs total). M3.6e.2 NEXT. M3.7 PLANNED. See M3 Milestones above. |
 | **M4** | State Store (projection impl) | event-bus (M3), persistence (M2) | PLANNED | Largely delivered via M3.5a + M3.5b vertical-slice approach. Remaining M4 scope: full StateQueryService implementation and the rest of the projection surface. |
 | **M5** | Platform API + test-support | no hard deps (can run parallel with M3/M4 scaffold work) | PLANNED | PlatformPaths implementations (Linux, development); HealthReporter; test-support module produces InMemoryEventStore / SynchronousEventBus / TestClock / NoRealIoExtension. |
 | **M6** | Configuration System | state-store (M4), persistence (M2.10) | PLANNED | YAML loading pipeline; JSON Schema validation; secret store (AES-256-GCM); hot reload with atomic swap; `ConfigurationAccess` + `ConfigurationProvider` impls |
@@ -194,6 +194,21 @@ These are referenced from milestone instructions but are not themselves work uni
 - **Build gate:** GREEN at commit.
 - **Audit findings closed:** D1-07, D4-09.
 
+## WUCP Phase 2 Closeout Entry — M3.6e.1 (2026-05-22)
+
+### M3.6e.1 — MaterializedStateQueryService + REST Readiness Gate + Javalin Bootstrap
+- **Status:** DONE
+- **Date:** 2026-05-22 (WUCP Phase 2 completed same day)
+- **Commit:** `[PENDING-COMMIT]`
+- **Scope:** `MaterializedStateQueryService` (public final in state-store, static factory `create(StateProjection)`, implements all 5 `StateQueryService` methods). `ReadinessFilter` (package-private in rest-api, Javalin `before` handler, 503 + JSON when not LIVE). `RestFilters` (public final in rest-api, DEC-M3-16 gateway with `Object`-typed parameter erasing Javalin from public API surface). `ProblemType.STATE_STORE_REPLAYING` (new enum constant). `HomeSynapseCore` 14-step bootstrap (expanded from 12: added `MaterializedStateQueryService` wiring + Javalin server on port 7070). `DeploymentProfile` gains `httpThreads()` and `httpMaxThreads()` (STUDIO 1/4, HOME 2/8, PERFORMANCE 4/16). 6 files created, 13 modified across state-store, rest-api, persistence, lifecycle.
+- **Tests:** 22 new test methods — `MaterializedStateQueryServiceTest` (7 unit), `ReadinessFilterTest` (6 unit), `RestFiltersTest` (2 unit), `HomeSynapseCoreTest` (7 additions).
+- **Build gate:** GREEN. Full `./gradlew check` PASS (139 tasks, 0 failures). Confirmed by Nick after two fix rounds.
+- **Fix rounds:** (1) `-Xlint:exports` on `ReadinessFilter` — demoted to package-private, created `RestFilters` gateway (OR-M3-15). (2) Gradle/JPMS scope alignment — `implementation` → `api` for state-store in rest-api `build.gradle.kts` (OR-M3-16).
+- **Deviations (7, none blocking):** D-1 `MaterializedStateQueryService` static factory (not public constructor); D-2 `ReadinessFilter` package-private + `Responder` SPI for testability; D-3–D-7 informational (ProblemType addition, DeploymentProfile inline thread pool fields, expanded HomeSynapseCoreTest, RestFilters gateway, Gradle scope fix).
+- **OR-M3-15 logged + RESOLVED:** Xlint:exports gateway pattern.
+- **OR-M3-16 logged + RESOLVED:** Gradle/JPMS scope alignment.
+- **Status:** CLOSED. No follow-up actions.
+
 ## WUCP Phase 2 Closeout Entry — M3.6d-b (2026-05-22)
 
 ### M3.6d-b — PersistenceFactory + HomeSynapseCore Composition-Root Wiring
@@ -244,4 +259,4 @@ These are referenced from milestone instructions but are not themselves work uni
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.
+**Last verified against:** `homesynapse-core` commit `[PENDING-COMMIT]` on `2026-05-22`.

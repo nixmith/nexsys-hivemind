@@ -5,7 +5,7 @@ audience: Coder, PM
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-22 against commit dfb045e
+last-verified: 2026-05-22 against commit [PENDING-COMMIT]
 -->
 
 # Coder Session Handoff
@@ -18,10 +18,12 @@ Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/h
 
 ## Deferred Build Gate
 
-**Status:** 1 OPEN — M3.6e.1 build gate deferred to Nick (sandbox prohibits `./gradlew` per project CLAUDE.md). Prior milestones M3.6a through M3.6d-b all reached GREEN.
+**Status:** 0 OPEN — all milestones through M3.6e.1 have reached GREEN.
+
+### Resolved at commit
 
 ### M3.6e.1 + XLINT_EXPORTS_FIX — MaterializedStateQueryService + REST Readiness Gate (2026-05-22)
-**Commit:** (uncommitted in working tree). **Build:** NOT VERIFIED in-session — Nick owns the compile gate per project CLAUDE.md. Initial M3.6e.1 commit failed `./gradlew check` with `-Xlint:exports` errors on `ReadinessFilter` (Javalin types leaked through a non-transitive `requires`). PM issued a follow-up fix brief (`M3.6e.1_XLINT_EXPORTS_FIX.md`) on the same day; the fix is applied in the same uncommitted working tree as the original WU.
+**Commit:** `[PENDING-COMMIT]`. **Build:** GREEN. Full `./gradlew check` PASS (139 tasks, 0 failures). Confirmed by Nick. Initial M3.6e.1 commit failed `./gradlew check` with `-Xlint:exports` errors on `ReadinessFilter` (Javalin types leaked through a non-transitive `requires`). PM issued a follow-up fix brief (`M3.6e.1_XLINT_EXPORTS_FIX.md`) on the same day; the fix is applied in the same working tree as the original WU. Second fix round corrected Gradle/JPMS scope alignment (`implementation` → `api` for state-store in rest-api). Both fix rounds resolved before GREEN.
 
 **Fix delta (2026-05-22):**
 - `ReadinessFilter.java` — class declaration `public final class` → `final class` (now package-private). No other changes.
@@ -334,16 +336,15 @@ MODULE_CONTEXT.md updated: `core/persistence/MODULE_CONTEXT.md` (added M3.4b got
 
 ## Next Work Unit
 
-**M3.6e.1 — StateQueryService + REST gate.** The M3.6 capstone (first of two e sub-WUs). Scope: `MaterializedStateQueryService` implementing `StateQueryService`, `ReadinessFilter` as Javalin `before` handler, Javalin server bootstrap in `HomeSynapseCore`, thread pool sizing on `DeploymentProfile`. Awaiting PM coding instruction.
+**M3.6e.2 — Admin Endpoints + ArchUnit Rules.** Final M3.6 sub-WU. PM coding instruction produced 2026-05-22. Scope: admin endpoints (DlqAdminEndpoint, ProjectionRebuildEndpoint, ProjectionStatusEndpoint), entity query endpoints (GetStateEndpoint, GetStatesEndpoint, GetSnapshotEndpoint), and ArchUnit rules (including QUERY_SERVICE_READ_ONLY). After M3.6e.2, M3 is complete.
 
 ### Key context for the next coder session
 
-1. **Composition root is fully wired.** `HomeSynapseCore` at `dfb045e` implements the 12-step bootstrap: PersistenceFactory → bus → rate limiter → state projection → subscribers → health check → scheduler → started. `stateQueryService()` currently returns `ThrowingStateQueryService` — M3.6e.1 replaces this with the real `MaterializedStateQueryService`.
-2. **`ReadinessSource` interface exists** (M3.6d-a, `core/state-store`). Single method `mode() → SubscriberMode`. `HomeSynapseCore` implements it via delegation to `stateProjection.currentMode()` when started, `COLD` otherwise. `ReadinessFilter` will consume this.
-3. **`ThrowingStateQueryService` is the placeholder** (M3.6d-a, `lifecycle`). Package-private final, all 5 methods throw `IllegalStateException("StateQueryService not yet wired — available after M3.6e")`. M3.6e.1 replaces this with the real implementation.
-4. **Javalin thread pool sizing decided:** STUDIO(1/4), HOME(2/8), PERFORMANCE(4/16) on `DeploymentProfile`.
-5. **`ReadinessFilter` decided:** Javalin `before` handler (option a from the M3.6 design doc).
-6. **M3.6e.2 follows** with admin endpoints (DlqAdminEndpoint, ProjectionRebuildEndpoint, ProjectionStatusEndpoint) + 6 ArchUnit rules.
+1. **Composition root is externally queryable.** `HomeSynapseCore` at `[PENDING-COMMIT]` implements a 14-step bootstrap including Javalin server on port 7070 with readiness filter. `stateQueryService()` now returns the real `MaterializedStateQueryService`.
+2. **`ReadinessFilter` + `RestFilters` gateway already exist** (M3.6e.1, `api/rest-api`). `ReadinessFilter` is package-private; `RestFilters.installReadinessGate(Object, ReadinessSource)` is the DEC-M3-16 public gateway. New endpoints can use the same pattern.
+3. **`MaterializedStateQueryService` is wired** (M3.6e.1, `core/state-store`). Public final, static factory `create(StateProjection)`. Implements all 5 `StateQueryService` methods. Returns `Optional.empty()` / empty `Map` when projection not LIVE.
+4. **`DeploymentProfile` has HTTP thread pool fields** (M3.6e.1). `httpThreads()` and `httpMaxThreads()` — STUDIO(1/4), HOME(2/8), PERFORMANCE(4/16).
+5. **`ProblemType.STATE_STORE_REPLAYING` exists** (M3.6e.1). HTTP 503 problem type for readiness-gated responses. New admin endpoints can use the same `ProblemType` pattern.
 
 ### M3.6b Lessons (2026-05-20)
 
@@ -367,7 +368,7 @@ MODULE_CONTEXT.md updated: `core/persistence/MODULE_CONTEXT.md` (added M3.4b got
 
 ## Build Status
 
-Working tree clean. HEAD at `dfb045e` on `main`. Last GREEN full-project `./gradlew check`: `dfb045e` (2026-05-21, confirmed by Nick). M3.6a through M3.6d-b all committed and GREEN.
+HEAD at `[PENDING-COMMIT]` on `main`. Last GREEN full-project `./gradlew check`: `[PENDING-COMMIT]` (2026-05-22, 139 tasks, 0 failures, confirmed by Nick). M3.6a through M3.6e.1 all committed and GREEN. Sixteen Claude Code work units completed.
 
 ---
 
@@ -391,4 +392,4 @@ Older M3.5a / M3.3 / M3.2 / AMD-38/39 / D1 / M2→M3 Bridge rollup also in `arch
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.
+**Last verified against:** `homesynapse-core` commit `[PENDING-COMMIT]` on `2026-05-22`.

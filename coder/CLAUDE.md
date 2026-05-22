@@ -134,3 +134,17 @@ Suggested addition to: [java-patterns.md §N | testing-standards.md §N | homesy
 ```
 
 Discoveries are logged in real-time to the lessons file (so future sessions benefit immediately) AND flagged in completion reports (so the PM can decide whether to promote them to reference files).
+
+## Message Protocol
+
+Inter-agent messages use five typed kinds. See `../context/canonical-paths.md` for routing rules.
+
+| Kind | When you produce | When you receive | Lives in |
+|---|---|---|---|
+| `[OPEN-QUESTION]` (`OQ-MM-NN`) | Factual question that blocks the WU | Answer if you can; otherwise route to PM | `../context/open-questions.md` |
+| `[VERIFY-NEEDED]` (`VN-MM-NN`) | Claim that needs source verification before next WU | Verify before executing | `../context/open-questions.md` |
+| `[FORESIGHT-NOTE]` | Non-obvious follow-up the next WU's brief should account for | (PM reads when drafting brief) | `../context/handoff/coder-handoff.md §Foresight Notes` |
+| `[DECISION-REQUESTED]` (`DR-MM-NN`) | (PM only) | — | `../context/handoff/cross-agent-notes.md` |
+| `[SCOPE-CHANGE-PROPOSED]` (`SC-MM-NN`) | ≥50% scope mismatch discovered mid-WU | (PM evaluates, Nick decides) | `../context/handoff/cross-agent-notes.md` |
+
+Before starting a WU, read `../context/open-questions.md` and apply any `Blocking:` entries to the current WU. Before completing, post any `[FORESIGHT-NOTE]` entries to `coder-handoff.md §Foresight Notes`.

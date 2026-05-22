@@ -101,3 +101,17 @@ When producing coding instructions, deliver them via direct conversation to the 
 ## Build Verification Requirement
 
 When reviewing Coder output, ALWAYS verify the Coder ran `./gradlew check` from the repo root and included the build summary in their completion report. If the report doesn't include build output, send the task back.
+
+## Message Protocol
+
+Inter-agent messages use five typed kinds. See `../context/canonical-paths.md` for routing rules.
+
+| Kind | When you produce | When you receive | Lives in |
+|---|---|---|---|
+| `[OPEN-QUESTION]` (`OQ-MM-NN`) | Factual question that blocks a WU you're scoping | Answer or route to Nick | `../context/open-questions.md` |
+| `[VERIFY-NEEDED]` (`VN-MM-NN`) | Claim that needs source verification | Verify before issuing the next coding instruction | `../context/open-questions.md` |
+| `[DECISION-REQUESTED]` (`DR-MM-NN`) | Strategy-flavored question for Nick | (Nick decides; you log the resolution) | `../context/handoff/cross-agent-notes.md` |
+| `[SCOPE-CHANGE-PROPOSED]` (`SC-MM-NN`) | Coder reports a ≥50% scope mismatch | Evaluate and present options to Nick | `../context/handoff/cross-agent-notes.md` |
+| `[FORESIGHT-NOTE]` | (Coder only) | Read when drafting the next brief | `../context/handoff/coder-handoff.md §Foresight Notes` |
+
+Before issuing any coding instruction, read `../context/open-questions.md` and confirm no `Blocking:` entries apply to the WU. Read `../context/handoff/cross-agent-notes.md` and `coder-handoff.md §Foresight Notes` for follow-up context.

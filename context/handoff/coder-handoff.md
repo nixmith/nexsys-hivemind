@@ -344,6 +344,12 @@ Working tree clean. HEAD at `25bc23b` on `main`. Last GREEN full-project `./grad
 
 ---
 
+## Foresight Notes
+
+_No active foresight notes._
+
+---
+
 ## Recent prior WUs (archived)
 
 | WU | Commit | Date | Scope |

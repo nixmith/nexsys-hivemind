@@ -35,19 +35,32 @@ does this subsystem do, and what specific piece of it are we building right now?
 
 ## Files to Read Before Starting
 
-[MODULE_CONTEXT.md files and source files the Coder MUST read before writing any
-code. Always include the relevant MODULE_CONTEXT.md files — they contain the
-cross-module contracts and gotchas that prevent bugs.]
+[MODULE_CONTEXT.md files, `module-info.java` files, and source files the Coder
+MUST read before writing any code. Always include the relevant MODULE_CONTEXT.md
+files (cross-module contracts + gotchas) AND the relevant `module-info.java`
+files (verbatim JPMS module names + `requires` / `exports` graph). Type names
+without module names produced ~6 fabricated JPMS module names in Research 6
+(2026-05-22) even when type inventories were correct — both are required.]
 
 | File | Why |
 |---|---|
 | `[module]/MODULE_CONTEXT.md` | Complete type inventory, cross-module contracts, gotchas for the target module |
+| `[module]/src/main/java/module-info.java` | Verbatim JPMS module name and `requires`/`exports` graph — the authoritative source for module identifiers |
 | `[dependency]/MODULE_CONTEXT.md` | Cross-module contracts and gotchas for each dependency module |
+| `[dependency]/src/main/java/module-info.java` | Verbatim JPMS module name + `requires`/`exports` for each dependency |
 | `[specific source file]` | [Reason — existing pattern to match, interface to implement against, etc.] |
 
-**Rule:** Every MODULE_CONTEXT.md in the dependency chain should be listed here.
-The Coder reads these BEFORE reading individual source files to build
-understanding of the module landscape.
+**Rule:** Every MODULE_CONTEXT.md AND every `module-info.java` in the dependency
+chain should be listed here. The Coder reads MODULE_CONTEXT.md for type
+inventories and `module-info.java` for module identifiers BEFORE writing any
+code that mentions a module or package name. The Knowledge Primer's module
+descriptions are summaries — always cross-check JPMS module names against the
+actual `module-info.java`.
+
+**Embedding rule for coding instructions:** When the instruction includes
+proposed JPMS changes (new `requires`, new `exports`, new module names), quote
+the current `module-info.java` verbatim in the Technical Specification section
+and show the proposed diff. Do not paraphrase module names.
 
 ## Files to Create or Modify
 

@@ -5,14 +5,14 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-05-22 against commit 76288af
 -->
 
 # Strategic Context Map
 
 This is the NexSys development system's map of the entire knowledge base. Use it to quickly locate relevant context before acting on any request. Nick maintains strategic context via claude.ai Projects; the PM and Coder use this map for operational context.
 
-**Last structural update:** 2026-05-20 (staleness audit — §1/§2/§6 updated to post-M3.6b state, module table expanded to 20, amendment/invariant counts updated)
+**Last structural update:** 2026-05-22 (M3.6 closeout sweep — §1/§2 advanced to M3.6 COMPLETE, production-file count refreshed to ~721+, M3.7 next).
 **Update this file** whenever new context files are added, moved, or retired.
 
 ---
@@ -24,13 +24,13 @@ An infrastructure company building the operating system and trust layer for the 
 
 **Founder:** Nick (nick@nexsys.io)
 **Domains:** nexsys.io (company), homesynapse.com (product)
-**Current phase:** P3 — Implementation (test-first). Pre-revenue. 14 design docs Locked. **~476+ production Java files across 16 JPMS-compiled modules** (plus 3 scaffold-only modules: platform-systemd, test-support, dashboard; plus 1 classpath-only test module: testing/integration-tests — 20 Gradle modules total). Phase 2 FROZEN 2026-03-20 after Blocks A–S. Phase 3 through M3.6d-a complete (2026-05-20); next work unit M3.6d-b.
+**Current phase:** P3 — Implementation (test-first). Pre-revenue. 14 design docs Locked. **~721+ production Java files across 16 JPMS-compiled modules** (plus 3 scaffold-only modules: platform-systemd, test-support, dashboard; plus 1 classpath-only test module: testing/integration-tests — 20 Gradle modules total). Phase 2 FROZEN 2026-03-20 after Blocks A–S. Phase 3 through **M3.6 COMPLETE** (2026-05-22 at `76288af`, seventeen Claude Code WUs through M3.6e.2); next work unit **M3.7** (E2E integration tests, scoping via research pipeline).
 
 ### Product Constellation
 
 | Product | Type | Phase | Status |
 |---|---|---|---|
-| **HomeSynapse Core** | Smart home OS (free, Apache 2.0) | P3 Test-First Impl | 14 design docs Locked; Phase 2 FROZEN; 20 Gradle modules (16 JPMS-compiled + 3 scaffold + 1 IT); **~476+ production Java files**; ~1,465+ tests; M3.6d-a complete 2026-05-20, M3.6d-b NEXT |
+| **HomeSynapse Core** | Smart home OS (free, Apache 2.0) | P3 Test-First Impl | 14 design docs Locked; Phase 2 FROZEN; 20 Gradle modules (16 JPMS-compiled + 3 scaffold + 1 IT); **~721+ production Java files**; ~1,594+ tests; M3.6 COMPLETE 2026-05-22 at `76288af`, M3.7 NEXT (E2E integration tests) |
 | **HomeSynapse Connect** | Cloud subscription ($7.99/mo) | Phase 1 | Spec'd, not built |
 | **HomeSynapse Cloud Pro** | Premium cloud ($14.99/mo) | Phase 1 | Spec'd, not built |
 | **HomeSynapse Hub** | Hardware ($149) | Phase 1 | Spec'd, no manufacturing |

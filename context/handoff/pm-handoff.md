@@ -68,10 +68,11 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 ## Next Tasks (Priority Order)
 
-1. **Nick: DQ-1/2/3/5 strategic calls** for Research 4 v3. PM-recommendations recorded in the v2 body; DQ-4 already resolved this session via MODULE_CONTEXT verification. Once Nick decides DQ-1/2/3/5, Research 4 finalizes and AMD-48..52 firm up.
-2. **Nick: issue the Research 6 brief** (`context/instructions/Research_6_Integration_Runtime_Brief.md`) to the Claude Project. Research 6 (Integration Runtime) is the next pipeline item — sequenced ahead of Research 5/7 because it constrains M4 IntegrationContext lifecycle design.
-3. **M3.7 coding instruction** (after Research 6 lands and PM-assessment is complete). E2E integration tests. Pre-M3.7 OR-M3-17/OR-M3-18 placeholder resolution is also required.
-4. **Phase 2 traceability debt** — 10 stub indexes remain (docs 02–11, 13, 14). Low priority; batch later.
+1. **Nick: NQ-1..6 strategic calls** for Research 6 v1 (`context/assessments/2026-05-22_Research_6_PM_Assessment.md`). PM recommendations recorded inline. Once Nick decides NQ-1..6, Research 6 finalizes and AMD-53..58 + AMD-60/62/63 proceed to ratification (AMD-61 already withdrawn).
+2. **Nick: DQ-1/2/3/5 strategic calls** for Research 4 v3. PM recommendations recorded in v2 body; DQ-4 already resolved. Once Nick decides DQ-1/2/3/5, Research 4 finalizes and AMD-48..52 firm up.
+3. **Nick: issue the next research brief** to the Claude Project. Candidates: Research 5 (Configuration, M6) or Research 7 (REST/WebSocket, M10/M11). PM recommendation: **Research 5 next** because it feeds the same M4-amendment-deliberation window as Research 4/6/8 — config-schema migration shape (REC-41 `migrate(...)` interaction) and per-adapter config secret model (REC-45 `SecurityServices`) both depend on the configuration system's chosen patterns. Research 7 has the longest lead time and can wait.
+4. **M3.7 coding instruction** (after the M4 amendment-deliberation window closes — Research 4 v3 + Research 6 v2 + Research 5 v1 all need Nick dispositions). E2E integration tests. Pre-M3.7 OR-M3-17/OR-M3-18 placeholder resolution is also required.
+5. **Phase 2 traceability debt** — 10 stub indexes remain (docs 02–11, 13, 14). Low priority; batch later.
 
 ## Open Risks
 

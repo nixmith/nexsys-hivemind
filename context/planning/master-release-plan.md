@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: future
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-05-22 against commit 76288af
 -->
 
 # HomeSynapse V1 — Master Release Plan
@@ -30,7 +30,7 @@ CONFIDENTIAL — NexSys Internal
 | Week 11 — SQLite WAL spike | Week of May 25 | SQLite WAL spike validation 2026-04-02 (commit `d48df13`). ~7 weeks ahead. Result: PASSED, WAL mode viable on aarch64. |
 | Test-first prep (not an explicit plan item) | — | 2026-03-27 through 2026-04-09: event-model test suite, InMemoryEventStore implementation (27/27 contract tests pass), test fixtures for event-bus/device-model/state-store/integration-api/configuration, EventBusContractTest + InMemoryEventBus, WriteCoordinatorContractTest + InMemoryWriteCoordinator, EntityState/StateSnapshot/Availability/StateQueryService tests, AMD-33 (DomainEvent permanently non-sealed). |
 | Week 12 — Event Store (persistence) | Week of Jun 1 | **Landed Apr 10–11** as milestones M2.1 through M2.5: `@EventType` annotation, migration framework + V001 schema, DatabaseExecutor, serialization infrastructure, SqliteEventStore. ~7 weeks ahead of plan. Commits `b2c8b78`, `696ac37`, `d24f628`, `4b20786`, `d6a6065`, `5279e7a`. |
-| Weeks 13–14 — Event Bus + persistence wiring | Weeks of Jun 8–15 | **M2.6–M2.9 (persistence wiring) landed 2026-05-01.** M2-bridge (AMD-34–40, V001→25 columns, V002/V003) landed 2026-05-02. D1 WAL spike landed 2026-05-15. M3.1–M3.4b (event bus core, REPLAY→LIVE, backpressure, state projection, integration tests) landed 2026-05-16–19. M3.6a–M3.6b (composition-root prep) landed 2026-05-20. ~476+ production files, ~1,465+ tests, 20 modules. Still ~2–3 weeks ahead. |
+| Weeks 13–14 — Event Bus + persistence wiring | Weeks of Jun 8–15 | **M2.6–M2.9 (persistence wiring) landed 2026-05-01.** M2-bridge (AMD-34–40, V001→25 columns, V002/V003) landed 2026-05-02. D1 WAL spike landed 2026-05-15. M3.1–M3.4b (event bus core, REPLAY→LIVE, backpressure, state projection, integration tests) landed 2026-05-16–19. **M3.6 COMPLETE 2026-05-22 at `76288af`** (composition-root, MaterializedStateQueryService, Javalin bootstrap on :7070, admin/entity endpoints, 2 new ArchUnit rules — seventeen Claude Code WUs across the M3.6a..M3.6e.2 wave). ~721+ production files, ~1,594+ tests, 20 modules. Still ~2–3 weeks ahead; M3.7 next. |
 
 **What the plan called "Phase 1 — Interface Specification" is now the FROZEN Phase 2 block backlog in `phase-2-block-backlog.md`.** Internal project phase naming and Master Release Plan phase naming differ — the plan's "P2 Foundation Implementation" corresponds to internal Phase 3 (test-first implementation). The nexsys-hivemind governance uses internal project phase naming (P1 design docs, P2 interface specs, P3 implementation).
 

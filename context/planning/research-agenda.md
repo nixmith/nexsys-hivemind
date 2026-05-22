@@ -315,6 +315,22 @@ CONSTRAINTS:
   This document starts at REC-{next}.
 - Include §7 (Code-Level Implications) — specific Java records, interfaces,
   events, module-info changes.
+- **Use the verbatim type and module identifiers embedded below. Do not
+  paraphrase package names, module names, or type names.** Prior research
+  documents fabricated type names (Research 3/4/8 §7) and module names
+  (Research 6 §7.8) when these were not embedded verbatim — same failure
+  mode, different layer of the cake. Both layers must be embedded.
+
+VERIFIED IDENTIFIERS YOU MUST USE:
+- For every module the research touches, embed the verbatim contents of
+  `{module-path}/src/main/java/module-info.java` here. The JPMS module name
+  (e.g., `com.homesynapse.state`, NOT `com.homesynapse.state.store`) and the
+  exact `requires` / `requires transitive` / `exports` directives are
+  authoritative — do not paraphrase, do not infer from Knowledge Primer
+  summaries.
+- For every module the research touches, embed the verbatim
+  `MODULE_CONTEXT.md` §"Complete Type Inventory" (or equivalent) here. Use
+  these type names exactly — do not abbreviate, pluralize, or rename.
 
 OUTPUT: A single markdown document following the mandatory format.
 Do not truncate. Produce the complete document.

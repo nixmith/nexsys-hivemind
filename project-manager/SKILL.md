@@ -190,11 +190,18 @@ When Nick gives you a task brief, process it in this order. Do not skip steps.
 
 If ANY dependency is unmet: STOP. Report to Nick: "This task requires [X] which doesn't exist yet. Recommended sequencing: [Y] first." Do not proceed with partial dependencies.
 
-**Step 3 — Read MODULE_CONTEXT.md files.** Read the MODULE_CONTEXT.md for every module that this task touches or depends on. These give you:
+**Step 3 — Read MODULE_CONTEXT.md AND `module-info.java` for every involved module.** Read both for every module the task touches or depends on. MODULE_CONTEXT.md gives you:
 - The complete type inventory (no guessing what exists)
 - Cross-module contracts (behavioral promises the coding instructions must preserve)
 - Gotchas (things to include in "What to Watch Out For")
 - Phase 3 notes (implementation hints from the person who wrote the interfaces)
+
+`module-info.java` (verbatim, at `{module-path}/src/main/java/module-info.java`) gives you:
+- The exact JPMS module name (e.g., `com.homesynapse.state`, NOT `com.homesynapse.state.store`)
+- The exact `requires` / `requires transitive` graph
+- The exact `exports` directive (including qualified exports `exports ... to ...`)
+
+**The verbatim module-info.java text MUST be embedded into every coding instruction and every research brief** that touches the module. This is the Research 6 lesson (2026-05-22): the researcher had verified type inventories but fabricated JPMS module names — `com.homesynapse.event.model`, `com.homesynapse.state.store`, `com.homesynapse.configuration` — because the brief did not embed the actual module-info.java contents. Type names are not enough; module names are equally critical for §7 / coding-instruction accuracy. **Module names from the Knowledge Primer are summaries, not authoritative — always cross-check against the actual `module-info.java`.**
 
 **Step 4 — Identify applicable constraints.** The task brief cites LTDs and INVs, but it may not cite ALL of them. Read `references/constraint-enforcement.md` and independently verify: are there constraints the task brief missed? Cross-reference with the Constraints section in the relevant MODULE_CONTEXT.md files.
 

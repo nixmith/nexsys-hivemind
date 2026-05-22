@@ -5,16 +5,16 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-22 against commit [PENDING-COMMIT]
+last-verified: 2026-05-22 against commit 76288af
 -->
 
 # PM Session Handoff
 
-**Last updated:** 2026-05-22 (WUCP Phase 2 — M3.6e.1 closure, build GREEN 139 tasks)
+**Last updated:** 2026-05-22 (WUCP Phase 2 — M3.6e.2 closure, M3.6 COMPLETE, seventeen CC WUs)
 
 ## Current Task
 
-None. M3.6a through M3.6e.1 all PM-accepted (M3.6e.1 at `[PENDING-COMMIT]`, 2026-05-22). Build GREEN at HEAD (full `./gradlew check` PASS, 139 tasks, 0 failures). WUCP Phase 2 complete for all six M3.6 sub-WUs through e.1. Next work unit is **M3.6e.2** — admin endpoints (DlqAdminEndpoint, ProjectionRebuildEndpoint, ProjectionStatusEndpoint) + ArchUnit rules. M3.6e.2 coding instruction produced this session.
+None. M3.6 COMPLETE — all seven sub-WUs PM-accepted (M3.6e.2 at `76288af`, 2026-05-22). Build GREEN at HEAD. WUCP Phase 2 complete for all M3.6 sub-WUs. Seventeen Claude Code work units total. Next: **M3.7** scoping via research pipeline.
 
 ## Phase 3 Work Unit Status
 
@@ -43,8 +43,8 @@ None. M3.6a through M3.6e.1 all PM-accepted (M3.6e.1 at `[PENDING-COMMIT]`, 2026
 | **M3.6c** | Per-module event-class manifests (Q3 gap closure) | **DONE 2026-05-20** | `38d3e30` |
 | **M3.6d-a** | Composition-root satellite changes (SqliteStateStore→StateCheckpointSource, DEC-M3-17 visibility chain, ReadinessSource, ReconciliationTest 4/5, Tier 9 un-disabled, HomeSynapseConfig + SharedScheduler + ThrowingStateQueryService skeletons, SLF4J wiring) | **DONE 2026-05-20** | `25bc23b` |
 | **M3.6d-b** | PersistenceFactory + HomeSynapseCore (composition-root wiring) — WriteCoordinator.queueSize(), SqliteSubscriberReadConnectionFactory, SqlitePersistenceLifecycle 6-store expansion, PersistenceFactory public gateway, HomeSynapseCore 12-step bootstrap | **DONE 2026-05-21** | `dfb045e` (4-commit cohort: `a33ee40`..`dfb045e`) |
-| **M3.6e.1** | MaterializedStateQueryService + ReadinessFilter + RestFilters + Javalin bootstrap + DeploymentProfile thread pool sizing. Two follow-up fix rounds (Xlint:exports gateway, Gradle/JPMS scope). 7 deviations (none blocking). 6 created, 13 modified. | **DONE 2026-05-22** | `[PENDING-COMMIT]` |
-| **M3.6e.2** | Admin endpoints + ArchUnit rules (M3.6 final sub-WU) | **NEXT** | — |
+| **M3.6e.1** | MaterializedStateQueryService + ReadinessFilter + RestFilters + Javalin bootstrap + DeploymentProfile thread pool sizing. Two follow-up fix rounds (Xlint:exports gateway, Gradle/JPMS scope). 7 deviations (none blocking). 6 created, 13 modified. | **DONE 2026-05-22** | `b71ed37` |
+| **M3.6e.2** | Admin endpoints (DlqStatusEndpoint, ProjectionStatusEndpoint) + entity query endpoints (ListEntitiesEndpoint, GetEntityEndpoint, GetEntityStateEndpoint) + EndpointContext SPI + 2 RestFilters gateway methods + 2 ArchUnit rules + HomeSynapseCore 16-step bootstrap. 15 created, 6 modified, 19 test methods. 5 deviations (none blocking). M3.6 COMPLETE. Seventeenth CC WU. | **DONE 2026-05-22** | `76288af` |
 
 ## Design Doc Status
 
@@ -60,7 +60,7 @@ All 14 design documents Locked. Phase 2 interface specification frozen as of 202
 
 ## Outstanding Coding Instructions
 
-**M3.6e.2 coding instruction** produced this session. Admin endpoints (DlqAdminEndpoint, ProjectionRebuildEndpoint, ProjectionStatusEndpoint) + entity query endpoints (GetStateEndpoint, GetStatesEndpoint, GetSnapshotEndpoint) + ArchUnit rules. Awaiting Claude Code execution. Remaining M3.6 sub-WU: M3.6e.2 only.
+None. M3.6e.2 executed and committed at `76288af`. M3.6 is COMPLETE.
 
 ## Unresolved Deviations
 
@@ -68,22 +68,32 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 ## Next Tasks (Priority Order)
 
-1. **Execute M3.6e.2 coding instruction (Claude Code).** Admin endpoints (DlqAdminEndpoint, ProjectionRebuildEndpoint, ProjectionStatusEndpoint) + entity query endpoints (GetStateEndpoint, GetStatesEndpoint, GetSnapshotEndpoint) + ArchUnit rules. Coding instruction produced this session. Final M3.6 sub-WU.
-2. **WUCP Phase 2 for M3.6e.2** (after M3.6e.2 ships). Standard closeout.
-3. **M3.7 planning** (after M3.6e.2 closes). Next major milestone group.
+1. **Nick: DQ-1/2/3/5 strategic calls** for Research 4 v3. PM-recommendations recorded in the v2 body; DQ-4 already resolved this session via MODULE_CONTEXT verification. Once Nick decides DQ-1/2/3/5, Research 4 finalizes and AMD-48..52 firm up.
+2. **Nick: issue the Research 6 brief** (`context/instructions/Research_6_Integration_Runtime_Brief.md`) to the Claude Project. Research 6 (Integration Runtime) is the next pipeline item — sequenced ahead of Research 5/7 because it constrains M4 IntegrationContext lifecycle design.
+3. **M3.7 coding instruction** (after Research 6 lands and PM-assessment is complete). E2E integration tests. Pre-M3.7 OR-M3-17/OR-M3-18 placeholder resolution is also required.
 4. **Phase 2 traceability debt** — 10 stub indexes remain (docs 02–11, 13, 14). Low priority; batch later.
 
 ## Open Risks
 
+#### OR-M3-17 — NO_OP_DERIVATION placeholder (NEW 2026-05-22)
+- **Severity:** MEDIUM (placeholder blocks M3.7 E2E tests)
+- **Detail:** `HomeSynapseCore` step 5 uses `NO_OP_DERIVATION` (`Function.identity()` cast to `Function<EntityState, EntityState>`) as the derivation function in `StateProjection.create(...)`. This is a placeholder — the real derivation logic lands when a consumer defines `state_changed` event derivation per DEC-M3-10. Must be resolved before M3.7 to ensure E2E tests exercise the full projection pipeline.
+- **Resolution:** Open. Resolve as part of M3.7 scoping or as a pre-M3.7 wiring WU.
+
+#### OR-M3-18 — NO_OP_ADVANCER placeholder (NEW 2026-05-22)
+- **Severity:** MEDIUM (placeholder blocks M3.7 E2E tests)
+- **Detail:** `HomeSynapseCore` step 5 uses `NO_OP_ADVANCER` (a lambda returning `AdvanceResult.empty()`) as the `ProjectionAdvancer`. This is a placeholder — the real advancer lands when checkpoint advancement logic is wired. Must be resolved before M3.7.
+- **Resolution:** Open. Resolve as part of M3.7 scoping or as a pre-M3.7 wiring WU.
+
 #### OR-M3-15 — Xlint:exports gateway pattern (NEW 2026-05-22)
 - **Severity:** LOW (lesson learned, not regression)
 - **Detail:** M3.6e.1 hit `-Xlint:exports` failures because `ReadinessFilter` (public class in exported package) referenced `io.javalin.http.Handler` from a non-transitive `requires io.javalin`. Fix: demote `ReadinessFilter` to package-private, create public `RestFilters` gateway with `Object`-typed parameter that erases the framework type from the public API surface. This is DEC-M3-16's gateway pattern applied to REST infrastructure. Two follow-up fix rounds required.
-- **Resolution:** RESOLVED in M3.6e.1 at `[PENDING-COMMIT]`. Pattern codified for future REST endpoints.
+- **Resolution:** RESOLVED in M3.6e.1 at `b71ed37`. Pattern codified for future REST endpoints.
 
 #### OR-M3-16 — Gradle/JPMS scope alignment (NEW 2026-05-22)
 - **Severity:** LOW (lesson learned, not regression)
 - **Detail:** M3.6e.1 second fix round: `requires transitive com.homesynapse.state` in rest-api's module-info.java required corresponding `api(project(":core:state-store"))` in build.gradle.kts (was `implementation`). Without `api`, downstream modules can't see the transitive dependency through JPMS. Pattern: `requires transitive` → `api`; plain `requires` → `implementation`.
-- **Resolution:** RESOLVED in M3.6e.1 at `[PENDING-COMMIT]`. Rule added to coder-lessons.md.
+- **Resolution:** RESOLVED in M3.6e.1 at `b71ed37`. Rule added to coder-lessons.md.
 
 #### OR-M3-12 — DEC-M3-17 governance entry (NEW 2026-05-20)
 - **Severity:** LOW (governance hygiene)
@@ -126,11 +136,11 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 ## Decisions Made This Session (2026-05-22)
 
-- **M3.6e.1 WUCP Phase 2 completed.** All governance artifacts updated. Sixteen CC WUs total.
-- **M3.6e.2 coding instruction produced.** Admin endpoints + entity query endpoints + ArchUnit rules. Scope includes content originally assigned to M3.6e.2 by the M3.6 design doc plus entity query endpoints from PLAN-M3 §10 that M3.6e.1 did not deliver.
-- **OR-M3-15 + OR-M3-16 logged and resolved.** Xlint:exports gateway pattern and Gradle/JPMS scope alignment lessons from M3.6e.1's two fix rounds.
-- **OR-M3-14 RESOLVED (prior session):** All three prerequisite infrastructure pieces shipped in M3.6d-b's 4-commit cohort.
-- **OQ-05-03 RESOLVED (prior session):** The three prerequisite gaps were bundled into M3.6d-b (not split into a separate WU).
+- **M3.6e.2 WUCP Phase 2 completed.** All governance artifacts updated. Seventeen CC WUs total. M3.6 COMPLETE.
+- **M3.6e.2 delivered and committed at `76288af`.** 5 endpoint handlers, 2 RestFilters gateway methods, 2 ArchUnit rules, EndpointContext SPI, 16-step bootstrap. 5 deviations (all non-blocking, PM-accepted).
+- **OR-M3-17 + OR-M3-18 logged (open).** NO_OP_DERIVATION and NO_OP_ADVANCER placeholders in HomeSynapseCore. Must be resolved before M3.7.
+- **OR number collision fixed.** Coder's OR-M3-15/OR-M3-16 (NO_OP placeholders) renumbered to OR-M3-17/OR-M3-18 to avoid collision with PM's OR-M3-15 (Xlint:exports) and OR-M3-16 (Gradle/JPMS scope), both RESOLVED.
+- **No new DECs needed.** EndpointContext SPI and ArchUnit rule patterns are implementation details within the existing DEC-M3-16 gateway framework.
 
 ### Decisions from prior sessions (carried for reference)
 
@@ -150,7 +160,7 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 ## Critical Path
 
-**M3.6e.2 → M3.7** (M3.6a through M3.6e.1 all DONE; e.1 at `[PENDING-COMMIT]` 2026-05-22). M3.6e.2 coding instruction produced. Estimated ~4–6h Coder time. After M3.6e.2, M3 is complete and M4 planning begins.
+**M3.7** (M3.6 COMPLETE — all seven sub-WUs shipped through M3.6e.2 at `76288af` 2026-05-22). M3.7 scoping via research pipeline in progress. Estimated ~6–8h Coder time. After M3.7, M3 is complete and M4 planning begins.
 
 ## Open Risks/Concerns from M3 Closeout Readiness Deliberation
 
@@ -165,7 +175,8 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 | WU | Commit | Date | Scope |
 |---|---|---|---|
-| M3.6e.1 | `[PENDING-COMMIT]` | 2026-05-22 | MaterializedStateQueryService + ReadinessFilter + RestFilters (DEC-M3-16 gateway) + Javalin bootstrap (14-step) + DeploymentProfile thread pool sizing. Two fix rounds (Xlint:exports, Gradle/JPMS scope). 7 deviations (none blocking). 6 created, 13 modified, +22 test methods. Sixteenth CC WU. |
+| M3.6e.2 | `76288af` | 2026-05-22 | Admin endpoints (DlqStatusEndpoint, ProjectionStatusEndpoint) + entity query endpoints (ListEntitiesEndpoint, GetEntityEndpoint, GetEntityStateEndpoint) + EndpointContext SPI + 2 RestFilters gateway methods + 2 ArchUnit rules (QUERY_SERVICE_READ_ONLY, REST_ENDPOINTS_NO_EVENT_PUBLISHING) + HomeSynapseCore 16-step bootstrap. 15 created, 6 modified, 19 test methods. 5 deviations (none blocking). Seventeenth CC WU. M3.6 COMPLETE. |
+| M3.6e.1 | `b71ed37` | 2026-05-22 | MaterializedStateQueryService + ReadinessFilter + RestFilters (DEC-M3-16 gateway) + Javalin bootstrap (14-step) + DeploymentProfile thread pool sizing. Two fix rounds (Xlint:exports, Gradle/JPMS scope). 7 deviations (none blocking). 6 created, 13 modified, +22 test methods. Sixteenth CC WU. |
 | M3.6d-b | `dfb045e` | 2026-05-21 | PersistenceFactory + HomeSynapseCore composition-root wiring (4-commit cohort: `a33ee40`..`dfb045e`). WriteCoordinator.queueSize(), SqliteSubscriberReadConnectionFactory, SqlitePersistenceLifecycle 6-store expansion, PersistenceFactory public gateway, HomeSynapseCore 12-step bootstrap. 20 files, +1,432 lines. OR-M3-14 RESOLVED. |
 
 ## Completed Since Last Update (2026-05-20)
@@ -198,11 +209,56 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 ---
 
+## M3.6e.2 — PM Closeout — 2026-05-22
+
+**Work unit:** M3.6e.2 — Admin Endpoints + ArchUnit Rules
+**Coder surface:** Claude Code (seventeenth CC WU)
+**Build gate:** RESOLVED. Full `./gradlew check` GREEN at `76288af`. Build confirmed by Nick.
+
+**Scope:** Delivers the final M3.6 sub-WU — admin/operational endpoints, entity query endpoints, and architectural enforcement rules. M3.6 is COMPLETE after this WU.
+
+**Key deliverables:**
+1. **5 endpoint handlers** (all package-private in rest-api): `ListEntitiesEndpoint`, `GetEntityEndpoint`, `GetEntityStateEndpoint`, `DlqStatusEndpoint`, `ProjectionStatusEndpoint`.
+2. **`EndpointContext` SPI** (package-private interface + `JavalinEndpointContext` adapter): Implementation-level abstraction isolating endpoint handlers from Javalin framework types. Not in the original coding instruction — Coder-introduced for testability.
+3. **`EndpointResponses`** (package-private utility): Shared response serialization helpers.
+4. **2 `RestFilters` gateway methods** (`addEntityEndpoints`, `installAdminEndpoints`): Public entry points with `Object`-typed parameters per DEC-M3-16.
+5. **2 ArchUnit rules** (`QUERY_SERVICE_READ_ONLY`, `REST_ENDPOINTS_NO_EVENT_PUBLISHING`): Enforce read-only discipline and event-publish isolation for REST endpoints. Total ArchUnit rules now 9.
+6. **`HomeSynapseCore` 16-step bootstrap** (expanded from 14): Steps 13–14 register entity query endpoints and admin endpoints via `RestFilters` gateway.
+7. **19 test methods** across 5 test classes + 2 test helpers (`RecordingEndpointContext`, `FakeStateQueryService`).
+
+**Deviations (5, none blocking):**
+1. **[REVIEW] D-1** — `ListEntitiesEndpoint` omits `subjectType` field (not on `EntityState` record).
+2. **[REVIEW] D-2** — `DlqStatusEndpoint` uses `dlqDepth`/`crashCount` from `SubscriberSnapshot` instead of brief's `parkedCount`/`oldestParkedAt`.
+3. **[REVIEW] D-3** — `REST_ENDPOINTS_NO_EVENT_PUBLISHING` uses `accessClassesThat().belongToAnyOf(EventPublisher.class)` instead of brief's `callMethodWhere` form.
+4. **[INFO] D-4** — Both `LongSupplier` args at `RestFilters.installAdminEndpoints` wired to `stateProjection::cursorPosition`.
+5. **[INFO] D-5** — Extra `sortDescReversesOrder` test (19 total instead of brief's ~18).
+
+**OR number collision fixed:** Coder's OR-M3-15 (NO_OP_DERIVATION) and OR-M3-16 (NO_OP_ADVANCER) renumbered to OR-M3-17 and OR-M3-18 to avoid collision with PM's OR-M3-15 (Xlint:exports, RESOLVED) and OR-M3-16 (Gradle/JPMS scope, RESOLVED).
+
+**Stats:** 15 files created, 6 modified. +19 test methods.
+
+**WUCP Phase 2 completed:**
+- [x] PROJECT_SNAPSHOT.md updated (M3.6e.2 DONE, M3.6 COMPLETE, M3.7 NEXT, code state, seventeen CC WUs)
+- [x] pm-handoff.md updated (this entry)
+- [x] coder-handoff.md updated (OR collision fixed, deferred gate resolved, M3.6e.2 content)
+- [x] phase-3-milestone-backlog.md M3.6e.2 marked DONE; M3.7 NEXT
+- [x] 2026-W21 weekly plan updated
+- [x] HomeSynapse_Current_State.md updated
+- [x] HomeSynapse_Knowledge_Primer.md updated
+- [x] Locked Decisions — no new DECs needed
+- [x] Dual-skill sync check
+- [x] OR-M3-17 + OR-M3-18 logged (open)
+- [x] MODULE_CONTEXT.md files — already updated by Coder during M3.6e.2 (rest-api + lifecycle); cannot verify from this session (homesynapse-core repo not mounted)
+
+**Next work unit:** M3.7 — E2E integration tests (scoping via research pipeline).
+
+---
+
 ## M3.6e.1 — PM Closeout — 2026-05-22
 
 **Work unit:** M3.6e.1 — StateQueryService + REST Readiness Gate
 **Coder surface:** Claude Code (sixteenth CC WU)
-**Build gate:** RESOLVED. Full `./gradlew check` GREEN at `[PENDING-COMMIT]`. 139 tasks, 0 failures. Two follow-up fix rounds required before GREEN.
+**Build gate:** RESOLVED. Full `./gradlew check` GREEN at `b71ed37`. 139 tasks, 0 failures. Two follow-up fix rounds required before GREEN.
 
 **Scope:** Delivers the StateQueryService implementation, REST readiness infrastructure, and Javalin HTTP server bootstrap. This is the first M3.6 sub-WU where the composition root becomes externally observable (HTTP port 7070).
 
@@ -338,4 +394,4 @@ Full PM closeout bodies for each row live in `archive/pm-handoff-2026-05.md`.
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `[PENDING-COMMIT]` on `2026-05-22`.
+**Last verified against:** `homesynapse-core` commit `76288af` on `2026-05-22`.

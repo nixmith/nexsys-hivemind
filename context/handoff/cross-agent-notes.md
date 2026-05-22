@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-05-22 against commit 76288af
 -->
 
 # Cross-Agent Notes
@@ -28,16 +28,6 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-## 2026-05-19 [Coder → PM, Hivemind]
-**Topic:** M3.6a — DatabaseExecutor + SqlitePersistenceLifecycle constructor signatures changed; testing/integration-tests harness updated
-**Detail:** M3.6a replaced two cross-module-visible production constructors. (1) `DatabaseExecutor(int readThreadCount, Clock)` → `DatabaseExecutor(DeploymentProfile, Clock)`; same shape for the decorator overload. (2) `SqlitePersistenceLifecycle(Path, int, Clock, HomeId, List)` → `SqlitePersistenceLifecycle(Path, PersistenceConfig, Clock, HomeId, List)`; same shape for the decorator overload. The `PersistenceTestHarness` factory triplet (`start`, `startWithWriteCoordinator`, `startThrottled`) similarly substitutes `PersistenceConfig` for `int readThreadCount`. `testing/integration-tests/IntegrationTestHarness.java` was updated in the same WU — passes `PersistenceConfig.HOME_DEFAULT` everywhere it previously passed `2`.
-**Action needed:**
-- PM: M3.6c onward must NOT reintroduce a raw-`int` form. The post-M3.6 YAML override path will construct `PersistenceConfig` instances directly; no additional constructor overload should be added.
-- ~~Hivemind: build gate is DEFERRED — see `coder-handoff.md` Deferred Build Gate section for the exact commands Nick must run. Track this as Open Risk until resolved.~~ **RESOLVED 2026-05-20:** Nick ran full `./gradlew check` + `:core:persistence:check` + `:core:event-bus:check` + `:testing:integration-tests:test -PpiProfile=throttled` — all GREEN. Build gate closed. No open risk.
-- Any in-flight work outside `core/persistence` and `testing/integration-tests` that touches these two constructors (none known) must update its call sites.
-
----
-
 ## 2026-05-17 [PM → Coder, Claude Code]
 **Topic:** M3.1 InProcessEventBus — prompt lessons and interface evolution pattern
 **Detail:** Three prompt gaps discovered during M3.1 that affect all future Cowork prompts:
@@ -51,8 +41,8 @@ Also: the ArchUnit rule `EVENT_BUS_DOES_NOT_IMPORT_SQLITE_DRIVER` referenced in 
 
 ## Archived
 
-Archived notes (older than ~2 weeks): see `archive/cross-agent-notes-2026-Q1.md` (Jan–Mar, 13 entries) and `archive/cross-agent-notes-2026-Q2.md` (Apr–Jun, 3 entries: 2026-04-10 M2.5 closeout + 2026-05-15 AMD-38/39 + 2026-05-15 V001 description).
+Archived notes (older than ~2 weeks): see `archive/cross-agent-notes-2026-Q1.md` (Jan–Mar, 13 entries) and `archive/cross-agent-notes-2026-Q2.md` (Apr–Jun, 4 entries: 2026-04-10 M2.5 closeout + 2026-05-15 AMD-38/39 + 2026-05-15 V001 description + 2026-05-19 M3.6a constructor changes).
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.
+**Last verified against:** `homesynapse-core` commit `76288af` on `2026-05-22`.

@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-22 against commit [PENDING-COMMIT]
+last-verified: 2026-05-22 against commit 76288af
 -->
 
 # HomeSynapse Core — Knowledge Primer
@@ -32,7 +32,7 @@ The source repo (`homesynapse-core`) contains the code. The companion repo (`hom
 
 **M3.1 (InProcessEventBus Core) completed 2026-05-16.** Production InProcessEventBus with 14 types (9 public + 5 package-private — see event-bus MODULE_CONTEXT for full inventory). Full subscriber lifecycle: Subscriber interface, SubscriberMode FSM, SubscriberSupervisor (backoff, circuit breaker), SubscriberDlq, ReplayWindowQueue, SubscriberRuntime. EventBusContractTest expanded from 18 to 44 methods (Tiers 1–8 active, Tiers 9–10 @Disabled). AMD-41/42/43 applied (state projection execution model, subscriber lifecycle/isolation, backpressure/observability). Architecture Invariants expanded to 94 (§19: BUS, PROJ, WRITER, SUB-ISO). Total test suite: ~1,200+ @Test methods across ~600+ Java files. Full build: GREEN.
 
-**M3 (Event Distribution + State Materialization) is the current milestone.** M3.1 through M3.6e.1 complete (sixteen Claude Code WUs). Next: M3.6e.2 (admin endpoints + ArchUnit rules — final M3.6 sub-WU). 7 sub-milestones total (M3.1–M3.7). Remaining: M3.6e.2 → M3.7 (~10–14h Coder time).
+**M3 (Event Distribution + State Materialization) is the current milestone.** M3.1 through M3.6e.2 complete (seventeen Claude Code WUs). M3.6 COMPLETE. Next: M3.7 (E2E integration tests). 7 sub-milestones total (M3.1–M3.7). Remaining: M3.7 (~6–8h Coder time).
 
 Phase 3 implementation follows a **contract-test-first approach** — M1 built all contract test suites and in-memory implementations before any production code ships (M2+). InMemoryEventStore (27/27 contract tests passing) was the first implementation target (2026-03-27) and serves as the model for all subsequent contract test suites.
 
@@ -40,7 +40,7 @@ Phase 3 implementation follows a **contract-test-first approach** — M1 built a
 
 ## Module Map
 
-Modules listed in dependency order. Each module has one flat Java package under `com.homesynapse.*`. MODULE_CONTEXT.md files have enriched first lines with package, type count, and architectural role for quick identification.
+Modules listed in dependency order. Each module has one flat Java package under `com.homesynapse.*` — verified against MODULE_CONTEXT.md and source on 2026-05-22 (PM Research 4 DQ-4 resolution). Earlier revisions of this section appended "+ subpackages" to a few modules (automation, device-model, integration-zigbee); that annotation was incorrect and has been removed below. The one-flat-package invariant per module is upheld across all 16 JPMS-compiled production modules. MODULE_CONTEXT.md files have enriched first lines with package, type count, and architectural role for quick identification.
 
 ### platform-api — `com.homesynapse.platform` + `com.homesynapse.platform.identity`
 Dependency root. Zero project dependencies. Typed ULID identity system (8 wrappers: DeviceId, EntityId, IntegrationId, AreaId, AutomationId, PersonId, HomeId, SystemId). The Ulid value type and UlidFactory are separate from the typed wrappers. Platform abstraction interfaces (PlatformPaths, HealthReporter).
@@ -51,8 +51,8 @@ Most important module. Universal event vocabulary. EventEnvelope (the immutable 
 ### event-bus — `com.homesynapse.event.bus`
 Pull-based, notification-driven event distribution. 33 production types (19 public + 14 package-private) after M3.6d-a — three types (QueueSaturationHealthCheck, HealthSignal, HealthLevel) promoted to public alongside the M3.6b InProcessEventBus promotion. See MODULE_CONTEXT for full inventory. Key public types: EventBus (8 methods including subscribeRuntime/resume/subscribers), Subscriber, SubscriberInfo, SubscriptionFilter, CheckpointStore, SubscriberMode (5-value FSM), SubscriberSnapshot, SubscriberReadConnectionFactory, SubscriberReadExecutor, EventBusConfig (M3.6b — 2-field record for operator-tunable bus parameters), InProcessEventBus (public as of M3.6b, DEC-M3-16 — canonical 7-arg constructor accepting EventBusConfig; `PUBLISHER_BLOCKED_DEPTH_THRESHOLD` is now an instance field from config, not a static constant), QueueSaturationHealthCheck + HealthSignal + HealthLevel (M3.6d-a, DEC-M3-17 — the 3-type chain is the minimum viable promotion because the constructor's `Consumer<HealthSignal>` parameter would trigger `-Xlint:exports` otherwise). Bus notifies via LockSupport.unpark(); subscribers pull from EventStore. Never pushes EventEnvelopes directly. ReplayWindowQueue capacity is parameterized (default 10,000 via no-arg constructor; custom via `ReplayWindowQueue(int maxCapacity)` — M3.6b).
 
-### device-model — `com.homesynapse.device` + subpackages
-Physical and logical device model. Entity (not Device) is the atomic addressable unit — a single physical device may produce multiple entities. Sealed Capability hierarchy, sealed AttributeValue hierarchy. Service interfaces for registries, validation, and discovery pipeline.
+### device-model — `com.homesynapse.device`
+Physical and logical device model. One flat package (verified 2026-05-22). Entity (not Device) is the atomic addressable unit — a single physical device may produce multiple entities. Sealed Capability hierarchy, sealed AttributeValue hierarchy. Service interfaces for registries, validation, and discovery pipeline.
 
 ### state-store — `com.homesynapse.state`
 Materialized view over the event stream. EntityState projects current state from events. StateProjection subscribes with coalesceExempt=true (must see every event). Availability enum lives here. ViewCheckpointStore (different from event-bus CheckpointStore). **The staleAfter + Clock staleness model is HomeSynapse's #1 architectural differentiator — proven at the data level by EntityStateTest (12 methods, M1.9).** M3.6d-a added the `ReadinessSource` public interface (single method `mode() → SubscriberMode`). M3.6e.1 added `MaterializedStateQueryService` (public final, static factory `create(StateProjection)`, implements all 5 `StateQueryService` methods — returns `Optional.empty()` / empty `Map` when projection not LIVE, no exceptions for callers). Total post-M3.6e.1: 21 public types + 1 package-private (`SelfProducedFilter`) = 22 production types.
@@ -64,8 +64,8 @@ SQLite storage. Two databases: main (events, state) and telemetry. TelemetryWrit
 
 M2→M3 bridge added 5 public types: DeploymentProfile (enum: STUDIO/HOME/PERFORMANCE with per-profile PRAGMA values; 8 fields — 3 original + 3 added in M3.6a: busyTimeoutMs, lockingMode, readThreadCount + 2 added in M3.6e.1: httpThreads, httpMaxThreads), PersistenceConfig (bundles profile + retention), RetentionPolicy (per-priority retention durations, SOURCE_DEFAULT from EventPriority Javadoc: 7d/90d/365d), MaintenanceSubscriber (interface: writer-executor-only, interval-based, bounded chunks per AMD-40), MaintenanceResult (record). V003 migration adds snapshots table and drops redundant idx_events_subject. M3.6a added package-private `LockingMode` enum (NORMAL, EXCLUSIVE). `DatabaseExecutor` constructor now accepts `DeploymentProfile profile` instead of `int readThreadCount`; hardcoded `CONNECTION_PRAGMAS` list replaced by `connectionPragmas(DeploymentProfile)` rendering method. `SqlitePersistenceLifecycle` constructor now accepts `PersistenceConfig config` instead of `int readThreadCount`; expanded from 4 stores to 6 in M3.6d-b (added `SqliteStateStore` + `SqliteDeadLetterStore`). M3.6d-a: `SqliteStateStore` now `implements StateCheckpointSource` (method renamed `serialize(int)` → `serializeCheckpoint(int)`; both `serializeCheckpoint` and `loadedProjectionVersion()` promoted to public via the interface). Class itself remains package-private. M3.6d-b added `PersistenceFactory` (public final, implements `AutoCloseable`) — wraps package-private `SqlitePersistenceLifecycle` per DEC-M3-16 factory pattern. Static `start(Path, PersistenceConfig, Clock, HomeId, List<Class<? extends DomainEvent>>)` factory; 8 accessor methods returning public interface types. Also added `SqliteSubscriberReadConnectionFactory` (public) + `SqliteSubscriberReadExecutor` (package-private) — production `SubscriberReadConnectionFactory` implementation.
 
-### automation — `com.homesynapse.automation` + subpackages
-Rule engine. Trigger → Condition → Action pipeline. Has 4 sealed hierarchies (Selector, TriggerDefinition, ConditionDefinition, ActionDefinition) — the highest concentration of any module. Conditions evaluate against positional state snapshots (AMD-03). Cascade depth limiting (AMD-04). Command execution ordering (AMD-31).
+### automation — `com.homesynapse.automation`
+Rule engine. **One flat package** — all ~52 types in `com.homesynapse.automation` (verified against `core/automation/MODULE_CONTEXT.md` line 55 and source tree on 2026-05-22; resolves Research 4 DQ-4). No `dispatch` or `evaluator` or `policy` sub-packages exist. Trigger → Condition → Action pipeline. Has 4 sealed hierarchies (Selector, TriggerDefinition, ConditionDefinition, ActionDefinition) — the highest concentration of any module. Conditions evaluate against positional state snapshots (AMD-03). Cascade depth limiting (AMD-04). Command execution ordering (AMD-31).
 
 ### configuration — `com.homesynapse.config`
 YAML 1.2 config loading, JSON Schema validation, AES-256-GCM encrypted secrets. ConfigModel is Map-based in Phase 2 (typed config objects are Phase 3+). ConfigurationChangeListener fires synchronously before the config_changed domain event is published.
@@ -76,11 +76,11 @@ The one module every protocol adapter depends on. Re-exports all core modules vi
 ### integration-runtime — `com.homesynapse.integration.runtime`
 OTP-style one-for-one supervisor. Manages adapter lifecycle, health monitoring, restart with backoff. ExceptionClassification (TRANSIENT/PERMANENT/SHUTDOWN_SIGNAL) drives retry decisions. Kahn's algorithm for startup ordering (AMD-14).
 
-### integration-zigbee — `com.homesynapse.integration.zigbee` + subpackages
-Zigbee 3.0 coordinator adapter. First and only MVP protocol adapter. IEEEAddress is a raw 64-bit long (NOT a ULID). Sealed ZigbeeFrame and ManufacturerCodec hierarchies. CoordinatorTransport (not thread-safe) vs CoordinatorProtocol (thread-safe). Route health monitoring (AMD-07).
+### integration-zigbee — `com.homesynapse.integration.zigbee`
+Zigbee 3.0 coordinator adapter. One flat package (verified 2026-05-22). First and only MVP protocol adapter. IEEEAddress is a raw 64-bit long (NOT a ULID). Sealed ZigbeeFrame and ManufacturerCodec hierarchies. CoordinatorTransport (not thread-safe) vs CoordinatorProtocol (thread-safe). Route health monitoring (AMD-07).
 
 ### rest-api — `com.homesynapse.api.rest` + subpackages
-HTTP command interface. RFC 9457 problem types. 4-phase command lifecycle (ISSUED → DISPATCHED → EXECUTING → result). Idempotency keys (AMD-08). ApiRequest.body is Object, not JsonNode. M3.6e.1 added `ReadinessFilter` (package-private Javalin `before` handler — returns 503 + JSON when not LIVE), `RestFilters` (public final utility, DEC-M3-16 gateway wrapping `ReadinessFilter` with `Object`-typed parameter to erase Javalin from public API surface), and `ProblemType.STATE_STORE_REPLAYING` (new enum constant for 503 responses). Module-info now has `requires transitive com.homesynapse.state`, `requires com.homesynapse.event.bus`, `requires io.javalin`, `requires org.slf4j`. 30 production types total (28 Phase 2 + 2 M3.6e.1).
+HTTP command interface. RFC 9457 problem types. 4-phase command lifecycle (ISSUED → DISPATCHED → EXECUTING → result). Idempotency keys (AMD-08). ApiRequest.body is Object, not JsonNode. M3.6e.1 added `ReadinessFilter` (package-private Javalin `before` handler — returns 503 + JSON when not LIVE), `RestFilters` (public final utility, DEC-M3-16 gateway wrapping `ReadinessFilter` with `Object`-typed parameter to erase Javalin from public API surface), and `ProblemType.STATE_STORE_REPLAYING` (new enum constant for 503 responses). M3.6e.2 added 8 package-private types: `EndpointContext` (SPI interface), `JavalinEndpointContext` (adapter), `EndpointResponses` (utility), `ListEntitiesEndpoint`, `GetEntityEndpoint`, `GetEntityStateEndpoint`, `DlqStatusEndpoint`, `ProjectionStatusEndpoint`. `RestFilters` gained 2 new public gateway methods (`addEntityEndpoints`, `installAdminEndpoints`). Module-info now has `requires transitive com.homesynapse.state`, `requires com.homesynapse.event.bus`, `requires io.javalin`, `requires org.slf4j`. 38 production types total (28 Phase 2 + 2 M3.6e.1 + 8 M3.6e.2).
 
 ### websocket-api — `com.homesynapse.api.websocket`
 Real-time event streaming. WsMessage sealed hierarchy. Three-stage backpressure: NORMAL → BATCHED → COALESCED. Commands are NOT accepted over WebSocket (read-only). WebSocket does NOT produce domain events.
@@ -89,7 +89,7 @@ Real-time event streaming. WsMessage sealed hierarchy. Three-stage backpressure:
 Health model (HealthStatus, HealthTier, LifecycleState), trace model, metrics, log control, JFR integration. HealthTier provides hierarchical aggregation (entity → integration → subsystem → system). Local-first tracing, not OpenTelemetry.
 
 ### lifecycle — `com.homesynapse.lifecycle`
-Process-level lifecycle orchestration. After M3.6e.1: 8 public + 2 package-private types. Phase 2 types (LifecyclePhase enum, SubsystemStatus enum, LifecycleEventType utility class, SubsystemState record, SystemHealthSnapshot record, SystemLifecycleManager interface) coexist with M3.6 composition-root types: `HomeSynapseConfig` (public record, 2 fields `PersistenceConfig persistence` + `EventBusConfig eventBus`, `HOME_DEFAULT` constant — M3.6d-a), `HomeSynapseCore` (public final, implements `ReadinessSource` — 14-step bootstrap after M3.6e.1: PersistenceFactory.start → BusMetrics.jfr → InProcessEventBus → DerivedWriteRateLimit → StateProjection.create → subscribeRuntime → healthSignalHandler → QueueSaturationHealthCheck → SharedScheduler → started=true → MaterializedStateQueryService.create → Javalin server on port 7070 with readiness filter; `DeploymentProfile` thread pool sizing: STUDIO 1/4, HOME 2/8, PERFORMANCE 4/16; 4-arg constructor `(Path, HomeSynapseConfig, Clock, HomeId)`; `stateQueryService()` returns real `MaterializedStateQueryService` — M3.6e.1; `stop()` tears down in reverse order), `SharedScheduler` (package-private final, 50 ms refill + 1 s tick — M3.6d-a), `ThrowingStateQueryService` (package-private final, kept as dead code — replaced by MaterializedStateQueryService in M3.6e.1). Module-info includes `requires transitive` for persistence, event.bus, state-store, plus non-transitive `requires org.slf4j`, `requires com.homesynapse.integration`, `requires com.homesynapse.api.rest`, `requires io.javalin`, `requires org.eclipse.jetty.util`. 10-phase sequential startup, no backward transitions. Fatal vs non-fatal subsystem classification. 30-second shutdown budget.
+Process-level lifecycle orchestration. After M3.6e.2: 8 public + 2 package-private types. Phase 2 types (LifecyclePhase enum, SubsystemStatus enum, LifecycleEventType utility class, SubsystemState record, SystemHealthSnapshot record, SystemLifecycleManager interface) coexist with M3.6 composition-root types: `HomeSynapseConfig` (public record, 2 fields `PersistenceConfig persistence` + `EventBusConfig eventBus`, `HOME_DEFAULT` constant — M3.6d-a), `HomeSynapseCore` (public final, implements `ReadinessSource` — 16-step bootstrap after M3.6e.2: PersistenceFactory.start → BusMetrics.jfr → InProcessEventBus → DerivedWriteRateLimit → StateProjection.create → subscribeRuntime → healthSignalHandler → QueueSaturationHealthCheck → SharedScheduler → started=true → MaterializedStateQueryService.create → Javalin server on port 7070 with readiness filter; `DeploymentProfile` thread pool sizing: STUDIO 1/4, HOME 2/8, PERFORMANCE 4/16; 4-arg constructor `(Path, HomeSynapseConfig, Clock, HomeId)`; `stateQueryService()` returns real `MaterializedStateQueryService` — M3.6e.1; `stop()` tears down in reverse order), `SharedScheduler` (package-private final, 50 ms refill + 1 s tick — M3.6d-a), `ThrowingStateQueryService` (package-private final, kept as dead code — replaced by MaterializedStateQueryService in M3.6e.1). Module-info includes `requires transitive` for persistence, event.bus, state-store, plus non-transitive `requires org.slf4j`, `requires com.homesynapse.integration`, `requires com.homesynapse.api.rest`, `requires io.javalin`, `requires org.eclipse.jetty.util`. 10-phase sequential startup, no backward transitions. Fatal vs non-fatal subsystem classification. 30-second shutdown budget.
 
 ### homesynapse-app — `com.homesynapse.app`
 Assembly apex. All `requires` are non-transitive. No exports. ApplicationAssembler wires all subsystems together — manual DI, no framework.
@@ -196,7 +196,9 @@ Types that are commonly looked for in the wrong module:
 | HealthLevel | event-bus (`com.homesynapse.event.bus`) — public enum (M3.6d-a, DEC-M3-17) | observability |
 | MaterializedStateQueryService | state-store (`com.homesynapse.state`) — public final (M3.6e.1) | lifecycle or rest-api |
 | ReadinessFilter | rest-api (`com.homesynapse.api.rest`) — **package-private** (M3.6e.1) | lifecycle or state-store |
-| RestFilters | rest-api (`com.homesynapse.api.rest`) — public final utility (M3.6e.1, DEC-M3-16 gateway) | lifecycle |
+| RestFilters | rest-api (`com.homesynapse.api.rest`) — public final utility (M3.6e.1, DEC-M3-16 gateway; expanded M3.6e.2 with `addEntityEndpoints` + `installAdminEndpoints`) | lifecycle |
+| EndpointContext | rest-api (`com.homesynapse.api.rest`) — **package-private** interface (M3.6e.2 SPI) | lifecycle or state-store |
+| JavalinEndpointContext | rest-api (`com.homesynapse.api.rest`) — **package-private** (M3.6e.2 adapter for EndpointContext) | lifecycle |
 
 ---
 
@@ -204,9 +206,15 @@ Types that are commonly looked for in the wrong module:
 
 These are the specific mistakes that AI agents commonly make on this codebase. Each one has caused incorrect code or analysis in past sessions.
 
+**M3.6e.2 corrections (2026-05-22):**
+- `HomeSynapseCore` bootstrap is **16 steps**, not 14. M3.6e.2 added entity query endpoint registration + admin endpoint registration via `RestFilters` gateway.
+- rest-api has **38 production types** (28 Phase 2 + 2 M3.6e.1 + 8 M3.6e.2). The 8 new types are all package-private (5 endpoint handlers + EndpointContext SPI + JavalinEndpointContext adapter + EndpointResponses utility).
+- ArchUnit rules are now **9** (7 original + 2 M3.6e.2). New: `QUERY_SERVICE_READ_ONLY` (REST endpoints cannot access persistence directly) and `REST_ENDPOINTS_NO_EVENT_PUBLISHING` (REST endpoints cannot publish events). The latter uses `accessClassesThat().belongToAnyOf(EventPublisher.class)` form.
+- `RestFilters` now has **3 public methods** (1 from M3.6e.1 + 2 from M3.6e.2): `installReadinessGate`, `addEntityEndpoints`, `installAdminEndpoints`. All use `Object`-typed parameters per DEC-M3-16.
+
 **M3.6e.1 corrections (2026-05-22):**
 - DeploymentProfile has **8 fields**, not 3 or 6. M3.6a added 3 (busyTimeoutMs, lockingMode, readThreadCount); M3.6e.1 added 2 (httpThreads, httpMaxThreads).
-- `HomeSynapseCore` bootstrap is **14 steps**, not 12. M3.6e.1 added MaterializedStateQueryService wiring + Javalin server on port 7070.
+- `HomeSynapseCore` bootstrap is **16 steps** (14 from M3.6e.1, expanded to 16 in M3.6e.2). M3.6e.1 added MaterializedStateQueryService wiring + Javalin server on port 7070.
 - `stateQueryService()` returns **MaterializedStateQueryService**, not `ThrowingStateQueryService`. Replaced in M3.6e.1.
 - rest-api is no longer "zero requires" — M3.6e.1 added `requires transitive com.homesynapse.state`, `requires com.homesynapse.event.bus`, `requires io.javalin`, `requires org.slf4j`.
 - `ReadinessFilter` is **package-private** (not public). DEC-M3-16 gateway pattern: `RestFilters.installReadinessGate(Object, ReadinessSource)` is the public entry point. The `Object` parameter deliberately erases `io.javalin.Javalin`.
@@ -283,7 +291,7 @@ These are the specific mistakes that AI agents commonly make on this codebase. E
 - EventPublisher has exactly two methods: `publish(EventDraft, CausalContext)` and `publishRoot(EventDraft)`. Both are **synchronous and WAL-durable** (INV-ES-04). There is no async/best-effort path on EventPublisher. The `emit()` method does not exist.
 - Core modules CANNOT import integration-runtime types. Cross-layer communication uses EVENTS, not direct type imports. Example: planned restart uses `integration_stopped(reason: planned_restart)` events, not direct method calls.
 
-**GOTCHA: `EVENT_BUS_DOES_NOT_IMPORT_SQLITE_DRIVER` is NOT an ArchUnit rule — it does not exist anywhere in the codebase.** The M3 Plan §4.5 originally prescribed it as an ArchUnit rule, but implementation used JPMS module-info enforcement instead (compile-time, stronger than test-time ArchUnit). There are exactly 7 ArchUnit rules, all in `HomeSynapseArchRules.java` in `homesynapse-app` test. The event-bus module has NO ArchUnit rules of its own. JDBC isolation for event-bus is a JPMS compile-time guarantee only. Do not reference this as an ArchUnit rule.
+**GOTCHA: `EVENT_BUS_DOES_NOT_IMPORT_SQLITE_DRIVER` is NOT an ArchUnit rule — it does not exist anywhere in the codebase.** The M3 Plan §4.5 originally prescribed it as an ArchUnit rule, but implementation used JPMS module-info enforcement instead (compile-time, stronger than test-time ArchUnit). There are exactly 9 ArchUnit rules (7 original + 2 added in M3.6e.2), all in `HomeSynapseArchRules.java` in `homesynapse-app` test. The event-bus module has NO ArchUnit rules of its own. JDBC isolation for event-bus is a JPMS compile-time guarantee only. Do not reference this as an ArchUnit rule.
 
 **GOTCHA: `NO_SYNCHRONIZED_METHODS` catches synchronized METHODS only, not synchronized blocks.** Synchronized blocks are bytecode-level (`monitorenter`/`monitorexit`) and invisible to ArchUnit's reflection-based analysis. Synchronized blocks are enforced by grep in the CI pipeline. The ArchUnit rule and the CI grep together cover the full LTD-11 "no synchronized" mandate.
 
@@ -360,9 +368,9 @@ For the full invariant definitions, read `Architecture_Invariants_v1.md` in proj
 
 TestClock, SynchronousEventBus, EventCollector, TestSubscriber, NoRealIoExtension, @RealIo, GivenWhenThen, custom AssertJ assertions (EventEnvelopeAssert, CausalContextAssert, SubjectRefAssert, HomeSynapseAssertions).
 
-### ArchUnit Rules (7 rules in homesynapse-app)
+### ArchUnit Rules (9 rules in homesynapse-app)
 
-NO_SYNCHRONIZED_METHODS, NO_DIRECT_TIME_ACCESS, NO_SERVICE_LOADER, NO_REVERSE_DEPENDENCIES, NO_DIRECT_FILESYSTEM_IN_CORE, NO_INTERNAL_PACKAGE_ACCESS, NO_JSON_TYPE_INFO_IN_EVENTS.
+NO_SYNCHRONIZED_METHODS, NO_DIRECT_TIME_ACCESS, NO_SERVICE_LOADER, NO_REVERSE_DEPENDENCIES, NO_DIRECT_FILESYSTEM_IN_CORE, NO_INTERNAL_PACKAGE_ACCESS, NO_JSON_TYPE_INFO_IN_EVENTS, QUERY_SERVICE_READ_ONLY (M3.6e.2 — REST endpoints cannot access persistence directly), REST_ENDPOINTS_NO_EVENT_PUBLISHING (M3.6e.2 — REST endpoints cannot publish events via EventPublisher).
 
 **JPMS-enforced constraint (not ArchUnit):** event-bus `module-info.java` does not `requires java.sql` — prevents event-bus from importing JDBC types at the module system level.
 
@@ -441,4 +449,4 @@ Two cross-amendment interaction points identified during the M0 amendment tracea
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `[PENDING-COMMIT]` on `2026-05-22`.
+**Last verified against:** `homesynapse-core` commit `76288af` on `2026-05-22`.

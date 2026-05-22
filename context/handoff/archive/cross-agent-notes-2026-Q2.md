@@ -5,12 +5,12 @@ audience: All
 update-cadence: frozen
 state-type: history
 status: ARCHIVED
-last-verified: 2026-05-21 against `homesynapse-core` commit `dfb045e`
+last-verified: 2026-05-22 against `homesynapse-core` commit `76288af`
 -->
 
 # Cross-Agent Notes — Archive 2026-Q2 (Apr–Jun)
 
-Archived from `context/handoff/cross-agent-notes.md` on 2026-05-21 (Batch E; PLAN §4e). Contains all 2026-Q2 archived notes — the 2026-04-10 M2.5 closeout note and both 2026-05-15 M2→M3 Bridge notes.
+Archived from `context/handoff/cross-agent-notes.md` on 2026-05-21 (Batch E; PLAN §4e), with the 2026-05-19 M3.6a constructor-changes note appended 2026-05-22 (PM freshness reconciliation; Check 8 STALE → PASS). Contains 2026-Q2 archived notes: 2026-04-10 M2.5 closeout, both 2026-05-15 M2→M3 Bridge notes, and 2026-05-19 M3.6a.
 
 ---
 
@@ -50,3 +50,13 @@ But persistence MODULE_CONTEXT.md (gotcha at line ~341 in the pre-2026-05-15 ver
 Did NOT investigate or modify within this work unit (out of scope per brief). Flagged for PM-led reconciliation. Action item: read `SqliteEventStore.doAppend()` bind logic and either update the MODULE_CONTEXT.md gotcha to match, or fix the bind logic, or relax the V001 schema (V001 has not shipped, so all three are options).
 
 **Resolution:** Pending PM triage.
+
+## 2026-05-19 [Coder → PM, Hivemind]
+**Topic:** M3.6a — DatabaseExecutor + SqlitePersistenceLifecycle constructor signatures changed; testing/integration-tests harness updated
+**Detail:** M3.6a replaced two cross-module-visible production constructors. (1) `DatabaseExecutor(int readThreadCount, Clock)` → `DatabaseExecutor(DeploymentProfile, Clock)`; same shape for the decorator overload. (2) `SqlitePersistenceLifecycle(Path, int, Clock, HomeId, List)` → `SqlitePersistenceLifecycle(Path, PersistenceConfig, Clock, HomeId, List)`; same shape for the decorator overload. The `PersistenceTestHarness` factory triplet (`start`, `startWithWriteCoordinator`, `startThrottled`) similarly substitutes `PersistenceConfig` for `int readThreadCount`. `testing/integration-tests/IntegrationTestHarness.java` was updated in the same WU — passes `PersistenceConfig.HOME_DEFAULT` everywhere it previously passed `2`.
+**Action needed:**
+- PM: M3.6c onward must NOT reintroduce a raw-`int` form. The post-M3.6 YAML override path will construct `PersistenceConfig` instances directly; no additional constructor overload should be added.
+- ~~Hivemind: build gate is DEFERRED — see `coder-handoff.md` Deferred Build Gate section for the exact commands Nick must run. Track this as Open Risk until resolved.~~ **RESOLVED 2026-05-20:** Nick ran full `./gradlew check` + `:core:persistence:check` + `:core:event-bus:check` + `:testing:integration-tests:test -PpiProfile=throttled` — all GREEN. Build gate closed. No open risk.
+- Any in-flight work outside `core/persistence` and `testing/integration-tests` that touches these two constructors (none known) must update its call sites.
+
+**Resolution:** All action items resolved. Build gate GREEN 2026-05-20. PM/Coder follow-through addressed in M3.6c–M3.6e.2 — no raw-`int` reintroduction occurred. Archived 2026-05-22 (PM freshness reconciliation; Check 8 STALE → PASS).

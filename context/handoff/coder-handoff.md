@@ -5,12 +5,12 @@ audience: Coder, PM
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-22 against commit [PENDING-COMMIT]
+last-verified: 2026-05-22 against commit 76288af
 -->
 
 # Coder Session Handoff
 
-**Last updated:** 2026-05-22 (M3.6e.2 delivered — entity query endpoints + admin endpoints + ArchUnit rules; **M3.6 milestone complete**)
+**Last updated:** 2026-05-22 (M3.6e.2 delivered — entity query endpoints + admin endpoints + ArchUnit rules; **M3.6 milestone complete**. Next-unit pointer set to **M3.7** for freshness-preflight Check 6.)
 
 Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/handoff/coder-handoff.md`). A duplicate at `homesynapse-core/docs/handoff/coder-handoff.md` (created during a Cowork session) was consolidated into this file on 2026-05-15 and removed.
 
@@ -18,10 +18,10 @@ Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/h
 
 ## Deferred Build Gate
 
-**Status:** 1 OPEN — M3.6e.2 deferred to Nick (sandbox does not run Gradle).
+**Status:** 0 OPEN — all build gates resolved. M3.6 COMPLETE.
 
-### OPEN — M3.6e.2 Admin Endpoints + ArchUnit Rules (2026-05-22)
-**Commit:** `[PENDING-COMMIT]`. **Build:** DEFERRED. `./gradlew check` was NOT run in-session — Nick owns the compile gate per project CLAUDE.md ("You do NOT run builds, compilation, or tests").
+### RESOLVED — M3.6e.2 Admin Endpoints + ArchUnit Rules (2026-05-22)
+**Commit:** `76288af`. **Build:** GREEN. Full `./gradlew check` confirmed by Nick.
 
 The change spans 16 files: 8 new production files (`EndpointContext.java`, `JavalinEndpointContext.java`, `EndpointResponses.java`, `ListEntitiesEndpoint.java`, `GetEntityEndpoint.java`, `GetEntityStateEndpoint.java`, `DlqStatusEndpoint.java`, `ProjectionStatusEndpoint.java`), 1 modified production file (`RestFilters.java` — 2 new public methods), 1 modified composition root (`HomeSynapseCore.java` — 14-step → 16-step bootstrap), 1 modified ArchUnit rules file (`HomeSynapseArchRules.java` — 2 new rules), 1 modified ArchUnit test (`HomeSynapseArchRulesTest.java` — 2 new `@ArchTest` fields), 2 new test helpers (`RecordingEndpointContext.java`, `FakeStateQueryService.java`), 5 new test classes (`ListEntitiesEndpointTest`, `GetEntityEndpointTest`, `GetEntityStateEndpointTest`, `DlqStatusEndpointTest`, `ProjectionStatusEndpointTest`), plus MODULE_CONTEXT.md updates in `api/rest-api` and `lifecycle/lifecycle`.
 
@@ -43,11 +43,15 @@ The change spans 16 files: 8 new production files (`EndpointContext.java`, `Java
 
 ### Next Work Unit
 
-**Awaiting PM direction.** M3.6 is the M3 capstone; with M3.6e.2 complete, the composition root is fully wired with externally queryable HTTP endpoints and operational visibility. Open follow-ups that may shape the next WU:
-- **OR-M3-15** (`NO_OP_DERIVATION` placeholder in `HomeSynapseCore`) — must be resolved before M3.7.
-- **OR-M3-16** (`NO_OP_ADVANCER` placeholder in `HomeSynapseCore`) — must be resolved before M3.7.
-- **End-to-end HTTP integration test** for the M3.6e.2 endpoints (real Jetty + real client) — currently deferred; would close the in-session test-coverage gap.
-- **DLQ `oldestParkedAt` field** — requires plumbing parked-at timestamps in `SubscriberDlq`; would close the brief's response-shape deviation.
+**Next: M3.7 — End-to-End Integration Tests** (scoping in progress via the PM research pipeline; coding instruction not yet issued). M3.6 is the M3 capstone; with M3.6e.2 complete, the composition root is fully wired with externally queryable HTTP endpoints and operational visibility. M3.7 cannot begin Coder execution until the PM research pipeline closes (Research 4 v3 + at least one additional research item targeting M3.7/M4 prerequisites), and the two open-risk placeholders below are resolved.
+
+Pre-M3.7 prerequisites that may shape (or precede) the M3.7 coding instruction:
+- **OR-M3-17** (`NO_OP_DERIVATION` placeholder in `HomeSynapseCore`) — must be resolved before M3.7.
+- **OR-M3-18** (`NO_OP_ADVANCER` placeholder in `HomeSynapseCore`) — must be resolved before M3.7.
+- **End-to-end HTTP integration test** for the M3.6e.2 endpoints (real Jetty + real client) — currently deferred; would close the in-session test-coverage gap. May fold into M3.7.
+- **DLQ `oldestParkedAt` field** — requires plumbing parked-at timestamps in `SubscriberDlq`; would close the brief's response-shape deviation. May fold into M3.7 or split as a separate WU.
+
+PM: M3.7 is the next-unit-by-ID per PROJECT_SNAPSHOT.md and phase-3-milestone-backlog.md. The two NO_OP placeholders are likely to land as a pre-M3.7 wiring WU (either as `M3.6f` or bundled into M3.7's first commit).
 
 ### Resolved at commit
 
@@ -371,7 +375,7 @@ MODULE_CONTEXT.md updated: `core/persistence/MODULE_CONTEXT.md` (added M3.4b got
 
 ### Key context for the next coder session
 
-1. **Composition root is externally queryable.** `HomeSynapseCore` at `[PENDING-COMMIT]` implements a 14-step bootstrap including Javalin server on port 7070 with readiness filter. `stateQueryService()` now returns the real `MaterializedStateQueryService`.
+1. **Composition root is externally queryable.** `HomeSynapseCore` at `76288af` implements a 16-step bootstrap including Javalin server on port 7070 with readiness filter, entity query endpoints, and admin endpoints. `stateQueryService()` returns the real `MaterializedStateQueryService`.
 2. **`ReadinessFilter` + `RestFilters` gateway already exist** (M3.6e.1, `api/rest-api`). `ReadinessFilter` is package-private; `RestFilters.installReadinessGate(Object, ReadinessSource)` is the DEC-M3-16 public gateway. New endpoints can use the same pattern.
 3. **`MaterializedStateQueryService` is wired** (M3.6e.1, `core/state-store`). Public final, static factory `create(StateProjection)`. Implements all 5 `StateQueryService` methods. Returns `Optional.empty()` / empty `Map` when projection not LIVE.
 4. **`DeploymentProfile` has HTTP thread pool fields** (M3.6e.1). `httpThreads()` and `httpMaxThreads()` — STUDIO(1/4), HOME(2/8), PERFORMANCE(4/16).
@@ -399,7 +403,7 @@ MODULE_CONTEXT.md updated: `core/persistence/MODULE_CONTEXT.md` (added M3.4b got
 
 ## Build Status
 
-HEAD at `[PENDING-COMMIT]` on `main`. Last GREEN full-project `./gradlew check`: `[PENDING-COMMIT]` (2026-05-22, 139 tasks, 0 failures, confirmed by Nick). M3.6a through M3.6e.1 all committed and GREEN. Sixteen Claude Code work units completed.
+HEAD at `76288af` on `main`. Last GREEN full-project `./gradlew check`: `76288af` (2026-05-22, confirmed by Nick). M3.6a through M3.6e.2 all committed and GREEN. M3.6 COMPLETE. Seventeen Claude Code work units completed.
 
 ---
 
@@ -423,4 +427,4 @@ Older M3.5a / M3.3 / M3.2 / AMD-38/39 / D1 / M2→M3 Bridge rollup also in `arch
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `[PENDING-COMMIT]` on `2026-05-22`.
+**Last verified against:** `homesynapse-core` commit `76288af` on `2026-05-22`.

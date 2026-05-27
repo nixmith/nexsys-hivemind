@@ -10,11 +10,11 @@ last-verified: 2026-05-22 against commit 76288af
 
 # PM Session Handoff
 
-**Last updated:** 2026-05-22 (WUCP Phase 2 — M3.6e.2 closure, M3.6 COMPLETE, seventeen CC WUs)
+**Last updated:** 2026-05-22 (Cowork — Research 7 v1 assessment produced; research pipeline COMPLETE pre-M5; M3.7 instruction already issued — awaiting Coder; 4 + 7 = 11 NQs/DQs awaiting Nick across Research 4/5/6/7)
 
 ## Current Task
 
-None. M3.6 COMPLETE — all seven sub-WUs PM-accepted (M3.6e.2 at `76288af`, 2026-05-22). Build GREEN at HEAD. WUCP Phase 2 complete for all M3.6 sub-WUs. Seventeen Claude Code work units total. Next: **M3.7** scoping via research pipeline.
+**M3.7 coding instruction issued — awaiting Coder execution.** Instruction at `context/instructions/M3.7_E2E_Integration_Tests.md` (Phase 3 — final M3 milestone). M3.6 COMPLETE — all seven sub-WUs PM-accepted (M3.6e.2 at `76288af`, 2026-05-22). Build GREEN at HEAD. WUCP Phase 2 complete for all M3.6 sub-WUs. Seventeen Claude Code work units total.
 
 ## Phase 3 Work Unit Status
 
@@ -70,9 +70,29 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 1. **Nick: NQ-1..6 strategic calls** for Research 6 v1 (`context/assessments/2026-05-22_Research_6_PM_Assessment.md`). PM recommendations recorded inline. Once Nick decides NQ-1..6, Research 6 finalizes and AMD-53..58 + AMD-60/62/63 proceed to ratification (AMD-61 already withdrawn).
 2. **Nick: DQ-1/2/3/5 strategic calls** for Research 4 v3. PM recommendations recorded in v2 body; DQ-4 already resolved. Once Nick decides DQ-1/2/3/5, Research 4 finalizes and AMD-48..52 firm up.
-3. **Nick: issue the next research brief** to the Claude Project. Candidates: Research 5 (Configuration, M6) or Research 7 (REST/WebSocket, M10/M11). PM recommendation: **Research 5 next** because it feeds the same M4-amendment-deliberation window as Research 4/6/8 — config-schema migration shape (REC-41 `migrate(...)` interaction) and per-adapter config secret model (REC-45 `SecurityServices`) both depend on the configuration system's chosen patterns. Research 7 has the longest lead time and can wait.
-4. **M3.7 coding instruction** (after the M4 amendment-deliberation window closes — Research 4 v3 + Research 6 v2 + Research 5 v1 all need Nick dispositions). E2E integration tests. Pre-M3.7 OR-M3-17/OR-M3-18 placeholder resolution is also required.
-5. **Phase 2 traceability debt** — 10 stub indexes remain (docs 02–11, 13, 14). Low priority; batch later.
+3. **Research 5 v2 FINAL post Nick review** (`context/assessments/2026-05-22_Research_5_PM_Assessment.md` v2 Addendum at bottom). All 6 NQs resolved by Nick's review — closed by LTD-08/LTD-09 lookups (Q1/Q2), INV-CE-01 (Q7), corrected listener shape (Q3), SecretStore placement (Q4), AMD-52 precedent (Q5), agreed spike sequencing (Q6). **AMD allocation:** AMD-66 (corrected non-generic `ConfigurationChangeListener`), AMD-68 (`SecureCredentialBundle` + `SecretStore.credentialsFor(String)`), AMD-69 (Argon2id + BouncyCastle), AMD-70 (`config.validation_completed` + `config.section_reloaded` events in `com.homesynapse.event`) — **4 ACTIVE, ratifiable**. AMD-64/AMD-65 **RETIRED** (REC-53/REC-54 confirm already-locked LTD-09 library choices). AMD-67 **DEFERRED** on Research 6 REC-41 (REC-56 file-schema `(major, minor)` cannot proceed until REC-41 is decided — must land in lockstep). AMD-71 **DEFERRED** to M6 planning (REC-60 directory layout — no M4 types depend). **Only remaining REC-56 decision is the Research 6 REC-41 dependency captured in task #1.** Phase 3 wiring AMDs TBD when `module-info.java` gains `requires com.networknt.schema; requires org.snakeyaml.engine; requires org.bouncycastle.provider;` directives during M6 implementation.
+4. **Nick: NQ-1..7 strategic calls for Research 7 v1** (`context/assessments/2026-05-22_Research_7_PM_Assessment.md`). PM recommendations recorded inline. Key strategic decisions: (NQ-1) REC-63 vs Doc 09 §4.3-§4.5 conflict — PM recommends KEEP existing surface, add `CommandRequest.timedInteractionMs` field; (NQ-2) `Capability` enum naming clash — PM recommends rename to `ApiKeyScope`; (NQ-3) `ProblemType.typeUri()` URL scheme — PM recommends adopt `urn:homesynapse:problem:<slug>`; (NQ-4) webhook DLQ separation — PM recommends SEPARATE from subscriber DLQ; (NQ-5) WsCloseCode collision resolution — PM-proposed conservative renumbering; (NQ-6) coalescing key — PM recommends `(entityId, attributeKey)`; (NQ-7) `@Capability` annotation naming — PM recommends `@CapabilityType`. **§7 fabrication-heavy disposition** — 15 source-verified §7 issues catalogued; PM-corrected disposition table is canonical. 14 AMDs allocated (AMD-72..AMD-85) — REC-63 may collapse to 0 AMDs per NQ-1. Consider requesting Research 7 v2 from Claude Project to address §7 systematically, or proceed with PM-corrected disposition as canonical.
+5. **PM: Pre-M6 spikes — Spike Q1 (SnakeYAML Engine 3.0.1 throughput on Pi 4, 500-line config), Spike Q3 (networknt 1.5.6 memory residency for core + 10 integration schemas on 256 MiB heap), Spike Q2 (Argon2id 64 MiB/3 iter/4 lanes wall-clock on Pi 4 Cortex-A72).** All three block their respective REC merges per Research 5 §5.3. Q1/Q3 before M6 coding instruction; Q2 immediately before REC-58 implementation. Hardware: dev Pi 5 (`hs-dev-1`) per established M3.4b validation pattern.
+6. **~~M3.7 coding instruction~~** — **DONE 2026-05-22.** Instruction issued at `context/instructions/M3.7_E2E_Integration_Tests.md`. Four scoping decisions made and logged as D-09..D-12 in `context/decisions/phase-3-cross-module-decisions.md`. The original "after the M4 amendment-deliberation window closes" gate was removed — Decision 3 (D-11) established that M3.7 has zero technical coupling to the pending M4 amendment work. Pre-M3.7 OR-M3-17/OR-M3-18 placeholders are closed in M3.7 via `MinimalProjectionAdvancer` (Decision 1, D-09 — per Research 3 REC-20 + Research 8 v2 §M3.7 Impact). HTTP IT for M3.6e.2 endpoints and DLQ `oldestParkedAt` plumbing absorbed into M3.7 (Decision 2, D-10). Next action: Nick pastes the instruction into Claude Code (acceptEdits, Opus 4.7 xhigh) — workflow per Decision 4 (D-12). Coder produces files; Nick runs build gate + commits if GREEN.
+7. **Phase 2 traceability debt** — 10 stub indexes remain (docs 02–11, 13, 14). Low priority; batch later.
+
+## Research Pipeline Status
+
+| Research | Status | Assessment | Next |
+|---|---|---|---|
+| Research 2 (Smart Home Entity Modeling) | COMPLETE (baseline) | pre-PM pipeline | — |
+| Research 3 (Integration Testing) | COMPLETE | processed; all accepted | feeds M3.7 |
+| Research 8 (Device Model Implementation) | COMPLETE (FINAL) | `2026-05-22_Research_8_PM_Assessment.md` | feeds M4.0 |
+| Research 4 (Automation Engine) | COMPLETE (v3) | `2026-05-22_Research_4_PM_Assessment.md` | DQ-1/2/3/5 pending Nick |
+| Research 6 (Integration Runtime) | COMPLETE (v1) | `2026-05-22_Research_6_PM_Assessment.md` | NQ-1..6 pending Nick |
+| **Research 5 (Configuration System)** | **COMPLETE (v2 FINAL — post Nick review)** | **`2026-05-22_Research_5_PM_Assessment.md`** | **REC-56 deferred on Research 6 REC-41; other RECs ratifiable** |
+| **Research 7 (REST/WebSocket API)** | **COMPLETE (v1)** | **`2026-05-22_Research_7_PM_Assessment.md`** | **NQ-1..7 pending Nick; 14 AMDs proposed AMD-72..AMD-85; 15 §7 fabrications catalogued** |
+
+**Global allocation:** RECs allocated through REC-75 (Research 7 used REC-62..REC-75); new RECs start at REC-76. AMDs allocated/proposed through AMD-85 (AMD-47/AMD-61 withdrawn; AMD-64/AMD-65 retired post Research 5 v2; AMD-67/AMD-71 deferred; AMD-72..AMD-85 proposed by Research 7 v1 subject to NQ-1..7 dispositions). Next active block starts at AMD-86. **Research 5 v2 active AMD set: AMD-66, AMD-68, AMD-69, AMD-70. Research 7 v1 active AMD set (post-NQ resolution): tentatively AMD-72/73/74/75/76/77/78/79/80/81/82/83/84/85 — REC-63's slot retires if NQ-1 accepts existing-surface reuse, dropping to 13 AMDs.**
+
+**Research pipeline now COMPLETE for the pre-M5 window.** All 6 research items processed; Research 7 is the last. Remaining strategic decisions for Nick: Research 4 DQ-1/2/3/5, Research 6 NQ-1..6, Research 5 NQ-resolved-but-REC-56-blocked-on-REC-41, Research 7 NQ-1..7. Once the four NQ batches are resolved, the M4 / M6 / M9 / M10 / M11 amendment-ratification + coding-instruction sequencing can begin.
+
+**Research 5 v2 lesson encoded for future briefs:** every brief touching dependency choice must embed (a) verbatim `libs.versions.toml` rows for the relevant libraries, (b) verbatim `HomeSynapse_Core_Locked_Decisions.md` entries that lock the library *choice* (LTD-08/LTD-09 etc.), and (c) verbatim relevant `Architecture_Invariants_v1.md` entries that may make a "research question" a settled invariant (e.g., INV-CE-01 making file-vs-event source-of-truth a constitutional, not deliberative, matter). Should be added to `research-agenda.md` §2 CONSTRAINTS during the Research 7 brief authoring pass.
 
 ## Open Risks
 
@@ -135,13 +155,22 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 - **Severity:** MEDIUM (blocks Tier 9 reconciliationOnVersionMismatch test)
 - **Resolution:** Tracked for dedicated bus-fix Piece B WU.
 
-## Decisions Made This Session (2026-05-22)
+## Decisions Made This Session (2026-05-22 — M3.7 scoping session)
+
+- **D-09 — Placeholder strategy: ship `MinimalProjectionAdvancer` in M3.7.** Closes OR-M3-17 and OR-M3-18. Per Research 3 REC-20 and Research 8 v2 §M3.7 Impact ("M3.7 proceeds as planned with `MinimalProjectionAdvancer`; OR-M3-17 stays open through M3.7; closes at M4.0 with REC-28"). The full `DispatchingProjectionAdvancer` (Research 8 REC-28) lands at M4.0. `NO_OP_DERIVATION` renamed to `MINIMAL_DERIVATION_RULE` (empty-list path IS the M3.7 closure semantic); `NO_OP_ADVANCER` replaced by a real `MinimalProjectionAdvancer` (package-private in `lifecycle/lifecycle`) that reads from `EventStore` via the bounded-window contract and forwards every envelope to the processor.
+- **D-10 — Pre-M3.7 bundling: absorb both follow-ups into M3.7.** (a) HTTP IT for the 5 M3.6e.2 endpoints (real Jetty + `java.net.http.HttpClient` + `json-unit-assertj`) — exactly what `HomeSynapseE2eHarness` exists to do. (b) DLQ `oldestParkedAt` field plumbing (closes M3.6e.2 D-2 deviation) — `Instant parkedAt` capture in `SubscriberDlq`, surface through `SubscriberSnapshot` (5→6 fields), populated in `DlqStatusEndpoint` response. No M3.6f split.
+- **D-11 — M4-amendment posture: M3.7 proceeds in parallel.** Zero technical coupling: M3.7 exercises the M3 stack only; none of the pending M4 amendments (Research 4 DQs, Research 6 NQs, Research 5 REC-56 deferred on REC-41) change anything M3.7 touches. Original "after the M4 amendment-deliberation window closes" framing was conservative. Next Tasks #6 updated to remove the gate.
+- **D-12 — Claude Code workflow: established M3.6 pattern.** acceptEdits mode, Opus 4.7 xhigh, deny `git commit`/`git push`/`./gradlew` per CLAUDE.md. Coder produces files + completion report + STOP-gate results; Nick reviews diff + runs build gate + commits if GREEN. Seventeen prior CC WUs validate the pattern.
+- **REC-13 reinterpreted: no `isLive()` on `EventBus`.** `LiveModeAwaiter` polls `harness.mode()` (via `HomeSynapseCore.mode()` → `StateProjection.currentMode()`). Bus-level liveness is not a meaningful concept; liveness is per-subscriber via `SubscriberSnapshot.mode`.
+- **REC-15 reinterpreted: `boundHttpPort()` placement.** Brief said "DeploymentProfile.testing() factory + boundHttpPort() accessor." `DeploymentProfile` is an enum (factory method nonsensical) and `boundHttpPort` is a runtime value (cannot live on a hardware-tier enum). Reinterpretation: 4th `TESTING` enum value on `DeploymentProfile`; `httpPort: int` field added to `HomeSynapseConfig` (2→3 fields) + `HomeSynapseConfig.testing()` static factory (port 0); `boundHttpPort() → int` on `HomeSynapseCore` (reads `javalinApp.port()` after `start()`); harness delegates.
+- **No new DECs.** All scoping is implementation-pattern level; no architecture changes that warrant DEC-M3-NN.
+
+## Decisions Made Earlier 2026-05-22 (Pre-M3.7-scoping)
 
 - **M3.6e.2 WUCP Phase 2 completed.** All governance artifacts updated. Seventeen CC WUs total. M3.6 COMPLETE.
 - **M3.6e.2 delivered and committed at `76288af`.** 5 endpoint handlers, 2 RestFilters gateway methods, 2 ArchUnit rules, EndpointContext SPI, 16-step bootstrap. 5 deviations (all non-blocking, PM-accepted).
-- **OR-M3-17 + OR-M3-18 logged (open).** NO_OP_DERIVATION and NO_OP_ADVANCER placeholders in HomeSynapseCore. Must be resolved before M3.7.
+- **OR-M3-17 + OR-M3-18 logged (open).** NO_OP_DERIVATION and NO_OP_ADVANCER placeholders in HomeSynapseCore. Must be resolved before M3.7 → **now scheduled for M3.7 itself per D-09**.
 - **OR number collision fixed.** Coder's OR-M3-15/OR-M3-16 (NO_OP placeholders) renumbered to OR-M3-17/OR-M3-18 to avoid collision with PM's OR-M3-15 (Xlint:exports) and OR-M3-16 (Gradle/JPMS scope), both RESOLVED.
-- **No new DECs needed.** EndpointContext SPI and ArchUnit rule patterns are implementation details within the existing DEC-M3-16 gateway framework.
 
 ### Decisions from prior sessions (carried for reference)
 

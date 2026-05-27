@@ -5,12 +5,12 @@ audience: Coder, PM
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-22 against commit 76288af
+last-verified: 2026-05-23 against M3.7 fix round 4 working tree (no commit; layered atop 76288af + rounds 1–3)
 -->
 
 # Coder Session Handoff
 
-**Last updated:** 2026-05-22 (M3.6e.2 delivered — entity query endpoints + admin endpoints + ArchUnit rules; **M3.6 milestone complete**. Next-unit pointer set to **M3.7** for freshness-preflight Check 6.)
+**Last updated:** 2026-05-26 (M3.7 Recovery Step 2+3 — `NotifyingEventPublisher` decorator bridges the publish/notify gap (Finding 2); stale Javadoc/comments updated in 4 sites. Layered atop fix rounds 1–4. Next-unit pointer remains **M4.0** pending PM scoping.)
 
 Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/handoff/coder-handoff.md`). A duplicate at `homesynapse-core/docs/handoff/coder-handoff.md` (created during a Cowork session) was consolidated into this file on 2026-05-15 and removed.
 
@@ -18,7 +18,249 @@ Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/h
 
 ## Deferred Build Gate
 
-**Status:** 0 OPEN — all build gates resolved. M3.6 COMPLETE.
+**Status:** 1 OPEN — M3.7 build gate pending re-verification after Recovery Step 2+3. After fix round 4 the cross-module H5 root cause was closed (`Subscriber.setMode` lifecycle callback wired at all CAS sites). Recovery Step 2+3 closes Finding 2 (publish/notify gap): the raw `persistenceFactory.eventPublisher()` did not call `EventBus.notifyEvent()`, so subscribers were never woken on publish. The `NotifyingEventPublisher` decorator bridges this gap. The 3 remaining failing E2E tests (`CrashRecoveryHttpIT`, `EndpointE2eIT#listEntitiesReturnsEntitiesAfterStateReported`, `EndpointE2eIT#getEntityReturns200WithEntityState`) should now pass because `HomeSynapseE2eHarness.eventPublisher()` returns the decorated publisher that notifies the bus on every successful persist.
+
+### OPEN — M3.7 Recovery Step 2+3: NotifyingEventPublisher + stale doc fixes (2026-05-26)
+**Target commit:** delta over the M3.7 fix-round-4 working tree. No commit yet — all recovery steps and fix rounds are layered atop the 2026-05-22 M3.7 baseline.
+
+**What this closes:** Finding 2 from the M3.7 Recovery Session — the publish/notify gap. The raw `persistenceFactory.eventPublisher()` persists events to SQLite but does NOT call `EventBus.notifyEvent()`. Without the decorator, `LiveModeAwaiter.awaitLive()` times out because subscribers (including the projection) are never woken after a publish, so `StateProjection.onEvent` is never called with new events, and the E2E tests that publish-then-query fail at Awaitility timeouts.
+
+**Files created (2 new):**
+- `lifecycle/lifecycle/src/main/java/com/homesynapse/lifecycle/NotifyingEventPublisher.java` — package-private final decorator; delegates `publish`/`publishRoot` to the raw publisher, then calls `bus.notifyEvent(envelope.globalPosition())` after successful persist; no notification on `SequenceConflictException` (preserves INV-ES-04).
+- `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/NotifyingEventPublisherTest.java` — 4 unit tests (2 happy path, 2 conflict path) with hand-rolled test doubles (no Mockito).
+
+**Files modified (4):**
+- `lifecycle/lifecycle/src/main/java/com/homesynapse/lifecycle/HomeSynapseCore.java` — (B1) new `eventPublisher` field; (B2) step 5b constructs `NotifyingEventPublisher` decorator, step 6 passes `eventPublisher` (not raw) to `StateProjection.create()`; (B3) `eventPublisher()` accessor returns the field instead of `persistenceFactory.eventPublisher()`; (B4) stale comment in `mode()` updated to reflect fix round 4's setMode wiring; (B5) stale Javadoc in class header updated.
+- `testing/integration-tests/src/test/java/com/homesynapse/it/HomeSynapseE2eHarness.java` — stale Javadoc on `mode()` updated.
+- `testing/integration-tests/src/test/java/com/homesynapse/it/LiveModeAwaiter.java` — stale Javadoc updated.
+- `lifecycle/lifecycle/MODULE_CONTEXT.md` — `NotifyingEventPublisher` added to type inventory; `HomeSynapseCore` row updated with step 5b and decorator wiring.
+
+**No new module dependencies.** No build.gradle.kts changes. No module-info.java changes.
+
+**Commands Nick must run:**
+1. `./gradlew :lifecycle:lifecycle:check` — verifies `NotifyingEventPublisher` compiles (package-private, same package as `HomeSynapseCore`), the `NotifyingEventPublisherTest` 4 tests pass, and the existing 14 `HomeSynapseCoreTest` tests still pass.
+2. `./gradlew check` — full-project regression. No other module is affected.
+3. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — should now resolve all 7 M3.7 HTTP tests GREEN. The 3 publish-then-await tests gain a working notification path: `HomeSynapseE2eHarness.eventPublisher()` → `HomeSynapseCore.eventPublisher()` → `NotifyingEventPublisher` → persist + `bus.notifyEvent()` → subscriber woken → `StateProjection.onEvent` projects the event → entity query endpoints return the projected state.
+
+**Deviations (none):**
+No deviations from the coding instructions. All changes match the spec exactly.
+
+**Additional stale references flagged (per brief's "Coder Pushback Welcome"):**
+The grep for `StateProjection.currentMode()` delegation found 5 additional stale references beyond the 4 sites the brief specified. All are in MODULE_CONTEXT.md files or cross-module documentation (not production code or Javadoc), which are the PM's domain for WUCP Phase 2:
+1. `testing/integration-tests/MODULE_CONTEXT.md:74` — says "delegates to `HomeSynapseCore.mode()` → `StateProjection.currentMode()`"
+2. `core/state-store/StateQueryService.java:144` — comment says "delegates to `StateProjection.currentMode()`"
+3. `core/state-store/MODULE_CONTEXT.md` — says "delegation to `StateProjection.currentMode()`"
+4. `api/rest-api/ReadinessFilter.java:87` — comment references `StateProjection.currentMode()`
+5. `lifecycle/lifecycle/MODULE_CONTEXT.md` (prior M3.7 entry) — now partially corrected by this WU's MODULE_CONTEXT update, but older prose in the `HomeSynapseCore` row still carries legacy phrasing
+
+### RESOLVED — M3.7 Fix Round 4: Subscriber.setMode lifecycle hook + bus-side wiring (2026-05-23)
+**Target commit:** delta over the M3.7 fix-round-3 working tree. No commit yet — rounds 1, 2, 3, and 4 are layered atop the 2026-05-22 M3.7 baseline.
+
+**Diagnosis: H5 persists at the bus-↔-projection boundary.** Round 1 fixed `HomeSynapseCore.mode()` to read the bus's authoritative FSM (`eventBus.subscribers()`), which made the 4 no-publish M3.7 HTTP tests pass (empty-list, 404, admin DLQ, in-flight shutdown). But the 3 publish-then-await tests still failed because:
+- The `Subscriber` interface had only `onEvent(EventEnvelope)` + `default onCaughtUp()`. **No `setMode` method existed in the contract.**
+- The bus drove its own `SubscriberRuntime.mode` (AtomicReference) through `runtime.transitionTo(...)` / `runtime.compareAndTransition(...)`, but NEVER called back to the subscriber.
+- `StateProjection.currentMode` stayed at its `COLD` initial value forever.
+- `StateProjection.onEvent` short-circuits at `if (mode == SUSPENDED || mode == COLD) return;` (line 349-351) — so every LIVE delivery after publish was silently dropped.
+- The 4/7-tests-passing split (no-publish PASS, publish-then-await FAIL) was the diagnostic key — only the publish path exercises `onEvent`, and only `onEvent` reads the projection's internal mode.
+
+**Root cause:** Phase 2 `Subscriber` interface was missing the `setMode` lifecycle callback; the bus had no way to inform subscribers of mode transitions. This was a cross-module gap (event-bus side) that round 1's lifecycle-scoped fix could not address.
+
+**Why round 1 was incomplete:** PM scoped round 1 to `lifecycle/lifecycle` only to avoid cross-module reach. That patched `HomeSynapseCore.mode()` (the `ReadinessSource` for HTTP gating) so empty-store paths reached LIVE-equivalent readiness, but did not propagate mode to the projection's `currentMode` field. The integration tests' publish path was the only suite that exercised the underlying defect — lifecycle-only tests on an empty store could not catch it.
+
+**Fix applied (Phase 2A–2E from the round 4 brief):**
+- **(A)** Added `default void setMode(SubscriberMode mode)` to `Subscriber` (no-op default). Documented threading constraint: called immediately after successful CAS, on the subscriber's VT, with the contract that implementations MUST be fast and non-blocking (one call site — `TransitionCoordinator` TRANSITION→LIVE — holds `ReplayWindowQueue.lock()`).
+- **(B)** Wired `subscriber.setMode(newMode)` at every successful-CAS site in `ReplayDriver` (3 sites: COLD→REPLAY, REPLAY→TRANSITION, →SUSPENDED on read failure), `TransitionCoordinator` (2 sites: TRANSITION→LIVE under queue lock, →SUSPENDED on drain failure), and `SubscriberSupervisor` (3 sites: circuit-breaker, Error, checked Exception — all →SUSPENDED). The `ReplayDriver` COLD→REPLAY site was previously fire-and-forget (CAS return discarded); it now wraps the CAS in an `if` so `setMode` only fires on a successful transition.
+- **(C)** Added `@Override` to `StateProjection.setMode(SubscriberMode)`. The pre-existing method body (Objects.requireNonNull + `currentMode.set(mode)`) is unchanged — this WAS the override; it just wasn't typed as one until now.
+- **(D)** MODULE_CONTEXT.md updates:
+  - `core/event-bus/MODULE_CONTEXT.md` — `Subscriber` interface row now lists 3 methods (1 abstract + 2 default) and documents the setMode threading constraint. New positive gotcha entry: "The bus invokes `subscriber.setMode(newMode)` immediately after each successful `runtime.mode` CAS …" with the documented exclusion of `bus.resume()` (Tracked Gap #2).
+  - `core/state-store/MODULE_CONTEXT.md` — `StateProjection` row updated: `setMode` is now `@Override`, bus-invoked, NOT composition-root-wired. New gotcha entry documenting bus-driven setMode and the `resume()` gap.
+- **(E)** Added one contract test method `EventBusContractTest.busInvokesSetModeAfterEachSuccessfulCas` in Tier 9. Verifies that after `subscribeRuntime` + `awaitMode(LIVE)` on an empty store, the subscriber's `setMode` was called with at least one non-COLD mode. Lives in the shared testFixtures suite — runs against both `InMemoryEventBusTest` (skipped via `assumeTrue(supportsActiveRuntime())`) and `InProcessEventBusTest` (executed).
+
+**Excluded from this fix (per brief):**
+- `InProcessEventBus.resume(String)` at line 342 (`runtime.transitionTo(REPLAY)`) — same site as the separately-tracked VT-respawn gap (PROJECT_SNAPSHOT.md Tracked Gap #2). Wiring `setMode` on a broken resume path is wasted work; it will land alongside the VT-respawn fix.
+- `InMemoryEventBus` and any other `Subscriber` implementation — the new default = no-op preserves backward compatibility; nothing breaks.
+
+**Files changed in fix round 4 (8 files):**
+- `core/event-bus/src/main/java/com/homesynapse/event/bus/Subscriber.java` — `default setMode(SubscriberMode)` added with Javadoc.
+- `core/event-bus/src/main/java/com/homesynapse/event/bus/ReplayDriver.java` — 3 setMode call sites; COLD→REPLAY CAS wrapped in `if` so it only fires on success; REPLAY→TRANSITION CAS captures the boolean and conditionally fires before returning.
+- `core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoordinator.java` — 2 setMode call sites (one under `queue.lock()`).
+- `core/event-bus/src/main/java/com/homesynapse/event/bus/SubscriberSupervisor.java` — 3 setMode call sites (all →SUSPENDED).
+- `core/event-bus/src/testFixtures/java/com/homesynapse/event/bus/test/EventBusContractTest.java` — one new test method `busInvokesSetModeAfterEachSuccessfulCas` added to Tier 9 nested class.
+- `core/state-store/src/main/java/com/homesynapse/state/StateProjection.java` — `@Override` annotation added to `setMode`; Javadoc updated to reflect bus-driven invocation.
+- `core/event-bus/MODULE_CONTEXT.md` — Subscriber row updated; new gotcha entry.
+- `core/state-store/MODULE_CONTEXT.md` — StateProjection row updated; new gotcha entry.
+- `nexsys-hivemind/context/handoff/coder-handoff.md` — this entry.
+
+**Unchanged from rounds 1–3:**
+- Round 1's bus-FSM read in `HomeSynapseCore.mode()` stands. With proper `setMode` wiring, the projection's `currentMode` and the bus's `runtime.mode` are kept in sync — reading either is now equivalent. The bus FSM via `eventBus.subscribers()` remains the architecturally correct source (HomeSynapseCore implements `ReadinessSource`; readiness is a property of the bus's delivery state). D-FR1-1 `[REVIEW]` flag stays open for PM disposition in WUCP Phase 2 (likely converts from "band-aid" to "correct choice now that the cross-module fix is in place").
+- Round 2's catalog pin (`awaitility = "4.3.0"`).
+- Round 3's `DeploymentProfile.TESTING` Jetty pool sizing (2/8) and ASCII `@DisplayName` strings.
+
+**Commands Nick must re-run:**
+1. `./gradlew :core:event-bus:check` — verifies the `Subscriber` interface change compiles, the new `setMode` call sites in `ReplayDriver`/`TransitionCoordinator`/`SubscriberSupervisor` build, and the new contract test method `busInvokesSetModeAfterEachSuccessfulCas` passes against `InProcessEventBus`. Pre-existing supervisor tests (`SubscriberSupervisorTest`) unaffected — `setMode` only adds a callback; behavior of `transitionTo(SUSPENDED)` is unchanged.
+2. `./gradlew :core:state-store:check` — verifies `StateProjection.setMode @Override` compiles against the new `Subscriber` interface default. No behavioral change to the method body.
+3. `./gradlew :lifecycle:lifecycle:check` — should remain GREEN. Composition root no longer drives `setMode` (it never did); the H5-affected test `mode_returnsLiveAfterProjectionCompletesReplay` continues to pass via round 1's bus-FSM read.
+4. `./gradlew check` — full-project regression. No other module touches `Subscriber.setMode` or the bus's mode-transition sites.
+5. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — should now resolve all 7 M3.7 HTTP tests GREEN. The 3 publish-then-await tests (`CrashRecoveryHttpIT`, `EndpointE2eIT#listEntitiesReturnsEntitiesAfterStateReported`, `EndpointE2eIT#getEntityReturns200WithEntityState`) gain a working `onEvent` path: when LIVE events arrive, `StateProjection.currentMode == LIVE` (because the bus called `setMode(LIVE)` on the TRANSITION→LIVE CAS), so `onEvent` no longer short-circuits and projects the event into the materialized state.
+
+**Deviations (none BLOCKING):**
+- **[INFO] D-FR4-1** — Round 4 takes the explicit-wiring approach the brief specified (one `subscriber.setMode(newMode)` call after each successful CAS) rather than consolidating the call into `SubscriberRuntime.transitionTo` / `SubscriberRuntime.compareAndTransition`. The consolidated approach would be DRYer and prevent future CAS sites from forgetting the callback, but it would also automatically fire `setMode(REPLAY)` from `InProcessEventBus.resume()` — which the brief explicitly excludes (Tracked Gap #2, VT-respawn). The explicit-wiring approach preserves the resume-exclusion cleanly. If the PM later wants the DRY refactor after Tracked Gap #2 is closed, that's a separate WU.
+- **[INFO] D-FR4-2** — Phase 1 verification flagged one minor brief inaccuracy: `StateProjection.processBatch(int)` DOES short-circuit on COLD/SUSPENDED (lines 460–463), contrary to the brief's hypothesis that it does not. The no-publish M3.7 tests pass anyway because the empty-store path goes through `ReplayDriver` page-replay (which reaches an empty tail and CASes REPLAY→TRANSITION without invoking the subscriber) rather than through `processBatch`. Same root cause as the brief described; slightly different code path. Documented here for PM awareness; no fix needed.
+- **[INFO] D-FR4-3** — The `Subscriber.setMode` Javadoc says "Called on the subscriber's dedicated virtual thread" — this is true for `ReplayDriver` and `TransitionCoordinator` (both run on the per-subscriber VT) and for `SubscriberSupervisor.deliver()` (called from the same VT). Documented for future readers who might add a new transition site from a non-VT context — that would violate the contract.
+
+### RESOLVED — M3.7 Fix Round 3: TESTING Jetty pool sizing + ASCII @DisplayName (2026-05-23)
+**Target commit:** delta over the M3.7 fix-round-2 working tree. No commit yet — rounds 1, 2, and 3 are layered atop the 2026-05-22 M3.7 baseline.
+
+**Two unrelated issues addressed:**
+
+**Issue A — `DeploymentProfile.TESTING` Javalin pool was below Jetty's minimum.** All 7 M3.7 HTTP tests (`CrashRecoveryHttpIT`, `EndpointE2eIT`'s 5 methods, `InFlightRequestShutdownIT`) failed at `harness.start()` (Step 12 of `HomeSynapseCore.start()`) with `io.javalin.util.JavalinException` wrapping `java.lang.IllegalStateException`. The pre-existing M3.4a/M3.4b tests (`BurstLoadIT`, `HeapBudgetIT`, `Pi4SustainedLoadIT`, `Pi4D1SpikeIT`, `CrashRecoveryIT` — all using `IntegrationTestHarness`, which does NOT bind Javalin) continued to run. The M3.7 brief set `TESTING(... javalinMinThreads=1, javalinMaxThreads=2 ...)` to minimise Jetty footprint, but Jetty's `QueuedThreadPool.doStart()` requires `minThreads >= acceptors + selectors + 1`. On a multi-core dev host (`selectors = max(1, cores/2)`), 1/2 is below the floor. Fix: bump TESTING's pool to match HOME's known-good 2/8 sizing. SQLite-tier tunings (`cacheSizeKiB=2000`, `mmapSizeBytes=33_554_432`, `readThreadCount=1`) stay unchanged — they're independent of Javalin's pool.
+
+**Caveat on Issue A diagnosis:** Gradle 8+ writes test reports in proprietary binary format (`testing/integration-tests/build/test-results/test/binary/output.bin`), and the JUnit XML/HTML reports were not generated for this run. The verbatim exception message could not be extracted from the binary. The diagnosis rests on indirect evidence: (a) all 7 M3.7 HTTP tests fail at `harness.start()`, (b) M3.4 non-Javalin tests work, (c) the `JavalinException` → `IllegalStateException` pair at server bind matches Jetty's textbook `QueuedThreadPool.doStart()` failure signature. The fix is also defensive — bumping to HOME's known-good 2/8 has no downside.
+
+**Issue B — Unicode em-dash (U+2014) and right-arrow (U+2192) in `@DisplayName` strings render as mojibake on Windows console (CP-437).** Console output showed `M3.7 ΓÇö endpoint E2E` (em-dash) and `abandon ΓåÆ restart` (right-arrow). The JVM writes correct UTF-8 (Java 21 default per JEP 400); the Windows console misinterprets it. Cross-platform portable fix: replace Unicode punctuation in `@DisplayName` strings with ASCII equivalents (`—` → `--`, `→` → `->`). Comments and Javadoc untouched — those don't appear in console output and are valuable to human readers as-is.
+
+**Files changed in fix round 3 (6 files):**
+- `core/persistence/src/main/java/com/homesynapse/persistence/DeploymentProfile.java` — `TESTING` enum value: `javalinMinThreads` `1` → `2`; `javalinMaxThreads` `2` → `8`. Javadoc on the enum value updated to explain the M3.7 fix-round-3 background. STUDIO/HOME/PERFORMANCE unchanged.
+- `core/persistence/MODULE_CONTEXT.md` — `DeploymentProfile` row updated: `TESTING(... 1, 2, 8)` instead of `(... 1, 1, 2)`, with the M3.7 fix-round-3 note.
+- `testing/integration-tests/src/test/java/com/homesynapse/it/CrashRecoveryHttpIT.java` — 2 `@DisplayName` strings ASCII-fied (class-level em-dash + `entities survive abandon -> restart` arrow).
+- `testing/integration-tests/src/test/java/com/homesynapse/it/EndpointE2eIT.java` — class-level `@DisplayName` em-dash → `--`.
+- `testing/integration-tests/src/test/java/com/homesynapse/it/InFlightRequestShutdownIT.java` — class-level `@DisplayName` em-dash → `--`.
+- `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/HomeSynapseCoreTest.java` — class-level `@DisplayName` em-dash → `--`.
+- `nexsys-hivemind/context/handoff/coder-handoff.md` — this entry.
+
+**Unchanged from previous rounds:**
+- Round 1's H5 fix in `HomeSynapseCore.mode()` (reads bus FSM via `eventBus.subscribers()`).
+- Round 2's catalog pin (`awaitility = "4.3.0"`).
+- All Javadoc, comments, MODULE_CONTEXT.md prose outside the persistence module — Unicode characters preserved where they don't reach the Windows console.
+
+**Optional environment note for Nick (not required):** Running `chcp 65001` in Git Bash (or PowerShell) switches the console to UTF-8 and allows the existing UTF-8 in source files (MODULE_CONTEXT files, Javadoc, log messages) to display correctly. Not required — this round's @DisplayName ASCII-fication makes the tests cross-platform without depending on console code page. The `chcp 65001` tip is useful for reading source via Git Bash tools (`cat`, `less`, `grep`).
+
+**Commands Nick must re-run:**
+1. `./gradlew :core:persistence:check` — verifies the `DeploymentProfile` enum change compiles (still 4 enum values × 8 fields; only TESTING's last two field values changed).
+2. `./gradlew :lifecycle:lifecycle:check` — should remain GREEN (only a single `@DisplayName` ASCII tweak on the class). Confirms no regression from rounds 1+2.
+3. `./gradlew check` — full-project regression check.
+4. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — should now resolve to GREEN on all 7 M3.7 HTTP tests. Jetty's pool floor is cleared by the 2/8 bump; @DisplayName output reads cleanly on Windows console.
+
+**Deviations (none BLOCKING):**
+- **[REVIEW] D-FR3-1** — Issue A diagnosis could not be confirmed verbatim from build artifacts (Gradle 8+ binary format, no JUnit XML emitted by the test task). Diagnosis rests on the failure pattern (7 HTTP tests fail at harness.start, M3.4 non-Javalin tests work) + Jetty's known `QueuedThreadPool.doStart()` `minThreads >= acceptors + selectors + 1` requirement. The fix is defensive (HOME-equivalent pool sizing is known-good on Nick's hardware) — if the post-fix run still fails, the actual exception message will surface in the next round.
+- **[INFO] D-FR3-2** — M3.4 pre-existing test files (`BurstLoadIT`, `CrashRecoveryIT`, `HeapBudgetIT`, `Pi4D1SpikeIT`, `Pi4SustainedLoadIT`) also contain Unicode em-dashes in their class-level `@DisplayName` strings. They were NOT touched in this round per the brief's narrower scope ("Grep all M3.7-created test files and HomeSynapseCoreTest"). Mojibake will continue to show for those tests' `@DisplayName` headers on the Windows console. A future hygiene WU can ASCII-fy them en masse; current cost is purely visual.
+- **[INFO] D-FR3-3** — Unicode em-dashes remain in Javadoc, comments, and MODULE_CONTEXT.md prose throughout the codebase. These don't surface to the test console, so they were left as-is. `chcp 65001` (UTF-8 console code page) is the right Windows-side fix for human readers viewing source through Git Bash; the M3.7 fix-round-3 work explicitly does not address documentation/comments.
+
+### RESOLVED — M3.7 Fix Round 2: awaitility 4.3.1 → 4.3.0 catalog correction (2026-05-23)
+Round 2's catalog pin correction is unchanged and remains documented below for context. Round 3 layers atop rounds 1 and 2.
+
+### OPEN (superseded by fix round 3 testing-only fixes) — M3.7 Fix Round 2: awaitility 4.3.1 → 4.3.0 catalog correction (2026-05-23)
+**Target commit:** delta over the M3.7 fix-round-1 working tree (no commit yet — rounds 1 and 2 are layered atop the 2026-05-22 M3.7 baseline). Single-line catalog change.
+
+**Failure that prompted the round:**
+- `./gradlew :lifecycle:lifecycle:check` FAILED at `compileTestJava` with `Could not find org.awaitility:awaitility:4.3.1`. The version pin `awaitility = "4.3.1"` (set by the M3.7 brief and carried unchanged into fix-round-1's lifecycle test dep) does not exist on Maven Central. The same trust gap applied to `json-unit-assertj = "3.5.0"` but that resolution path was never hit because lifecycle's compile failed first.
+- `:api:rest-api:check` and `:app:homesynapse-app:check` were GREEN — they do not consume the new catalog entries.
+
+**Phase 1 verification against Maven Central** (`https://repo.maven.apache.org/maven2/...`):
+- `org/awaitility/awaitility/` — highest stable is **`4.3.0`**. The `4.3.1` value the original brief listed was a fabrication; `4.2.2` is the latest 4.2 line; `4.3.0` is the next published stable.
+- `net/javacrumbs/json-unit/json-unit-assertj/` — `3.5.0` **does exist**. Highest overall is `5.1.1`, but the M3.7 brief explicitly required *"newer maintenance releases that preserve the public API"* — a 3→5 major-version jump violates semantic versioning's API-stability promise, so `3.5.0` remains the correct pin per the brief's API-preservation guideline.
+- Coordinates confirmed correct: `org.awaitility:awaitility` and `net.javacrumbs.json-unit:json-unit-assertj` match the Maven Central directory paths exactly. No coordinate corrections needed.
+
+**Fix applied (single-line catalog edit):**
+- `gradle/libs.versions.toml` — `awaitility = "4.3.1"` → `awaitility = "4.3.0"`. Nothing else changed in the catalog. The `[libraries]` entries (`awaitility = { module = "org.awaitility:awaitility", version.ref = "awaitility" }` and `json-unit-assertj = { module = "net.javacrumbs.json-unit:json-unit-assertj", version.ref = "json-unit-assertj" }`) are unchanged.
+
+**Unchanged from previous rounds:**
+- The H5 architectural fix in `HomeSynapseCore.mode()` (round 1) stands unchanged — this round is purely catalog hygiene.
+- All test files, build.gradle.kts files, MODULE_CONTEXT files unchanged.
+
+**Commands Nick must re-run:**
+1. `./gradlew :lifecycle:lifecycle:check` — should now resolve `org.awaitility:awaitility:4.3.0` from Maven Central, compile the rewritten `mode_returnsLiveAfterProjectionCompletesReplay` test against Awaitility's API, and pass all 14 tests in the class (the H5-affected test + the 13 pre-existing ones).
+2. `./gradlew check` (full project) — should be GREEN. All other modules already GREEN per Nick's round 1 results; the lifecycle dep resolution unblocks the only remaining failure.
+3. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — also re-runnable now; `testing/integration-tests/build.gradle.kts` consumes the same `libs.awaitility` from the catalog, so the catalog correction propagates automatically. The M3.7 E2E tests' `LiveModeAwaiter.awaitLive(harness)` polls `harness.mode()` → `HomeSynapseCore.mode()`, which now reads the bus FSM (H5 fix from round 1) — the tests should reach LIVE on the empty event log without further changes.
+
+**Deviations (none BLOCKING):**
+- **[INFO] D-FR2-1** — `awaitility` pinned to `4.3.0` (the actual highest stable on Maven Central) rather than the brief's stated `4.3.1`. The brief's value was a fabrication; the correction is forced by reality. No API surface impact — `Awaitility.await().atMost(...).pollInterval(...).until(...)` is stable across the entire 4.x line.
+- **[INFO] D-FR2-2** — `json-unit-assertj` left at `3.5.0` despite `5.1.1` being the actual latest. Rationale: M3.7 brief's "preserve the public API" guideline excludes major-version jumps; `3.5.0` exists; no problem to solve. If the PM wants to bump to 5.x as a follow-up, that's a separate WU with its own API-compat verification.
+
+### RESOLVED — M3.7 Fix Round 1: HomeSynapseCore.mode() reads bus FSM (2026-05-23)
+Round 1's H5 architectural fix is unchanged and remains documented below for context. Round 2 is purely a version-pin correction layered atop round 1.
+
+### OPEN (superseded by fix round 2 catalog correction) — M3.7 Fix Round 1: HomeSynapseCore.mode() reads bus FSM (2026-05-23)
+**Target commit:** delta over the M3.7 working tree (post-2026-05-22 baseline; no commit yet — fix is layered on top of the previous Coder output). Nick re-runs `./gradlew :lifecycle:lifecycle:check` and then `./gradlew check`.
+
+**Failure that prompted the round:** `HomeSynapseCoreTest.mode_returnsLiveAfterProjectionCompletesReplay` failed with `expected: LIVE but was: COLD` after polling for 5.56 seconds. All 5 other modules' `:check` tasks passed green; only `:lifecycle:lifecycle:check` failed (1 of 14 tests).
+
+**Diagnosis: H5 — projection's internal mode field is orphaned.**
+
+- `StateProjection.currentMode()` reads `currentMode` (an `AtomicReference<SubscriberMode>` initialised to `COLD` at construction).
+- The field's Javadoc (`StateProjection.java:80-83`) documents: *"The bus's lifecycle wiring is expected to call `setMode` on `COLD → REPLAY → TRANSITION → LIVE → SUSPENDED` transitions."*
+- **The bus does NOT call `subscriber.setMode(...)` anywhere.** `grep "setMode|currentMode\.set" core/event-bus/src/main/java` returns zero hits. The bus drives `SubscriberRuntime.mode` (its own private AtomicReference, surfaced via `SubscriberSnapshot.mode()`), but the projection's own `currentMode` is never written by the bus.
+- With an empty event log (the M3.7 fix-round-1 scenario), `onEvent` never fires; even if a sacrificial event were published, `StateProjection.onEvent` short-circuits at `mode == COLD || SUSPENDED` (`StateProjection.java:349-351`) and returns without advancing. So option (a) from the brief (publish a sacrificial event) cannot work.
+- Option (b) — make `HomeSynapseCore.mode()` read the bus's authoritative FSM — is the only viable fix. It is also architecturally correct: `HomeSynapseCore implements ReadinessSource`, and readiness is a property of the bus's delivery FSM, not the projection's internal state.
+
+**Fix applied (option b):** `HomeSynapseCore.mode()` now reads `eventBus.subscribers()`, finds the projection subscriber by ID, and returns its `SubscriberSnapshot.mode()`. Falls back to `COLD` if the projection is not present (defensive). The test was rewritten to use Awaitility (per D-04 / NO_DIRECT_TIME_ACCESS — `System.nanoTime()` removed); the `lifecycle/lifecycle/build.gradle.kts` got `testImplementation(libs.awaitility)` added.
+
+**Files changed in fix round 1:**
+- `lifecycle/lifecycle/src/main/java/com/homesynapse/lifecycle/HomeSynapseCore.java` — `mode()` body replaced; Javadoc comment explains the architectural rationale and points at the cross-module symmetry fix (see deviation D-FR1-1).
+- `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/HomeSynapseCoreTest.java` — `mode_returnsLiveAfterProjectionCompletesReplay` rewritten to use `Awaitility.await().atMost(5s).pollInterval(50ms)` instead of the pre-fix `System.nanoTime()` + `Thread.sleep(50)` loop. Awaitility import added.
+- `lifecycle/lifecycle/build.gradle.kts` — `testImplementation(libs.awaitility)` added.
+- `lifecycle/lifecycle/MODULE_CONTEXT.md` — `HomeSynapseCore` row updated with the M3.7 fix round 1 note (`mode()` reads bus FSM; `StateProjection.currentMode` is documented as orphaned).
+- `nexsys-hivemind/context/handoff/coder-handoff.md` — this entry.
+
+**Commands Nick must re-run after the fix:**
+1. `./gradlew :lifecycle:lifecycle:check` — verifies the rewritten test compiles against the new Awaitility dep, the `HomeSynapseCore.mode()` rewrite compiles, and all 14 tests in the class pass (the previously-failing one and the 13 others that were green).
+2. `./gradlew check` — confirms no cross-module regression. The fix is scoped to `lifecycle/lifecycle` only.
+3. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — runs the M3.7 E2E tests. `HomeSynapseE2eHarness.mode()` delegates to `HomeSynapseCore.mode()`, so `LiveModeAwaiter.awaitLive(harness)` benefits from the fix automatically (the integration tests should now reach LIVE on empty stores).
+
+**Deviations (none BLOCKING):**
+- **[REVIEW] D-FR1-1** — `HomeSynapseCore.mode()` now reads the bus's per-subscriber `SubscriberSnapshot.mode()` instead of `StateProjection.currentMode()`. This materially changes the semantics of the `ReadinessSource` contract: the "ready" signal now reflects the bus's delivery FSM (driven by `ReplayDriver` + `TransitionCoordinator`), not the projection's view of its own mode. The PM should update MODULE_CONTEXT documentation for `ReadinessSource` if it asserts otherwise, AND should consider an eventual cross-module fix that has the bus call `subscriber.setMode(newMode)` on each FSM transition to restore symmetry — but that work is OUT OF SCOPE for M3.7 (it would touch `core/event-bus`).
+- **[INFO] D-FR1-2** — Added `testImplementation(libs.awaitility)` to `lifecycle/lifecycle/build.gradle.kts`. Same dep that M3.7 added to `testing/integration-tests`; uses the already-pinned `awaitility = "4.3.1"` from `gradle/libs.versions.toml`. Comment notes the M3.7 fix round 1 origin.
+- **[INFO] D-FR1-3** — Did not touch any other test in `HomeSynapseCoreTest.java`. The other 13 tests continue to use `Clock.systemUTC()` constructor arguments (existing pattern, pre-M3.7 — the rule about Clock applies to direct time-API calls, not Clock arguments to harness construction). Only the failing test was rewritten.
+
+### RESOLVED — M3.7 E2E Integration Tests (2026-05-22)
+The original M3.7 entry remains documented below for context; the rest of the build gate (the other 5 module checks) was GREEN per Nick's run on 2026-05-22.
+
+### OPEN (superseded by fix round 1) — M3.7 E2E Integration Tests (2026-05-22)
+**Target commit:** delta over `76288af` (M3.6e.2 baseline). The Coder produced files only; Nick runs `./gradlew check` and reports.
+
+The change spans approximately 17 files: 5 new test files (`HomeSynapseE2eHarness`, `LiveModeAwaiter`, `TestEvents`, `EndpointE2eIT`, `CrashRecoveryHttpIT`, `InFlightRequestShutdownIT` — 6 new files actually), 1 new production file (`MinimalProjectionAdvancer`), and modifications to: `gradle/libs.versions.toml` (awaitility + json-unit-assertj pins), `testing/integration-tests/build.gradle.kts` (4 new test deps), `core/persistence/DeploymentProfile.java` (4th TESTING enum value), `lifecycle/lifecycle/HomeSynapseConfig.java` (2→3 fields + `testing()` factory), `lifecycle/lifecycle/HomeSynapseCore.java` (NO_OP placeholders replaced; `boundHttpPort()` accessor; `config.httpPort()` instead of hardcoded `HTTP_PORT`), `core/event-bus/SubscriberDlq.java` (Clock injection + parkedAt + oldestParkedAt accessor; DlqEntry 6→7 fields; legacy no-arg constructor removed), `core/event-bus/SubscriberSnapshot.java` (5→6 fields), `core/event-bus/InProcessEventBus.java` (passes clock to SubscriberDlq + populates new snapshot field), `core/event-bus/TransitionCoordinator.java` (synthetic DlqEntry now passes parkedAt), `core/event-bus/test/SubscriberSupervisorTest.java` (7 SubscriberDlq constructor calls updated to 3-arg), `api/rest-api/DlqStatusEndpoint.java` (response shape adds oldestParkedAt), `api/rest-api/test/DlqStatusEndpointTest.java` (3 SubscriberSnapshot constructions updated to 6-arg), `lifecycle/lifecycle/test/HomeSynapseCoreTest.java` (3 new tests), plus MODULE_CONTEXT.md updates in `lifecycle/lifecycle`, `core/persistence`, `core/event-bus`, `api/rest-api`, `testing/integration-tests`.
+
+**Commands Nick must run against the working tree:**
+1. `./gradlew :core:persistence:check` — verifies the new `DeploymentProfile.TESTING` enum value compiles (4 enum values × 8 fields).
+2. `./gradlew :core:event-bus:check` — verifies the `SubscriberDlq` 3-arg constructor, the new `parkedAt` field on `DlqEntry`, the `oldestParkedAt()` accessor, the 6-field `SubscriberSnapshot` record, `InProcessEventBus.subscribeRuntime` passing `clock`, and `TransitionCoordinator.park(...)` passing the new `parkedAt` arg. The updated `SubscriberSupervisorTest` should compile and pass (7 SubscriberDlq construction sites updated to pass FIXED_CLOCK).
+3. `./gradlew :api:rest-api:check` — verifies `DlqStatusEndpoint` builds the 5-key response Map and that `DlqStatusEndpointTest` compiles against the 6-arg `SubscriberSnapshot` and verifies the new `oldestParkedAt` Map entry.
+4. `./gradlew :lifecycle:lifecycle:check` — verifies the renamed `MINIMAL_DERIVATION_RULE` constant + the new `MinimalProjectionAdvancer` package-private class + the new 3-field `HomeSynapseConfig` (with `testing()` factory) + `boundHttpPort()` accessor + the renamed bound-port log message + the new 3 `HomeSynapseCoreTest` methods (`mode_returnsLiveAfterProjectionCompletesReplay`, `boundHttpPort_returnsPositiveNonZeroAfterStart`, `boundHttpPort_throwsBeforeStart`). The bootstrap step count remains 16 (no new steps; step 5/6 contents updated and step 12 port reference changed).
+5. `./gradlew :app:homesynapse-app:check` — runs the 9 ArchUnit rules against the full classpath. The new `MinimalProjectionAdvancer` uses the injected `EventStore`; no `Instant.now()` / `System.currentTimeMillis()` calls are introduced anywhere in the diff. The new production code in `lifecycle` and `core/event-bus` does not access filesystem directly. No new internal-package access.
+6. `./gradlew check` (full project) — catches any cross-module fallout. The change is mostly additive but the `SubscriberSnapshot` 5→6 field change and `SubscriberDlq` constructor signature change DO break compilation against any out-of-tree consumer that hasn't been updated. Inside the tree, all known call sites have been updated (`InProcessEventBus.buildSnapshot`, `DlqStatusEndpoint`, the two test files).
+7. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — runs the existing M3.4a/M3.4b integration tests AND the new M3.7 E2E tests. The new tests bind to ephemeral HTTP ports (port 0); parallel execution is safe. The new tests use `Clock.fixed(...)` per DEC-M3-09. If JUnit's test runner uses platform threads by default (it does as of 5.10+), `HomeSynapseE2eHarness.start()` satisfies the platform-thread JacksonWarmup constraint (LTD-19 / DECIDE-M2-05).
+
+**Risk profile:** Medium-high. Largest risks:
+- (a) `SubscriberSnapshot` 5→6 field change ripples through anywhere the record is constructed. In-tree audit: `InProcessEventBus.buildSnapshot` (updated), `DlqStatusEndpointTest` (updated). The contract-test framework (`EventBusContractTest`) only reads accessors — no construction calls.
+- (b) `SubscriberDlq` 2-arg → 3-arg constructor change. In-tree audit: `InProcessEventBus.subscribeRuntime` (updated), `SubscriberSupervisorTest` (7 sites updated via replace_all). Legacy no-arg `SubscriberDlq()` constructor deleted as unused.
+- (c) `DlqEntry` 6→7 field record extension. In-tree audit: `SubscriberDlq.park(DeadLetter)` (updated to pass clock.instant()), `TransitionCoordinator` (updated to pass `now` as the 7th arg).
+- (d) Javalin `app.port()` API call. Verified against `javalin-6.7.0.jar`'s bytecode — `public int port()` exists. Returns the bound port even for `start(0)` ephemeral binds (standard Jetty behavior).
+- (e) The new integration-tests module deps (`lifecycle`, `rest-api`) introduce transitive Jackson + Javalin + Jetty onto the test classpath. Should compile cleanly because the integration-tests module already pulls those transitively through `core:state-store` and `core:event-bus`.
+
+**Deviations (none BLOCKING):**
+- **[REVIEW] D-A** — `HomeSynapseCore.javalinApp` field is actually named `httpServer`, not `javalinApp` as the brief expected. The existing M3.6e.1 naming was preserved; the brief's references were treated as conceptual. Documented in the source file and Module Context.
+- **[REVIEW] D-B** — `SubscriberDlq.DlqEntry` was already a 6-field record (not 4 as the brief stated). M3.7 adds `parkedAt` as the 7th field. Behaviorally identical to the brief's intent.
+- **[INFO] D-C** — `boundHttpPort()` was added to `HomeSynapseCore` rather than `DeploymentProfile` (the brief's literal text). The brief's "Settled Decisions" REC-15 line explicitly reinterprets the placement; this implementation follows the reinterpreted form.
+- **[INFO] D-D** — The legacy no-arg `SubscriberDlq()` constructor was DELETED as unused, rather than updated to take Clock. CLAUDE.md authorises deletion of unused code over backwards-compat shims.
+- **[INFO] D-E** — Single existing TestEvents draft factory (`stateReported`, `availabilityChanged`) — the brief listed 4 example factories including `entityRegistered` and `stateChanged`. `EntityRegisteredEvent` does not exist in the event-model module (entities arrive via `device_adopted` payloads); `StateChangedEvent` requires `EventId triggeredBy` which is a derived-event signature, awkward for ad-hoc test creation. The two factories cover the M3.7 E2E test surface.
+- **[INFO] D-F** — `EndpointE2eIT.getDlqStatusReturnsSubscribersListWithOldestParkedAtField` asserts the empty-DLQ shape only (the brief allowed this as the alternative to causing a real DLQ park, which requires deliberate event corruption). The non-empty case is a future enhancement.
+- **[INFO] D-G** — The existing `testing/integration-tests/build.gradle.kts` gates `tasks.test` on `project.hasProperty("piProfile")`. The new M3.7 tests inherit this gating — Nick must pass `-PpiProfile=throttled` to run them. The gating was preserved as-is; loosening it is out of scope.
+- **[INFO] D-H** — The unused import `com.homesynapse.state.AdvanceResult` and `com.homesynapse.state.ProjectionAdvancer` were removed from `HomeSynapseCore.java` after the NO_OP_ADVANCER lambda was deleted. The `MinimalProjectionAdvancer` field uses the concrete type, not the interface, so the interface import is no longer needed at the call site.
+
+**STOP-gate results (G1–G11):** All PASS with two minor brief discrepancies noted:
+- G1 PASS — HomeSynapseCore has 16 steps, `NO_OP_DERIVATION`/`NO_OP_ADVANCER` constants present at expected lines, `HTTP_PORT=7070` at line 138, `httpServer` field exists (named `httpServer`, not `javalinApp` as brief stated — see D-A).
+- G2 PASS — RestFilters has 3 documented methods.
+- G3 PASS — DeploymentProfile has 3 enum values × 8 fields pre-M3.7 (4 values after this WU).
+- G4 PASS — EventBus has 8 methods; SubscriberSnapshot has 5 fields (6 after this WU); no `isLive()` method.
+- G5 PASS — `StateQueryService.materialized(StateStore, ReadinessSource, LongSupplier, Clock)` factory exists.
+- G6 PASS — `ProjectionAdvancer.advance(long, int, Consumer<EventEnvelope>) → AdvanceResult`; `DEFAULT_MAX_ROWS = 500`.
+- G7 PASS — `AdvanceResult` is a 3-field record.
+- G8 PASS — `EventStore.readFrom(long, int) → EventPage`; `EventPage` is a 3-field record (events, nextPosition, hasMore).
+- G9 PASS — `libs.versions.toml` has neither `awaitility` nor `json-unit-assertj` pinned (added by this WU).
+- G10 PASS — `SubscriberDlq` has no-arg + 2-arg constructors; `DlqEntry` has 6 fields (not 4 as brief stated — see D-B).
+- G11 PASS — `HomeSynapseConfig` is a 2-field record with `HOME_DEFAULT` (3 fields after this WU).
+
+### RESOLVED — M3.6e.2 Admin Endpoints + ArchUnit Rules (2026-05-22)
+**Commit:** `76288af`. **Build:** GREEN. Full `./gradlew check` confirmed by Nick.
 
 ### RESOLVED — M3.6e.2 Admin Endpoints + ArchUnit Rules (2026-05-22)
 **Commit:** `76288af`. **Build:** GREEN. Full `./gradlew check` confirmed by Nick.
@@ -43,15 +285,15 @@ The change spans 16 files: 8 new production files (`EndpointContext.java`, `Java
 
 ### Next Work Unit
 
-**Next: M3.7 — End-to-End Integration Tests** (scoping in progress via the PM research pipeline; coding instruction not yet issued). M3.6 is the M3 capstone; with M3.6e.2 complete, the composition root is fully wired with externally queryable HTTP endpoints and operational visibility. M3.7 cannot begin Coder execution until the PM research pipeline closes (Research 4 v3 + at least one additional research item targeting M3.7/M4 prerequisites), and the two open-risk placeholders below are resolved.
+**Next: M4.0 — first M4 milestone** (scoping TBD by the PM). M3.7 is the M3 capstone — with this WU committed and GREEN, the M3 implementation milestone is complete. The composition root is fully wired with HTTP query/admin endpoints, ephemeral-port test execution, a real bounded-window projection advancer, and DLQ `oldestParkedAt` observability.
 
-Pre-M3.7 prerequisites that may shape (or precede) the M3.7 coding instruction:
-- **OR-M3-17** (`NO_OP_DERIVATION` placeholder in `HomeSynapseCore`) — must be resolved before M3.7.
-- **OR-M3-18** (`NO_OP_ADVANCER` placeholder in `HomeSynapseCore`) — must be resolved before M3.7.
-- **End-to-end HTTP integration test** for the M3.6e.2 endpoints (real Jetty + real client) — currently deferred; would close the in-session test-coverage gap. May fold into M3.7.
-- **DLQ `oldestParkedAt` field** — requires plumbing parked-at timestamps in `SubscriberDlq`; would close the brief's response-shape deviation. May fold into M3.7 or split as a separate WU.
+M3.7 closure of pre-M3.7 prerequisites:
+- **OR-M3-17** (`NO_OP_DERIVATION` placeholder) — RESOLVED. Renamed `MINIMAL_DERIVATION_RULE = context -> List.of()`; the empty-derivation path is the M3.7 closure (full derivation lands at M4.0 with `DispatchingProjectionAdvancer` per Research 8 REC-28).
+- **OR-M3-18** (`NO_OP_ADVANCER` placeholder) — RESOLVED. New `MinimalProjectionAdvancer` package-private class implements `ProjectionAdvancer` against the live `EventStore` via bounded-window `readFrom` (≤500 rows).
+- **End-to-end HTTP integration test** — RESOLVED. New `EndpointE2eIT`, `CrashRecoveryHttpIT`, `InFlightRequestShutdownIT` in `testing/integration-tests`.
+- **DLQ `oldestParkedAt` field** — RESOLVED. `SubscriberDlq` now takes `Clock` and exposes `oldestParkedAt()`; `SubscriberSnapshot` extended 5→6 fields; `DlqStatusEndpoint` response now includes the field.
 
-PM: M3.7 is the next-unit-by-ID per PROJECT_SNAPSHOT.md and phase-3-milestone-backlog.md. The two NO_OP placeholders are likely to land as a pre-M3.7 wiring WU (either as `M3.6f` or bundled into M3.7's first commit).
+PM follow-up: scope M4.0 (likely starting with `DispatchingProjectionAdvancer` per Research 8 REC-28 and the M4 amendment-deliberation window from Research 4 v3 / Research 6 NQs / Research 5 REC-56).
 
 ### Resolved at commit
 

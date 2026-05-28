@@ -5,16 +5,16 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-22 against commit 76288af
+last-verified: 2026-05-27 against M3.7 closeout working tree (pending commit)
 -->
 
 # PM Session Handoff
 
-**Last updated:** 2026-05-22 (Cowork — Research 7 v1 assessment produced; research pipeline COMPLETE pre-M5; M3.7 instruction already issued — awaiting Coder; 4 + 7 = 11 NQs/DQs awaiting Nick across Research 4/5/6/7)
+**Last updated:** 2026-05-27 (M3.7 COMPLETE — `./gradlew check` GREEN, pending commit. M3 milestone is done. AMD-45 drafted for M4.0 first WU. M4 full scoping next.)
 
 ## Current Task
 
-**M3.7 coding instruction issued — awaiting Coder execution.** Instruction at `context/instructions/M3.7_E2E_Integration_Tests.md` (Phase 3 — final M3 milestone). M3.6 COMPLETE — all seven sub-WUs PM-accepted (M3.6e.2 at `76288af`, 2026-05-22). Build GREEN at HEAD. WUCP Phase 2 complete for all M3.6 sub-WUs. Seventeen Claude Code work units total.
+**M3 COMPLETE. M4 scoping is the next action.** M3.7 delivered and verified GREEN (139 Gradle tasks). Pending commit covers 18 modified + 3 new files across 6 modules. Five Cowork fix rounds + two Claude Code briefs resolved: H5 bus-FSM read, awaitility catalog pin, TESTING Jetty pool sizing, Subscriber.setMode lifecycle hook, NotifyingEventPublisher, abandon() contract, checkpoint key mismatch fix, FixedCheckpointPolicy.TESTING. Eighteen Claude Code work units total across M2–M3.
 
 ## Phase 3 Work Unit Status
 
@@ -45,6 +45,7 @@ last-verified: 2026-05-22 against commit 76288af
 | **M3.6d-b** | PersistenceFactory + HomeSynapseCore (composition-root wiring) — WriteCoordinator.queueSize(), SqliteSubscriberReadConnectionFactory, SqlitePersistenceLifecycle 6-store expansion, PersistenceFactory public gateway, HomeSynapseCore 12-step bootstrap | **DONE 2026-05-21** | `dfb045e` (4-commit cohort: `a33ee40`..`dfb045e`) |
 | **M3.6e.1** | MaterializedStateQueryService + ReadinessFilter + RestFilters + Javalin bootstrap + DeploymentProfile thread pool sizing. Two follow-up fix rounds (Xlint:exports gateway, Gradle/JPMS scope). 7 deviations (none blocking). 6 created, 13 modified. | **DONE 2026-05-22** | `b71ed37` |
 | **M3.6e.2** | Admin endpoints (DlqStatusEndpoint, ProjectionStatusEndpoint) + entity query endpoints (ListEntitiesEndpoint, GetEntityEndpoint, GetEntityStateEndpoint) + EndpointContext SPI + 2 RestFilters gateway methods + 2 ArchUnit rules + HomeSynapseCore 16-step bootstrap. 15 created, 6 modified, 19 test methods. 5 deviations (none blocking). M3.6 COMPLETE. Seventeenth CC WU. | **DONE 2026-05-22** | `76288af` |
+| **M3.7** | E2E HTTP integration tests + abandon() contract + checkpoint key fix + TESTING checkpoint policy. 5 Cowork fix rounds + 2 CC briefs. 18 modified + 3 new files. CrashRecoveryHttpIT passes. M3 COMPLETE. Eighteenth CC WU. | **DONE 2026-05-27** | pending commit |
 
 ## Design Doc Status
 
@@ -98,13 +99,13 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 #### OR-M3-17 — NO_OP_DERIVATION placeholder (NEW 2026-05-22)
 - **Severity:** MEDIUM (placeholder blocks M3.7 E2E tests)
-- **Detail:** `HomeSynapseCore` step 5 uses `NO_OP_DERIVATION` (`Function.identity()` cast to `Function<EntityState, EntityState>`) as the derivation function in `StateProjection.create(...)`. This is a placeholder — the real derivation logic lands when a consumer defines `state_changed` event derivation per DEC-M3-10. Must be resolved before M3.7 to ensure E2E tests exercise the full projection pipeline.
-- **Resolution:** Open. Resolve as part of M3.7 scoping or as a pre-M3.7 wiring WU.
+- **Detail:** `HomeSynapseCore` step 5 uses `NO_OP_DERIVATION` as the derivation function.
+- **Resolution:** RESOLVED in M3.7. Renamed to `MINIMAL_DERIVATION_RULE = context -> List.of()`. Full derivation lands at M4.0 with REC-28.
 
 #### OR-M3-18 — NO_OP_ADVANCER placeholder (NEW 2026-05-22)
 - **Severity:** MEDIUM (placeholder blocks M3.7 E2E tests)
-- **Detail:** `HomeSynapseCore` step 5 uses `NO_OP_ADVANCER` (a lambda returning `AdvanceResult.empty()`) as the `ProjectionAdvancer`. This is a placeholder — the real advancer lands when checkpoint advancement logic is wired. Must be resolved before M3.7.
-- **Resolution:** Open. Resolve as part of M3.7 scoping or as a pre-M3.7 wiring WU.
+- **Detail:** `HomeSynapseCore` step 5 uses `NO_OP_ADVANCER` as the `ProjectionAdvancer`.
+- **Resolution:** RESOLVED in M3.7. Replaced by `MinimalProjectionAdvancer` (package-private, lifecycle module) — reads from `EventStore` via bounded-window contract.
 
 #### OR-M3-15 — Xlint:exports gateway pattern (NEW 2026-05-22)
 - **Severity:** LOW (lesson learned, not regression)
@@ -190,7 +191,7 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 ## Critical Path
 
-**M3.7** (M3.6 COMPLETE — all seven sub-WUs shipped through M3.6e.2 at `76288af` 2026-05-22). M3.7 scoping via research pipeline in progress. Estimated ~6–8h Coder time. After M3.7, M3 is complete and M4 planning begins.
+**M4.0 scoping.** M3 COMPLETE (M3.7 closed 2026-05-27). Next: full M4 scoping and planning — extended research sessions, comprehensive interface/class/test plan, AMD-45 (Atomic Subscriber+View Checkpoint Coupling) as M4.0's first work unit. Research pipeline (Research 4–8) provides the design input; Nick's NQ/DQ decisions from Research 4/5/6/7 are the remaining strategic prerequisites.
 
 ## Open Risks/Concerns from M3 Closeout Readiness Deliberation
 

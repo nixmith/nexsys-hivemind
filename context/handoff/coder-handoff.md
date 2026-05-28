@@ -5,12 +5,12 @@ audience: Coder, PM
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-23 against M3.7 fix round 4 working tree (no commit; layered atop 76288af + rounds 1–3)
+last-verified: 2026-05-27 against M3.7 closeout working tree — `./gradlew check` GREEN (139 tasks). Pending commit.
 -->
 
 # Coder Session Handoff
 
-**Last updated:** 2026-05-26 (M3.7 Recovery Step 2+3 — `NotifyingEventPublisher` decorator bridges the publish/notify gap (Finding 2); stale Javadoc/comments updated in 4 sites. Layered atop fix rounds 1–4. Next-unit pointer remains **M4.0** pending PM scoping.)
+**Last updated:** 2026-05-27 (M3.7 COMPLETE — all deferred build gates RESOLVED. `./gradlew check` GREEN. M3 milestone done. Next-unit pointer: **M4.0** — AMD-45 first, then full M4 scoping.)
 
 Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/handoff/coder-handoff.md`). A duplicate at `homesynapse-core/docs/handoff/coder-handoff.md` (created during a Cowork session) was consolidated into this file on 2026-05-15 and removed.
 
@@ -18,10 +18,57 @@ Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/h
 
 ## Deferred Build Gate
 
-**Status:** 1 OPEN — M3.7 build gate pending re-verification after Recovery Step 2+3. After fix round 4 the cross-module H5 root cause was closed (`Subscriber.setMode` lifecycle callback wired at all CAS sites). Recovery Step 2+3 closes Finding 2 (publish/notify gap): the raw `persistenceFactory.eventPublisher()` did not call `EventBus.notifyEvent()`, so subscribers were never woken on publish. The `NotifyingEventPublisher` decorator bridges this gap. The 3 remaining failing E2E tests (`CrashRecoveryHttpIT`, `EndpointE2eIT#listEntitiesReturnsEntitiesAfterStateReported`, `EndpointE2eIT#getEntityReturns200WithEntityState`) should now pass because `HomeSynapseE2eHarness.eventPublisher()` returns the decorated publisher that notifies the bus on every successful persist.
+**Status:** ALL RESOLVED (2026-05-27). Nick ran `./gradlew check` — BUILD SUCCESSFUL (139 tasks). All M3.7 deferred gates verified GREEN in one pass: Recovery Steps 2+3 (NotifyingEventPublisher), abandon() contract + MinimalEventBusStub, checkpoint key fix + TESTING policy. CrashRecoveryHttpIT passes. Spotless clean (one unused `FixedCheckpointPolicy` import auto-removed by `spotlessApply`).
 
-### OPEN — M3.7 Recovery Step 2+3: NotifyingEventPublisher + stale doc fixes (2026-05-26)
-**Target commit:** delta over the M3.7 fix-round-4 working tree. No commit yet — all recovery steps and fix rounds are layered atop the 2026-05-22 M3.7 baseline.
+### RESOLVED — M3.7 Closeout: abandon() contract + MinimalEventBusStub (2026-05-27)
+**Build gate:** RESOLVED 2026-05-27. `./gradlew check` GREEN (139 tasks).
+
+**What this closes:** M3.7 Finding 2 follow-up — `CrashRecoveryHttpIT` previously left the entire first harness fully alive in its `finally` block (open JDBC, active bus VTs, bound HTTP port), then started a second harness on the same dbPath. The new abandon() contract releases OS-level resources without performing durability operations. Also lands `MinimalEventBusStub` to replace two per-test inner-class EventBus stubs.
+
+**Files created (3 new):**
+- `core/event-bus/src/testFixtures/java/com/homesynapse/event/bus/test/MinimalEventBusStub.java` — public class, all four abstract `EventBus` methods are no-ops (`subscribe`/`unsubscribe`/`notifyEvent`) or return `0` (`subscriberPosition`); `subscribers()` returns a constructor-injected snapshot list (default empty). Default methods retain their `UnsupportedOperationException` bodies. Two constructors: no-arg + `(List<SubscriberSnapshot>)`.
+- `core/persistence/src/test/java/com/homesynapse/persistence/PersistenceFactoryAbandonTest.java` — 4 tests (abandon-releases-resources, close-after-abandon no-op, abandon-after-close no-op, double-abandon no-op).
+- `core/event-bus/src/test/java/com/homesynapse/event/bus/InProcessEventBusAbandonTest.java` — 4 tests (abandon-closes-subscriber-runtimes, unsubscribe-after-abandon no-op, abandon-after-unsubscribe no-op, double-abandon no-op).
+
+**Files modified (14):**
+- `core/persistence/src/main/java/com/homesynapse/persistence/SqlitePersistenceLifecycle.java` — `volatile boolean abandoned` field; `stop()` early-return on `|| abandoned`; new package-private `abandonWithoutCheckpoint()` that calls `databaseExecutor.shutdown()` directly (no WAL checkpoint).
+- `core/persistence/src/main/java/com/homesynapse/persistence/PersistenceFactory.java` — `volatile boolean abandoned` field; `close()` early-return; new public `abandon()` delegating to `lifecycle.abandonWithoutCheckpoint()`.
+- `core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEventBus.java` — `volatile boolean abandoned` field; new public `abandon()` acquiring the existing `rwLock` write lock, iterating `activeRegistry.values()` calling `runtime.close()` on each, then `activeRegistry.clear()` + `passiveRegistry.clear()`. NOT added to the `EventBus` interface (concrete-only).
+- `lifecycle/lifecycle/src/main/java/com/homesynapse/lifecycle/HomeSynapseCore.java` — `volatile boolean abandoned` field; `stop()` early-return on `|| abandoned`; new public `abandon()` with 4-step teardown (httpServer.stop → scheduler.shutdown → eventBus.abandon → persistenceFactory.abandon). `scheduler.shutdown()` already internally invokes `executor.shutdownNow()`, so the brief's preferred `scheduler.shutdownNow()` semantics are satisfied via the existing API (see deviation D-CL-3).
+- `testing/integration-tests/src/test/java/com/homesynapse/it/HomeSynapseE2eHarness.java` — new `abandon()` delegating to `core.abandon()`.
+- `testing/integration-tests/src/test/java/com/homesynapse/it/CrashRecoveryHttpIT.java` — empty-finally block replaced with `preCrash.abandon()` plus updated comment.
+- `api/rest-api/src/test/java/com/homesynapse/api/rest/DlqStatusEndpointTest.java` — `StubBus` inner class deleted; all three sites use `MinimalEventBusStub`; unused `java.util.Objects` import removed; class Javadoc updated.
+- `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/NotifyingEventPublisherTest.java` — `RecordingBus extends MinimalEventBusStub` (brief Option 1); removes the inline overrides of `subscribe`/`unsubscribe`/`subscriberPosition` since the base class provides them.
+- `api/rest-api/build.gradle.kts` — added `testImplementation(testFixtures(project(":core:event-bus")))`.
+- `lifecycle/lifecycle/build.gradle.kts` — added `testImplementation(testFixtures(project(":core:event-bus")))`.
+- `core/persistence/MODULE_CONTEXT.md`, `core/event-bus/MODULE_CONTEXT.md`, `lifecycle/lifecycle/MODULE_CONTEXT.md`, `testing/integration-tests/MODULE_CONTEXT.md` — type-inventory rows updated for the new `abandon()` surfaces; new Gotchas added documenting (a) the production-grade vs. flag-based two-abandon-paths inconsistency in integration-tests, (b) the explicit decision to keep `abandon()` off the `EventBus` interface, (c) the `rateLimit.close()` omission rationale in `HomeSynapseCore.abandon()`, and (d) the `MinimalEventBusStub` testFixture entry.
+
+**No new module dependencies** in production code. No `module-info.java` changes — both `api/rest-api` and `lifecycle/lifecycle` already declare `requires com.homesynapse.event.bus`, so `MinimalEventBusStub` resolves through the existing edge.
+
+**Commands Nick must run:**
+1. `./gradlew :core:persistence:check` — verifies the new `volatile boolean abandoned` field + `abandonWithoutCheckpoint()` method + `PersistenceFactoryAbandonTest`'s 4 tests, plus the existing `PersistenceFactoryTest` 4 tests still pass.
+2. `./gradlew :core:event-bus:check` — verifies the new `InProcessEventBus.abandon()` method + `InProcessEventBusAbandonTest`'s 4 tests, plus `MinimalEventBusStub` in testFixtures compiles. The existing `EventBusContractTest` suite (44 methods) should be unaffected.
+3. `./gradlew :api:rest-api:check` — verifies the new `testImplementation(testFixtures(project(":core:event-bus")))` dependency resolves, `DlqStatusEndpointTest`'s 3 tests still pass against `MinimalEventBusStub` (formerly `StubBus`), and no other tests broke.
+4. `./gradlew :lifecycle:lifecycle:check` — verifies the same testFixtures dependency, `NotifyingEventPublisherTest`'s 4 tests still pass via `RecordingBus extends MinimalEventBusStub`, the new `HomeSynapseCore.abandon()` method compiles, and the existing `HomeSynapseCoreTest` suite is unaffected.
+5. `./gradlew check` — full-project regression.
+6. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — most importantly, `CrashRecoveryHttpIT` should now pass: the abandoned harness actively releases JDBC connections and HTTP socket, so the second harness can successfully bind the same dbPath and ephemeral port. If Recovery Step 2+3's `NotifyingEventPublisher` decorator is also in this layered tree, the other 6 M3.7 HTTP tests should also be GREEN.
+
+**Deviations (none BLOCKING, none REVIEW):**
+- **[INFO] D-CL-1** — `HomeSynapseCore.abandon()` uses `if (!started || abandoned)` rather than the brief's `if ((!started && !abandoned) || abandoned)`. Logically identical (verified by truth-table over the 4 input states); the simpler form matches the existing `SqlitePersistenceLifecycle.stop()` and the new `HomeSynapseCore.stop()` guard updated in the same change, keeping the four mutual-exclusion sites symmetric.
+- **[INFO] D-CL-2** — `HomeSynapseCore.abandon()` does NOT call `rateLimit.close()`. `stop()` still does. `DerivedWriteRateLimit` is a `Semaphore`-backed token bucket with no OS-level resources (no executor, no file handles); skipping `close()` in the crash-simulation path leaks nothing observable; the JVM reclaims the Semaphore via GC. The brief's contract is OS-handle release, not in-memory cleanup. Documented as Gotcha #8 in `lifecycle/lifecycle/MODULE_CONTEXT.md`.
+- **[INFO] D-CL-3** — `HomeSynapseCore.abandon()` uses `scheduler.shutdown()` instead of the brief's preferred `scheduler.shutdownNow()`. `SharedScheduler.shutdownNow()` does not exist as a public accessor, BUT `SharedScheduler.shutdown()` internally invokes `executor.shutdownNow()` on the underlying `ScheduledExecutorService` (SharedScheduler.java:138). The interrupt-running-tasks semantics the brief wanted are therefore already satisfied. The brief explicitly authorized this fallback ("if not, `shutdown()` is acceptable").
+- **[INFO] D-CL-4** — `InProcessEventBusAbandonTest` constructs the bus via `(InProcessEventBus) InProcessEventBusFactory.create(...)` rather than reaching the package-private constructor directly. The cast compiles because `InProcessEventBus` is `public` (M3.6b, DEC-M3-16). The factory route is what the brief asked for; the cast is necessary because `abandon()` is not on the `EventBus` interface.
+- **[INFO] D-CL-5** — `DlqStatusEndpointTest` removed `import java.util.Objects;` (was used only by the deleted `StubBus` constructor). Avoids a Spotless unused-import flag.
+
+**STOP-on-Mismatch gates:** All PASS. `SqlitePersistenceLifecycle.stop()` was at the brief's expected lines 309–339 with the two-step pattern; `PersistenceFactory.close()` delegated to `lifecycle.stop()` at line 221; `InProcessEventBus.unsubscribe()` already used the write lock + `runtime.close()` pattern at lines 174–187; `HomeSynapseCore.stop()` had the documented 5-step teardown at lines 384–406; `DlqStatusEndpointTest`'s inner `StubBus` was at lines 110–141; `CrashRecoveryHttpIT`'s empty finally block was at lines 92–96. No file had diverged from the brief's expected state.
+
+### RESOLVED — M3.7 Recovery Step 2+3: NotifyingEventPublisher + stale doc fixes (2026-05-26)
+**Build gate:** RESOLVED 2026-05-27. `./gradlew check` GREEN (139 tasks).
+
+**What this closes:** Finding 2 from the M3.7 Recovery Session — the publish/notify gap. The raw `persistenceFactory.eventPublisher()` persists events to SQLite but does NOT call `EventBus.notifyEvent()`. Without the decorator, `LiveModeAwaiter.awaitLive()` times out because subscribers (including the projection) are never woken after a publish, so `StateProjection.onEvent` is never called with new events, and the E2E tests that publish-then-query fail at Awaitility timeouts.
+
+### RESOLVED — M3.7 Recovery Step 2+3: NotifyingEventPublisher + stale doc fixes (2026-05-26)
+**Build gate:** RESOLVED 2026-05-27. `./gradlew check` GREEN (139 tasks).
 
 **What this closes:** Finding 2 from the M3.7 Recovery Session — the publish/notify gap. The raw `persistenceFactory.eventPublisher()` persists events to SQLite but does NOT call `EventBus.notifyEvent()`. Without the decorator, `LiveModeAwaiter.awaitLive()` times out because subscribers (including the projection) are never woken after a publish, so `StateProjection.onEvent` is never called with new events, and the E2E tests that publish-then-query fail at Awaitility timeouts.
 
@@ -285,7 +332,7 @@ The change spans 16 files: 8 new production files (`EndpointContext.java`, `Java
 
 ### Next Work Unit
 
-**Next: M4.0 — first M4 milestone** (scoping TBD by the PM). M3.7 is the M3 capstone — with this WU committed and GREEN, the M3 implementation milestone is complete. The composition root is fully wired with HTTP query/admin endpoints, ephemeral-port test execution, a real bounded-window projection advancer, and DLQ `oldestParkedAt` observability.
+**Next: M4.0 — first M4 milestone** (scoping TBD by the PM). M3.7 is the M3 capstone — with this WU committed and GREEN, the M3 implementation milestone is complete. The composition root is fully wired with HTTP query/admin endpoints, ephemeral-port test execution, a real bounded-window projection advancer, DLQ `oldestParkedAt` observability, and (as of the 2026-05-27 closeout) a production-grade `abandon()` ungraceful-shutdown contract spanning persistence → bus → composition root → E2E harness, plus the `MinimalEventBusStub` testFixture consolidation of EventBus inner-class stubs.
 
 M3.7 closure of pre-M3.7 prerequisites:
 - **OR-M3-17** (`NO_OP_DERIVATION` placeholder) — RESOLVED. Renamed `MINIMAL_DERIVATION_RULE = context -> List.of()`; the empty-derivation path is the M3.7 closure (full derivation lands at M4.0 with `DispatchingProjectionAdvancer` per Research 8 REC-28).

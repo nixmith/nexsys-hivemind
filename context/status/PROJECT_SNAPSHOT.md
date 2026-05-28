@@ -5,22 +5,24 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-22 against commit 76288af
+last-verified: 2026-05-27 against M3.7 closeout working tree (pending commit)
 -->
 
 # Project Snapshot
 
-**Last updated:** 2026-05-22 by PM (Cowork — Research 7 v1 assessment produced; research pipeline COMPLETE pre-M5; M3.7 coding instruction already issued — awaiting Coder)
-**Latest commit:** `76288af` on `main` (M3.6e.2)
+**Last updated:** 2026-05-27 by PM (M3.7 closeout — M3 COMPLETE. `./gradlew check` GREEN. AMD-45 drafted. M4 scoping next.)
+**Latest commit:** `76288af` on `main` (M3.6e.2) — M3.7 changes staged but not yet committed (18 modified + 3 new files)
 **Current phase:** P3 — Implementation (test-first).
-**Days remaining:** 187
+**Days remaining:** 182
 **Launch target:** November 25, 2026
 
 ---
 
 ## Current Work Unit
 
-**M3.7 coding instruction issued — awaiting Coder execution.** Instruction at `context/instructions/M3.7_E2E_Integration_Tests.md`. Four scoping decisions made (D-09 placeholder strategy → `MinimalProjectionAdvancer`; D-10 absorb HTTP IT + DLQ `oldestParkedAt` into M3.7; D-11 proceed parallel to M4 amendments; D-12 standard Claude Code workflow). M3.6 COMPLETE — all seven sub-WUs shipped (M3.6a through M3.6e.2). WUCP Phase 2 closeout COMPLETE for all M3.6 sub-WUs. Seventeen Claude Code work units total.
+**M3.7 COMPLETE — pending commit.** Full `./gradlew check` GREEN (139 tasks). M3.7 delivered: E2E HTTP integration tests (HomeSynapseE2eHarness, CrashRecoveryHttpIT, EndpointE2eIT, InFlightRequestShutdownIT), abandon() contract (kill -9 simulation across persistence/bus/core/harness), NotifyingEventPublisher decorator, checkpoint key mismatch fix ("entity_state" → "state_projection"), FixedCheckpointPolicy.TESTING (N=1 event), HomeSynapseConfig 4th component (checkpointPolicy). Five Cowork fix rounds (H5 bus-FSM read, awaitility catalog pin, TESTING Jetty pool sizing + ASCII @DisplayName, Subscriber.setMode lifecycle hook, NotifyingEventPublisher + stale doc fixes) plus two Claude Code briefs (abandon() + MinimalEventBusStub, checkpoint key fix + TESTING policy). Eighteen Claude Code work units total.
+
+**Next:** M4.0 scoping. AMD-45 (Atomic Subscriber+View Checkpoint Coupling) drafted as M4.0's first work unit prerequisite.
 
 ---
 

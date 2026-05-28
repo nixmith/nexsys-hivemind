@@ -18,6 +18,20 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
+## 2026-05-27 [Coder → PM]
+**Topic:** M3.7 closeout — abandon() contract + MinimalEventBusStub; two-abandon-paths inconsistency documented
+**Detail:** Landed the M3.7 Finding 2 follow-up. Production-grade `abandon()` now lives on `SqlitePersistenceLifecycle` (package-private `abandonWithoutCheckpoint`), `PersistenceFactory` (public), `InProcessEventBus` (public, concrete-only — NOT on the `EventBus` interface), `HomeSynapseCore` (public, 4-step teardown), and `HomeSynapseE2eHarness.abandon()` (test delegate). `CrashRecoveryHttpIT`'s empty-finally block was replaced with `preCrash.abandon()`. `MinimalEventBusStub` extracted to event-bus testFixtures replaces two per-test inner-class EventBus stubs (in `DlqStatusEndpointTest` and `NotifyingEventPublisherTest`); both consumer modules gained `testImplementation(testFixtures(project(":core:event-bus")))` declarations they didn't previously have.
+
+A **known inconsistency** between the new production-grade abandon path and the M3.4b `PersistenceTestHarness.abandonForCrashSimulation()` flag-based path is documented in `testing/integration-tests/MODULE_CONTEXT.md` Gotchas. The flag-based path (`IntegrationTestHarness.abandon()` → `CrashRecoveryIT`) works for M3.4 because its bus is passive — no live VTs, no HTTP socket. The production-grade path is required for the HTTP-aware harness because `HomeSynapseCore` owns live VTs and a bound socket. Both coexist intentionally until Doc 15 Layer 2 unifies the harnesses.
+
+**Action needed:**
+- PM: WUCP Phase 2 closeout for M3.7 closeout. Two deferred build gates now stack (Recovery Step 2+3 + this closeout); both layer atop 8930721 with no file overlap, so a single `./gradlew check` covers both. The Open Risks section of pm-handoff.md should reflect this.
+- PM: When Doc 15 Layer 2 (unified harness) is scoped, the two-abandon-paths Gotcha in `testing/integration-tests/MODULE_CONTEXT.md` flags the consolidation target. Until then, the inconsistency is documented but acceptable.
+- Coder (future): The four-layer abandon-pattern template (`volatile boolean abandoned` + early-return guard + flag-set-before-action) is the right template for any future "ungraceful release" addition to other subsystems. New coder-lessons entry 2026-05-27 captures it.
+- Coder (future): When adding a unit test that needs an `EventBus` stub, default to `MinimalEventBusStub` rather than a new inner-class stub. Subclass it inline only when recording or observing behaviour is needed (see `NotifyingEventPublisherTest.RecordingBus` for the pattern).
+
+---
+
 ## 2026-05-20 [Coder → PM, Hivemind]
 **Topic:** M3.6b — InProcessEventBus promoted to public (DEC-M3-16); EventBusConfig introduced
 **Detail:** M3.6b applied DEC-M3-16's composition-root visibility strategy to `InProcessEventBus` (package-private → public). New canonical constructor is 7-arg accepting `EventBusConfig`. `ReplayWindowQueue` capacity is now parameterized (default 10,000; custom via `ReplayWindowQueue(int)`). `InProcessEventBusFactory` gained `createWithConfig(...)` for testFixtures. The `PUBLISHER_BLOCKED_DEPTH_THRESHOLD` static constant was replaced by an instance field sourced from `EventBusConfig.publisherBlockedDepthThreshold()`.

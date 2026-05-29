@@ -10,9 +10,21 @@ last-verified: 2026-05-27 against M3.7 closeout working tree — `./gradlew chec
 
 # Coder Session Handoff
 
-**Last updated:** 2026-05-27 (M3.7 COMPLETE — all deferred build gates RESOLVED. `./gradlew check` GREEN. M3 milestone done. Next-unit pointer: **M4.0** — AMD-45 first, then full M4 scoping.)
+**Last updated:** 2026-05-28 (M3 COMPLETE; M4 scoping COMPLETE. Next-unit pointer: **M4.0a** — wire `AtomicCheckpointWriter` per AMD-45. See the "M4 Readiness" note below before the first M4 brief.)
 
 Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/handoff/coder-handoff.md`). A duplicate at `homesynapse-core/docs/handoff/coder-handoff.md` (created during a Cowork session) was consolidated into this file on 2026-05-15 and removed.
+
+---
+
+## M4 Readiness — read before the first M4 coding brief (2026-05-28)
+
+**M4 scope = Canonical.** Plan: `homesynapse-core-docs/design/HomeSynapse_Core_M4_Implementation_Plan_PLAN-M4-CONSOLIDATED.md`. Three workstreams — A (projection/derivation foundation), B (device-model expansion, Research 8 REC-23–30 + AMD-44 Floor/EntityRole impl), C (integration-api interface freeze, Research 6 REC-41–51; supervisor impl = M9).
+
+**First WU = M4.0a** (decision-free): wire the existing `AtomicCheckpointWriter` (`com.homesynapse.persistence` — already implemented + tested by `AtomicCheckpointWriterTest`/`AtomicCheckpointWriterDlqTest`) into `StateProjection.writeCheckpoint()`, and remove the per-delivery bus subscriber-checkpoint for the `state_projection` subscriber (AMD-45). Extend `CrashRecoveryHttpIT`. Fold OR-M3-13 + H2 + the `HomeSynapseCore` `MINIMAL_DERIVATION_RULE` Javadoc fix ("state_reported → state map update" is imprecise — the `EntityState` record is replaced and `stateVersion`/timestamps advance, but `attributes` are written only on `state_changed`).
+
+**M4.0b is the hard gate** (after M4.0a): replace `MinimalProjectionAdvancer` with `DispatchingProjectionAdvancer` (REC-28 — constructor-injected, package-private per-event-type handlers, **no ServiceLoader** per DECIDE-04) AND promote a real production `DerivationRule` (lift `EchoStateRule`'s change-detect logic out of testFixtures; extend from string-only to typed `AttributeValue` incl. the Research-8 `QuantityValue`/`ArrayValue`). It MUST publish `state_changed` (or state/numeric triggers never wake). On REPLAY it **re-derives but does NOT re-publish** (publish is LIVE-only; AMD-41 §3.2.2). Shipping a real rule bumps `projectionVersion` 1→2 → reconciliation/replay-from-zero on first boot (AMD-41 §3.2.4); a **one-shot backfill** applies re-derived drafts to in-memory state during that 1→2 replay **only** (gated there — applying them on later replays would double-increment `stateVersion`, the documented idempotency cursor).
+
+**Corrected fact (KB de-poison 2026-05-28):** there is **no `MinimalDerivationRule` class**. The production no-op derivation is the `MINIMAL_DERIVATION_RULE = context -> List.of()` constant lambda in `HomeSynapseCore`, bound to the `DerivationRule` `@FunctionalInterface` in `core/state-store`. `MinimalProjectionAdvancer` (package-private, lifecycle) is the real advancer class; `NotifyingEventPublisher` is the 4th package-private lifecycle type. Earlier handoff/state docs that named a `MinimalDerivationRule` class were wrong.
 
 ---
 

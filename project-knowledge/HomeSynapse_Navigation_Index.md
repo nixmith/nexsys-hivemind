@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-05-27 against M3.7 closeout commit
 -->
 
 # HomeSynapse Core — Navigation Index
@@ -40,7 +40,7 @@ Each module has up to five documentation layers. Read them in this order when wo
 - **Traceability:** `homesynapse-core/docs/traceability/01-event-model.md` (shared)
 - **Handoff:** `homesynapse-core/docs/handoff/block-e-event-bus.md`
 - **Source package:** `core/event-bus/src/main/java/com/homesynapse/event/bus/`
-- **Amendments:** (inherits AMD-01, AMD-06 via event-model), AMD-26 (subscriber VT threading in LTD-11), AMD-42 (subscriber lifecycle and isolation), AMD-43 (backpressure and observability)
+- **Amendments:** (inherits AMD-01, AMD-06 via event-model), AMD-26 (subscriber VT threading in LTD-11), AMD-42 (subscriber lifecycle and isolation), AMD-43 (backpressure and observability), AMD-45 (atomic subscriber+view checkpoint coupling — DRAFT, M4.0 target)
 
 ### device-model
 - **MODULE_CONTEXT:** `homesynapse-core/core/device-model/MODULE_CONTEXT.md`
@@ -56,7 +56,7 @@ Each module has up to five documentation layers. Read them in this order when wo
 - **Traceability:** `homesynapse-core/docs/traceability/03-state-store.md`
 - **Handoff:** `homesynapse-core/docs/handoff/block-h-state-store.md`
 - **Source package:** `core/state-store/src/main/java/com/homesynapse/state/`
-- **Amendments:** AMD-01 (publish durability for derived events), AMD-02 (REPLAY→LIVE reconciliation), AMD-03 (consistent multi-entity snapshot), AMD-10 (projection logic versioning), AMD-11 (state TTL for ephemeral sensors), AMD-29 (projection subscriber VT threading), AMD-38 (checkpoint policy — CheckpointPolicy interface), AMD-41 (state projection execution model)
+- **Amendments:** AMD-01 (publish durability for derived events), AMD-02 (REPLAY→LIVE reconciliation), AMD-03 (consistent multi-entity snapshot), AMD-10 (projection logic versioning), AMD-11 (state TTL for ephemeral sensors), AMD-29 (projection subscriber VT threading), AMD-38 (checkpoint policy — CheckpointPolicy interface), AMD-41 (state projection execution model), AMD-45 (atomic subscriber+view checkpoint coupling — DRAFT, M4.0 target)
 
 ### persistence
 - **MODULE_CONTEXT:** `homesynapse-core/core/persistence/MODULE_CONTEXT.md`
@@ -157,9 +157,12 @@ Each module has up to five documentation layers. Read them in this order when wo
 ### integration-tests
 - **MODULE_CONTEXT:** `homesynapse-core/testing/integration-tests/MODULE_CONTEXT.md`
 - **Source package:** `testing/integration-tests/src/test/java/com/homesynapse/integration/test/`
-- **No JPMS module-info** — classpath-only test code, Pi-profile gated (`-PpiProfile=throttled`)
-- **Tests:** `BurstLoadIT`, `HeapBudgetIT` (M3.4a), `Pi4SustainedLoadIT`, `Pi4D1SpikeIT`, `CrashRecoveryIT` (M3.4b), `ThrottledWriteCoordinatorTest` (unit)
-- **Test harness:** `IntegrationTestHarness` (composes `PersistenceTestHarness` + `InProcessEventBusFactory`)
+- **No JPMS module-info** — classpath-only test code, Pi-profile gated (`-PpiProfile=throttled`) for M3.4a/b tests
+- **Tests (M3.4a):** `BurstLoadIT`, `HeapBudgetIT`
+- **Tests (M3.4b):** `Pi4SustainedLoadIT`, `Pi4D1SpikeIT`, `CrashRecoveryIT`, `ThrottledWriteCoordinatorTest` (unit)
+- **Tests (M3.7):** `CrashRecoveryHttpIT`, `EndpointE2eIT`, `InFlightRequestShutdownIT` — full E2E tests via `HomeSynapseE2eHarness`
+- **Test harnesses:** `IntegrationTestHarness` (M3.4a — persistence + bus), `HomeSynapseE2eHarness` (M3.7 — full `HomeSynapseCore` lifecycle with real HTTP)
+- **Test support (M3.7):** `LiveModeAwaiter`, `TestEvents`, `MinimalEventBusStub`
 - **Amendments:** None
 ---
 
@@ -171,7 +174,7 @@ All in `homesynapse-core-docs/governance/`:
 |----------|---------|
 | `HomeSynapse_Core_Locked_Decisions.md` | Authoritative register of all implementation technology choices (LTD-01–LTD-19, LD#*, DECIDE-*) |
 | `Architecture_Invariants_v1.md` | Constitutional constraints (INV-*). Cannot be violated. |
-| `Design_Review_Amendments_v1.md` | All amendments AMD-01 through AMD-24 (inline). AMD-25 through AMD-43 + Tier 2 addendum in separate files. |
+| `Design_Review_Amendments_v1.md` | All amendments AMD-01 through AMD-24 (inline). AMD-25 through AMD-45 + Tier 2 addendum in separate files. |
 | `HomeSynapse_Core_v1_Project_MVP.md` | Project prompt: vision, competitive strategy, target audiences |
 | `DAS_Consolidated_Reference_v1.md` | Documentation voice, tone, and writing standards |
 | `Critical_Design_Review_Session_Synopsis.md` | Summary of the adversarial design review that produced the amendments |
@@ -267,6 +270,8 @@ In `homesynapse-core-docs/research/`:
 | 41 | State Projection Execution Model | `homesynapse-core-docs/design/amendments/AMD-41-state-projection-execution-model.md` |
 | 42 | Subscriber Lifecycle and Isolation | `homesynapse-core-docs/design/amendments/AMD-42-subscriber-lifecycle-and-isolation.md` |
 | 43 | Backpressure and Observability | `homesynapse-core-docs/design/amendments/AMD-43-backpressure-observability.md` |
+| 44 | Floor Aggregate and EntityRole Enum | `homesynapse-core-docs/design/amendments/AMD-44_Floor_Aggregate_and_EntityRole_Enum.md` |
+| 45 | Atomic Subscriber+View Checkpoint Coupling (DRAFT) | `homesynapse-core-docs/design/amendments/AMD-45_Atomic_Subscriber_View_Checkpoint_Coupling.md` |
 | — | M2-Bridge Tier 2 Schema Reservations | `homesynapse-core-docs/design/amendments/AMD-M2Bridge_Tier2_Schema_Reservations.md` |
 
 ### CRITICAL (VT Risk Audit — applied 2026-03-21)
@@ -333,6 +338,24 @@ AMD-40 governs the MaintenanceSubscriber's execution model: all purge work runs 
 
 AMD-41/42/43 are the M3 governance amendments that translate DEC-M3-01 through DEC-M3-12 into design-doc deltas. They add 14 new architectural invariants in 4 categories (BUS, PROJ, WRITER, SUB-ISO) to Architecture_Invariants_v1.md §19. Separate amendment files in `homesynapse-core-docs/design/amendments/`.
 
+### POST-M3 (M3.7 closeout — 2026-05-27)
+| AMD | Title | Status | Affects |
+|-----|-------|--------|---------|
+| 44 | Floor Aggregate and EntityRole Enum | RATIFIED (pending implementation) | Doc 02 (device model) — `Floor`/`EntityRole` types are absent from source; implemented in M4 Workstream B. (Corrected 2026-05-28: this row previously read "APPLIED"; the AMD-44 file states "RATIFIED (pending implementation)" and is authoritative.) |
+| 45 | Atomic Subscriber+View Checkpoint Coupling | DRAFT | Doc 03 §9, Doc 04 §3.12 (bus/projection checkpoint coordination) |
+
+AMD-45 is the M4.0 first work unit prerequisite. Couples `subscriber_checkpoints` and `view_checkpoints` writes atomically via `AtomicCheckpointWriter` (already exists in persistence). Eliminates the crash-recovery window where the bus subscriber checkpoint outruns the projection view checkpoint. Refines AMD-38. See `homesynapse-core-docs/design/amendments/AMD-45_Atomic_Subscriber_View_Checkpoint_Coupling.md`.
+
+---
+
+## M4 Planning Artifacts (2026-05-28)
+
+- **Authoritative plan:** `homesynapse-core-docs/design/HomeSynapse_Core_M4_Implementation_Plan_PLAN-M4-CONSOLIDATED.md` — M4 = Canonical scope (device-model expansion + projection/derivation foundation + integration-api interface freeze).
+- **In-flight research briefs** (`nexsys-hivemind/context/instructions/`): `Research_9_Projection_Rebuild_Backfill_Brief.md` (REC-76+) and `Research_10_Typed_Attribute_Change_Detection_Brief.md` (REC-90+) — both target M4 Workstream A.
+- **Independent verification pass:** `nexsys-hivemind/context/handoff/2026-05-28_M4_plan_verification_cowork_prompt.md`.
+- **R-01..R-11 numbered test recommendations** (with severities) are formalized in `homesynapse-core/docs/archive/project-state-reports/HomeSynapse_Core_Project_State_Report_2026-04-08.md` (the 2026-04-07 research doc is the prose source; the 2026-04-08 report is the numbered one).
+- **AMD numbering — OPEN (P2):** Research 8 device-model amendments were tentatively numbered 44/45/46 and collide with the now-assigned AMD-44 (Floor) and AMD-45 (Checkpoint). A single renumbering pass (proposed: device→46/47/48, automation→49–53, integration→54–63, config→64–71, API→72–85) must be ratified before any M4 amendment file is authored.
+
 ---
 
 ## Locked Decision Quick Reference
@@ -378,4 +401,4 @@ In `homesynapse-core/`:
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.
+**Last verified against:** `homesynapse-core` M3.7 closeout commit on `2026-05-27`. M3 COMPLETE.

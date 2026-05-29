@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-05-27 against M3.7 closeout
 -->
 
 # Project Knowledge — Canonical Source Files
@@ -28,13 +28,13 @@ Claude Project knowledge (read-only mirror)
 
 ## Files
 
-| File | Purpose | Update Cadence |
-|------|---------|----------------|
-| Architecture_Invariants_v1.md | 94 constitutional invariants | Rarely (senior architect lock) |
-| HomeSynapse_Core_Locked_Decisions.md | LTD register | When new LTDs are locked |
-| HomeSynapse_Knowledge_Primer.md | Compressed architectural context | At documentation checkpoints + milestone completions |
-| HomeSynapse_Navigation_Index.md | File path registry, amendment status | When milestones land or amendments apply |
-| HomeSynapse_Current_State.md | Current milestone, M3 decisions, workflow | After every milestone completion |
+| File | Claude Project Upload Name | Purpose | Update Cadence |
+|------|---------------------------|---------|----------------|
+| Invariants_Quick_Reference.md | Architecture_Invariants_v1.md | 94 constitutional invariants (token-efficient index) | Rarely (senior architect lock) |
+| Decisions_Quick_Reference.md | HomeSynapse_Core_Locked_Decisions.md | LTD + DEC-M3 + D-NN register (token-efficient index) | When new decisions are locked |
+| HomeSynapse_Knowledge_Primer.md | HomeSynapse_Knowledge_Primer.md | Compressed architectural context | At documentation checkpoints + milestone completions |
+| HomeSynapse_Navigation_Index.md | HomeSynapse_Navigation_Index.md | File path registry, amendment status | When milestones land or amendments apply |
+| HomeSynapse_Current_State.md | HomeSynapse_Current_State.md | Current milestone, decisions, workflow | After every milestone completion |
 
 ## Do NOT add to this directory without PM approval
 

@@ -18,6 +18,19 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
+## 2026-05-28 [Cowork → PM, Coder]
+**Topic:** M4 scoping COMPLETE + KB de-poison — read before any M4 work
+**Detail:** PLAN-M4-CONSOLIDATED authored (`homesynapse-core-docs/design/HomeSynapse_Core_M4_Implementation_Plan_PLAN-M4-CONSOLIDATED.md`). M4 scope = **Canonical**: Workstream A (projection/derivation foundation), B (device-model expansion, Research 8), C (integration-api interface freeze, Research 6; supervisor impl = M9). Config = M6, automation = M7/M8. Decisions locked: canonical scope; **one-shot backfill** for M4.0b's `projectionVersion` 1→2 reconciliation replay (gated to that boundary to avoid `stateVersion` desync). Research 9 (projection rebuild/backfill, REC-76+) + Research 10 (typed change-detection, REC-90+) briefs are in flight; an independent plan-verification pass is running in a second Cowork window.
+
+**KB de-poison applied (2026-05-28):** the fabricated class `MinimalDerivationRule` had propagated across `Current_State` + `Knowledge_Primer` and survived multiple WUCP Phase-2 closeouts. It does **not** exist in source — the production no-op derivation is the `MINIMAL_DERIVATION_RULE = context -> List.of()` constant lambda in `HomeSynapseCore` (bound to the `DerivationRule` `@FunctionalInterface` in `core/state-store`); the real package-private lifecycle classes are `MinimalProjectionAdvancer` and `NotifyingEventPublisher`. Also corrected: test count `~1,600/~1,594/~1,575` → **1,422** / files → **724** (source-verified); AMD-44 `APPLIED` → `RATIFIED (pending implementation)`.
+
+**Action needed:**
+- PM: next concrete action is the **M4.0a coding instruction** (AMD-45 checkpoint wiring, decision-free). Ratify **P2** (AMD renumbering) before authoring any M4 amendment; resolve **P3** (Research 6 NQ-1..6) before the Workstream-C freeze.
+- Coder: read the new "M4 Readiness" note at the top of `coder-handoff.md` before the first M4 brief. The derivation is a no-op lambda being replaced — not a `MinimalDerivationRule` class.
+- All: at WUCP Phase 2, **grep-confirm every class/type name a state doc cites against source.** Doc-to-doc drift checks let the phantom class survive multiple closeouts. (New strategic lesson recorded in `context/lessons/strategic-lessons.md`.)
+
+---
+
 ## 2026-05-27 [Coder → PM]
 **Topic:** M3.7 closeout — abandon() contract + MinimalEventBusStub; two-abandon-paths inconsistency documented
 **Detail:** Landed the M3.7 Finding 2 follow-up. Production-grade `abandon()` now lives on `SqlitePersistenceLifecycle` (package-private `abandonWithoutCheckpoint`), `PersistenceFactory` (public), `InProcessEventBus` (public, concrete-only — NOT on the `EventBus` interface), `HomeSynapseCore` (public, 4-step teardown), and `HomeSynapseE2eHarness.abandon()` (test delegate). `CrashRecoveryHttpIT`'s empty-finally block was replaced with `preCrash.abandon()`. `MinimalEventBusStub` extracted to event-bus testFixtures replaces two per-test inner-class EventBus stubs (in `DlqStatusEndpointTest` and `NotifyingEventPublisherTest`); both consumer modules gained `testImplementation(testFixtures(project(":core:event-bus")))` declarations they didn't previously have.

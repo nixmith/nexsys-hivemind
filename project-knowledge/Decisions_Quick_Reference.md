@@ -6,7 +6,7 @@ update-cadence: per-milestone (LTD changes rare; DEC-M3 grows with milestones)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-05-21 against HomeSynapse_Core_Locked_Decisions.md (19 LTDs, 17 DEC-M3s) + system prompt hard constraints + MODULE_CONTEXT codebase grep
+last-verified: 2026-05-27 against HomeSynapse_Core_Locked_Decisions.md (19 LTDs, 17 DEC-M3s) + system prompt hard constraints + MODULE_CONTEXT codebase grep + phase-3-cross-module-decisions.md (12 D-NNs)
 full-text-location: homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md
 -->
 
@@ -156,7 +156,11 @@ These live in `context/decisions/phase-3-cross-module-decisions.md` and record i
 | D-06 | V001 schema may be amended pre-launch; no migration file cut for amendments. | 2026-04-10 |
 | D-07 | Event categories derived at write time via EventCategoryMapping. | 2026-04-10 |
 | D-08 | Visibility promotion requires transitive -Xlint:exports verification (DEC-M3-17). | 2026-05-20 |
+| D-09 | M3.7 closes OR-M3-17/OR-M3-18 with `MinimalProjectionAdvancer`, not `DispatchingProjectionAdvancer`. Full dispatch deferred to M4.0. | 2026-05-22 |
+| D-10 | M3.7 absorbs M3.6f-shaped pre-work (HTTP IT for endpoints + DLQ `oldestParkedAt` field plumbing). No separate M3.6f WU. | 2026-05-22 |
+| D-11 | M3.7 proceeds in parallel with M4-amendment-deliberation window (zero technical coupling). Gate removed from pm-handoff. | 2026-05-22 |
+| D-12 | M3.7 uses the established M3.6 Claude Code workflow (no protocol changes). Codifies M3.6 cadence as default for all future milestones. | 2026-05-22 |
 
 ---
 
-*19 LTDs + 17 DEC-M3s + 3 build/module hard constraints (DECIDE-04, LD#10, DECIDE-01) + 9 inline sub-decisions + 8 D-NNs verified against source documents, system prompt hard constraints, and MODULE_CONTEXT references 2026-05-21. For full rationale, amendment history, implementation notes, and cross-references, read homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md.*
+*19 LTDs + 17 DEC-M3s + 3 build/module hard constraints (DECIDE-04, LD#10, DECIDE-01) + 9 inline sub-decisions + 12 D-NNs verified against source documents, system prompt hard constraints, and MODULE_CONTEXT references 2026-05-27. For full rationale, amendment history, implementation notes, and cross-references, read homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md.*

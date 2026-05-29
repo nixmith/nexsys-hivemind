@@ -422,4 +422,15 @@ Research 3 is independent and should execute first. Research 8 depends on Resear
 
 ---
 
-**Last updated:** 2026-05-22
+## Addendum — Research 9 & 10 (added 2026-05-28, M4 Workstream A)
+
+The original queue (Research 2–8) covered event model, device model, automation, config, integration runtime, and API. M4 scoping surfaced one area never given dedicated research: the **projection/derivation foundation** (M4.0b — the real `DerivationRule` + `DispatchingProjectionAdvancer` + the one-shot backfill on the `projectionVersion` 1→2 reconciliation replay). Two briefs close that gap; both target M4 Workstream A and follow the mandatory format above.
+
+- **Research 9 — Event-Sourced Projection Rebuild, Versioning, and Backfill.** Brief: `context/instructions/Research_9_Projection_Rebuild_Backfill_Brief.md`. RECs start at **REC-76**. Surveys Axon / EventStoreDB / Marten / Akka Projections / Home Assistant restore. Informs the backfill-gating mechanism, snapshot-store activation threshold, determinism discipline, and idempotency-cursor safety. **Introduce first** into the M4 plan-verification window.
+- **Research 10 — Typed Attribute Change-Detection Semantics.** Brief: `context/instructions/Research_10_Typed_Attribute_Change_Detection_Brief.md`. RECs start at **REC-90** (a deliberate gap from Research 9 to avoid the AMD-44/45-style numbering collision while both run in parallel; PM reconciles at assessment). Surveys HA `significant_change`, Matter/ZCL reportable-change, PI swinging-door. Informs per-type comparison policy, the deadband decision, and the typed-vs-string `StateChangedEvent` payload question. **Introduce second** (it refines a detail inside the structure Research 9 settles).
+
+Both briefs embed the source-verified HomeSynapse type inventory and an explicit "VERIFY, don't invent" rule — the standing counter-measure to the §7 type-name fabrication seen in Research 3/4/6/7/8.
+
+---
+
+**Last updated:** 2026-05-28 (Research 9 & 10 added for M4 Workstream A)

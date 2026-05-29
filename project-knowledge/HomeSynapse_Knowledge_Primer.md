@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-22 against commit 76288af
+last-verified: 2026-05-27 against M3.7 closeout commit (M3 COMPLETE)
 -->
 
 # HomeSynapse Core — Knowledge Primer
@@ -32,7 +32,7 @@ The source repo (`homesynapse-core`) contains the code. The companion repo (`hom
 
 **M3.1 (InProcessEventBus Core) completed 2026-05-16.** Production InProcessEventBus with 14 types (9 public + 5 package-private — see event-bus MODULE_CONTEXT for full inventory). Full subscriber lifecycle: Subscriber interface, SubscriberMode FSM, SubscriberSupervisor (backoff, circuit breaker), SubscriberDlq, ReplayWindowQueue, SubscriberRuntime. EventBusContractTest expanded from 18 to 44 methods (Tiers 1–8 active, Tiers 9–10 @Disabled). AMD-41/42/43 applied (state projection execution model, subscriber lifecycle/isolation, backpressure/observability). Architecture Invariants expanded to 94 (§19: BUS, PROJ, WRITER, SUB-ISO). Total test suite: ~1,200+ @Test methods across ~600+ Java files. Full build: GREEN.
 
-**M3 (Event Distribution + State Materialization) is the current milestone.** M3.1 through M3.6e.2 complete (seventeen Claude Code WUs). M3.6 COMPLETE. Next: M3.7 (E2E integration tests). 7 sub-milestones total (M3.1–M3.7). Remaining: M3.7 (~6–8h Coder time).
+**M3 (Event Distribution + State Materialization) COMPLETE (2026-05-27).** M3.1 through M3.7 complete (nineteen Claude Code WUs). 7 sub-milestones (M3.1–M3.7). M3.7 shipped the full E2E integration test suite: `HomeSynapseE2eHarness` (composition-root lifecycle harness with real HTTP), `CrashRecoveryHttpIT` (crash + restart with state verification), `EndpointE2eIT` (all five REST endpoints), `InFlightRequestShutdownIT` (graceful shutdown with in-flight requests). Also shipped: `abandon()` contract across `PersistenceFactory`, `InProcessEventBus`, `HomeSynapseCore`; `MinimalEventBusStub` (test double); `MinimalProjectionAdvancer` (real class, closes OR-M3-18) + the no-op `MINIMAL_DERIVATION_RULE` constant lambda in `HomeSynapseCore` (closes OR-M3-17; there is **no** `MinimalDerivationRule` class — corrected 2026-05-28); checkpoint key mismatch fix (`"entity_state"` → `"state_projection"`); `FixedCheckpointPolicy.TESTING` constant; `HomeSynapseConfig` expanded to 4 components (added `checkpointPolicy`). AMD-45 (Atomic Subscriber+View Checkpoint Coupling) drafted as M4.0 first work unit prerequisite.
 
 Phase 3 implementation follows a **contract-test-first approach** — M1 built all contract test suites and in-memory implementations before any production code ships (M2+). InMemoryEventStore (27/27 contract tests passing) was the first implementation target (2026-03-27) and serves as the model for all subsequent contract test suites.
 
@@ -57,7 +57,7 @@ Physical and logical device model. One flat package (verified 2026-05-22). Entit
 ### state-store — `com.homesynapse.state`
 Materialized view over the event stream. EntityState projects current state from events. StateProjection subscribes with coalesceExempt=true (must see every event). Availability enum lives here. ViewCheckpointStore (different from event-bus CheckpointStore). **The staleAfter + Clock staleness model is HomeSynapse's #1 architectural differentiator — proven at the data level by EntityStateTest (12 methods, M1.9).** M3.6d-a added the `ReadinessSource` public interface (single method `mode() → SubscriberMode`). M3.6e.1 added `MaterializedStateQueryService` (public final, static factory `create(StateProjection)`, implements all 5 `StateQueryService` methods — returns `Optional.empty()` / empty `Map` when projection not LIVE, no exceptions for callers). Total post-M3.6e.1: 21 public types + 1 package-private (`SelfProducedFilter`) = 22 production types.
 
-M2→M3 bridge added 5 types: CheckpointPolicy (sealed interface: shouldCheckpoint(events, elapsed, readerLag)), FixedCheckpointPolicy (HOME_DEFAULT: 200 events / 2 s per AMD-38), AdaptiveCheckpointPolicy (reserved for post-MVP pressure-aware mode), ProjectionAdvancer (interface: advance(fromPosition, maxRows) → AdvanceResult, ≤500 rows, ≤2 s read transaction, bounded-window contract), AdvanceResult (record).
+M2→M3 bridge added 5 types: CheckpointPolicy (sealed interface: shouldCheckpoint(events, elapsed, readerLag)), FixedCheckpointPolicy (HOME_DEFAULT: 200 events / 2 s per AMD-38; TESTING: 1 event / 100ms added M3.7 for test determinism), AdaptiveCheckpointPolicy (reserved for post-MVP pressure-aware mode), ProjectionAdvancer (interface: advance(fromPosition, maxRows) → AdvanceResult, ≤500 rows, ≤2 s read transaction, bounded-window contract), AdvanceResult (record).
 
 ### persistence — `com.homesynapse.persistence`
 SQLite storage. Two databases: main (events, state) and telemetry. TelemetryWriter uses a ring buffer per RetentionTier. WriteCoordinator (AMD-06/AMD-32, package-private) serializes all writes with priority ordering; `queueSize()` method added in M3.6d-b for bus writer-queue-depth observation (DEC-M3-14). WritePriority (package-private, 5 levels: EVENT_PUBLISH → STATE_PROJECTION → WAL_CHECKPOINT → RETENTION → BACKUP). WAL mode is always on. **LTD-19 governs event payload serialization: EventTypeRegistry + PersistenceJacksonModule + DegradedEvent fallback.** V001 events table has 25 columns including schema reservations for multi-home (home_id, AMD-34), persistent idempotency (idempotency_key, AMD-35), tamper-evidence (chain_hash NOT NULL with zero-vector default, AMD-37), and 6 Tier 2 reservation columns (payload_size, batch_id, external_ref, intent_kind, logical_time, node_id). V002 adds subscriber_dead_letters table for poison event parking (AMD-36, LOCAL-ONLY sync scope). SqliteEventStore constructor takes HomeId as 5th parameter (AMD-34). Schema reservation pattern: reserved columns populated at INSERT time, not exposed on EventEnvelope until their features ship.
@@ -89,7 +89,7 @@ Real-time event streaming. WsMessage sealed hierarchy. Three-stage backpressure:
 Health model (HealthStatus, HealthTier, LifecycleState), trace model, metrics, log control, JFR integration. HealthTier provides hierarchical aggregation (entity → integration → subsystem → system). Local-first tracing, not OpenTelemetry.
 
 ### lifecycle — `com.homesynapse.lifecycle`
-Process-level lifecycle orchestration. After M3.6e.2: 8 public + 2 package-private types. Phase 2 types (LifecyclePhase enum, SubsystemStatus enum, LifecycleEventType utility class, SubsystemState record, SystemHealthSnapshot record, SystemLifecycleManager interface) coexist with M3.6 composition-root types: `HomeSynapseConfig` (public record, 2 fields `PersistenceConfig persistence` + `EventBusConfig eventBus`, `HOME_DEFAULT` constant — M3.6d-a), `HomeSynapseCore` (public final, implements `ReadinessSource` — 16-step bootstrap after M3.6e.2: PersistenceFactory.start → BusMetrics.jfr → InProcessEventBus → DerivedWriteRateLimit → StateProjection.create → subscribeRuntime → healthSignalHandler → QueueSaturationHealthCheck → SharedScheduler → started=true → MaterializedStateQueryService.create → Javalin server on port 7070 with readiness filter; `DeploymentProfile` thread pool sizing: STUDIO 1/4, HOME 2/8, PERFORMANCE 4/16; 4-arg constructor `(Path, HomeSynapseConfig, Clock, HomeId)`; `stateQueryService()` returns real `MaterializedStateQueryService` — M3.6e.1; `stop()` tears down in reverse order), `SharedScheduler` (package-private final, 50 ms refill + 1 s tick — M3.6d-a), `ThrowingStateQueryService` (package-private final, kept as dead code — replaced by MaterializedStateQueryService in M3.6e.1). Module-info includes `requires transitive` for persistence, event.bus, state-store, plus non-transitive `requires org.slf4j`, `requires com.homesynapse.integration`, `requires com.homesynapse.api.rest`, `requires io.javalin`, `requires org.eclipse.jetty.util`. 10-phase sequential startup, no backward transitions. Fatal vs non-fatal subsystem classification. 30-second shutdown budget.
+Process-level lifecycle orchestration. After M3.7: 8 public + 4 package-private types (M3.7 added `MinimalProjectionAdvancer` and `NotifyingEventPublisher`, both package-private; the no-op derivation is the `MINIMAL_DERIVATION_RULE` constant lambda in `HomeSynapseCore`, **not** a class). Phase 2 types (LifecyclePhase enum, SubsystemStatus enum, LifecycleEventType utility class, SubsystemState record, SystemHealthSnapshot record, SystemLifecycleManager interface) coexist with M3.6 composition-root types: `HomeSynapseConfig` (public record, 4 components: `PersistenceConfig persistence` + `EventBusConfig eventBus` + `CheckpointPolicy checkpointPolicy` + static `HOME_DEFAULT`/`testing()` factory — expanded from 2→4 in M3.7 checkpoint fix), `HomeSynapseCore` (public final, implements `ReadinessSource` — 16-step bootstrap after M3.6e.2: PersistenceFactory.start → BusMetrics.jfr → InProcessEventBus → DerivedWriteRateLimit → StateProjection.create → subscribeRuntime → healthSignalHandler → QueueSaturationHealthCheck → SharedScheduler → started=true → MaterializedStateQueryService.create → Javalin server on port 7070 with readiness filter; `DeploymentProfile` thread pool sizing: STUDIO 1/4, HOME 2/8, PERFORMANCE 4/16; 4-arg constructor `(Path, HomeSynapseConfig, Clock, HomeId)`; `stateQueryService()` returns real `MaterializedStateQueryService` — M3.6e.1; `stop()` tears down in reverse order), `SharedScheduler` (package-private final, 50 ms refill + 1 s tick — M3.6d-a), `ThrowingStateQueryService` (package-private final, kept as dead code — replaced by MaterializedStateQueryService in M3.6e.1). Module-info includes `requires transitive` for persistence, event.bus, state-store, plus non-transitive `requires org.slf4j`, `requires com.homesynapse.integration`, `requires com.homesynapse.api.rest`, `requires io.javalin`, `requires org.eclipse.jetty.util`. 10-phase sequential startup, no backward transitions. Fatal vs non-fatal subsystem classification. 30-second shutdown budget.
 
 ### homesynapse-app — `com.homesynapse.app`
 Assembly apex. All `requires` are non-transitive. No exports. ApplicationAssembler wires all subsystems together — manual DI, no framework.
@@ -205,6 +205,13 @@ Types that are commonly looked for in the wrong module:
 ## Critical Gotchas
 
 These are the specific mistakes that AI agents commonly make on this codebase. Each one has caused incorrect code or analysis in past sessions.
+
+**M3.7 corrections (2026-05-27):**
+- `HomeSynapseConfig` has **4 components** (not 2 or 3). M3.7 added `checkpointPolicy` (defaults to `FixedCheckpointPolicy.HOME_DEFAULT`; `testing()` factory uses `FixedCheckpointPolicy.TESTING`).
+- `SqlitePersistenceLifecycle` uses `"state_projection"` as the view checkpoint key (not `"entity_state"` — that was a key mismatch bug fixed in M3.7). The canonical key is `HomeSynapseCore.PROJECTION_SUBSCRIBER_ID = "state_projection"`.
+- lifecycle module has **12 types** (8 public + 4 package-private — source-verified 2026-05-28). The 4 package-private types are `MinimalProjectionAdvancer`, `NotifyingEventPublisher`, `SharedScheduler`, `ThrowingStateQueryService`. The no-op derivation is the `MINIMAL_DERIVATION_RULE` constant lambda in `HomeSynapseCore` — **not** a `MinimalDerivationRule` class (that class does not exist; corrected 2026-05-28).
+- `FixedCheckpointPolicy` has **two constants**: `HOME_DEFAULT` (200 events / 2s) and `TESTING` (1 event / 100ms). The TESTING constant exists for deterministic checkpoint triggering in integration tests.
+- `abandon()` is a test-only lifecycle method on `HomeSynapseCore`, `PersistenceFactory`, and `InProcessEventBus` — releases OS resources without durability operations. Used by `HomeSynapseE2eHarness` to simulate `kill -9`. Not part of the normal `stop()` path.
 
 **M3.6e.2 corrections (2026-05-22):**
 - `HomeSynapseCore` bootstrap is **16 steps**, not 14. M3.6e.2 added entity query endpoint registration + admin endpoint registration via `RestFilters` gateway.
@@ -405,23 +412,23 @@ NO_SYNCHRONIZED_METHODS, NO_DIRECT_TIME_ACCESS, NO_SERVICE_LOADER, NO_REVERSE_DE
 
 ---
 
-## M3 Event Distribution + State Materialization — Current
+## M3 Event Distribution + State Materialization — COMPLETE (2026-05-27)
 
-**7 sub-milestones planned (M3.1–M3.7).** Implements the M2→M3 bridge Phase 2 interfaces (CheckpointPolicy, FixedCheckpointPolicy, ProjectionAdvancer, AdvanceResult, DeploymentProfile, PersistenceConfig, RetentionPolicy, MaintenanceSubscriber, MaintenanceResult) as production code with full contract test coverage.
+**7 sub-milestones completed (M3.1–M3.7).** Implemented the M2→M3 bridge Phase 2 interfaces (CheckpointPolicy, FixedCheckpointPolicy, ProjectionAdvancer, AdvanceResult, DeploymentProfile, PersistenceConfig, RetentionPolicy, MaintenanceSubscriber, MaintenanceResult) as production code with full contract test coverage. Nineteen Claude Code work units total.
 
 **Architectural inputs locked by the M2→M3 bridge:**
 - AMD-38 APPLIED: FixedCheckpointPolicy.HOME_DEFAULT = (200 events, 2 s, 1 s min interval). The 2 s `maxInterval` is the load-bearing safety mechanism — forces the projection's read transaction to close on a known cadence so wal_checkpoint can advance.
 - AMD-39 WITHDRAWN: journal_size_limit stays at LTD-03's 6 MB across all profiles. Bounded-window reader pattern alone keeps the WAL at ~4 MB peak under nominal load.
 - AMD-40 APPLIED: MaintenanceSubscriber runs on the writer executor, interval-based (DEFAULT 6 h), bounded purge chunks (DEFAULT_PURGE_BATCH_SIZE = 1,000), ≤ 2 s lock-hold per chunk.
 
-**Expected Phase 3 deliverables:**
+**Phase 3 deliverables (all shipped):**
 - Production `InProcessEventBus` with REPLAY→LIVE transition (AMD-02), backpressure/coalescing (SubscriptionFilter.coalesceExempt), platform-thread subscriber dispatch (AMD-26/AMD-29)
-- Production `ProjectionAdvancer` implementation enforcing the bounded-window contract (close/reopen read transaction every 500 rows, ≤ 2 s duration)
-- Production `FixedCheckpointPolicy` consumer wiring into the projection loop
+- Production `MinimalProjectionAdvancer` (M3.7, D-09) enforcing the bounded-window contract via `EventStore.readFrom()` with capped batch size; full `DispatchingProjectionAdvancer` deferred to M4.0
+- Production `FixedCheckpointPolicy` consumer wiring into the projection loop, plus `TESTING` constant (1 event / 100ms) for test determinism
 - Production `StateProjection` building EntityState from the event stream
-- Production `StateQueryService` exposing positional snapshots (AMD-03) and current state queries
-- Optional `ActiveCheckpointService` issuing wal_checkpoint(PASSIVE) at AMD-38's cadence (defense-in-depth; D1 demonstrated this is redundant under nominal load but cheap and protective under degraded conditions)
-- End-to-end integration tests covering crash recovery, REPLAY→LIVE handoff, and the WAL bounded-growth property
+- Production `MaterializedStateQueryService` (M3.6e.1) exposing current state queries; positional snapshots (AMD-03) deferred
+- `HomeSynapseCore` composition root with 16-step bootstrap, `abandon()` contract for crash-recovery testing, `HomeSynapseConfig` with operator-configurable checkpoint policy
+- Full E2E integration test suite (M3.7): `HomeSynapseE2eHarness`, `CrashRecoveryHttpIT`, `EndpointE2eIT`, `InFlightRequestShutdownIT`
 
 **Validation reference:** D1 WAL Pathology Validation Spike (2026-05-15). Reproduces continuous-reader pathology and validates bounded-window reader as the load-bearing mitigation. Results captured in AMD-38 and AMD-39 Validation Gate sections.
 
@@ -449,4 +456,4 @@ Two cross-amendment interaction points identified during the M0 amendment tracea
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `76288af` on `2026-05-22`.
+**Last verified against:** `homesynapse-core` M3.7 closeout commit on `2026-05-27`. M3 COMPLETE. Next: M4 scoping.

@@ -10,7 +10,7 @@ last-verified: 2026-05-29 against M4.0b-2 closeout source tree (M4.0a/M4.0b-1/M4
 
 # HomeSynapse Core — Current State
 
-Last updated: 2026-05-29 (M4.0b-2 COMPLETE, committed `7610296` — AMD-50 version-transition backfill + `projectionVersion` 1→2 on the production string change-detect rule. Workstream A (projection/derivation) substantially done. Next: M4.B3 → M4.0b-3.)
+Last updated: 2026-05-30 (P4r governance-mechanics session — **AMD-47 RATIFIED**; AMD-47-INV-01..05 registered into `Architecture_Invariants_v1.md` §20; Doc 02 §3.7/§8.2 PENDING-AMD-47 blocks folded current; on-disk amendment watermark unchanged at **AMD-50**. **M4.B3 now UNBLOCKED, not started.** No code touched — HEAD stays `7610296`. Prior: 2026-05-29 M4.0b-2 COMPLETE `7610296` — AMD-50 backfill + `projectionVersion` 1→2.)
 
 ---
 
@@ -97,20 +97,20 @@ Created `EventBusConfig` record (replayQueueCapacity, publisherBlockedDepthThres
 
 **M4 scope = Canonical** (Nick, 2026-05-28). M4 is the foundation milestone — three workstreams:
 - **A — Projection/derivation foundation — substantially DONE:** M4.0a (`AtomicCheckpointWriter`/AMD-45, `a441fdf`) ✓, M4.0b-1 (`DispatchingProjectionAdvancer` REC-28 + real `ProductionDerivationRule`, `cf1a97e`) ✓, M4.0b-2 (AMD-50 one-shot backfill on the `projectionVersion` 1→2 reconciliation replay, `7610296`) ✓. State-based behavior is now LIVE; only **M4.0b-3** (typed comparator/payload AMD-51/52) remains, gated on M4.B3.
-- **B — Device-model expansion — NEXT (M4.B3):** Research 8 REC-23–REC-30 + ratified-but-unbuilt **AMD-44** (Floor/EntityRole) + **AMD-47** (`AttributeValue` expansion: `QuantityValue`/`ArrayValue`/`DegradedAttributeValue`/`AttributeValueUpcaster`). **Gated on P4** (Doc 02/05 currency).
+- **B — Device-model expansion — NEXT (M4.B3), now UNBLOCKED:** Research 8 REC-23–REC-30 + ratified-but-unbuilt **AMD-44** (Floor/EntityRole) + **AMD-47 RATIFIED 2026-05-30** (`AttributeValue` expansion: `QuantityValue`/`ArrayValue`/`DegradedAttributeValue`/`AttributeValueUpcaster`). M4.B3's gates are now both clear (AMD-47 ratified ✓ + Doc 02 currency ✓) — it is the next forward WU but **NOT started** (a separate fresh session). (Doc 05's integration-api currency is a *separate* P3-gated half and gates Workstream C, not M4.B3.)
 - **C — Integration-api interface freeze:** Research 6 REC-41–REC-51 (interface only; supervisor impl is M9). **Gated on P3** (Research 6 NQ-1..6).
 
 **Explicitly NOT M4:** configuration = M6; automation engine = M7/M8 (its Phase 2 interface spec already exists on disk — M7/M8 is implementation, not interface design); integration-runtime impl = M9; REST/WebSocket = M10/M11.
 
-**Open gates (decisions/doc-currency, not blocking the committed work):** **P2 RATIFIED** (2026-05-29 — device 46–49, projection 50–52 fixed; integration assign-at-milestone). Remaining: **P3** — Research 6 NQ-1..6 confirmations (gates Workstream C); **P4** — Doc 02/05 currency vs ratified amendments (gates M4.B3). Doc-currency follow-up: propagate the M4.0b-2 re-scope + M4.0b-3 row into PLAN-M4-CONSOLIDATED-v2 §3.
+**Open gates (decisions/doc-currency, not blocking the committed work):** **P2 RATIFIED** (2026-05-29 — device 46–49, projection 50–52 fixed; integration assign-at-milestone). **P4 Doc-02 half DONE** (2026-05-30: AMD-47 ratified + Doc 02 §3.7/§8.2 folded current) — **M4.B3 is now UNBLOCKED**. Remaining: **P3** — Research 6 NQ-1..6 confirmations (gates Workstream C); **P4 Doc-05 half** — Integration-Runtime integration-api currency, still **P3-gated** (gates Workstream C, not M4.B3). Doc-currency follow-up still open: propagate the M4.0b-2 re-scope + M4.0b-3 row into PLAN-M4-CONSOLIDATED-v2 §3 (0a-i); KB M4.0b-2 currency punch-list (0a-ii).
 
 **Research 9/10 — CONSUMED:** they informed **AMD-50** (version-transition backfill / cursor determinism), now RATIFIED + implemented in M4.0b-2. The independent plan-verification pass is complete (fed P2 rev. 2 + AMD-50).
 
-**Next concrete action:** **M4.B3** (device-model `AttributeValue` expansion, AMD-47) — gated on P4 (Doc 02/05 currency); then **M4.0b-3** (typed comparator/payload, gated on M4.B3 — a clean rule-swap reusing AMD-50's backfill path unchanged). P3 (Research 6 NQ-1..6) gates Workstream C independently and can be resolved in parallel.
+**Next concrete action:** **M4.B3** (device-model `AttributeValue` expansion implementing AMD-47) — now **UNBLOCKED** (AMD-47 ratified ✓ + Doc 02 current ✓), briefed in a separate fresh Mode-3 coding-instruction session (not started here); then **M4.0b-3** (typed comparator/payload AMD-51/52, gated on M4.B3 — a clean rule-swap reusing AMD-50's backfill path unchanged). P3 (Research 6 NQ-1..6) gates Workstream C independently and can be resolved in parallel.
 
 **Build:** GREEN at `7610296` (M4.0b-2 — `./gradlew check` 139 tasks + `:core:state-store:check` + `:lifecycle:lifecycle:check`). Test/file counts last source-counted 2026-05-28 (**1,422** @Test methods / **724** Java files, 20 modules); M4.0a/M4.0b-1/M4.0b-2 added tests and modified files (not re-counted — no new modules).
 
-**Active governance:** AMD-41/42/43 APPLIED (2026-05-16). **AMD-44 RATIFIED** (Floor/EntityRole — impl pending in the M4.B path). **AMD-45 RATIFIED + applied** (M4.0a, `a441fdf`). **AMD-50 RATIFIED + applied** (M4.0b-2, `7610296`) — **on-disk amendment watermark = AMD-50.** **P2 RATIFIED** (AMD renumbering). DEC-M3-14 through DEC-M3-17 + D-09 through D-12 locked. No pending amendments before M4.B3 (which authors AMD-47).
+**Active governance:** AMD-41/42/43 APPLIED (2026-05-16). **AMD-44 RATIFIED** (Floor/EntityRole — impl pending in the M4.B path). **AMD-45 RATIFIED + applied** (M4.0a, `a441fdf`). **AMD-50 RATIFIED + applied** (M4.0b-2, `7610296`). **AMD-47 RATIFIED 2026-05-30** (P4r mechanics session — device-model `AttributeValue` expansion: three new **public** records `QuantityValue(double value, String unit)` / `ArrayValue(List<AttributeValue> elements)` / `DegradedAttributeValue(String originalTypeName, String rawForm, String failureReason)`, the `AttributeValueUpcaster` SPI (no `ServiceLoader`, DECIDE-04), and three `AttributeType` constants `QUANTITY`/`ARRAY`/`DEGRADED`; ratification fork resolved → `QUANTITY` added, 1:1 value↔type. **AMD-47-INV-01..05** registered into `Architecture_Invariants_v1.md` §20. **REC-93 supersedes the deferred-JSR-385 plan** — hand-rolled `String`-based units, no units library. Contract only — production code + §5 contract tests are **M4.B3**, not yet in source). **On-disk amendment watermark = AMD-50** — unchanged by AMD-47's ratification (47 < 50; ratification records RATIFIED, it does not raise the ceiling). **P2 RATIFIED** (AMD renumbering). DEC-M3-14 through DEC-M3-17 + D-09 through D-12 locked. **No amendments pending before M4.B3** (AMD-47 is ratified; M4.B3 *implements* it).
 
 ---
 
@@ -405,4 +405,4 @@ nexsys-hivemind/context/audits/2026-05-19_cross-tier-deployment-audit.md # 2026-
 
 ---
 
-**Last verified against:** `homesynapse-core` M4.0b-2 closeout commit `7610296` on `2026-05-29`. M4 Workstream A substantially complete (M4.0a/M4.0b-1/M4.0b-2); AMD-44/45/50 ratified, watermark AMD-50, P2 ratified. Next: M4.B3 → M4.0b-3.
+**Last verified against:** `homesynapse-core` M4.0b-2 closeout commit `7610296` (unchanged — P4r touched no code) on `2026-05-30`. M4 Workstream A substantially complete (M4.0a/M4.0b-1/M4.0b-2); **AMD-44/45/47/50 ratified, watermark AMD-50** (AMD-47 < 50, ceiling not raised), P2 ratified; AMD-47-INV-01..05 registered (§20). Next: **M4.B3 (UNBLOCKED, not started)** → M4.0b-3.

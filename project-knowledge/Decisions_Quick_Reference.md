@@ -6,7 +6,7 @@ update-cadence: per-milestone (LTD changes rare; DEC-M3 grows with milestones)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-05-27 against HomeSynapse_Core_Locked_Decisions.md (19 LTDs, 17 DEC-M3s) + system prompt hard constraints + MODULE_CONTEXT codebase grep + phase-3-cross-module-decisions.md (12 D-NNs)
+last-verified: 2026-05-30 — added the AMD-47 (RATIFIED 2026-05-30) device-model attribute-value expansion decision block; LTD/DEC-M3/D-NN content unchanged from the 2026-05-27 verification against HomeSynapse_Core_Locked_Decisions.md (19 LTDs, 17 DEC-M3s) + system prompt hard constraints + MODULE_CONTEXT codebase grep + phase-3-cross-module-decisions.md (12 D-NNs)
 full-text-location: homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md
 -->
 
@@ -160,6 +160,20 @@ These live in `context/decisions/phase-3-cross-module-decisions.md` and record i
 | D-10 | M3.7 absorbs M3.6f-shaped pre-work (HTTP IT for endpoints + DLQ `oldestParkedAt` field plumbing). No separate M3.6f WU. | 2026-05-22 |
 | D-11 | M3.7 proceeds in parallel with M4-amendment-deliberation window (zero technical coupling). Gate removed from pm-handoff. | 2026-05-22 |
 | D-12 | M3.7 uses the established M3.6 Claude Code workflow (no protocol changes). Codifies M3.6 cadence as default for all future milestones. | 2026-05-22 |
+
+---
+
+## Device-Model Attribute-Value Expansion (AMD-47, RATIFIED 2026-05-30)
+
+Locked decisions carried by AMD-47 (full contract: `homesynapse-core-docs/design/amendments/AMD-47_AttributeValue_Expansion_and_Upcaster.md`; invariants AMD-47-INV-01..05 in `Architecture_Invariants_v1.md` §20):
+
+| Decision | Detail |
+|---|---|
+| **`AttributeType.QUANTITY` added (fork resolved)** | 1:1 value↔type mapping preserved — each value variant has its own `AttributeType` classifier so exhaustive `switch(attributeType())` stays total (AMD-51 typed comparator + `AttributeValidator` branch on the unit-dimensional case without down-casting). The FLOAT-reuse alternative was rejected. |
+| **Hand-rolled `String` units, no JSR 385 (REC-93)** | `QuantityValue(double value, String unit)` normalizes to canonical unit at construction via a pure, deterministic, table-driven conversion — **no `javax.measure`/units library** (confirmed against `libs.versions.toml`). Supersedes the deferred-JSR-385 plan permanently (AMD-47-INV-03). |
+| **`AttributeValueUpcaster` SPI — no ServiceLoader** | Constructor injection, consistent with DECIDE-04 / REC-28. Strict mode (core projections) halts on failed upcast; lenient mode (forensic) yields `DegradedAttributeValue`. |
+| **Watermark unchanged** | On-disk amendment ceiling stays **AMD-50** (47 < 50). Ratification records AMD-47 RATIFIED; it does not raise the ceiling. |
+| **Contract only** | No production Java this session; the three records + SPI + 3 `AttributeType` constants + §5 contract tests are implemented by **M4.B3** (HEAD stays `7610296`). |
 
 ---
 

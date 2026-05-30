@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-29 against M4.0b-2 closeout commit 7610296 (amendments table current through AMD-50)
+last-verified: 2026-05-30 against P4r AMD-47 ratification (amendments table now lists AMD-47 RATIFIED + AMD-50; device-model amendments updated). Code unchanged — HEAD stays 7610296 (M4.0b-2 closeout)
 -->
 
 # HomeSynapse Core — Navigation Index
@@ -48,7 +48,7 @@ Each module has up to five documentation layers. Read them in this order when wo
 - **Traceability:** `homesynapse-core/docs/traceability/02-device-model.md`
 - **Handoff:** `homesynapse-core/docs/handoff/block-g-device-model.md`
 - **Source package:** `core/device-model/src/main/java/com/homesynapse/device/`
-- **Amendments:** AMD-17 (device orphan lifecycle), AMD-23 (cross-protocol identity)
+- **Amendments:** AMD-17 (device orphan lifecycle), AMD-23 (cross-protocol identity), AMD-44 (Floor aggregate + EntityRole — RATIFIED, impl pending), AMD-47 (`AttributeValue` expansion + `AttributeValueUpcaster` SPI — RATIFIED 2026-05-30, impl M4.B3)
 
 ### state-store
 - **MODULE_CONTEXT:** `homesynapse-core/core/state-store/MODULE_CONTEXT.md`
@@ -271,7 +271,9 @@ In `homesynapse-core-docs/research/`:
 | 42 | Subscriber Lifecycle and Isolation | `homesynapse-core-docs/design/amendments/AMD-42-subscriber-lifecycle-and-isolation.md` |
 | 43 | Backpressure and Observability | `homesynapse-core-docs/design/amendments/AMD-43-backpressure-observability.md` |
 | 44 | Floor Aggregate and EntityRole Enum | `homesynapse-core-docs/design/amendments/AMD-44_Floor_Aggregate_and_EntityRole_Enum.md` |
-| 45 | Atomic Subscriber+View Checkpoint Coupling (DRAFT) | `homesynapse-core-docs/design/amendments/AMD-45_Atomic_Subscriber_View_Checkpoint_Coupling.md` |
+| 45 | Atomic Subscriber+View Checkpoint Coupling (RATIFIED) | `homesynapse-core-docs/design/amendments/AMD-45_Atomic_Subscriber_View_Checkpoint_Coupling.md` |
+| 47 | AttributeValue Hierarchy Expansion + AttributeValueUpcaster SPI (RATIFIED 2026-05-30; impl M4.B3) | `homesynapse-core-docs/design/amendments/AMD-47_AttributeValue_Expansion_and_Upcaster.md` |
+| 50 | Version-Transition Reconciliation Backfill + Cursor Determinism (RATIFIED) | `homesynapse-core-docs/design/amendments/AMD-50_Version_Transition_Backfill_and_Cursor_Determinism.md` |
 | — | M2-Bridge Tier 2 Schema Reservations | `homesynapse-core-docs/design/amendments/AMD-M2Bridge_Tier2_Schema_Reservations.md` |
 
 ### CRITICAL (VT Risk Audit — applied 2026-03-21)

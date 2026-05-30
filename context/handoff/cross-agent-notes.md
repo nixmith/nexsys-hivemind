@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-05-29 against commit 7610296 (M4.0b-2 COMPLETE)
+last-verified: 2026-05-30 — P4r AMD-47 ratification mechanics (no code; HEAD unchanged at 7610296). Prior: 2026-05-29 (M4.0b-2 COMPLETE)
 -->
 
 # Cross-Agent Notes
@@ -19,6 +19,19 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 ---
 
 ## 2026-05-30 [PM (Cowork) → All]  ← CURRENT POINTER
+**Topic:** P4r — **AMD-47 RATIFIED**; ratification mechanics complete (invariants registered, Doc 02 folded current, KB/handoff current); **M4.B3 UNBLOCKED, not started**; Doc 05 half still P3-gated
+**Detail:** Executed the bounded ratification Nick authorized (Mode 1 / governance mechanics — **no code, no M4.B3 brief**). **AMD-47** (`design/amendments/AMD-47_AttributeValue_Expansion_and_Upcaster.md`) flipped **PROPOSED → RATIFIED** (Date applied 2026-05-30); the §2.5 **ratification fork is RESOLVED — `AttributeType.QUANTITY` added** (1:1 value↔type; FLOAT-reuse rejected); §9 checklist marked `[x]`. Six edit clusters landed: (1) AMD-47 status/fork/checklist; (2) **AMD-47-INV-01..05 registered** into `Architecture_Invariants_v1.md` as new **§20** (mirrors the §19 amendment-section precedent — §17 index, §0.3 prefix table, and §18 traceability updated in the same commit; invariant total 94→99); (3) **Doc 02 §3.7/§8.2 folded current** (PENDING-AMD-47 wrappers removed; the stale §8.2 JSR-385 `QuantityValue` row corrected to `(double value, String unit)` hand-rolled; ArrayValue/DegradedAttributeValue/`AttributeValueUpcaster` rows added; masthead → RATIFIED); (4) KB ledger (`Current_State`/`Knowledge_Primer`/`Decisions_Quick_Reference`/`Navigation_Index`) logs AMD-47 RATIFIED + REC-93 (hand-rolled units, no units library) + AMD-47-INV-01..05 + the watermark note; (5) PROJECT_SNAPSHOT + pm-handoff; (6) this pointer.
+**Watermark:** **on-disk amendment ceiling stays AMD-50** (47 < 50 — ratification records AMD-47 RATIFIED, it does **not** raise the ceiling).
+**Verification:** §7 source embeds re-confirmed intact vs HEAD `7610296` (module-info `com.homesynapse.device`; 5-variant `permits BooleanValue, IntValue, FloatValue, StringValue, EnumValue`; `AttributeType {BOOLEAN, INT, FLOAT, STRING, ENUM}`). No `.java`/`module-info`/`build.gradle.kts`/`libs.versions.toml`/`projectionVersion` touched. Dual-skill `diff -rq` PASS (no skill-tree files this session). No deferred build gate (no code).
+**Action needed:**
+- **M4.B3 is the next forward WU — UNBLOCKED (AMD-47 ratified ✓ + Doc 02 current ✓) but NOT started.** It is a separate fresh Mode-3 coding-instruction session: the three records + `AttributeValueUpcaster` SPI + 3 `AttributeType` constants + §5 contract tests + upcaster wiring per AMD-47-INV-02; authors no `projectionVersion` bump. Do not brief it here.
+- **P4 Doc-05 half remains OPEN + P3-gated** (Integration-Runtime integration-api currency — Research 6 REC-41–51, blocked on NQ-1..6; gates Workstream C, not M4.B3). The pre-existing punch-list (0a-i PLAN-M4-v2 §3; 0a-ii KB M4.0b-2 currency) is separate and was **not** folded in here.
+- **Reconciliation note:** AMD-47 §4/§6 had said invariant registration + Doc 02 fold occur "at M4.B3 closeout"; the ratification decision (this brief + Next-Tasks #0a-iii) moved them to ratification time — followed the brief. The AMD-47 §6 line still reads "at M4.B3 closeout" (left as authored, now superseded by these mechanics).
+- **Sandbox reminder (unchanged):** the file tool (Windows path) is authoritative over in-sandbox `git`/`grep`/`wc`. HEAD `7610296`.
+
+---
+
+## 2026-05-30 [PM (Cowork) → All]  (superseded by the P4r ratification pointer above)
 **Topic:** P4 (AMD-47 device `AttributeValue` expansion) AUTHORED as PROPOSED + Doc 02 brought current; M4.B3 is authorable once Nick ratifies
 **Detail:** Authored **AMD-47** (`design/amendments/AMD-47_AttributeValue_Expansion_and_Upcaster.md`, **Status: PROPOSED**) — the device `AttributeValue` expansion per P2 §3 (device block 46–49; **confirmed AMD-47 = AttributeValue expansion**, the "AMD-47-equiv withdrawn" tension resolved: that was an unauthored `EntityState.category` placeholder, and `EntityCategory` is now AMD-46 on `Entity`, leaving AMD-47 free). Content from ratified Research 8 (REC-24/27/29) + REC-93/REC-78 per v2 plan: three new **public** records `QuantityValue(double value, String unit)` / `ArrayValue(List<AttributeValue> elements)` / `DegradedAttributeValue(String originalTypeName, String rawForm, String failureReason)`; the `AttributeValueUpcaster` SPI (no ServiceLoader, DECIDE-04); three new `AttributeType` constants (`QUANTITY`/`ARRAY`/`DEGRADED`); five invariants **AMD-47-INV-01..05** (sealing-total, upcaster-before-`DerivationRule.evaluate()` on BOTH `onEvent`+`processBatch` [REC-78, gate-every-path], QuantityValue normalization determinism [REC-93, hand-rolled, no units lib — version-catalog-confirmed], DegradedAttributeValue non-declarable, ArrayValue full-replacement). §7 embeds the **verbatim `module-info.java`** + the **source-verified 5-variant `AttributeValue` inventory** (fabrication guard). **Doc 02 brought current** (the other half of P4 for M4.B3): §3.7 + §8.2 carry inline "PENDING AMD-47" delta blocks (fold into body on ratification) and the §3.7 `AttributeSchema` `unit`/`canonical_unit` pseudocode was corrected JSR 385 `Unit<?>` → `String` (matches source; REC-93 makes hand-rolled units permanent — supersedes the deferred-JSR-385 note).
 **Action needed:**
@@ -108,4 +121,4 @@ Archived notes (older than ~2 weeks): see `archive/cross-agent-notes-2026-Q1.md`
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `7610296` on `2026-05-29` (M4.0b-2 COMPLETE).
+**Last verified against:** `homesynapse-core` commit `7610296` on `2026-05-30` (unchanged — P4r AMD-47 ratification touched no code; prior basis M4.0b-2 COMPLETE 2026-05-29).

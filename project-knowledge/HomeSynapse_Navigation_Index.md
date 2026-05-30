@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-27 against M3.7 closeout commit
+last-verified: 2026-05-29 against M4.0b-2 closeout commit 7610296 (amendments table current through AMD-50)
 -->
 
 # HomeSynapse Core — Navigation Index
@@ -342,9 +342,10 @@ AMD-41/42/43 are the M3 governance amendments that translate DEC-M3-01 through D
 | AMD | Title | Status | Affects |
 |-----|-------|--------|---------|
 | 44 | Floor Aggregate and EntityRole Enum | RATIFIED (pending implementation) | Doc 02 (device model) — `Floor`/`EntityRole` types are absent from source; implemented in M4 Workstream B. (Corrected 2026-05-28: this row previously read "APPLIED"; the AMD-44 file states "RATIFIED (pending implementation)" and is authoritative.) |
-| 45 | Atomic Subscriber+View Checkpoint Coupling | DRAFT | Doc 03 §9, Doc 04 §3.12 (bus/projection checkpoint coordination) |
+| 45 | Atomic Subscriber+View Checkpoint Coupling | **RATIFIED + applied (M4.0a, `a441fdf`, 2026-05-29)** | Doc 03 §9, Doc 04 §3.12 (bus/projection checkpoint coordination) |
+| 50 | Version-Transition Reconciliation Backfill + Cursor Determinism | **RATIFIED + applied (M4.0b-2, `7610296`, 2026-05-29)** | Doc 03 §3.2.4 (refines AMD-41) — version-transition backfill, cursor-as-log-position, supersession, `Clock` removed from `DerivationContext`. **On-disk amendment watermark = AMD-50.** |
 
-AMD-45 is the M4.0 first work unit prerequisite. Couples `subscriber_checkpoints` and `view_checkpoints` writes atomically via `AtomicCheckpointWriter` (already exists in persistence). Eliminates the crash-recovery window where the bus subscriber checkpoint outruns the projection view checkpoint. Refines AMD-38. See `homesynapse-core-docs/design/amendments/AMD-45_Atomic_Subscriber_View_Checkpoint_Coupling.md`.
+AMD-45 (applied in M4.0a) couples `subscriber_checkpoints` and `view_checkpoints` writes atomically via the `AtomicCheckpointSink` seam over `AtomicCheckpointWriter`; eliminates the crash-recovery window where the bus subscriber checkpoint outran the projection view checkpoint (all three bus writers gated, incl. both REPLAY writes — the D-1 correction). Refines AMD-38. AMD-50 (applied in M4.0b-2) is the general N→M version-transition discipline: a `backfillActive` provenance gate drives a non-emitting one-shot backfill that reconstructs historical attributes from the `state_reported` log on a `projectionVersion` transition (the 1→2 case ships now; 2→3 typed reuse in M4.0b-3). **AMD-44 stays RATIFIED-pending-implementation** (Floor/EntityRole impl is the M4.B path). Files in `homesynapse-core-docs/design/amendments/`.
 
 ---
 

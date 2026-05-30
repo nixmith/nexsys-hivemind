@@ -4,17 +4,19 @@ purpose: P2 — the contiguous AMD allocation that unblocks authoring of the M4 
 audience: Nick (ratify), PM, Coder
 update-cadence: once (ratification), then reference
 state-type: decision
-status: PROPOSED (rev. 2 — incorporates Nick's 2026-05-29 review) — awaiting Nick's ratification
+status: RATIFIED (rev. 2) — ratified by Nick 2026-05-29; ratification cleanups applied
 last-verified: 2026-05-29 against amendments/ on disk + the v2 plan §7 + the four research assessments
 -->
 
-# P2 — AMD Renumbering / Allocation Decision (PROPOSED — rev. 2)
+# P2 — AMD Renumbering / Allocation Decision (RATIFIED — rev. 2)
 
-**Decision owner:** Nick (ratifies). **Author:** PM (Mode 3). **Status:** PROPOSED.
-**Gates:** authoring of any M4 amendment file. Nothing in `design/amendments/` may be created at a number ≥ 46 until this is ratified.
-**Source evidence:** PLAN-M4-CONSOLIDATED-v2 §3 + §7 + §10.1; `2026-05-29_M4_Plan_Independent_Verification_Report.md` §H/§J/I-2/I-3; the four research assessments (R4/R5/R6/R8); `design/amendments/` directory listing.
+**Decision owner:** Nick. **Author:** PM (Mode 3). **Status:** RATIFIED 2026-05-29. **Ratified scheme:** the 4-AMD device block (§5 recommended) — device 46–49, projection 50–52 fixed; integration assign-at-milestone.
+**Gates (now cleared):** authoring of M4 amendment files is unblocked. Author only from §3; the first amendment to author is **AMD-50** (§9).
+**Source evidence:** PLAN-M4-CONSOLIDATED-v2 §3 + §7 + §10.1; `2026-05-29_M4_Plan_Independent_Verification_Report.md` §H/§J/I-2/I-3; the four colliding research assessments (R4/R5/R6/R7) plus Research 8 (device-content source for REC-23–30); `design/amendments/` directory listing.
 
 **Rev. 2 changelog (Nick review, 2026-05-29):** (1) M4.0b-2 re-scoped to backfill + version-bump on the existing string change-detect — typed work moved to a new WU; §9 corrected. (2) Withdrawn/reuse framing dropped — nothing ≥ 46 was ever authored, so there is no "reuse." (3) Only the content-stable device + projection blocks (46–52) are fixed; the integration block joins assign-at-milestone. (4) REC→AMD mappings PM-confirmed against source. (5) §6.2 collision fix.
+
+**Ratification cleanups (Nick review, 2026-05-29):** (a) source-evidence citation fixed to R4/R5/R6/R7 (colliding) + R8 (device-content source); (b) §8.6 added — AMD-50 is authored as the general N→N+1 transition discipline, not hardcoded to 1→2; (c) §3.2 added — confirms the projection block (50–52, incl. AMD-52) is count-stable.
 
 ---
 
@@ -64,6 +66,16 @@ The v2 plan §3 scoped M4.0b-2 as *typed comparator + backfill + version bump*, 
 
 **This re-scopes v2 plan §3.** Propagate the corrected M4.0b-2 scope line and the new M4.0b-3 row into PLAN-M4-CONSOLIDATED-v2 §3 as a doc-currency follow-up (alongside P4).
 
+### 3.2 Why the projection block (50–52) is count-stable (Nick review #3 — the AMD-52 check)
+
+The fixed projection block is stable in *count* even though some of its content is still open (the R9/R10 Nick-calls in v2 §10). Each is one cohesive change that the open decisions can re-content but **not split**:
+
+- **AMD-50** — the version-transition backfill / cursor-determinism / determinism-contract refinement. REC-76/77/79 are mutually dependent (backfill correctness needs cursor-as-log-position needs the determinism contract); they cannot meaningfully separate.
+- **AMD-51** — the typed per-permit comparator. The open float policy (REC-94: `absEps`/`relEps`, abs vs rel vs hybrid vs ULP) changes its *content*, not whether it is one amendment.
+- **AMD-52** — the typed `StateChangedEvent` representation change. The open R10 representation decision can change its *content* (fallback-parse behaviour, exact typing) but **cannot split it**: the payload-type change, the `applyToState` typed-store write, and the `CheckpointSerializer` `Map<String,String>`→typed evolution must land **atomically** (a partial change corrupts stored events), and the upcaster (REC-29) already lives in AMD-47. One cohesive breaking change.
+
+This is the distinction from the integration block, where NQ-1..6 can genuinely **split** an amendment (e.g. AMD-53 → hooks + config-schema versioning, two distinct concerns) — which is why integration correctly stays assign-at-milestone (§4) while the projection block is fixed here.
+
 ---
 
 ## 4. Integration block (R6) — assigned at Workstream-C briefing, NOT fixed here (Nick review #3)
@@ -110,6 +122,7 @@ The integration (R6), automation (R4), config (R5), and API (R7) blocks all carr
 3. **M4 amendments author in dependency order:** AMD-47 (types) before AMD-51/52 (M4.0b-3, which depend on the upcaster/typed values). **AMD-50 is independent** and is the M4.0b-2 unblock.
 4. **Integration AMDs wait on P3** (Research 6 NQ-1..6) for both numbers and content (§4).
 5. **P4 (Doc 02/05 currency)** must land before Workstream B/C *coding instructions* are authored — independent of this numbering decision, but flagged so the two prerequisites aren't conflated.
+6. **AMD-50 is authored as the general N→N+1 version-transition discipline**, not hardcoded to 1→2. It authorises the reconciliation-scoped, non-emitting, cursor-deterministic backfill for *any* `projectionVersion` increment. This is what lets M4.0b-3's 2→3 transition ride AMD-50 without a fresh amendment (§3.1) — if AMD-50 were written 1→2-specific, M4.0b-3 would need its own §3.2.4 refinement.
 
 ---
 

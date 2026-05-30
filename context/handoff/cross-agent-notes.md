@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-05-22 against commit 76288af
+last-verified: 2026-05-29 against commit 7610296 (M4.0b-2 COMPLETE)
 -->
 
 # Cross-Agent Notes
@@ -15,6 +15,29 @@ Shared bulletin board for information that one agent needs to communicate to ano
 Notes are dated and tagged with sender and recipient(s). This is not a task queue — it's contextual information sharing.
 
 **Archival rule:** When an agent reads a note and confirms all action items are resolved, move the note below the `## Archived` separator at the bottom of this file. Only notes above the separator are active. This keeps the file append-only while managing signal-to-noise as block count grows.
+
+---
+
+## 2026-05-29 [PM (Cowork) → All]  ← CURRENT POINTER
+**Topic:** M4.0b-2 COMPLETE + committed `7610296`; WUCP Phase 2 closed; next is M4.B3 → M4.0b-3
+**Detail:** M4.0b-2 (AMD-50 version-transition backfill + `projectionVersion` 1→2 on the M4.0b-1 string change-detect rule) is committed `7610296`, build GREEN (139 tasks), WUCP Phase 2 closed this session. **PM Phase 2 read every changed file against source (D-1 discipline, not the report) and confirmed targets A–J**: backfill gated on BOTH `onEvent` and `processBatch`; `lastChanged` event-time-sourced (never wall-clock); the supersession test is genuine (fails without the suppression fork); INV-01 no-double-increment; one-shot at matching version; `projectionVersion=2`; `Clock` removed from `DerivationContext` at all 6 sites; INV-04 audit clean. AMD-50-INV-01..04 upheld. Deviations D-A/B/C/D all `[REVIEW]`/`[INFO]`, ACCEPT. **No new amendment authored — on-disk watermark stays AMD-50.** Interim mixed-`lastChanged` (event-time in backfill, wall-clock in LIVE) is a conscious, documented interim; the timestamp unifier is a separate scheduled WU.
+**Action needed (next session — the M4 critical path + the doc-currency gates):**
+- **Next forward WU = M4.B3** (device-model `AttributeValue` expansion, AMD-47) — **gated on P4** (Doc 02/05 currency). Then **M4.0b-3** (typed comparator AMD-51 + typed payload AMD-52; gated on M4.B3 — a clean rule-swap reusing AMD-50's backfill path unchanged for the 2→3 transition; the supersession test is the standing N→M regression guard).
+- **Doc-currency punch-list (homesynapse-core-docs; do before/with M4.B3 — these are the "gaps" that can mislead a future agent session):** (i) propagate the M4.0b-2 re-scope + M4.0b-3 row into PLAN-M4-CONSOLIDATED-v2 §3; (ii) **KB currency** — `HomeSynapse_Current_State.md` / `Knowledge_Primer`: derivation is real, OR-M3-17/18 closed, `projectionVersion`=2, watermark→AMD-50, interim mixed-`lastChanged`; (iii) scope **P4** itself (the M4.B3 gate). See pm-handoff Next Tasks #0/#0a/#0b.
+- **Still open (research):** P3 (Research 6 NQ-1..6, Nick's calls) gates Workstream C.
+- **One non-blocking INFO (future hardening test):** the backfill gate's LIVE-safety relies on `onCaughtUp` firing before the first LIVE delivery (the established bus contract); a `TransitionCoordinator`-ordering integration test would harden it. Not blocking; M4.0b-2 relies on the same contract M4.0b-1 did.
+- **Sandbox reminder (unchanged):** in-sandbox `git status`/`wc`/`grep` again served spurious mass-modified + stale/truncated views (line-ending churn). HEAD (`7610296`) and the file tool are authoritative.
+
+---
+
+## 2026-05-29 [PM (Cowork) → All]  (superseded by the M4.0b-2 pointer above)
+**Topic:** M4.0b-1 COMPLETE + committed `cf1a97e`; **P2 RATIFIED**; next is AMD-50 → M4.0b-2
+**Detail:** M4.0b-1 (amendment-free Workstream-A vertical slice) is committed `cf1a97e`, build GREEN, WUCP Phase 2 closed this session. Production `DerivationRule` + REC-28 `DispatchingProjectionAdvancer` replace the no-op placeholders (OR-M3-17/18 fully closed); `projectionVersion` stays 1 (no backfill — that's M4.0b-2). PM Phase 2 review read every file + re-verified all 12 STOP-gates; the REPLAY-no-publish test was confirmed to hit the real production path (`ReplayDriver`→`supervisor.deliver`→`onEvent`), not a D-1-style false pass. **P2 is RATIFIED** (`context/decisions/2026-05-29_P2_AMD_Renumbering_Decision.md`, rev. 2): device 46–49, projection 50–52 fixed; integration assign-at-milestone.
+**Action needed (next session):**
+- **PM: author AMD-50** (projection rebuild/backfill, refines AMD-41 §3.2.4) as the **general N→N+1 transition discipline** (P2 §8.6) — it is the M4.0b-2 unblock. Then issue **M4.0b-2** (backfill + `projectionVersion` 1→2 bump on the existing **string** change-detect — gated only on AMD-50 + M4.0b-1).
+- **PM: propagate the M4.0b-2 re-scope + new M4.0b-3 row into PLAN-M4-CONSOLIDATED-v2 §3** (doc-currency follow-up alongside P4). Typed comparator (AMD-51) + typed payload (AMD-52) now live in M4.0b-3, gated on M4.B3.
+- Still open: P3 (Research 6 NQ-1..6) gates Workstream C; P4 (Doc 02/05 currency) gates Workstream B/C coding instructions.
+- **Sandbox reminder (unchanged):** in-sandbox `git status` again showed a spurious mass-modified list (line-ending churn) over the M4.0a files; HEAD (`cf1a97e`) and the file tool are authoritative.
 
 ---
 
@@ -67,31 +90,10 @@ A **known inconsistency** between the new production-grade abandon path and the 
 
 ---
 
-## 2026-05-20 [Coder → PM, Hivemind]
-**Topic:** M3.6b — InProcessEventBus promoted to public (DEC-M3-16); EventBusConfig introduced
-**Detail:** M3.6b applied DEC-M3-16's composition-root visibility strategy to `InProcessEventBus` (package-private → public). New canonical constructor is 7-arg accepting `EventBusConfig`. `ReplayWindowQueue` capacity is now parameterized (default 10,000; custom via `ReplayWindowQueue(int)`). `InProcessEventBusFactory` gained `createWithConfig(...)` for testFixtures. The `PUBLISHER_BLOCKED_DEPTH_THRESHOLD` static constant was replaced by an instance field sourced from `EventBusConfig.publisherBlockedDepthThreshold()`.
-**Action needed:**
-- PM: M3.6c onward should use `EventBusConfig.HOME_DEFAULT` (or a derived config) rather than hardcoded magic numbers for bus tuning parameters.
-- Coder: Any code constructing `InProcessEventBus` directly (only composition root and test factories should do this) must pass `EventBusConfig` as the new last constructor parameter.
-- DEC-M3-16 remaining items: `SqlitePersistenceLifecycle` → factory method (M3.6d), `QueueSaturationHealthCheck` visibility → TBD (M3.6d).
-
----
-
-## 2026-05-17 [PM → Coder, Claude Code]
-**Topic:** M3.1 InProcessEventBus — prompt lessons and interface evolution pattern
-**Detail:** Three prompt gaps discovered during M3.1 that affect all future Cowork prompts:
-(1) When extending interfaces with existing implementations, specify `default` methods explicitly.
-(2) When extending contract test base classes with existing subclasses, specify capability hooks.
-(3) Include interface-shape unit tests in STOP-on-Mismatch gates when extending interfaces.
-Also: the ArchUnit rule `EVENT_BUS_DOES_NOT_IMPORT_SQLITE_DRIVER` referenced in PLAN §4.5 does not exist — the constraint is enforced by JPMS module boundaries.
-**Action needed:** Coder/Claude Code: be aware when implementing M3.5a that EventBus now has 8 methods (4 default). State-store module-info will need `requires com.homesynapse.event.bus` for StateProjection to implement Subscriber.
-
----
-
 ## Archived
 
-Archived notes (older than ~2 weeks): see `archive/cross-agent-notes-2026-Q1.md` (Jan–Mar, 13 entries) and `archive/cross-agent-notes-2026-Q2.md` (Apr–Jun, 4 entries: 2026-04-10 M2.5 closeout + 2026-05-15 AMD-38/39 + 2026-05-15 V001 description + 2026-05-19 M3.6a constructor changes).
+Archived notes (older than ~2 weeks): see `archive/cross-agent-notes-2026-Q1.md` (Jan–Mar, 13 entries) and `archive/cross-agent-notes-2026-Q2.md` (Apr–Jun, 4 entries: 2026-04-10 M2.5 closeout + 2026-05-15 AMD-38/39 + 2026-05-15 V001 description + 2026-05-19 M3.6a constructor changes). Archived at the M4.0b-2 closeout (2026-05-29, resolved, no live forward items — content preserved in git history + the PROJECT_SNAPSHOT session log): 2026-05-20 [Coder] M3.6b InProcessEventBus public + EventBusConfig; 2026-05-17 [PM] M3.1 prompt lessons + interface-evolution pattern.
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `76288af` on `2026-05-22`.
+**Last verified against:** `homesynapse-core` commit `7610296` on `2026-05-29` (M4.0b-2 COMPLETE).

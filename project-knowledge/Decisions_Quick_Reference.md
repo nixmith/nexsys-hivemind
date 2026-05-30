@@ -156,7 +156,7 @@ These live in `context/decisions/phase-3-cross-module-decisions.md` and record i
 | D-06 | V001 schema may be amended pre-launch; no migration file cut for amendments. | 2026-04-10 |
 | D-07 | Event categories derived at write time via EventCategoryMapping. | 2026-04-10 |
 | D-08 | Visibility promotion requires transitive -Xlint:exports verification (DEC-M3-17). | 2026-05-20 |
-| D-09 | M3.7 closes OR-M3-17/OR-M3-18 with `MinimalProjectionAdvancer`, not `DispatchingProjectionAdvancer`. Full dispatch deferred to M4.0. | 2026-05-22 |
+| D-09 | M3.7 closed OR-M3-17/OR-M3-18 with the interim `MinimalProjectionAdvancer`. **Fulfilled in M4.0b-1** (`cf1a97e`, 2026-05-29): `MinimalProjectionAdvancer` **deleted**, replaced by the production `DispatchingProjectionAdvancer` (REC-28) + `ProductionDerivationRule`, both package-private in state-store. | 2026-05-22 (fulfilled 2026-05-29) |
 | D-10 | M3.7 absorbs M3.6f-shaped pre-work (HTTP IT for endpoints + DLQ `oldestParkedAt` field plumbing). No separate M3.6f WU. | 2026-05-22 |
 | D-11 | M3.7 proceeds in parallel with M4-amendment-deliberation window (zero technical coupling). Gate removed from pm-handoff. | 2026-05-22 |
 | D-12 | M3.7 uses the established M3.6 Claude Code workflow (no protocol changes). Codifies M3.6 cadence as default for all future milestones. | 2026-05-22 |

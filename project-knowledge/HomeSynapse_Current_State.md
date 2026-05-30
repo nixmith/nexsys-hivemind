@@ -5,18 +5,26 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-28 against M3.7 closeout source tree (M3 COMPLETE; M4 scoping COMPLETE)
+last-verified: 2026-05-29 against M4.0b-2 closeout source tree (M4.0a/M4.0b-1/M4.0b-2 COMPLETE, build GREEN at 7610296)
 -->
 
 # HomeSynapse Core — Current State
 
-Last updated: 2026-05-28 (M3 COMPLETE; M4 scoping COMPLETE — PLAN-M4-CONSOLIDATED authored; KB de-poison pass applied. Next: M4.0a coding instruction.)
+Last updated: 2026-05-29 (M4.0b-2 COMPLETE, committed `7610296` — AMD-50 version-transition backfill + `projectionVersion` 1→2 on the production string change-detect rule. Workstream A (projection/derivation) substantially done. Next: M4.B3 → M4.0b-3.)
 
 ---
 
 ## 1. Current Milestone Status
 
-**M3 (Event Distribution + State Materialization) — COMPLETE** (2026-05-27). All seven sub-milestones (M3.1–M3.7) shipped across nineteen Claude Code work units. **Next: M4 scoping.**
+**M4 — Foundation (projection/derivation + device-model expansion + integration-api freeze) — IN PROGRESS.** Workstream A (projection/derivation) is substantially **COMPLETE**: **M4.0a** (atomic subscriber+view checkpoint coupling, AMD-45, `a441fdf`, 2026-05-29), **M4.0b-1** (production `ProductionDerivationRule` + `DispatchingProjectionAdvancer` REC-28, `cf1a97e`, 2026-05-29), **M4.0b-2** (AMD-50 version-transition backfill + `projectionVersion` 1→2, `7610296`, 2026-05-29). State-based behavior is now LIVE — the materialized `attributes` map populates from derived `state_changed`, and a version transition reconstructs historical attributes via the AMD-50 one-shot backfill. Only **M4.0b-3** (typed comparator/payload AMD-51/52) remains in Workstream A. **Next: M4.B3** (device-model `AttributeValue` expansion, AMD-47; gated on P4) **→ M4.0b-3** (gated on M4.B3). Workstream C (integration-api freeze) gated on P3.
+
+**M3 (Event Distribution + State Materialization) — COMPLETE** (2026-05-27). All seven sub-milestones (M3.1–M3.7) shipped across nineteen Claude Code work units.
+
+**M4.0b-2 (Version-Transition Reconciliation Backfill + `projectionVersion` 1→2) — COMPLETE** (committed 2026-05-29 `7610296`, build GREEN — 139 tasks). Implements ratified AMD-50 for the 1→2 transition: `backfillActive` provenance gate (set in `StateProjection.initialize()` reconciliation branch, cleared at `onCaughtUp()`); non-emitting one-shot backfill on BOTH `onEvent` and `processBatch` via the narrow `applyBackfillAttribute` (attributes + event-time `lastChanged`, no second `stateVersion` increment, INV-01); gate-conditional supersession in `applyToState` (§2.2); `Clock` removed from `DerivationContext` (§2.4). 7 files modified, 0 created, no module-info/Gradle. PM Phase 2 confirmed targets A–J against source; AMD-50-INV-01..04 upheld. Interim mixed-`lastChanged` (event-time in backfill, wall-clock in LIVE) is a conscious, documented interim — timestamp unifier is a separate WU. Twentieth Claude Code WU.
+
+**M4.0b-1 (Production `DerivationRule` + `DispatchingProjectionAdvancer`) — COMPLETE** (committed 2026-05-29 `cf1a97e`, build GREEN). Amendment-free Workstream-A vertical slice: `ProductionDerivationRule` (package-private in `com.homesynapse.state`, lifted from `EchoStateRule`, string change-detect, publishes `state_changed` on LIVE → populates `attributes`) + REC-28 `DispatchingProjectionAdvancer`, both via DEC-M3-16 gateways. `MinimalProjectionAdvancer` **deleted**; `projectionVersion` stays 1. OR-M3-17/18 fully closed. Nineteenth Claude Code WU.
+
+**M4.0a (Atomic Checkpoint Coupling + Reconciliation Plumbing) — COMPLETE** (committed 2026-05-29 `a441fdf`, build GREEN). AMD-45 coupled checkpoint via the new `AtomicCheckpointSink` seam; all three bus checkpoint writers gated (LIVE + both REPLAY, the D-1 correction); reconciliation metadata populated (OR-M3-13 resolved); REC-80 metric; REC-82 guard. First M4 WU.
 
 **M3.7 (E2E Integration Tests + Checkpoint Fix) — COMPLETE** (committed 2026-05-27, build GREEN — 139 tasks, 0 failures, confirmed by Nick). Eighteenth and nineteenth Claude Code work units (two Coder briefs: abandon/stub + checkpoint fix).
 
@@ -24,7 +32,7 @@ M3.7 shipped in two Coder brief executions:
 1. **Abandon + MinimalEventBusStub brief:** `abandon()` contract on `PersistenceFactory`, `InProcessEventBus`, `HomeSynapseCore`; `MinimalEventBusStub` test double; `NotifyingEventPublisher` fix; `HomeSynapseE2eHarness`; `MinimalProjectionAdvancer` (the real package-private advancer class in lifecycle, closes OR-M3-18) + the no-op `MINIMAL_DERIVATION_RULE` constant lambda in `HomeSynapseCore` (closes OR-M3-17 — there is **no** `MinimalDerivationRule` class; the production no-op derivation is a `DerivationRule` `@FunctionalInterface` lambda); `CrashRecoveryHttpIT`, `EndpointE2eIT`, `InFlightRequestShutdownIT`; `LiveModeAwaiter`, `TestEvents` test support.
 2. **Checkpoint fix brief:** `"entity_state"` → `"state_projection"` key mismatch fix in `SqlitePersistenceLifecycle`; `FixedCheckpointPolicy.TESTING` constant (1 event / 100ms); `HomeSynapseConfig` expanded to 4 components (added `checkpointPolicy`); `CrashRecoveryHttpIT` TESTING policy wiring.
 
-AMD-45 (Atomic Subscriber+View Checkpoint Coupling) drafted as M4.0 first work unit prerequisite — addresses the deeper architectural issue where bus subscriber checkpoint outruns projection view checkpoint under HOME_DEFAULT policy.
+AMD-45 (Atomic Subscriber+View Checkpoint Coupling) **RATIFIED + applied in M4.0a** (`a441fdf`, 2026-05-29) — resolved the architectural issue where the bus subscriber checkpoint outran the projection view checkpoint under HOME_DEFAULT policy (the coupled `AtomicCheckpointSink` is now the sole writer for the projection; all three bus writers gated, incl. both REPLAY writes per the D-1 correction).
 
 **Previous: M3.6e.2 (Admin Endpoints + ArchUnit Rules) — COMPLETE** (committed 2026-05-22 `76288af`).
 
@@ -88,21 +96,21 @@ Created `EventBusConfig` record (replayQueueCapacity, publisherBlockedDepthThres
 **M4 scoping is COMPLETE (2026-05-28).** Authoritative plan: `homesynapse-core-docs/design/HomeSynapse_Core_M4_Implementation_Plan_PLAN-M4-CONSOLIDATED.md`.
 
 **M4 scope = Canonical** (Nick, 2026-05-28). M4 is the foundation milestone — three workstreams:
-- **A — Projection/derivation foundation:** M4.0a (wire `AtomicCheckpointWriter` per AMD-45) → M4.0b (`DispatchingProjectionAdvancer` REC-28 + the real production `DerivationRule` + **one-shot backfill** on the `projectionVersion` 1→2 reconciliation replay). This is the critical path — all state-based behavior is dark until it lands.
-- **B — Device-model expansion:** Research 8 REC-23–REC-30 + implementation of the ratified-but-unbuilt **AMD-44** (Floor/EntityRole).
-- **C — Integration-api interface freeze:** Research 6 REC-41–REC-51 (interface only; supervisor impl is M9).
+- **A — Projection/derivation foundation — substantially DONE:** M4.0a (`AtomicCheckpointWriter`/AMD-45, `a441fdf`) ✓, M4.0b-1 (`DispatchingProjectionAdvancer` REC-28 + real `ProductionDerivationRule`, `cf1a97e`) ✓, M4.0b-2 (AMD-50 one-shot backfill on the `projectionVersion` 1→2 reconciliation replay, `7610296`) ✓. State-based behavior is now LIVE; only **M4.0b-3** (typed comparator/payload AMD-51/52) remains, gated on M4.B3.
+- **B — Device-model expansion — NEXT (M4.B3):** Research 8 REC-23–REC-30 + ratified-but-unbuilt **AMD-44** (Floor/EntityRole) + **AMD-47** (`AttributeValue` expansion: `QuantityValue`/`ArrayValue`/`DegradedAttributeValue`/`AttributeValueUpcaster`). **Gated on P4** (Doc 02/05 currency).
+- **C — Integration-api interface freeze:** Research 6 REC-41–REC-51 (interface only; supervisor impl is M9). **Gated on P3** (Research 6 NQ-1..6).
 
 **Explicitly NOT M4:** configuration = M6; automation engine = M7/M8 (its Phase 2 interface spec already exists on disk — M7/M8 is implementation, not interface design); integration-runtime impl = M9; REST/WebSocket = M10/M11.
 
-**Open before finalize/start (decisions, not research):** P2 — AMD renumbering (device→46/47/48, integration→54–63; the 44/45 collision with Floor/Checkpoint must resolve before any M4 amendment is authored); P3 — Research 6 NQ-1..6 confirmations; Doc 02/05 currency vs ratified amendments.
+**Open gates (decisions/doc-currency, not blocking the committed work):** **P2 RATIFIED** (2026-05-29 — device 46–49, projection 50–52 fixed; integration assign-at-milestone). Remaining: **P3** — Research 6 NQ-1..6 confirmations (gates Workstream C); **P4** — Doc 02/05 currency vs ratified amendments (gates M4.B3). Doc-currency follow-up: propagate the M4.0b-2 re-scope + M4.0b-3 row into PLAN-M4-CONSOLIDATED-v2 §3.
 
-**In flight:** Research 9 (projection rebuild/versioning/backfill, REC-76+) and Research 10 (typed attribute change-detection, REC-90+) — briefs at `context/instructions/`. A second Cowork window is doing an independent verification + deepening pass on the plan (`context/handoff/2026-05-28_M4_plan_verification_cowork_prompt.md`).
+**Research 9/10 — CONSUMED:** they informed **AMD-50** (version-transition backfill / cursor determinism), now RATIFIED + implemented in M4.0b-2. The independent plan-verification pass is complete (fed P2 rev. 2 + AMD-50).
 
-**Next concrete action:** the **M4.0a coding instruction** — decision-free, AMD-45 already drafted, the unconditional first WU.
+**Next concrete action:** **M4.B3** (device-model `AttributeValue` expansion, AMD-47) — gated on P4 (Doc 02/05 currency); then **M4.0b-3** (typed comparator/payload, gated on M4.B3 — a clean rule-swap reusing AMD-50's backfill path unchanged). P3 (Research 6 NQ-1..6) gates Workstream C independently and can be resolved in parallel.
 
-**Build:** GREEN at M3.7 closeout commit. **1,422** @Test/@ParameterizedTest/@RepeatedTest methods across **724** Java files, 20 modules (source-verified 2026-05-28; supersedes the earlier "~1,600+ / ~730+" estimate).
+**Build:** GREEN at `7610296` (M4.0b-2 — `./gradlew check` 139 tasks + `:core:state-store:check` + `:lifecycle:lifecycle:check`). Test/file counts last source-counted 2026-05-28 (**1,422** @Test methods / **724** Java files, 20 modules); M4.0a/M4.0b-1/M4.0b-2 added tests and modified files (not re-counted — no new modules).
 
-**Active governance:** AMD-41/42/43 APPLIED (2026-05-16). DEC-M3-14 through DEC-M3-17 locked. D-09 through D-12 ratified (M3.7 scoping, 2026-05-22). AMD-45 DRAFT (M4.0 prerequisite). No other pending amendments.
+**Active governance:** AMD-41/42/43 APPLIED (2026-05-16). **AMD-44 RATIFIED** (Floor/EntityRole — impl pending in the M4.B path). **AMD-45 RATIFIED + applied** (M4.0a, `a441fdf`). **AMD-50 RATIFIED + applied** (M4.0b-2, `7610296`) — **on-disk amendment watermark = AMD-50.** **P2 RATIFIED** (AMD renumbering). DEC-M3-14 through DEC-M3-17 + D-09 through D-12 locked. No pending amendments before M4.B3 (which authors AMD-47).
 
 ---
 
@@ -136,7 +144,7 @@ M3.7  E2E integration tests + checkpoint fix  ← COMPLETE (2026-05-27) [two Cod
 
 M3.6d was sub-divided into d-a + d-b per the user's Option A decision. M3.6e was split into e.1 (StateQueryService + REST gate) and e.2 (admin endpoints + ArchUnit rules). M3.7 executed as two sequential Coder briefs (abandon/stub + checkpoint fix).
 
-**M3 is COMPLETE.** All seven sub-milestones shipped across nineteen Claude Code work units (2026-05-16 through 2026-05-27). Next: M4 scoping.
+**M3 is COMPLETE.** All seven sub-milestones shipped across nineteen Claude Code work units (2026-05-16 through 2026-05-27). M4 Workstream A then shipped (M4.0a/M4.0b-1/M4.0b-2, through 2026-05-29 `7610296`). Next: M4.B3 → M4.0b-3.
 
 ---
 
@@ -206,7 +214,7 @@ Every work unit requires two phases before the next unit can start:
 
 A stale hivemind (WUCP Phase 2 not run) blocks all forward work. The PM skill's freshness preflight enforces this.
 
-**CURRENT:** M3.7 closeout reconciled (2026-05-27). Hivemind status: PASS. M3 COMPLETE. Both repos committed. Next: M4 scoping.
+**CURRENT:** M4.0b-2 closeout reconciled (2026-05-29, `7610296`). Hivemind status: PASS. M4 Workstream A substantially COMPLETE (M4.0a/M4.0b-1/M4.0b-2). All three repos committed (core, core-docs; hivemind closeout pending Nick's commit). Next: M4.B3 → M4.0b-3.
 
 ---
 
@@ -244,7 +252,7 @@ Self-contained documents. All context is inlined because Cowork has no persisten
 
 Six work units reconciled: Bus-Fix Piece A (`fceafe8`), M3.5b (`08d0136`), Projection-Checkpoint Wiring (`56aaa4b`), Supervisor DLQ Wiring (`ed5862c`), M3.4a (`5ae7912`), M3.4b (`adf04d2`). Two design sessions logged: cross-tier deployment audit (2026-05-19), gap-closure + M3.6 design (2026-05-20). `testing/integration-tests/MODULE_CONTEXT.md` populated. Freshness preflight: PASS.
 
-**M3 COMPLETE. No outstanding prerequisites block M4 scoping. AMD-45 is M4.0's first work unit.**
+**M3 COMPLETE. M4 Workstream A substantially COMPLETE (M4.0a/M4.0b-1/M4.0b-2). Next forward WU is M4.B3 (device-model expansion, AMD-47), gated on P4 doc currency.**
 
 ### Audit Findings Folded into M3.6 (2026-05-19 cross-tier audit + 2026-05-20 design)
 
@@ -283,9 +291,9 @@ Audit findings NOT addressed in M3.6 (stay open as documented MINOR per audit ve
 
 ### Tracked Items from M3.6e.2 (2026-05-22) — ALL RESOLVED
 
-**OR-M3-17 — RESOLVED (2026-05-27, M3.7).** `NO_OP_DERIVATION` replaced by the no-op constant lambda `MINIMAL_DERIVATION_RULE = context -> List.of()` in `HomeSynapseCore`, bound to the `DerivationRule` `@FunctionalInterface` in `core/state-store`. **There is no `MinimalDerivationRule` class** — corrected 2026-05-28; the earlier wording asserted a package-private lifecycle class that does not exist in source. The empty-list path IS the M3.7 closure semantic per D-09. Real derivation — the production `DerivationRule` + `DispatchingProjectionAdvancer` (Research 8 REC-28) — lands in **M4.0b** per DEC-M3-10.
+**OR-M3-17 — FULLY CLOSED (M4.0b-1, `cf1a97e`, 2026-05-29).** The M3.7 interim was the no-op `MINIMAL_DERIVATION_RULE = context -> List.of()` lambda (there is **no** `MinimalDerivationRule` class — that was a phantom). M4.0b-1 retired the no-op lambda and shipped the real production **`ProductionDerivationRule`** (package-private in `com.homesynapse.state`, string change-detect, publishes a derived `state_changed` on LIVE so the `attributes` map populates), reached via the `DerivationRule.production()` gateway (DEC-M3-16). M4.0b-2 then added the AMD-50 version-transition backfill on top.
 
-**OR-M3-18 — RESOLVED (2026-05-27, M3.7).** `NO_OP_ADVANCER` replaced by `MinimalProjectionAdvancer` (package-private in lifecycle). Reads from `EventStore.readFrom()` with bounded batch, forwards every envelope to the processor callback per D-09. Full `DispatchingProjectionAdvancer` (Research 8 REC-28) lands in M4.0.
+**OR-M3-18 — FULLY CLOSED (M4.0b-1, `cf1a97e`, 2026-05-29).** The M3.7 interim `MinimalProjectionAdvancer` (package-private lifecycle class) is **DELETED**. M4.0b-1 shipped the real **`DispatchingProjectionAdvancer`** (Research 8 REC-28 — package-private in `com.homesynapse.state`, constructor-injected `EnvelopeHandler` map, no `ServiceLoader`, forward-all → exact cursor parity), reached via the `ProjectionAdvancer.dispatching(EventStore)` gateway.
 
 ### Tracked Items from M3.6e.1 (2026-05-22)
 
@@ -295,7 +303,7 @@ Audit findings NOT addressed in M3.6 (stay open as documented MINOR per audit ve
 
 ### Tracked Items from M3.6d-a (2026-05-20)
 
-**OR-M3-13 — Reconciliation records metadata in data slot (feature gap).** `StateProjection.writeCheckpoint(Instant)` passes plain `projectionVersion` to `StateCheckpointSource.serializeCheckpoint(int)`. The interface has no surface to accept `reconciledAt`, `reconciledFromVersion`, `reconciledToVersion`. `SqliteStateStore.serializeCheckpoint(int)` forwards `null` for those three fields to `CheckpointSerializer.serialize(...)`. M3.6d-a's `ReconciliationTest` ships 4 of 5 brief tests; the 5th (`reconciliationRecordsMetadataInDataSlot`) deferred because it would fail trivially. AMD-41 §3.2.4's metadata-recording requirement is not fully implemented. Track as a separate enhancement WU — likely M4 scope since it touches the projection's checkpoint contract.
+**OR-M3-13 — Reconciliation records metadata in data slot — RESOLVED (2026-05-29, M4.0a `a441fdf`).** `StateCheckpointSource.serializeCheckpoint(...)` was extended to accept `reconciledAt`/`reconciledFromVersion`/`reconciledToVersion`; `StateProjection.initialize()` populates them on the version-mismatch reconciliation; `SqliteStateStore` writes them instead of `null`. `ReconciliationTest`'s 5th method (`reconciliationRecordsMetadataInDataSlot`) is un-deferred and passing (asserts `reconciledToVersion == 2`). **M4.0b-2's backfill gate binds to `reconciledToVersion`.** AMD-41 §3.2.4's metadata-recording requirement is now met.
 
 **OR-M3-14 — M3.6d-b prerequisite infrastructure — RESOLVED** (2026-05-21 `dfb045e`). All three prerequisite infrastructure gaps closed in M3.6d-b's 4-commit cohort: `WriteCoordinator.queueSize()` at `a33ee40`, production `SqliteSubscriberReadConnectionFactory` at `a59b64e`, `SqlitePersistenceLifecycle` 6-store expansion + `PersistenceFactory` at `725353d`.
 
@@ -397,4 +405,4 @@ nexsys-hivemind/context/audits/2026-05-19_cross-tier-deployment-audit.md # 2026-
 
 ---
 
-**Last verified against:** `homesynapse-core` M3.7 closeout commit on `2026-05-27`. M3 COMPLETE. Next: M4 scoping.
+**Last verified against:** `homesynapse-core` M4.0b-2 closeout commit `7610296` on `2026-05-29`. M4 Workstream A substantially complete (M4.0a/M4.0b-1/M4.0b-2); AMD-44/45/50 ratified, watermark AMD-50, P2 ratified. Next: M4.B3 → M4.0b-3.

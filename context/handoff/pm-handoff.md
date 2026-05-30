@@ -10,11 +10,11 @@ last-verified: 2026-05-27 against M3.7 closeout working tree (pending commit)
 
 # PM Session Handoff
 
-**Last updated:** 2026-05-28 (M3 COMPLETE; M4 scoping COMPLETE — PLAN-M4-CONSOLIDATED authored, canonical scope; KB de-poison applied. Next: M4.0a coding instruction.)
+**Last updated:** 2026-05-29 (M4.0a COMPLETE — atomic checkpoint coupling + reconciliation plumbing committed `a441fdf`, build GREEN. Next: M4.0b.)
 
 ## Current Task
 
-**M3 COMPLETE. M4 scoping COMPLETE (2026-05-28)** — authoritative plan at `homesynapse-core-docs/design/HomeSynapse_Core_M4_Implementation_Plan_PLAN-M4-CONSOLIDATED.md` (canonical scope: device-model expansion + projection/derivation foundation + integration-api interface freeze). Research 9 (projection rebuild/backfill) + Research 10 (typed change-detection) briefs written and in flight; an independent verification pass is running in a second Cowork window. **Next concrete action: the M4.0a coding instruction** (wire `AtomicCheckpointWriter`, AMD-45 — decision-free, unconditional first M4 WU). M3.7 delivered and verified GREEN (139 Gradle tasks). Pending commit covers 18 modified + 3 new files across 6 modules. Five Cowork fix rounds + two Claude Code briefs resolved: H5 bus-FSM read, awaitility catalog pin, TESTING Jetty pool sizing, Subscriber.setMode lifecycle hook, NotifyingEventPublisher, abandon() contract, checkpoint key mismatch fix, FixedCheckpointPolicy.TESTING. Eighteen Claude Code work units total across M2–M3.
+**M4.0a COMPLETE (2026-05-29, `a441fdf`) — WUCP Phase 2 done this session.** Implemented AMD-45 (ratified 2026-05-29 after the `:75` phantom correction): atomic subscriber+view checkpoint coupling via the new `AtomicCheckpointSink` seam (consumer-defined interface in state-store, persistence implementation over `AtomicCheckpointWriter`, injected at `HomeSynapseCore`), `SubscriberInfo.atomicCheckpoint` opt-out flag (AMD-45 §2.2 Option A), reconciliation-metadata population (OR-M3-13), H2 `executeInTransaction` extraction, REC-80 replay metric, REC-82 sentinel guard. **PM review caught and adjudicated D-1** — the REPLAY-path subscriber-checkpoint writes (`ReplayDriver:157/:186`) were initially left ungated, which reopened AMD-45-INV-01's crash window during REPLAY; the correction gated both REPLAY writes (matching the LIVE gate) and added a 201-event threshold-crossing regression test. Full `./gradlew check` GREEN; `CrashRecoveryHttpIT` GREEN under throttled profile. **Next concrete action: deliberate and issue the M4.0b coding instruction** — production `DerivationRule` + `DispatchingProjectionAdvancer` (Research 8 REC-28) + the one-shot `projectionVersion` 1→2 backfill (binds to M4.0a's `reconciledToVersion`). **Weigh M4.0b's WU scale against the Claude Code token window before prompting — split if the diff would be large.** Open decisions before broader M4 amendments: P2 (AMD renumbering — 44/45 collision), P3 (Research 6 NQ-1..6), Doc 02/05 currency.
 
 ## Phase 3 Work Unit Status
 
@@ -45,7 +45,8 @@ last-verified: 2026-05-27 against M3.7 closeout working tree (pending commit)
 | **M3.6d-b** | PersistenceFactory + HomeSynapseCore (composition-root wiring) — WriteCoordinator.queueSize(), SqliteSubscriberReadConnectionFactory, SqlitePersistenceLifecycle 6-store expansion, PersistenceFactory public gateway, HomeSynapseCore 12-step bootstrap | **DONE 2026-05-21** | `dfb045e` (4-commit cohort: `a33ee40`..`dfb045e`) |
 | **M3.6e.1** | MaterializedStateQueryService + ReadinessFilter + RestFilters + Javalin bootstrap + DeploymentProfile thread pool sizing. Two follow-up fix rounds (Xlint:exports gateway, Gradle/JPMS scope). 7 deviations (none blocking). 6 created, 13 modified. | **DONE 2026-05-22** | `b71ed37` |
 | **M3.6e.2** | Admin endpoints (DlqStatusEndpoint, ProjectionStatusEndpoint) + entity query endpoints (ListEntitiesEndpoint, GetEntityEndpoint, GetEntityStateEndpoint) + EndpointContext SPI + 2 RestFilters gateway methods + 2 ArchUnit rules + HomeSynapseCore 16-step bootstrap. 15 created, 6 modified, 19 test methods. 5 deviations (none blocking). M3.6 COMPLETE. Seventeenth CC WU. | **DONE 2026-05-22** | `76288af` |
-| **M3.7** | E2E HTTP integration tests + abandon() contract + checkpoint key fix + TESTING checkpoint policy. 5 Cowork fix rounds + 2 CC briefs. 18 modified + 3 new files. CrashRecoveryHttpIT passes. M3 COMPLETE. Eighteenth CC WU. | **DONE 2026-05-27** | pending commit |
+| **M3.7** | E2E HTTP integration tests + abandon() contract + checkpoint key fix + TESTING checkpoint policy. 5 Cowork fix rounds + 2 CC briefs. 18 modified + 3 new files. CrashRecoveryHttpIT passes. M3 COMPLETE. Eighteenth CC WU. | **DONE 2026-05-27** | `78264a0` (+ `8930721`) |
+| **M4.0a** | Atomic subscriber+view checkpoint coupling (AMD-45-INV-01) via new `AtomicCheckpointSink` seam; `SubscriberInfo.atomicCheckpoint` (Option A); all three bus checkpoint writers gated (LIVE + both REPLAY — D-1 correction); reconciliation-metadata population (OR-M3-13); H2 `executeInTransaction`; REC-80 metric; REC-82 sentinel guard. 1 created + ~19 modified. Build GREEN. First M4 WU. | **DONE 2026-05-29** | `a441fdf` |
 
 ## Design Doc Status
 
@@ -127,7 +128,7 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 #### OR-M3-13 — ReconciliationRecordsMetadataInDataSlot feature gap (NEW 2026-05-20)
 - **Severity:** LOW (feature gap, not regression — AMD-41 §3.2.4 metadata-recording requirement was never fully implemented at any prior milestone)
 - **Detail:** `StateProjection.writeCheckpoint(Instant)` passes plain `projectionVersion` to `StateCheckpointSource.serializeCheckpoint(int)`. The interface has no surface to accept `reconciledAt`, `reconciledFromVersion`, `reconciledToVersion`. `SqliteStateStore.serializeCheckpoint(int)` forwards `null` for those three fields to `CheckpointSerializer.serialize(...)`. M3.6d-a's `ReconciliationTest` ships 4 of 5 brief tests; the 5th (`reconciliationRecordsMetadataInDataSlot`) is deferred because it would fail trivially against the current contract. Implementing the feature requires extending the `StateCheckpointSource` interface and threading the metadata through `StateProjection.initialize`'s reconciliation path.
-- **Resolution:** Track as a separate enhancement WU — likely M4 scope since it touches the projection's checkpoint contract.
+- **Resolution:** RESOLVED in M4.0a (2026-05-29, `a441fdf`). `StateCheckpointSource.serializeCheckpoint(...)` extended to accept the three reconciliation fields; `StateProjection.initialize()` populates `reconciledFrom/ToVersion` (+ `reconciledAt` from the injected `Clock`) on the version-mismatch reconciliation; `SqliteStateStore` writes them instead of `null`. `ReconciliationTest`'s 5th method un-deferred and passing (asserts `reconciledToVersion == 2`). M4.0b's backfill gate binds to this field.
 
 #### OR-M3-14 — M3.6d-b prerequisite infrastructure (NEW 2026-05-20)
 - **Severity:** MEDIUM (blocks M3.6d-b until addressed in the coding instruction)
@@ -147,7 +148,7 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 #### H2: AtomicCheckpointWriter code duplication (from M3.5b Cowork review)
 - **Severity:** LOW (code quality, not correctness)
 - **Detail:** Two-way and three-way methods duplicate transaction wrapper. Extract shared `executeInTransaction` helper.
-- **Resolution:** Standalone cleanup WU or fold into M3.6d.
+- **Resolution:** RESOLVED in M4.0a (2026-05-29, `a441fdf`) as plan item H2. Shared `executeInTransaction(context, work)` helper extracted in `AtomicCheckpointWriter`; both the two-way and three-way methods route through it. Scoped to the atomic-write path.
 
 #### Supervisor retry loop activation (from supervisor-DLQ-wiring)
 - **Severity:** MEDIUM (dead code in production)

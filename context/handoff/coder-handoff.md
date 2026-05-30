@@ -10,7 +10,7 @@ last-verified: 2026-05-27 against M3.7 closeout working tree — `./gradlew chec
 
 # Coder Session Handoff
 
-**Last updated:** 2026-05-28 (M3 COMPLETE; M4 scoping COMPLETE. Next-unit pointer: **M4.0a** — wire `AtomicCheckpointWriter` per AMD-45. See the "M4 Readiness" note below before the first M4 brief.)
+**Last updated:** 2026-05-29 (**M4.0b-1 COMPLETE — files produced, build gate DEFERRED to Nick**. The amendment-free vertical slice: production `DerivationRule` (lifted from `EchoStateRule`, string change-detect, publishes `state_changed` on LIVE), `DispatchingProjectionAdvancer` (REC-28 — constructor-injected package-private handlers, no `ServiceLoader`, forward-all so exact cursor parity with the removed `MinimalProjectionAdvancer`), composition-root rewiring with `projectionVersion` staying **1**, REPLAY re-derive-not-republish + determinism + rebuild-idempotency tests. **Next unit: M4.0b-2** (the 1→2 bump, one-shot backfill, REC-76/77, typed comparator, QuantityValue/ArrayValue) — **blocked on P2** (AMD 44/45 renumbering + AMD-41 §3.2.4 refinement; Nick must ratify P2 first). Prior: M4.0a COMPLETE, committed `a441fdf`.)
 
 Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/handoff/coder-handoff.md`). A duplicate at `homesynapse-core/docs/handoff/coder-handoff.md` (created during a Cowork session) was consolidated into this file on 2026-05-15 and removed.
 
@@ -30,7 +30,55 @@ Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/h
 
 ## Deferred Build Gate
 
-**Status:** ALL RESOLVED (2026-05-27). Nick ran `./gradlew check` — BUILD SUCCESSFUL (139 tasks). All M3.7 deferred gates verified GREEN in one pass: Recovery Steps 2+3 (NotifyingEventPublisher), abandon() contract + MinimalEventBusStub, checkpoint key fix + TESTING policy. CrashRecoveryHttpIT passes. Spotless clean (one unused `FixedCheckpointPolicy` import auto-removed by `spotlessApply`).
+**Status:** OPEN — **M4.0b-1** (2026-05-29, files produced, gate deferred to Nick; see entry below). Prior: **M4.0a + D-1 correction** RESOLVED 2026-05-29 (Nick ran re-run GREEN: `:core:event-bus:check` incl. Tier 9 regression, full `./gradlew check`, `:testing:integration-tests:test -PpiProfile=throttled`; committed `a441fdf`). All M3.7 gates RESOLVED 2026-05-27.
+
+### OPEN — M4.0b-1: Dispatching Advancer + Production Derivation Rule (amendment-free vertical slice, 2026-05-29)
+
+**Build gate:** DEFERRED. The Coder produced files only (CLAUDE.md build discipline — no `./gradlew`/`javac`/`git`). Nick must run the two named `:check` targets below against the working tree he commits; `:testing:integration-tests:test` is a recommended downstream gate.
+
+**Commit the gate must run against:** the M4.0b-1 working tree layered on the M4.0a closeout baseline (HEAD `a441fdf`). No commit made by the Coder.
+
+**Commands Nick must run (success criterion = GREEN):**
+1. `./gradlew :core:state-store:check` — new package-private `ProductionDerivationRule`, `DispatchingProjectionAdvancer` (+ nested `ForwardingHandler`), `EnvelopeHandler`; new public static factories `DerivationRule.production()` and `ProjectionAdvancer.dispatching(EventStore)` (the latter adds `import com.homesynapse.event.EventStore` to `ProjectionAdvancer.java`); `StateProjectionContractTest` shared `rule` now `DerivationRule.production()` + nested `EchoStateRule` removed + 4 new `@Test` methods; `StateProjectionVerticalIT` rule swapped + local `EchoStateRule` removed; new `DispatchingProjectionAdvancerTest` (7 tests).
+2. `./gradlew :lifecycle:lifecycle:check` — `HomeSynapseCore` step 5/6 rewiring (`ProjectionAdvancer.dispatching(...)` + `DerivationRule.production()`); `MINIMAL_DERIVATION_RULE` constant and `MinimalProjectionAdvancer.java` **removed**; `projectionAdvancer` field widened to `ProjectionAdvancer`; added `import com.homesynapse.state.ProjectionAdvancer`. `HomeSynapseCoreTest` unaffected (no assertion on empty attributes; `readFrom(0,10).get(0)` is still the `state_reported`).
+3. *(recommended downstream)* `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — `EndpointE2eIT` + `CrashRecoveryHttpIT` exercise the real composition root. Verified by source inspection to remain GREEN: the production rule updates attributes of *existing* entities (no new entities), so `$.data` sizes and `getViewPosition() >= N` (uses `>=`) are unaffected by the extra derived `state_changed` events.
+4. `./gradlew check` — full-project regression.
+
+**No module-info.java or build.gradle.kts changes** — both new state-store types live in the already-exported `com.homesynapse.state`; `DerivationRule`/`ProjectionAdvancer`/`EventStore` are all reachable through existing `requires transitive` edges (verified against the actual `module-info.java` files).
+
+**Deviations (all [INFO], none blocking):** D-A [INFO] — `DispatchingProjectionAdvancer` is NOT subjected to `ProjectionAdvancerContractTest`; it has a dedicated `DispatchingProjectionAdvancerTest` instead, because the contract test's `readTxInProgress()` hook assumes a fixture-simulated tx flag that the production advancer (like the removed `MinimalProjectionAdvancer`) does not track. D-B [INFO] — nested `EchoStateRule` removed from `StateProjectionContractTest` and the local copy removed from `StateProjectionVerticalIT` (both superseded by the public `DerivationRule.production()` factory; dead after the swap). D-C [INFO] — `AdvanceResult.skipped()` NOT invented (G7); all event types forward, preserving exact `MinimalProjectionAdvancer` cursor accounting. No `[BLOCKING]`/`[REVIEW]` deviations; no amendment authored (Release Gate honored).
+
+### OPEN — M4.0a CORRECTION: close the REPLAY-path half of AMD-45-INV-01 (D-1 resolution, 2026-05-29)
+
+**Build gate:** DEFERRED (re-run). PM adjudicated D-1 [REVIEW] as **NOT benign** — `StateProjection.onEvent` checkpoints during REPLAY (only COLD/SUSPENDED short-circuit), so for the `state_projection` subscriber the coupled `AtomicCheckpointSink` and the ungated `ReplayDriver` writes were two independent writers to `subscriber_checkpoints` on different cadences; a crash mid-REPLAY over a >200-event log left subscriber@N > view@M and lost events M+1..N on restart — the exact AMD-45-INV-01 window, reopened on REPLAY (which the invariant does not carve out).
+
+**Files modified (2):**
+- `core/event-bus/src/main/java/com/homesynapse/event/bus/ReplayDriver.java` — both `checkpointStore.writeCheckpoint(subscriberId, ...)` sites now gated `if (!runtime.info().atomicCheckpoint())`: the final tail write (`:157`, combined with the existing `currentPosition > 0L` guard) and the periodic AMD-38-cadence write (`:186`, inside the `shouldCheckpoint` block; cadence counters still reset so loop timing is unchanged). No constructor change — `runtime.info()` is already read at `run()`.
+- `core/event-bus/src/testFixtures/java/com/homesynapse/event/bus/test/EventBusContractTest.java` — new Tier 9 test `replayDoesNotAdvanceBusCheckpointForAtomicCheckpointSubscriber`: seeds 201 events (crosses `CHECKPOINT_EVENT_THRESHOLD=200`), subscribes a non-atomic control (asserts its bus checkpoint advances to the tail) AND an atomicCheckpoint subscriber (asserts its bus checkpoint stays 0). Runs for `InProcessEventBusTest` (active runtime); skipped for `InMemoryEventBusTest` via the tier's `assumeActiveRuntime()`. FAILS without the gate.
+
+**Complete production writer set for the `state_projection` subscriber checkpoint (PM requirement #3, verified by grep):** exactly 3 bus-side sites — `InProcessEventBus:508` (LIVE), `ReplayDriver:157` (tail), `ReplayDriver:186` (periodic) — ALL now gated. Plus the projection's `AtomicCheckpointSink` (coupled). For an atomicCheckpoint subscriber the coupled sink is the **sole** writer. The passive `subscribe()`/`subscribeWithHandler` path writes no checkpoints and is contract-test-only; `state_projection` uses `subscribeRuntime` → `ReplayDriver` + `liveLoop`. No `TransitionCoordinator`/`SubscriberSupervisor` writes.
+
+**Re-run gate:** `:core:event-bus:check` (load-bearing — new test + ReplayDriver change), then `./gradlew check` + `:testing:integration-tests:test -PpiProfile=throttled` for full regression. The other four module checks are unaffected by this correction but should be re-confirmed by the full `check`.
+
+D-1 is now **RESOLVED** (was [REVIEW]); the remaining accepted deviations are D-2/D-3/D-4 [INFO] (see the original entry + Completion Report).
+
+### OPEN — M4.0a: Atomic Checkpoint Coupling + Reconciliation Plumbing (2026-05-29)
+
+**Build gate:** DEFERRED. The Coder produced files only (per CLAUDE.md build discipline — no `./gradlew`, `javac`, or `git`). Nick must run the five `:check` targets below against the working tree he commits.
+
+**Commit the gate must run against:** the M4.0a working tree layered on M3.7 closeout baseline (HEAD `78264a0`). No commit made by the Coder.
+
+**Commands Nick must run (success criterion = all GREEN):**
+1. `./gradlew :core:state-store:check` — new `AtomicCheckpointSink` interface; `StateCheckpointSource` 4-arg `serializeCheckpoint` default; `StateProjection.create`/ctor +1 param (`AtomicCheckpointSink`); `CheckpointRecord.projectionVersion()` `@Deprecated` (+ 2 testFixtures `@SuppressWarnings("deprecation")` sites); `ReconciliationTest` un-defers the 5th test + adds the REC-82 guard; `InMemoryStateProjectionTest`/`StateProjectionVerticalIT` construction sites updated.
+2. `./gradlew :core:persistence:check` — `SqliteStateStore` 4-arg `serializeCheckpoint` override (passes metadata, no more `null,null,null`); `AtomicCheckpointWriter` H2 `executeInTransaction` extraction (behavior-preserving — existing `AtomicCheckpointWriterTest`/`AtomicCheckpointWriterDlqTest` must stay GREEN); `PersistenceFactory.atomicCheckpointSink()` new accessor; `SqliteStateStoreTest` +2 metadata tests + 1 `@SuppressWarnings` site.
+3. `./gradlew :core:event-bus:check` — `SubscriberInfo` gains 4th component `atomicCheckpoint` (+ 3-arg convenience ctor defaulting `false`, so all ~50 existing 3-arg call sites still compile); `InProcessEventBus` line-500 gate; `SubscriberInfoTest` shape test 3→4 + new `atomicCheckpoint` tests. EventBusContractTest (44 methods) unaffected (all use 3-arg ctor → `atomicCheckpoint=false` → per-delivery write still fires).
+4. `./gradlew :lifecycle:lifecycle:check` — `HomeSynapseCore` wiring (`atomicCheckpointSink()` injected into `StateProjection.create`; projection `SubscriberInfo` now 4-arg `atomicCheckpoint=true`) + the `MINIMAL_DERIVATION_RULE` Javadoc fix (deliverable 5). No new module-info/Gradle edges.
+5. `./gradlew :testing:integration-tests:test -PpiProfile=throttled` — **`CrashRecoveryHttpIT` gains `busAheadOfViewWindowClosedByReplayFromZero`** (AMD-45 §3: HOME_DEFAULT policy + fixed sub-2s clock + 5<200 events → no checkpoint fires → bus replays from 0 → all 5 entities rebuilt & queryable via HTTP). Existing `entitiesSurviveCrashAndRestart` still passes (its comment updated for the coupled mechanism). `HomeSynapseE2eHarness` gains a 4-arg `start(...)` config overload; `HeapBudgetIT` construction site updated.
+6. `./gradlew check` — full-project regression (catches any cross-module fallout from the `SubscriberInfo` arity change and the `StateProjection.create` signature change; all in-tree call sites updated).
+
+**No module-info.java or build.gradle.kts changes** — the AMD-45 seam is a consumer-defined interface in `com.homesynapse.state` (already exported) implemented by `persistence` (already `requires com.homesynapse.state`) and injected by `lifecycle` (already `requires transitive com.homesynapse.state`). Dependency direction preserved (inward-only). The integration-tests config types (`PersistenceConfig`/`DeploymentProfile`/`RetentionPolicy`/`EventBusConfig`/`FixedCheckpointPolicy`/`HomeSynapseConfig`) are all on the existing test classpath.
+
+**Deviations:** see the Completion Report. Summary: D-1 [REVIEW] — REPLAY-side ReplayDriver subscriber-checkpoint write was NOT gated (deliverable 2 + AMD-45 §5 scope only line 500); flagged for PM. D-2 [INFO] — REC-80 metric emitted via structured SLF4J (state-store has no metrics facade; no JFR dependency added). D-3 [INFO] — `AtomicCheckpointWriter` rollback-failure log message wording changed (context now embedded; not asserted by any test). D-4 [INFO] — seam named `AtomicCheckpointSink` (new sibling interface) rather than extending `StateCheckpointSource`, per the dependency-direction analysis.
 
 ### RESOLVED — M3.7 Closeout: abandon() contract + MinimalEventBusStub (2026-05-27)
 **Build gate:** RESOLVED 2026-05-27. `./gradlew check` GREEN (139 tasks).

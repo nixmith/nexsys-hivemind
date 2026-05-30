@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-30 against P4r AMD-47 ratification (amendments table now lists AMD-47 RATIFIED + AMD-50; device-model amendments updated). Code unchanged — HEAD stays 7610296 (M4.0b-2 closeout)
+last-verified: 2026-05-30 against M4.B3 commit `60b4185` (AMD-47 AttributeValue expansion COMPLETE + COMMITTED, build GREEN; amendments table lists AMD-47 RATIFIED + AMD-50). Research 4 FULLY RESOLVED (v4) → M7/M8 automation amendments unblocked. Prior: `7610296` M4.0b-2 closeout.
 -->
 
 # HomeSynapse Core — Navigation Index

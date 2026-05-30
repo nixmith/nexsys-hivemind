@@ -5,18 +5,18 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-29 against M4.0b-2 closeout source tree (M4.0a/M4.0b-1/M4.0b-2 COMPLETE, build GREEN at 7610296)
+last-verified: 2026-05-30 against M4.B3 commit `60b4185` (M4.B3/AMD-47 COMPLETE + COMMITTED, build GREEN both gates) + Research 4 DQ deliberation (v4). Prior: 2026-05-29 M4.0b-2 closeout `7610296`.
 -->
 
 # HomeSynapse Core — Current State
 
-Last updated: 2026-05-30 (P4r governance-mechanics session — **AMD-47 RATIFIED**; AMD-47-INV-01..05 registered into `Architecture_Invariants_v1.md` §20; Doc 02 §3.7/§8.2 PENDING-AMD-47 blocks folded current; on-disk amendment watermark unchanged at **AMD-50**. **M4.B3 now UNBLOCKED, not started.** No code touched — HEAD stays `7610296`. Prior: 2026-05-29 M4.0b-2 COMPLETE `7610296` — AMD-50 backfill + `projectionVersion` 1→2.)
+Last updated: 2026-05-30 (**M4.B3 COMMITTED `60b4185`** — AMD-47 `AttributeValue` expansion: `QuantityValue`/`ArrayValue`/`DegradedAttributeValue` records + `AttributeValueUpcaster` SPI + 3 `AttributeType` constants + 8-variant sealing + `AttributeSchema` DEGRADED guard; build GREEN both gates; WUCP Phase 2 closed; AMD-47-INV-01..05 in device-model MODULE_CONTEXT + the three stale JSR-385 notes retired. On-disk amendment watermark **AMD-50**. **Research 4 FULLY RESOLVED** — DQ-1/2/3/5 Nick-resolved (v4 addendum); unblocks **M7/M8 automation** amendment authoring (real AMD numbers at M7 per P2 assign-at-milestone; the assessment's "AMD-48..52" are pre-P2 placeholders, NOT the projection AMD-50/51/52). **Next forward WU = M4.0b-3**, gated on the typed change-detection design (Research 10 → assessment → Nick's NQ-10-* calls; map at `nexsys-hivemind/context/planning/2026-05-30_M4.0b-3_design-track-map.md`). Prior: 2026-05-30 P4r AMD-47 ratification mechanics; 2026-05-29 M4.0b-2 COMPLETE `7610296`.)
 
 ---
 
 ## 1. Current Milestone Status
 
-**M4 — Foundation (projection/derivation + device-model expansion + integration-api freeze) — IN PROGRESS.** Workstream A (projection/derivation) is substantially **COMPLETE**: **M4.0a** (atomic subscriber+view checkpoint coupling, AMD-45, `a441fdf`, 2026-05-29), **M4.0b-1** (production `ProductionDerivationRule` + `DispatchingProjectionAdvancer` REC-28, `cf1a97e`, 2026-05-29), **M4.0b-2** (AMD-50 version-transition backfill + `projectionVersion` 1→2, `7610296`, 2026-05-29). State-based behavior is now LIVE — the materialized `attributes` map populates from derived `state_changed`, and a version transition reconstructs historical attributes via the AMD-50 one-shot backfill. Only **M4.0b-3** (typed comparator/payload AMD-51/52) remains in Workstream A. **Next: M4.B3** (device-model `AttributeValue` expansion, AMD-47; gated on P4) **→ M4.0b-3** (gated on M4.B3). Workstream C (integration-api freeze) gated on P3.
+**M4 — Foundation (projection/derivation + device-model expansion + integration-api freeze) — IN PROGRESS.** Workstream A (projection/derivation) is substantially **COMPLETE**: **M4.0a** (atomic checkpoint coupling, AMD-45, `a441fdf`), **M4.0b-1** (production `ProductionDerivationRule` + `DispatchingProjectionAdvancer` REC-28, `cf1a97e`), **M4.0b-2** (AMD-50 version-transition backfill + `projectionVersion` 1→2, `7610296`) — all 2026-05-29. State-based behavior is LIVE; only **M4.0b-3** (typed comparator/payload, real AMD-51/52) remains in A. Workstream B's typed-value contract is **DONE**: **M4.B3** (device-model `AttributeValue` expansion, AMD-47, `60b4185`, 2026-05-30) shipped the 8-variant hierarchy + `AttributeValueUpcaster` SPI. **Next forward WU = M4.0b-3** (gated on M4.B3 — done — and on the typed change-detection design, Research 10). Workstream C (integration-api freeze) gated on P3.
 
 **M3 (Event Distribution + State Materialization) — COMPLETE** (2026-05-27). All seven sub-milestones (M3.1–M3.7) shipped across nineteen Claude Code work units.
 

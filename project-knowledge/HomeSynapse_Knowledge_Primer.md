@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-29 against M4.0b-2 closeout commit 7610296 (M4 Workstream A substantially COMPLETE)
+last-verified: 2026-05-30 against M4.B3 commit `60b4185` (AMD-47 AttributeValue expansion COMPLETE + COMMITTED, build GREEN) + Research 4 DQ deliberation (v4). Prior: `7610296` M4.0b-2.
 -->
 
 # HomeSynapse Core — Knowledge Primer

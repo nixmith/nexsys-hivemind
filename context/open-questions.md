@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: comms
 status: CURRENT
-last-verified: 2026-05-22 against `homesynapse-core` commit `dfb045e`
+last-verified: 2026-05-30 against `homesynapse-core` commit `60b4185` (reconciled: OQ-05-02/04 → Resolved; OQ-05-06..10 added to match PROJECT_SNAPSHOT).
 -->
 
 # Open Questions Register
@@ -18,35 +18,39 @@ Inter-agent typed-message surface for `[OPEN-QUESTION]` and `[VERIFY-NEEDED]`. S
 
 ## Active
 
-## [OPEN-QUESTION] OQ-05-02 — `StateCheckpointSource` extension to thread reconciliation metadata
-**Posed by:** Coder (M3.6d-a closeout)
-**Posed:** 2026-05-20
-**Blocking:** none directly; blocks AMD-41 §3.2.4 completion (5th `ReconciliationTest` method `reconciliationRecordsMetadataInDataSlot`). Likely M4 scope.
-**Question:** Should `StateCheckpointSource` be extended to thread reconciliation metadata (`reconciledAt`, `reconciledFromVersion`, `reconciledToVersion`) through the projection's checkpoint contract, and if so, which milestone owns the work?
-**Context:** AMD-41 §3.2.4 requires that the reconciliation path record metadata in the data slot. `StateProjection.writeCheckpoint(Instant)` currently passes only plain `projectionVersion` to `StateCheckpointSource.serializeCheckpoint(int)`; `SqliteStateStore.serializeCheckpoint(int)` forwards `null` for the three metadata fields. M3.6d-a's `ReconciliationTest` ships 4 of 5 brief tests — the 5th was deferred because it would fail trivially against the current contract. Implementing the feature requires extending the `StateCheckpointSource` interface and threading the metadata through `StateProjection.initialize`'s reconciliation path. Cross-reference: `pm-handoff.md` OR-M3-13.
-**Resolution:** _(open)_ — **owned by M4.0a** per `PLAN-M4-CONSOLIDATED` (folded into the atomic-checkpoint WU, which touches the same projection-checkpoint surface). Closes when M4.0a ships.
-
-## [OPEN-QUESTION] OQ-05-04 — M4 AMD renumbering allocation (P2)
+## [OPEN-QUESTION] OQ-05-06 — Typed attribute change-detection design (gates M4.0b-3)
 **Posed by:** Cowork (M4 scoping)
-**Posed:** 2026-05-28
-**Blocking:** authoring **any** M4 amendment file (Workstreams B and C).
-**Question:** What is the ratified AMD-number allocation for the M4-era research amendments, given the collision?
-**Context:** Research 8 tentatively numbered its device-model amendments 44/45/46, but AMD-44 (Floor/EntityRole, RATIFIED) and AMD-45 (Atomic Checkpoint, DRAFT) are taken. Research 4 used 48–52, Research 6 53–63, Research 5 64–71, Research 7 72–85 — all assuming device-model owned 44–47. Proposed contiguous re-allocation: device-model→46/47/48, automation→49–53, integration→54–63, config→64–71, API→72–85. On-disk watermark is AMD-45. Cross-ref: `pm-handoff.md` Next Tasks #0b; `HomeSynapse_Navigation_Index.md` M4 Planning Artifacts.
-**Resolution:** _(open — Nick's ratification)_
+**Posed:** 2026-05-28 (logged 2026-05-30)
+**Blocking:** authoring the real **AMD-51** (typed comparator) + **AMD-52** (typed `StateChangedEvent`) → blocks the **M4.0b-3** coding instruction.
+**Question:** Comparison semantics per `AttributeValue` variant, threshold/deadband model + where it's declared, comparator contract shape, and typed-event payload — now that `AttributeValue` is 8 typed variants (AMD-47, M4.B3 `60b4185`) but the projection still compares as strings.
+**Context:** Driven by **Research 10** (issued 2026-05-28, running in the HomeSynapse Core Claude Project). No `Research_10_PM_Assessment.md` exists yet. The highest-risk sub-problem is the AMD-52 typed-event serializer/replay blast radius (`CheckpointSerializer`/Jackson + replay determinism + upcaster). Design-track map: `context/planning/2026-05-30_M4.0b-3_design-track-map.md`. Cross-ref: `context/instructions/Research_10_Typed_Attribute_Change_Detection_Brief.md`; `core/state-store/MODULE_CONTEXT.md`; `core/device-model/MODULE_CONTEXT.md`.
+**Resolution:** _(open — pending Research 10 results → PM assessment → Nick's NQ-10-* calls)_
+
+## [OPEN-QUESTION] OQ-05-07 — Research 9 residuals (operator rebuild / partial backfill / observability / failure semantics)
+**Posed by:** Cowork (M4 scoping)
+**Posed:** 2026-05-28 (logged 2026-05-30)
+**Blocking:** none on the M4 critical path — AMD-50 shipped the core backfill mechanism (M4.0b-2). Residuals are forward/operational (M5+).
+**Question:** Operator-triggered rebuild, partial/per-entity backfill, backfill observability, and backfill failure semantics — the four NQ-9 residuals that extend (do not redesign) the frozen AMD-50 mechanism.
+**Context:** Research 9 (issued 2026-05-28, Claude Project) is largely superseded by AMD-50. No `Research_9_PM_Assessment.md` exists yet. Do NOT reopen the frozen mechanism. Cross-ref: `context/instructions/Research_9_Projection_Rebuild_Backfill_Brief.md`.
+**Resolution:** _(open — deferrable; revisit at M4.0b-3 close or when an operator-rebuild need surfaces)_
 
 ## [OPEN-QUESTION] OQ-05-05 — Research 6 NQ-1..6 confirmations (P3)
 **Posed by:** Cowork (M4 scoping)
 **Posed:** 2026-05-28
-**Blocking:** finalizing the M4 Workstream-C integration-api interface freeze.
+**Blocking:** finalizing the M4 Workstream-C integration-api interface freeze (NOT M4.0b-3).
 **Question:** Confirm or override the PM recommendations for Research 6 NQ-1..6 (SecurityServices aggregator; schemaVersion split; capability identity = sealed `Capability` permit + `CapabilityInstance`; no new SQLite table; reject REC-49; keep 1/60s restart default with per-descriptor override).
 **Context:** These shape the *content* of the integration-api amendments that ride the M4 freeze (supervisor impl stays M9). PM recommendations inline in `context/assessments/2026-05-22_Research_6_PM_Assessment.md`. NOTE: the M4.0b attribute-backfill question is **already decided** (one-shot backfill, Nick 2026-05-28) and is not open.
 **Resolution:** _(open — Nick's calls)_
 
 ---
 
----
-
 ## Resolved (this milestone)
+
+## [RESOLVED] OQ-05-02 — `StateCheckpointSource` reconciliation-metadata threading
+**Resolved:** 2026-05-29 (M4.0a, `a441fdf`). `StateCheckpointSource.serializeCheckpoint(...)` extended to accept `reconciledAt`/`reconciledFromVersion`/`reconciledToVersion`; threaded through `StateProjection.initialize()`'s version-mismatch branch; `SqliteStateStore` writes them instead of `null`; `ReconciliationTest`'s 5th method un-deferred and passing. (Posed by Coder, M3.6d-a closeout, 2026-05-20; OR-M3-13.)
+
+## [RESOLVED] OQ-05-04 — M4 AMD renumbering allocation (P2)
+**Resolved:** 2026-05-29 (P2 RATIFIED, `context/decisions/2026-05-29_P2_AMD_Renumbering_Decision.md`). Device 46–49, projection 50–52 fixed; integration assign-at-milestone; **all prior-assessment AMD numbers ≥46 are non-binding placeholders.** AMD-50 authored/ratified/implemented (M4.0b-2). (Posed by Cowork, M4 scoping, 2026-05-28.)
 
 ## [OPEN-QUESTION] OQ-05-03 — M3.6d-b prerequisite infrastructure: bundle into the brief or split into its own WU?
 **Posed by:** Coder (mid-M3.6d execution)

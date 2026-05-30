@@ -344,3 +344,33 @@ The Research 4 brief's "Key architectural constraints" section line 135 said "`c
 ---
 
 **v3 status:** PM-verified, MODULE_CONTEXT-grounded, ready for Nick's DQ-1/2/3/5 calls when convenient. Research 4 unblocks M7 amendment deliberation; M4 amendment deliberation can proceed in parallel using the Research 8 v2 final and the M4-relevant subset of Research 4 v3.
+
+---
+
+## v4 Addendum (2026-05-30 — Nick's DQ deliberation: all four open DQs resolved)
+
+Nick adjudicated the four remaining strategic Decision Questions. All four resolutions match the v3 PM recommendations. This closes every open item in Research 4 — the assessment is now fully resolved (FQs PM-verified at v3; DQs Nick-resolved at v4).
+
+### Decisions
+
+| # | Question | **Decision (Nick, 2026-05-30)** | Rationale |
+|---|---|---|---|
+| DQ-1 | PresenceTrigger vs ZoneTrigger | **Promote `PresenceTrigger` (Tier 2 → Tier 1); add geofence fields. Separate `ZoneTrigger` permit rejected.** Rename to `ZoneTrigger` optional/cosmetic. | Zone/geofence IS presence ("person enters/leaves zone"). A separate permit alongside the empty `PresenceTrigger` would leave two near-identical presence permits to maintain. Promotion is a field-addition to an existing empty record — no new sealed-exhaustiveness switch case. |
+| DQ-2 | ActivateSceneAction fate | **Rename `ActivateSceneAction` → `InvokeAutomationAction` and promote to Tier 1.** | REC-37 is accepted (scenes = automations-with-`ManualTrigger`); a distinct scene primitive would contradict it, and leaving it reserved defers an inevitable call. The real concept is "invoke another automation by ID." `ActivateSceneAction` is a Tier 2 empty `ActionDefinition` record — a clean rename-and-promote that subsumes the researcher's fabricated `CallAutomationAction`. |
+| DQ-3 | Pending Command Ledger advancer scope | **Same advancer, separate handler registrations.** Reuse `DispatchingProjectionAdvancer` (shipped M4.0b-1, `cf1a97e`); register the Pending Command Ledger handlers alongside the state handlers. Split into a dedicated advancer at M8 only if handler count becomes unmanageable. | Matches the REC-28 pattern already in the tree (constructor-injected per-event-type handlers, no `ServiceLoader`). A separate advancer now is premature structure. |
+| DQ-5 | Zone/geofence milestone scope | **M8.** M7 trigger priorities are Webhook + Calendar + Reachability + Manual. | Zone/geo evaluation needs person/location infrastructure not present at M7. Consistent with DQ-1: the permit-shape decision (promote `PresenceTrigger`) lands now; the geofence fields and evaluation logic land in M8. |
+
+**Cross-DQ coherence:** DQ-1 + DQ-2 are permit-shape decisions (promote/rename of existing Tier 2 empty records); DQ-3 is advancer organization; DQ-5 is scoping. None touches typed-value comparison — confirming these are independent of the AMD-51 typed-comparator contract (see the renumbering note below).
+
+### Critical correction — AMD numbering (supersedes v2/v3 AMD-48..52 labels)
+
+The v2/v3 "AMD-48 / AMD-49 / AMD-50 / AMD-51 / AMD-52" labels in this assessment are **pre-P2 placeholder numbers** (assigned 2026-05-22, before the P2 AMD-renumbering ratified 2026-05-29). Per the P2 decision (`context/decisions/2026-05-29_P2_AMD_Renumbering_Decision.md`), **all prior-assessment AMD numbers ≥ 46 are non-binding placeholders**, and the automation amendments are **assign-at-milestone**.
+
+These placeholders **collide with but are not** the P2-fixed projection block: real **AMD-50** = version-transition backfill (RATIFIED, shipped M4.0b-2 `7610296`); real **AMD-51** = typed comparator and real **AMD-52** = typed `StateChangedEvent` are the **M4.0b-3** gate, driven by the projection / typed-change-detection design — **not** by Research 4.
+
+**Therefore: Research 4 unblocks M7/M8 automation amendment deliberation, NOT M4.0b-3.** The automation amendment block (TriggerDefinition expansion, ActionDefinition expansion incl. the DQ-2 rename, RunCausalChain/RunContext field replacement, automation event-types) gets **real AMD numbers assigned at M7** per P2 assign-at-milestone. The v2/v3 AMD-48..52 references throughout this document should be read as "the automation amendment block," not as literal amendment numbers.
+
+### Status
+
+**Research 4 FULLY RESOLVED (2026-05-30).** All FQs (PM-verified, v3) and all DQs (Nick-resolved, v4) closed. Ready to feed M7 automation amendment authoring (real numbers at milestone). No open items remain.
+

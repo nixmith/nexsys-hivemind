@@ -10,8 +10,8 @@ last-verified: 2026-05-30 — P4r AMD-47 ratification mechanics (governance/docs
 
 # Project Snapshot
 
-**Last updated:** 2026-05-30 by Cowork (P4r governance-mechanics session — **AMD-47 RATIFIED**; AMD-47-INV-01..05 registered into `Architecture_Invariants_v1.md` §20; Doc 02 §3.7/§8.2 PENDING-AMD-47 blocks folded current; on-disk amendment watermark unchanged at **AMD-50**. **P4 Doc-02 half DONE → M4.B3 now UNBLOCKED, NOT started** (next fresh session). No code touched — HEAD stays `7610296`. Prior: 2026-05-29 M4.0b-2 COMPLETE.)
-**Latest commit:** `7610296` — M4.0b-2: version-transition reconciliation backfill + `projectionVersion` 1→2 (AMD-50), 2026-05-29. Prior: `cf1a97e` M4.0b-1 (2026-05-29), `a441fdf` M4.0a (2026-05-29).
+**Last updated:** 2026-05-30 by Cowork (**M4.B3 COMPLETE — AMD-47 AttributeValue expansion implemented; WUCP Phase 2 closed; build GREEN both gates; commit pending Nick.** Three records (`QuantityValue`/`ArrayValue`/`DegradedAttributeValue`) + `AttributeValueUpcaster` SPI + 3 `AttributeType` constants + 8-variant sealing + `AttributeSchema` DEGRADED guard; device-model MODULE_CONTEXT updated incl. AMD-47-INV-01..05 in the Constraints table + the three stale JSR-385 notes retired. **Next forward WU = M4.0b-3.** Prior: P4r AMD-47 RATIFIED; M4.0b-2 COMPLETE.)
+**Latest commit:** `7610296` — M4.0b-2 (AMD-50), 2026-05-29. **M4.B3 (AMD-47) is GREEN but UNCOMMITTED — commit pending Nick (DEC-M3-12); device-model code + tests + MODULE_CONTEXT in the working tree on HEAD `7610296`.** Prior: `cf1a97e` M4.0b-1, `a441fdf` M4.0a.
 **Current phase:** P3 — Implementation (test-first).
 **Days remaining:** 182
 **Launch target:** November 25, 2026

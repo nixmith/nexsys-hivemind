@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: comms
 status: CURRENT
-last-verified: 2026-05-30 against `homesynapse-core` commit `60b4185` (Research 10 ratification: OQ-05-06 → Resolved; OQ-05-08 [AMD-52 serializer beat] + OQ-05-09 [upcaster unit-threading] added. Prior: OQ-05-02/04 → Resolved).
+last-verified: 2026-05-31 against `homesynapse-core` commit `e73e199` (M4.B-S1 closeout cleanup: OQ-05-08 [AMD-52 — shipped M4.0b-4a/b] + OQ-05-09 [upcaster unit-threading — settled in M4.0b-3] → Resolved; OQ-05-03/01 headers corrected to [RESOLVED]. Active now = OQ-05-07 [Research 9 residuals, deferrable] + OQ-05-05 [Research 6 NQ-1..6, Nick's calls — mirrored in the Workstream-C gate-status note]).
 -->
 
 # Open Questions Register
@@ -17,22 +17,6 @@ Inter-agent typed-message surface for `[OPEN-QUESTION]` and `[VERIFY-NEEDED]`. S
 - Numbering follows `OQ-MM-NN` per PLAN §5c. The current series (`OQ-05-*`) restarts numbering for the 2026-05 milestone and back-references prior `OR-M3-NN` entries in `pm-handoff.md` via the `Context:` field.
 
 ## Active
-
-## [OPEN-QUESTION] OQ-05-08 — AMD-52 typed `StateChangedEvent` payload — serializer/replay design beat (gates AMD-52 only, NOT AMD-51/M4.0b-3)
-**Posed by:** PM (Research 10 ratification)
-**Posed:** 2026-05-30
-**Blocking:** authoring **AMD-52** (typed event payload). Does **NOT** block AMD-51 (the comparator ships with the String payload preserved) or the M4.0b-3 comparator coding instruction.
-**Question:** Resolve the 5-item serializer/replay scoping checklist before authoring AMD-52: Jackson polymorphism for the sealed `AttributeValue`; replay determinism via the upcaster; event-store on-disk shape; consumer blast radius; `CheckpointSerializer`/`EnumTransition` interaction.
-**Context:** REC-94 ratified "staged" — AMD-51 first (comparator, boolean verdict, String payload), AMD-52 second behind this beat. Full checklist in `context/assessments/2026-05-30_Research_10_PM_Assessment.md` §"AMD-52 design-beat scoping checklist." This is the single riskiest item in the M4.0b-3 track.
-**Resolution:** _(open — its own design beat after AMD-51 ships)_
-
-## [OPEN-QUESTION] OQ-05-09 — AMD-51 upcaster unit-threading for QUANTITY reconstruction
-**Posed by:** PM (Research 10 ratification)
-**Posed:** 2026-05-30
-**Blocking:** AMD-51 authoring (narrow sub-question; not a milestone blocker).
-**Question:** `AttributeValueUpcaster.upcast(AttributeType, String)` takes type but no unit; reconstructing a `QuantityValue` from a bare reported String needs a unit. Either (a) the reported String encodes the unit and the upcaster parses it, or (b) reconstruction threads `AttributeSchema.canonicalUnitSymbol` in (richer than the 2-arg upcaster). Settle against the integration contract — what do adapters put in `StateReportedEvent.value` for a QUANTITY attribute?
-**Context:** Research 10 ratification §"upcaster unit-threading wrinkle." Does not change any of the four ratified calls. Cross-ref: `core/device-model` `AttributeValueUpcaster`/`AttributeSchema`/`QuantityValue`.
-**Resolution:** _(open — AMD-51 author settles before coding)_
 
 ## [OPEN-QUESTION] OQ-05-07 — Research 9 residuals (operator rebuild / partial backfill / observability / failure semantics)
 **Posed by:** Cowork (M4 scoping)
@@ -54,6 +38,12 @@ Inter-agent typed-message surface for `[OPEN-QUESTION]` and `[VERIFY-NEEDED]`. S
 
 ## Resolved (this milestone)
 
+## [RESOLVED] OQ-05-08 — AMD-52 typed `StateChangedEvent` payload — serializer/replay design beat
+**Resolved:** 2026-05-31. The OQ-05-08 design beat (`homesynapse-core-docs/design/2026-05-31_AMD-52_Typed_Payload_Serializer_Replay_Design_Beat.md`) + Research 11 (PM Assessment A−) settled the serializer/replay forks; **AMD-52 AUTHORED + RATIFIED** (Nick + external review — F1 bit-anchored float identity, F2 Path-B `DegradedEvent`); **implemented + committed** as M4.0b-4a (`971cfa1`, AttributeValue→`com.homesynapse.value` relocation) + M4.0b-4b (`72596cb`, the typed payload + codec + Path-B gate). The original 5-item checklist is fully dispositioned in the design beat. (Posed by PM, Research 10 ratification, 2026-05-30.)
+
+## [RESOLVED] OQ-05-09 — AMD-51 upcaster unit-threading for QUANTITY reconstruction
+**Resolved:** 2026-05-31 (with M4.0b-3, `98f705b`). Settled at AMD-51 authoring + M4.0b-3 implementation: reconstruction threads the schema (option b) via `AttributeValueReconstructor` + `AttributeSchemaResolver`, with a missing-schema → `StringValue` string-compare fallback (the D-1 deviation, ACCEPTED; AMD-51 §2.6 erratum applied). The 2-arg `AttributeValueUpcaster.upcast` is not on the reconstruction hot path. (Posed by PM, Research 10 ratification, 2026-05-30.)
+
 ## [RESOLVED] OQ-05-06 — Typed attribute change-detection design (gated M4.0b-3)
 **Resolved:** 2026-05-30 (Research 10 PM assessment + v2 ratification, `context/assessments/2026-05-30_Research_10_PM_Assessment.md`). REC-90..95 dispositioned (6 ACCEPT, all retargeted M4.0b-3); Nick's 4 strategic calls RATIFIED under delegation — defer deadband (REC-92); FP-noise total-form epsilon `|a−b| ≤ max(absEps, relEps·max(|a|,|b|))` + IEEE edge totality (REC-91); hand-roll units / skip Indriya — already satisfied by AMD-47's construction-time `QuantityValue` canonicalization (REC-93); stage AMD-51 (comparator, String payload preserved) before AMD-52 (typed payload) (REC-94). NQ-10-5 → external `AttributeValueComparator` in `core/state-store`; NQ-10-6 → normalization at reconstruction, not compare. **M4.0b-3 is design-unblocked; next forward action = author AMD-51.** Residual sub-questions split out as OQ-05-08 (AMD-52 serializer beat) + OQ-05-09 (upcaster unit-threading). (Posed by Cowork, M4 scoping, 2026-05-28.)
 
@@ -63,7 +53,7 @@ Inter-agent typed-message surface for `[OPEN-QUESTION]` and `[VERIFY-NEEDED]`. S
 ## [RESOLVED] OQ-05-04 — M4 AMD renumbering allocation (P2)
 **Resolved:** 2026-05-29 (P2 RATIFIED, `context/decisions/2026-05-29_P2_AMD_Renumbering_Decision.md`). Device 46–49, projection 50–52 fixed; integration assign-at-milestone; **all prior-assessment AMD numbers ≥46 are non-binding placeholders.** AMD-50 authored/ratified/implemented (M4.0b-2). (Posed by Cowork, M4 scoping, 2026-05-28.)
 
-## [OPEN-QUESTION] OQ-05-03 — M3.6d-b prerequisite infrastructure: bundle into the brief or split into its own WU?
+## [RESOLVED] OQ-05-03 — M3.6d-b prerequisite infrastructure: bundle into the brief or split into its own WU?
 **Posed by:** Coder (mid-M3.6d execution)
 **Posed:** 2026-05-20
 **Blocking:** M3.6d-b (PersistenceFactory + HomeSynapseCore composition-root wiring).
@@ -71,7 +61,7 @@ Inter-agent typed-message surface for `[OPEN-QUESTION]` and `[VERIFY-NEEDED]`. S
 **Context:** The original M3.6d brief assumed all three existed; they do not. (1) `SqlitePersistenceLifecycle` constructs only the four main stores today (EventStore, EventBusCheckpointStore, ViewCheckpointStore, WriteCoordinator) — must also construct `SqliteStateStore` + `SqliteDeadLetterStore`. (2) `WriteCoordinator` interface needs `queueSize()` exposure for the bus's writer-queue-depth `IntSupplier` (DEC-M3-14). (3) Today only the testFixtures `RecordingReadConnectionFactory` exists; M3.6d-b needs a production `SubscriberReadConnectionFactory`. Estimated work-unit-size impact: bundling grows M3.6d-b from 6–8h to 10–12h. Cross-reference: `pm-handoff.md` OR-M3-14.
 **Resolution:** RESOLVED 2026-05-21. Bundled into the revised M3.6d-b coding instruction. All three prerequisite pieces shipped as part of the M3.6d-b 4-commit cohort: `WriteCoordinator.queueSize()` at `a33ee40`, production `SqliteSubscriberReadConnectionFactory` at `a59b64e`, `SqlitePersistenceLifecycle` 6-store expansion + `PersistenceFactory` at `725353d`, `HomeSynapseCore` composition root at `dfb045e`. Build GREEN at `dfb045e`.
 
-## [OPEN-QUESTION] OQ-05-01 — DEC-M3-16 addendum to record the transitive 3-type promotion chain
+## [RESOLVED] OQ-05-01 — DEC-M3-16 addendum to record the transitive 3-type promotion chain
 **Posed by:** PM (M3.6d-a closeout)
 **Posed:** 2026-05-20
 **Blocking:** M3.6d-a closeout (governance hygiene).

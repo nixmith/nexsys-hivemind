@@ -9,7 +9,9 @@ predecessor: 2026-05-30_M4.0b-3_design-track-map.md (CLOSED §0c — reference o
 
 # AMD-52 Design Track — Typed `StateChangedEvent` Payload
 
-**One-line status:** OQ-05-08 design beat DONE → Research 11 dispatched → AMD-52 authoring GATED (G1 serializer + G2 replay determinism OPEN).
+**One-line status (UPDATED 2026-05-31):** OQ-05-08 beat DONE → Research 11 returned + assessed (A−) → G1/G2 settled by Nick's four fork calls → **AMD-52 AUTHORED + RATIFIED** (Nick + external review; watermark AMD-51→AMD-52; AMD-52-INV-01..07 §22) → **next = the M4.0b-4 coding instruction** (UNBLOCKED; milestone id confirmed). _Track effectively CLOSED for authoring; remaining work is implementation._
+
+> **RATIFICATION (2026-05-31):** Research 11 (PM Assessment A−, §7 source-verified vs HEAD `98f705b`) settled the OPEN forks. The four PM-under-delegation calls (Nick): **G1 wire-form** = compact `{"t":<AttributeType>,"v":…}` envelope, custom `JsonSerializer` pair in `core/persistence`, no new module edge; **float identity (F1)** = bit-anchored `Double.doubleToLongBits`, `chain_hash` stays inert; **NaN/±Inf** = JSON-valid sentinels; **G2 Path B (F2)** = legacy `schema_version=1` reads → defined `DegradedEvent` (no decode-path upcaster — Path A re-derivation authoritative). AMD-52 `design/amendments/AMD-52_Typed_StateChangedEvent_Payload_Serializer_and_Replay.md` RATIFIED as-authored by Nick + an independent HomeSynapse Core Claude Project review. **Implementing WU = M4.0b-4 (confirmed).**
 
 This note is the lightweight successor to the **M4.0b-3 design-track map** (`2026-05-30_M4.0b-3_design-track-map.md`), which is **CLOSED** (its §0c FINAL — Workstream A complete, AMD-51 shipped `98f705b`). That map is the **predecessor**: it framed AMD-52's serializer/replay blast radius in its §3 and deferred it as OQ-05-08. **Do not reopen it.** This note carries the AMD-52 thread forward without duplicating the design beat.
 

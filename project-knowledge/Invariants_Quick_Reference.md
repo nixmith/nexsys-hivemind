@@ -1,18 +1,18 @@
 <!--
 file: project-knowledge/Invariants_Quick_Reference.md
-purpose: Token-efficient index of all 94 architecture invariants. Agents use this for constraint lookup; full text lives in homesynapse-core-docs/governance/Architecture_Invariants_v1.md for JIT reading when detail is needed.
+purpose: Token-efficient index of all 104 architecture invariants. Agents use this for constraint lookup; full text lives in homesynapse-core-docs/governance/Architecture_Invariants_v1.md for JIT reading when detail is needed.
 audience: All (PM, Coder, Cowork)
 update-cadence: per-phase (changes only via amendment process INV-GA-01)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-05-21 against Architecture_Invariants_v1.md (94 invariants, 19 categories)
+last-verified: 2026-05-31 against Architecture_Invariants_v1.md (104 invariants, 21 categories — §20 AMD-47-INV-01..05 + §21 AMD-51-INV-01..05 added). Codebase HEAD `98f705b` (M4.0b-3), watermark AMD-51.
 full-text-location: homesynapse-core-docs/governance/Architecture_Invariants_v1.md
 -->
 
 # Architecture Invariants — Quick Reference
 
-**Total: 94 invariants across 19 categories.**
+**Total: 104 invariants across 21 categories.** (§20 AMD-47-INV-01..05 + §21 AMD-51-INV-01..05 added at AMD-47/AMD-51 ratification, 2026-05-30; both now IMPLEMENTED — M4.B3 `60b4185` / M4.0b-3 `98f705b`.)
 **Amendment process:** INV-GA-01. Requires written proposal, impact analysis, architecture owner approval, migration plan.
 **Identifiers are permanent:** INV-GA-02. Retired IDs are never reused.
 
@@ -190,7 +190,7 @@ Added by AMD-41/42/43 (applied 2026-05-16). Four sub-categories:
 
 | ID | Rule | Source |
 |---|---|---|
-| INV-PROJ-01 | Projection determinism. Same events + same replay order = same state. No wall-clock, no RNG, no external state. Clock via injected `java.time.Clock`. | AMD-41 |
+| INV-PROJ-01 | Projection determinism. Same events + same replay order = same state. No wall-clock, no RNG, no external state. Clock via injected `java.time.Clock`. **Elevated by AMD-50-INV-03: the derivation rule is a pure function of `(priorState, envelope)` — `DerivationContext` carries NO clock (AMD-50 §2.4).** | AMD-41 |
 | INV-PROJ-04 | Checkpoint-position monotonicity. Strictly non-decreasing. Rewind only on operator-initiated reconciliation (projectionVersion mismatch). | AMD-41 |
 | INV-PROJ-NEW-01 | Self-produced event isolation. `SelfProducedFilter` (60s TTL, lazy eviction) prevents re-derivation. Bypassed during REPLAY/TRANSITION. Defence-in-depth: `stateVersion` comparison. | AMD-41 |
 
@@ -210,6 +210,42 @@ Added by AMD-41/42/43 (applied 2026-05-16). Four sub-categories:
 | INV-SUB-ISO-04 | One mode AtomicReference per subscriber (COLD/REPLAY/TRANSITION/LIVE/SUSPENDED). CAS transitions. | AMD-42 §3.4.4 |
 | INV-SUB-ISO-05 | One ReplayWindowQueue per subscriber (bounded; default 10,000, configurable via EventBusConfig). Created on REPLAY, drained in TRANSITION, GC'd after LIVE. | AMD-42 §3.4.4 |
 | INV-SUB-ISO-06 | One SelfProducedFilter per derivation-producing subscriber. Non-producing subscribers don't instantiate. | AMD-42 §3.4.4 |
+
+## §20 Device-Model Attribute-Value Expansion (AMD-47) — 5 invariants
+
+Added by AMD-47 (RATIFIED 2026-05-30); **IMPLEMENTED in M4.B3 (`60b4185`)** — the 8-variant `AttributeValue` `permits` clause is live in source. Amendment-scoped (`AMD-47-INV-NN`); canonical text in Architecture_Invariants_v1.md §20.
+
+| ID | Rule | Source |
+|---|---|---|
+| AMD-47-INV-01 | **Sealing remains total.** `AttributeValue` is 8 variants (`BooleanValue`/`IntValue`/`FloatValue`/`StringValue`/`EnumValue` + `QuantityValue`/`ArrayValue`/`DegradedAttributeValue`); exhaustive handling, no silent fallback for a future permit. Preserves the Doc 02 §8.2 sealed-exhaustiveness contract. | AMD-47 |
+| AMD-47-INV-02 | **Upcaster-before-derivation ordering (both paths).** Value reconstruction / `AttributeValueUpcaster` runs before `DerivationRule.evaluate()` on **both** `onEvent` and `processBatch` (the M4.0a D-1 / AMD-50 gate-every-path discipline, extended to the value layer). | AMD-47 |
+| AMD-47-INV-03 | **`QuantityValue` normalization determinism.** Canonicalises `(value, unit)` to the dimension's canonical unit **at construction** via a pure, hand-rolled, table-driven conversion (fail-closed; no JSR-385 — REC-93). Bit-deterministic; the comparator does zero unit work. | AMD-47 |
+| AMD-47-INV-04 | **`DegradedAttributeValue` non-declarable and lossless.** Never enters canonical state under strict mode; `AttributeSchema` rejects `type == DEGRADED` at construction; preserves the raw form + failure reason for forensics (mirrors `DegradedEvent`). | AMD-47 |
+| AMD-47-INV-05 | **`ArrayValue` full-replacement.** List-valued attributes replace wholesale — no element-delta/patch — so a bounded-window advancer reconstructs from a single latest event. | AMD-47 |
+
+## §21 State-Store Typed Change-Detection Comparator (AMD-51) — 5 invariants
+
+Added by AMD-51 (RATIFIED 2026-05-30); **IMPLEMENTED in M4.0b-3 (`98f705b`)**; **on-disk amendment watermark = AMD-51**. Amendment-scoped (`AMD-51-INV-NN`); canonical text in Architecture_Invariants_v1.md §21.
+
+| ID | Rule | Source |
+|---|---|---|
+| AMD-51-INV-01 | **Typed total comparison (exhaustive, no `default`).** Change detection is an exhaustive `switch` over the 8-variant sealed `AttributeValue` with **no `default` arm** — a future 9th permit MUST break compilation. Per-variant semantics: exact for Boolean/Int/Enum/String; total-form epsilon for Float; canonical-magnitude epsilon + canonical-unit dimension check for Quantity; size-then-order-sensitive deep compare for Array; §2.4b rule for Degraded. (D-01 is event-type-scoped, so an `AttributeValue` exhaustive switch is permitted.) | AMD-51 |
+| AMD-51-INV-02 | **Float/Quantity epsilon totality (pinned total form).** `changed ⟺ |a−b| > max(absEps, relEps·max(|a|,|b|))`, defaults `absEps = relEps = 1e-9`, with full IEEE-754 totality (`NaN`↔number = changed, `NaN`↔`NaN` = unchanged, `−0.0`/`+0.0` canonicalised, same-sign `Inf` = unchanged, opposite-sign or finite↔`Inf` = changed; `Inf−Inf` handled before the arithmetic). A correctness (FP-noise) epsilon carried in `ComparisonPolicy`, not a deadband; deterministic, no clock/I/O/randomness. | AMD-51 |
+| AMD-51-INV-03 | **Degraded change-detection semantics.** Inbound `DegradedAttributeValue` ⇒ never emit; prior Degraded + valid inbound ⇒ emit (recovery); two Degraded ⇒ unchanged. HA-mirrored; consistent with AMD-47-INV-04 (Degraded never in canonical state). | AMD-51 |
+| AMD-51-INV-04 | **Comparator placement + gateway.** External `AttributeValueComparator` in `com.homesynapse.state` carrying a `ComparisonPolicy` — NOT a method on the device-model `AttributeValue` (keeps projection/epsilon policy out of the data layer). Package-private impl behind a public static factory `structural()` (DEC-M3-16 gateway). | AMD-51 |
+| AMD-51-INV-05 | **Symmetric reconstruction; 2→3 rides AMD-50 unchanged.** BOTH operands reconstructed to the schema-declared variant by one parse keyed by `AttributeSchema.type` — the materialized prior is always a `StringValue` (or `null`) and is reconstructed too. Distinct from the `AttributeValueUpcaster` stored-value-migration SPI (left unchanged). The typed compare rides a `projectionVersion` **2→3** bump on AMD-50's reconciliation-backfill unchanged; reconstruction is identical on LIVE and the 2→3 backfill. **§2.6 erratum (2026-05-31): no schema for the key ⇒ `StringValue` string-compare fallback (NOT Degraded/no-emit) — preserves M4.0b-2 behaviour for unschematized keys.** | AMD-51 |
+
+### Amendment-scoped invariants NOT counted in the §17 total (live in their amendment files)
+
+AMD-45 and AMD-50 carry contract-level `*-INV-NN` invariants that are **not** registered as numbered §-categories in Architecture_Invariants_v1.md's §17 count — their canonical text lives in the amendment files (+ `core/state-store/MODULE_CONTEXT.md`). They are load-bearing for M4 Workstream A:
+
+| ID | Rule | Applied |
+|---|---|---|
+| AMD-45-INV-01 | **Atomic checkpoint coupling.** The bus subscriber checkpoint and the projection view checkpoint for the `state_projection` subscriber MUST be written in the same SQLite transaction — neither advances without the other (all three bus checkpoint writers gated: LIVE + both REPLAY). | M4.0a `a441fdf` |
+| AMD-50-INV-01 | **Cursor determinism.** For a fixed log + fixed `projectionVersion`, every entity's `stateVersion` is identical across all rebuild paths; backfill drafts carry no increment. (Refines INV-PROJ-04.) | M4.0b-2 `7610296` |
+| AMD-50-INV-02 | **Single-application provenance.** A reconciliation-scoped re-derived `state_changed` draft is applied to in-memory state **only** while the §2.2 provenance gate is active, and is **never** published or written to the log. (One-shot — a second restart at the matching version does not run the backfill.) | M4.0b-2 `7610296` |
+| AMD-50-INV-03 | **Rule rebuild determinism.** The production `DerivationRule` is a pure function of `(priorState, envelope)` — no clock (`DerivationContext` carries none, §2.4), no registry, no I/O, no randomness. (Elevates INV-PROJ-01; the schema resolver is injected immutable config, not a live registry read.) | M4.0b-2 `7610296` |
+| AMD-50-INV-04 | **Gate–checkpoint coherence.** A replay from `position = 0` occurs **only** under an active reconciliation gate; the gate is inactive only when resuming from a checkpoint whose persisted version equals the code version. | M4.0b-2 `7610296` |
 
 ---
 
@@ -233,4 +269,4 @@ These are directional commitments that guide architectural decisions. Unlike inv
 
 ---
 
-*94 invariants verified against Architecture_Invariants_v1.md §17 Invariant Index. For full invariant text including rationale, test criteria, MVP scope, and [SCALES] annotations, read the full document at homesynapse-core-docs/governance/Architecture_Invariants_v1.md.*
+*104 invariants verified against Architecture_Invariants_v1.md §17 Invariant Index (94 base + §20 AMD-47-INV-01..05 + §21 AMD-51-INV-01..05). AMD-45-INV-01 and AMD-50-INV-01..04 are amendment-scoped and not counted in the §17 total (see the note above §16). For full invariant text including rationale, test criteria, MVP scope, and [SCALES] annotations, read the full document at homesynapse-core-docs/governance/Architecture_Invariants_v1.md.*

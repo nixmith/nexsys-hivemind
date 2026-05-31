@@ -433,4 +433,14 @@ Both briefs embed the source-verified HomeSynapse type inventory and an explicit
 
 ---
 
+## Addendum — Research 11 (added 2026-05-31, M4 Workstream A / AMD-52)
+
+Research 10 settled the typed change-detection *comparator* (AMD-51, shipped `98f705b`) but deliberately deferred the typed `StateChangedEvent` **payload** to AMD-52 behind a serializer/replay design beat (OQ-05-08). That beat is now done (`homesynapse-core-docs/design/2026-05-31_AMD-52_Typed_Payload_Serializer_Replay_Design_Beat.md`): it DECIDED the event-store row shape (no migration — typed payload stays in the `events.payload` BLOB; per-event `schema_version` is the string↔typed discriminator) and the staging (AMD-52 = its own `projectionVersion` 3→4 bump on AMD-50's frozen backfill), and DECIDED the serializer *mechanism* (custom `AttributeValue` Jackson codec in `core/persistence`, **no `@JsonTypeInfo`**). The residual OPEN forks — the exact tagged-union wire-form, deterministic float / `NaN`/`±Inf`/`−0.0` encoding, and the replay-determinism contract (re-derive-from-`state_reported` vs upcast-old-payload) — are dispatched as Research 11.
+
+- **Research 11 — Typed Event Payload Persistence (polymorphic serialization, schema versioning, replay-deterministic upcasting).** Brief: `context/instructions/Research_11_Typed_Event_Payload_Persistence_Brief.md`. RECs start at **REC-100** (deliberate gap after Research 10's REC-90..95; PM reconciles global numbering at assessment). Surveys **Axon** upcaster chain + `@Revision` serializers (canonical), **EventStoreDB**, **Akka Persistence** `SerializerWithStringManifest`, **Kafka Schema Registry** (Avro/Protobuf union types). Scoped ONLY to the design-beat §10 forks — gates AMD-52's G1 (serializer) + G2 (replay determinism). Per the Research 5 lesson, embeds verbatim `module-info.java`, the `libs.versions.toml` Jackson rows (LTD-08), and the locked CONSTRAINTS (no `ServiceLoader`; D-01; AMD-50 frozen; AMD-51 §2.7/§2.6 erratum; the `@JsonTypeInfo` ban) so the researcher cannot fabricate names/versions.
+
+**Tracker (OQ ledger):** OQ-05-08 = AMD-52 serializer/replay design beat — **CLOSED 2026-05-31** (design beat done; forks → Research 11). OQ-05-09 (AMD-51 unit-threading) was RESOLVED-BY-AMD-51 §2.6.
+
+---
+
 **Last updated:** 2026-05-28 (Research 9 & 10 added for M4 Workstream A)

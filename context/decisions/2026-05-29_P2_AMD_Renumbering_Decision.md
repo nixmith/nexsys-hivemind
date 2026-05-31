@@ -55,6 +55,8 @@ P2 fixes only the two **content-stable** critical-path blocks. The integration b
 
 **M4 FIXED block = 46–52 (7 = 4 device + 3 projection). First unfixed integer = 53.**
 
+> **Allocation note (2026-05-31):** **AMD-53 is allocated to the timestamp-model unifier** (`design/amendments/AMD-53_Timestamp_Model_Unifier_Event_Time_Activity_Timestamps.md`, PROPOSED — `EntityState.lastChanged`/`lastUpdated`/`lastReported` event-time sourcing; a Workstream-A projection follow-up authored ahead of Workstream C). Per §2 (forward/monotonic) and §6 (everything past the fixed bands is assign-at-milestone; all assessment numbers ≥ 46 are non-binding), the unifier correctly takes the next free integer at its milestone. **The integration block's indicative range therefore re-bases to 54+** (was "≈ 53–62"); it remains assign-at-milestone from the live watermark at Workstream-C briefing. No number is "reused"; nothing ≥ 53 was ever authored before AMD-53.
+
 Amendments needing **no** AMD (confirmed): REC-28 (PM mods eliminated the subpackage AMD — this is why M4.0b-1 was amendment-free), REC-80/81/82, REC-92.
 
 ### 3.1 WU re-scope (Nick review #1 — the sequencing fix)

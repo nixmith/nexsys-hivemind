@@ -174,7 +174,7 @@ None. No unresolved deferred build gates. All M3.6a through M3.6e.1 build gates 
 ## Next on Critical Path
 
 1. **M4 next-part scope/plan** (fresh Cowork conversation) — formally define the scope of the next M4 segment: **Workstream B** device-model breadth (AMD-44 Floor/EntityRole impl, Research 8 REC-23–30) and **Workstream C** integration-api interface freeze (Research 6 REC-41–51, P3-gated on Nick's NQ-1..6), plus the **AMD-52** typed-`StateChangedEvent` serializer/replay design beat (OQ-05-08). Surface deep-research needs (e.g. Axon and other event-sourced platforms) to de-risk scale/maintainability — grounded in concrete forward design questions, not invented problems.
-2. **AMD-51 §2.6 erratum** (docs repo, non-blocking) — record the missing-schema → `StringValue` string-compare fallback (M4.0b-3 D-1) so the ratified amendment matches shipped code. Nick authorizes; PM applies.
+2. ~~**AMD-51 §2.6 erratum**~~ — **DONE 2026-05-31** (docs repo). The missing-schema → `StringValue` string-compare fallback (M4.0b-3 D-1) is recorded as the ratified no-schema behaviour in AMD-51 §2.6; the amendment now matches shipped code. (Commit pending with the docs-repo warm-up batch.) Also DONE: the KB doc-currency punch-list (0a-ii) — `HomeSynapse_Current_State`/`Knowledge_Primer`/`Navigation_Index`/`Decisions_Quick_Reference` brought current to `98f705b`/`projectionVersion` 3/watermark AMD-51.
 3. **Phase 2 traceability debt** — 10 stub indexes remain (docs 02–11, 13, 14); state-store/device-model M4.0b-3 entries also pending. Low priority; batch later.
 
 ## Recent Session Log

@@ -156,10 +156,10 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 #### Deferred build gates — ALL RESOLVED (2026-05-30)
 - **M4.0b-3 (AMD-51)** deferred gate **RESOLVED** — Nick ran `:core:device-model:check` + `:core:state-store:check` + `:lifecycle:lifecycle:check` + full `./gradlew check` (139 tasks) GREEN and committed `98f705b`. The `:testing:integration-tests:test -PpiProfile=throttled` run was not held to completion (the 30-min `Pi4D1SpikeIT` soak is a long-running test, not a gate failure; it is excluded from the default `check` and AMD-51 does not touch the path it exercises). **No open deferred build gates.**
 
-#### Open Item — AMD-51 §2.6 erratum (D-1 spec/code reconciliation) [docs repo; non-blocking]
+#### Open Item — AMD-51 §2.6 erratum (D-1 spec/code reconciliation) — RESOLVED 2026-05-31
 - **Severity:** LOW (governance hygiene — ratified spec vs shipped code).
-- **Detail:** M4.0b-3 ships **missing-schema → `StringValue` string-compare fallback** in `AttributeValueReconstructor`, whereas AMD-51 §2.6's error table says schema-not-found → "Degraded / no-emit". The PM **ACCEPTED** the deviation (it is more correct — Degrade-on-no-schema would permanently freeze unschematized attributes; the StringValue fallback preserves M4.0b-2 semantics and the back-compatible no-arg `production()` gateway; `StandardCapabilities` covers all standard production traffic).
-- **Resolution owner:** Nick (authorize) → PM (apply). Recommended: a one-line AMD-51 §2.6 erratum in `homesynapse-core-docs` recording the string-compare fallback, so the ratified amendment matches shipped code. The PM did not silently edit the ratified amendment. Closes when the erratum lands.
+- **Detail:** M4.0b-3 ships **missing-schema → `StringValue` string-compare fallback** in `AttributeValueReconstructor`, whereas AMD-51 §2.6 did not specify the no-schema case (the coding-instruction error table said "Degraded / no-emit"). PM ACCEPTED the deviation (more correct — Degrade-on-no-schema would permanently freeze unschematized attributes; the fallback preserves M4.0b-2 semantics and the back-compatible no-arg `production()` gateway; `StandardCapabilities` covers all standard production traffic).
+- **Resolution:** **RESOLVED** — Nick authorized; PM applied the erratum to AMD-51 §2.6 (`homesynapse-core-docs`, 2026-05-31) recording the string-compare fallback as the ratified no-schema behaviour, superseding the coding-instruction error-table row. The ratified amendment now matches shipped code. (Commit pending with the docs-repo warm-up batch.)
 
 #### OR-M3-17 — NO_OP_DERIVATION placeholder (NEW 2026-05-22)
 - **Severity:** MEDIUM (placeholder blocks M3.7 E2E tests)

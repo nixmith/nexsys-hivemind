@@ -6,7 +6,7 @@ update-cadence: per-milestone (LTD changes rare; DEC-M3 grows with milestones)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-05-30 — added the AMD-47 (RATIFIED 2026-05-30) device-model attribute-value expansion decision block; LTD/DEC-M3/D-NN content unchanged from the 2026-05-27 verification against HomeSynapse_Core_Locked_Decisions.md (19 LTDs, 17 DEC-M3s) + system prompt hard constraints + MODULE_CONTEXT codebase grep + phase-3-cross-module-decisions.md (12 D-NNs)
+last-verified: 2026-05-31 — added the AMD-51 typed change-detection comparator decision block (RATIFIED + IMPLEMENTED, M4.0b-3 `98f705b`; on-disk watermark raised AMD-50 → AMD-51; §2.6 erratum); AMD-47 block marked IMPLEMENTED (M4.B3 `60b4185`); prior 2026-05-30 added the AMD-47 device-model attribute-value expansion decision block; LTD/DEC-M3/D-NN content unchanged from the 2026-05-27 verification against HomeSynapse_Core_Locked_Decisions.md (19 LTDs, 17 DEC-M3s) + system prompt hard constraints + MODULE_CONTEXT codebase grep + phase-3-cross-module-decisions.md (12 D-NNs)
 full-text-location: homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md
 -->
 
@@ -172,8 +172,26 @@ Locked decisions carried by AMD-47 (full contract: `homesynapse-core-docs/design
 | **`AttributeType.QUANTITY` added (fork resolved)** | 1:1 value↔type mapping preserved — each value variant has its own `AttributeType` classifier so exhaustive `switch(attributeType())` stays total (AMD-51 typed comparator + `AttributeValidator` branch on the unit-dimensional case without down-casting). The FLOAT-reuse alternative was rejected. |
 | **Hand-rolled `String` units, no JSR 385 (REC-93)** | `QuantityValue(double value, String unit)` normalizes to canonical unit at construction via a pure, deterministic, table-driven conversion — **no `javax.measure`/units library** (confirmed against `libs.versions.toml`). Supersedes the deferred-JSR-385 plan permanently (AMD-47-INV-03). |
 | **`AttributeValueUpcaster` SPI — no ServiceLoader** | Constructor injection, consistent with DECIDE-04 / REC-28. Strict mode (core projections) halts on failed upcast; lenient mode (forensic) yields `DegradedAttributeValue`. |
-| **Watermark unchanged** | On-disk amendment ceiling stays **AMD-50** (47 < 50). Ratification records AMD-47 RATIFIED; it does not raise the ceiling. |
-| **Contract only** | No production Java this session; the three records + SPI + 3 `AttributeType` constants + §5 contract tests are implemented by **M4.B3** (HEAD stays `7610296`). |
+| **Watermark (at AMD-47 ratification)** | AMD-47's own ratification did not raise the ceiling (47 < 50). The on-disk watermark was later **raised to AMD-51** at AMD-51's ratification. |
+| **IMPLEMENTED** | The three records + `AttributeValueUpcaster` SPI + 3 `AttributeType` constants + §5 contract tests shipped in **M4.B3** (`60b4185`, 2026-05-30); the 8-variant `permits` clause is live in source. |
+
+---
+
+## Typed Change-Detection Comparator (AMD-51, RATIFIED + IMPLEMENTED, M4.0b-3 `98f705b`)
+
+Locked decisions carried by AMD-51 (full contract: `homesynapse-core-docs/design/amendments/AMD-51_Typed_AttributeValue_Change_Detection_Comparator.md`; invariants AMD-51-INV-01..05 in `Architecture_Invariants_v1.md` §21):
+
+| Decision | Detail |
+|---|---|
+| **External comparator in state-store, not a method on `AttributeValue` (AMD-51-INV-04 / DP-A)** | `AttributeValueComparator` interface + pkg-private `StructuralAttributeValueComparator`, reached via the `AttributeValueComparator.structural()` DEC-M3-16 gateway. Carries a `ComparisonPolicy` (epsilon) — kept out of the device-model data layer. |
+| **Exhaustive `switch`, no `default` (AMD-51-INV-01 / DP-B)** | Per-variant dispatch over the sealed 8-variant `AttributeValue` with **no `default` arm** — a future 9th permit MUST break compilation. (D-01 is event-type-scoped; an `AttributeValue` exhaustive switch is permitted.) |
+| **Pinned total-form epsilon `1e-9` (AMD-51-INV-02 / DP-D)** | `changed ⟺ |a−b| > max(absEps, relEps·max(|a|,|b|))`, defaults `absEps = relEps = 1e-9`, with full IEEE-754 totality (`Inf−Inf` handled before the arithmetic; `−0.0`/`+0.0` canonicalised). Quantity is canonical-magnitude epsilon + canonical-unit dimension check — **no unit work in the comparator** (AMD-47 canonicalises at construction). |
+| **Symmetric both-sides reconstruction (AMD-51-INV-05 / DP-H)** | Both operands reconstruct to the schema-declared variant before compare; the materialized prior is always a `StringValue`, so it is reconstructed too. Distinct from the `AttributeValueUpcaster` SPI (left unchanged). Produced typed values are transient. |
+| **Schema source = `StandardCapabilities`, immutable injected snapshot (DP-K)** | Production `StandardCapabilities` (device-model **main**) aggregates the standard capability `AttributeSchema`s; `HomeSynapseCore` injects an immutable `Map`-backed `AttributeSchemaResolver` — NOT a live registry read (AMD-50-INV-03 determinism preserved). `TestCapabilityFactory` delegates to it. |
+| **String `StateChangedEvent` payload preserved (DP-G / §2.7)** | The emitted payload stays String `oldValue`/`newValue`; `CheckpointSerializer` + event-store shape untouched. The typed payload is **AMD-52**, staged behind the OQ-05-08 serializer/replay design beat. |
+| **`projectionVersion` 2→3 (DP-I)** | Bumped at `HomeSynapseCore`; rides AMD-50's reconciliation-backfill unchanged. |
+| **§2.6 erratum — missing-schema → `StringValue` string-compare fallback (D-1)** | When no `AttributeSchema` is known for the key, both operands reconstruct as `StringValue` and the comparator does an exact string compare — NOT Degraded/no-emit (which would freeze unschematized attributes). Preserves M4.0b-2 behaviour + the no-arg `production()` gateway. Erratum applied to AMD-51 §2.6 (2026-05-31). |
+| **Watermark = AMD-51** | On-disk amendment ceiling **raised AMD-50 → AMD-51** at AMD-51 ratification (51 > 50). |
 
 ---
 

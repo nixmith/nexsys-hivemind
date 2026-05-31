@@ -3,8 +3,8 @@ file: context/assessments/2026-05-22_Research_6_PM_Assessment.md
 purpose: PM assessment of Research 6 (Integration Runtime — Supervisor Patterns for Protocol Adapters) — dispositions, modifications, source-verified fabrications, decision questions for Nick.
 audience: PM, Nick
 state-type: current
-status: v1 (PM-verified against MODULE_CONTEXT.md + module-info.java + source; Nick verification PENDING for NQ-1..6)
-last-verified: 2026-05-22
+status: v1 (PM-verified against MODULE_CONTEXT.md + module-info.java + source; Nick verification PENDING for NQ-1..6). 2026-05-31: AMD-RENUMBER NOTICE added (AMD-53..63 are stale placeholders — see banner; integration block re-bases to 54+ per P2).
+last-verified: 2026-05-22 (content); 2026-05-31 (AMD-renumber annotation)
 -->
 
 # Research 6 — PM Assessment (v1)
@@ -12,10 +12,19 @@ last-verified: 2026-05-22
 **Date:** 2026-05-22
 **Document:** Research 6: Integration Runtime — Supervisor Patterns for Protocol Adapters
 **RECs assessed:** REC-41 through REC-52 (12 total)
-**AMDs proposed:** AMD-53 through AMD-63 (11 candidates)
+**AMDs proposed:** AMD-53 through AMD-63 (11 candidates) — ⚠️ **STALE PLACEHOLDERS — see the AMD-RENUMBER NOTICE banner below before using any of these integers.**
 **Researcher:** Claude Project
 **Protocol:** 6-step A–F processing per PM research pipeline
 **Verification base:** `integration/integration-api/src/main/java/module-info.java` + `MODULE_CONTEXT.md`, `integration/integration-runtime/src/main/java/module-info.java` + `MODULE_CONTEXT.md`, `core/state-store/.../module-info.java`, `config/configuration/.../module-info.java`, `core/persistence/.../MigrationRunner.java`, plus targeted grep across the codebase.
+
+---
+
+> ⚠️ **AMD-NUMBER RENUMBER NOTICE (added 2026-05-31 — stale-on-arrival for Workstream C).**
+> Every AMD number in this assessment — AMD-53 … AMD-63, including the AMD-53/54/55/56/57/58/59/60/62/63 dispositions in the table, the NQ rows, and the §"AMD Sequencing" list — is a **non-binding provisional placeholder that was never authored as a file.** Two things have moved since 2026-05-22:
+> 1. **AMD-53 is now consumed by the timestamp-model unifier** (`design/amendments/AMD-53_Timestamp_Model_Unifier_Event_Time_Activity_Timestamps.md`, RATIFIED; shipped as M4.0b-5, committed `c99b425`, 2026-05-31). It is **not** REC-41.
+> 2. Per the **P2 AMD Renumbering Decision** (`context/decisions/2026-05-29_P2_AMD_Renumbering_Decision.md` — §3 allocation note dated 2026-05-31 + §4/§6 assign-at-milestone rule), the integration block is **assigned contiguously at the Workstream-C briefing from the live watermark**, and its indicative range **re-bases to 54+** (was "≈ 53–62"). The provisional per-REC map in §4 of that decision (REC-41→54, REC-42→55, … shifted up by one) is a **planning aid only — non-binding**.
+>
+> **Action for the eventual Workstream C session:** do **not** author from any AMD number in this file. Assign the integration block fresh from the live watermark at C-briefing, **after** Research 6 NQ-1..6 are resolved (NQ-1..6 may still *split* an amendment — e.g. REC-41's lifecycle hooks vs config-schema versioning — so the count is not fixed either). The REC **dispositions**, the **NQ-1..6 PM leans**, and the **order** of the §"AMD Sequencing" list remain valid; only the integers are stale. See also `context/planning/2026-05-31_Workstream-C_gate-status.md`.
 
 ---
 

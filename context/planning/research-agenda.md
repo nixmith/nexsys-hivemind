@@ -456,4 +456,13 @@ Nick's call (2026-06-05): before the W23 main workload, dispatch two briefs that
 
 ---
 
-**Last updated:** 2026-06-05 (Research 7 v2 + Research 12 briefs added; pre-W23 de-risk pass)
+## Spike tracker (added 2026-06-05, Workstream C briefing)
+
+Two Nick-approved empirical spikes are pending (spike rules: throwaway code, findings recorded, never production):
+
+- **SPIKE-DC — dual-coordinator design spike** (~Aug 2026, before the M14 briefing). Source: Research 12 §5.2 (no field precedent). Tracked as the backlog row `SPIKE-DC`.
+- **SPIKE-RESTART — Zigbee/Matter restart-frequency measurement on Pi 5** (before M9). Source: the ratified NQ-6 condition (keep the global restart default; measure real radio-init glitch frequency empirically before the M9 supervisor hardens restart-intensity policy). Referenced by AMD-62 §6. Not yet scheduled — schedule when the M9 briefing window opens.
+
+---
+
+**Last updated:** 2026-06-05 (Workstream C briefing: spike tracker added — SPIKE-DC ~Aug + the NQ-6 pre-M9 restart-frequency spike. Prior: Research 7 v2 + Research 12 briefs added; pre-W23 de-risk pass)

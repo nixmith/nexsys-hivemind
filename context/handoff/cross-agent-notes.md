@@ -18,7 +18,15 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-## 2026-05-31 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER
+## 2026-06-04 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER
+**Topic:** **W23 "Mon+Tue" batch: preflight reconciled → PASS; M4.B-S2 (EntityRole) coding instruction ISSUED; Research 6 NQ-1..6 RESOLVED (all six PM leans adopted by Nick) → Workstream C Gate A CLEARED pending B-S2. Next WU = Coder executes M4.B-S2.**
+**Detail:** (1) Session-start preflight flagged minor STALE (snapshot session-log lagged the 05-31 closeouts; superseded cross-agent notes unarchived; backlog header behind `e73e199`) → reconciled this session → re-run PASS. (2) **M4.B-S2 instruction authored + issued** (`context/coding-instructions/M4.B-S2_AMD44_EntityRole.md`), every embedded shape Read-tool-verified at HEAD `e73e199`: `EntityRole` 3-value enum; `EntityType` 6×3 legality matrix (existing constant order preserved — the AMD §2.5.1 block order differs, content governs); `Entity` 11→12 / `ProposedEntity` 3→4 with null→PRIMARY coercion + construction-time matrix guard (DP-1, AMD-47-INV-04 structural-guard precedent) + defensive copies + back-compat convenience ctors (zero existing-caller breakage; G8 survey: only EntityTest/TestEntityFactory/StubIntegrationContext construct Entity, nothing constructs ProposedEntity); TypedIdTest FloorId fold-in bundled (closes the B-S1 [INFO] follow-up). NO `module-info`/Gradle/`projectionVersion` change. (3) **OQ-05-05 RESOLVED** — Nick adopted all six Research 6 NQ leans; addendum in the assessment; gate-status note flipped Gate A CLEARED; NQ-3/4 finalize at B-S2 landing. Doc-05 refresh stays queued for C-briefing (post-B-S2). (4) No skill-tree files touched — Check 9 mirrors remain in sync.
+**Action needed:**
+- **Nick:** run the M4.B-S2 instruction in Claude Code (paste the instruction file); on completion run the build gate (`:core:device-model:check`, `:platform:platform-api:check`, full `./gradlew check`); also commit this session's hivemind edits (reconciliation + issue + NQ resolutions) from host git. Note: the W23 plan + release-runway roadmap + this session's files are still uncommitted/untracked on the host (`git status` showed them outside `395bf74`).
+- **PM (next session):** receive the M4.B-S2 completion report → WUCP Phase 2 review against source → closeout → **brief Workstream C** (Gate A cleared; assign AMD block from 54+; fold Doc-05). Then W23 Goal 4 (website/docs track standup) per posture A.
+- **Coder:** UNBLOCKED — next WU = M4.B-S2.
+
+## 2026-05-31 [PM (Cowork) → Nick, Coder]
 **Topic:** **M4.B-S1 (AMD-44 Stage 1) WUCP Phase 2 COMPLETE → APPROVE. Build gate GREEN (Nick ran it); COMMITTED `e73e199`. No `projectionVersion`/`module-info` change. Next WU = Workstream B Stage 2 (EntityRole, AMD-44 §2.5) after a short cleanup pass.**
 **Detail:** PM read all 9 created + 8 modified files vs source + AMD-44 (the Read tool, not the report). `FloorId` mirrors `AreaId` (Jackson-free); `Floor`/`Area` validation + immutability; `FloorRegistry`/`AreaRegistry` interface-only with full Javadoc (getAll ordering, delete-rejects-when-assigned, LTD-11 *with the why*, AreaRegistry read-only); `hardwareIdentifiers` `List`→`Set` on the three types with defensive-copy compact ctors (also closed a pre-existing `ProposedDevice.proposedEntities` immutability leak — good catch); `AreaId` Javadoc de-conflated. **Stage-2 fence held** (EntityRole/`EntityType`/`Entity`/`ProposedEntity` untouched). Build GREEN: `:platform:platform-api:check` (38) + `:core:device-model:check` (26) + full `./gradlew check` (143, incl. `NO_DIRECT_TIME_ACCESS` + `NO_JACKSON_IN_DOMAIN_MODEL` + spotless). 3 `[INFO]` deviations accepted (new `ProposedDeviceTest`, `platform-api` MODULE_CONTEXT, standalone `FloorIdTest`). **Minor follow-up:** fold `FloorId` into `TypedIdTest`'s parameterized distinctness list in a future platform/device WU.
 **Closeout applied:** PROJECT_SNAPSHOT, milestone backlog (M4.B-S1 DONE `e73e199`), W22 (goal 14), coder-handoff (M4.B-S1 + the stale M4.0b-5 gate flipped RESOLVED), pm-handoff, this pointer.
@@ -26,6 +34,10 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 - **Nick: commit hivemind** (this Phase 2 closeout + the Coder's Phase 1 artifacts). homesynapse-core already committed `e73e199`; docs clean.
 - **PM (next session): cleanup pass** (PLAN-M4-CONSOLIDATED-v2 §3 currency; AMD-44 Doc 02 §11.2 + AreaId-Javadoc doc-fold; coder-handoff stale-gate prune; dual-skill-mirror sync) → then **author the B Stage 2 (EntityRole) coding instruction**.
 - **Coder:** BLOCKED on the PM's B Stage 2 instruction (refuse-to-close).
+
+## Archived
+
+Entries below were superseded/resolved and moved under this separator at the 2026-06-04 PM session-start reconciliation (all action items closed by the M4.0b-4a/4b/5 + M4.B-S1 closeout chain; content preserved verbatim).
 
 ## 2026-05-31 [Coder (Claude Code) → PM, Nick]  (superseded by the PM Phase 2 pointer above)
 **Topic:** **M4.B-S1 (AMD-44 Stage 1 — Floor aggregate + minimal Area + `Set<HardwareIdentifier>` refactor) COMPLETE — files produced, BUILD GATE DEFERRED. No `[BLOCKING]`/`[REVIEW]` deviations (three `[INFO]`). Next WU = M4.B-S2 (AMD-44 Stage 2 — EntityRole).**
@@ -277,10 +289,8 @@ A **known inconsistency** between the new production-grade abandon path and the 
 
 ---
 
-## Archived
-
 Archived notes (older than ~2 weeks): see `archive/cross-agent-notes-2026-Q1.md` (Jan–Mar, 13 entries) and `archive/cross-agent-notes-2026-Q2.md` (Apr–Jun, 4 entries: 2026-04-10 M2.5 closeout + 2026-05-15 AMD-38/39 + 2026-05-15 V001 description + 2026-05-19 M3.6a constructor changes). Archived at the M4.0b-2 closeout (2026-05-29, resolved, no live forward items — content preserved in git history + the PROJECT_SNAPSHOT session log): 2026-05-20 [Coder] M3.6b InProcessEventBus public + EventBusConfig; 2026-05-17 [PM] M3.1 prompt lessons + interface-evolution pattern.
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `98f705b` on `2026-05-31` (code HEAD unchanged — AMD-52 ratification was doc-only; `projectionVersion` 3; **on-disk amendment watermark AMD-52** after AMD-52 RATIFIED 2026-05-31). Prior basis: M4.0b-3 / AMD-51 reviewed → APPROVE; `60b4185` (M4.B3) / `7610296` (M4.0b-2).
+**Last verified against:** `homesynapse-core` commit `e73e199` on `2026-06-04` (M4.B-S1 / AMD-44 Stage 1; `projectionVersion` 5; **on-disk amendment watermark AMD-53**). Superseded 2026-05-30/31 entries archived at the 2026-06-04 session-start reconciliation. Prior basis: `c99b425` (M4.0b-5) / `72596cb` (M4.0b-4b) / `98f705b` (M4.0b-3).

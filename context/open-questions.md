@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: comms
 status: CURRENT
-last-verified: 2026-05-31 against `homesynapse-core` commit `e73e199` (M4.B-S1 closeout cleanup: OQ-05-08 [AMD-52 — shipped M4.0b-4a/b] + OQ-05-09 [upcaster unit-threading — settled in M4.0b-3] → Resolved; OQ-05-03/01 headers corrected to [RESOLVED]. Active now = OQ-05-07 [Research 9 residuals, deferrable] + OQ-05-05 [Research 6 NQ-1..6, Nick's calls — mirrored in the Workstream-C gate-status note]).
+last-verified: 2026-06-04 against `homesynapse-core` commit `e73e199` (W23 Goal 2: OQ-05-05 [Research 6 NQ-1..6] → RESOLVED — Nick adopted all six PM leans; NQ-3/4 finalize at M4.B-S2 landing. Active now = OQ-05-07 only [Research 9 residuals, deferrable]).
 -->
 
 # Open Questions Register
@@ -26,17 +26,12 @@ Inter-agent typed-message surface for `[OPEN-QUESTION]` and `[VERIFY-NEEDED]`. S
 **Context:** Research 9 (issued 2026-05-28, Claude Project) is largely superseded by AMD-50. No `Research_9_PM_Assessment.md` exists yet. Do NOT reopen the frozen mechanism. Cross-ref: `context/instructions/Research_9_Projection_Rebuild_Backfill_Brief.md`.
 **Resolution:** _(open — deferrable; revisit at M4.0b-3 close or when an operator-rebuild need surfaces)_
 
-## [OPEN-QUESTION] OQ-05-05 — Research 6 NQ-1..6 confirmations (P3)
-**Posed by:** Cowork (M4 scoping)
-**Posed:** 2026-05-28
-**Blocking:** finalizing the M4 Workstream-C integration-api interface freeze (NOT M4.0b-3).
-**Question:** Confirm or override the PM recommendations for Research 6 NQ-1..6 (SecurityServices aggregator; schemaVersion split; capability identity = sealed `Capability` permit + `CapabilityInstance`; no new SQLite table; reject REC-49; keep 1/60s restart default with per-descriptor override).
-**Context:** These shape the *content* of the integration-api amendments that ride the M4 freeze (supervisor impl stays M9). PM recommendations inline in `context/assessments/2026-05-22_Research_6_PM_Assessment.md`. NOTE: the M4.0b attribute-backfill question is **already decided** (one-shot backfill, Nick 2026-05-28) and is not open.
-**Resolution:** _(open — Nick's calls)_
-
 ---
 
 ## Resolved (this milestone)
+
+## [RESOLVED] OQ-05-05 — Research 6 NQ-1..6 confirmations (P3)
+**Resolved:** 2026-06-04 — **Nick adopted all six PM recommendations** (Cowork session, W23 Goal 2): NQ-1 `SecurityServices` aggregator on `IntegrationContext`; NQ-2 rename `schemaVersion`→`descriptorSchemaVersion` + add `configSchemaMajor`/`configSchemaMinor`; NQ-3 sealed `Capability` permit class + `CapabilityInstance` as capability identity (no new `CapabilityId`); NQ-4 no new SQLite table — capability events project into `Entity.capabilities`; NQ-5 REJECT REC-49 (existing `HealthParameters` fields; AMD-61 stays withdrawn); NQ-6 keep 1/60s global restart default + per-descriptor override + pre-M9 empirical spike. **NQ-3/NQ-4 are pre-decisions that finalize once M4.B-S2 (EntityRole) lands** — the capability surface freezes against the post-B device model (gate-status note §1). Resolution addendum recorded in `context/assessments/2026-05-22_Research_6_PM_Assessment.md`. **Workstream C Gate A cleared pending B-S2;** remaining C gates = B-S2 landing + P4 Doc-05 currency (at C-briefing). AMD integers re-base to 54+ at C-briefing. (Posed by Cowork, M4 scoping, 2026-05-28; original question: confirm/override the PM recommendations for Research 6 NQ-1..6. These shape the integration-api amendments that ride the M4 freeze — supervisor impl stays M9.)
 
 ## [RESOLVED] OQ-05-08 — AMD-52 typed `StateChangedEvent` payload — serializer/replay design beat
 **Resolved:** 2026-05-31. The OQ-05-08 design beat (`homesynapse-core-docs/design/2026-05-31_AMD-52_Typed_Payload_Serializer_Replay_Design_Beat.md`) + Research 11 (PM Assessment A−) settled the serializer/replay forks; **AMD-52 AUTHORED + RATIFIED** (Nick + external review — F1 bit-anchored float identity, F2 Path-B `DegradedEvent`); **implemented + committed** as M4.0b-4a (`971cfa1`, AttributeValue→`com.homesynapse.value` relocation) + M4.0b-4b (`72596cb`, the typed payload + codec + Path-B gate). The original 5-item checklist is fully dispositioned in the design beat. (Posed by PM, Research 10 ratification, 2026-05-30.)

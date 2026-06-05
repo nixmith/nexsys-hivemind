@@ -11,6 +11,8 @@ source: context/assessments/2026-05-22_Research_6_PM_Assessment.md (v1) + contex
 
 **One-line status:** Workstream C is **last in the locked sequence** (B Stage 1 → B Stage 2 → **C**) and **gated**. It cannot freeze until (1) **B Stage 1 + Stage 2 land** (the capability surface is shaped by B's `Entity`/`EntityRole`/`capabilities` decisions), (2) **Nick resolves Research 6 NQ-1..6**, and (3) **P4 Doc-05 (Integration Runtime) is brought current** against the resolved integration-api. This note surfaces all three so Nick can begin the NQ calls in parallel with B.
 
+> **✅ GATE A CLEARED — 2026-06-04.** Nick resolved **NQ-1..6 by adopting all six PM leans below** (W23 Goal 2; recorded in the Research 6 assessment addendum + OQ-05-05 RESOLVED). NQ-3/NQ-4 are pre-decisions that finalize automatically when M4.B-S2 (EntityRole) lands — no further Nick action needed unless B-S2 changes the `Capability`/`Entity` shape (it is not expected to: B-S2 touches `EntityType`/`Entity`/`ProposedEntity`, not the `Capability` hierarchy). Remaining C gates: **B-S2 landing** (instruction issued 2026-06-04: `context/coding-instructions/M4.B-S2_AMD44_EntityRole.md`) and the **Doc-05 currency pass at C-briefing** (Gate B below).
+
 ---
 
 ## 1. The post-B dependency (why C waits for B)

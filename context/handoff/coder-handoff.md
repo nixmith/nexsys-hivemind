@@ -75,7 +75,7 @@ Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/h
 
 **Cross-agent note posted:** FloorId Jackson serde deferral — persistence/rest must register `FloorId::toString`/`FloorId::parse` in `PersistenceJacksonModule` when floor persistence/REST lands.
 
-**Next work unit (refuse-to-close):** **M4.B-S2 — AMD-44 Stage 2 (EntityRole enum, `EntityType.legalRoles`/`allows(...)` constraint matrix, `ProposedEntity.entityRole`, `Entity.entityRole`, the `entity_profile_changed` oldRole/newRole extension).** Not yet briefed as a coding instruction. **Coder is BLOCKED on the PM's next coding instruction (M4.B-S2) before opening the next WU.**
+**Next work unit (refuse-to-close):** **M4.B-S2 — AMD-44 Stage 2 (EntityRole enum, `EntityType.legalRoles`/`allows(...)` constraint matrix, `ProposedEntity.entityRole`, `Entity.entityRole`; the `entity_profile_changed` oldRole/newRole extension is taxonomy/doc-level only — no Java event record).** **INSTRUCTION ISSUED 2026-06-04:** `context/coding-instructions/M4.B-S2_AMD44_EntityRole.md` (source-verified vs `e73e199`; 8 STOP-on-Mismatch gates; settled DP-1..7; TypedIdTest FloorId fold-in bundled; §4c arch-rule reminder; build gate defers to Nick). **Coder is UNBLOCKED — execute M4.B-S2 next.**
 
 ### DEFERRED — M4.0b-5: Timestamp-Model Unifier (event-time activity timestamps, AMD-53, 2026-05-31)
 

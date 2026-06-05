@@ -351,6 +351,8 @@ Research 3 should be executed before M3.7 scoping begins. Research 8 should be e
 
 ### How Findings Feed Back
 
+**Step 0 — Archive the return (MANDATORY, added 2026-06-05).** Before assessment work begins, the raw return is committed verbatim to `homesynapse-core-docs/research/returns/YYYY-MM-DD_Research_N_<Short_Title>.md` (see `context/canonical-paths.md` §Research-document-placement). This rule exists because the Research 6 return lived only as a loose file for two weeks and was nearly unavailable for the AMD-54..64 fidelity review. The PM lists this commit in the session's closeout actions; the assessment cites the committed path.
+
 Each completed research document produces:
 1. **Amendment candidates** (REC-XX) that Nick evaluates for scope inclusion.
 2. **Concept mapping tables** that the PM uses when writing coding instructions.

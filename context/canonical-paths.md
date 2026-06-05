@@ -33,6 +33,12 @@ last-verified: 2026-05-21 against `homesynapse-core` commit `dfb045e`
 - homesynapse-core: `[module-group]/[module-name]/MODULE_CONTEXT.md` (one per module)
 - homesynapse-core-docs: `design/`, `governance/`, `foundations/`, `research/`, `archive/`
 
+## Research document placement (RULE, added 2026-06-05 — the Research 6/7v2/12 loose-file lesson)
+- **Raw research RETURNS** (the document a Claude Project produces from a brief) → `homesynapse-core-docs/research/returns/YYYY-MM-DD_Research_N_<Short_Title>.md`, committed **verbatim, unedited, at intake** (before or alongside the PM assessment). The docs repo is connected to the DOCS Claude Project, so committed returns stay permanently reachable for fidelity reviews — never leave a return as a loose file outside the repos.
+- **PM assessments** → `nexsys-hivemind/context/assessments/YYYY-MM-DD_Research_N_PM_Assessment.md` (unchanged).
+- **Research briefs** (PM-authored dispatch prompts) → `nexsys-hivemind/context/instructions/`, archived once consumed (unchanged).
+- Any session that receives a research return as an upload/paste MUST include "commit the return to `research/returns/`" in its closeout actions for Nick. (Companion rule: `context/planning/research-agenda.md` §2 "How Findings Feed Back" Step 0.)
+
 ## Inter-agent message kinds (see §Message Protocol in CLAUDE.md files)
 - [OPEN-QUESTION], [VERIFY-NEEDED] → `context/open-questions.md`
 - [DECISION-REQUESTED], [SCOPE-CHANGE-PROPOSED] → `cross-agent-notes.md`

@@ -1,18 +1,18 @@
 <!--
 file: project-knowledge/Invariants_Quick_Reference.md
-purpose: Token-efficient index of all 104 architecture invariants. Agents use this for constraint lookup; full text lives in homesynapse-core-docs/governance/Architecture_Invariants_v1.md for JIT reading when detail is needed.
+purpose: Token-efficient index of all 133 architecture invariants. Agents use this for constraint lookup; full text lives in homesynapse-core-docs/governance/Architecture_Invariants_v1.md for JIT reading when detail is needed.
 audience: All (PM, Coder, Cowork)
 update-cadence: per-phase (changes only via amendment process INV-GA-01)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-05-31 against Architecture_Invariants_v1.md (104 invariants, 21 categories — §20 AMD-47-INV-01..05 + §21 AMD-51-INV-01..05 added). Codebase HEAD `98f705b` (M4.0b-3), watermark AMD-51.
+last-verified: 2026-06-05 against Architecture_Invariants_v1.md (**133 invariants across 32 categories** — §22 AMD-52 (7) + §23 AMD-53 (2) + §24–§34 the AMD-54..64 integration block (29) added since the last spine update). Codebase HEAD `8ef9e9f` (M4 COMPLETE), watermark AMD-64.
 full-text-location: homesynapse-core-docs/governance/Architecture_Invariants_v1.md
 -->
 
 # Architecture Invariants — Quick Reference
 
-**Total: 104 invariants across 21 categories.** (§20 AMD-47-INV-01..05 + §21 AMD-51-INV-01..05 added at AMD-47/AMD-51 ratification, 2026-05-30; both now IMPLEMENTED — M4.B3 `60b4185` / M4.0b-3 `98f705b`.)
+**Total: 133 invariants across 32 categories.** (Since the last spine update: §22 AMD-52-INV-01..07, §23 AMD-53-INV-01..02, and the §24–§34 AMD-54..64 integration block (29) were registered. M4 COMPLETE `8ef9e9f`, watermark AMD-64.)
 **Amendment process:** INV-GA-01. Requires written proposal, impact analysis, architecture owner approval, migration plan.
 **Identifiers are permanent:** INV-GA-02. Retired IDs are never reused.
 
@@ -235,6 +235,65 @@ Added by AMD-51 (RATIFIED 2026-05-30); **IMPLEMENTED in M4.0b-3 (`98f705b`)**; *
 | AMD-51-INV-04 | **Comparator placement + gateway.** External `AttributeValueComparator` in `com.homesynapse.state` carrying a `ComparisonPolicy` — NOT a method on the device-model `AttributeValue` (keeps projection/epsilon policy out of the data layer). Package-private impl behind a public static factory `structural()` (DEC-M3-16 gateway). | AMD-51 |
 | AMD-51-INV-05 | **Symmetric reconstruction; 2→3 rides AMD-50 unchanged.** BOTH operands reconstructed to the schema-declared variant by one parse keyed by `AttributeSchema.type` — the materialized prior is always a `StringValue` (or `null`) and is reconstructed too. Distinct from the `AttributeValueUpcaster` stored-value-migration SPI (left unchanged). The typed compare rides a `projectionVersion` **2→3** bump on AMD-50's reconciliation-backfill unchanged; reconstruction is identical on LIVE and the 2→3 backfill. **§2.6 erratum (2026-05-31): no schema for the key ⇒ `StringValue` string-compare fallback (NOT Degraded/no-emit) — preserves M4.0b-2 behaviour for unschematized keys.** | AMD-51 |
 
+## §22 Typed `StateChangedEvent` Payload / Serializer / Replay (AMD-52) — 7 invariants
+
+RATIFIED 2026-05-31; IMPLEMENTED in M4.0b-4a/4b (`971cfa1`/`72596cb`); watermark raised AMD-51→AMD-52. Canonical text §22.
+
+| ID | Rule |
+|---|---|
+| AMD-52-INV-01 | Typed payload + per-event `schema_version` (1→2) discriminator; **no `events`/`view_checkpoints` row migration**. |
+| AMD-52-INV-02 | Custom non-reflective, Jackson-isolated `{"t","v"[,"u"]}` codec, exhaustive **no-`default`** over the 8 variants; no `@JsonTypeInfo`. |
+| AMD-52-INV-03 | Bit-anchored float identity (`Double.doubleToLongBits` after AMD-51 canonicalization); round-trippable text, never byte-frozen; `chain_hash` stays inert. |
+| AMD-52-INV-04 | JSON-valid non-finite sentinels; `ALLOW_NON_NUMERIC_NUMBERS` disabled; no bare `NaN`/`Inf` tokens. |
+| AMD-52-INV-05 | Path A (re-derive from immutable `state_reported` log) authoritative; Path B legacy `schema_version=1` → defined `DegradedEvent`; events never mutated (append-only). |
+| AMD-52-INV-06 | Typed `CheckpointSerializer` envelope (S2), same `view_checkpoints.data` BLOB; ALWAYS null round-trip preserved (`HashMap.put`, never `Map.copyOf`). |
+| AMD-52-INV-07 | `projectionVersion` 3→4 rides AMD-50's frozen reconciliation-backfill unchanged. |
+
+## §23 Timestamp-Model Unifier — Event-Time Activity Timestamps (AMD-53) — 2 invariants
+
+RATIFIED 2026-05-31; IMPLEMENTED in M4.0b-5 (`c99b425`); watermark AMD-52→AMD-53. Canonical text §23.
+
+| ID | Rule |
+|---|---|
+| AMD-53-INV-01 | `lastChanged`/`lastUpdated`/`lastReported` sourced from `eventTime ?? ingestTime` in **every** `applyToState` branch + entity-adoption seeding (extends AMD-50-INV-03 to materialization). `projectionVersion` 4→5 heals legacy wall-clock stamps. |
+| AMD-53-INV-02 | `staleAfter`/`stale` are the **only** real-time-clock fields on `EntityState` and are explicitly carved out (guards against "no wall-clock anywhere" misreads). |
+
+## §24–§34 Workstream C Integration Block (AMD-54..64) — 29 invariants
+
+Registered together at the AMD-54..64 block ratification (2026-06-05, single DOCS-Project review return + Nick arbitrations A1–A5/E3/E7/E8); watermark AMD-53→AMD-64. Contracts frozen at **M4.C** (`8ef9e9f`); supervisor behavior lands at **M9**. Canonical text §24–§34.
+
+| ID | § | Rule (short) |
+|---|---|---|
+| AMD-54-INV-01 | §24 | Two distinct compatibility surfaces — descriptor schema vs config schema. |
+| AMD-54-INV-02 | §24 | Major version triggers migration, minor never. |
+| AMD-55-INV-01 | §25 | All four lifecycle hooks `default`; pre-AMD-55 adapters unchanged. |
+| AMD-55-INV-02 | §25 | Sequential hook execution on the adapter thread. |
+| AMD-55-INV-03 | §25 | `migrate` before `initialize`; migrate-failure → FAILED transition (emits no event). |
+| AMD-55-INV-04 | §25 | `REJECTED` config apply never leaves the rejected config active (prior config = safe recovery). |
+| AMD-56-INV-01 | §26 | `AUTH_FAILED` never routes to transient backoff. |
+| AMD-56-INV-02 | §26 | `ExceptionClassification` append-only, order frozen (`AUTH_FAILED` last). |
+| AMD-56-INV-03 | §26 | `PermanentIntegrationException` ctors append-only; well-known codes documented. |
+| AMD-57-INV-01 | §27 | `HealthDetail` never null; `NONE` is the explicit no-cause value. |
+| AMD-57-INV-02 | §27 | `HealthDetail` append-only; 1:1 transition-trigger mapping. |
+| AMD-58-INV-01 | §28 | Three-way registration lockstep (enum permit + event-type string + manifest), no partial registration. |
+| AMD-58-INV-02 | §28 | Persisted event-type strings immutable; dot-namespace for new; legacy five frozen. |
+| AMD-58-INV-03 | §28 | The five new lifecycle permits are observability-only. |
+| AMD-59-INV-01 | §29 | Capability events are the only post-adoption mutation path; no capability table. |
+| AMD-59-INV-02 | §29 | `CapabilityAdded` carries the complete `CapabilityInstance` (replay self-sufficiency). |
+| AMD-59-INV-03 | §29 | No `CapabilityId` wrapper; permit class + string identity. |
+| AMD-59-INV-04 | §29 | `EntityId` stable across capability add/remove. |
+| AMD-59-INV-05 | §29 | `CapabilityPublisher` integration-scoped (LTD-17). |
+| AMD-59-INV-06 | §29 | `CapabilityRemovalReason` descriptive-only, never behavioral. |
+| AMD-60-INV-01 | §30 | Context grows only by service-family aggregators (NQ-1 doctrine). |
+| AMD-60-INV-02 | §30 | `SecurityServices` nullable, `RequiredService.SECURITY`-gated; non-null inside. |
+| AMD-60-INV-03 | §30 | `rotate(Map)` integration-scoped, atomic across entries, durable-before-return. |
+| AMD-61-INV-01 | §31 | Soft dependency never blocks startup; hard always does. |
+| AMD-61-INV-02 | §31 | `dependsOn ∩ softDependencies = ∅` at construction. |
+| AMD-62-INV-01 | §32 | Retry schedule is a pure function of `BackoffParameters` + attempt count. |
+| AMD-62-INV-02 | §32 | Retry backoff and recovery probing are distinct mechanisms. |
+| AMD-63-INV-01 | §33 | `IsolationLevel.RESERVED_SUBPROCESS` rejected until activated by amendment (inert reservation). |
+| AMD-64-INV-01 | §34 | Null planned-restart-timeout ⇒ global §3.14 default; present value positive and fully replacing. |
+
 ### Amendment-scoped invariants NOT counted in the §17 total (live in their amendment files)
 
 AMD-45 and AMD-50 carry contract-level `*-INV-NN` invariants that are **not** registered as numbered §-categories in Architecture_Invariants_v1.md's §17 count — their canonical text lives in the amendment files (+ `core/state-store/MODULE_CONTEXT.md`). They are load-bearing for M4 Workstream A:
@@ -269,4 +328,4 @@ These are directional commitments that guide architectural decisions. Unlike inv
 
 ---
 
-*104 invariants verified against Architecture_Invariants_v1.md §17 Invariant Index (94 base + §20 AMD-47-INV-01..05 + §21 AMD-51-INV-01..05). AMD-45-INV-01 and AMD-50-INV-01..04 are amendment-scoped and not counted in the §17 total (see the note above §16). For full invariant text including rationale, test criteria, MVP scope, and [SCALES] annotations, read the full document at homesynapse-core-docs/governance/Architecture_Invariants_v1.md.*
+*133 invariants across 32 categories, verified against Architecture_Invariants_v1.md §17 Invariant Index (2026-06-05) — adds §22 AMD-52 (7), §23 AMD-53 (2), and the §24–§34 AMD-54..64 integration block (29) since the last spine update. AMD-45-INV-01 and AMD-50-INV-01..04 remain amendment-scoped and are not counted in the §17 total (see the note above §16). For full invariant text including rationale, test criteria, MVP scope, and [SCALES] annotations, read the full document at homesynapse-core-docs/governance/Architecture_Invariants_v1.md.*

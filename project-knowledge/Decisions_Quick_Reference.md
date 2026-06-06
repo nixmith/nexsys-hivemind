@@ -6,7 +6,7 @@ update-cadence: per-milestone (LTD changes rare; DEC-M3 grows with milestones)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-05-31 — added the AMD-51 typed change-detection comparator decision block (RATIFIED + IMPLEMENTED, M4.0b-3 `98f705b`; on-disk watermark raised AMD-50 → AMD-51; §2.6 erratum); AMD-47 block marked IMPLEMENTED (M4.B3 `60b4185`); prior 2026-05-30 added the AMD-47 device-model attribute-value expansion decision block; LTD/DEC-M3/D-NN content unchanged from the 2026-05-27 verification against HomeSynapse_Core_Locked_Decisions.md (19 LTDs, 17 DEC-M3s) + system prompt hard constraints + MODULE_CONTEXT codebase grep + phase-3-cross-module-decisions.md (12 D-NNs)
+last-verified: 2026-06-05 — **M4 COMPLETE (`8ef9e9f`, watermark AMD-64)**. Added the M4-completion decision block (AMD-52 typed payload + `AttributeValue` relocation, AMD-53 timestamp unifier, AMD-54..64 integration freeze, AMD-65 queued, P2 ratified); corrected the AMD-51 block (AMD-52 is now IMPLEMENTED, not staged). LTD/DEC-M3/D-NN content unchanged from the 2026-05-27 verification (19 LTDs, 17 DEC-M3s, 12 D-NNs).
 full-text-location: homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md
 -->
 
@@ -188,11 +188,29 @@ Locked decisions carried by AMD-51 (full contract: `homesynapse-core-docs/design
 | **Pinned total-form epsilon `1e-9` (AMD-51-INV-02 / DP-D)** | `changed ⟺ |a−b| > max(absEps, relEps·max(|a|,|b|))`, defaults `absEps = relEps = 1e-9`, with full IEEE-754 totality (`Inf−Inf` handled before the arithmetic; `−0.0`/`+0.0` canonicalised). Quantity is canonical-magnitude epsilon + canonical-unit dimension check — **no unit work in the comparator** (AMD-47 canonicalises at construction). |
 | **Symmetric both-sides reconstruction (AMD-51-INV-05 / DP-H)** | Both operands reconstruct to the schema-declared variant before compare; the materialized prior is always a `StringValue`, so it is reconstructed too. Distinct from the `AttributeValueUpcaster` SPI (left unchanged). Produced typed values are transient. |
 | **Schema source = `StandardCapabilities`, immutable injected snapshot (DP-K)** | Production `StandardCapabilities` (device-model **main**) aggregates the standard capability `AttributeSchema`s; `HomeSynapseCore` injects an immutable `Map`-backed `AttributeSchemaResolver` — NOT a live registry read (AMD-50-INV-03 determinism preserved). `TestCapabilityFactory` delegates to it. |
-| **String `StateChangedEvent` payload preserved (DP-G / §2.7)** | The emitted payload stays String `oldValue`/`newValue`; `CheckpointSerializer` + event-store shape untouched. The typed payload is **AMD-52**, staged behind the OQ-05-08 serializer/replay design beat. |
+| **String `StateChangedEvent` payload preserved at M4.0b-3 (DP-G / §2.7)** | At AMD-51 the emitted payload stayed String `oldValue`/`newValue`. **This staging was lifted by AMD-52 (M4.0b-4b, `72596cb`): the payload is now typed `AttributeValue` with a tagged-union codec — see the M4-completion block below.** |
 | **`projectionVersion` 2→3 (DP-I)** | Bumped at `HomeSynapseCore`; rides AMD-50's reconciliation-backfill unchanged. |
 | **§2.6 erratum — missing-schema → `StringValue` string-compare fallback (D-1)** | When no `AttributeSchema` is known for the key, both operands reconstruct as `StringValue` and the comparator does an exact string compare — NOT Degraded/no-emit (which would freeze unschematized attributes). Preserves M4.0b-2 behaviour + the no-arg `production()` gateway. Erratum applied to AMD-51 §2.6 (2026-05-31). |
-| **Watermark = AMD-51** | On-disk amendment ceiling **raised AMD-50 → AMD-51** at AMD-51 ratification (51 > 50). |
+| **Watermark (was AMD-51 at this block)** | Raised AMD-50 → AMD-51 at AMD-51 ratification; **subsequently raised to AMD-64** through AMD-52/53 and the AMD-54..64 integration block (M4 COMPLETE). |
 
 ---
 
-*19 LTDs + 17 DEC-M3s + 3 build/module hard constraints (DECIDE-04, LD#10, DECIDE-01) + 9 inline sub-decisions + 12 D-NNs verified against source documents, system prompt hard constraints, and MODULE_CONTEXT references 2026-05-27. For full rationale, amendment history, implementation notes, and cross-references, read homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md.*
+## M4 Completion — Workstream A finish, Device-Model breadth, Integration Freeze (2026-06-05, watermark AMD-64)
+
+Decisions/amendments locked after the AMD-51 block (full contracts in `homesynapse-core-docs/design/amendments/`; invariants in the Invariants quick-ref §22–§34):
+
+| Decision / amendment | Detail |
+|---|---|
+| **AMD-52 — typed `StateChangedEvent` payload (IMPLEMENTED, M4.0b-4b `72596cb`)** | `oldValue`/`newValue` String→`AttributeValue`; a custom non-reflective `{"t","v"[,"u"]}` tagged-union codec in persistence (no `@JsonTypeInfo`); bit-anchored float identity; per-event `schema_version` 1→2 discriminator with **no row migration**; Path-B legacy reads → `DegradedEvent`; typed `CheckpointSerializer` envelope; `projectionVersion` 3→4. AMD-52-INV-01..07 §22. |
+| **AMD-52 §11 erratum — `AttributeValue` relocation (M4.0b-4a `971cfa1`)** | The sealed `AttributeValue` hierarchy (8 variants) + `AttributeType` moved device-model → new **`core/value-model`** leaf (`com.homesynapse.value`) to break the JPMS event↔device cycle the typed payload created. `AttributeSchema`/`AttributeValueUpcaster` stayed in device-model. Behaviour-preserving. |
+| **AMD-53 — timestamp-model unifier (IMPLEMENTED, M4.0b-5 `c99b425`)** | All three `EntityState` activity timestamps (`lastChanged`/`lastUpdated`/`lastReported`) sourced from `eventTime ?? ingestTime` in every projection path; `staleAfter`/`stale` are the sole real-time-clock carve-out; `projectionVersion` 4→5. AMD-53-INV-01/02 §23. **Workstream A complete — typed end-to-end + event-time-deterministic.** |
+| **AMD-44 — Floor aggregate + EntityRole (IMPLEMENTED, M4.B-S1 `e73e199` / M4.B-S2 `e76b925`)** | `Floor`/`Area` records + `FloorRegistry`/`AreaRegistry` interfaces; `EntityRole` enum (PRIMARY/DIAGNOSTIC/CONFIG) + `EntityType` 6×3 legality matrix; `Entity` 11→12 / `ProposedEntity` 3→4 with construction-time matrix guard; `hardwareIdentifiers` `List`→`Set`. **Workstream B complete.** |
+| **AMD-54..64 — integration-api interface freeze (RATIFIED + FROZEN, M4.C `8ef9e9f`)** | integration-api 22→40 types; descriptor 8→14, context 10→12, RequiredService 3→5, lifecycle permits 5→10 + 2 capability events; code-bearing `PermanentIntegrationException`, `SecurityServices`/`CredentialRotator`, `HealthDetail`, capability events/publisher, outcome enums. Contract-only; **supervisor impl = M9.** 29 invariants §24–§34. One DOCS-Project block review caught AMD-56's unimplementable trigger + AMD-55's void-reauth. **Workstream C → M4 complete.** |
+| **AMD-65 — `Expectation` persisted codec (QUEUED — BLOCKING-for-M9)** | Command-bearing `CapabilityAdded` does not round-trip yet; `WithinTolerance(double,double)` needs the AMD-52 float-determinism treatment; `@Disabled("AMD-65 pending")` test is the acceptance spec. To author in the M5 window. |
+| **P2 — AMD renumbering (RATIFIED 2026-05-29)** | device 46–49, projection 50–52 fixed (gaps unused at 46/48/49); integration assigned-at-milestone → AMD-54..64 taken contiguously. M6 configuration amendments = AMD-66–71 (Research 5; to author at M6). |
+
+**Watermark = AMD-64.** `projectionVersion` = 5. Next: M5 (Platform API + test-support) + the W3 website/docs standup; then M6 (Configuration). See `nexsys-hivemind/context/audits/2026-06-05_M4-retrospective.md` + `context/planning/2026-06-05_next-piece-recommendation.md`.
+
+---
+
+*19 LTDs + 17 DEC-M3s + 3 build/module hard constraints (DECIDE-04, LD#10, DECIDE-01) + 9 inline sub-decisions + 12 D-NNs verified 2026-05-27; M4 amendment-decision blocks (AMD-47/51/52/53/44/54-64/65 + P2) current to M4 COMPLETE `8ef9e9f` / watermark AMD-64 on 2026-06-05. For full rationale, amendment history, implementation notes, and cross-references, read homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md.*

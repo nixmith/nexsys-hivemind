@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-30 against M4.0b-3 commit `98f705b` (AMD-51 typed comparator COMPLETE + COMMITTED, build GREEN; `projectionVersion` 3; watermark AMD-51; Workstream A COMPLETE). Amendments table lists AMD-47 + AMD-51 RATIFIED+IMPLEMENTED + AMD-50. Prior: `60b4185` M4.B3, `7610296` M4.0b-2.
+last-verified: 2026-06-05 against `8ef9e9f` — **M4 COMPLETE** (Workstreams A+B+C; integration-api freeze AMD-54..64; watermark **AMD-64**; `projectionVersion` 5; new `core/value-model` module). Amendments tables list AMD-44 IMPLEMENTED (B-S1/S2), AMD-52/53 (Workstream A), AMD-54..64 (Workstream C freeze). Prior spine state: `98f705b` (M4.0b-3, watermark AMD-51).
 -->
 
 # HomeSynapse Core — Navigation Index
@@ -32,7 +32,7 @@ Each module has up to five documentation layers. Read them in this order when wo
 - **Traceability:** `homesynapse-core/docs/traceability/01-event-model.md`
 - **Handoff:** `homesynapse-core/docs/handoff/block-b-event-envelope.md`, `block-d-publisher-store.md`
 - **Source package:** `core/event-model/src/main/java/com/homesynapse/event/`
-- **Amendments:** AMD-01 (publish durability), AMD-04 (cascade depth in causal chain), AMD-06 (write contention), AMD-18 (causal chain timeout), AMD-19 (retention priority), AMD-28 (write path VT threading), AMD-33 (DomainEvent non-sealed), AMD-35 (persistent idempotency key on EventDraft)
+- **Amendments:** AMD-01 (publish durability), AMD-04 (cascade depth in causal chain), AMD-06 (write contention), AMD-18 (causal chain timeout), AMD-19 (retention priority), AMD-28 (write path VT threading), AMD-33 (DomainEvent non-sealed), AMD-35 (persistent idempotency key on EventDraft), AMD-58 (M4.C — 7 new `integration.*`/`capability.*` `EventTypes` string constants; the validity regex widened for dot-namespaced types)
 
 ### event-bus
 - **MODULE_CONTEXT:** `homesynapse-core/core/event-bus/MODULE_CONTEXT.md`
@@ -42,13 +42,19 @@ Each module has up to five documentation layers. Read them in this order when wo
 - **Source package:** `core/event-bus/src/main/java/com/homesynapse/event/bus/`
 - **Amendments:** (inherits AMD-01, AMD-06 via event-model), AMD-26 (subscriber VT threading in LTD-11), AMD-42 (subscriber lifecycle and isolation), AMD-43 (backpressure and observability), AMD-45 (atomic subscriber+view checkpoint coupling — DRAFT, M4.0 target)
 
+### value-model (NEW — M4.0b-4a `971cfa1`)
+- **MODULE_CONTEXT:** `homesynapse-core/core/value-model/MODULE_CONTEXT.md`
+- **Source package:** `core/value-model/src/main/java/com/homesynapse/value/`
+- **Role:** leaf module (java.base only) holding the relocated sealed `AttributeValue` hierarchy (8 variants) + `AttributeType`. event-model and device-model both `requires com.homesynapse.value`, which broke the JPMS event↔device cycle the typed AMD-52 payload created.
+- **Amendments:** AMD-52 §11 erratum (relocation rationale); the types carry the AMD-47 invariants.
+
 ### device-model
 - **MODULE_CONTEXT:** `homesynapse-core/core/device-model/MODULE_CONTEXT.md`
 - **Design doc:** `homesynapse-core-docs/design/02-device-model-and-capability-system.md`
 - **Traceability:** `homesynapse-core/docs/traceability/02-device-model.md`
 - **Handoff:** `homesynapse-core/docs/handoff/block-g-device-model.md`
 - **Source package:** `core/device-model/src/main/java/com/homesynapse/device/`
-- **Amendments:** AMD-17 (device orphan lifecycle), AMD-23 (cross-protocol identity), AMD-44 (Floor aggregate + EntityRole — RATIFIED, impl pending), AMD-47 (`AttributeValue` expansion + `AttributeValueUpcaster` SPI — RATIFIED + IMPLEMENTED, M4.B3 `60b4185`), AMD-51 (typed change-detection comparator — RATIFIED + IMPLEMENTED, M4.0b-3 `98f705b`; on-disk watermark AMD-51)
+- **Amendments:** AMD-17 (device orphan lifecycle), AMD-23 (cross-protocol identity), AMD-44 (Floor aggregate + EntityRole — **RATIFIED + IMPLEMENTED, M4.B-S1 `e73e199` / M4.B-S2 `e76b925`**: `Floor`/`Area`/`FloorRegistry`/`AreaRegistry`, `EntityRole` enum + `EntityType` 6×3 legality matrix, `hardwareIdentifiers` `Set`), AMD-47 (`AttributeValue` expansion + `AttributeValueUpcaster` SPI — RATIFIED + IMPLEMENTED, M4.B3 `60b4185`; **NOTE: the `AttributeValue` hierarchy itself relocated to `core/value-model` in M4.0b-4a — `AttributeSchema`/`AttributeValueUpcaster` stayed here**), AMD-51 (typed change-detection comparator — IMPLEMENTED, M4.0b-3 `98f705b`)
 
 ### state-store
 - **MODULE_CONTEXT:** `homesynapse-core/core/state-store/MODULE_CONTEXT.md`
@@ -89,7 +95,7 @@ Each module has up to five documentation layers. Read them in this order when wo
 - **Traceability:** `homesynapse-core/docs/traceability/05-integration-runtime.md` (shared)
 - **Handoff:** `homesynapse-core/docs/handoff/block-i-integration-api.md`
 - **Source package:** `integration/integration-api/src/main/java/com/homesynapse/integration/`
-- **Amendments:** AMD-14 (adapter dependency ordering)
+- **Amendments:** AMD-14 (adapter dependency ordering); **AMD-54..64 (M4.C interface freeze, `8ef9e9f`, RATIFIED 2026-06-05)** — descriptor config-schema versioning/soft-deps/isolation-level/planned-restart-timeout (54/61/63/64), lifecycle hooks + outcome enums (55), `AUTH_FAILED` + code-bearing `PermanentIntegrationException` (56), capability events + publisher + DiscoveryServices (59), SecurityServices/CredentialRotator (60), BackoffParameters (62). 22→40 types; supervisor impl = M9. **AMD-65 (Expectation codec) QUEUED BLOCKING-for-M9.**
 
 ### integration-runtime
 - **MODULE_CONTEXT:** `homesynapse-core/integration/integration-runtime/MODULE_CONTEXT.md`
@@ -97,7 +103,7 @@ Each module has up to five documentation layers. Read them in this order when wo
 - **Traceability:** `homesynapse-core/docs/traceability/05-integration-runtime.md` (shared)
 - **Handoff:** `homesynapse-core/docs/handoff/block-o-integration-runtime.md`
 - **Source package:** `integration/integration-runtime/src/main/java/com/homesynapse/integration/runtime/`
-- **Amendments:** AMD-14 (adapter dependency ordering / Kahn's algorithm)
+- **Amendments:** AMD-14 (adapter dependency ordering / Kahn's algorithm); **AMD-56 (`ExceptionClassification` 3→4, +`AUTH_FAILED`), AMD-57 (`HealthDetail` enum + `IntegrationHealthRecord` 13→14)** — contract surface only; supervisor impl = M9
 
 ### integration-zigbee
 - **MODULE_CONTEXT:** `homesynapse-core/integration/integration-zigbee/MODULE_CONTEXT.md`
@@ -348,7 +354,11 @@ AMD-41/42/43 are the M3 governance amendments that translate DEC-M3-01 through D
 | 45 | Atomic Subscriber+View Checkpoint Coupling | **RATIFIED + applied (M4.0a, `a441fdf`, 2026-05-29)** | Doc 03 §9, Doc 04 §3.12 (bus/projection checkpoint coordination) |
 | 47 | AttributeValue Hierarchy Expansion + AttributeValueUpcaster SPI | **RATIFIED + IMPLEMENTED (M4.B3, `60b4185`, 2026-05-30)** | Doc 02 §3.7/§8.2 — 8-variant sealed `AttributeValue` live in source; `AttributeValueUpcaster` SPI; `AttributeType` `QUANTITY`/`ARRAY`/`DEGRADED`; AMD-47-INV-01..05 §20. |
 | 50 | Version-Transition Reconciliation Backfill + Cursor Determinism | **RATIFIED + applied (M4.0b-2, `7610296`, 2026-05-29)** | Doc 03 §3.2.4 (refines AMD-41) — version-transition backfill, cursor-as-log-position, supersession, `Clock` removed from `DerivationContext`. |
-| 51 | Typed AttributeValue Change-Detection Comparator | **RATIFIED + IMPLEMENTED (M4.0b-3, `98f705b`, 2026-05-30)** | Doc 03 §3.2 — external `AttributeValueComparator` (state-store), total-form epsilon + IEEE-754 totality, symmetric reconstruction, `projectionVersion` 2→3; String `StateChangedEvent` payload preserved (AMD-52 staged); §2.6 erratum (missing-schema → `StringValue` string-compare); AMD-51-INV-01..05 §21. **On-disk amendment watermark = AMD-51.** |
+| 51 | Typed AttributeValue Change-Detection Comparator | **RATIFIED + IMPLEMENTED (M4.0b-3, `98f705b`, 2026-05-30)** | Doc 03 §3.2 — external `AttributeValueComparator` (state-store), total-form epsilon + IEEE-754 totality, symmetric reconstruction, `projectionVersion` 2→3; String `StateChangedEvent` payload preserved (AMD-52 staged); §2.6 erratum (missing-schema → `StringValue` string-compare); AMD-51-INV-01..05 §21.  |
+| 52 | Typed `StateChangedEvent` Payload + Serializer + Replay | **RATIFIED + IMPLEMENTED (M4.0b-4a/4b, `971cfa1`/`72596cb`, 2026-05-31)** | Doc 01/03/04 — typed payload + `{"t","v"[,"u"]}` codec + schema-versioned replay (Path-B `DegradedEvent`); `AttributeValue` relocated to `core/value-model` (§11 erratum); `projectionVersion` 3→4; AMD-52-INV-01..07 §22. |
+| 53 | Timestamp-Model Unifier (Event-Time Activity Timestamps) | **RATIFIED + IMPLEMENTED (M4.0b-5, `c99b425`, 2026-05-31)** | Doc 03 — all three activity timestamps event-time-sourced; `staleAfter`/`stale` carve-out; `projectionVersion` 4→5; AMD-53-INV-01/02 §23. |
+| 54..64 | Integration-API Interface Freeze (Workstream C block, 11 amendments) | **RATIFIED + FROZEN (M4.C, `8ef9e9f`, 2026-06-05)** | Doc 05 — integration-api 22→40 types; descriptor 8→14, context 10→12, RequiredService 3→5, lifecycle permits 5→10 + 2 capability events; 29 invariants §24–§34. Contract-only; supervisor impl = M9. **On-disk amendment watermark = AMD-64.** |
+| 65 | `Expectation` Persisted Sealed-Type Codec | **QUEUED — BLOCKING-for-M9** (surfaced M4.C) | Doc 04/05 — command-bearing `CapabilityAdded` round-trip; `WithinTolerance(double,double)` needs AMD-52 float-determinism; `@Disabled("AMD-65 pending")` test is the acceptance spec. |
 
 AMD-45 (applied in M4.0a) couples `subscriber_checkpoints` and `view_checkpoints` writes atomically via the `AtomicCheckpointSink` seam over `AtomicCheckpointWriter`; eliminates the crash-recovery window where the bus subscriber checkpoint outran the projection view checkpoint (all three bus writers gated, incl. both REPLAY writes — the D-1 correction). Refines AMD-38. AMD-50 (applied in M4.0b-2) is the general N→M version-transition discipline: a `backfillActive` provenance gate drives a non-emitting one-shot backfill that reconstructs historical attributes from the `state_reported` log on a `projectionVersion` transition (1→2 in M4.0b-2; the 2→3 typed reuse shipped in M4.0b-3). AMD-51 (applied in M4.0b-3) made change-detection typed — reconstruct both operands to their schema-declared `AttributeValue` and compare per-variant (the comparator is pure, an exhaustive no-`default` switch); it rode AMD-50's backfill unchanged for the 2→3 bump and preserved the String `StateChangedEvent` payload (the typed payload is **AMD-52**, staged behind the OQ-05-08 serializer/replay design beat). **AMD-44 stays RATIFIED-pending-implementation** (Floor/EntityRole impl is the M4.B breadth path). Files in `homesynapse-core-docs/design/amendments/`.
 
@@ -360,7 +370,7 @@ AMD-45 (applied in M4.0a) couples `subscriber_checkpoints` and `view_checkpoints
 - **Consumed research briefs** (`nexsys-hivemind/context/instructions/`): `Research_9_Projection_Rebuild_Backfill_Brief.md` (REC-76+ → AMD-50) and `Research_10_Typed_Attribute_Change_Detection_Brief.md` (REC-90+ → AMD-51) — both informed M4 Workstream A, now COMPLETE. **Next research target = event-sourced typed-payload persistence / schema-upcaster evolution / deterministic replay (Axon + peers)** for the AMD-52 design beat (OQ-05-08).
 - **Independent verification pass:** `nexsys-hivemind/context/handoff/2026-05-28_M4_plan_verification_cowork_prompt.md`.
 - **R-01..R-11 numbered test recommendations** (with severities) are formalized in `homesynapse-core/docs/archive/project-state-reports/HomeSynapse_Core_Project_State_Report_2026-04-08.md` (the 2026-04-07 research doc is the prose source; the 2026-04-08 report is the numbered one).
-- **AMD numbering — OPEN (P2):** Research 8 device-model amendments were tentatively numbered 44/45/46 and collide with the now-assigned AMD-44 (Floor) and AMD-45 (Checkpoint). A single renumbering pass (proposed: device→46/47/48, automation→49–53, integration→54–63, config→64–71, API→72–85) must be ratified before any M4 amendment file is authored.
+- **AMD numbering — P2 RATIFIED (2026-05-29):** device 46–49, projection 50–52 fixed (gaps unused at 46/48/49); integration assigned-at-milestone → the Workstream C block took AMD-54..64 contiguously from the live watermark. M6 configuration amendments are AMD-66–71 (Research 5; to author at M6).
 
 ---
 
@@ -407,4 +417,4 @@ In `homesynapse-core/`:
 
 ---
 
-**Last verified against:** `homesynapse-core` M3.7 closeout commit on `2026-05-27`. M3 COMPLETE.
+**Last verified against:** `homesynapse-core` **`8ef9e9f` (M4 COMPLETE)** on 2026-06-05. Workstreams A+B+C done; watermark **AMD-64**; `projectionVersion` 5; new `core/value-model` module; AMD-65 (Expectation codec) QUEUED BLOCKING-for-M9. Next: M5 (Platform API + test-support) + W3 website/docs.

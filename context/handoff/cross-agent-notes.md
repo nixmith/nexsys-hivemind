@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-06-05 — **AMD-54..64 RATIFIED + mechanics applied + M4.C ISSUED** (review return in context/audits/; arbitrations A1–A5 + E3/E7/E8 folded; 29 invariants §24–§34; watermark AMD-64; Doc-05 + Doc 02 folds); HEAD `e76b925` unchanged (documents-only). Prior: C briefing (block authored)
+last-verified: 2026-06-05 — M4 retrospective + next-piece recommendation; retroactive WUCP Phase 2 reconciliation of the partial M4.C closeout (pointer rotated, trail archived). HEAD `8ef9e9f`, M4 COMPLETE.
 -->
 
 # Cross-Agent Notes
@@ -19,6 +19,15 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 ---
 
 ## 2026-06-05 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER
+**Topic:** **M4 RETROSPECTIVE + NEXT-PIECE RECOMMENDATION authored (documents-only). Freshness preflight STALE (partial M4.C closeout) → retroactive WUCP Phase 2 reconciliation → PASS. HEAD `8ef9e9f` unchanged; M4 COMPLETE.**
+**Detail:** Two deliverables: `context/audits/2026-06-05_M4-retrospective.md` (constructive critique — milestone sizing P1; the instruction-scope-miss pattern + consumer/pin-survey fix P2; deferred-gate shift-left P5; the **partial-M4.C-closeout finding** P3 — recurs the 2026-04-11 M2.5 failure mode, preflight caught it; amendment-rigor lightweight block track P4; the debt register; strategic/velocity — non-Core still at zero P6; and the keep-doing list) and `context/planning/2026-06-05_next-piece-recommendation.md` (recommend **M5** Platform API + test-support as a small Core lane **paired with a non-preemptable W3 website/docs standup**; **M6** Configuration next; **AMD-65** Expectation codec authored in the M5 window).
+**Reconciliation applied (this session):** PROJECT_SNAPSHOT masthead restructured (run-on header -> 5-line current-state block; Days-remaining 182->173) + Recent-Session-Log rows added (M4.C-completion + this session); **coder-handoff M4.C Deferred Build Gate flipped OPEN->RESOLVED `8ef9e9f`**; W23 plan Current-state footer advanced `e73e199`/AMD-53 -> `8ef9e9f`/AMD-64/M4 COMPLETE; this pointer rotated + the superseded trail archived. Lower-priority drift noted for later: strategic-context-map prose still says "M4.0a NEXT".
+**Action needed:**
+- **Nick:** (1) **working-tree hygiene** — three uncommitted build-breaking edits exist at `8ef9e9f` (`EventCategoryMapping.java` with `categoriesFor()`/`explicitMappingCount()` deleted + truncated mid-Javadoc -> won't compile; `EventTypesTest.java`; `EventCategoryMappingTest.java`). Stray/corrupt, NOT real changes; recommend `git -C homesynapse-core checkout -- <the three files>` after confirming. (2) Commit the hivemind reconciliation + the two new docs + the five refreshed `project-knowledge/` spine files from host git. (3) **Re-upload the five `project-knowledge/` files to BOTH Claude Projects (CORE + DOCS)** — they were brought current to M4 COMPLETE / watermark AMD-64 / 133 invariants this session (Current_State, Knowledge_Primer, Navigation_Index, Invariants_Quick_Reference, Decisions_Quick_Reference); verify with a known-term search per the README protocol. (4) Decide the next-piece posture (recommendation §7).
+- **PM (next session):** on Nick's posture confirmation — write the W24 weekly plan; author AMD-66-71 (M6) + AMD-65 (lightweight block-track); issue the M5 coding instruction **with the P2 consumer/pin survey applied**; (posture A) stand up the W3 website/docs lane.
+- **Coder:** BLOCKED on the PM's next instruction (M5 or AMD-65). M9 must NOT publish command-bearing `CapabilityAdded` until AMD-65 lands.
+
+## 2026-06-05 [PM (Cowork) → Nick, Coder]  (M4.C WUCP Phase 2 — most recent prior; superseded by the M4-retro pointer above)
 **Topic:** **M4.C WUCP Phase 2 → APPROVE. Build GREEN (full `./gradlew check --continue`, 145 tasks). WORKSTREAM C COMPLETE → M4 COMPLETE. Commit pending `8ef9e9f`. Next WU = M9 supervisor (PM authors instruction), gated on AMD-65 (Expectation codec) + the pre-M9 queue.**
 **Detail:** PM read the changed contract surfaces + both `[REVIEW]`s vs source at the M4.C working tree: `CapabilityAdded` matches the R6 co-sign exactly (4 components, derived non-component `capabilityId()`, full `CapabilityInstance` for replay self-sufficiency); EventCategoryMapping's 7 new entries are sibling-consistent (5 integration.* → `[SYSTEM, DEVICE_HEALTH]`, 2 capability.* → `[DEVICE_STATE]`); `HomeSynapseCore` now aggregates all three event manifests (3-way `Stream.of(CORE, LIFECYCLE, CAPABILITY)`). Build GREEN end-to-end (integration-api/runtime/persistence/event-model/lifecycle all ran under `--continue`). **Both `[REVIEW]` deviations ACCEPTED:** (a) the categories (derived runtime lookup, freely amendable; PM-prescribed); (b) the composition-root/harness scope expansion (AMD-59 §3 mandate; no `module-info`/Gradle change; fixed a latent production gap — the right evidence-based call). The Coder's gate-fix round caught two production aggregation sites my fix-prescription missed — good work.
 **Closeout applied (PM WUCP Phase 2):** PROJECT_SNAPSHOT (M4.C + M4 COMPLETE, latest `8ef9e9f`, watermark AMD-64), milestone backlog (M4.C DONE; M4 parent COMPLETE; AMD-65 + NQ-6 spike queued pre-M9), W23 progress, pm-handoff, this pointer. Coder already did Phase 1 (coder-handoff/coder-lessons/MODULE_CONTEXTs).
@@ -26,6 +35,10 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 - **Nick:** commit core (`8ef9e9f` real SHA) + hivemind; run `sed -i 's/M4CSHA/<real-sha>/' context/status/PROJECT_SNAPSHOT.md context/planning/phase-3-milestone-backlog.md context/planning/weeks/2026-W23_jun01-jun07.md context/handoff/pm-handoff.md context/handoff/cross-agent-notes.md`; push all three repos.
 - **PM (next session):** pre-M9 work — author **AMD-65** (Expectation persisted codec, AMD-52 precedent; the `@Disabled` onOff test is its acceptance spec) → DOCS lightweight ratification → Coder WU; the **NQ-6 restart-intensity empirical spike**; then the M9 supervisor coding instruction. SPIKE-DC (dual-coordinator) remains pre-M14 (~Aug).
 - **Coder:** BLOCKED on the PM's next instruction (AMD-65 impl or M9). M9 must NOT publish command-bearing `CapabilityAdded` until AMD-65 lands.
+
+## Archived
+
+Entries below were superseded/resolved and moved under this separator at the 2026-06-04 PM session-start reconciliation (all action items closed by the M4.0b-4a/4b/5 + M4.B-S1 closeout chain; content preserved verbatim).
 
 ## 2026-06-05 [Coder (Claude Code) → PM, Nick]  (superseded by the PM Phase 2 pointer above)
 **Topic:** **M4.C (AMD-54..64 integration-api interface freeze) COMPLETE — files produced, BUILD GATE DEFERRED to Nick. STOP-gates G1–G13 ALL PASS at `e76b925`. One serde defect surfaced and Nick-arbitrated (Option 2) → spins off ~AMD-65 (BLOCKING-for-M9, NOT for M4.C). Next WU = M9 supervisor (PM).**
@@ -78,10 +91,6 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 - **Nick: commit hivemind** (this Phase 2 closeout + the Coder's Phase 1 artifacts). homesynapse-core already committed `e73e199`; docs clean.
 - **PM (next session): cleanup pass** (PLAN-M4-CONSOLIDATED-v2 §3 currency; AMD-44 Doc 02 §11.2 + AreaId-Javadoc doc-fold; coder-handoff stale-gate prune; dual-skill-mirror sync) → then **author the B Stage 2 (EntityRole) coding instruction**.
 - **Coder:** BLOCKED on the PM's B Stage 2 instruction (refuse-to-close).
-
-## Archived
-
-Entries below were superseded/resolved and moved under this separator at the 2026-06-04 PM session-start reconciliation (all action items closed by the M4.0b-4a/4b/5 + M4.B-S1 closeout chain; content preserved verbatim).
 
 ## 2026-05-31 [Coder (Claude Code) → PM, Nick]  (superseded by the PM Phase 2 pointer above)
 **Topic:** **M4.B-S1 (AMD-44 Stage 1 — Floor aggregate + minimal Area + `Set<HardwareIdentifier>` refactor) COMPLETE — files produced, BUILD GATE DEFERRED. No `[BLOCKING]`/`[REVIEW]` deviations (three `[INFO]`). Next WU = M4.B-S2 (AMD-44 Stage 2 — EntityRole).**
@@ -337,4 +346,4 @@ Archived notes (older than ~2 weeks): see `archive/cross-agent-notes-2026-Q1.md`
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `e73e199` on `2026-06-04` (M4.B-S1 / AMD-44 Stage 1; `projectionVersion` 5; **on-disk amendment watermark AMD-53**). Superseded 2026-05-30/31 entries archived at the 2026-06-04 session-start reconciliation. Prior basis: `c99b425` (M4.0b-5) / `72596cb` (M4.0b-4b) / `98f705b` (M4.0b-3).
+**Last verified against:** `homesynapse-core` commit `e73e199` on `2026-06-04` (M4.B-S1 / AMD-44 Stage 1; `projectionVersion` 5; **on-disk amendment watermark AMD-53**). Superseded 2026-05-30/31 entries archived at the 2026-06-04 session-start reconciliation. Prior basis: `c99b425` (M4.0b-5) / `72596cb` (M4.0b-4b) / `98f705b` (M4.0b-3

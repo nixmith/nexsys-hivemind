@@ -5,7 +5,7 @@ audience: All
 update-cadence: per-milestone
 state-type: current
 status: CURRENT
-last-verified: 2026-06-05 against HEAD `e76b925` — **AMD-54..64 RATIFIED (DOCS review RATIFY-WITH-EDITS + Nick arbitrations A1–A5/E3/E7/E8, all folded; review return `context/audits/2026-06-05_AMD-54-64_DOCS_Review_Return.md`); ratification mechanics applied (29 invariants §24–§34, watermark AMD-53→AMD-64, Doc-05 body-fold, Doc 02 Stage-2 fold, nav-index rows); M4.C instruction ⛔ LIFTED + ISSUED.** Prior same day: M4.B-S2 DONE `e76b925`, PM Phase 2 → APPROVE; **Workstream B COMPLETE**. SPIKE-DC scheduled (~Aug). Prior this chain: M4.B-S1 DONE `e73e199`; M4.0b-5 (AMD-53) DONE `c99b425` (`projectionVersion`=5, **Workstream A complete — typed end-to-end AND event-time-deterministic**); M4.0b-4b (AMD-52) DONE `72596cb`; M4.0b-4a (relocation) DONE `971cfa1`; M4.0b-3 (AMD-51) DONE `98f705b`.
+last-verified: 2026-06-05 against HEAD `8ef9e9f` — **M4 COMPLETE** (M4.C / AMD-54..64 integration-api freeze DONE `8ef9e9f`; watermark AMD-64; `projectionVersion`=5; build GREEN, 145 tasks). M4 retrospective + next-piece recommendation authored; debt + process proposals P1–P6 logged below (see the "M4 Retrospective — debt + process proposals" subsection). Pre-M9 queue: AMD-65 (Expectation codec) + NQ-6 restart spike. Prior: AMD-54..64 RATIFIED (DOCS review RATIFY-WITH-EDITS; return `context/audits/2026-06-05_AMD-54-64_DOCS_Review_Return.md`); M4.B-S2 DONE `e76b925`; M4.B-S1 DONE `e73e199`; M4.0b-5 (AMD-53) DONE `c99b425`; M4.0b-4b (AMD-52) DONE `72596cb`; M4.0b-4a DONE `971cfa1`; M4.0b-3 (AMD-51) DONE `98f705b`.
 -->
 
 # Phase 3 Milestone Backlog — ACTIVE
@@ -108,6 +108,21 @@ The first real production implementation. M2.x delivers the event-sourced storag
 |---|---|---|---|
 | **AMD-65** | **`Expectation` persisted sealed-type codec** — hand-rolled `JsonSerializer`/`JsonDeserializer` pair in `PersistenceJacksonModule` over the 4 `Expectation` permits (ExactMatch/AnyChange wrap `AttributeValue` → existing codec; EnumTransition wraps String; **WithinTolerance(double,double) needs the AMD-52 bit-anchored-float / non-finite-sentinel determinism treatment**). Required for command-bearing `CapabilityAdded` round-trip (AMD-59-INV-02). | **QUEUED — BLOCKING-for-M9** (surfaced M4.C 2026-06-05) | Small ratified amendment (AMD-52 precedent, lightweight DOCS review) → Coder WU. Acceptance spec already exists: the `@Disabled("AMD-65 pending")` `EventPayloadCodecTest.CapabilityEvents.capabilityAdded_onOff_roundTrips`. **M9 must NOT publish command-bearing `CapabilityAdded` until this lands.** |
 | **NQ-6 restart spike** | Empirical Zigbee/Matter restart-frequency measurement on a Pi to validate/tune the 1/60s default restart intensity (Research 6 NQ-6). | QUEUED — pre-M9 | Informs `HealthParameters.defaults()` / per-descriptor override; non-blocking for M9 design, validates a default. |
+
+### M4 Retrospective — debt + process proposals (2026-06-05)
+
+Source: `context/audits/2026-06-05_M4-retrospective.md` (full analysis) + `context/planning/2026-06-05_next-piece-recommendation.md` (next piece). Logged here for tracking.
+
+| Item | Type | Status | Notes |
+|---|---|---|---|
+| **AMD-65 Expectation codec** | Code debt (amendment + Coder WU) | QUEUED — BLOCKING-for-M9 | See the AMD-65 row above. Recommend authoring in the M5 window (lightweight block-track). |
+| **Event-naming dual-convention note** | Doc debt | TODO (low) | Snake legacy + dot new is now permanent; `EventTypesTest`'s widened regex accepts both (documented, not enforced). Add a rule to Doc 01 / event-model MODULE_CONTEXT: legacy snake frozen; all new events dot-namespaced. Retrospective §7.2. |
+| **EventCategoryMapping reauth categories** | Doc/contract refinement | TODO (low) | The Coder-chosen `[SYSTEM, DEVICE_HEALTH]` for the 5 `integration.*` lifecycle events is confirmed sibling-consistent, but a `SECURITY` `EventCategory` exists and the two `integration.reauth.*` events may warrant it. Derived, freely-amendable runtime lookup — revisit at M9 when these events first fire. Retrospective §7.3. |
+| **PLAN-M4-CONSOLIDATED currency** | Doc debt | TODO → mark SUPERSEDED | v2 §3 never caught up to the shipped M4 (re-scopes, the AMD-52 §11 relocation, the timestamp unifier, the 54+55 block split). Recommend a SUPERSEDED-BY masthead pointing at this backlog + the retrospective rather than retrofitting it. Retrospective §7.4. |
+| **Phase-2 traceability stubs** | Doc debt (carried from Phase 2) | DEFERRED — per-subsystem trigger | 10 stub indexes remain (docs 02–11, 13, 14). Stop scheduling a standalone sweep; populate each doc's index when that subsystem next gets a milestone (Doc 06 at M6, Doc 09/10 at M10/M11). Retrospective §7.5. |
+| **Process proposals P1–P6** | PM-process | PROPOSED | P1 milestone-sizing smell test; **P2 mandatory consumer/pin (fan-out) survey** in the coding-instruction format; P3 enumerated/ticked WUCP Phase 2 artifact checklist (retire the placeholder-`sed`); P4 lightweight block-amendment track; P5 shift-left inspection-discoverable gate misses; P6 non-preemptable non-Core capacity floor. Fold into the PM skill references / `coding-instruction-format.md` on Nick's adoption. Retrospective §10. |
+| **M6 amendment prerequisite** | Pre-M6 planning | NOTE | Before M6 coding, author/ratify AMD-66–71 (Research 5, assessed A−). AMD-67's REC-41 blocker is now cleared by the M4.C config-schema-versioning freeze (AMD-54) — PM confirm at M6 authoring. Recommendation §2. |
+| **strategic-context-map prose currency** | Doc debt (low) | TODO | Still says "M4.0a NEXT" + 2026-05-28 file/test counts. Refresh at next structural update. |
 
 ### Scheduled pre-M14 spike (Nick-approved 2026-06-05)
 

@@ -24,7 +24,7 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 **Action needed:**
 - **Nick:** (1) commit this session's synthesis + decision register + W24 charter + closeout edits from host git. (2) **First piece to execute = M5-B / B1, the M6 entry-gate** — author the INV-PD-07 amendment (D2 + boundary) → full DOCS review; promote the crypto Draft to an owned doc reconciled with Doc 06 + AMD-60; author + ratify AMD-66–71. (3) Schedule the M5-D energy interviews (incl. the verifiable-erasure question — the D2 re-scope-up trigger).
 - **PM (next session):** execute M5-B/B1; in parallel set up M5-A (Coder instruction with the P2 consumer/pin survey), M5-C (website/docs standup), M5-D (Pi spikes).
-- **Coder:** next WU = **M5-A** (PlatformPaths/HealthReporter impls + AMD-65 + FloorId registration) once the PM issues it. M9 still must NOT publish command-bearing `CapabilityAdded` until AMD-65 lands.
+- **Coder:** next WU = **M5-A** (PlatformPaths/HealthReporter impls + **AMD-87** Expectation codec [reassigned from retired AMD-65 per INV-GA-02] + FloorId registration) — instruction authored (`context/coding-instructions/M5-A_Platform_Impls_AMD87_FloorId.md`), issue-ready. M9 still must NOT publish command-bearing `CapabilityAdded` until the AMD-87 codec lands.
 
 ## 2026-06-05 [PM (Cowork) → Nick, Coder]  (M4 retrospective + next-piece — superseded by the M5-window pointer above)
 **Topic:** **M4 RETROSPECTIVE + NEXT-PIECE RECOMMENDATION authored (documents-only). Freshness preflight STALE (partial M4.C closeout) → retroactive WUCP Phase 2 reconciliation → PASS. HEAD `8ef9e9f` unchanged; M4 COMPLETE.**

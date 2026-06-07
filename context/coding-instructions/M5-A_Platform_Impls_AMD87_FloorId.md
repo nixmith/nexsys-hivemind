@@ -3,7 +3,7 @@ file: context/coding-instructions/M5-A_Platform_Impls_AMD87_FloorId.md
 amd-number-note: the Expectation codec is **AMD-87** (reassigned from the retired AMD-65 per INV-GA-02 — AMD-64/65 retired post Research 5 v2; AMD-86 = INV-PD-07/crypto; AMD-87 next clean). The live `@Disabled("AMD-65 pending")` annotation in EventPayloadCodecTest is the retired number in existing code — delete it, do not re-number.
 purpose: M5-A coding instruction — platform deployment impls (PlatformPaths/HealthReporter) + AMD-87 Expectation codec + FloorId Jackson registration. The small-Core lane of the M5 window (decisions D1–D8; charter weeks/2026-W24).
 audience: Coder (Claude Code), PM
-status: ISSUE-READY for the platform + FloorId parts; the AMD-87 codec part is ⛔ GATED on AMD-87 lightweight ratification (un-gate when AMD-87 RATIFIED).
+status: Parts 1+3 DONE + COMMITTED `8028337` (GREEN, 147 tasks). **Part 2 (AMD-87 codec) UN-GATED 2026-06-07 (AMD-87 RATIFIED) → the issue-ready Claude Code instruction is the standalone `M5-A-Part2_AMD87_Expectation_Codec.md`** (Part 2 extracted + de-gated; build on the post-Part-3 tree — FloorId already registered). This 3-part doc is retained for provenance.
 baseline: homesynapse-core HEAD `8ef9e9f` (M4 COMPLETE; build GREEN 145 tasks). Re-verify at issue.
 -->
 

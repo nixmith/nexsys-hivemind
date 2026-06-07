@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Coder Freshness Preflight
@@ -27,7 +27,7 @@ This file and `../../project-manager/references/freshness-preflight.md` together
 
 ---
 
-## 2. The Six Checks
+## 2. The Seven Checks
 
 ### Check 1 — PROJECT_SNAPSHOT.md vs. coder-handoff.md consistency
 
@@ -85,11 +85,19 @@ diff -rq \
 - **STALE** if `diff -rq` reports "Only in ClaudeFolder" entries — a PM edit hasn't been mirrored yet; Nick runs the mirror sync externally.
 - **CONFLICTED** if `diff -rq` reports "differ" entries — same file, divergent content.
 
+### Check 7 — Source round-trip (no fabricated types)
+
+Before writing a MODULE_CONTEXT.md update or citing a type in a handoff, confirm every class/type name resolves in `../../homesynapse-core` source, and regenerate any count from source rather than copying it from a prior doc. (Coder-side subset of the PM preflight's source-round-trip check.)
+
+- **PASS** if cited names resolve in source and counts are source-derived.
+- **STALE** if a count was copied forward and no longer matches source.
+- **CONFLICTED** if a cited type does not exist in source — a fabrication; do not write it into MODULE_CONTEXT or the handoff.
+
 ---
 
 ## 3. Aggregating to PASS / STALE / CONFLICTED
 
-- **PASS** — all six checks PASS. Proceed with the coding instruction.
+- **PASS** — all seven checks PASS. Proceed with the coding instruction.
 - **STALE** — at least one check STALE, zero CONFLICTED. See §4.
 - **CONFLICTED** — at least one check CONFLICTED, regardless of others. See §5.
 
@@ -133,6 +141,7 @@ Check 3 (instruction refs exist):      PASS
 Check 4 (target MODULE_CONTEXT):       PASS
 Check 5 (arch-rule whitelist aware):   PASS
 Check 6 (dual skill mirrors):          STALE  (expected — post-PM-edit, pre-sync)
+Check 7 (source round-trip):           PASS
 
 Aggregate: STALE
 Allowed activity: ground-truth gathering only; escalate to PM
@@ -141,7 +150,7 @@ Allowed activity: ground-truth gathering only; escalate to PM
 If PASS, single-line record suffices:
 
 ```
-CODER FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 6 checks)
+CODER FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 7 checks)
 ```
 
 ---

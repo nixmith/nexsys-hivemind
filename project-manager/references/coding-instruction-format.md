@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Coding Instruction Format — Coder Communication Protocol
@@ -346,9 +346,9 @@ This prevents the Coder from surfacing legitimate technical concerns. The Coder 
 
 ---
 
-## M3 Cowork Prompt Enhancements (Post-M3.1)
+## Cowork Prompt Conventions (standard since M3.1; extended through M5)
 
-The M3.1 prompt demonstrated an evolved format that should be used for all subsequent M3 milestones. These additions supplement the template above.
+These conventions supplement the template above. They emerged in the M3.1 prompt and are now standard for **every** Phase-3 coding instruction; the M4/M5 additions (the consumer/pin survey, the §4c reminder, gated parts, verbatim module-info embeds, the `requires transitive`↔`api` authoring check) are folded in below.
 
 ### STOP-on-Mismatch Gates
 
@@ -426,6 +426,8 @@ Nick will run the build gate after reviewing your output.
 Deferred build gate: flag it in coder-handoff.md and WUCP Phase 1 checklist.
 ```
 
+**Shift-left self-check (P5).** The full `./gradlew check` stays deferred to Nick's environment, but when the sandbox can run Gradle the Coder should run a single targeted `./gradlew :module:compileJava` on each touched `-Werror`-sensitive module before handoff. It surfaces `[exports]`, redundant-cast, and unused-import failures in ~20s and converts the lockstep class of misses from a Nick round-trip into an in-session fix. Target: GREEN in one round. (Not the full `check` — that stays the deferred gate.)
+
 ### MODULE_CONTEXT Update Spec
 
 Every prompt that creates or modifies production types must specify the MODULE_CONTEXT update:
@@ -448,3 +450,34 @@ Before generating any Cowork prompt that extends an interface:
 2. **Check for existing implementations** in testFixtures — specify `default` vs abstract.
 3. **Check for contract test subclasses** — specify capability hooks if new tiers are needed.
 4. **Verify ArchUnit rule citations** against actual `HomeSynapseArchRules.java` source — do not cite fictitious rules.
+
+### Consumer/Pin (Fan-Out) Survey (P2 — mandatory)
+
+For any change that touches an enum, a registry, an event-type set, a sealed hierarchy, a category/mapping table, or **any counted-or-pinned set**, the instruction MUST enumerate every dependent before issue — not just the producer. Run a repo-wide grep and list each in Files to Modify with its required delta. The categories to sweep:
+
+- **count pins** — `hasSize(N)`, `isEqualTo(N)`, `getDeclaredMethods().length`, `getRecordComponents().hasSize(N)`;
+- **validity regexes / format validators** over the set (e.g. an event-type naming regex);
+- **category / mapping / lookup tables** keyed by the set — `EventCategoryMapping.TABLE` is main-source and the easy miss;
+- **manifest / "all-X" aggregators** and `Stream.concat(...)` registries;
+- **composition-root AND test-harness registrations** — the production composition root (`HomeSynapseCore`) is the dangerous one: a missed manifest there is a latent runtime defect that **no test pins**;
+- **exhaustive `switch` statements** over the set (no-`default` ones compile-fail, which is good, but still list them).
+
+Emit the result as a `## P2 Consumer/Pin (Fan-Out) Survey` section in the instruction (see the M5-A instruction for the worked shape). **Why it exists:** M4.C listed the producer (`EventTypes` +7 constants) but not its seven pin/consumer sites — including the `HomeSynapseCore` aggregation, a latent-M9 bug no test caught — costing a two-round gate bounce. This is the control that makes lockstep clusters go GREEN in one round (P5).
+
+### Arch-Rule Test-Clock Reminder (§4c — include for non-whitelisted target modules)
+
+When the target module is outside `com.homesynapse.{app,platform,test}..`, paste this verbatim into "What to Watch Out For":
+
+> **Tests must inject `Clock`.** Do NOT use `Clock.systemUTC()`, `Instant.now()`, `System.nanoTime()`, or `System.currentTimeMillis()` in this module's test code — the `NO_DIRECT_TIME_ACCESS` ArchUnit rule scans non-whitelisted test classes and fails `./gradlew check`. Use `Clock.fixed(Instant.parse("2026-01-01T00:00:00Z"), ZoneOffset.UTC)` injected via constructor/`@BeforeEach`.
+
+No reminder is needed when the target is `com.homesynapse.{app,platform,test}..` (whitelisted).
+
+### Gated Parts & Verbatim module-info Embeds
+
+- **⛔ gate markers.** When an instruction bundles parts that depend on a not-yet-ratified amendment or an upstream gate, mark each gated row/section with **⛔** and state the un-gate condition in the masthead (e.g. "⛔ GATED on the codec amendment's ratification"). Non-gated parts may land first.
+- **Verbatim module-info, with a PROPOSED DIFF.** When the instruction proposes JPMS changes (new `requires`/`exports`/module), quote the current `module-info.java` **verbatim** in the Technical Specification and show the proposed diff. Never paraphrase module names (the Research-6 fabrication lesson).
+- **`requires transitive` ↔ Gradle `api` authoring check — do this BEFORE embedding a module-info.** For each public type in an **exported** package, check whether its API surface (supertype, return type, parameter, field) names a type from another module. If so, that module must be `requires transitive` in the embed **and** `api(...)` in `build.gradle.kts` (plain `requires` ⇔ `implementation(...)`). A plain `requires` under these conditions trips `-Xlint:exports` → `-Werror` → a hard compile failure. This has recurred three times (M2.9, M3.6e.1, M5-A) — twice the **embedded module-info in the instruction itself** was the defect. Never hand the Coder a non-transitive embed for a module that exports impls of another module's types.
+
+### Instruction Masthead Conventions
+
+Real instructions carry an HTML-comment masthead with `purpose`, `audience`, `status` (`ISSUE-READY` / `⛔ GATED on …` / `COMPLETE`), and `baseline:` (the HEAD the instruction was authored against — re-verify at issue). When an amendment number is **in flight**, use neutral phrasing ("the current amendment watermark", "the codec amendment") rather than pinning a still-PROPOSED number; add an `amd-number-note` only when a renumber is live (per INV-GA-02, identifiers are never reused, so a retired number must not be re-cited as live).

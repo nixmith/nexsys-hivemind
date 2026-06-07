@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Deviation Protocol and Quality Standards
@@ -27,7 +27,7 @@ Run through this list for every piece of code before submitting to the PM. If an
 ### Locked Decision Compliance
 - [ ] **LTD-01:** Java 21 features only, no preview features, correct JVM configuration referenced
 - [ ] **LTD-03:** SQLite PRAGMAs match the specification (if touching persistence)
-- [ ] **LTD-04:** All identifiers use typed ULID wrappers. BLOB(16) in SQLite. Crockford Base32 only at API boundaries and logs. `getMonotonicUlid()` for event IDs, `getUlid()` for entity IDs.
+- [ ] **LTD-04:** All identifiers use typed ULID wrappers. BLOB(16) in SQLite. Crockford Base32 only at API boundaries and logs. `UlidFactory.monotonic()` for event IDs, `UlidFactory.generate(clock)` for entity IDs (hand-rolled in platform-api; the `ulid-creator` library was removed, DECIDE-02).
 - [ ] **LTD-05:** Per-entity sequences, not global. `(subject_ref, subject_sequence)` unique constraint.
 - [ ] **LTD-08:** Jackson for all JSON serialization. Custom serializers for ULID types.
 - [ ] **LTD-09:** YAML for user-facing config (if touching configuration). JSON Schema validation.
@@ -206,15 +206,15 @@ long publish(DomainEvent event, @Nullable CausalContext cause);
  * when producing downstream events.
  *
  * @param correlationId the root event's ID, propagated unchanged through the chain
- * @param causationId the immediately preceding event's ID
- * @param actorRef the entity or person that initiated the causal chain, nullable
+ * @param causationId the immediately preceding event's ID; null for a root event
  */
 public record CausalContext(
-    EventId correlationId,
-    EventId causationId,
-    @Nullable Ulid actorRef
+    Ulid correlationId,
+    Ulid causationId
 ) {}
 ```
+
+**Note:** `CausalContext` is **2 fields** — `actorRef` lives on `EventEnvelope`, not here (so it can be indexed directly for multi-user audit, INV-MU-01). Both IDs are raw `Ulid` values corresponding to `EventId`s.
 
 ### Inline Comments
 
@@ -347,6 +347,10 @@ Derived events (events produced by subscribers while processing other events) ha
 - **`CausalContext`**: Construct via `CausalContext.chain(causingEnvelope.causalContext().correlationId(), causingEnvelope.eventId().value())`.
 
 **Rule: `Instant.now()` is never correct for a derived event's `eventTime`. The publisher handles `ingestTime` — that is the system timestamp. `eventTime` belongs to the real world.**
+
+### Sandbox git is not authoritative
+
+In-sandbox `git status` / `git diff` are unreliable: they surface spurious line-ending churn (large phantom modified-file lists, including files you never touched) and can mangle a diff — e.g. report a method or whole block deleted that is intact in the file. **The Read tool on the working tree is authoritative** for current content; commits go through host git, not the sandbox. Never base a "what changed / what the file says" claim on sandbox `git diff` — read the file. (This is also why the build gate is deferred to Nick's environment and the dual-skill mirror sync is run by Nick, not from the sandbox.)
 
 ### Origin: Architecture Benchmark 2026-03-22
 

@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Freshness Preflight
@@ -26,9 +26,9 @@ This file and `../../coder/references/freshness-preflight.md` together form the 
 
 ---
 
-## 2. The Ten Checks
+## 2. The Eleven Checks
 
-Run all ten. Each check either passes, flags STALE, or flags CONFLICTED. Do not short-circuit — one PASS does not excuse running the others, because drift compounds.
+Run all eleven. Each check either passes, flags STALE, or flags CONFLICTED. Do not short-circuit — one PASS does not excuse running the others, because drift compounds.
 
 ### Check 1 — PROJECT_SNAPSHOT.md last-sync timestamp
 
@@ -136,11 +136,21 @@ Spot-check that every reference file cited in `../../context/strategic-context-m
 - **STALE** if a cited file has been renamed but the map still shows the old name.
 - **CONFLICTED** if a cited file is missing entirely.
 
+### Check 11 — Source round-trip (no fabricated types or stale counts)
+
+Spot-check that state docs (PROJECT_SNAPSHOT, the Knowledge Primer, MODULE_CONTEXTs) have not drifted from source: every class/type name a state doc cites must `grep`-resolve in `../../homesynapse-core`, and every quantitative claim (test count, file count, type count, module count, amendment status) must be regenerable from source or the authoritative register — not copied forward from a prior doc.
+
+- **PASS** if spot-checked names resolve in source and spot-checked counts match a fresh source/register derivation.
+- **STALE** if a count was copied-forward and no longer matches source (regenerate it).
+- **CONFLICTED** if a state doc asserts a type/class that does not exist in source — a fabrication (e.g. the `MinimalDerivationRule` that survived multiple closeouts; the production no-op is a `DerivationRule` lambda, not a class).
+
+This generalizes the research-brief module-info embedding discipline to the project-knowledge docs themselves: doc-to-doc consistency is necessary but not sufficient — it can make a fabrication *more* consistent without making it *true*.
+
 ---
 
 ## 3. Aggregating to PASS / STALE / CONFLICTED
 
-- **PASS** — all ten checks returned PASS. Forward work is unblocked. Proceed to the task brief.
+- **PASS** — all eleven checks returned PASS. Forward work is unblocked. Proceed to the task brief.
 - **STALE** — at least one check returned STALE, zero returned CONFLICTED. See §4.
 - **CONFLICTED** — at least one check returned CONFLICTED, regardless of other results. See §5.
 
@@ -196,6 +206,7 @@ Check 7 (MODULE_CONTEXT populated):    PASS
 Check 8 (cross-agent-notes active):    PASS
 Check 9 (dual skill mirrors):          STALE  (expected — post-edit, pre-sync)
 Check 10 (strategic-context-map refs): PASS
+Check 11 (source round-trip):          PASS
 
 Aggregate: STALE
 Allowed activity: retroactive reconciliation only
@@ -205,7 +216,7 @@ Blocking issue: Nick's external mirror sync pending (Check 9)
 If the aggregate is PASS, a single-line record suffices:
 
 ```
-FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 10 checks)
+FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 11 checks)
 ```
 
 ---

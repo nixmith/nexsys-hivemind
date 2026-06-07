@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Constraint Enforcement Guide
@@ -20,8 +20,8 @@ This guide teaches you HOW to apply constraints, not what they contain. Always r
 
 | Constraint Type | Source File | What It Governs | How Many |
 |---|---|---|---|
-| Architecture Invariants (INV-XX-NN) | `homesynapse-core-docs/governance/Architecture_Invariants_v1.md` | What properties the system must exhibit | 81 across 15 categories |
-| Locked Technical Decisions (LTD-NN) | `homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md` | What technologies and patterns are used | 18 decisions |
+| Architecture Invariants (INV-XX-NN) | `homesynapse-core-docs/governance/Architecture_Invariants_v1.md` | What properties the system must exhibit | **read §0.3 + §17 for the live count** (≈135 across ≈34 categories — base `INV-XX-NN` + per-amendment `AMD-NN-INV`; rises every amendment, so never cite a frozen number) |
+| Locked Technical Decisions (LTD-NN) | `homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md` | What technologies and patterns are used | 19 decisions |
 | Non-Negotiable Principles | `nexsys-hivemind/context/strategy/Revenue_Model_and_Licensing_Strategy.md` §"Revenue Principles (Non-Negotiable)" and `Six_Battlefields_MVP_Strategy.md` | What NexSys will never do | ~10 principles |
 | MVP Scope Rules | `homesynapse-core-docs/governance/HomeSynapse_Core_v1_Project_MVP.md` | What's in/out of the MVP | Per-subsystem scope lists |
 | Glossary Terms | `homesynapse-core-docs/foundations/HomeSynapse_Core_v1_Glossary.md` | What names to use | Full vocabulary |
@@ -57,14 +57,13 @@ Verify that no subscriber ever processes an event that is not persisted.
 
 **Common mistake:** Citing an invariant without operationalizing it. "This satisfies INV-ES-04" is not enforcement. You must state HOW it satisfies it, and what test proves it.
 
-**Independent verification:** The task brief may not cite every relevant invariant. Before finalizing any work product, scan the invariant index (Architecture Invariants §17) and ask: does this subsystem participate in any invariants not already cited? The 15 categories are:
-1. Local-First (LF), 2. Event Sourcing (ES), 3. Reliability & Fault Tolerance (RF), 4. Contract Stability (CS), 5. Homeowner Control (HO), 6. Privacy & Data Sovereignty (PD), 7. Observability (OB), 8. Core Engine (CE), 9. Security (SE), 10. AI (AI), 11. Energy Intelligence (EI), 12. Multi-User (MU), 13. Mesh Network (MN), 14. Governance (GA), 15. Performance (PR)
+**Independent verification:** The task brief may not cite every relevant invariant. Before finalizing any work product, scan the invariant index (Architecture Invariants §17) and ask: does this subsystem participate in any invariants not already cited? **Read the §0.3 category-prefix table for the authoritative list and §17 for the live total — do not rely on a hardcoded copy here** (it drifts every amendment; as of this writing ≈135 across ≈34 categories and rising). Core prefixes: LF (Local-First), ES (Event Sourcing), RF (Reliability/Fault Tolerance), CS (Compatibility/Stability), HO (Household Operability), PD (Privacy/Data Sovereignty), **TO (Transparency & Observability — note: `TO`, not `OB`)**, CE (Configuration & Extensibility), PR (Performance), SE (Security), AI, EI (Energy), MU (Multi-User), MN (Mesh/Network), GA (Governance — includes **INV-GA-02 "Invariant Identifiers Are Permanent"**, the identifier-non-reuse rule that also governs retired-AMD-number reuse), the M3 distribution families **BUS / PROJ / WRITER / SUB-ISO** (§19), and the per-amendment **`AMD-NN-INV`** families (§20+).
 
 ### Locked Technical Decisions (LTD-NN)
 
 **How to apply:** LTDs are implementation constraints. They specify WHAT to use, often with exact configuration. Your job is to ensure every relevant LTD is followed precisely.
 
-**The 18 LTDs at a glance (always read the full register for details):**
+**The 19 LTDs at a glance (always read the full register for details):**
 
 | LTD | Constraint | What to Check |
 |---|---|---|
@@ -86,6 +85,7 @@ Verify that no subscriber ever processes an event that is not persisted.
 | 16 | REST (Javalin) + WebSocket + JSON Schema | API framework, schema validation of requests |
 | 17 | In-process compiled modules, build-enforced boundaries, NO ServiceLoader | No OSGi, no ServiceLoader (DECIDE-04). Direct factory construction. module-graph-assert + ArchUnit enforcement |
 | 18 | Web UI Technology — Preact SPA for Observability MVP, HTMX for Tier 2+ config UI | Preact for dashboard, HTMX reserved for configuration interfaces |
+| 19 | Event payload serialization via `EventTypeRegistry` + `PersistenceJacksonModule` (extends LTD-08) | Registry-driven payload (de)serialization in the persistence layer; `JacksonWarmup` pre-warm; no `@JsonTypeInfo` on domain types (Jackson-isolation / ArchUnit Rule 10) |
 
 **Operationalizing an LTD in a coding instruction:**
 Don't just cite "LTD-04." State the specific constraint the Coder will encounter:
@@ -104,6 +104,8 @@ UlidFactory is in platform-api (hand-rolled, VT-safe — DECIDE-02, 2026-03-20).
 This rule exists because Blocks I, K, and N all had handoffs specifying `requires` that the compiler rejected — the expanded JPMS surface (especially exception types and record components) is consistently underestimated.
 
 **When writing a handoff:** Start with `requires transitive` for every inter-module dependency. To downgrade to `requires`, provide explicit justification citing which exported API surfaces you verified are free of types from the required module.
+
+**Gradle-scope lockstep.** `requires transitive X` in `module-info.java` MUST pair with `api(project(...))` in `build.gradle.kts`; plain `requires X` pairs with `implementation(...)`. If the two disagree, downstream modules fail to resolve `X` at compile time. And a `public` class in an **exported** package must not expose a type from a non-transitive `requires` (or a package-private type) on its API surface — that trips `-Xlint:exports` → `-Werror`. This pair has bitten three times (M2.9, M3.6e.1, M5-A); the coding-instruction format now requires an authoring check before embedding any `module-info`. Full pattern: `../../coder/references/java-patterns.md` (JPMS exports discipline).
 
 ### Non-Negotiable Principles
 
@@ -165,7 +167,7 @@ Before finalizing any work product, verify:
 
 ---
 
-## 4. Governance Finding Protocol
+## 5. Governance Finding Protocol
 
 During any work, if you discover that the governance system itself needs updating, escalate immediately. Do not bury governance findings in task completion reports.
 
@@ -195,3 +197,14 @@ Blocking: [Does this block current work? yes/no]
 - File the finding in `../context/handoff/cross-agent-notes.md` as a `[DECISION-REQUESTED]` entry per PLAN §5b (template), tagged with `GOV_` prefix in the title (e.g., `DR-MM-NN — GOV_LTD03_reversal_criteria_met`). Escalate to Nick if blocking.
 - If BLOCKING: stop current work and notify immediately. Do not work around a governance issue.
 - If NOT blocking: continue current work but ensure the finding is filed before session end
+
+---
+
+## 6. Amendment Tracks — Full vs Lightweight (P4)
+
+Not every amendment needs full per-AMD ceremony. Two tracks:
+
+- **Lightweight block-amendment track** — trivial *additive* amendments (a single appended record field with a back-compat convenience ctor; a new constant on a non-persisted enum; an inert reservation) ride a **shared** review, a shared ratification pass, and shared mechanics (one watermark bump, one traceability pass, one disposition block for the set). An inert reservation MUST carry an explicit "inert until M{N}" note so it is not implemented prematurely or mistaken for live contract.
+- **Full per-AMD track** — reserved for anything that touches a **persisted shape**, a **behavioral contract**, or introduces a **new invariant**. These get individual scrutiny and an independent DOCS-Project review.
+
+DOCS-review depth follows the track: the lightweight block-track for the former; a full DOCS review for the latter (a constitutional-invariant narrowing — e.g. an INV-PD-* amendment — is always full). This keeps the gate that catches real defects (the M4 block review caught AMD-55's undetectable void-reauth and AMD-56's unimplementable trigger) while cutting ceremony on one-field/inert amendments.

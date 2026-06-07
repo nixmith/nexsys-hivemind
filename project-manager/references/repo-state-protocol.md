@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Repository State Protocol
@@ -21,7 +21,7 @@ This protocol defines what to verify, when, and how.
 The PM tracks six categories of state:
 
 ### A. Design Document State
-Where each of the 14 design documents sits in the lifecycle.
+Where each of the 15 design documents (01–15) sits in the lifecycle — all currently Locked.
 
 | Status | Meaning | PM Action |
 |---|---|---|
@@ -57,27 +57,30 @@ Which modules have populated MODULE_CONTEXT.md files.
 | **Populated** | Module has completed Phase 2 and context is current | Primary reference for cross-module understanding. Read this instead of re-reading entire design docs. |
 | **Stale** | Module has been modified since MODULE_CONTEXT.md was last updated (e.g., Phase 3 changes altered contracts) | Needs update. Check git log for changes since MODULE_CONTEXT.md was last modified. |
 
-**Currently populated MODULE_CONTEXT.md files (all 19 modules — Phase 2 complete):**
-- `platform/platform-api/MODULE_CONTEXT.md` — dependency root, identity types
-- `core/event-model/MODULE_CONTEXT.md` — event vocabulary, 46 public types
-- `core/event-bus/MODULE_CONTEXT.md` — subscription model, 4 public types
-- `core/device-model/MODULE_CONTEXT.md` — device/entity/capability model, 57 public types
-- `core/state-store/MODULE_CONTEXT.md` — materialized view, 7 public types
-- `core/persistence/MODULE_CONTEXT.md` — SQLite storage, 11 public types
-- `core/automation/MODULE_CONTEXT.md` — rule engine, 4 sealed hierarchies
-- `config/configuration/MODULE_CONTEXT.md` — YAML config, 22 public types
-- `integration/integration-api/MODULE_CONTEXT.md` — adapter contracts
-- `integration/integration-runtime/MODULE_CONTEXT.md` — OTP supervisor
-- `integration/integration-zigbee/MODULE_CONTEXT.md` — Zigbee 3.0 adapter
-- `api/rest-api/MODULE_CONTEXT.md` — HTTP command interface
-- `api/websocket-api/MODULE_CONTEXT.md` — real-time event streaming
-- `observability/observability/MODULE_CONTEXT.md` — health/trace/metrics
-- `lifecycle/lifecycle/MODULE_CONTEXT.md` — 10-phase startup
-- `app/homesynapse-app/MODULE_CONTEXT.md` — assembly apex
-- `platform/platform-systemd/MODULE_CONTEXT.md` — systemd integration (scaffold)
-- `testing/test-support/MODULE_CONTEXT.md` — shared test fixtures
-- `web-ui/dashboard/MODULE_CONTEXT.md` — Preact SPA (scaffold)
-All 19 MODULE_CONTEXT files are populated as of Phase 2 completion (2026-03-22).
+**Modules (22 Gradle modules as of HEAD `8028337`).** `homesynapse-core/settings.gradle.kts` is the source of truth for the module list; **each module's `MODULE_CONTEXT.md` header is the source of truth for its type count — do not hardcode counts here, they drift every milestone.**
+- `platform/platform-api` — dependency root, identity types (typed ULID wrappers, `UlidFactory`)
+- `core/event-model` — event vocabulary (`EventEnvelope`, `DomainEvent`, `EventPublisher`, `EventStore`, `EventId`)
+- `core/value-model` — **leaf** holding `AttributeValue` + `AttributeType`; relocated from device-model in M4.0b-4a to break the event↔device JPMS cycle (both event-model and device-model depend on it)
+- `core/event-bus` — subscription model + active runtime (`InProcessEventBus`)
+- `core/device-model` — device/entity/capability model, Floor/Area aggregates, EntityRole
+- `core/state-store` — materialized view + state projection
+- `core/persistence` — SQLite storage, payload/checkpoint codecs, migrations
+- `core/automation` — rule engine (sealed trigger/condition/action hierarchies)
+- `config/configuration` — YAML config + schema validation
+- `integration/integration-api` — adapter contracts (frozen at M4.C, AMD-54..64)
+- `integration/integration-runtime` — supervisor
+- `integration/integration-zigbee` — Zigbee 3.0 adapter
+- `api/rest-api` — HTTP command interface
+- `api/websocket-api` — real-time event streaming
+- `observability/observability` — health/trace/metrics
+- `lifecycle/lifecycle` — startup/shutdown composition root (`HomeSynapseCore`)
+- `app/homesynapse-app` — assembly apex (+ `HomeSynapseArchRules`)
+- `platform/platform-systemd` — deployment-tier `PlatformPaths`/`HealthReporter` impls (**populated in M5-A**)
+- `testing/test-support` — shared test fixtures: TestClock, SynchronousEventBus, NoRealIoExtension, InMemoryEventStore (**populated**)
+- `testing/integration-tests` — on-device IT tests (`-PpiProfile`; excluded from default `check`)
+- `spike/wal-validation` — throwaway WAL spike (not production)
+
+**Scaffold/stub status:** only **`web-ui/dashboard`** remains a stub (Preact SPA, separate build pipeline, no compiled Java). platform-systemd and test-support are no longer scaffolds. All production JPMS modules have populated MODULE_CONTEXT.md files — Phase 2 completed **2026-03-20**; value-model's was created with the M4.0b-4a relocation.
 
 **Before issuing any work product:**
 1. Check if MODULE_CONTEXT.md exists and is populated for every module in the dependency chain
@@ -209,6 +212,7 @@ If you're unsure whether something exists or is current:
 - **Test status:** Run the tests. Don't assume.
 - **Build configuration:** Read `build.gradle.kts`. Don't assume.
 - **MODULE_CONTEXT.md currency:** Check if the file's last-modified date is after the most recent Java file change in the module. If in doubt, re-verify against the source files.
+- **Sandbox git is NOT authoritative.** In-sandbox `git status`/`git diff` show spurious line-ending churn and can even mangle a file's diff (e.g. report a method deleted that isn't). The **Read tool on the working tree is authoritative** for current content; commits go through host git, not the sandbox. Never base a state claim on sandbox `git diff` — read the actual file.
 
 Never issue a coding instruction based on assumed state. The five minutes spent verifying saves hours of debugging incorrect instructions.
 

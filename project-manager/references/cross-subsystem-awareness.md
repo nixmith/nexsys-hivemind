@@ -5,12 +5,12 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Cross-Subsystem Awareness Guide
 
-HomeSynapse Core consists of 13 subsystems that interact through defined interfaces. The PM must understand how subsystems connect so that work on one subsystem doesn't inadvertently break or constrain another. This guide maps the critical boundaries.
+HomeSynapse Core consists of the subsystems defined across design docs 01–15 (incl. Cryptographic Architecture) that interact through defined interfaces, plus the `value-model` leaf module that carries the shared `AttributeValue` type. The PM must understand how subsystems connect so that work on one subsystem doesn't inadvertently break or constrain another. This guide maps the critical boundaries.
 
 **Primary reference for cross-module contracts:** Each module's `MODULE_CONTEXT.md` file documents the behavioral contracts, consumers, and gotchas specific to that module. This guide provides the big-picture dependency map; MODULE_CONTEXT.md files provide the precise details. Always read both.
 
@@ -75,6 +75,8 @@ This is the production order from MVP §9.3, with interface direction added.
     └──────────┘
 ```
 
+**Leaf module (not a design-doc subsystem, not shown above):** `value-model` (`com.homesynapse.value`) sits *below* both event-model and device-model — both `requires` it for the shared `AttributeValue` / `AttributeType` types. This is the M4.0b-4a relocation that broke the event↔device JPMS cycle (an event-model record can now carry an `AttributeValue` without an `event → device` edge).
+
 ---
 
 ## 2. Critical Interface Boundaries
@@ -88,7 +90,7 @@ These are the places where subsystems connect. When working on ANY subsystem, ch
 Every subsystem produces and/or consumes events through the Event Model. The contracts that matter:
 
 - **Event envelope schema (DD-01 §4.1):** The wire format every subsystem reads and writes. Changing the envelope breaks everything.
-- **Event type taxonomy (DD-01 §4.3):** Each subsystem owns a namespace within the taxonomy. New event types must follow the naming rules and be registered.
+- **Event type taxonomy (DD-01 §4.3):** Each subsystem owns a namespace within the taxonomy. New event types must follow the naming rules and be registered. **Naming convention (permanent, M4 retro §7.2):** legacy core events are snake_case (`state_changed`, `state_reported`) and are **frozen** — the event log is immutable and replay-deterministic, so wire strings cannot be rewritten; **all new events are dot-namespaced** (`integration.*`, `capability.*`). The `EventTypesTest` regex accepts both, so the convention is documented, not mechanically enforced — author new events dot-namespaced.
 - **Producer boundaries (DD-01 §3.1):** Strict partitioning of who can produce which event types. Integrations produce device events. Core services produce system events. Automations produce automation events. Violations break auditability.
 - **CausalContext propagation (DD-01 §4.1):** Every event in a causal chain must carry correct correlation_id and causation_id. Breaking causality breaks the "why did this happen?" explainability guarantee (INV-ES-06).
 
@@ -166,11 +168,11 @@ This is the most important boundary for reliability (INV-RF-01):
 
 Several types are used across multiple subsystems. These MUST be defined in a shared module, not redefined in each subsystem:
 
-- **Typed ID wrappers:** `EntityId`, `DeviceId`, `EventId`, `AutomationId`, `PersonId`, `HomeId`, `AreaId` — defined in a shared identity module
-- **EventEnvelope** and **CausalContext** — defined in the events API module
-- **DomainEvent** sealed interface — defined in the events API module
-- **Capability** sealed interface — defined in the device model API module
-- **AttributeValue** sealed interface — defined in the device model API module
+- **Typed ID wrappers:** `EntityId`, `DeviceId`, `AutomationId`, `PersonId`, `HomeId`, `AreaId`, `FloorId`, `IntegrationId`, `SystemId` — in `platform-api` (`com.homesynapse.platform.identity`). (`EventId` is the exception — it lives in event-model, `com.homesynapse.event`.)
+- **EventEnvelope** and **CausalContext** — defined in event-model (`com.homesynapse.event`); `CausalContext` is a 2-field record (correlationId, causationId) — `actorRef` is on the envelope, not in CausalContext
+- **DomainEvent** sealed interface — defined in event-model
+- **Capability** sealed interface — defined in the device-model module (`com.homesynapse.device`)
+- **AttributeValue** sealed interface — defined in the **`value-model`** module (`com.homesynapse.value`), NOT device-model — relocated there in M4.0b-4a so an event-model record can carry an `AttributeValue` without forcing an `event → device` JPMS edge
 
 **Rule:** If a type is referenced by more than one subsystem, it belongs in a shared API module. If it's only used internally by one subsystem, it belongs in that subsystem's internal module.
 

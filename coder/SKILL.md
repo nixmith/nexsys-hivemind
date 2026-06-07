@@ -10,7 +10,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # NexSys Coder — Implementation Engineer Skill
@@ -24,7 +24,7 @@ Before writing any code, read the relevant reference files in this skill's `refe
 | Reference File | Read When |
 |---|---|
 | `references/homesynapse-mental-model.md` | ALWAYS — first thing. Internalize the system's architecture before writing a single line. |
-| `references/java-patterns.md` | Writing ANY Java code — typed ULIDs, sealed interfaces, records, virtual threads, SQLite, Jackson, logging. |
+| `references/java-patterns.md` | Writing ANY Java code — typed ULIDs, sealed interfaces, records, virtual threads, SQLite, Jackson, logging, **and JPMS / `module-info` work (the `requires transitive`↔Gradle-`api` exports lockstep)**. |
 | `references/testing-standards.md` | Writing or reviewing tests — test-first discipline, JUnit 5 patterns, test categories, ArchUnit rules. |
 | `references/deviation-and-quality.md` | Before reporting ANY work as complete — self-review checklist, deviation report format, comment standards. |
 
@@ -34,6 +34,7 @@ Before writing any code, read the relevant reference files in this skill's `refe
 |---|---|
 | `platform/platform-api/MODULE_CONTEXT.md` | Working on ANY module (platform-api is the dependency root) |
 | `core/event-model/MODULE_CONTEXT.md` | Working on any module that publishes, consumes, or queries events |
+| `core/value-model/MODULE_CONTEXT.md` | Working with `AttributeValue` / typed attribute values — the `com.homesynapse.value` leaf both event-model and device-model depend on (relocated here from device-model in M4.0b-4a) |
 | `core/event-bus/MODULE_CONTEXT.md` | Working on subscribers, persistence layer, or startup/lifecycle |
 | `core/device-model/MODULE_CONTEXT.md` | Working on state-store, integrations, automation, or anything touching devices/entities/capabilities |
 
@@ -75,17 +76,9 @@ You are only invoked for prototype spikes — throwaway code to answer design qu
 - Record findings in a structured spike report for the PM.
 - If the spike reveals that the design assumption is wrong, that's the most valuable outcome. Report it clearly.
 
-### Phase 2 — Interface Specification
+### Phase 2 — Interface Specification (AMD corrections only)
 
-You produce compilable interfaces, type definitions, `package-info.java` files, and configuration schemas. No implementation code behind the interfaces.
-
-**Rules:**
-- Every type name must match the Glossary exactly.
-- Every ID type uses the typed ULID wrapper pattern (LTD-04). Read `references/java-patterns.md` §1.
-- Behavioral contracts in the Locked design doc are authoritative — do not silently change them.
-- If the interface won't compile as specified, log as `[BLOCKING]` and report to the PM.
-- Javadoc contracts on every public method — explain the behavioral guarantee, not the implementation.
-- **After Phase 2 spec completion:** The PM will populate the module's `MODULE_CONTEXT.md` with the type inventory, cross-module contracts, and gotchas discovered during spec work. When you return to this module for Phase 3, that file is your primary orientation document.
+Phase 2 closed 2026-03-20; you enter this only for an **AMD-driven correction** to a frozen interface — never to produce new specs. Output: compilable interfaces / types / `package-info.java`, no implementation behind them. Rules: type names match the Glossary; every ID is a typed ULID wrapper (LTD-04, `references/java-patterns.md §1`); Locked behavioral contracts are authoritative — don't silently change them; Javadoc the behavioral guarantee, not the implementation; if it won't compile as specified, log `[BLOCKING]` to the PM. (The PM maintains the module's `MODULE_CONTEXT.md`; it is your primary orientation document when you return for Phase 3.)
 
 ### Phase 3 — Tests, Then Implementation
 
@@ -127,7 +120,7 @@ This is non-negotiable. MODULE_CONTEXT.md files contain:
   - **Gotchas** — non-obvious things that caused bugs or confusion during Phase 2
   - **Phase 3 notes** — what the implementor specifically needs to know
 
-All 16 JPMS-compiled modules have populated MODULE_CONTEXT.md files as of Phase 2 close (2026-03-20). Three scaffold-only modules (platform-systemd, test-support, web-ui/dashboard) still have stubs — fall back to the design doc when you encounter one, or when you need full specification detail beyond what a populated MODULE_CONTEXT provides.
+All production JPMS modules have populated MODULE_CONTEXT.md files — this now includes `core/value-model` (created in the M4.0b-4a relocation), `platform/platform-systemd` (populated in M5-A), and `testing/test-support` (populated). The **only remaining stub is `web-ui/dashboard`** (Preact SPA, separate build pipeline, no compiled Java) — fall back to the design doc there, or when you need full specification detail beyond a populated MODULE_CONTEXT. `homesynapse-core/settings.gradle.kts` is the authoritative module list (22 Gradle modules).
 
 **Step 4 — Read referenced files.** Read every file in the "Files to Read" section. Understand existing patterns, naming, style. Your new code must look like it was written by the same engineer.
 

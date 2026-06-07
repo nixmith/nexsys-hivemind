@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Java Implementation Patterns for HomeSynapse
@@ -41,10 +41,6 @@ public record EntityId(Ulid value) implements Comparable<EntityId> {
         return new EntityId(Ulid.parse(encoded));
     }
 
-    public static EntityId generate() {
-        return new EntityId(UlidFactory.generate());
-    }
-
     @Override
     public String toString() {
         return value.toString(); // Crockford Base32 — for API/logs ONLY
@@ -57,11 +53,10 @@ public record EntityId(Ulid value) implements Comparable<EntityId> {
 }
 ```
 
-**EventId is special** — it uses monotonic generation for ordering within a millisecond:
+**Generating IDs.** The identity wrappers expose only `of(Ulid)` / `parse(String)` / `fromBytes(byte[])` — there is **no `EntityId.generate()`** (a common mistake that does not compile). Generate via the constructor with a ULID from the hand-rolled `UlidFactory` (in platform-api; `ulid-creator` was removed, DECIDE-02), passing an injected `Clock` in non-whitelisted modules (§11):
 ```java
-public static EventId generate() {
-    return new EventId(UlidFactory.monotonic());
-}
+EntityId id  = new EntityId(UlidFactory.generate(clock));  // entity IDs
+EventId  evt = new EventId(UlidFactory.monotonic());       // event IDs — monotonic within a millisecond
 ```
 
 **Database operations** — always BLOB(16):
@@ -158,7 +153,7 @@ public record EventEnvelope(
 public EventEnvelope withGlobalPosition(long position) {
     return new EventEnvelope(eventId, eventType, schemaVersion, ingestTime,
         eventTime, subjectRef, subjectSequence, position, priority, origin,
-        correlationId, causationId, payload);
+        categories, causalContext, actorRef, payload);   // 14 fields — match the record above
 }
 ```
 
@@ -237,7 +232,7 @@ private Connection createConnection(Path dbPath) throws SQLException {
 }
 ```
 
-**Prepared statements for event insertion:**
+**Prepared statements for event insertion** (simplified — the production `events` table is **25 columns** as of V001/M2-bridge; see `homesynapse-mental-model.md` §6 for the full schema, and bind `subject_sequence` with `setLong`, not `setInt`):
 ```java
 private static final String INSERT_EVENT = """
     INSERT INTO events (
@@ -420,7 +415,7 @@ Error messages use Register C: direct, neutral, no self-reference, no apology, n
 
 ## 10. Gradle Module Conventions (LTD-10)
 
-**Module naming:** `homesynapse-{subsystem}` for internal modules, `homesynapse-{subsystem}-api` for public API modules.
+**Module naming:** Gradle project paths are `{group}:{name}` (e.g. `core:event-model`, `core:value-model`, `platform:platform-api`, `api:rest-api`, `integration:integration-api`); JPMS module names are `com.homesynapse.{subsystem}` (e.g. `com.homesynapse.event`, `com.homesynapse.value`). Always cross-check the JPMS name against the actual `module-info.java` — never infer it from the Gradle path or the Knowledge Primer.
 
 **Convention plugins in `build-logic/`:**
 ```kotlin
@@ -589,5 +584,38 @@ JDK modules like `jdk.jfr`, `java.sql`, `java.naming`, `jdk.management` ship wit
 1. Check if it's in `java.base` → no `requires` needed.
 2. Trace the `module-info.java` chain from your module. Example: `com.homesynapse.event.bus` → `com.homesynapse.event` → `com.homesynapse.platform` → `java.base`. If the JDK module is not in this chain, add `requires <jdk.module>;` to your `module-info.java`.
 3. No Gradle dependency change is needed — these modules ship with the JDK. Only the JPMS `requires` directive is needed.
+
+---
+
+## 13. JPMS Exports Discipline & the `requires transitive` ↔ Gradle `api` Lockstep
+
+This is the most-recurring build defect in the project — **three occurrences (M2.9, M3.6e.1, M5-A)**, twice from an instruction's *embedded* `module-info`. Internalize it.
+
+**The rule.** A `public` class in an **exported** package must not expose, on its public API surface (a supertype in `implements`/`extends`, a return type, a parameter, a public field, a thrown exception), either:
+- a **package-private** type, or
+- a type from a module you only `requires` (non-transitive).
+
+Either trips `javac -Xlint:exports` → with `-Werror`, a **hard compile failure**. `-Xlint:exports` is **main-source only** — green unit tests do NOT clear it; only `compileJava` (or the full `check`) surfaces it.
+
+**The lockstep.** `module-info.java` and `build.gradle.kts` must agree, in the same direction:
+- `requires transitive X`  ⇔  `api(project(":…X"))`
+- plain `requires X`        ⇔  `implementation(project(":…X"))`
+
+If JPMS says transitive but Gradle says `implementation`, downstream modules get `module not found` at compile time; the reverse leaks a dependency you meant to hide.
+
+**Two resolutions when a public exported type would leak a foreign/internal type:**
+1. **Promote the dependency** to `requires transitive` + `api(...)` — correct when that type genuinely belongs in your module's public contract (e.g. platform-systemd's impls legitimately expose platform-api's `PlatformPaths`/`HealthReporter`; M5-A made platform-api `requires transitive` + `api`).
+2. **Make the class package-private + add a public gateway** that hides the foreign type behind same-package wiring — correct when the dependency is an implementation detail (e.g. `RestFilters.installReadinessGate(Object app, …)` types the Javalin app as `Object` to keep `io.javalin` off rest-api's public surface; M3.6e.1). A `static` factory on the public interface (`StateQueryService.materialized(...)`) is the same move for construction.
+
+**Self-check before handoff (and before the PM embeds a `module-info`):** for each public type in an exported package, does any public signature name a foreign-module or package-private type? If yes, that module needs `requires transitive` + `api`, or the type goes package-private behind a gateway. A targeted `./gradlew :module:compileJava` is the ~20s way to surface `[exports]` (and redundant-cast / unused-import) before the deferred gate does. Do **not** honor a non-transitive embed blindly when the module exports impls of another module's types — flag it as a `[REVIEW]` correction.
+
+### `-Werror` also bites: redundant `(Type) null` casts
+A `(Type) null` cast is flagged by `-Xlint:cast` (→ `-Werror`) **unless** it disambiguates a genuine overload. `new LinuxSystemPaths((Path) null)` (one single-arg ctor) → drop the cast. `new SystemdHealthReporter((String) null)` (two reference-typed ctors) → the cast is required. Decide per overload-set, not by habit (M5-A).
+
+### Spotless reality (this repo)
+The convention plugin runs only `licenseHeader` + `removeUnusedImports` + `trimTrailingWhitespace` + `endWithNewline` — **no** `googleJavaFormat` / `importOrder`. So Spotless does **not** reformat indentation or sort imports, but it **fails `check` on any unused import** (a Javadoc `{@link}` counts as usage). Match each file's existing indentation (some files are tab-indented, most are 4-space) and the byte-exact copyright header; don't hand-sort imports it won't sort (M4.C).
+
+### Seam-isolation for JDK APIs that compile but aren't supported at runtime
+When a JDK API compiles but throws at runtime on the target (e.g. JDK-21 has no AF_UNIX `SOCK_DGRAM`, so sd_notify's datagram send is unavailable), isolate the unsupported call behind a package-private seam (`interface NotifyTransport { void send(byte[]); }`), put the real impl behind it, and inject a capturing double in tests so `check` stays GREEN. The runtime gap is then confined to the composition root (the only place that constructs the real impl) — and you must say so **loudly** in the handoff + a cross-agent note, because a "looks-done" impl can otherwise hide a non-functional deployment path (M5-A; real transport deferred to M13).
 
 **Origin:** M3.3 task instruction incorrectly said "Do NOT add `requires jdk.jfr`." Build failed. Coder corrected it. PM-originated error — see `coder-lessons.md` 2026-05-17.

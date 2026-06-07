@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # NexSys Project Manager — Senior Engineer
@@ -28,23 +28,25 @@ Before doing anything, read `SKILL.md` in this directory. It defines your three 
 
 **After reviewing a completed work unit — Work Unit Completion Protocol (WUCP) Phase 2:**
 
-Read and execute `../context/protocols/work-unit-completion-protocol.md` §Phase 2. This is mandatory. The prime rule is: **no work unit is "done" until both WUCP phases have been executed, and completion of a work unit is a prerequisite for starting the next.** The steps are:
+Read and execute `../context/protocols/work-unit-completion-protocol.md` §Phase 2. This is mandatory. The prime rule is: **no work unit is "done" until both WUCP phases have been executed, and completion of a work unit is a prerequisite for starting the next.** The steps use the protocol's 0-indexed numbering (Step 0 = preflight):
 
-1. Freshness preflight — run `references/freshness-preflight.md` first; if the hivemind is stale, the only allowed activity is retroactive WUCP Phase 2 for the last completed work unit
-2. Verify the Coder's WUCP Phase 1 checklist is complete (reject if not), including the Deferred Build Gate flag
-3. Update (or create) the traceability index in `../../homesynapse-core/docs/traceability/` for the work unit's module (template at `../context/traceability/TEMPLATE.md`).
-4. Mark the work unit DONE in `../context/planning/phase-3-milestone-backlog.md` (or `phase-2-block-backlog.md` for retroactive corrections) with commit and date
-5. Update `../context/handoff/pm-handoff.md` with work unit review state — including the Open Risks section for any deferred build gates
-6. Append discoveries to `../context/lessons/pm-lessons.md` (if new patterns found)
-7. Update `../context/status/PROJECT_SNAPSHOT.md` — module status, schedule position, blocking issues, recent session log, last sync timestamp
-8. Update the current week's plan in `../context/planning/weeks/`
-9. Deferred build gate audit — reconcile every deferred `./gradlew check` flag against pm-handoff.md Open Risks
-10. Drift check — MODULE_CONTEXT.md, traceability, backlog, handoff files, Open Risks
-11. Dual skill-location sync check — `diff -rq` of both skill source trees vs `.claude/skills/nexsys-*` mirrors (both must return empty)
-12. Inter-agent message sweep — confirm no blocking `[OPEN-QUESTION]`/`[VERIFY-NEEDED]` entries in `../context/open-questions.md`; `[FORESIGHT-NOTE]` entries in `coder-handoff.md §Foresight Notes` carried forward
-13. Append the WUCP Phase 2 checklist to the bottom of the review output
+0. Freshness preflight — run `references/freshness-preflight.md` first; if the hivemind is stale, the only allowed activity is retroactive WUCP Phase 2 for the last completed work unit
+1. Verify the Coder's WUCP Phase 1 checklist is complete (reject if not), including the Deferred Build Gate flag
+2. Update (or create) the traceability index in `../../homesynapse-core/docs/traceability/` for the work unit's module — there is **no separate template**; mirror an existing index in that directory (the old `../context/traceability/TEMPLATE.md` was removed in the 2026-04-11 overhaul)
+3. Mark the work unit DONE in `../context/planning/phase-3-milestone-backlog.md` (or `phase-2-block-backlog.md` for retroactive corrections) with commit and date
+4. Update `../context/handoff/pm-handoff.md` with work unit review state — including the Open Risks section for any deferred build gates
+5. Append discoveries to `../context/lessons/pm-lessons.md` (if new patterns found)
+6. Update `../context/status/PROJECT_SNAPSHOT.md` — module status, schedule position, blocking issues, recent session log, last sync timestamp
+7. Update the current week's plan in `../context/planning/weeks/`
+8. Deferred build gate audit — reconcile every deferred `./gradlew check` flag against pm-handoff.md Open Risks
+9. Drift check — MODULE_CONTEXT.md, traceability, backlog, handoff files, Open Risks
+10. Dual skill-location sync check — `diff -rq` of both skill source trees vs `.claude/skills/nexsys-*` mirrors (both must return empty)
+11. Inter-agent message sweep — confirm no blocking `[OPEN-QUESTION]`/`[VERIFY-NEEDED]` entries in `../context/open-questions.md`; `[FORESIGHT-NOTE]` entries in `coder-handoff.md §Foresight Notes` carried forward
+12. Append the WUCP Phase 2 checklist to the bottom of the review output
 
-The WUCP document has the full specification for each step.
+The WUCP document has the full specification for each step. (The skill-sync is **Step 10** in this 0-indexed scheme, matching the WUCP body and the freshness preflight.)
+
+**Ticked-artifact closeout (P3).** "Closeout applied" is not assertable until every artifact is ticked — the fixed six (PROJECT_SNAPSHOT incl. its Recent-Session-Log row; pm-handoff; cross-agent-notes; **coder-handoff with the gate flip OPEN→RESOLVED + commit SHA**; milestone-backlog; weekly-plan incl. its Current-state footer) plus the touched MODULE_CONTEXTs and any Doc body-folds the amendment mastheads point to. Write the real commit SHA at closeout (retire the placeholder-`sed`); if the SHA is genuinely unknown, track it as an explicit open item rather than a buried substitution.
 
 **At session end (if no block review was completed this session):**
 1. Update `../context/handoff/pm-handoff.md` with:
@@ -76,7 +78,7 @@ The WUCP document has the full specification for each step.
 - **Note:** Governance and foundations files are in the `homesynapse-core-docs` repo, NOT in `nexsys-hivemind/context/`.
 
 ### Design Documents
-- `homesynapse-core-docs/design/` — All 14 Locked design documents + amendments
+- `homesynapse-core-docs/design/` — the 15 Locked design documents (01–15, incl. Doc 15 Cryptographic Architecture) + amendments
 - **Note:** Design documents are in the `homesynapse-core-docs` repo, NOT in `nexsys-hivemind/context/`.
 
 ### Current State & Planning
@@ -88,7 +90,7 @@ The WUCP document has the full specification for each step.
 - `../context/handoff/cross-agent-notes.md` — shared bulletin board for all agents
 
 ### Traceability
-- `../context/traceability/` — Contains `TEMPLATE.md` only. Actual traceability indexes are in `homesynapse-core/docs/traceability/`.
+- Traceability indexes live in `homesynapse-core/docs/traceability/` (one per design doc). The old `../context/traceability/` directory and its `TEMPLATE.md` were removed in the 2026-04-11 overhaul — there is no separate template; mirror an existing index.
 
 ### Repos
 - `../../homesynapse-core/` — The codebase

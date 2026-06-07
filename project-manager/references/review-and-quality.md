@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Review and Quality Protocol
@@ -149,6 +149,8 @@ When the Coder reports deviations:
   - A design doc gap → escalate to Nick for potential supersession
   - An instruction error → revise the instruction and reissue
 
+**Correctness over conformance.** When a `[REVIEW]` deviation cites "preserves prior behavior / avoids a regression," weigh it against the spec on **correctness grounds, not literal spec-conformance** — a coder deviation from a *ratified* amendment can be more-correct than the literal spec (the AMD-51 §2.6 string-fallback that avoided a permanent attribute-freeze regression is the model case). When code ships ahead of a needed spec erratum, **log the erratum as an Open Item in pm-handoff** so the ratified doc is reconciled, rather than letting spec and code drift apart silently.
+
 ---
 
 ## 4. Cross-Output Consistency Checks
@@ -195,19 +197,23 @@ After approving a completed work unit (Phase 2 block or Phase 3 milestone), exec
 
 **Then verify the Coder's WUCP Phase 1 checklist** is present and complete at the bottom of the Completion Report. If it's missing or incomplete, return the report to the Coder.
 
-**After approving the work unit (13 steps — see the protocol for full detail):**
-1. Freshness preflight PASS
-2. Verify Coder WUCP Phase 1 complete
-3. Update (or create) the traceability index in `../../homesynapse-core/docs/traceability/` for the module (template at `../context/traceability/TEMPLATE.md`).
-4. Mark the work unit DONE in `../context/planning/phase-3-milestone-backlog.md` (or `phase-2-block-backlog.md` for Phase 2 retroactive corrections) with commit and date
-5. Update `../context/handoff/pm-handoff.md` — including the Open Risks section for deferred build gates
-6. Append to `../context/lessons/pm-lessons.md` (if new patterns)
-7. Update `../context/status/PROJECT_SNAPSHOT.md`
-8. Update the current week's plan file
-9. Deferred build gate audit — reconcile every deferred `./gradlew check` against Open Risks
-10. Drift check across all artifacts
-11. Dual skill-location sync check (`diff -rq` of both skill source trees vs `.claude/skills/nexsys-*` mirrors)
-12. Inter-agent message sweep — confirm no blocking `[OPEN-QUESTION]`/`[VERIFY-NEEDED]` entries in `../context/open-questions.md`; `[FORESIGHT-NOTE]` entries carried forward
-13. Append WUCP Phase 2 checklist to review output
+**After approving the work unit (0-indexed to match the protocol; Step 0 = preflight):**
+0. Freshness preflight PASS
+1. Verify Coder WUCP Phase 1 complete
+2. Update (or create) the traceability index in `../../homesynapse-core/docs/traceability/` for the module — there is **no separate template**; mirror an existing index (the old `../context/traceability/TEMPLATE.md` was removed in the 2026-04-11 overhaul)
+3. Mark the work unit DONE in `../context/planning/phase-3-milestone-backlog.md` (or `phase-2-block-backlog.md` for Phase 2 retroactive corrections) with commit and date
+4. Update `../context/handoff/pm-handoff.md` — including the Open Risks section for deferred build gates
+5. Append to `../context/lessons/pm-lessons.md` (if new patterns)
+6. Update `../context/status/PROJECT_SNAPSHOT.md`
+7. Update the current week's plan file
+8. Deferred build gate audit — reconcile every deferred `./gradlew check` against Open Risks
+9. Drift check across all artifacts
+10. Dual skill-location sync check (`diff -rq` of both skill source trees vs `.claude/skills/nexsys-*` mirrors)
+11. Inter-agent message sweep — confirm no blocking `[OPEN-QUESTION]`/`[VERIFY-NEEDED]` entries in `../context/open-questions.md`; `[FORESIGHT-NOTE]` entries carried forward
+12. Append WUCP Phase 2 checklist to review output
 
-The WUCP Phase 2 checklist format is documented in `work-unit-completion-protocol.md` Step 12. Use it verbatim.
+The WUCP Phase 2 checklist format is documented in `work-unit-completion-protocol.md` Step 12. Use it verbatim. (The skill-sync is **Step 10** in this 0-indexed scheme — matching the WUCP body and the freshness preflight.)
+
+**Ticked-artifact closeout (P3).** "Closeout applied" is not assertable until every artifact is ticked — the fixed six (PROJECT_SNAPSHOT incl. its Recent-Session-Log row; pm-handoff; cross-agent-notes; **coder-handoff with the gate flip OPEN→RESOLVED + commit SHA**; milestone-backlog; weekly-plan incl. its Current-state footer) plus the touched MODULE_CONTEXTs and any Doc body-folds the amendment mastheads point to. The freshness preflight's backlog/weekly checks are load-bearing precisely because a hurried closeout under-updates those two. Write the real commit SHA at closeout — retire the placeholder-`sed`.
+
+**Amendment review depth (P4).** Match review ceremony to the amendment track (`constraint-enforcement.md §6`): a shared block review for trivial additive amendments; a full independent DOCS-Project review for anything touching a persisted shape, a behavioral contract, or a new invariant.

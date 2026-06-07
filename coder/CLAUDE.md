@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # NexSys Coder — Implementation Engineer
@@ -24,7 +24,7 @@ Before doing anything, read `SKILL.md` in this directory. It defines how you wri
 3. Read `../context/handoff/cross-agent-notes.md` — check for notes from Nick or PM
 4. Read `../context/handoff/coder-handoff.md` (if it exists) — restore session-specific context
 5. Check `../context/handoff/coder-handoff.md` Current Task section for the next assignment, or wait for a direct task instruction in conversation.
-6. If the repo exists: run `git status` and `./gradlew check` to verify current state
+6. If the repo exists: run `git status` and `./gradlew check` to verify current state — but treat in-sandbox `git status`/`git diff` as **non-authoritative** (they show spurious line-ending churn and can mangle a diff, e.g. report a method deleted that isn't). The Read tool on the working tree is the source of truth for current content; commits go through host git, not the sandbox.
 
 **After completing a work unit — Work Unit Completion Protocol (WUCP) Phase 1:**
 
@@ -75,11 +75,11 @@ The WUCP document has the full specification for each step. The PM will verify t
 ## Context Locations
 
 ### Design Documents (read before coding any subsystem)
-- `homesynapse-core-docs/design/` — All 14 Locked design documents define the behavioral contracts you implement
+- `homesynapse-core-docs/design/` — the 15 Locked design documents (01–15, incl. Doc 15 Cryptographic Architecture) define the behavioral contracts you implement
 - **Note:** Design documents are in the `homesynapse-core-docs` repo, NOT in `nexsys-hivemind/context/`.
 
 ### Governance (reference for constraints)
-- `homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md` — The 18 LTDs you must follow
+- `homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md` — The 19 LTDs you must follow
 - `homesynapse-core-docs/foundations/HomeSynapse_Core_v1_Glossary.md` — Canonical naming
 - `homesynapse-core-docs/governance/Architecture_Invariants_v1.md` — System properties your code must satisfy
 - **Note:** Governance and foundations files are in the `homesynapse-core-docs` repo, NOT in `nexsys-hivemind/context/`.

@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # Testing Standards for HomeSynapse
@@ -65,7 +65,7 @@ Use Arrange-Act-Assert with blank lines between sections:
 @Test
 void append_withNewEntity_assignsSequenceOne() {
     // Arrange
-    var entityId = EntityId.generate();
+    var entityId = EntityId.of(UlidFactory.generate(clock));
     var event = new StateChanged(entityId, "brightness",
         new IntValue(0), new IntValue(100));
 
@@ -91,7 +91,7 @@ assertThat(events).hasSize(3).extracting("eventType")
 ```java
 @Test
 void append_withDuplicateSequence_throwsSequenceConflict() {
-    var entityId = EntityId.generate();
+    var entityId = EntityId.of(UlidFactory.generate(clock));
     publisher.publishRoot(new StateChanged(entityId, "on", off, on));
 
     assertThatThrownBy(() ->
@@ -178,7 +178,7 @@ void crashRecovery_allPersistedEventsDeliveredAfterRestart() {
 ```
 
 ### Performance Tests
-Reference MVP §8 targets. Always document test hardware and conditions.
+Reference MVP §8 targets. Always document test hardware and conditions. **Note (see §8):** raw `System.nanoTime()` timing must live in the whitelisted `test-support` module — in a non-whitelisted module the snippets below illustrate the assertion *shape* only; drive the timing through a `test-support` helper or a benchmark harness, not inline `System.nanoTime()`, or `NO_DIRECT_TIME_ACCESS` fails the build. (`EntityId.of(UlidFactory.generate(clock))` likewise needs an injected `clock`.)
 
 ```java
 @Test
@@ -187,7 +187,7 @@ void eventThroughput_sustainedAbove500PerSecond() {
     int eventCount = 5_000;
 
     for (int i = 0; i < eventCount; i++) {
-        publisher.publishRoot(createTestEvent(EntityId.generate()));
+        publisher.publishRoot(createTestEvent(EntityId.of(UlidFactory.generate(clock))));
     }
 
     var elapsed = Duration.ofNanos(System.nanoTime() - start);
@@ -280,6 +280,8 @@ static final ArchRule coreSubsystemsMustNotImportNetworkLibraries =
             "okhttp3..", "org.apache.http..");
 ```
 
+These two are **illustrative**. The live rule set in `app/homesynapse-app/.../HomeSynapseArchRules.java` is larger and authoritative — e.g. `NO_DIRECT_TIME_ACCESS` (§8), `NO_JACKSON_IN_DOMAIN_MODEL` (Rule 10), `QUERY_SERVICE_READ_ONLY`, `REST_ENDPOINTS_NO_EVENT_PUBLISHING`, plus the no-`synchronized` / no-`ServiceLoader` rules. Cite rules against that source; never invent one (the M3.1 `EVENT_BUS_DOES_NOT_IMPORT_SQLITE_DRIVER` "ghost rule" never existed — JPMS already enforces the JDBC-free bus).
+
 ---
 
 ## 6. Test Data Helpers
@@ -367,7 +369,7 @@ Many persistence and event-bus tests need both a SQLite connection and a fixed c
 The `NO_DIRECT_TIME_ACCESS` ArchUnit rule (see `java-patterns.md §11`) runs against `src/test/java` in every non-whitelisted module. This means:
 
 - **No `Instant.now()` in tests.** Inject a `Clock` (typically `Clock.fixed(...)`) and call `clock.instant()`.
-- **No `System.currentTimeMillis()` for timing assertions.** Use `System.nanoTime()` only inside a `testutil` helper class that lives in the whitelisted `homesynapse-test` module.
+- **No `System.currentTimeMillis()` for timing assertions.** Use `System.nanoTime()` only inside a helper that lives in the whitelisted `testing/test-support` module (`com.homesynapse.test..`) — never inline in a non-whitelisted module's test.
 - **No `new Date()` in test fixtures.** Use `Instant.parse("...")` with an explicit ISO-8601 string.
 - **No `LocalDateTime.now()` even in assertion messages.** Format from a fixed instant.
 

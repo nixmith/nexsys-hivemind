@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-07 against commit 8028337
 -->
 
 # HomeSynapse Mental Model
@@ -45,7 +45,7 @@ Every event is wrapped in a standard envelope. Know these fields cold — you'll
 
 | Field | Type | Purpose | Your Implementation Note |
 |---|---|---|---|
-| `event_id` | EventId (ULID) | Unique identity | `UlidCreator.getMonotonicUlid()` — monotonic within millisecond |
+| `event_id` | EventId (ULID) | Unique identity | `UlidFactory.monotonic()` — hand-rolled in platform-api (the `ulid-creator` library was removed, DECIDE-02); monotonic within millisecond |
 | `event_type` | String | Dotted taxonomy key | e.g., `device.state_changed`, `automation.triggered` |
 | `schema_version` | int | Payload schema version | Starts at 1. Upcasters handle migration. |
 | `ingest_time` | Instant | When appended to log | System clock. Stored as microseconds since epoch. |
@@ -272,8 +272,11 @@ Types used across multiple subsystems live in shared API modules, not in subsyst
 **Event bus types** (event-bus module, `com.homesynapse.event.bus`):
 `EventBus` (8 methods), `Subscriber`, `SubscriberMode`, `SubscriberSnapshot`, `SubscriberInfo`, `SubscriptionFilter`, `CheckpointStore`, `SubscriberReadConnectionFactory`, `SubscriberReadExecutor`. These live in event-bus, not platform-api or event-model.
 
-**Device types** (device model API module):
-`Capability` (sealed interface), `AttributeValue` (sealed interface), `EntityType`, `CommandDefinition`.
+**Device types** (device-model module, `com.homesynapse.device`):
+`Capability` (sealed interface), `EntityType`, `CommandDefinition`, the Floor/Area spatial aggregates, `EntityRole`.
+
+**Value types** (value-model module, `com.homesynapse.value`):
+`AttributeValue` (sealed interface, 8 variants) + `AttributeType` — the **leaf** both event-model and device-model depend on. Relocated here from device-model in M4.0b-4a so an event-model record can carry an `AttributeValue` without forcing an `event → device` JPMS edge. Do not look for `AttributeValue` in device-model.
 
 **Rule:** If you're about to define a type that another subsystem will need, it goes in a shared API module. If you're defining a type that only your subsystem uses internally, it goes in your subsystem's internal module.
 
@@ -299,7 +302,7 @@ homesynapse-core/
 ├── core/device-model/MODULE_CONTEXT.md         ← device/entity/capability model
 ├── core/state-store/MODULE_CONTEXT.md          ← state projection + read model
 ├── core/persistence/MODULE_CONTEXT.md          ← event store + migrations (Phase 3 active)
-└── ...                                          ← one per module; 16 populated, 3 scaffold stubs
+└── ...                                          ← + core/value-model (AttributeValue leaf); one per module; only web-ui/dashboard remains a stub
 ```
 
-**Status as of M3.1 (2026-05-17):** All 16 JPMS-compiled modules have populated MODULE_CONTEXT.md files. Three scaffold-only modules (platform-systemd, test-support, web-ui/dashboard) have stub MODULE_CONTEXT.md files awaiting Phase 3 implementation. `core/event-bus/MODULE_CONTEXT.md` was updated in M3.1 (type count 4→14, new sections for InProcessEventBus, SubscriberSupervisor, contract test tiers, etc.). Prefer MODULE_CONTEXT.md over the design doc for quick orientation — it's a curated, agent-optimized summary. Fall back to the design doc when MODULE_CONTEXT is a stub or you need full specification detail.
+**Status (current, HEAD `8028337`):** All production JPMS modules have populated MODULE_CONTEXT.md files — including `core/value-model` (created in the M4.0b-4a relocation), `platform/platform-systemd` (populated in M5-A), and `testing/test-support` (populated). The **only remaining stub is `web-ui/dashboard`** (Preact SPA, no compiled Java). `settings.gradle.kts` is the authoritative module list (22 Gradle modules). Prefer MODULE_CONTEXT.md over the design doc for quick orientation — it's a curated, agent-optimized summary — and fall back to the design doc when MODULE_CONTEXT is a stub or you need full specification detail.

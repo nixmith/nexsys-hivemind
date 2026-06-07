@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-05 against `8ef9e9f` — **M4 COMPLETE** (Workstreams A+B+C; integration-api freeze AMD-54..64; watermark **AMD-64**; `projectionVersion` 5; new `core/value-model` module). Amendments tables list AMD-44 IMPLEMENTED (B-S1/S2), AMD-52/53 (Workstream A), AMD-54..64 (Workstream C freeze). Prior spine state: `98f705b` (M4.0b-3, watermark AMD-51).
+last-verified: 2026-06-07 against `7f44bed` — **M5-A COMPLETE + M5-B/B1 DONE** (platform-systemd `PlatformPaths`/`HealthReporter` impls + the AMD-87 `Expectation` codec; **Doc 15 Cryptographic Architecture is the 15th design doc — LOCKED**; AMD-86 + AMD-87 RATIFIED; watermark **AMD-87**; 135 invariants; `projectionVersion` 5). Amendments tables list Doc 15 + AMD-86/87 (M5 window), AMD-44/52/53/54..64 (M4). Prior spine state: `8ef9e9f` (M4 COMPLETE, watermark AMD-64).
 -->
 
 # HomeSynapse Core — Navigation Index
@@ -95,7 +95,7 @@ Each module has up to five documentation layers. Read them in this order when wo
 - **Traceability:** `homesynapse-core/docs/traceability/05-integration-runtime.md` (shared)
 - **Handoff:** `homesynapse-core/docs/handoff/block-i-integration-api.md`
 - **Source package:** `integration/integration-api/src/main/java/com/homesynapse/integration/`
-- **Amendments:** AMD-14 (adapter dependency ordering); **AMD-54..64 (M4.C interface freeze, `8ef9e9f`, RATIFIED 2026-06-05)** — descriptor config-schema versioning/soft-deps/isolation-level/planned-restart-timeout (54/61/63/64), lifecycle hooks + outcome enums (55), `AUTH_FAILED` + code-bearing `PermanentIntegrationException` (56), capability events + publisher + DiscoveryServices (59), SecurityServices/CredentialRotator (60), BackoffParameters (62). 22→40 types; supervisor impl = M9. **AMD-65 (Expectation codec) QUEUED BLOCKING-for-M9.**
+- **Amendments:** AMD-14 (adapter dependency ordering); **AMD-54..64 (M4.C interface freeze, `8ef9e9f`, RATIFIED 2026-06-05)** — descriptor config-schema versioning/soft-deps/isolation-level/planned-restart-timeout (54/61/63/64), lifecycle hooks + outcome enums (55), `AUTH_FAILED` + code-bearing `PermanentIntegrationException` (56), capability events + publisher + DiscoveryServices (59), SecurityServices/CredentialRotator (60), BackoffParameters (62). 22→40 types; supervisor impl = M9. **AMD-65 → reassigned AMD-87 (Expectation codec) — RATIFIED + IMPLEMENTED in M5-A Part 2 `7f44bed`; command-bearing `CapabilityAdded` round-trips; M9 prereq CLEARED.**
 
 ### integration-runtime
 - **MODULE_CONTEXT:** `homesynapse-core/integration/integration-runtime/MODULE_CONTEXT.md`
@@ -209,7 +209,7 @@ In `homesynapse-core-docs/research/`:
 | `Portability_Architecture_v1.md` | Cross-platform deployment, CI/CD matrix |
 | `Repository_Structure_Test_Infrastructure_And_API_Evolution_Research_v1.md` | Monorepo structure, test patterns, API versioning |
 | `contract-testing-for-event-sourced-smart-homes.md` | Contract test pattern research for event-sourced architectures |
-| `2026-03-22_Unified_Cryptographic_Architecture_for_HomeSynapse.md` | Hash chain, package signing, envelope encryption + crypto-shredding design. Feeds AMD-37 (chain_hash NOT NULL). |
+| `2026-03-22_Unified_Cryptographic_Architecture_for_HomeSynapse.md` | Hash chain, package signing, envelope encryption + crypto-shredding design. Feeds AMD-37 (chain_hash NOT NULL). **SUPERSEDED by Doc 15** — `homesynapse-core-docs/design/15-cryptographic-architecture.md` (the owned **Cryptographic Architecture** design doc, **LOCKED 2026-06-07**) + AMD-86; the M6 crypto/secrets foundation (hash chain, per-scope at-rest AES-256-GCM encryption, key management, crypto-shredding, Ed25519 signing). |
 | `homesynapse-core-cloud-scalability-analysis.md` | Cloud-readiness & scalability deep dive. 5 friction points identified, all deferred with awareness. |
 | `Research_Internalization_Report_Architecture_Gaps.md` | 7 research findings mapped to governance. 4 VALIDATED, 2 ANNOTATION, 1 TEST BACKLOG. Produced M2-bridge test scenarios. |
 | `2026-03-22_Matter_Device_Conformance_Research_Plan.md` | Matter device spec-to-reality gap research plan. Validates INV-CE-04 integration architecture against Matter. |
@@ -358,7 +358,8 @@ AMD-41/42/43 are the M3 governance amendments that translate DEC-M3-01 through D
 | 52 | Typed `StateChangedEvent` Payload + Serializer + Replay | **RATIFIED + IMPLEMENTED (M4.0b-4a/4b, `971cfa1`/`72596cb`, 2026-05-31)** | Doc 01/03/04 — typed payload + `{"t","v"[,"u"]}` codec + schema-versioned replay (Path-B `DegradedEvent`); `AttributeValue` relocated to `core/value-model` (§11 erratum); `projectionVersion` 3→4; AMD-52-INV-01..07 §22. |
 | 53 | Timestamp-Model Unifier (Event-Time Activity Timestamps) | **RATIFIED + IMPLEMENTED (M4.0b-5, `c99b425`, 2026-05-31)** | Doc 03 — all three activity timestamps event-time-sourced; `staleAfter`/`stale` carve-out; `projectionVersion` 4→5; AMD-53-INV-01/02 §23. |
 | 54..64 | Integration-API Interface Freeze (Workstream C block, 11 amendments) | **RATIFIED + FROZEN (M4.C, `8ef9e9f`, 2026-06-05)** | Doc 05 — integration-api 22→40 types; descriptor 8→14, context 10→12, RequiredService 3→5, lifecycle permits 5→10 + 2 capability events; 29 invariants §24–§34. Contract-only; supervisor impl = M9. **On-disk amendment watermark = AMD-64.** |
-| 65 | `Expectation` Persisted Sealed-Type Codec | **QUEUED — BLOCKING-for-M9** (surfaced M4.C) | Doc 04/05 — command-bearing `CapabilityAdded` round-trip; `WithinTolerance(double,double)` needs AMD-52 float-determinism; `@Disabled("AMD-65 pending")` test is the acceptance spec. |
+| 86 | INV-PD-07 Crypto-Shred MVP-Scope + INV-PD-03 At-Rest Posture | **RATIFIED (M5-B/B1, 2026-06-07)** | `homesynapse-core-docs/design/amendments/AMD-86_INV-PD-07_Crypto-Shred-MVP-Scope_and_INV-PD-03_At-Rest-Posture.md` — narrows INV-PD-07 (operational crypto-shred → post-MVP) + states the INV-PD-03 partial-at-MVP posture; owner doc = **Doc 15**. AMD-86-INV-01 §35. **The M5-D erasure interviews carry the §3 re-scope-up trigger.** |
+| 87 | `Expectation` Persisted Sealed-Type Codec (reassigned from retired AMD-65) | **RATIFIED + IMPLEMENTED (M5-A Part 2, `7f44bed`)** | `homesynapse-core-docs/design/amendments/AMD-87_Expectation_Persisted_Codec.md` — interface-keyed tagged-union over the 4 permits; command-bearing `CapabilityAdded` round-trips; M9 prereq CLEARED. AMD-87-INV-01 §36. **On-disk amendment watermark = AMD-87.** |
 
 AMD-45 (applied in M4.0a) couples `subscriber_checkpoints` and `view_checkpoints` writes atomically via the `AtomicCheckpointSink` seam over `AtomicCheckpointWriter`; eliminates the crash-recovery window where the bus subscriber checkpoint outran the projection view checkpoint (all three bus writers gated, incl. both REPLAY writes — the D-1 correction). Refines AMD-38. AMD-50 (applied in M4.0b-2) is the general N→M version-transition discipline: a `backfillActive` provenance gate drives a non-emitting one-shot backfill that reconstructs historical attributes from the `state_reported` log on a `projectionVersion` transition (1→2 in M4.0b-2; the 2→3 typed reuse shipped in M4.0b-3). AMD-51 (applied in M4.0b-3) made change-detection typed — reconstruct both operands to their schema-declared `AttributeValue` and compare per-variant (the comparator is pure, an exhaustive no-`default` switch); it rode AMD-50's backfill unchanged for the 2→3 bump and preserved the String `StateChangedEvent` payload (the typed payload is **AMD-52**, staged behind the OQ-05-08 serializer/replay design beat). **AMD-44 stays RATIFIED-pending-implementation** (Floor/EntityRole impl is the M4.B breadth path). Files in `homesynapse-core-docs/design/amendments/`.
 
@@ -417,4 +418,4 @@ In `homesynapse-core/`:
 
 ---
 
-**Last verified against:** `homesynapse-core` **`8ef9e9f` (M4 COMPLETE)** on 2026-06-05. Workstreams A+B+C done; watermark **AMD-64**; `projectionVersion` 5; new `core/value-model` module; AMD-65 (Expectation codec) QUEUED BLOCKING-for-M9. Next: M5 (Platform API + test-support) + W3 website/docs.
+**Last verified against:** `homesynapse-core` **`7f44bed` (M5-A COMPLETE + M5-B/B1 DONE)** on 2026-06-07. M4 + M5-A shipped; **Doc 15 Cryptographic Architecture LOCKED** (15th design doc); AMD-86 + AMD-87 RATIFIED; watermark **AMD-87**; 135 invariants; `projectionVersion` 5; AMD-87 Expectation codec IMPLEMENTED (M9 prereq cleared). Next: **M6 (Configuration + secrets/crypto)** — AMD-66–71 + the Doc 06 `SecretStore.setAll(Map)` currency amendment + OQ-15-2.

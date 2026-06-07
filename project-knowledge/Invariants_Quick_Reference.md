@@ -6,13 +6,13 @@ update-cadence: per-phase (changes only via amendment process INV-GA-01)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-06-05 against Architecture_Invariants_v1.md (**133 invariants across 32 categories** — §22 AMD-52 (7) + §23 AMD-53 (2) + §24–§34 the AMD-54..64 integration block (29) added since the last spine update). Codebase HEAD `8ef9e9f` (M4 COMPLETE), watermark AMD-64.
+last-verified: 2026-06-07 against Architecture_Invariants_v1.md (**135 invariants across 34 categories** — §35 AMD-86-INV-01 + §36 AMD-87-INV-01 added in the M5 window; INV-PD-03 (at-rest) + INV-PD-07 (crypto-shred MVP scope) amended by AMD-86). Codebase HEAD `7f44bed` (M5-A COMPLETE + M5-B/B1 DONE — Doc 15 LOCKED), watermark **AMD-87**. Prior: `8ef9e9f` (M4 COMPLETE, 133 invariants, watermark AMD-64).
 full-text-location: homesynapse-core-docs/governance/Architecture_Invariants_v1.md
 -->
 
 # Architecture Invariants — Quick Reference
 
-**Total: 133 invariants across 32 categories.** (Since the last spine update: §22 AMD-52-INV-01..07, §23 AMD-53-INV-01..02, and the §24–§34 AMD-54..64 integration block (29) were registered. M4 COMPLETE `8ef9e9f`, watermark AMD-64.)
+**Total: 135 invariants across 34 categories.** (Since the last spine update: **§35 AMD-86-INV-01** (encrypt-on-write irreversible / shred-op deferrable) + **§36 AMD-87-INV-01** (Expectation codec lossless round-trip) registered in the M5 window; **INV-PD-03** (encrypt sensitive PII at rest — now *partial*-at-MVP: at-rest yes, user-owned-keys = Tier-2) + **INV-PD-07** (crypto-shred — MVP = infrastructure + categories; operation post-MVP) amended by AMD-86. M5-A COMPLETE + M5-B/B1 DONE `7f44bed`, watermark **AMD-87**; Doc 15 Cryptographic Architecture LOCKED.)
 **Amendment process:** INV-GA-01. Requires written proposal, impact analysis, architecture owner approval, migration plan.
 **Identifiers are permanent:** INV-GA-02. Retired IDs are never reused.
 
@@ -293,6 +293,19 @@ Registered together at the AMD-54..64 block ratification (2026-06-05, single DOC
 | AMD-62-INV-02 | §32 | Retry backoff and recovery probing are distinct mechanisms. |
 | AMD-63-INV-01 | §33 | `IsolationLevel.RESERVED_SUBPROCESS` rejected until activated by amendment (inert reservation). |
 | AMD-64-INV-01 | §34 | Null planned-restart-timeout ⇒ global §3.14 default; present value positive and fully replacing. |
+
+## §35–§36 M5 Window — Cryptographic Architecture (AMD-86 + AMD-87) — 2 new invariants + 2 amended privacy invariants
+
+Registered at the 2026-06-07 M5-window crypto+codec ratification (Doc 15 Cryptographic Architecture LOCKED); watermark AMD-64→**AMD-87**. **These are the load-bearing privacy/crypto invariants for M6 (Configuration + secrets/crypto) and the post-MVP data-value/institutional products.**
+
+| ID | § | Rule (short) |
+|---|---|---|
+| **INV-PD-03 (amended by AMD-86)** | §6 | Sensitive-PII categories encrypted at rest under **per-scope DEKs** (application-level, per-category — **never** whole-DB, so per-category crypto-shred stays possible). **PARTIAL at MVP:** at-rest encryption — yes; the **"user-owned keys"** property + media-theft resistance — **Tier-2** (the machine-local key shares the medium; protects key-excluding copies + less-privileged reads, **not** theft of the storage medium). |
+| **INV-PD-07 (amended by AMD-86)** | §6 | MVP = per-scope key-management infrastructure + scope-category definitions + sensitive-PII **written encrypted-at-rest** (preserving future shreddability on the immutable log). **Operational crypto-shredding = post-MVP** (first cloud/institutional data-sharing consumer). Deletion-via-key-destruction design intent unchanged. |
+| **AMD-86-INV-01** | §35 | *Encrypt-on-write is irreversible; the shred operation is deferrable.* A category is crypto-shreddable only if it was written encrypted-per-scope — so the encrypt-on-write decision for sensitive-PII is made at MVP, and the operation that consumes those keys may land later. |
+| **AMD-87-INV-01** | §36 | Every `Expectation` permit round-trips losslessly through `EventPayloadCodec`; `WithinTolerance`'s two doubles use the AMD-52 bit-anchored-float / non-finite-sentinel determinism (a tolerance of `0.1` or a `NaN` survives encode→decode bit-identically). |
+
+**Also Locked: Doc 15 (Cryptographic Architecture)** — owns the SHA-256 hash chain (INV-PD-08), at-rest envelope encryption, the per-scope key-management infrastructure, the crypto-shredding design (operation post-MVP), and Ed25519 package signing. **Open Risk OR-M6-NONCE [BLOCKING-for-M6-impl]:** the per-scope GCM counter-nonce must be durable + strictly monotonic across crash AND restore, or (key,nonce) reuse breaks AES-GCM.
 
 ### Amendment-scoped invariants NOT counted in the §17 total (live in their amendment files)
 

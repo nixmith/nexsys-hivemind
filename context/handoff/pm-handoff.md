@@ -313,6 +313,21 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 ## Open Risks
 
+#### AMD-69 — Passphrase-root KDF (Argon2id/BouncyCastle) DEFERRED to Tier-2 — **ESCALATION pending Nick's confirmation** (NEW 2026-06-08)
+- **Severity:** LOW (governance reconciliation — **no MVP consumer is blocked**; M6.1/M6.2/M6.3 do not depend on the passphrase root).
+- **Detail:** Research 5 REC-58 (assessed 2026-05-22) planned AMD-69 = commit the M6 secret store to Argon2id + the BouncyCastle dependency. The later-Locked **Doc 15 governs the encryption domain and reclassifies this**: §2.3 puts the passphrase/Argon2id root at **post-MVP**; §3.5/§7.3 root the MVP secret store on the **shared machine-local key** (zero-config, no passphrase); §3.8 states the **MVP path adds zero new dependencies**, with the Argon2id-vs-PBKDF2 / BouncyCastle-vs-zero-dep choice the **OPEN OQ-15-3**. Committing BouncyCastle now would violate Locked Doc 15 on three counts. Per the W24 guardrail (keep Locked Doc 15 inviolate), the PM authored **AMD-69 as DEFERRED** (`design/amendments/AMD-69_Passphrase_Root_KDF_Deferred_Tier2.md`, §4 escalation), reserving the number for the Tier-2 amendment that resolves OQ-15-3.
+- **Owner:** Nick (confirm the deferral — Option (a) in AMD-69 §4) / PM (authored). **Resolution:** closed when Nick confirms the Tier-2 deferral at the AMD-66–71 ratification; the active M6 config block is then AMD-66/67/68/70/71.
+
+#### AMD-66–71 — M6 config block PROPOSED; DOCS-Project review + ratification pending (NEW 2026-06-08)
+- **Severity:** MEDIUM (gates M6.1; the M6 config-amendment side of the entry-gate).
+- **Detail:** AMD-66 (`ConfigurationChangeListener`, F7-corrected), 67 (config-doc schema `(major,minor)` — REC-41 cleared by ratified AMD-54), 68 (`SecretStore.setAll(Map)` — the Doc 06 currency amendment; REC-57 bundle/`credentialsFor` retired by ratified AMD-60), 69 (DEFERRED, above), 70 (config observability events), 71 (hybrid dir layout). All PROPOSED in `homesynapse-core-docs/design/amendments/` (below the AMD-87 watermark — reserved slots). DOCS-review prompt: `context/instructions/2026-06-08_AMD-66-71_DOCS_Review_Prompt.md`.
+- **Owner:** Nick (dispatch DOCS review + ratify) / PM (authored). **Resolution:** closed when AMD-66/67/70/71 are RATIFIED (M6.1 un-gates) and AMD-68 is RATIFIED (M6.2). Independent review depth (these freeze config/secret contracts).
+
+#### B2 schema decisions C8 (`actorRef`) + C9 (energy shape) — PROPOSED; independent review pending (NEW 2026-06-08)
+- **Severity:** LOW–MEDIUM (schema-irreversible over the immutable log; cheap now, a migration later).
+- **Detail:** `context/decisions/2026-06-08_B2_schema_decisions_C8_C9.md` — C8 fixes `actorRef` identity semantics (keep the bare `Ulid`; closed 4-kind set; Tier-1 API keys → `API_CLIENT`; automations stamp `AutomationId`); C9 freezes the energy event **shape** (the `power_measurement` 4-attribute set + the 6 aggregate fields + the energy consent-scope), no features (D4). C10 consciously deferred. Each passes the contract-freeze-readiness gate.
+- **Owner:** Nick (ratify) / PM (authored). **Resolution:** closed on independent review + Nick ratification + the Doc 01 (C8) / Doc 02 (C9) currency notes.
+
 #### OR-PD-07-AMD — INV-PD-07 amendment pending (crypto-shred MVP-scope contradiction) (NEW 2026-06-06)
 - **Severity:** MEDIUM (governance integrity — a ratified invariant currently contradicts the de-facto/decided scope; load-bearing for M6 sizing).
 - **Detail:** Per decision **D2**, operational crypto-shredding is deferred POST-MVP (to the first cloud/institutional data-sharing product); only the per-scope key-management infrastructure + encryption-scope categories + at-rest encryption are MVP. But ratified **INV-PD-07** (`homesynapse-core-docs/governance/Architecture_Invariants_v1.md:427`) still mandates *"crypto-shredding must be operational for at least one data category"* at MVP, and the unpromoted 2026-03-22 crypto Draft §5.2 files it under "Tier 2 / Post-MVP." Until the amendment lands, the ratified invariant, the Draft, and the decision are in three-way contradiction (the Draft must not silently override the invariant — D2 reconciles it via the formal pipeline).

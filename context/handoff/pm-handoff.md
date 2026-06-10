@@ -10,7 +10,11 @@ last-verified: 2026-06-10 — **M6.1b COMPLETE (gate GREEN 2026-06-10, 57+147 ta
 
 # PM Session Handoff
 
-## This Session — M6.1b WUCP Phase 2 → APPROVE + M6.1a Ruling → UNBLOCKED (2026-06-10, latest)
+## This Session — M6.1 COMPLETE (whole): M6.1a + Gate-Fix APPROVE (2026-06-10 EOD, latest)
+
+**SESSION DELTA (later 2026-06-10 — M6.1a executed, gate-failed 2×, gate-fixed, GREEN):** Nick issued M6.1a (fresh Claude Code session); first gate run FAILED twice — `YamlLoaderTest.nullValuedKeysDropped` (snakeyaml-engine's DEFAULT scalar schema is the JSON schema, where `~` = the string `"~"` not null; LTD-09 → explicit `CoreSchema` required on BOTH LoadSettings) and `HomeSynapseArchRulesTest.noDirectFilesystemInCore` (Rule 5 was stale vs ratified AMD-71 — written when config was interface-only; PM RULED: drop `com.homesynapse.config..` from Rule 5; AMD-71-INV-01 canonicalization-containment, `ConfigLayoutTest`-pinned, is the compensating control). Both PM-diagnosed from source, ruled, gate-fix round 1 applied by the Coder, **re-run GREEN (27 + 147 tasks) → M6.1 COMPLETE (M6.1b `b7bc65c` + M6.1a commit pending)**. **Phase 2 contract verification:** module-info = the ruling EXACTLY (closes the §7-embed CARRY's verification half); Gradle lockstep ✓; CoreSchema both settings ✓; Rule 4 untouched ✓. **R1/R2/R3 ruled ACCEPT** (R1 per-ERROR `config_error` publish → M6.4 obligation; R2 migration write-back/backup → atomic-write seam; R3 fire-on-FATAL-pass = faithful AMD-70). **Carries:** docs lane — Doc 06 §3.2 `schema/`→`schemas/`, §3.7 pre-AMD-67 embed, cloud-scalability-analysis :56, DP-5 prose; M13/composition root — D4 `SystemId` must exist BEFORE config load (config publishes system-subject events at startup step 1). **PM-lesson logged below:** the M6.1 instruction's watch-outs missed `NO_DIRECT_FILESYSTEM_IN_CORE` — the P2 consumer/pin survey must include the `HomeSynapseArchRules` package lists whenever a module gains a NEW behavioral posture (first filesystem I/O, first Jackson, first time access); and third-party-library *semantic* defaults (engine schema, charset, locale) need the same source-verification discipline as API signatures. **Commit messages handed over (core M6.1a single commit; hivemind closeout).** _The morning record below stands._
+
+## Earlier This Session — M6.1b WUCP Phase 2 → APPROVE + M6.1a Ruling → UNBLOCKED (2026-06-10 morning)
 
 **Mode-3 Director session (Cowork): WUCP Phase 2 review of the Coder's M6.1 execution + the `[BLOCKING]` escalation adjudication. homesynapse-core working tree (M6.1b, layered on `6c6dd33`) reviewed; gate already GREEN (Nick, 2026-06-10: targeted 57 tasks + full `./gradlew check` 147 tasks); commit pending — messages handed to Nick (3 repos).**
 
@@ -339,12 +343,16 @@ None requiring PM action. M3.5b's 5 non-blocking concerns (CheckpointSerializer 
 
 ## Open Risks
 
-#### M6.1b deferred build gate — RESOLVED-GREEN 2026-06-10; COMMIT PENDING (NEW 2026-06-10)
+#### M6.1 build gates — M6.1b COMMITTED `b7bc65c`; M6.1a RESOLVED-GREEN 2026-06-10 (incl. ⟳ gate-fix round 1), COMMIT PENDING (NEW 2026-06-10; UPDATED 2026-06-10 EOD)
+- **M6.1a:** Nick ran `./gradlew :config:configuration:check` (27 tasks) + full `./gradlew check` (147 tasks) **GREEN 2026-06-10** after gate-fix round 1 (CoreSchema + Rule-5 config exemption). **Resolution:** closed when the M6.1a commit lands (sha to fill at commit). Owner: Nick (commit) / PM (logged).
+- _Original M6.1b entry below (gate closed; committed `b7bc65c`)._
 - **Milestone:** M6.1b (config access/events half), working tree layered on `6c6dd33`. **Owner:** Nick (commit) / PM (logged).
 - **Gate:** Nick ran `./gradlew :config:configuration:check :core:event-model:check :core:persistence:check` (57 tasks) + full `./gradlew check` (147 tasks) — **GREEN 2026-06-10** (commands matched coder-handoff `### DEFERRED — M6.1b`). **Deferred Build Gate flag:** honored and now closed at the gate level.
 - **Resolution:** closed when the M6.1b commit lands (sha to fill into trackers at commit — message handed to Nick 2026-06-10). M6.1a may be issued meanwhile (it layers on the same tree; its own gate is separate and will be tracked separately).
 
-#### CARRY — AMD §7-embed staleness at M6.1a landing (NEW 2026-06-10)
+#### CARRY — AMD §7-embed staleness at M6.1a landing (NEW 2026-06-10) — verification half CLOSED 2026-06-10 EOD
+- **CLOSED (verification):** the implemented module-info matches the ruling exactly (5 directives, non-transitive, dated comment; PM-verified at Phase 2). **REMAINING (watch-only):** no future doc may re-embed the config module-info without the ruling-correction note.
+- _Original entry below._
 - The AMD-66/67/68/70/71 §7 ruling-correction notes are authored (docs repo, 2026-06-10, per Nick's module-info ruling). When M6.1a lands, the config `module-info` gains the five third-party non-transitive `requires`; the §7 embeds remain the labeled `6c6dd33` baseline **by design** (the correction notes scope "unchanged" to the HomeSynapse edge set). **Owner:** PM — verify at M6.1a Phase 2 that the implemented module-info matches the ruling exactly (5 directives, non-transitive, nothing more) and that no doc re-embeds the old file without the note.
 
 #### AMD-69 — Passphrase-root KDF (Argon2id/BouncyCastle) DEFERRED to Tier-2 — **RESOLVED 2026-06-09: Nick confirmed Option (a) at the block ratification** (NEW 2026-06-08)

@@ -3,7 +3,7 @@ file: context/audits/2026-06-09_AMD-66-71_DOCS_Review_Return.md
 purpose: Independent DOCS-Project review return for the M6 configuration amendment block (AMD-66..71). Full review (config/secret contract freeze) — per-amendment + block verdicts, AMD-69 ruling.
 audience: Nick (ratify), PM
 state-type: audit
-status: RETURNED 2026-06-09 — verdicts below; PM edit-fold APPLIED 2026-06-09 (E67-1/2, E68-1, E70-1/2, E71-1/2); awaits Nick ratification.
+status: CLOSED 2026-06-09 — verdicts below; PM edit-fold APPLIED 2026-06-09 (E67-1/2, E68-1, E70-1/2, E71-1/2; docs `aedff55`); Nick RATIFIED AMD-66/67/68/70/71 + confirmed the AMD-69 deferral (Option (a)) 2026-06-09 — mechanics executed (invariants §37–§41; nav-index rows; watermark unchanged AMD-87; M6.1 gate lifted).
 reviewed-at: homesynapse-core HEAD `6c6dd33`; homesynapse-core-docs `bfed118`; nexsys-hivemind `7703300`
 note: verbatim return reproduced on disk by PM from the Cowork upload (sandbox/host upload-mount desync; content source-verified against the live review).
 -->

@@ -1,18 +1,18 @@
 <!--
 file: project-knowledge/Invariants_Quick_Reference.md
-purpose: Token-efficient index of all 133 architecture invariants. Agents use this for constraint lookup; full text lives in homesynapse-core-docs/governance/Architecture_Invariants_v1.md for JIT reading when detail is needed.
+purpose: Token-efficient index of all 152 architecture invariants. Agents use this for constraint lookup; full text lives in homesynapse-core-docs/governance/Architecture_Invariants_v1.md for JIT reading when detail is needed.
 audience: All (PM, Coder, Cowork)
 update-cadence: per-phase (changes only via amendment process INV-GA-01)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-06-07 against Architecture_Invariants_v1.md (**135 invariants across 34 categories** — §35 AMD-86-INV-01 + §36 AMD-87-INV-01 added in the M5 window; INV-PD-03 (at-rest) + INV-PD-07 (crypto-shred MVP scope) amended by AMD-86). Codebase HEAD `7f44bed` (M5-A COMPLETE + M5-B/B1 DONE — Doc 15 LOCKED), watermark **AMD-87**. Prior: `8ef9e9f` (M4 COMPLETE, 133 invariants, watermark AMD-64).
+last-verified: 2026-06-09 against Architecture_Invariants_v1.md (**152 invariants across 41 identifier categories — count REGENERATED from the §17 table at the M6-block registration**; the previously stated "135/34" was a copied-forward running count drifted −9 vs the table — see pm-handoff 2026-06-09. New this update: **§37–§41, +8 invariants** — AMD-66-INV-01/02, 67-INV-01/02, 68-INV-01, 70-INV-01, 71-INV-01/02, registered at the AMD-66..71 ratification; **AMD-69 DEFERRED, no invariant**). Codebase HEAD `6c6dd33`, watermark **AMD-87 (unchanged — reserved slots filled)**. Prior: 2026-06-07 `7f44bed` (M5 window, stated 135/34).
 full-text-location: homesynapse-core-docs/governance/Architecture_Invariants_v1.md
 -->
 
 # Architecture Invariants — Quick Reference
 
-**Total: 135 invariants across 34 categories.** (Since the last spine update: **§35 AMD-86-INV-01** (encrypt-on-write irreversible / shred-op deferrable) + **§36 AMD-87-INV-01** (Expectation codec lossless round-trip) registered in the M5 window; **INV-PD-03** (encrypt sensitive PII at rest — now *partial*-at-MVP: at-rest yes, user-owned-keys = Tier-2) + **INV-PD-07** (crypto-shred — MVP = infrastructure + categories; operation post-MVP) amended by AMD-86. M5-A COMPLETE + M5-B/B1 DONE `7f44bed`, watermark **AMD-87**; Doc 15 Cryptographic Architecture LOCKED.)
+**Total: 152 invariants across 41 identifier categories** (regenerated from the §17 table 2026-06-09 — the prior stated "135/34" had drifted −9 below the table; see pm-handoff). (Since the last spine update: **§37–§41, +8 invariants** registered at the 2026-06-09 M6-config-block ratification — AMD-66 listener discipline, AMD-67 `(major,minor)` distinct surfaces, AMD-68 `setAll` atomicity, AMD-70 observability-only events + the **E70-1 type-residency rule**, AMD-71 traversal guard + one-level include; **AMD-69 DEFERRED** (Tier-2/OQ-15-3, no invariant, number reserved); **watermark UNCHANGED at AMD-87**. Prior update: §35–§36 in the M5 window — AMD-86-INV-01 + AMD-87-INV-01; INV-PD-03/INV-PD-07 amended by AMD-86; Doc 15 LOCKED.)
 **Amendment process:** INV-GA-01. Requires written proposal, impact analysis, architecture owner approval, migration plan.
 **Identifiers are permanent:** INV-GA-02. Retired IDs are never reused.
 
@@ -306,6 +306,23 @@ Registered at the 2026-06-07 M5-window crypto+codec ratification (Doc 15 Cryptog
 | **AMD-87-INV-01** | §36 | Every `Expectation` permit round-trips losslessly through `EventPayloadCodec`; `WithinTolerance`'s two doubles use the AMD-52 bit-anchored-float / non-finite-sentinel determinism (a tolerance of `0.1` or a `NaN` survives encode→decode bit-identically). |
 
 **Also Locked: Doc 15 (Cryptographic Architecture)** — owns the SHA-256 hash chain (INV-PD-08), at-rest envelope encryption, the per-scope key-management infrastructure, the crypto-shredding design (operation post-MVP), and Ed25519 package signing. **Open Risk OR-M6-NONCE [BLOCKING-for-M6-impl]:** the per-scope GCM counter-nonce must be durable + strictly monotonic across crash AND restore, or (key,nonce) reuse breaks AES-GCM.
+
+## §37–§41 M6 Config Block (AMD-66..71) — 8 new invariants
+
+Registered at the 2026-06-09 M6-block ratification (AMD-66/67/68/70/71 RATIFIED; **AMD-69 DEFERRED** — Tier-2/OQ-15-3, no invariant, number reserved); **watermark UNCHANGED at AMD-87** (reserved-below-watermark slots filled — ratification does not raise the ceiling). Implementing WUs: M6.1 (66/67/70/71 load path), M6.2 (68), M6.4 (66 under swap; 70 `section_reloaded`).
+
+| ID | § | Rule (short) |
+|---|---|---|
+| **AMD-66-INV-01** | §37 | A `ConfigurationChangeListener` classifies a section change and is forbidden from mutating the `ConfigModel` (INV-CE-01 — the YAML file is the sole source of truth). |
+| **AMD-66-INV-02** | §37 | Classification is synchronous and completes before the reload observability event is published (Doc 06 §3.3 ordering). |
+| **AMD-67-INV-01** | §38 | The system config-document schema `(configSchemaMajor, configSchemaMinor)` and the adapter-config schema (AMD-54) are distinct compatibility surfaces; no code path derives one from the other. |
+| **AMD-67-INV-02** | §38 | A minor-only config-document mismatch never triggers migration; a major mismatch always does (AMD-54-INV-02 adopted for the system-config surface). |
+| **AMD-68-INV-01** | §39 | `SecretStore.setAll(Map)` is all-or-nothing and durable-before-return — the store-layer guarantee beneath AMD-60-INV-03; a multi-secret set can never be torn by a crash. |
+| **AMD-70-INV-01** | §40 | `config.validation_completed` and `config.section_reloaded` are observability-only — no state projection consumes them; the config file remains the sole source of truth (INV-CE-01). |
+| **AMD-71-INV-01** | §41 | The configuration loader reads only files contained within `PlatformPaths.configDir()` after canonicalization; an `!include` escaping the config tree is rejected fail-closed. |
+| **AMD-71-INV-02** | §41 | `!include` is one level deep; a nested include is a structural FATAL error. |
+
+**Standing JPMS lesson (E70-1 type-residency rule — now in the P2 consumer/pin survey + pm-/coder-lessons):** any new type in a base module (`event-model`/`value-model`/`platform-api`) — especially an event record — references only that module, a leaf, or `java.base`; a higher-layer domain type in an event-resident record forces a JPMS cycle (the AMD-52 `event↔device` / AMD-70 `event→config` class). Config types are *consumed* to derive flattened components, never *referenced*.
 
 ### Amendment-scoped invariants NOT counted in the §17 total (live in their amendment files)
 

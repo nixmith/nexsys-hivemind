@@ -5,3 +5,5 @@
 .idea/
 .vscode/
 Thumbs.db
+# skill-sync artifacts from the .claude/skills mirror sync (coder.zip / project-manager.zip) — never tracked source
+*.zip

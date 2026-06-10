@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against `7f44bed` — **M5-A COMPLETE + M5-B/B1 DONE** (platform-systemd `PlatformPaths`/`HealthReporter` impls + the AMD-87 `Expectation` persisted codec; **Doc 15 Cryptographic Architecture LOCKED** — the 15th design doc; AMD-86 + AMD-87 RATIFIED; watermark **AMD-87**; `projectionVersion` 5). Prior spine state: `8ef9e9f` (M4 COMPLETE, watermark AMD-64).
+last-verified: 2026-06-09 against `6c6dd33` — **M6 ENTRY-GATE CLOSED: AMD-66/67/68/70/71 RATIFIED 2026-06-09 + AMD-69 DEFERRED (Tier-2/OQ-15-3); invariants §37–§41 (+8; index total regenerated 152/41); watermark UNCHANGED AMD-87 (reserved slots filled); M6.1 READY TO ISSUE.** Standing JPMS lesson (E70-1 type-residency, now in the P2 survey): a new type in a base module (event-model/value-model/platform-api) references only that module, a leaf, or `java.base` — config/domain types are *consumed* into flattened components, never *referenced* in event records. _Prior 2026-06-07 against `7f44bed`:_ **M5-A COMPLETE + M5-B/B1 DONE** (platform-systemd `PlatformPaths`/`HealthReporter` impls + the AMD-87 `Expectation` persisted codec; **Doc 15 Cryptographic Architecture LOCKED** — the 15th design doc; AMD-86 + AMD-87 RATIFIED; watermark **AMD-87**; `projectionVersion` 5). Prior spine state: `8ef9e9f` (M4 COMPLETE, watermark AMD-64).
 -->
 
 # HomeSynapse Core — Knowledge Primer
@@ -462,4 +462,4 @@ Two cross-amendment interaction points identified during the M0 amendment tracea
 
 ---
 
-**Last verified against:** `homesynapse-core` **`7f44bed` (M5-A COMPLETE + M5-B/B1 DONE)** on 2026-06-07. M4 + M5-A shipped; **Doc 15 Cryptographic Architecture LOCKED**; AMD-86 + AMD-87 RATIFIED, watermark **AMD-87**; `projectionVersion` 5; AMD-87 Expectation codec IMPLEMENTED (M9 prereq cleared); **135 invariants across 34 categories**. Next: **M6 (Configuration + secrets/crypto)**.
+**Last verified against:** `homesynapse-core` **`6c6dd33`** on 2026-06-09. M4 + M5-A shipped; **Doc 15 Cryptographic Architecture LOCKED**; AMD-86 + AMD-87 RATIFIED; **M6 config block ratified 2026-06-09 (AMD-66/67/68/70/71 RATIFIED; AMD-69 DEFERRED Tier-2/OQ-15-3)**; watermark **AMD-87 (unchanged — reserved slots filled)**; `projectionVersion` 5; **152 invariants across 41 identifier categories** (regenerated from the §17 table 2026-06-09). Next: **issue M6.1 (config pipeline — READY TO ISSUE)**.

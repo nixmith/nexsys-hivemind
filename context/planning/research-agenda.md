@@ -458,6 +458,16 @@ Nick's call (2026-06-05): before the W23 main workload, dispatch two briefs that
 
 ---
 
+## Addendum — Research 13 (added 2026-06-10, post-M6.1 config research beat)
+
+Nick's call (2026-06-10, the post-M6.1 "config research/open-questions beat"): before the M6.4/M6.2 instructions issue, dispatch a market-superiority gap analysis of the configuration system — UX failure modes + runtime robustness — **gap-relative to the ratified baseline** (AMD-66..71, Doc 06, the Doc 15 fences, the M6 charter), not greenfield.
+
+- **Research 13 — Config System Market Superiority: UX Failure Modes + Runtime Robustness.** Brief: `context/instructions/Research_13_Config_System_Market_Superiority_Brief.md`. RECs start at **REC-130** (high-water re-derived at authoring: Research 12 consumed REC-120..129; REC-106..119 = the R7v2 reservation). Five RQs: RQ1 HA failure-mode catalog (breaking upgrades, YAML→config-flow forced migrations, `.storage` split-brain, include sprawl, restart-to-apply culture, validation timing, silent defaults, secrets); RQ2 cross-ecosystem Mom-Test comparison (SmartThings incl. the Groovy retirement, HomeKit, Hubitat, openHAB, Homey, Alexa/Google) → the power-user "options-without-footguns" + layman "never-see-YAML" pattern catalogs; RQ3 runtime non-breakage taxonomy (torn apply, rename-breaks-automations, ID stability, mid-flight migration failure, rollback) **mapped to a gap table against the ratified machinery**; RQ4 scale/layout churn (AMD-44 floors/areas, AMD-17 orphan interaction, bulk-edit ergonomics); RQ5 local-first/cloud/hybrid resilience with every implied decision classified **now-or-never (schema-irreversible) vs deferrable post-MVP**. **Mandatory output:** REC-numbered findings + a disposition table mapping every finding to exactly one of ALREADY-COVERED (cited AMD/doc §) / M6.2-or-M6.4 INSTRUCTION OBLIGATION / FUTURE AMD / POST-MVP UI-or-cloud DESIGN INPUT (M10/M11/Doc 13) / REJECT. Guardrails: ratified AMD-66..71/Doc 06/Doc 15 inviolate; no M6.3 crypto scope creep (triple-gated); must not duplicate/contradict the three pinned M6.4 obligations. Carries the §0 quote-back gate (Research-7v2 counter-measure), the verbatim config `module-info.java` at `9035110`, and the embedded charter/MODULE_CONTEXT register (Research-6 embed discipline).
+- **Dispatch: → DOCS Project** (it must read Doc 06 + AMD-66..71 + the Doc 15 fences from the `homesynapse-core-docs` connector — the disposition table's citations live there; hivemind-resident artifacts are embedded verbatim in the brief). **Web search REQUIRED** for RQ1/RQ2/RQ5; **fallback stated in the brief masthead:** if the DOCS Project's web reach proves too shallow, split — a generic deep-research run gathers raw external evidence; the DOCS run consumes it for the gap-relative disposition pass (the disposition pass is never the generic run).
+- **Numbering note (INV-GA-02-class discipline):** the originating task brief styled this "Research 12"; **Research 12 is the consumed Zigbee de-risk return** (REC-120..129, cited inside ratified AMD-59) — reuse would poison the citation chain. Nick ruled 2026-06-10: **Research 13**, append-only.
+
+---
+
 ## Spike tracker (added 2026-06-05, Workstream C briefing)
 
 Two Nick-approved empirical spikes are pending (spike rules: throwaway code, findings recorded, never production):
@@ -467,4 +477,4 @@ Two Nick-approved empirical spikes are pending (spike rules: throwaway code, fin
 
 ---
 
-**Last updated:** 2026-06-05 (Workstream C briefing: spike tracker added — SPIKE-DC ~Aug + the NQ-6 pre-M9 restart-frequency spike. Prior: Research 7 v2 + Research 12 briefs added; pre-W23 de-risk pass)
+**Last updated:** 2026-06-10 (Research 13 — Config System Market Superiority — brief authored + REC-130 block pinned; dispatch → DOCS Project, web search required, generic-deep-research fallback stated. Prior: 2026-06-05 — Workstream C briefing: spike tracker added — SPIKE-DC ~Aug + the NQ-6 pre-M9 restart-frequency spike; Research 7 v2 + Research 12 briefs added; pre-W23 de-risk pass)

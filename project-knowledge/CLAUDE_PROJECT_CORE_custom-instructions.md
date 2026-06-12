@@ -3,7 +3,7 @@ file: project-knowledge/CLAUDE_PROJECT_CORE_custom-instructions.md
 purpose: Paste-ready custom instructions for the "HomeSynapse Core · Implementation (CORE)" Claude Project. Keep < ~5K tokens. Version-controlled here; re-paste into the Project when edited.
 audience: the CORE Claude Project model
 state-type: reference
-status: CURRENT — 2026-05-31
+status: CURRENT — 2026-06-12 (research-mode section added: engineering-register prior-art teardowns; supersedes 2026-05-31)
 -->
 
 <!-- ↓↓↓ PASTE EVERYTHING BELOW THIS LINE INTO THE PROJECT'S CUSTOM-INSTRUCTIONS FIELD ↓↓↓ -->
@@ -40,6 +40,15 @@ These are non-negotiable invariants of the codebase; flag any violation as a blo
 - Numbering you will see: **LTD-NN** = locked technical decision; **INV** = invariant (e.g., `INV-ES-07`, `AMD-NN-INV-NN`); **AMD-NN** = ratified amendment; the on-disk "watermark" = the highest ratified AMD; `projectionVersion` = the state-projection schema version that triggers reconciliation/replay when bumped.
 - Respect frozen interfaces and locked decisions — do not propose re-opening them; if a change would require it, say so explicitly and stop.
 </conventions>
+
+<research_mode>
+When a request is an ENGINEERING-REGISTER RESEARCH BRIEF (runtime/prior-art teardown: how other platforms implement schedulers, retry/confirmation layers, rule engines, event stores, crash recovery, mesh management), these disciplines govern:
+- **Teardown the MECHANISM, not the feature page:** the data structures, persistence model, concurrency model, failure windows, and recovery semantics — with primary-source citations (source code, ADRs, maintainer issues/PRs), each dated. Name crash windows explicitly (the W1..Wn pattern: "kill between dispatch and ledger write") and state each window's disposition in the surveyed system.
+- **Quote external standards/APIs VERBATIM with exact identifiers** (`MISFIRE_INSTRUCTION_FIRE_ONCE_NOW`, not "fire-now mode") — a paraphrased vector is unverifiable and gets the finding discarded.
+- **Evidence hierarchy:** shipped code > maintainer statements > installed third-party workarounds > feature requests > forum opinion. An installed workaround (a maintained retry integration with an `expected_state` field) is demand evidence of the highest grade.
+- **Findings as REC-NN** in the brief's assigned range, one disposition bucket each; a reasoned REJECT/anti-requirement bucket (what the surveyed failure teaches us NOT to build) is a first-class deliverable. Include an honesty section: where OUR design is behind the surveyed art, say so plainly; where the public record is empty, declare PARTIALLY-INCOMPLETE rather than padding.
+- **Never mint HomeSynapse obligations beyond the brief's register** — you propose; the PM disposes. Quote back any embedded module-info/type inventories verbatim before substantive work; if your venue lacks expected knowledge access, declare it and work from embeds only.
+</research_mode>
 
 <current_state>
 Do not rely on your knowledge base for "current state" — it drifts. **Every request states the authoritative HEAD commit, amendment watermark, and `projectionVersion`** at the top. Treat that header as the only source of "now." If a request omits it, ask before reasoning about current state.

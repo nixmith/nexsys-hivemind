@@ -152,7 +152,7 @@ Located at `[module-path]/MODULE_CONTEXT.md` within homesynapse-core. Each conta
 
 #### `docs/handoff/` — Work-Unit Handoffs
 
-Active template: `docs/handoff/TEMPLATE.md` (generalized for both Phase 2 blocks and Phase 3 milestones under WUCP). Historical Phase 2 block handoffs (block-b through block-s, 17 files) were archived 2026-04-11 into `docs/handoff/archive/phase-2-blocks/` — see that directory's README.md for the index. The canonical execution record for Phase 2 is `nexsys-hivemind/context/planning/phase-2-block-backlog.md` (FROZEN). For Phase 3, work unit instructions flow through the PM's coding-instruction format (see `project-manager/references/coding-instruction-format.md`) rather than long-lived handoff files in this directory.
+Active template: `docs/handoff/TEMPLATE.md` (generalized for both Phase 2 blocks and Phase 3 milestones under WUCP). Historical Phase 2 block handoffs (block-b through block-s, 17 files) were archived 2026-04-11 into `docs/handoff/archive/phase-2-blocks/` — see that directory's README.md for the index. The canonical execution record for Phase 2 is `nexsys-hivemind/context/planning/archive/phase-2-block-backlog.md` (FROZEN; rehomed to `archive/` at a hygiene pass — path corrected 2026-06-12). For Phase 3, work unit instructions flow through the PM's coding-instruction format (see `project-manager/references/coding-instruction-format.md`) rather than long-lived handoff files in this directory.
 
 #### `docs/traceability/` — Design-to-Code Traceability Indexes
 

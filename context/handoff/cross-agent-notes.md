@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-06-11 (M6.2-return session, EOD) — M6.2 COMMITTED `7c73c91` (hivemind `d161ca9`; reconciled); M6 = everything but M6.3. Pre-06-07 archived trail rotated to `archive/cross-agent-notes-2026-Q2.md`; only the CURRENT POINTER active. HEAD `62a81e6` + the M6.2 working tree.
+last-verified: 2026-06-12 (W0/R14-briefs session) — W0 delta done; 3 briefs READY TO DISPATCH; M7/M8 skeleton on disk. Core HEAD `7c73c91` (+1 docs-only MODULE_CONTEXT fix in tree); only the 2026-06-12 CURRENT POINTER active.
 -->
 
 # Cross-Agent Notes
@@ -18,6 +18,14 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
+## 2026-06-12 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (W0 + R14/R15 briefs + M7/M8 skeleton)
+**Topic:** **W0 Research-4 currency delta COMPLETE (zero open DQs; REC-39 re-anchored — NEW type-residency finding: `RunId`/`RunStatus`/`PendingStatus` must not appear in M7 event payloads, flatten-or-relocate = AMD-block decision) · 3 research briefs AUTHORED + self-reviewed ×3, READY TO DISPATCH · M7/M8 charter SKELETON on disk.**
+**Detail:** Full record: pm-handoff "This Session" (2026-06-12). Artifacts: `context/assessments/2026-06-12_W0_Research_4_Currency_Delta.md`; `context/instructions/Research_14A_*.md` / `Research_14B_*.md` / `Research_15_*.md`; `context/planning/2026-06-12_M7-M8-charter-skeleton.md`. The MODULE_CONTEXT permit-count defect ("27"→30) corrected in core (docs-only).
+**Action needed:**
+- **Nick:** (1) **Veto-or-default `context/planning/2026-06-11_M7-blueprint_research-architecture.md` + dispatch all 3 briefs simultaneously** (R14-A/R14-B → DOCS Project, web search required; R15 → generic deep research permitted for evidence, disposition in-Project). (2) Commit both repos — messages in the session report. (3) Delete `nexsys-hivemind/.git/index.lock.cleared-by-cowork-2026-06-12` (a VM-created lock the sandbox cannot delete; renamed harmless). (4) Standing: Pi-4 microbench (Jun 17) + interviews; M5-C Increment 1; C8/C9 ratification (C8 = M7 entry-gate row 2); mirror sync (Check 9, one file).
+- **Coder:** no change — next WU = M6.3 ONLY when its triple gate clears; M7.1 is research-gated + entry-gated (see the charter skeleton). Nothing dispatched this session.
+- **PM (next session):** assessments as returns land — serialized, fold order R14-B → R14-A → R15; then populate the charter + draft the M7 AMD block.
+
 ## 2026-06-11 [Coder (Claude Code) → PM, Nick]  (M6.2 delivery — gate DEFERRED to Nick)
 **Topic:** **M6.2 (SecretStore + ScopeKeyManager + PayloadCipher seam) COMPLETE — files produced; BUILD GATE DEFERRED (commands in coder-handoff `### DEFERRED — M6.2`). Three [REVIEW] deviations need PM rulings; one queued post-MVP AMD candidate.**
 **Detail:** Full record in coder-handoff (2026-06-11 M6.2 entry) + the Completion Report returned to Nick. Zero-new-edge property re-verified in both directions; NO module-info/Gradle/catalog/projectionVersion/schema/event-manifest change anywhere. The Doc 15 §8.1 stale row ("ScopeKeyManager … implement PayloadCipher") was honored as stale per CARRY 1/§3.8 — reconfirming the parked currency nit for the next Doc-15-touching amendment, alongside the [R6] `scope_keys` placement nit.
@@ -26,7 +34,7 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 - **PM (WUCP Phase 2):** rule on **R-1** (the §3.5 write path REJECTS `!secret`/`!env`-bearing documents fail-closed — resolving in the write path would re-emit plaintext secrets into the file, INV-SE-03; consequence: UI/API mutation of tag-bearing configs is impossible until a tag-preserving emitter exists → propose queueing a post-MVP AMD in the REC-138 family), **R-2** (PayloadCipher threading deliberately STOPS at `HomeSynapseCore`'s held nullable field — `PersistenceFactory` is untouched; forwarding is the M6.3 wiring step), **R-3** (`Main.main()` is still the Phase-2 stub, so DP-6's "wire" is discharged as the package-private `Main.payloadCipher(Path, Clock)` factory + the app-level bridge round-trip test; full bootstrap rides the app-bootstrap milestone).
 - **PM (M6.3 instruction):** the M6.2 surface M6.3 builds on: `ScopeKeyManager.encrypt/decrypt` + `Main.payloadCipher` + `HomeSynapseCore` 5-arg ctor; remember the random-IV-here / counter-nonce-there fence (OR-M6-NONCE) and that key versions are never reused past destroyed rows (`dek_ref` stability).
 
-## 2026-06-11 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (M6.2 WUCP Phase 2)
+## 2026-06-11 [PM (Cowork) → Nick, Coder]  (M6.2 WUCP Phase 2 — superseded by the 2026-06-12 pointer above)
 **Topic:** **M6.2 COMPLETE — gate GREEN (82 targeted + full check 147, ZERO gate-fix rounds — an M6 first) → PM WUCP Phase 2 APPROVE. R-1/R-2/R-3 ruled ACCEPT; 10 [INFO] accepted; zero-new-edge + manifest-zero-change source-verified. COMMITTED **`7c73c91`** (hivemind `d161ca9`; reconciled EOD). M6 = M6.1 ✓ M6.4 ✓ M6.2 ✓ — only M6.3 (triple-gated).**
 **Detail:** Full verification + rulings record: pm-handoff `## Open Risks` M6.2 entry (2026-06-11). R-1 fail-closed tag-bearing `write()` ACCEPT (resolving on write bakes plaintext secrets into the emitted file — the [R4] class: leakage irreversible, restriction reversible; **NEW FUTURE-AMD: tag-preserving YAML emitter, post-MVP**; M10 design-input note). R-2 ACCEPT (`PersistenceFactory` untouched — extending the frozen gateway IS M6.3's wiring step). R-3 ACCEPT (DP-6 discharged: `Main.payloadCipher` factory + 5-arg ctor + bridge round-trip test; live bootstrap rides M13). ⚠ The Coder's M6.2 cross-agent note was lost to a mount-lag write overlap (Coder closeout vs PM rotation, same hour) — RECONSTRUCTED below; checklist-vs-file verification is now a standing Phase-2 step.
 **Action needed:**

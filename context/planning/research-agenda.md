@@ -469,7 +469,9 @@ Nick's call (2026-06-10, the post-M6.1 "config research/open-questions beat"): b
 
 ---
 
-## Addendum — the Research 14/15 cycle (added 2026-06-11, post-M6 deliberation beat — PLANNED, briefs not yet authored)
+## Addendum — the Research 14/15 cycle (added 2026-06-11; **BRIEFS AUTHORED 2026-06-12 — READY TO DISPATCH, awaiting Nick's veto-or-default**)
+
+**Status 2026-06-12:** W0 currency delta COMPLETE (`context/assessments/2026-06-12_W0_Research_4_Currency_Delta.md` — REC-31..40 re-anchored at `7c73c91`; zero open DQs; REC-39 gains 5 re-anchored obligations incl. the RunId type-residency finding). Three briefs AUTHORED + self-reviewed ×3: `context/instructions/Research_14A_Automation_UX_Failure_Modes_Brief.md` · `Research_14B_Automation_Runtime_Robustness_Brief.md` · `Research_15_Ecosystem_Positioning_Scan_Brief.md`. Charter skeleton: `context/planning/2026-06-12_M7-M8-charter-skeleton.md`. **Next: Nick veto-or-default the architecture + dispatch all three simultaneously.**
 
 **Architecture:** `context/planning/2026-06-11_M7-blueprint_research-architecture.md` (PM-PROPOSED; Nick veto-or-default at dispatch). Three **simultaneous** external sessions with non-colliding REC ranges + one PM-internal workstream, synthesized serially (fold order R14-B → R14-A → R15) into the M7/M8 charter + the M7 entry-gate AMD block.
 

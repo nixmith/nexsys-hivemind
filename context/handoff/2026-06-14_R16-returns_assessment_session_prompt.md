@@ -11,11 +11,23 @@ PM session (nexsys-project-manager skill). **Read `context/process/cowork-enviro
 
 ## MANDATORY-INPUT CHECK (Step-0, before anything)
 
-Both returns must exist on disk (Nick saves them verbatim to `context/instructions/` per the standing flow). **If either is missing: STOP — hygiene-only session** (the 2026-06-14 fold-abort precedent; never assess from memory of a conversation). Host file tools are truth; sweep both name conventions before declaring absence.
+**SATISFIED 2026-06-12 (intake done at the Pi-evidence conversation's tail):** both returns are ON DISK, renamed to convention —
+`context/instructions/Research_16A_Logging_Observability_UX_Market_Human_Factors_RETURN.md` (292 lines, ~48K) and
+`context/instructions/Research_16B_LLM_Legible_Output_Engineering_RETURN.md` (271 lines, ~41K).
+Verify both exist at Step-0 anyway (one glance); if either vanished: STOP per the fold-abort precedent.
+
+## INTAKE OBSERVATIONS (2026-06-12 — verify independently; these are intake-grade, NOT the assessment)
+
+- **Quote-backs:** both returns' §0 blocks verified VERBATIM at intake against the in-session script reads (the §0.2(i)/(ii)/(iii) idiom blocks byte-match `pi-health.sh`/`pi4-validation.sh` at `01841ba`); §0.3's 14 names + §0.4 + Register-C present in both. Re-verify §0.3 against Doc 07 §11.2 and §0.4 against source — intake could not re-read Doc 07.
+- **The seeded ground-precision hazard did NOT propagate:** neither return cites `automation.cascade.depth_exceeded` — both used the real 14. The §4-step adjudication rule below likely moot; keep it anyway.
+- **16-B's headline defect claim (REC-204, diagnostics→stdout) is TRUE** — confirmed at intake directly against the shipped helpers (no `>&2` anywhere in pi-health.sh). The OQ-15-2 bench driver v2 (`assessments/oq-15-2-harness/`) shares the defect — fold it into the OUTPUT_CONVENTIONS retrofit list.
+- **Both declare connector-blind** with explicit KB-verification gap lists (16-B §5: Doc 11 §3.5 metric prefixes, §11.2 `observability.*` names, manifest-pin currency; 16-A: §0.5-row anchors). THESE ARE THE ASSESSMENT'S PRIORITY VERIFICATION TARGETS.
+- **External-claim spot-check list:** JEP 506/JDK 25 Scoped Values finalization (16-B leans on it for REC-211 — verify against OpenJDK record); OTel semconv v1.41.x; the Anthropic engineering-post quotes (Sep 2025); 16-A's HA thread IDs + the Hubitat ~1 MB buffer + SmartThings Dec-31-2022 sunset (the last is consistent with known history).
+- **Cross-return coherence at intake:** A's REC-186/187 ⊂ B's REC-201–209 (the OUTPUT_CONVENTIONS core — a merge, not a conflict); REJECT sets complementary (A: emoji/lossy-surface/euphemism; B: collector/MESSAGE_ID/logfmt-wire/traceparent/SeverityNumber); register fences held in both directions (each routes the other's register out explicitly). 16-A's strongest finding for the dossier: the HA "Month of WTH" campaign evidence; its honest negative ("data-without-register" — B3 risk) deserves disposition prominence.
 
 ## PINNED STATE (verified 2026-06-12 at the Pi-evidence closeout)
 
-- **SHAs:** hivemind = the hygiene-rotation commit (ONE past `58794d7` — reconcile the actual sha at Step-0; chain: `58794d7` Pi-evidence ← `723e0d9` R16 ← `7d23829` ← `36bf324` ← `988ea4d`) · core **`01841ba`** (scripts-only pair; substantive **`7c73c91`** — GREEN 147, pins 55/24/36, `projectionVersion` 5) · docs **`d7ea212`**. Check 9: the known one-file STALE acceptable. index.lock flag: GONE (deleted 2026-06-12 — if a NEW one appears, that is a fresh incident, not the old saga).
+- **SHAs:** hivemind `d70f8d1` (hygiene rotation) **+ ONE returns-intake commit expected on top** (the renamed returns + refreshed prompts + the rollover-synthesis prompt — reconcile the actual HEAD at Step-0; chain: `d70f8d1` ← `58794d7` Pi-evidence ← `723e0d9` R16) · core **`01841ba`** (scripts-only pair; substantive **`7c73c91`** — GREEN 147, pins 55/24/36, `projectionVersion` 5) · docs **`d7ea212`**. Check 9: the known one-file STALE acceptable. index.lock flag: GONE (deleted 2026-06-12 — if a NEW one appears, that is a fresh incident, not the old saga).
 - **Hot-path posture (post-rotation 2026-06-12 evening):** snapshot ~59K · pm-handoff ~17K · cross-agent ~18K. Rotated content → `status/archive/PROJECT_SNAPSHOT-priors-rotated-2026-06-12.md` + `handoff/archive/pm-handoff-2026-06.md`, git-object-sourced from `58794d7`, host-verified.
 - **Gate ground:** OQ-15-2 ✅ RESOLVED (encrypted set CONFIRMED `[identity, presence_personal]`); M6.3 1-of-3 (interviews = the sole open evidence gate); M7 rows 1–2+5 ✅, row 3 ⛔ (interview half), row 4 ⛔ (M5-C Increment 1 — its own prompt on disk, may run in parallel or already have run).
 - **The briefs (committed `723e0d9`):** `context/instructions/Research_16A_Logging_Observability_UX_Market_Human_Factors_Brief.md` + `Research_16B_LLM_Legible_Output_Engineering_Brief.md`. Quote-back set: the verbatim pi-health idiom block + the Doc 07 §11.2 event-name list (all 14) + the DAS Register-C paragraph; 16-B adds `CausalContext` + the `com.homesynapse.event` module-info (source-verified at `7c73c91`).

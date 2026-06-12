@@ -15,7 +15,7 @@ PM session (nexsys-project-manager skill). **Read `context/process/cowork-enviro
 
 ## PINNED STATE (verified 2026-06-12 at the Pi-evidence closeout)
 
-- **Hivemind:** expect HEAD = the Pi-evidence closeout commit (ONE past `723e0d9` — reconcile the actual sha at Step-0). Core **`01841ba`** (scripts-only pair on `e5ea76f`; substantive `7c73c91` — GREEN 147, pins 55/24/36, `projectionVersion` 5). Docs **`d7ea212`**. Check 9: the known one-file STALE acceptable.
+- **Hivemind:** `58794d7` (Pi-evidence session, COMMITTED+PUSHED) **+ ONE hygiene-rotation commit expected on top** — reconcile the actual HEAD at Step-0. Core **`01841ba`** (scripts-only pair on `e5ea76f`; substantive `7c73c91` — GREEN 147, pins 55/24/36, `projectionVersion` 5). Docs **`d7ea212`**. Check 9: the known one-file STALE acceptable. Hot-path post-rotation: snapshot ~59K / pm-handoff ~17K (cheap session start by design).
 - **Gate ground (post-Pi-evidence):** OQ-15-2 ✅ RESOLVED (encrypted set CONFIRMED `[identity, presence_personal]`); M6.3 1-of-3 closed (interviews = the sole open evidence gate); M7 entry-gate rows 1–2+5 ✅, row 3 ⛔ (interview half), **row 4 ⛔ = THIS SESSION**.
 - **R16 cycle:** dispatched-or-pending (Nick veto-or-default) — its M5-C-COPY bucket lands LATER; do NOT block on it (fold at Increment 2).
 

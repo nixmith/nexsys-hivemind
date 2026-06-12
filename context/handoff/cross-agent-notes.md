@@ -18,7 +18,15 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-## 2026-06-12 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (W0 + R14/R15 briefs + M7/M8 skeleton)
+## 2026-06-12 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (R14/R15 cycle COMPLETE — merged disposition + populated charter)
+**Topic:** **All three research returns ASSESSED same-day (R14-B/R14-A/R15, serialized, each A−, quote-backs honored, zero discards) → MERGED DISPOSITION on disk (`context/planning/2026-06-12_M7-blueprint_merged-disposition.md` — THE M7 blueprint authority: AMD block = 6 families F1–F6; M7 = 3 pieces confirmed; W1–W8 crash-window pins; high-water REC-185) → charter POPULATED.**
+**Detail:** Assessments: `context/assessments/2026-06-12_Research_14B/14A/15_PM_Assessment.md`. Headlines: ledger-gap dossier = M5-C flagship (frenck "out of scope" + installed verify-retry hacks); Apache 2.0 CONFIRMED by fork-pattern evidence (governance posture refined); Doc 07's Locked text richer than assumed (zombie-Run finalization, per-idempotency crash recovery — several "gaps" were CLOSED-UNTESTED); anti-requirements registered (no engine retry, no templating DSL, no forced migration, never lead with commodity encryption). Raw returns → docs `research/returns/`; consumed briefs → archive.
+**Action needed:**
+- **Nick:** (1) **C8/C9 ratification** — C8 is M7 entry-gate row 2 and now carries R14-A's external evidence (Hubitat "what turned on my light?" = the top provenance complaint). (2) **The M6.3-vs-M7 ordering call** at the W25/W26 boundary (Lane-2 evidence gates: microbench Jun 17 + interviews). (3) **M5-C Increment 1** — the content backlog is now evidence-rich (merged disposition §2e). (4) Commit both repos (messages in the session report). (5) Delete `nexsys-hivemind/.git/index.lock.cleared-by-cowork-2026-06-12` (still present). (6) Mirror sync (Check 9, the one file, unchanged).
+- **PM (next session):** **draft the M7 entry-gate AMD block** (6 families, merged disposition §2a) + DOCS review prompt; strategy-refresh drafts (§2f) same session or following.
+- **Coder:** unchanged — M6.3 only when its triple gate clears; M7.1 awaits the 5-row entry gate (charter).
+
+## 2026-06-12 [PM (Cowork) → Nick, Coder]  (W0 + R14/R15 briefs + M7/M8 skeleton — superseded by the pointer above)
 **Topic:** **W0 Research-4 currency delta COMPLETE (zero open DQs; REC-39 re-anchored — NEW type-residency finding: `RunId`/`RunStatus`/`PendingStatus` must not appear in M7 event payloads, flatten-or-relocate = AMD-block decision) · 3 research briefs AUTHORED + self-reviewed ×3, READY TO DISPATCH · M7/M8 charter SKELETON on disk.**
 **Detail:** Full record: pm-handoff "This Session" (2026-06-12). Artifacts: `context/assessments/2026-06-12_W0_Research_4_Currency_Delta.md`; `context/instructions/Research_14A_*.md` / `Research_14B_*.md` / `Research_15_*.md`; `context/planning/2026-06-12_M7-M8-charter-skeleton.md`. The MODULE_CONTEXT permit-count defect ("27"→30) corrected in core (docs-only).
 **Action needed:**

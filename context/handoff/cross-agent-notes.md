@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-06-12 (post-ratification hygiene pass) — AMD-88..93 + C8/C9 RATIFIED; core `e5ea76f` (substantive `7c73c91`) / docs `d7ea212` (ratification mechanics) / hivemind `5d280b2` (closeout) — both pushed; only the 2026-06-12 RATIFIED CURRENT POINTER active; archived entries rotated to archive/cross-agent-notes-2026-Q2.md.
+last-verified: 2026-06-12 evening (Pi-evidence session) — OQ-15-2 RESOLVED (encrypted set CONFIRMED); M6.3 gate 1-of-3 CLOSED; core `01841ba` (substantive `7c73c91`) / docs `d7ea212` / hivemind `723e0d9` at session start; the Pi-evidence entry is the CURRENT POINTER (R16-dispatch + RATIFIED entries remain active below it); archived entries in archive/cross-agent-notes-2026-Q2.md.
 -->
 
 # Cross-Agent Notes
@@ -18,11 +18,19 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-## 2026-06-12 [PM (Cowork) → Nick]  (R16 briefs READY TO DISPATCH — ADDITIVE entry; the RATIFIED pointer below stays CURRENT)
+## 2026-06-12 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (THE PI-EVIDENCE SESSION: OQ-15-2 RESOLVED — encrypted set CONFIRMED; M6.3 gate 1-of-3 CLOSED)
+**Topic:** **OQ-15-2 is RESOLVED (2026-06-12): both candidates ENCRYPT-ON-WRITE; the Doc 15 §9 `encrypted_scopes` default is CONFIRMED `[identity, presence_personal]`** — no fallback, no STOP-escalate, **Doc 15 untouched** (expected-case rule). Margins: G1 13–37× at the real payload distribution; G2 49× headroom; two reproducing runs ±0.5%. Run on the Pi 5 intrinsics-off — NON-AUTHORITATIVE per spec §3.D, accepted per the recorded R1 conditional (optional Pi-4 confirmation queued advisory). Also: **pi4-validation.sh first exercise PASS** (42 m, zero failures, manual tar-pipe equivalent); readiness zero-drift; **the index.lock flag is DELETED (saga closed)**.
+**Detail:** §8 filled in the spec (status → RESOLVED); disposition `context/assessments/2026-06-12_OQ-15-2_disposition_encrypted-scopes-CONFIRMED.md`; raw evidence + harness `context/assessments/oq-15-2-harness/`; full session record in pm-handoff (top). C9 §3.4 energy staging item RECONCILED/CLOSED. Findings F1/F3 (pi4-validation.sh unrunnable as written from Git Bash — fix advisory) + F4 (diagnostic-flag JVM refusal — driver hardened).
+**Action needed:**
+- **Nick:** (1) hivemind commit (message in the session report; no `!` — plain `-m` safe). (2) **Delete `CorpusDumpOQ152Test.java` from the core working tree before any core commit** (+ the untracked `pi4-validation-*` artifacts, keep-or-delete). (3) Re-upload **Current_State** (changed tonight) with the next spine upload. (4) **The energy/erasure interviews are now the SOLE open evidence gate** for M6.3 AND row 3 — schedule them. (5) The M5-C Increment-1 session prompt is ready to run as a parallel content conversation (D-1..D-7 vetoes at its start).
+- **PM (next sessions):** M5-C Increment 1 (prompt on disk); the M6.3 instruction once interviews + the ordering call land (carries the resolved set verbatim + the cold-start cipher-warmup beat + OR-M6-NONCE).
+- **Coder:** M6.3 still do-NOT-issue (2 gates remain: interviews + the ordering call; your M6.2 gate note stands).
+
+## 2026-06-12 [PM (Cowork) → Nick]  (R16 briefs READY TO DISPATCH — ADDITIVE entry; superseded as pointer by the Pi-evidence entry above)
 **Topic:** The R16 research cycle (logging/observability output UX — one output contract for end-users, operators, and LLM agents, Core logging + Pi scripts) is AUTHORED: **R16-A** (REC-186–200, UX/market) + **R16-B** (REC-201–215, engineering), both in `context/instructions/`, self-reviewed ×2; research-agenda addendum appended. First full exercise of the upgraded `research_mode` charters. Authored PARALLEL to the Pi-evidence session — this entry is a single-anchor append by design; no shared-file restructuring (the Pi session's closeout owns rewrite rights).
 **Action needed:** **Nick:** (1) dispatch both briefs to the **DOCS Project in SEPARATE fresh conversations** (veto-or-default); (2) save returns to `context/instructions/` per the standing flow; (3) `index.lock.cleared-by-cowork-2026-06-12` STILL PRESENT (fifth flag — delete when convenient); (4) hivemind commit message in the session report.
 
-## 2026-06-12 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (AMD-88..93 + B2 C8/C9 RATIFIED — watermark 93; entry-gate rows 1–2 CLOSED)
+## 2026-06-12 [PM (Cowork) → Nick, Coder]  (prior pointer — AMD-88..93 + B2 C8/C9 RATIFIED — watermark 93; entry-gate rows 1–2 CLOSED)
 **Topic:** **The M7 entry-gate AMD block AND B2 C8/C9 are RATIFIED (2026-06-12).** Bundled review returned same-day → PM assess/source-verify/fold (E92-3 declined-with-citation; one reviewer enum-misquote corrected) → Nick ratified ALL → mechanics complete: invariants §42–§47 (+11, index **163/47**), **watermark AMD-87→93**, AMD-04 SUPERSEDED banner, Doc 07/Doc 01 amendments-in-force banners + the §6.2 priority corrections, Glossary §5.4 superseded-in-part, charter rows 1–2 CLOSED, all 5 spine files flipped. Attestations recorded (module-info ✓; zero-publish-site grep CLEAN ✓; C8 anchors re-derived ✓).
 **Detail:** Full record: pm-handoff "This Session" (2026-06-12, ratification). Return: `context/audits/2026-06-12_AMD-88-93_C8-C9_DOCS_Review_Return.md`. ⚠ Environment incident (contained + repaired): a VM-side bulk edit hit the truncated-tail mount artifact and clobbered the six AMD tails on the host; reconstructed from git `77d5e51` + the in-session fold record; all six host-verified end-to-end. NEW RULE: bulk edits to governance files go host-side (Edit/Write) or git-object-sourced — never VM read-modify-write of worktree files.
 **Action needed:**

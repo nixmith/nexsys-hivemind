@@ -59,4 +59,6 @@ R14/R15 dispatch ──► returns (any order) ──► serialized assessments 
 Parallel: Lane-2 M6.3 evidence gates (Nick) ──► the W25/W26 M6.3-vs-M7 ordering call (gate row 3)
 ```
 
+**Gate-row-3 input status (2026-06-12):** the microbench half is **DELIVERED** — OQ-15-2 RESOLVED (encrypted set confirmed `[identity, presence_personal]`; disposition in `context/assessments/`). The energy/erasure-interview half remains OPEN (Nick-paced) — row 3 stays ⛔ until it lands; the ordering call needs both.
+
 R15 feeds M5-C/strategy ONLY (no rows here cite it for scope — its parking register is checked at synthesis for anything mis-routed).

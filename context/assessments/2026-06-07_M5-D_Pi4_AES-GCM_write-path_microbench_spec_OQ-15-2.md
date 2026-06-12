@@ -4,7 +4,7 @@ purpose: M5-D evidence lane — a RUNNABLE Pi-4 AES-256-GCM write-path microbenc
 audience: Nick (runs it), PM, Coder (builds the harness if Nick delegates)
 update-cadence: once (spec), then the RESULTS BLOCK is filled when Nick runs it
 state-type: decision-support / spec
-status: SPEC READY — awaiting Pi-4 run. Independently reviewed 2026-06-07 (separate agent, adversarial re-derivation vs source) → RATIFY-WITH-EDITS; the 3 precision/citation/ordering edits are folded (none changed a number or decision; RESULTS block confirmed blank — no fabricated measurements).
+status: RESOLVED 2026-06-12 — §8 RESULTS/DECISION filled from the guided Pi-evidence run (device: Pi 5, intrinsics-off Pi-4 emulation, NON-AUTHORITATIVE per §3.D, accepted via the session R1 conditional ruling). Both candidates ENCRYPT-ON-WRITE; encrypted_scopes default CONFIRMED [identity, presence_personal]; no fallback; no STOP-escalate. Raw evidence: `oq-15-2-harness/2026-06-12_bench-raw-output.txt`. Disposition note: `2026-06-12_OQ-15-2_disposition_encrypted-scopes-CONFIRMED.md`. (Spec history: independently reviewed 2026-06-07 → RATIFY-WITH-EDITS, 3 precision edits folded, RESULTS block was blank until the run.)
 last-verified: 2026-06-07 against Doc 15 (LOCKED) §3.2/§3.4/§9/§10/§13.3, HEAD homesynapse-core 8028337
 guardrail: This microbench TUNES the encrypted-scope LIST inside Locked Doc 15 (§2.3/§15.2/§16 explicitly delegate the list to it). It is NOT a Doc 15 re-open. If a result implies a DESIGN change (not a list-tuning) — STOP and escalate to Nick (see §7).
 -->
@@ -186,38 +186,93 @@ Record the **full, verbatim** JVM command line in §8 — the result is only int
 
 ---
 
-## RESULTS / DECISION — (empty until Nick runs it on Pi-4)
+## RESULTS / DECISION — FILLED 2026-06-12 (Pi-evidence session; raw outputs verbatim at `oq-15-2-harness/2026-06-12_bench-raw-output.txt`)
 
 ```
-Run date:                __________   Hardware: Raspberry Pi 4 (BCM2711 / Cortex-A72)  [confirm: no ARMv8 crypto ext]
-JDK / build:             __________   Deployment profile: __________  (heap ___ MB, GC ____)
-Full JVM command line:   __________________________________________________________________
-Intrinsics guard (§3.D): UseAESIntrinsics installed?  NO / YES   (PrintIntrinsics evidence: ______)
-Thermal (§3.E):          get_throttled = 0x____   measure_temp before/after = ____ / ____ °C   governor = ________
+Run date:                2026-06-12 (PRIMARY run 16:26:55Z, post-reboot fresh boot; replicate run 16:24:36Z —
+                         cross-run agreement ±0.5% on every warm p50)
+Hardware:                ⚠ DEVIATION from the Pi-4 template line: Raspberry Pi 5 Model B Rev 1.1
+                         (BCM2712 / Cortex-A76 @ 2.40 GHz locked, performance governor). The A76 HAS the ARMv8
+                         crypto extensions — intrinsics FORCED OFF per §3.D (Pi-4 emulation). Result class:
+                         NON-AUTHORITATIVE per §3.D; ACCEPTED as resolving OQ-15-2 via the session R1
+                         conditional ruling (margins ≥13× at the real payload distribution; see DECISION notes).
+JDK / build:             Amazon Corretto 21.0.10+7-LTS (openjdk 21.0.10 2026-01-20 LTS)
+Deployment profile:      not yet pinned in-repo (M13 composition/deploy work) — the established Pi IT profile
+                         used and recorded: heap 256 MB (-Xms=-Xmx), GC G1, ActiveProcessorCount=4, AlwaysPreTouch
+Full JVM command line:   -XX:+UnlockDiagnosticVMOptions -XX:+IgnoreUnrecognizedVMOptions -Xms256m -Xmx256m
+                         -XX:+UseG1GC -XX:ActiveProcessorCount=4 -XX:+AlwaysPreTouch -XX:-UseAESIntrinsics
+                         -XX:-UseAESCTRIntrinsics -XX:-UseGHASHIntrinsics -XX:-UseSHA -XX:-UseSHA1Intrinsics
+                         -XX:-UseSHA256Intrinsics -XX:-UseSHA512Intrinsics -XX:-UseSHA3Intrinsics
+                         BenchOQ152 {warm|cold|sha} … (taskset -c 2; 3 warm JVM forks + cold fork + sha fork)
+Intrinsics guard (§3.D): NO — PrintFlagsFinal: UseAESIntrinsics / UseAESCTRIntrinsics / UseGHASHIntrinsics /
+                         UseSHA256Intrinsics ALL "= false {diagnostic} {command line}" (FLAG lines archived)
+Thermal (§3.E):          get_throttled = 0x0 before AND after (both runs)   temp before/after = 58.7 / 59.8 °C
+                         governor = performance @ 2400000 kHz
 
-Payload sizes used (§4): min ___ B, p50 ___ B, p95 ___ B, max ___ B, outlier ___ B   (corpus: TestEventSamples + ____)
+Payload sizes used (§4): REAL observed sensitive-PII distribution: 44 B (presence_changed), 82 B (presence_signal)
+                         — BELOW the §10 200–500 B band; reported per §4 and run as-is. Band points (real
+                         PresenceSignalEvent, padded detail, real EventPayloadCodec): 198 / 348 / 501 B.
+                         Outlier: 1026 B. (corpus: TestEventSamples presence events + padded band variants;
+                         NOTE: `identity` has NO event type in source at HEAD — EventTypes.java carries no
+                         identity row — so no real identity payload exists; G1 for identity is assessed on the
+                         measured size band, cost being a function of size, not category.)
 
-Per-event AES-256-GCM encrypt cost (§3.A), Pi-4, warm:
-   payload p50 size:  p50 ___ µs   p99 ___ µs
-   payload p95 size:  p50 ___ µs   p99 ___ µs
-   (cold first-N):    ___ µs   (warm/cold gap notable? ___)
-Chain-hash per event (§3.C context): ___ µs    Combined sensitive-event write-path crypto tax: ___ µs
+Per-event AES-256-GCM encrypt cost (§3.A), Pi-5-intrinsics-off, warm (worst fork, primary run):
+     44 B (real):      p50  2.82 µs   p99  3.28 µs
+     82 B (real):      p50  4.46 µs   p99  4.61 µs
+    198 B (band):      p50  8.43 µs   p99 10.00 µs
+    348 B (band):      p50 13.28 µs   p99 13.98 µs
+    501 B (band):      p50 18.81 µs   p99 19.30 µs
+   1026 B (outlier):   p50 36.93 µs   p99 38.96 µs
+   (cold first-N):     p50-of-first-100 = 80.50 µs; first op 2092 µs; settles ~90 µs by op 10.
+                       Warm/cold gap NOTABLE → FLAGGED per §3.A: on this device the software-AES path still
+                       gets C2-compiled, so cold≠warm (unlike the Pi-4 expectation). Impact: one-time ~25 ms
+                       aggregate per JVM start; no gate impact (the §10 budget is written against warm).
+   (measurement note): 8–16 ms p99.9 spikes confined to the FIRST-measured corpus file in each fork
+                       (JIT/GC settling bleeding past warmup batches); p50/p99 unaffected. Finding, not gate input.
+Chain-hash per event (§3.C context): p50 0.85–0.87 µs (real sizes), 1.65–3.46 µs (band), 6.39 µs (1 KB)
+Combined sensitive-event write-path crypto tax: ≈ 3.7–5.3 µs at the real sizes; ≈ 22.3 µs at band-max
 
-Sustained throughput (§3.B), realistic MVP mix, encryption ON for sensitive scopes:
-   floor check:  ___ ev/s sustained   (≥500 required) → PASS / FAIL
-   headroom:     saturates at ___ ev/s on sensitive scopes  (= ___× over projected peak)
+Sustained throughput (§3.B — METHOD DEVIATION per session ruling R3: the spec's production-write-path-encrypting
+rig is unbuildable pre-M6.3 [the E2 PayloadCipher bridge is held-not-consumed; the §11.1 histogram unbuilt].
+G2 = measured plaintext baseline + analytic composition at the derived R_C):
+   floor check:  PASS — measured plaintext write-path ceiling 24,473 ev/s (D1 WAL spike, 2026-04-02, THIS device/
+                 JDK/NVMe, executor path; 49× the 500 ev/s floor) + current-HEAD evidence tonight: the full Pi
+                 IT suite GREEN in 42 m 5 s (BurstLoadIT ≥100 ev/s, Pi4SustainedLoadIT 10-min at target/lag
+                 bounds, Pi4D1SpikeIT soak, HeapBudgetIT, CrashRecoveryIT — BUILD SUCCESSFUL, zero failures).
+                 Encryption tax at projected rates (below) subtracts ≤0.12% of one core — the floor holds.
+   headroom:     plaintext ceiling = 408× the presence burst ceiling (24,473 / 60); ≥49× the §10 floor. Even a
+                 hypothetical ALL-sensitive 24,473 ev/s stream costs ~11% of one core at the real-size p99.
 
-Derived peak rates (§5):  R_C(identity) = ___ ev/s  (basis: ______)
-                          R_C(presence_personal) = ___ ev/s  (basis: ______)
-Core-budget (§G3):        identity tax = ___% core   presence_personal tax = ___% core
+Derived peak rates (§5):  R_C(identity) = ~0 ev/s steady; ≤1 ev/s setup burst bound
+                          (basis: NO identity event type exists at HEAD `01841ba`/substantive `7c73c91` —
+                          EventTypes.java source-verified; identity records change on person CRUD = events/day,
+                          Doc 15 §3.4 cadence)
+                          R_C(presence_personal) = 60 ev/s burst ceiling; ≪1 ev/s steady
+                          (basis: Doc 08 IAS Zone — presence is transition-driven [ZoneStatusChangeNotification],
+                          no periodic presence keep-alive stream; burst = 10 person-linked presence entities ×
+                          2 events [signal+changed] in 1 s × 3× safety multiple)
+Core-budget (§G3):        identity tax ≈ 0.0005% core (at the 1 ev/s bound × 4.61 µs)
+                          presence_personal tax = 0.028% core (60 × 4.61 µs real-size p99);
+                          band-max bound 0.12% (60 × 19.30 µs). Both ≪ the 10% flag line.
 
 PER-CATEGORY VERDICT (§6):
-   identity:           G1 __  G2 __  G3 __   →  ENCRYPT-ON-WRITE / PLAINTEXT-FALLBACK
-   presence_personal:  G1 __  G2 __  G3 __   →  ENCRYPT-ON-WRITE / PLAINTEXT-FALLBACK
+   identity:           G1 PASS  G2 PASS  G3 PASS   →  ENCRYPT-ON-WRITE
+   presence_personal:  G1 PASS  G2 PASS  G3 PASS   →  ENCRYPT-ON-WRITE
+   (G1 margins at the REAL payload distribution: p50 2.82–4.46 vs ≤60 → 13–21×; p99 3.28–4.61 vs ≤120 → 26–37×.
+   G1 holds at every measured size incl. the 1 KB outlier: p50 36.93 ≤ 60, p99 38.96 ≤ 120.)
 
-RESOLVED encrypted_scopes (Doc 15 §9 default):  [ __________ ]
-OQ-15-2:  RESOLVED ____-__-__   |  Any fallback? (record §6.1–6.3 if so): __________
-Design implication / STOP-escalate triggered (§7)?  NO / YES → escalation: __________
+RESOLVED encrypted_scopes (Doc 15 §9 default):  [ identity, presence_personal ]  — DEFAULT CONFIRMED
+OQ-15-2:  RESOLVED 2026-06-12   |  Any fallback? NONE (no §6.1–6.3 record required)
+Design implication / STOP-escalate triggered (§7)?  NO
+
+HARDWARE-AUTHORITY RESIDUAL (the R1 ruling, recorded): per §3.D these are NON-AUTHORITATIVE Pi-5 numbers
+(A76 intrinsics-off UNDERSTATES Pi-4/A72 cost). Accepted as resolving OQ-15-2 because the conditional was met
+with room: ≥13× G1 / ≥49× G2 margins at the real distribution, and a conservative 3× A72-derating keeps every
+gate green (derated band-max p50 ≈ 56 µs — inside §10's own 30–60 µs prediction; derated real-size p50 ≈ 8–13 µs).
+NOTE: no evidence in this lane has ever touched Pi-4 silicon (the D1 spike also ran on this Pi 5). An optional
+Pi-4 confirmation run is queued in the pm-handoff advisory queue; a surprising Pi-4 result re-opens nothing in
+Doc 15 — it would re-run THIS spec's §6 rule on authoritative numbers.
 ```
 
 ---

@@ -1,0 +1,152 @@
+OQ-15-2 evidence run — RAW outputs as pasted by Nick, 2026-06-12 (Pi-evidence session).
+Transcription source for the spec §8 RESULTS/DECISION block. Do not edit.
+
+=== 1. pi4-validation first exercise (manual tar-deploy + remote gradle; F3: no rsync on Git Bash) ===
+
+$ ssh -t pi "bash -lc 'cd /opt/homesynapse-tests && ./gradlew :testing:integration-tests:test -PpiProfile=throttled -PsustainedMinutes=10'" \
+  2>&1 | tee pi4-validation-manual.log
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+BUILD SUCCESSFUL in 42m 5s
+56 actionable tasks: 56 executed
+
+=== 2. Post-validation thermal gate (ruled: proceed direct to bench) ===
+
+$ ssh pi 'vcgencmd get_throttled && vcgencmd measure_temp'
+throttled=0x0
+temp=58.2'C
+
+=== 3. Microbench driver v2 — FULL OUTPUT ===
+
+===================== OQ-15-2 MICROBENCH DRIVER =====================
+RUN_DATE_UTC:2026-06-12T16:24:36Z
+HOST:hs-dev-1  KERNEL:6.12.75+rpt-rpi-2712 aarch64
+MODEL:Raspberry Pi 5 Model B Rev 1.1
+JAVA:openjdk version "21.0.10" 2026-01-20 LTS
+JAVA:OpenJDK Runtime Environment Corretto-21.0.10.7.1 (build 21.0.10+7-LTS)
+JAVA:OpenJDK 64-Bit Server VM Corretto-21.0.10.7.1 (build 21.0.10+7-LTS, mixed mode, sharing)
+JVM_FLAGS:-XX:+UnlockDiagnosticVMOptions -XX:+IgnoreUnrecognizedVMOptions -Xms256m -Xmx256m -XX:+UseG1GC -XX:ActiveProcessorCount=4 -XX:+AlwaysPreTouch -XX:-UseAESIntrinsics -XX:-UseAESCTRIntrinsics -XX:-UseGHASHIntrinsics -XX:-UseSHA -XX:-UseSHA1Intrinsics -XX:-UseSHA256Intrinsics -XX:-UseSHA512Intrinsics -XX:-UseSHA3Intrinsics
+OPS_PER_BATCH:2000  WARM_FORKS:3  PIN_CORE:2
+----- JVM preflight (the flag set must boot a JVM) -----
+PREFLIGHT:openjdk version "21.0.10" 2026-01-20 LTS
+PREFLIGHT:OpenJDK Runtime Environment Corretto-21.0.10.7.1 (build 21.0.10+7-LTS)
+PREFLIGHT:OpenJDK 64-Bit Server VM Corretto-21.0.10.7.1 (build 21.0.10+7-LTS, mixed mode, sharing)
+----- §3.D intrinsics guard (must all be false) -----
+FLAG:     bool UseAESCTRIntrinsics                      = false                                  {diagnostic} {command line}
+FLAG:     bool UseAESIntrinsics                         = false                                  {diagnostic} {command line}
+FLAG:     bool UseGHASHIntrinsics                       = false                                  {diagnostic} {command line}
+FLAG:     bool UseSHA256Intrinsics                      = false                                  {diagnostic} {command line}
+----- §3.E pre-run thermal / governor -----
+THROTTLED_BEFORE:throttled=0x0
+TEMP_BEFORE:temp=59.3'C
+GOVERNOR:performance
+CPU_FREQ_KHZ:2400000
+----- compile -----
+COMPILED:ok
+CORPUS:
+-rw-r--r-- 1 homesynapse homesynapse  198 Jun 12 11:32 /home/homesynapse/bench-oq15-2/corpus/presence_band_200-198B.bin
+-rw-r--r-- 1 homesynapse homesynapse  348 Jun 12 11:32 /home/homesynapse/bench-oq15-2/corpus/presence_band_350-348B.bin
+-rw-r--r-- 1 homesynapse homesynapse  501 Jun 12 11:32 /home/homesynapse/bench-oq15-2/corpus/presence_band_500-501B.bin
+-rw-r--r-- 1 homesynapse homesynapse   44 Jun 12 11:32 /home/homesynapse/bench-oq15-2/corpus/presence_changed_real-44B.bin
+-rw-r--r-- 1 homesynapse homesynapse 1026 Jun 12 11:32 /home/homesynapse/bench-oq15-2/corpus/presence_outlier_1024-1026B.bin
+-rw-r--r-- 1 homesynapse homesynapse   82 Jun 12 11:32 /home/homesynapse/bench-oq15-2/corpus/presence_signal_real-82B.bin
+----- WARM forks (steady-state, 3 JVM forks) -----
+--- fork 1 ---
+RESULT:warm:presence_band_200-198B.bin:198:mean_us=22.38:p50_us=8.41:p90_us=8.87:p99_us=9.72:p999_us=8037.64:min_us=8.24:max_us=12044.81
+RESULT:warm:presence_band_350-348B.bin:348:mean_us=13.36:p50_us=13.28:p90_us=13.48:p99_us=14.06:p999_us=21.78:min_us=13.17:max_us=62.57
+RESULT:warm:presence_band_500-501B.bin:501:mean_us=18.85:p50_us=18.78:p90_us=18.87:p99_us=19.30:p999_us=35.37:min_us=18.61:max_us=163.37
+RESULT:warm:presence_changed_real-44B.bin:44:mean_us=7.42:p50_us=2.82:p90_us=3.13:p99_us=3.22:p999_us=16.67:min_us=2.76:max_us=12029.78
+RESULT:warm:presence_outlier_1024-1026B.bin:1026:mean_us=37.20:p50_us=36.93:p90_us=37.06:p99_us=39.28:p999_us=63.94:min_us=36.59:max_us=3423.23
+RESULT:warm:presence_signal_real-82B.bin:82:mean_us=4.49:p50_us=4.46:p90_us=4.52:p99_us=4.59:p999_us=8.67:min_us=4.41:max_us=110.85
+sink=-74
+--- fork 2 ---
+RESULT:warm:presence_band_200-198B.bin:198:mean_us=24.10:p50_us=8.46:p90_us=9.00:p99_us=10.85:p999_us=8039.70:min_us=8.24:max_us=16036.86
+RESULT:warm:presence_band_350-348B.bin:348:mean_us=13.48:p50_us=13.46:p90_us=13.52:p99_us=13.83:p999_us=26.15:min_us=13.17:max_us=55.56
+RESULT:warm:presence_band_500-501B.bin:501:mean_us=18.85:p50_us=18.78:p90_us=18.87:p99_us=19.37:p999_us=35.13:min_us=18.59:max_us=167.20
+RESULT:warm:presence_changed_real-44B.bin:44:mean_us=6.57:p50_us=2.82:p90_us=3.11:p99_us=3.20:p999_us=22.59:min_us=2.76:max_us=12033.37
+RESULT:warm:presence_outlier_1024-1026B.bin:1026:mean_us=37.17:p50_us=36.89:p90_us=37.04:p99_us=39.26:p999_us=59.69:min_us=36.59:max_us=3518.86
+RESULT:warm:presence_signal_real-82B.bin:82:mean_us=4.49:p50_us=4.46:p90_us=4.50:p99_us=4.59:p999_us=8.93:min_us=4.41:max_us=53.78
+sink=-57
+--- fork 3 ---
+RESULT:warm:presence_band_200-198B.bin:198:mean_us=20.00:p50_us=8.43:p90_us=8.91:p99_us=9.74:p999_us=8039.29:min_us=8.24:max_us=16045.89
+RESULT:warm:presence_band_350-348B.bin:348:mean_us=16.19:p50_us=16.09:p90_us=16.20:p99_us=16.69:p999_us=45.39:min_us=15.91:max_us=146.04
+RESULT:warm:presence_band_500-501B.bin:501:mean_us=18.82:p50_us=18.74:p90_us=18.85:p99_us=19.26:p999_us=33.61:min_us=18.59:max_us=163.37
+RESULT:warm:presence_changed_real-44B.bin:44:mean_us=5.81:p50_us=2.82:p90_us=2.87:p99_us=2.96:p999_us=16.28:min_us=2.78:max_us=8034.09
+RESULT:warm:presence_outlier_1024-1026B.bin:1026:mean_us=37.12:p50_us=36.83:p90_us=36.98:p99_us=39.30:p999_us=60.13:min_us=36.50:max_us=3523.25
+RESULT:warm:presence_signal_real-82B.bin:82:mean_us=4.51:p50_us=4.48:p90_us=4.52:p99_us=4.61:p999_us=8.65:min_us=4.43:max_us=66.11
+sink=-16
+----- COLD fork (first-100-ops, fresh JVM, p50-size payload) -----
+cold first op: 2903.3 us; ops 2-10: 682.9 652.9 1266.0 1189.4 1423.8 874.4 349.8 108.7 90.8
+RESULT:cold:presence_band_350-348B.bin:348:mean_us=314.91:p50_us=80.28:p90_us=682.88:p99_us=5233.87:p999_us=5686.75:min_us=35.54:max_us=5686.75
+sink=-6
+----- SHA-256 chain-hash context fork (§3.C) -----
+RESULT:sha:presence_band_200-198B.bin:198:mean_us=4.21:p50_us=1.65:p90_us=1.78:p99_us=1.85:p999_us=4.65:min_us=1.61:max_us=12035.04
+RESULT:sha:presence_band_350-348B.bin:348:mean_us=4.24:p50_us=2.76:p90_us=2.82:p99_us=2.83:p999_us=5.85:min_us=2.72:max_us=8029.70
+RESULT:sha:presence_band_500-501B.bin:501:mean_us=3.46:p50_us=3.46:p90_us=3.46:p99_us=3.50:p999_us=5.67:min_us=3.41:max_us=29.28
+RESULT:sha:presence_changed_real-44B.bin:44:mean_us=1.70:p50_us=0.87:p90_us=0.89:p99_us=0.89:p999_us=1.06:min_us=0.85:max_us=5010.63
+RESULT:sha:presence_outlier_1024-1026B.bin:1026:mean_us=12.92:p50_us=6.37:p90_us=6.41:p99_us=6.48:p999_us=4030.32:min_us=6.32:max_us=6643.15
+RESULT:sha:presence_signal_real-82B.bin:82:mean_us=1.08:p50_us=0.85:p90_us=0.85:p99_us=0.87:p999_us=0.98:min_us=0.82:max_us=4656.95
+sink=5
+----- §3.E post-run thermal -----
+THROTTLED_AFTER:throttled=0x0
+TEMP_AFTER:temp=62.6'C
+===================== END OQ-15-2 MICROBENCH =====================
+
+=== 4. SECOND RUN — post-reboot (fresh boot, zero since-boot history, governor re-set) ===
+=== RULED PRIMARY transcription source for §8; run 1 above = replicate.            ===
+=== Cross-run agreement: every warm p50 within +/-0.5%; all conclusions identical. ===
+
+RUN_DATE_UTC:2026-06-12T16:26:55Z
+HOST:hs-dev-1  KERNEL:6.12.75+rpt-rpi-2712 aarch64
+MODEL:Raspberry Pi 5 Model B Rev 1.1
+JAVA: Corretto-21.0.10.7.1 (build 21.0.10+7-LTS)
+JVM_FLAGS:-XX:+UnlockDiagnosticVMOptions -XX:+IgnoreUnrecognizedVMOptions -Xms256m -Xmx256m -XX:+UseG1GC -XX:ActiveProcessorCount=4 -XX:+AlwaysPreTouch -XX:-UseAESIntrinsics -XX:-UseAESCTRIntrinsics -XX:-UseGHASHIntrinsics -XX:-UseSHA -XX:-UseSHA1Intrinsics -XX:-UseSHA256Intrinsics -XX:-UseSHA512Intrinsics -XX:-UseSHA3Intrinsics
+OPS_PER_BATCH:2000  WARM_FORKS:3  PIN_CORE:2
+FLAG:     bool UseAESCTRIntrinsics                      = false                                  {diagnostic} {command line}
+FLAG:     bool UseAESIntrinsics                         = false                                  {diagnostic} {command line}
+FLAG:     bool UseGHASHIntrinsics                       = false                                  {diagnostic} {command line}
+FLAG:     bool UseSHA256Intrinsics                      = false                                  {diagnostic} {command line}
+THROTTLED_BEFORE:throttled=0x0
+TEMP_BEFORE:temp=58.7'C
+GOVERNOR:performance
+CPU_FREQ_KHZ:2400000
+COMPILED:ok
+--- fork 1 ---
+RESULT:warm:presence_band_200-198B.bin:198:mean_us=24.44:p50_us=8.43:p90_us=8.98:p99_us=10.00:p999_us=8041.28:min_us=8.26:max_us=16042.08
+RESULT:warm:presence_band_350-348B.bin:348:mean_us=13.33:p50_us=13.28:p90_us=13.39:p99_us=13.78:p999_us=18.78:min_us=13.19:max_us=42.20
+RESULT:warm:presence_band_500-501B.bin:501:mean_us=18.86:p50_us=18.81:p90_us=18.93:p99_us=19.30:p999_us=24.69:min_us=18.65:max_us=157.52
+RESULT:warm:presence_changed_real-44B.bin:44:mean_us=6.02:p50_us=2.82:p90_us=3.13:p99_us=3.28:p999_us=18.63:min_us=2.76:max_us=4046.44
+RESULT:warm:presence_outlier_1024-1026B.bin:1026:mean_us=37.17:p50_us=36.93:p90_us=37.07:p99_us=38.91:p999_us=48.22:min_us=36.63:max_us=3461.32
+RESULT:warm:presence_signal_real-82B.bin:82:mean_us=4.47:p50_us=4.45:p90_us=4.50:p99_us=4.57:p999_us=6.95:min_us=4.39:max_us=31.13
+sink=87
+--- fork 2 ---
+RESULT:warm:presence_band_200-198B.bin:198:mean_us=23.15:p50_us=8.41:p90_us=8.91:p99_us=9.61:p999_us=8039.54:min_us=8.22:max_us=16037.05
+RESULT:warm:presence_band_350-348B.bin:348:mean_us=13.36:p50_us=13.28:p90_us=13.50:p99_us=13.98:p999_us=17.67:min_us=13.17:max_us=50.78
+RESULT:warm:presence_band_500-501B.bin:501:mean_us=18.82:p50_us=18.76:p90_us=18.87:p99_us=19.28:p999_us=25.24:min_us=18.56:max_us=163.06
+RESULT:warm:presence_changed_real-44B.bin:44:mean_us=5.63:p50_us=2.80:p90_us=3.11:p99_us=3.20:p999_us=15.39:min_us=2.74:max_us=8049.31
+RESULT:warm:presence_outlier_1024-1026B.bin:1026:mean_us=37.13:p50_us=36.89:p90_us=37.04:p99_us=38.96:p999_us=46.19:min_us=36.57:max_us=3534.58
+RESULT:warm:presence_signal_real-82B.bin:82:mean_us=4.48:p50_us=4.46:p90_us=4.50:p99_us=4.61:p999_us=8.30:min_us=4.41:max_us=30.32
+sink=-80
+--- fork 3 ---
+RESULT:warm:presence_band_200-198B.bin:198:mean_us=23.35:p50_us=8.41:p90_us=8.91:p99_us=9.78:p999_us=8041.61:min_us=8.24:max_us=16037.38
+RESULT:warm:presence_band_350-348B.bin:348:mean_us=13.34:p50_us=13.28:p90_us=13.41:p99_us=13.72:p999_us=18.82:min_us=13.17:max_us=44.52
+RESULT:warm:presence_band_500-501B.bin:501:mean_us=18.82:p50_us=18.76:p90_us=18.87:p99_us=19.22:p999_us=29.11:min_us=18.59:max_us=171.67
+RESULT:warm:presence_changed_real-44B.bin:44:mean_us=5.69:p50_us=2.82:p90_us=3.11:p99_us=3.24:p999_us=15.02:min_us=2.76:max_us=4050.92
+RESULT:warm:presence_outlier_1024-1026B.bin:1026:mean_us=37.15:p50_us=36.91:p90_us=37.06:p99_us=38.95:p999_us=49.00:min_us=36.59:max_us=3475.49
+RESULT:warm:presence_signal_real-82B.bin:82:mean_us=4.49:p50_us=4.46:p90_us=4.52:p99_us=4.59:p999_us=8.28:min_us=4.41:max_us=60.35
+sink=-40
+--- cold ---
+cold first op: 2092.2 us; ops 2-10: 687.5 653.0 1515.3 1186.6 1435.1 886.2 354.6 106.9 89.9
+RESULT:cold:presence_band_350-348B.bin:348:mean_us=256.65:p50_us=80.50:p90_us=653.04:p99_us=3095.78:p999_us=4170.62:min_us=74.91:max_us=4170.62
+sink=-38
+--- sha (§3.C) ---
+RESULT:sha:presence_band_200-198B.bin:198:mean_us=3.21:p50_us=1.65:p90_us=1.70:p99_us=1.76:p999_us=2.26:min_us=1.61:max_us=16033.84
+RESULT:sha:presence_band_350-348B.bin:348:mean_us=4.67:p50_us=2.76:p90_us=2.82:p99_us=2.93:p999_us=4.76:min_us=2.72:max_us=8058.64
+RESULT:sha:presence_band_500-501B.bin:501:mean_us=3.46:p50_us=3.46:p90_us=3.48:p99_us=3.48:p999_us=5.13:min_us=3.41:max_us=27.09
+RESULT:sha:presence_changed_real-44B.bin:44:mean_us=1.81:p50_us=0.87:p90_us=0.89:p99_us=0.89:p999_us=1.02:min_us=0.85:max_us=8035.64
+RESULT:sha:presence_outlier_1024-1026B.bin:1026:mean_us=12.73:p50_us=6.39:p90_us=6.41:p99_us=6.48:p999_us=4027.79:min_us=6.32:max_us=5022.43
+RESULT:sha:presence_signal_real-82B.bin:82:mean_us=2.65:p50_us=0.85:p90_us=0.85:p99_us=0.87:p999_us=1.69:min_us=0.82:max_us=11837.11
+sink=5
+THROTTLED_AFTER:throttled=0x0
+TEMP_AFTER:temp=59.8'C
+===================== END SECOND RUN =====================

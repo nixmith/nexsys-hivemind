@@ -483,3 +483,14 @@ No reminder is needed when the target is `com.homesynapse.{app,platform,test}..`
 ### Instruction Masthead Conventions
 
 Real instructions carry an HTML-comment masthead with `purpose`, `audience`, `status` (`ISSUE-READY` / `⛔ GATED on …` / `COMPLETE`), and `baseline:` (the HEAD the instruction was authored against — re-verify at issue). When an amendment number is **in flight**, use neutral phrasing ("the current amendment watermark", "the codec amendment") rather than pinning a still-PROPOSED number; add an `amd-number-note` only when a renumber is live (per INV-GA-02, identifiers are never reused, so a retired number must not be re-cited as live).
+
+---
+
+## Additions (2026-06-11, from the M6.2 execution feedback — ratified by the M6.2 zero-bounce outcome)
+
+1. **Internal-consumer survey (MANDATORY).** When the WU modifies an internal component (a loader, codec, writer, helper), the instruction must enumerate EVERY consumer of that component (constructor call sites + call paths) and rule the behavior for each — the P2 consumer/pin survey discipline applied to module internals. Origin: M6.2's DP-10 ruled tag resolution for load+reload but was silent on `YamlLoader`'s write-path consumer; resolving there would have written plaintext secrets to disk.
+2. **The Files table governs.** Where instruction prose and the Files table disagree on what is touched, the Files table wins; the Coder flags the conflict as `[INFO]` rather than escalating. (Origin: DP-6's "persistence factory … HOLDS it" vs `PersistenceFactory` absent from the table.)
+3. **Minimum read set (MANDATORY section).** Every instruction states the must-understand list explicitly — types and, for large files, the named regions (e.g. "`runPipeline`/`writeLocked` regions of `StandardConfigurationService`"). The Coder may read more, but the floor is declared.
+4. **External-standard constants embed verbatim.** Any test pinning standard-derived constants (RFC vectors, IEEE bit patterns, protocol magic) gets them embedded in the instruction verbatim with the source citation — never left for the Coder to recall. Standing practice: the Coder re-derives them independently before pinning.
+5. **Worked examples for counter/boundary semantics.** Any N-th-occurrence rule ("the 6th mutation prunes bak.1") carries a one-line worked example resolving whether creation counts.
+6. **§4c caveat:** do NOT assert `NO_DIRECT_TIME_ACCESS` scans non-app test source sets — it structurally cannot (see open-questions 2026-06-11). The Clock-injection prescription stands as convention; word it as such until the rule-reach OQ resolves.

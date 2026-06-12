@@ -6,7 +6,7 @@ update-cadence: per-milestone (LTD changes rare; DEC-M3 grows with milestones)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-06-07 — **M5-A COMPLETE (`7f44bed`) + M5-B/B1 DONE (Doc 15 Cryptographic Architecture LOCKED; AMD-86 + AMD-87 RATIFIED; watermark AMD-87)**. Added the **M5-window decision block** (D1–D8; D2 crypto MVP scope; Doc 15; AMD-86 INV-PD-07/03 amendment; AMD-87 Expectation codec RATIFIED+IMPLEMENTED → M9 prereq cleared). LTD/DEC-M3/D-NN content unchanged from the 2026-05-27 verification (19 LTDs, 17 DEC-M3s, 12 D-NNs). Prior spine state: `8ef9e9f` (M4 COMPLETE, watermark AMD-64).
+last-verified: 2026-06-13 — **M6 3-of-4 COMPLETE (`7c73c91`); M6 execution rulings + the M7 decided ground (DQ-1/2/3/5) + B2 C8/C9 (PROPOSED) + the AMD-88..93 PM defaults (PROPOSED, bundled review READY) added as new sections.** _Prior:_ 2026-06-07 — **M5-A COMPLETE (`7f44bed`) + M5-B/B1 DONE (Doc 15 Cryptographic Architecture LOCKED; AMD-86 + AMD-87 RATIFIED; watermark AMD-87)**. Added the **M5-window decision block** (D1–D8; D2 crypto MVP scope; Doc 15; AMD-86 INV-PD-07/03 amendment; AMD-87 Expectation codec RATIFIED+IMPLEMENTED → M9 prereq cleared). LTD/DEC-M3/D-NN content unchanged from the 2026-05-27 verification (19 LTDs, 17 DEC-M3s, 12 D-NNs). Prior spine state: `8ef9e9f` (M4 COMPLETE, watermark AMD-64).
 full-text-location: homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md
 -->
 
@@ -245,8 +245,36 @@ The blended, lane-tracked M5 window (decisions **D1–D8**, full text `nexsys-hi
 | **AMD-70 — config observability events (RATIFIED 2026-06-09)** | `config.validation_completed` + `config.section_reloaded`, observability-only, flat `com.homesynapse.event` (NQ-5/AMD-52 precedent). **E70-1 (the review's load-bearing catch): payloads flattened to event-resident/`java.base` types under the type-residency rule** — config types consumed, never referenced (else `event→config`, the AMD-52 cycle class); now a standing JPMS lesson in the P2 consumer/pin survey. AMD-70-INV-01 §40. Impl M6.1 + M6.4 (survey re-run). |
 | **AMD-71 — hybrid config directory layout (RATIFIED 2026-06-09)** | `${config_dir}` layout (root YAML + `integrations/` + `secrets.enc` + regenerable `schemas/` + `signing-key.pub`); one-level `!include`; canonicalization-based fail-closed traversal guard; **[AMD-71-A] ruled: composition-root `Path` injection (= M6.1 DP-3)** — no `config→platform` edge; the zero-new-edge property the E2 bridge depends on is preserved. AMD-71-INV-01/02 §41. Impl M6.1. |
 
-**Watermark UNCHANGED at AMD-87** — all six were reserved-below-watermark slots; ratification fills them, it does not raise the ceiling. **M6.1 READY TO ISSUE; AMD-68 half of M6.2's gate satisfied; M6.3 triple-gated (OQ-15-2 + AMD-86 §3 interview signal + OR-M6-NONCE).** Review return: `nexsys-hivemind/context/audits/2026-06-09_AMD-66-71_DOCS_Review_Return.md`.
+**Watermark UNCHANGED at AMD-87** — all six were reserved-below-watermark slots; ratification fills them, it does not raise the ceiling. _Execution since (2026-06-10/11):_ **M6.1 COMPLETE (whole: `b7bc65c`+`9035110`) · M6.4 COMPLETE (`62a81e6`) · M6.2 COMPLETE (`7c73c91`) — M6.3 stays triple-gated (OQ-15-2 + AMD-86 §3 interview signal + OR-M6-NONCE).** Review return: `nexsys-hivemind/context/audits/2026-06-09_AMD-66-71_DOCS_Review_Return.md`.
+
+## M6 Execution Rulings (2026-06-10/11 — PM-ruled or Nick-ruled at dispatch/review; binding on downstream work)
+
+| Ruling | Detail |
+|---|---|
+| **Module-info ruling (Nick, 2026-06-10)** | The five **third-party non-transitive `requires`** on `com.homesynapse.config` (snakeyaml-engine/networknt are explicit JPMS modules; Gradle `implementation` scope does NOT exempt JPMS) + 2 Gradle lockstep lines. APPROVED — the AMD-66..71 §7 embeds carry ruling-correction notes |
+| **GF-1 (M6.1a)** | Explicit `CoreSchema` on BOTH LoadSettings (engine default = JSON schema where `~` ≠ null; LTD-09) + ArchUnit Rule 5 drops `com.homesynapse.config..` per ratified AMD-71 (AMD-71-INV-01 containment = the compensating control) |
+| **GF-1 (M6.4)** | `ConfigLayoutTest.composeAfterMerge` publish-count pin 1→2 per the ratified R1/DP-10 (implementation contract-correct, NOT changed; test updated). **Process yield: the P2 consumer/pin survey gained the behavioral publish-count-pin category** — every WU adding a publish site to an existing path re-runs it |
+| **[R4] (M6.4 dispatch)** | reload publishes `config.section_reloaded` ONLY — the value-bearing `ConfigChangedEvent` stays registered-but-unpublished (Locked Doc 06 §12.4; reconciliation = the REC-138 FUTURE-AMD family) |
+| **[R5] (M6.4 dispatch)** | `section_reloaded` publish metadata = DIAGNOSTIC / SYSTEM / null-eventTime / publishRoot / system-subject (the `validation_completed` ruling applied) |
+| **[R6] (M6.2 dispatch)** | `scope_keys` = config-side `scope_keys.json` per Locked Doc 15 §3.8's ownership sentence (the §4.1 CREATE TABLE placement is structurally unreachable from config under zero-new-edge — Doc-15 currency nit parked) |
+| **R-1 (M6.2 review)** | `write()` REJECTS `!secret`/`!env`-bearing documents fail-closed (resolving on write would bake plaintext secrets into the emitted file — INV-SE-03/LTD-15; leakage irreversible, restriction reversible). **NEW FUTURE-AMD queued: tag-preserving YAML emitter (post-MVP)**; M10 design-input note |
+| **R-2 / R-3 (M6.2 review)** | `PersistenceFactory` untouched — extending the frozen gateway IS M6.3's wiring step; DP-6 discharged as `Main.payloadCipher` factory + 5-arg `HomeSynapseCore` ctor + bridge round-trip test (live bootstrap rides M13) |
+
+## M7 Entry-Gate — Decided Ground + the PROPOSED Block (2026-05-30 → 2026-06-13)
+
+**Nick-ruled decided ground (2026-05-30, v4 addendum — the AMD block consumes these as locked inputs; do NOT re-open):**
+
+| DQ | Decision |
+|---|---|
+| **DQ-1** | **Promote `PresenceTrigger` (Tier 2→Tier 1); separate `ZoneTrigger` permit permanently REJECTED.** Promotion-designation registered in M7 (AMD-88 §2.4); geofence fields + evaluation land M8.1 |
+| **DQ-2** | **Rename `ActivateSceneAction` → `InvokeAutomationAction` + promote to Tier 1** (scenes = automations-with-`ManualTrigger`; no scene primitive, ever) |
+| **DQ-3** | **Pending Command Ledger projection handlers: SAME `DispatchingProjectionAdvancer`, separate handler registrations** (split into a dedicated advancer at M8 only if unmanageable) |
+| **DQ-5** | **Zone/geofence scope = M8.** M7 trigger priorities: Webhook + Calendar + Reachability + Manual |
+
+**B2 schema decisions (PROPOSED 2026-06-08 — ride the bundled review):** **C8** `actorRef` stays a bare nullable `Ulid`; four-kind closed set (PERSON/AUTOMATION/SYSTEM/API_CLIENT) recoverable by typed-ID provenance; Tier-1 API keys → API_CLIENT never PERSON; **automations MUST stamp `actorRef = AutomationId`** (the M7 contract input; R14-A Hubitat provenance evidence attached). **C9** energy SHAPE: four `power_measurement` attributes (W/Wh/V/A as `QuantityValue`) + six aggregate fields + ENERGY consent-scope; rides existing event types; breadth staged behind the M5-D interviews. C10 payload-typing posture consciously deferred. File: `nexsys-hivemind/context/decisions/2026-06-08_B2_schema_decisions_C8_C9.md`.
+
+**The PROPOSED M7 block (AMD-88..93, 2026-06-13 — PM defaults stated for review confirmation; NOT yet binding):** F5 type-residency = **FLATTEN** (`RunId`→bare `Ulid`, `RunStatus`→`String` in payloads; relocation rejected — `RunId` is automation-internal by design) · ConfirmationPolicy named default = **BEST_EFFORT** (ledger iff Expectation present; never blocks Run completion; NO engine retry at any value — anti-req REC-162) · `includedRoles` binds the shipped **`EntityRole`** (the REC's `EntityCategory` never existed in source) · AMD-91 supersedes AMD-04 with an element ledger (rate-limiting clause NOT adopted — REC-168 owns that space) · `automations.yaml` migrations forward-only + idempotent + never destructive (anti-req REC-151) · no templating DSL anywhere (anti-req REC-155). Bundled review prompt: `nexsys-hivemind/context/instructions/2026-06-13_AMD-88-93_C8-C9_Bundled_DOCS_Review_Prompt.md`.
 
 ---
 
-*19 LTDs + 17 DEC-M3s + 3 build/module hard constraints (DECIDE-04, LD#10, DECIDE-01) + 9 inline sub-decisions + 12 D-NNs verified 2026-05-27; M4 amendment-decision blocks (AMD-47/51/52/53/44/54-64) + the M5-window block (D1–D8, Doc 15, AMD-86/87) + P2 current to **M5-A COMPLETE `7f44bed` / M5-B/B1 DONE (Doc 15 LOCKED, AMD-86/87 RATIFIED) / watermark AMD-87** on 2026-06-07. For full rationale, amendment history, implementation notes, and cross-references, read homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md.*
+*19 LTDs + 17 DEC-M3s + 3 build/module hard constraints (DECIDE-04, LD#10, DECIDE-01) + 9 inline sub-decisions + 12 D-NNs verified 2026-05-27; M4 amendment-decision blocks (AMD-47/51/52/53/44/54-64) + the M5-window block (D1–D8, Doc 15, AMD-86/87) + the M6 block (AMD-66..71 + execution rulings) + the M7 decided ground (DQ-1/2/3/5) + B2 C8/C9 (PROPOSED) + the AMD-88..93 PM defaults (PROPOSED) — current to **M6 3-of-4 COMPLETE (`7c73c91`) / AMD-88..93 + C8/C9 in bundled review / watermark AMD-87 on disk** on 2026-06-13. For full rationale, amendment history, implementation notes, and cross-references, read homesynapse-core-docs/governance/HomeSynapse_Core_Locked_Decisions.md.*

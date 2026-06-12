@@ -16,7 +16,7 @@ anchors: context/planning/2026-06-11_M7-blueprint_research-architecture.md (§4 
 
 | # | Gate | State at authoring (2026-06-12) |
 |---|---|---|
-| 1 | **M7 entry-gate AMD block RATIFIED** — the AMD-66..71 pattern: Research-4 re-anchored RECs (W0 §5) + R14 M7-OBLIGATION rows → one PROPOSED block → DOCS review → Nick ratifies. Real AMD numbers assign-at-milestone (P2 rule; the Research-4 "AMD-48..52" labels were placeholders) | **CONTENT ENUMERATED 2026-06-12** — six families F1–F6 (merged disposition §2a); drafting = the next PM governance session |
+| 1 | **M7 entry-gate AMD block RATIFIED** — the AMD-66..71 pattern: Research-4 re-anchored RECs (W0 §5) + R14 M7-OBLIGATION rows → one PROPOSED block → DOCS review → Nick ratifies. Real AMD numbers assign-at-milestone (P2 rule; the Research-4 "AMD-48..52" labels were placeholders) | **DRAFTED 2026-06-13 — AMD-88..93 PROPOSED on disk** (numbers derived from the nav-index at drafting; block ratification raises the watermark 87→93). Bundled DOCS review prompt READY TO DISPATCH (`context/instructions/2026-06-13_AMD-88-93_C8-C9_Bundled_DOCS_Review_Prompt.md` — carries the C8/C9 half, gate row 2; Nick veto-or-default on bundling) |
 | 2 | **B2 C8 `actorRef` RATIFIED** (automations stamp `AutomationId`) — direct M7 contract input | PROPOSED; W25 Lane-5, before the AMD block freezes |
 | 3 | **M6 wrap state:** M6.2 committed ✓ (`7c73c91`); **M6.3 issued-or-formally-deferred past M7 start — Nick's call at the W25/W26 boundary** (the architecture doc §6 explicitly does NOT decide M6.3-vs-M7 ordering; this row surfaces it) | OPEN — Lane-2 evidence gates decide |
 | 4 | **W25 Lane-4 structural gate:** no new Core coding instruction until M5-C Increment 1 is DONE (P6) | OPEN — Increment 1 not started at authoring |

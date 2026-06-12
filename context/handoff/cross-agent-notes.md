@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-06-12 (W0/R14-briefs session) — W0 delta done; 3 briefs READY TO DISPATCH; M7/M8 skeleton on disk. Core HEAD `7c73c91` (+1 docs-only MODULE_CONTEXT fix in tree); only the 2026-06-12 CURRENT POINTER active.
+last-verified: 2026-06-12 (2026-06-13-brief session Step-0) — R14/R15 cycle closed; core HEAD `e5ea76f` (substantive `7c73c91`) / docs `ed5cf91` / hivemind `5f30ff0` (fbf3124 closeout + W25 re-charter/prompt commit); only the 2026-06-12 CURRENT POINTER active.
 -->
 
 # Cross-Agent Notes
@@ -18,7 +18,15 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-## 2026-06-12 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (R14/R15 cycle COMPLETE — merged disposition + populated charter)
+## 2026-06-13 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (M7 AMD block DRAFTED — AMD-88..93 PROPOSED; bundled review READY TO DISPATCH)
+**Topic:** **The M7 entry-gate AMD block is on disk — AMD-88..93 PROPOSED (six families per the merged disposition §2a; nav-index-derived numbers; ratification raises the watermark 87→93). The bundled DOCS review prompt (block + B2 C8/C9 in ONE dispatch) is READY. Strategy-refresh drafts D-1..D-7 await per-item veto. Documents-only — core untouched at `e5ea76f`.**
+**Detail:** Full record: pm-handoff "This Session" (2026-06-13). Artifacts: `homesynapse-core-docs/design/amendments/AMD-88..93_*.md` (six files); `context/instructions/2026-06-13_AMD-88-93_C8-C9_Bundled_DOCS_Review_Prompt.md`; `context/planning/2026-06-13_strategy-refresh-drafts_R15.md`. Headlines: F5 type-residency ruled FLATTEN (PM default, review confirms); the two M1-era automation event records get RESHAPED (zero producers = the regret-proof window); AMD-91 carries a formal element-by-element AMD-04 supersession ledger (rate limiting NOT adopted — REC-168 owns that space); AMD-89 binds the shipped `EntityRole` (the disposition's `includedCategories` label named a type that never existed — flagged R89-1 for the review); C8 is cited PROPOSED-pending at every stamping mention — the bundle resolves block+C8 together by design.
+**Action needed:**
+- **Nick:** (0) **RE-UPLOAD the 5 regenerated `project-knowledge/` spine files to BOTH Claude Projects (CORE + DOCS) FIRST** — they now carry the M6-3-of-4 + AMD-88..93-PROPOSED ground the bundled review verifies against (same-session addendum, pm-handoff). (1) **Veto-or-default the BUNDLING, then dispatch the review** (`context/instructions/2026-06-13_AMD-88-93_C8-C9_Bundled_DOCS_Review_Prompt.md` → DOCS Project; if vetoed: C8/C9 first, block second). (2) **Per-item veto on D-1..D-7** (strategy drafts — strike freely, the rest folds at M5-C). (3) Commit both repos (messages in the session report). (4) **Delete `nexsys-hivemind/.git/index.lock.cleared-by-cowork-2026-06-12` — STILL present, third flag.** (5) Mirror sync (Check 9, the one file, unchanged). (6) Standing: Pi-4 microbench (Wed Jun 17) + energy/erasure interviews (the M6.3 gates AND the row-3 ordering input — a third slip makes the W25/W26 call undecidable); M5-C Increment 1 (Lane-4 gate, still not started).
+- **PM (next session):** assess the review return → fold edits → ratification mechanics (invariants §42+, nav-index rows, watermark 87→93, AMD-04 SUPERSEDED banner, Doc 07/Doc 01 currency edits) → M7.1 instruction once entry-gate rows 1–5 are green.
+- **Coder:** unchanged — M6.3 only when its triple gate clears; M7.1 awaits the 5-row entry gate. Nothing dispatched this session.
+
+## 2026-06-12 [PM (Cowork) → Nick, Coder]  (R14/R15 cycle COMPLETE — merged disposition + populated charter; superseded by the pointer above)
 **Topic:** **All three research returns ASSESSED same-day (R14-B/R14-A/R15, serialized, each A−, quote-backs honored, zero discards) → MERGED DISPOSITION on disk (`context/planning/2026-06-12_M7-blueprint_merged-disposition.md` — THE M7 blueprint authority: AMD block = 6 families F1–F6; M7 = 3 pieces confirmed; W1–W8 crash-window pins; high-water REC-185) → charter POPULATED.**
 **Detail:** Assessments: `context/assessments/2026-06-12_Research_14B/14A/15_PM_Assessment.md`. Headlines: ledger-gap dossier = M5-C flagship (frenck "out of scope" + installed verify-retry hacks); Apache 2.0 CONFIRMED by fork-pattern evidence (governance posture refined); Doc 07's Locked text richer than assumed (zombie-Run finalization, per-idempotency crash recovery — several "gaps" were CLOSED-UNTESTED); anti-requirements registered (no engine retry, no templating DSL, no forced migration, never lead with commodity encryption). Raw returns → docs `research/returns/`; consumed briefs → archive.
 **Action needed:**

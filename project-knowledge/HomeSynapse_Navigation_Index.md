@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-09 against `6c6dd33` — **M6 config block AMD-66/67/68/70/71 RATIFIED 2026-06-09 + AMD-69 DEFERRED (Tier-2/OQ-15-3); invariants §37–§41; watermark UNCHANGED AMD-87; 152 invariants/41 categories (regenerated); M6.1 READY TO ISSUE.** Amendments tables list AMD-66..71 (M6 block), Doc 15 + AMD-86/87 (M5 window), AMD-44/52/53/54..64 (M4). _Prior 2026-06-07 against `7f44bed`:_ **M5-A COMPLETE + M5-B/B1 DONE** (platform-systemd `PlatformPaths`/`HealthReporter` impls + the AMD-87 `Expectation` codec; **Doc 15 LOCKED**; AMD-86 + AMD-87 RATIFIED). Prior spine state: `8ef9e9f` (M4 COMPLETE, watermark AMD-64).
+last-verified: 2026-06-13 against core `e5ea76f` (substantive `7c73c91`) — **M6 3-of-4 COMPLETE; AMD-88..93 (M7 block) PROPOSED 2026-06-13 + B2 C8/C9 PROPOSED — bundled DOCS review READY; watermark AMD-87 on disk (→93 at ratification); 152 invariants/41 categories.** _Prior:_ 2026-06-09 against `6c6dd33` — **M6 config block AMD-66/67/68/70/71 RATIFIED 2026-06-09 + AMD-69 DEFERRED (Tier-2/OQ-15-3); invariants §37–§41; watermark UNCHANGED AMD-87; 152 invariants/41 categories (regenerated); M6.1 READY TO ISSUE.** Amendments tables list AMD-66..71 (M6 block), Doc 15 + AMD-86/87 (M5 window), AMD-44/52/53/54..64 (M4). _Prior 2026-06-07 against `7f44bed`:_ **M5-A COMPLETE + M5-B/B1 DONE** (platform-systemd `PlatformPaths`/`HealthReporter` impls + the AMD-87 `Expectation` codec; **Doc 15 LOCKED**; AMD-86 + AMD-87 RATIFIED). Prior spine state: `8ef9e9f` (M4 COMPLETE, watermark AMD-64).
 -->
 
 # HomeSynapse Core — Navigation Index
@@ -78,8 +78,9 @@ Each module has up to five documentation layers. Read them in this order when wo
 - **Traceability:** `homesynapse-core/docs/traceability/07-automation.md`
 - **Handoff:** `homesynapse-core/docs/handoff/block-l-automation.md`
 - **Source package:** `core/automation/src/main/java/com/homesynapse/automation/`
-- **Amendments:** AMD-03 (positional snapshot for condition eval), AMD-04 (cascade detection/depth limiting), AMD-25 (temporal duration trigger modifier), AMD-31 (command execution order guarantees)
+- **Amendments:** AMD-03 (positional snapshot for condition eval), AMD-04 (cascade detection/depth limiting — **PROPOSED-superseded by AMD-91**, pending M7-block ratification), AMD-25 (temporal duration trigger modifier), AMD-31 (command execution order guarantees); **AMD-88..93 (M7 automation block, PROPOSED 2026-06-13)** — see the Amendments Quick Reference below for the six files
 - **Additional:** `homesynapse-core-docs/design/amendments/AMD-25_Temporal_Duration_Trigger_Modifier.md` (separate file), `homesynapse-core-docs/design/amendments/AMD-31_Command_Execution_Order_Guarantees.md` (separate file), `homesynapse-core-docs/research/AUTOMATION_ENGINE_CRITICAL_REVIEW.md`
+- **M7 blueprint chain:** `nexsys-hivemind/context/planning/2026-06-12_M7-blueprint_merged-disposition.md` (THE authority) · `2026-06-12_M7-M8-charter-skeleton.md` (entry-gate + pieces) · `context/assessments/2026-06-12_W0_Research_4_Currency_Delta.md` + `2026-06-12_Research_14B/14A/15_PM_Assessment.md` · `context/instructions/2026-06-13_AMD-88-93_C8-C9_Bundled_DOCS_Review_Prompt.md`
 
 ### configuration
 - **MODULE_CONTEXT:** `homesynapse-core/config/configuration/MODULE_CONTEXT.md`
@@ -216,6 +217,8 @@ In `homesynapse-core-docs/research/`:
 | `2026-03-12_context-engineering-hivemind-optimization.md` | Hivemind context engineering optimization. Multi-agent coordination patterns. |
 | `v003_snapshots_design_note.md` | V003 migration rationale: snapshots table, index redundancy, chain_hash decision, data contribution readiness |
 | D1 WAL Pathology Validation Spike (results in AMD-38/39) | Empirical validation: continuous reader → 20.6 MB WAL; bounded reader → 3.97 MB WAL. Source: `homesynapse-core/spike/wal-validation/src/main/java/com/homesynapse/spike/wal/D1WalStarvationTest.java` |
+| **`research/returns/` (the research-pipeline archive, 2026-05-15 → 06-12)** | All raw research returns, numbered 02–15: entity modeling, automation engine (R4 — the M7 ground), configuration (R5), integration runtime (R6), REST/WS (R7 v1/v2), device model (R8), projection rebuild (R9), change detection (R10), typed payloads (R11), Zigbee derisk (R12), config market superiority (R13), **automation UX failure modes (R14-A) + runtime robustness (R14-B) + ecosystem positioning (R15) — the 2026-06-12 M7-blueprint cycle**. PM assessments live hivemind-side at `nexsys-hivemind/context/assessments/` |
+| **The M7 blueprint authority chain (hivemind-side)** | `context/planning/2026-06-12_M7-blueprint_merged-disposition.md` (REC-31..40 + 141..185 merged; THE authority for the AMD block + M7.x/M8 scope + M5-C backlog + strategy refresh) → `context/planning/2026-06-12_M7-M8-charter-skeleton.md` (5-row entry-gate + 3 M7 pieces) → `design/amendments/AMD-88..93_*.md` (PROPOSED) |
 
 ---
 
@@ -282,6 +285,25 @@ In `homesynapse-core-docs/research/`:
 | 50 | Version-Transition Reconciliation Backfill + Cursor Determinism (RATIFIED + applied) | `homesynapse-core-docs/design/amendments/AMD-50_Version_Transition_Backfill_and_Cursor_Determinism.md` |
 | 51 | Typed AttributeValue Change-Detection Comparator (RATIFIED + IMPLEMENTED, M4.0b-3 `98f705b`; §2.6 erratum 2026-05-31; **on-disk watermark = AMD-51**) | `homesynapse-core-docs/design/amendments/AMD-51_Typed_AttributeValue_Change_Detection_Comparator.md` |
 | — | M2-Bridge Tier 2 Schema Reservations | `homesynapse-core-docs/design/amendments/AMD-M2Bridge_Tier2_Schema_Reservations.md` |
+
+### Separate files — M4/M5/M6 blocks + the M7 PROPOSED block (current through 2026-06-13; all in `homesynapse-core-docs/design/amendments/`)
+
+| AMD | Title / status | File |
+|-----|---------------|------|
+| 52 | Typed `StateChangedEvent` Payload (RATIFIED + IMPLEMENTED M4.0b-4a/4b; §11 relocation erratum) | `AMD-52_*.md` |
+| 53 | Timestamp-Model Unifier (RATIFIED + IMPLEMENTED M4.0b-5; `projectionVersion` 5) | `AMD-53_*.md` |
+| 54–64 | Integration-API Freeze Block (11 AMDs, RATIFIED 2026-06-05, M4.C `8ef9e9f`) | `AMD-54_*.md` … `AMD-64_*.md` |
+| 66–71 | **M6 Config Block** (66/67/68/70/71 RATIFIED 2026-06-09; 69 DEFERRED Tier-2/OQ-15-3; E70-1 = the type-residency rule) | `AMD-66_Configuration_Change_Listener.md` · `AMD-67_Config_Document_Schema_Major_Minor.md` · `AMD-68_SecretStore_Atomic_Multi_Key_Write.md` · `AMD-69_Passphrase_Root_KDF_Deferred_Tier2.md` · `AMD-70_Config_Observability_Events.md` · `AMD-71_Hybrid_Config_Directory_Layout.md` |
+| 86 | INV-PD-07 Crypto-Shred Scope + INV-PD-03 Posture (RATIFIED 2026-06-07) | `AMD-86_INV-PD-07_Crypto-Shred-MVP-Scope_and_INV-PD-03_At-Rest-Posture.md` |
+| 87 | `Expectation` Persisted Codec (RATIFIED + IMPLEMENTED `7f44bed`; **on-disk watermark = AMD-87**) | `AMD-87_Expectation_Persisted_Codec.md` |
+| **88** | **TriggerDefinition M7 Expansion — PROPOSED 2026-06-13** (9→12 permits; Webhook promotion; Presence promotion-designation; `triggerId`) | `AMD-88_TriggerDefinition_M7_Expansion.md` |
+| **89** | **Selector: SemanticTagSelector + includedRoles — PROPOSED** (BREAKING; binds `EntityRole`) | `AMD-89_Selector_SemanticTag_IncludedRoles.md` |
+| **90** | **ActionDefinition: ConfirmationPolicy + RepeatAction + InvokeAutomationAction — PROPOSED** | `AMD-90_ActionDefinition_Confirmation_Repeat_Invoke.md` |
+| **91** | **RunCausalChain (supersedes AMD-04 at ratification) — PROPOSED** | `AMD-91_RunCausalChain_Supersedes_AMD-04.md` |
+| **92** | **Automation Event Vocabulary (16 mints + 2 reshapes; FLATTEN residency; fan-out 55→71/24→41/36→+17) — PROPOSED** | `AMD-92_Automation_Event_Vocabulary.md` |
+| **93** | **automations.yaml Definition-Schema Posture — PROPOSED** | `AMD-93_Automation_Definition_Schema_Posture.md` |
+
+**M7-block review:** ONE bundled DOCS dispatch (block + B2 C8/C9) — prompt at `nexsys-hivemind/context/instructions/2026-06-13_AMD-88-93_C8-C9_Bundled_DOCS_Review_Prompt.md`. **The block sits ABOVE the AMD-87 watermark — ratification raises it to 93** (unlike AMD-66..71, which filled reserved below-watermark slots). B2 C8/C9 decision record: `nexsys-hivemind/context/decisions/2026-06-08_B2_schema_decisions_C8_C9.md`.
 
 ### CRITICAL (VT Risk Audit — applied 2026-03-21)
 | AMD | Title | Affects |
@@ -419,4 +441,4 @@ In `homesynapse-core/`:
 
 ---
 
-**Last verified against:** `homesynapse-core` **`6c6dd33`** on 2026-06-09. M4 + M5-A shipped; **Doc 15 Cryptographic Architecture LOCKED** (15th design doc); AMD-86 + AMD-87 RATIFIED; **M6 config block AMD-66/67/68/70/71 RATIFIED 2026-06-09 + AMD-69 DEFERRED (Tier-2/OQ-15-3)**; watermark **AMD-87 (unchanged)**; **152 invariants / 41 identifier categories** (regenerated 2026-06-09); `projectionVersion` 5. Next: **issue M6.1 (config pipeline — READY TO ISSUE)**; M6.3 triple-gated on OQ-15-2 + the AMD-86 §3 interview signal + OR-M6-NONCE.
+**Last verified against:** `homesynapse-core` **`e5ea76f`** (substantive **`7c73c91`** = M6.2) on **2026-06-13** — M6 3-of-4 COMPLETE (M6.3 triple-gated); **AMD-88..93 (M7 block) + B2 C8/C9 PROPOSED — bundled DOCS review READY TO DISPATCH**; watermark **AMD-87 on disk (→93 at block ratification)**; event pins 55/24/36; 152 invariants/41 categories. _Prior:_ `6c6dd33` on 2026-06-09. M4 + M5-A shipped; **Doc 15 Cryptographic Architecture LOCKED** (15th design doc); AMD-86 + AMD-87 RATIFIED; **M6 config block AMD-66/67/68/70/71 RATIFIED 2026-06-09 + AMD-69 DEFERRED (Tier-2/OQ-15-3)**; watermark **AMD-87 (unchanged)**; **152 invariants / 41 identifier categories** (regenerated 2026-06-09); `projectionVersion` 5. Next: **issue M6.1 (config pipeline — READY TO ISSUE)**; M6.3 triple-gated on OQ-15-2 + the AMD-86 §3 interview signal + OR-M6-NONCE.

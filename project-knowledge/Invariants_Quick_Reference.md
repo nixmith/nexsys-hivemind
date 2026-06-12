@@ -6,7 +6,7 @@ update-cadence: per-phase (changes only via amendment process INV-GA-01)
 state-type: reference
 status: CURRENT
 freshness-tier: COLD
-last-verified: 2026-06-09 against Architecture_Invariants_v1.md (**152 invariants across 41 identifier categories — count REGENERATED from the §17 table at the M6-block registration**; the previously stated "135/34" was a copied-forward running count drifted −9 vs the table — see pm-handoff 2026-06-09. New this update: **§37–§41, +8 invariants** — AMD-66-INV-01/02, 67-INV-01/02, 68-INV-01, 70-INV-01, 71-INV-01/02, registered at the AMD-66..71 ratification; **AMD-69 DEFERRED, no invariant**). Codebase HEAD `6c6dd33`, watermark **AMD-87 (unchanged — reserved slots filled)**. Prior: 2026-06-07 `7f44bed` (M5 window, stated 135/34).
+last-verified: 2026-06-13 — register UNCHANGED since 2026-06-09 (**152 invariants across 41 identifier categories — count REGENERATED from the §17 table at the M6-block registration**; NEW: the 11 AMD-88..93 M7-block invariant CANDIDATES added as a PENDING section — PROPOSED 2026-06-13, register at §42+ on ratification; stale footer "133/32" corrected this pass; the previously stated "135/34" was a copied-forward running count drifted −9 vs the table — see pm-handoff 2026-06-09. New this update: **§37–§41, +8 invariants** — AMD-66-INV-01/02, 67-INV-01/02, 68-INV-01, 70-INV-01, 71-INV-01/02, registered at the AMD-66..71 ratification; **AMD-69 DEFERRED, no invariant**). Codebase HEAD `6c6dd33`, watermark **AMD-87 (unchanged — reserved slots filled)**. Prior: 2026-06-07 `7f44bed` (M5 window, stated 135/34).
 full-text-location: homesynapse-core-docs/governance/Architecture_Invariants_v1.md
 -->
 
@@ -338,6 +338,26 @@ AMD-45 and AMD-50 carry contract-level `*-INV-NN` invariants that are **not** re
 
 ---
 
+## PENDING — M7 Automation Block Invariant CANDIDATES (AMD-88..93, PROPOSED 2026-06-13 — NOT yet registered; ratification registers them at §42+)
+
+⚠ These are **candidates riding the bundled DOCS review** (block + B2 C8/C9). Cite them as PROPOSED only; they bind nothing until Nick ratifies.
+
+| Candidate | Summary |
+|---|---|
+| AMD-88-INV-01 | Tier-2→Tier-1 promotion = field-addition only; never adds/removes/renames a sealed permit (switch-shape stability) |
+| AMD-88-INV-02 | Every Tier-1 trigger carries a reload-stable `triggerId`; user-facing surfaces reference triggers by id, never raw index |
+| AMD-89-INV-01 | Group-resolving selectors resolve PRIMARY-role entities only unless `includedRoles` explicitly opts in; single-entity selectors never role-filtered |
+| AMD-90-INV-01 | Confirmation is per-action policy; never blocks Run completion; NO engine-level retry at any policy value |
+| AMD-90-INV-02 | Every iteration construct is hard-bounded (`maxIterations`); unbounded loops unrepresentable |
+| AMD-91-INV-01 | Cascade-cycle suppression is a deterministic function of chain + config — no windowed/evictable/restart-sensitive state in suppression decisions |
+| AMD-91-INV-02 | `RunCausalChain` never crosses the event boundary unflattened |
+| AMD-92-INV-01 | Event records never reference automation-resident types; run/status identifiers cross as flattened `Ulid`/`String` only (the E70-1 rule) |
+| AMD-92-INV-02 | No automation event type reaches a production publish site before appearing in every survey-enumerated manifest/pin for its slice |
+| AMD-93-INV-01 | Definition migrations: forward-only, idempotent, backup-first, never destructive — unconvertible definitions excluded-and-reported, not modified |
+| AMD-93-INV-02 | Every loaded definition has fully-resolvable references at load time (post-tombstone-redirect); dangling references never enter the registry |
+
+---
+
 ## §16 Long-Term Ecosystem Direction (Directional, not formal invariants)
 
 These are directional commitments that guide architectural decisions. Unlike invariants, they may be revised. Reference only when making forward-looking architecture choices.
@@ -358,4 +378,4 @@ These are directional commitments that guide architectural decisions. Unlike inv
 
 ---
 
-*133 invariants across 32 categories, verified against Architecture_Invariants_v1.md §17 Invariant Index (2026-06-05) — adds §22 AMD-52 (7), §23 AMD-53 (2), and the §24–§34 AMD-54..64 integration block (29) since the last spine update. AMD-45-INV-01 and AMD-50-INV-01..04 remain amendment-scoped and are not counted in the §17 total (see the note above §16). For full invariant text including rationale, test criteria, MVP scope, and [SCALES] annotations, read the full document at homesynapse-core-docs/governance/Architecture_Invariants_v1.md.*
+***152 invariants across 41 identifier categories**, verified against Architecture_Invariants_v1.md §17 Invariant Index — count REGENERATED from the table 2026-06-09 at the M6-block registration (§35/§36 AMD-86/87 + §37–§41 AMD-66..71 included; the prior footer's "133/32" and the interim "135/34" were copied-forward under-counts — always re-derive from §17, never propagate a stated total). AMD-45-INV-01 and AMD-50-INV-01..04 remain amendment-scoped and are not counted in the §17 total (see the note above §16). **PENDING (PROPOSED 2026-06-13, NOT registered): the 11 AMD-88..93 M7-block candidates — see the section above §16.** For full invariant text including rationale, test criteria, MVP scope, and [SCALES] annotations, read the full document at homesynapse-core-docs/governance/Architecture_Invariants_v1.md.*

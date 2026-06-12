@@ -30,7 +30,7 @@ Claude Project knowledge (read-only mirror)
 
 | File | Claude Project Upload Name | Purpose | Update Cadence |
 |------|---------------------------|---------|----------------|
-| Invariants_Quick_Reference.md | Architecture_Invariants_v1.md | 94 constitutional invariants (token-efficient index) | Rarely (senior architect lock) |
+| Invariants_Quick_Reference.md | Architecture_Invariants_v1.md | Constitutional-invariants index (152/41 as of 2026-06-09 — ALWAYS re-derive the total from the §17 table, never cite this cell) | Rarely (senior architect lock) |
 | Decisions_Quick_Reference.md | HomeSynapse_Core_Locked_Decisions.md | LTD + DEC-M3 + D-NN register (token-efficient index) | When new decisions are locked |
 | HomeSynapse_Knowledge_Primer.md | HomeSynapse_Knowledge_Primer.md | Compressed architectural context | At documentation checkpoints + milestone completions |
 | HomeSynapse_Navigation_Index.md | HomeSynapse_Navigation_Index.md | File path registry, amendment status | When milestones land or amendments apply |

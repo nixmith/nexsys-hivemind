@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-06-12 evening (Pi-evidence session) — OQ-15-2 RESOLVED (encrypted set CONFIRMED); M6.3 gate 1-of-3 CLOSED; core `01841ba` (substantive `7c73c91`) / docs `d7ea212` / hivemind `723e0d9` at session start; the Pi-evidence entry is the CURRENT POINTER (R16-dispatch + RATIFIED entries remain active below it); archived entries in archive/cross-agent-notes-2026-Q2.md.
+last-verified: 2026-06-12 late (R16-assessment session) — R16 ASSESSED (16-B A / 16-A A−; high-water REC-215); OUTPUT_CONVENTIONS.md drafted in core; core `01841ba` (substantive `7c73c91`) / docs `d7ea212` / hivemind `9ffed63` at session start; the R16-assessment entry is the CURRENT POINTER (Pi-evidence + R16-dispatch + RATIFIED entries remain active below it); archived entries in archive/cross-agent-notes-2026-Q2.md.
 -->
 
 # Cross-Agent Notes
@@ -18,7 +18,14 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-## 2026-06-12 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (THE PI-EVIDENCE SESSION: OQ-15-2 RESOLVED — encrypted set CONFIRMED; M6.3 gate 1-of-3 CLOSED)
+## 2026-06-12 [PM (Cowork) → Nick, Coder]  ← CURRENT POINTER  (R16 ASSESSED — zero discards; OUTPUT_CONVENTIONS.md DRAFTED in core)
+**Topic:** **The R16 cycle is COMPLETE: 16-B grade A / 16-A grade A−; merged disposition `context/planning/2026-06-12_R16_output-contract_merged-disposition.md` (REC-186–215, high-water 215); the gate-free `scripts/dev/OUTPUT_CONVENTIONS.md` DRAFTED in the core repo** (9 rules; pi-health = reference implementation). One confirmed in-house defect ships with it: **REC-204** — zero `>&2` in pi-health.sh, pi4-validation.sh, AND the OQ-15-2 bench driver; the convention routes diagnostics→stderr, machine lines (`KEY:value` + verdict)→stdout. The retrofit is small and can ride the already-queued F1/F3 pi4-validation fix commit.
+**Action needed:**
+- **Nick:** (1) **hivemind commit + SEPARATE core commit** (messages in the session report; both `!`-free, plain `-m` safe). (2) **Docs repo:** the 2 rehomed R16 returns are new files there — and your working tree already carried staged deletions + same-path untracked re-adds for 3 files (the R15 return + both sqlite-wal spike files); PM left that state untouched — reconcile when committing. (3) M5-C Increment 1 now also carries the R16 M5-C-COPY bucket (A-193/194/195 — the WTH porch-light dossier is the flagship).
+- **Coder:** nothing blocks; future M12 instructions will carry the disposition §2b obligations (correlation_id pin; **MDC propagation = explicit copy on Java 21 per LTD-01**, + spike; naming convention; noise-budget test; config_error message register). New scripts follow OUTPUT_CONVENTIONS.md once committed.
+- **PM (next):** the Sunday converge session (W25 rollover/W26 scoping) now synthesizes with the full R16 result; M12 scoping consumes disposition §2b.
+
+## 2026-06-12 [PM (Cowork) → Nick, Coder]  (THE PI-EVIDENCE SESSION: OQ-15-2 RESOLVED — encrypted set CONFIRMED; M6.3 gate 1-of-3 CLOSED; superseded as pointer by the R16-assessment entry above)
 **Topic:** **OQ-15-2 is RESOLVED (2026-06-12): both candidates ENCRYPT-ON-WRITE; the Doc 15 §9 `encrypted_scopes` default is CONFIRMED `[identity, presence_personal]`** — no fallback, no STOP-escalate, **Doc 15 untouched** (expected-case rule). Margins: G1 13–37× at the real payload distribution; G2 49× headroom; two reproducing runs ±0.5%. Run on the Pi 5 intrinsics-off — NON-AUTHORITATIVE per spec §3.D, accepted per the recorded R1 conditional (optional Pi-4 confirmation queued advisory). Also: **pi4-validation.sh first exercise PASS** (42 m, zero failures, manual tar-pipe equivalent); readiness zero-drift; **the index.lock flag is DELETED (saga closed)**.
 **Detail:** §8 filled in the spec (status → RESOLVED); disposition `context/assessments/2026-06-12_OQ-15-2_disposition_encrypted-scopes-CONFIRMED.md`; raw evidence + harness `context/assessments/oq-15-2-harness/`; full session record in pm-handoff (top). C9 §3.4 energy staging item RECONCILED/CLOSED. Findings F1/F3 (pi4-validation.sh unrunnable as written from Git Bash — fix advisory) + F4 (diagnostic-flag JVM refusal — driver hardened).
 **Action needed:**

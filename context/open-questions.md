@@ -23,7 +23,7 @@ Inter-agent typed-message surface for `[OPEN-QUESTION]` and `[VERIFY-NEEDED]`. S
 **Posed:** 2026-05-28 (logged 2026-05-30)
 **Blocking:** none on the M4 critical path — AMD-50 shipped the core backfill mechanism (M4.0b-2). Residuals are forward/operational (M5+).
 **Question:** Operator-triggered rebuild, partial/per-entity backfill, backfill observability, and backfill failure semantics — the four NQ-9 residuals that extend (do not redesign) the frozen AMD-50 mechanism.
-**Context:** Research 9 (issued 2026-05-28, Claude Project) is largely superseded by AMD-50. No `Research_9_PM_Assessment.md` exists yet. Do NOT reopen the frozen mechanism. Cross-ref: `context/instructions/Research_9_Projection_Rebuild_Backfill_Brief.md`.
+**Context:** Research 9 (issued 2026-05-28, Claude Project) is largely superseded by AMD-50. No `Research_9_PM_Assessment.md` exists yet. Do NOT reopen the frozen mechanism. Cross-ref: `context/instructions/archive/Research_9_Projection_Rebuild_Backfill_Brief.md`.
 **Resolution:** _(open — deferrable; revisit at M4.0b-3 close or when an operator-rebuild need surfaces)_
 
 ---

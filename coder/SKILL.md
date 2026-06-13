@@ -10,7 +10,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-06-13 (currency pass — M6 3-of-4 complete, M6.3 gated; M7 entry-gate open, AMD-88..93 ratified; watermark 93; 22 Gradle subprojects; substantive code HEAD `7c73c91`). Prior baseline: 2026-06-07 against `8028337`.
 -->
 
 # NexSys Coder — Implementation Engineer Skill

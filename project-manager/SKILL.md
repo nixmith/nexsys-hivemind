@@ -10,7 +10,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-06-13 (currency pass — M6 3-of-4 complete, M6.3 gated; M7 entry-gate open, AMD-88..93 ratified; watermark 93; 22 Gradle subprojects; substantive code HEAD `7c73c91`). Prior baseline: 2026-06-07 against `8028337`.
 -->
 
 # NexSys Project Manager — Senior Engineer Skill
@@ -104,7 +104,7 @@ All 14 design docs are Locked; enter this mode only to author a **new** design d
 
 In this mode, you direct the Coder. You produce detailed, structured coding instructions. You review the Coder's output. You are the quality gate.
 
-**Phase 3 vocabulary:** Work units are called **Milestones** (M{major}.{minor}, e.g., M2.5). Each milestone is a single compile-and-commit unit with test coverage. The active backlog is `context/planning/phase-3-milestone-backlog.md`. Milestone groups: M1.x test-first prep, M2.x persistence, M3.x event-bus/state-projection/composition-root, M4 device-model expansion + projection/derivation + integration-api freeze — **all COMPLETE**. **Current: the M5 window** — a blended, lane-tracked set of first-class pieces (M5-A…M5-D) per the W24 charter and decisions D1–D8.
+**Phase 3 vocabulary:** Work units are called **Milestones** (M{major}.{minor}, e.g., M2.5). Each milestone is a single compile-and-commit unit with test coverage. The active backlog is `context/planning/phase-3-milestone-backlog.md`. Milestone groups: M1.x test-first prep, M2.x persistence, M3.x event-bus/state-projection/composition-root, M4 device-model expansion + projection/derivation + integration-api freeze, **M5-A** platform/codec — **all COMPLETE**. **Current: the M6→M7 boundary.** **M6 is 3-of-4 COMPLETE** (M6.1 config pipeline, M6.2 secret store + per-scope crypto, M6.4 hot-reload — all committed GREEN); **M6.3** at-rest payload encryption is the open piece, **triple-gated** (OQ-15-2 ✅ resolved + energy/erasure interviews ⛔ + OR-M6-NONCE co-design). The **M7 entry-gate** (automation) is open with **AMD-88..93 RATIFIED** — the binding contract shapes for all M7.x. Watermark **AMD-93**, invariants 163/47. M5-C (website) and M5-D (evidence interviews) are trailing non-Core/evidence threads. See `context/planning/weeks/` (W24/W25) for live lanes and the pending M6.3-vs-M7 ordering call.
 
 **Milestone-sizing smell test (P1).** A milestone that spawns more than ~3 sub-milestones or more than ~3 amendments is too big: split it into first-class milestones, each with its own backlog row and done-when, and lane-track each. Don't let a parent label ("M4") hide an epic — the size must be visible at scoping, not discovered in arrears.
 
@@ -279,9 +279,9 @@ The project's policy is to defer `./gradlew check` to Nick's sandbox-external en
 
 When issuing a Phase 3 coding instruction for any module outside `com.homesynapse.{app,platform,test}..` — this covers persistence, event-model, event-bus, state-store, device-model, value-model, configuration, integration-api, automation, rest-api, websocket-api, integration-runtime, integration-zigbee, observability, and lifecycle — include the following reminder in the "What to Watch Out For" section:
 
-> **Tests must inject `Clock`.** Do NOT use `Clock.systemUTC()`, `Instant.now()`, `System.nanoTime()`, or `System.currentTimeMillis()` anywhere in test code. The ArchUnit rule `NO_DIRECT_TIME_ACCESS` scans test classes in non-whitelisted packages and will fail `./gradlew check`. Use `Clock.fixed(Instant.parse("2026-01-01T00:00:00Z"), ZoneOffset.UTC)` and pass the clock into constructors or via setters in `@BeforeEach`. This reminder exists because M2.4 and M2.5 both tripped this rule; see `coder-lessons.md` 2026-04-10 for the full pattern.
+> **Tests must inject `Clock`.** Do NOT use `Clock.systemUTC()`, `Instant.now()`, `System.nanoTime()`, or `System.currentTimeMillis()` anywhere in test code. **Enforcement reach (corrected 2026-06-13 per the M6.2 Coder finding, `context/open-questions.md`):** the ArchUnit rule `NO_DIRECT_TIME_ACCESS` runs only from `com.homesynapse.app`'s test classpath, so the gate ENFORCES this for app-visible classes only — production code in any module IS caught, but `./gradlew check` will NOT catch a direct-time-access violation in a *non-app module's test code*. Treat Clock-injection as a self-enforced convention everywhere outside app's own tests. Use `Clock.fixed(Instant.parse("2026-01-01T00:00:00Z"), ZoneOffset.UTC)` and pass the clock into constructors or via setters in `@BeforeEach`. This reminder exists because M2.4 and M2.5 both tripped this rule; see `coder-lessons.md` 2026-04-10 for the full pattern.
 
-This rule does not apply to `com.homesynapse.app`, `com.homesynapse.platform..`, or `com.homesynapse.test..` modules — they are whitelisted.
+Production-code whitelist: `com.homesynapse.app`, `com.homesynapse.platform..`, and `com.homesynapse.test..` are exempt from the rule for production code. (This is distinct from the test-code reach corrected above — app's *test* classpath is the one place the rule actively scans.)
 
 ---
 

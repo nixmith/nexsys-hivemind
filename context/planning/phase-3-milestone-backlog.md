@@ -10,6 +10,8 @@ last-verified: 2026-06-11 EOD against HEAD **`7c73c91`** — **M6.4 ✅ COMPLETE
 
 # Phase 3 Milestone Backlog — ACTIVE
 
+> **2026-06-13 currency note (Cowork PM):** M6 is **3-of-4 COMPLETE** (M6.1/M6.2/M6.4 GREEN; **M6.3** triple-gated — energy/erasure interviews + OR-M6-NONCE). The **M7 entry-gate** is open: **AMD-88..93 RATIFIED 2026-06-12** (watermark **93**, invariants 163/47), so the M7.x contract shapes are binding; M7.1 awaits entry-gate rows 3 (interviews) + 4 (M5-C approve). The dated session-note prose in the masthead reflects its 2026-06-11 baseline and is superseded by this note where they differ.
+
 **Current phase:** P3 Implementation (test-first).
 **Phase started:** 2026-03-27 (first test commits) / 2026-04-10 (first production implementation via M2.1).
 **Frozen Phase 2 record:** `phase-2-block-backlog.md`.

@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-06-13 (M6 3-of-4 complete; M7 entry-gate open, AMD-88..93 ratified; watermark 93; 22 Gradle subprojects). Prior baseline: 2026-05-20 against `25bc23b`.
 -->
 
 # NexSys Development System — Two-Agent Architecture

@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-27 against M3.7 closeout
+last-verified: 2026-06-13 — M6 3-of-4 COMPLETE; M7 entry-gate open (AMD-88..93 ratified); watermark AMD-93; invariants 163/47; 22 Gradle subprojects. (Prior: 2026-05-27 M3.7 closeout.)
 -->
 
 # Project Knowledge — Canonical Source Files
@@ -30,7 +30,7 @@ Claude Project knowledge (read-only mirror)
 
 | File | Claude Project Upload Name | Purpose | Update Cadence |
 |------|---------------------------|---------|----------------|
-| Invariants_Quick_Reference.md | Architecture_Invariants_v1.md | Constitutional-invariants index (152/41 as of 2026-06-09 — ALWAYS re-derive the total from the §17 table, never cite this cell) | Rarely (senior architect lock) |
+| Invariants_Quick_Reference.md | Architecture_Invariants_v1.md | Constitutional-invariants index (163/47 as of 2026-06-12 — ALWAYS re-derive the total from the §17 table, never cite this cell) | Rarely (senior architect lock) |
 | Decisions_Quick_Reference.md | HomeSynapse_Core_Locked_Decisions.md | LTD + DEC-M3 + D-NN register (token-efficient index) | When new decisions are locked |
 | HomeSynapse_Knowledge_Primer.md | HomeSynapse_Knowledge_Primer.md | Compressed architectural context | At documentation checkpoints + milestone completions |
 | HomeSynapse_Navigation_Index.md | HomeSynapse_Navigation_Index.md | File path registry, amendment status | When milestones land or amendments apply |

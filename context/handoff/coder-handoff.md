@@ -42,3 +42,48 @@ Canonical Coder handoff file referenced by the nexsys-coder skill (`../context/h
 **Resolution (Nick):** on GREEN, commit; on failure, paste the failing task + test output back to the Coder for a gate-fix round.
 
 ---
+
+---
+
+### DEFERRED — M6.3: At-Rest Event-Payload Encryption (Doc 15 §3.4/§3.8 + OR-M6-NONCE write-path; 2026-06-13)
+
+> **Newest gate record** (appended at end due to a tooling limit reading the large live file; supersedes `### DEFERRED — M6.2`, which is committed at `7c73c91`). Holds the refuse-to-close next-WU pointer.
+
+**State:** files produced 2026-06-13 (Claude Code session; CLAUDE.md build discipline — the Coder runs no builds, not even the optional targeted `compileJava`). Working tree layered on substantive HEAD **`7c73c91`** (M6.2 GREEN). **NO module-info / `build.gradle.kts` / `libs.versions.toml` / `projectionVersion` change in any module** — the Doc 15 §3.8 zero-new-edge property re-verified by grep in both directions (no `import com.homesynapse.config` in persistence; no `import com.homesynapse.persistence` in config; only `app` names both). The ONLY schema change is the additive **V005** migration; the migration manifest was updated in `SqlitePersistenceLifecycle` (prod) and `SqliteEventStoreTest` (test).
+
+**Commands for Nick (in order):**
+
+```
+.\gradlew :config:configuration:check :core:persistence:check :lifecycle:lifecycle:check :app:homesynapse-app:check
+./gradlew check          # full — expect the same task count as M6.2 (no new Gradle modules)
+```
+
+**Binary close gate (OR-M6-NONCE):** `AtRestEncryptionWritePathTest.killMidEncryptThenRestart_nonceNeverRepeats` GREEN, plus the config-side `ScopeKeyManagerPayloadNonceTest` (the real-manager counter-durability proof).
+
+**Touched modules:**
+- **config/configuration** — `EncryptionScope` (new public enum); `ScopeKeyManager.encryptPayload` (new interface method); `StandardScopeKeyManager` (impl + durable per-(scope,version) counter in `scope_nonce_counters.json`, fsync-ahead-of-return); new tests `ScopeKeyManagerPayloadNonceTest`, `EncryptionScopeTest`.
+- **core/persistence** — V005 migration (`payload_iv`/`dek_ref`); `SqliteEventStore` encrypt-on-write + decrypt-on-read gate (+7-arg ctor, 5-arg retained); `SqlitePersistenceLifecycle` (V005 + cipher field + 6-arg-with-cipher ctor + cipher-gated scope set); `PersistenceFactory.start` 6th nullable `PayloadCipher` param (single signature, all callers updated); new test `AtRestEncryptionWritePathTest` + test cipher `CountingPayloadCipher`; `SqliteEventStoreTest` (V001–V005 list), `MigrationRunnerTest` (Tier-5d V005 tests), three factory tests (`null` 6th arg).
+- **lifecycle/lifecycle** — `HomeSynapseCore.start()` forwards `this.payloadCipher` to the factory (R-2 step). No test change (M6.2 `constructorAcceptsPayloadCipherSeam` publishes no events, so it still passes).
+- **app/homesynapse-app** — `Main.payloadCipher` re-pointed to `keyManager.encryptPayload`; `PayloadCipherBridgeTest` +counter-durability test.
+
+**Self-review:** a 5-agent adversarial review (compile x2, JPMS, crypto, completeness) returned **0 blockers, 0 should-fix, 3 nits** — all 8 OR-M6-NONCE properties verified, zero new module edges, every Files-table row delivered.
+
+**Open notes (non-blocking, for PM Open-Risk tracking):**
+- **R-alpha / OR-M6-NONCE (b):** M6.3 discharges only the write-path (a) half. The restore-from-backup (b) half is design-not-precluded (DP-D: `dek_ref` carries multiple key versions; `restoreCannotResumeUsedCounter` asserts rotation-on-restore is supported) but the backup/restore co-design itself is side-research R-alpha, OUT of scope.
+- **Windows durable-ahead-of-return caveat:** the counter fsync is POSIX-exact (Pi-4 floor); on a Windows dev host the rename's directory-entry fsync is a best-effort DEBUG no-op (same limitation M6.2's `scope_keys.json` rides). Not a deployment concern.
+- **Per-event fsync:** one full-file counter fsync per encrypted event — fine at the low sensitive-PII volume; would need a batched/block-reserve scheme if a high-volume scope ever joins `encrypted_scopes`.
+- **[REVIEW] scope-mapping contract decision:** the `identity` scope maps to **zero core event types at MVP** (the taxonomy has no identity category); it is configured + keyed but populated only when future person-linked identity event records exist (Doc 15 §3.4). `presence_personal` = the PRESENCE category (`presence_signal`/`presence_changed`). PM to confirm this membership is intended.
+
+**Next Work Unit (refuse-to-close pointer):** PM's call. M6.3 closes the at-rest payload-encryption piece and the OR-M6-NONCE write-path half. The remaining Doc 15 crypto pieces — **chain-hash activation (§3.3)** and **Ed25519 package signing (§3.7)** — were explicitly OUT of M6.3 scope and are the natural next crypto WUs; **R-alpha** (crash-safe backup/restore co-design) closes OR-M6-NONCE's deferred (b) half. The PM sizing note also flagged an optional M6.3a/M6.3b split. **Awaiting the PM's next coding instruction.**
+
+---
+
+#### M6.3 gate-fix round 1 (2026-06-13) — compileTestJava
+
+Nick's first gate run **FAILED** at `:core:persistence:compileTestJava` with 11 errors, ALL `unreported exception SequenceConflictException` at `publishRoot(...)` calls in `AtRestEncryptionWritePathTest`. Root cause: `publishRoot`/`publish` declare the **checked** `SequenceConflictException` (it `extends Exception`), and 6 publishing test methods declared only `throws SQLException` (or nothing). **The adversarial self-review's "persistence-compile CLEAN" was false confidence — an LLM reasoning pass is not `javac`; checked-exception propagation is exactly the class of defect it misses.** Fix (test-only, no production change): the 6 methods now declare `throws Exception` (house style; `SQLException` import stays used by `rawRows`; `encryptionEnabled_nullCipher_failsClosed` left alone — its `assertThatThrownBy` lambda absorbs the checked exception via `ThrowingCallable.call() throws Throwable`). Audited every other new/modified test file for checked boundaries (config + app never reached by the aborted gate): all clean. **Status: compile-fix-applied + audited, NOT gate-verified — the Coder cannot run the build (CLAUDE.md). Re-run the commands above; the crypto/counter tests (incl. the OR-M6-NONCE close gate) have never executed and must pass at runtime.**
+
+#### M6.3 gate-fix round 2 (2026-06-13) — V005 migration runtime regression
+
+Round-1's compile fix was correct; running the gate then surfaced a **runtime regression**: 56 persistence tests failed, all identical — `MigrationException: Migration 5 ... failed: The prepared statement has been finalized`. V005 aborted on every fresh-DB open, taking down ~45 pre-existing persistence tests plus the M6.3 ones. **Root cause (verified from source):** `MigrationRunner.splitSqlStatements` splits on `;` (only outside `--` comments) and runs every non-empty trimmed fragment, including the trailing `tail`. V005's two ALTERs carried **trailing inline comments after the `;`** (copied verbatim from the instruction's §192-193 sample SQL). After the final `;`, the text `-- "scope_id:key_version"; NULL when unencrypted` became a standalone **comment-only fragment** that sqlite-jdbc rejects. V001-V004 keep all commentary in the header block — the idiom V005 broke. **Fix:** rewrote V005 to the header-comment-only idiom — clean ALTER statements, no trailing inline comments, no `;` anywhere but the two terminators. **Status: fix-applied + traced, NOT gate-verified** (Coder cannot run the build, CLAUDE.md). Once V005 applies, the ~45 pre-existing tests return to green AND the M6.3 crypto/counter tests (`AtRestEncryptionWritePathTest` incl. `killMidEncryptThenRestart_nonceNeverRepeats`, the two `MigrationRunnerTest` V005 cases, `ScopeKeyManagerPayloadNonceTest`) execute for the FIRST TIME — they have never run; do not assume they pass. Re-run: `./gradlew :core:persistence:test` then the four `:check` tasks then `./gradlew check`.
+
+**FLAG FOR PM (out of M6.3 scope — production change to a shared component):** `MigrationRunner.splitSqlStatements` treats a trailing comment-only fragment as an executable statement. Any future migration with a trailing inline comment hits this. A one-line guard (skip a fragment that is empty after stripping `--` lines) would harden it, but it's a separate decision on shared production code. Also: the M6.3 instruction's §192-193 sample SQL embedded the trailing comments — worth a one-line correction to the instruction template so it isn't copied again.

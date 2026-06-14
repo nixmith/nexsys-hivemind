@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-13 — M6 3-of-4 COMPLETE; M7 entry-gate open (AMD-88..93 ratified); watermark AMD-93; invariants 163/47; 22 Gradle subprojects. (Prior: 2026-05-27 M3.7 closeout.)
+last-verified: 2026-06-15 — M6 COMPLETE 4-of-4 (M6.3 at-rest payload encryption LANDED `1eddd9a`); M7 READY to build, M7.1 issue-gated on entry-gate rows 3 (energy/erasure interviews) + 4 (M5-C approve); the 2026-06-15 converge synthesis is the current M7-forward map. Watermark AMD-93; invariants 163/47; 22 Gradle subprojects. (Prior: 2026-06-13 M6 3-of-4; 2026-05-27 M3.7 closeout.)
 -->
 
 # Project Knowledge — Canonical Source Files

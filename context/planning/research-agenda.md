@@ -493,12 +493,26 @@ Nick's call (2026-06-10, the post-M6.1 "config research/open-questions beat"): b
 
 ---
 
+## Addendum — Track-3/4 side-research vectors (added 2026-06-14; the red-team + competitive lane feeding app-bootstrap + M7.x)
+
+A cluster of side-research vectors runs parallel to Core, feeding the Track-2 app-bootstrap charter and the M7.x design beats. Status:
+
+- **R-α — crash-safe backup/restore for an event-sourced + per-scope-encrypted store.** Holds the M6.3 restore-half (M6.3 shipped DP-D non-preclusion only); foundation-readiness F3. Assessment `context/assessments/2026-06-15_Research_R-alpha_PM_Assessment.md`. Status: ASSESSED; the backup/restore WU is its lock point.
+- **R-γ — Crypto-Agility & Envelope-Versioning (ADVERSARIAL CHALLENGE).** Pressure-tests the no-version-discriminator envelope (REVERSE-NOW-WHILE-CHEAP 1-byte tag). Brief `context/instructions/2026-06-15_Research_R-gamma_Crypto-Agility_Envelope-Versioning_CHALLENGE_Brief.md`. **DISPATCHED 2026-06-14 → DOCS Project** (Nick uploads). Returns the F1 decision the app-bootstrap charter is gated on; dispatch BEFORE the charter finalizes the envelope.
+- **R-δ — Competitive Ecosystem Architecture Deep-Dive.** ASSESSED grade A− (`context/assessments/2026-06-15_Research_R-delta_PM_Assessment.md`); return rehomed to docs `research/returns/`. Routed: app-bootstrap (AX-1/2/9), M7 (AX-5 fail-closed-at-load → folded into the M7.1 instruction as SD-9; AX-8 reachability vocabulary), crypto/backup (AX-4 → the key-portability follow-up below), strategy (AX-7 deprecation policy — escalated), performance (AX-6/10). Banked: AMD-91 cycle detection is AHEAD of HA (no loop detector).
+- **Key-Portability — machine-local-root → portable-recovery bridge (R-δ §5 #1; PM-graded HIGH).** Recover the encrypted corpus after hardware loss/migration WITHOUT stranding (HA #134162), preserving per-scope crypto-shred + the no-mandatory-cloud brand. Brief `context/instructions/2026-06-15_Research_Key-Portability_Backup-Recovery_DOCS_Brief.md`. **AUTHORED + DISPATCHED 2026-06-14 → DOCS Project** (alongside R-γ). Feeds the app-bootstrap **AB-4 backup-key-portability seam** + the R-α restore-half.
+- **Remaining R-δ §5 follow-ups (registered, not dispatched):** #2 sensitive-data classification benchmarking (MED — supplements the energy/erasure interviews, does not block); #3 SmartThings Edge/Rules internals (MED); #4 HA loop-protection internals (LOW-MED, we lead via AMD-91); #5 discontinued-ecosystem breadth (LOW).
+- **Open research vector (NEW — Nick-requested 2026-06-14): automation-engine competitive superiority + safe-scaling** across local-first / cloud-dependent / hybrid + enterprise. PM research-vector proposal at `context/planning/2026-06-14_automation-engine-superiority_research-vector_proposal.md` (candidate briefs registered there; dispatch TBD by Nick — sequence after M7.1/M7.2 design beats land so it pressure-tests a real engine, not a blank sheet).
+
+---
+
 ## Spike tracker (added 2026-06-05, Workstream C briefing)
 
 Two Nick-approved empirical spikes are pending (spike rules: throwaway code, findings recorded, never production):
 
 - **SPIKE-DC — dual-coordinator design spike** (~Aug 2026, before the M14 briefing). Source: Research 12 §5.2 (no field precedent). Tracked as the backlog row `SPIKE-DC`.
 - **SPIKE-RESTART — Zigbee/Matter restart-frequency measurement on Pi 5** (before M9). Source: the ratified NQ-6 condition (keep the global restart default; measure real radio-init glitch frequency empirically before the M9 supervisor hardens restart-intensity policy). Referenced by AMD-62 §6. Not yet scheduled — schedule when the M9 briefing window opens.
+- **CC-1 — composition-root bind-address spike** (Track-3 follow-on; now). Empirical: does `HomeSynapseCore` bind all-interfaces or loopback? Calibrates the C1/INV-SE-02 auth urgency on the app-bootstrap charter. Spec `context/instructions/2026-06-15_CC-1_bind-address_spike_spec.md`. **DISPATCHED 2026-06-14 → CORE/Coder** (throwaway, outside the production tree; parallel to M7.1, non-critical-path).
 
 ---
 

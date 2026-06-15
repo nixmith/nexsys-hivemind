@@ -3,7 +3,7 @@ file: context/instructions/2026-06-15_C3_cascade-governance-doc-fix_coding-instr
 purpose: C3 fix-first doc-only correction — retire the superseded AMD-04 cascade-governance model in RunContext.java Javadoc + core/automation/MODULE_CONTEXT.md, citing AMD-91 (RunCausalChain + cycle detection) and flagging the field-swap reshape as M7.2. DOC/JAVADOC ONLY — zero behavioral or interface change. Must precede the M7.2 instruction so the implementer does not build the depth-only model.
 audience: Coder (nexsys-coder), Nick (issue gate), PM
 phase: 3-Implementation (doc-currency correction)
-status: ⛔ ISSUE-GATED — authored 2026-06-15. Issues when the W25 Lane-4 P6 floor lifts (Nick APPROVEs M5-C Increment 1 = entry-gate row 4). Independent of row 3 (interviews): C3 can land DURING interview week, ahead of M7.1.
+status: ✅ LANDED 2026-06-14 (PM direct host edit, per the §PM-note authorization at the foot of this file) — entry-gate row 4 CLOSED unblocked it. Applied: `RunContext.java` Cascade-Governance Javadoc + `@param cascadeDepth` + `core/automation/MODULE_CONTEXT.md` (2 lines) now cite AMD-91 (supersedes AMD-04); the record is UNCHANGED (Read-verified); future `RunCausalChain` referenced as `{@code}`, never `{@link}` (doclint-safe). Deferred build gate: `-Xdoclint`/spotless on `:core:automation` (Nick runs). Precedes M7.2 (satisfied).
 baseline: homesynapse-core HEAD 1eddd9a; docs watermark AMD-93; AMD-91 RATIFIED 2026-06-12; AMD-04 SUPERSEDED-by-AMD-91. RE-VERIFY the STOP-gates at issue.
 amd-refs: AMD-91 (F4 — RunCausalChain supersedes AMD-04, RATIFIED). The implementing field-swap is M7.2 (AMD-91 §8) — OUT of scope here.
 -->

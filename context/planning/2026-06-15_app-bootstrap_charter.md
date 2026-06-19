@@ -3,7 +3,7 @@ file: context/planning/2026-06-15_app-bootstrap_charter.md
 purpose: The CHARTER for the app-bootstrap milestone — the high-density latent-defect milestone where main() wires HomeSynapseCore into a running system. It carries, in ONE coherent gate, the two converge HIGHs (C1 unauth surface, C2 read-path decrypt contract) + C9 (lifecycle reconciliation) + the Track-3 red-team's envelope-finalization one-way doors (F1/F2/F3/F4), because all of them go live / lock at the instant the cipher activates and the HTTP surface opens. This is PLANNING (a charter), not a coding instruction — permitted now; OFF the M7 critical path.
 audience: PM, Nick, the future app-bootstrap coding-instruction session
 state-type: charter (planning) — AUTHORED with explicitly-PENDING gates; finalize when the gates close
-status: AUTHORED 2026-06-15 (Track-2). NOT yet finalized — three inputs are open (see §3): R-γ (F1), the energy/erasure interviews (F2), CC-1 (bind posture); plus the Doc 15 §6 amendment ratification.
+status: AUTHORED 2026-06-15 (Track-2); UN-PARKED + advanced 2026-06-18 (converge). The energy/erasure interview gate (F2) is **RETIRED** (2026-06-15 M5-D desk research — see §3) → **two inputs remain open: R-γ (F1) + CC-1 (bind posture)**, plus the AB-1 auth-model decision + the Doc 15 §6 amendment ratification. This is now the PRIORITY lane (the runnability unlock); finalize + issue when R-γ + CC-1 return.
 baseline: homesynapse-core HEAD 1eddd9a (M6 COMPLETE 4-of-4; M6.3 at-rest crypto landed but INERT — main() is a stub). Watermark AMD-93; Doc 12 + Doc 15 LOCKED.
 consumes: 2026-06-15_core-review_CONVERGE_synthesis.md (C1/C2/C9, Seam 1/3, CC-1) · 2026-06-15_redteam_reversibility-audit.md (F1/F2/F3/F4, the envelope-finalization gate) · 2026-06-15_Research_R-alpha_PM_Assessment.md (the C2 read contract + rotate-DEK) · 2026-06-15_Research_R-delta_PM_Assessment.md (AX-1 auth/bind, AX-2 startlevels, AX-4 backup-key portability) · Doc 12 (lifecycle), Doc 15 §3.8/§5/§6.
 -->
@@ -50,7 +50,7 @@ Final numbering rides the placement escalation (§7); labelled AB-1..AB-4 here. 
 - Wire the `ScopeKeyManager → PayloadCipher` adapter (Doc 15 §3.8, app-hosted; the M6.2 E2 bridge is held-not-consumed) into the persistence read+write path. **This is the instant the crypto goes live — it lands *with* AB-1 + AB-2, not before.**
 - **Carry the red-team envelope-finalization gate (cheap-now / irreversible-later — finalize BEFORE the first encrypted write):**
   - **F1** — the AEAD/envelope **version discriminator** (add a 1-byte algorithm/version tag, or record an explicit written rationale for relying on implicit-v1). *Pending R-γ (§3).*
-  - **F2** — the **encrypted-scope width** (default-to-encrypt under uncertainty given the measured-trivial cost). *Pending the energy/erasure interviews (§3).*
+  - **F2** — the **encrypted-scope width** — **RESOLVED 2026-06-18 (no longer interview-gated):** default to the confirmed set `[identity, presence_personal]` (OQ-15-2; encrypt-on-write, cost measured-trivial ≤0.12%/core). The 2026-06-15 M5-D desk research closed the interview question — energy stays plaintext-at-rest at MVP (Doc 15 §3.4 PII grounds; zero energy event types exist), and "default-to-encrypt under uncertainty" already holds given the trivial cost. No interview needed; widening to future scopes is a post-MVP additive call.
   - **F3** — **bind each scope to exactly one nonce construction** (C6, NIST SP 800-38D §8.3) before first write.
   - **F13 (converge C8)** — write-path hardening: ctor fail-closed guard + treat the nonce dir-fsync `IOException` as FATAL (today swallowed at DEBUG).
 - **Backup-key portability (R-δ AX-4 — design now, before a corpus exists):** an exportable, re-enterable recovery artifact tied to the per-scope keys, so a zero-config machine-local-key install can restore on new hardware (HA's mandatory-encrypted-backup key-stranding is the anti-lesson). Co-designed with the backup/restore WU; the *seam* is decided here.
@@ -62,12 +62,14 @@ Final numbering rides the placement escalation (§7); labelled AB-1..AB-4 here. 
 | Doc 15 §6 currency amendment ratified (rotate-DEK-on-restore binding; "rotate = additive new DEK version, retain priors" pinned per Track-3 F6) | Nick | **OPEN** — escalated in R-α assessment; quick |
 | **CC-1** run (bind-address empirical → AB-1 bind posture) | Code | **OPEN** — spec authored (`context/instructions/2026-06-15_CC-1_bind-address_spike_spec.md`), not run |
 | **R-γ** returned + assessed → F1 envelope-discriminator decision | DOCS → PM | **OPEN** — brief authored, not dispatched |
-| **Energy/erasure interviews** → F2 encrypted-scope-width decision | Nick | **OPEN** — landing Thu/Fri this week |
+| ~~Energy/erasure interviews → F2 encrypted-scope-width~~ | Nick | **RETIRED 2026-06-18** — closed via the M5-D desk research (not the interviews); F2 = `[identity, presence_personal]`, energy plaintext-at-MVP. No longer a gate. |
 | Read-contract design beat settled (R-α) + chain-liveness sequencing (F4) | PM | **CLOSED** (R-α assessed) / F4 is a sequencing pin, not a blocker |
 | Auth model decided (AB-1) | Nick + PM | **OPEN** — escalate (§7) |
 | Key-portability mechanics (R-δ AX-4 follow-up brief) | DOCS → PM | **OPEN** — recommended dispatch alongside R-γ |
 
-**This charter is authored with these gates OPEN. It is finalized — and the first AB coding instruction issues — only when they close** (target: early-mid next week, after the interviews + R-γ + CC-1). The charter's job is to *name* the gates so the closing inputs slot into named slots.
+**This charter is authored with these gates OPEN. It is finalized — and the first AB coding instruction issues — only when they close** (target: early-mid next week, after R-γ + CC-1 return and Nick rules the auth model — the interview gate is no longer in the path). The charter's job is to *name* the gates so the closing inputs slot into named slots.
+
+> **[2026-06-18 converge — finalization-readiness summary]:** F2 RESOLVED (above). Remaining to finalize: **(1) R-γ** returned + assessed → F1 envelope-discriminator; **(2) CC-1** run → AB-1 bind posture; **(3) Nick rules the AB-1 auth model** (§7); **(4) Doc 15 §6 rotate-DEK currency amendment ratified.** When (1)–(4) close, finalize this charter and issue **AB-3 first** (lifecycle substrate), then **AB-1 + AB-2 + AB-4 together** (Seam 1 go-live). This is now the project's priority lane — it produces the first runnable, secure HomeSynapse. Tracked: snapshot 2026-06-18 masthead + `weeks/2026-W26_jun22-jun28.md` Lane 1.
 
 ## 4. Sequencing + independence from M7
 - **Independent of M7.** App-bootstrap touches no automation contract; M7.1/7.2/7.3 touch no crypto and no composition root. They run in parallel. The **M6.3-vs-M7 ordering call** (entry-gate row 3 — does app-bootstrap activate before or after M7?) is resolved by the interviews and is a placement question (§7), not an M7.1-readiness question.

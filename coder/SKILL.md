@@ -10,7 +10,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-13 (currency pass — M6 3-of-4 complete, M6.3 gated; M7 entry-gate open, AMD-88..93 ratified; watermark 93; 22 Gradle subprojects; substantive code HEAD `7c73c91`). Prior baseline: 2026-06-07 against `8028337`.
+last-verified: 2026-06-18 (currency pass at the converge session — **M6 COMPLETE 4-of-4, M6.3 committed `1eddd9a`**; substantive code HEAD `1eddd9a`; watermark AMD-93, invariants 163/47, 22 Gradle subprojects). **Next instruction is most likely app-bootstrap, NOT M7.1** (M7.1 is issued but sequenced behind the superior-automation design — do not start until routed). The 2026-06-15 core-review names two HIGH you will likely implement at app-bootstrap: **C1** — the composition root must enforce INV-SE-02 (`AuthMiddleware before("/api/*")` + `RateLimiter`; admin `/internal/*` behind the gate; decided bind posture), today unimplemented; **C2** — `SqliteEventStore.fromRow` decrypt failure currently *throws and aborts the whole replay* with no per-row `DegradedEvent` degrade (contrast the codec path), which makes a lost key un-replayable (INV-RF-04) and blocks crypto-shred (INV-PD-07); the read-side failure modes have no test. Prior baseline: 2026-06-13 against `7c73c91`.
 -->
 
 # NexSys Coder — Implementation Engineer Skill

@@ -3,7 +3,7 @@ file: context/handoff/2026-06-18_automation-superiority_Phase1-design_session_pr
 purpose: Dispatch-ready session brief — a PHASE-1 (Architect-mode) design session to design the DIFFERENTIATING automation layer (the superiority vectors) BEFORE M7.2/M7.3 implement the baseline engine, so the implementation targets the differentiator rather than a baseline it will outgrow. Output: a scoping memo + (on Nick's scope ruling) a new Locked design doc draft (Doc 16 candidate).
 audience: PM/Architect (a FRESH Cowork conversation, nexsys-project-manager skill, Mode 1 Architect), Nick (rules the Phase-1 scope + the eventual Lock)
 state-type: session prompt (planning → design)
-status: READY — authored 2026-06-18 at the converge session. Run AFTER Nick rules which vectors are in-scope (the session opens by assembling that decision package; it does NOT pre-decide scope).
+status: SCOPE RULED 2026-06-18 — DISPATCH-READY. Nick ruled the Phase-1 scope at the app-bootstrap-decisions session (decision record `context/decisions/2026-06-18_app-bootstrap-and-superiority-scope_decisions.md`, Part B). The scope decision package is NO LONGER this session's job — it is settled (see "RULED SCOPE" below). This session now enters Mode-1 Architect and authors the Doc 16 draft to that ruled scope. Run as a fresh Cowork conversation (a Locked design doc deserves an unloaded session).
 baseline: core 03f16dc (substantive 1eddd9a) / docs f2e064d / hivemind b7a893e; M6 COMPLETE; M7 contracts ratified (AMD-88..93); M7.1 ISSUED-awaiting-build.
 anchors: context/planning/2026-06-14_automation-engine-superiority_research-vector_proposal.md (the 10 vectors + lock points + sequencing) · context/planning/2026-06-12_M7-M8-charter-skeleton.md (M7/M8 pieces) · homesynapse-core-docs/design/Doc 07 (Automation Engine, Locked) · Doc 14 (Master Architecture) · the strategy layer (context/strategy/; catalog in strategic-context-map.md §2)
 -->
@@ -11,6 +11,26 @@ anchors: context/planning/2026-06-14_automation-engine-superiority_research-vect
 # Session Brief — Superior-Automation Phase-1 Design (the differentiator, ahead of the build)
 
 PM/Architect session (**nexsys-project-manager skill, Mode 1 — Architect**). Read `context/process/cowork-environment-model.md` FIRST, then run the freshness preflight. This session designs the automation layer that is the product's selling point — **as design, not code, and ahead of M7.2/M7.3** — so the eventual implementation builds toward the differentiator instead of toward Doc 07's baseline.
+
+## RULED SCOPE (2026-06-18, Nick — build exactly this; the scope is settled, do NOT re-litigate)
+
+Author **Doc 16** as a Locked design doc with **three first-class sections** + two seams + the M7-impact section:
+
+1. **Expressiveness-without-a-DSL** — reusable/parameterized automation components, computed conditions, typed parameters; static-analyzable; **no templating DSL** (hard anti-requirement). This is the core "design-before-M7.2" surface — it shapes the M7.2 action model.
+2. **Explainability / causal-chain as a first-class product surface** — AMD-91 `RunCausalChain` elevated to "why did this fire?" for a non-expert; an enterprise audit surface too. (Not too thin — this is half the home-user differentiator.)
+3. **Run-coupled reliability** — honest degradation of a *running* automation + deterministic/safe behavior under failure. **Only the run-coupled half of "reliability" lives here** (it touches the M7.2 run model). The cross-cutting half is a separate doc (below).
+- **Federation-readiness seam (identity/scoping non-preclusion ONLY)** — design single-site automation/entity/event identity so a future federation layer never forces an immutable-event-log migration. Do **not** design federation here.
+- **Hybrid cut-line** — the local/remote boundary + the never-a-dependency invariant, **coordinated with the app-bootstrap charter** (pin the seam in the composition root). Do **not** design the full cloud-accelerator feature here.
+- **§4 M7-contract-impact section (MANDATORY)** — a one-line verdict per M7.x. The ruled expectation to hold/verify: **M7.1 trigger/condition contracts UNAFFECTED** (so M7.1's ride-along build is cleared) · **M7.2 SHAPED, builds into this doc** (do not freeze its action contract first) · **M7.3 UNAFFECTED** (D2/REC-162 stays the separately-escalated M7.2 question). Any contract change → formal AMD/supersession, never a silent reshape.
+
+**Split out — NOT in Doc 16 (each its own doc; numbering pinned at authoring):**
+- **Cross-cutting reliability-as-a-product-property** (multi-year longevity, observability-as-product, system-wide self-healing) — own **co-equal** doc, sequenced **right after** Doc 16; not M7-gating.
+- **B3 multi-site / enterprise federation** — own **post-M8** doc; implies new invariants (cross-site boundaries, federated identity, WAN-partition autonomy). Doc 16 reserves only the identity/scoping seam.
+- **C1 honest-hybrid deployment** — own **tight** doc sequenced with app-bootstrap (local/remote boundary + never-a-dependency invariant only).
+
+**Deferred to M7.2/M8 research briefs (do not design here):** A2 conflict-at-scale · B1 cost-curve · B2 concurrency/backpressure · D2 expected-state-vs-re-issue (REC-162) · E2 reachability asleep-vs-dead.
+
+---
 
 ## Why now (the strategic frame — recorded at the 2026-06-18 converge)
 

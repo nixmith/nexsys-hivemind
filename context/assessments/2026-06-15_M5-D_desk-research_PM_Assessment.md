@@ -12,7 +12,7 @@ status: COMPLETE 2026-06-15
 grade: A- (return 1) ; the PM-driven clause-language follow-up (return 2) folded
 returns:
   - homesynapse-core-docs/research/returns/2026-06-15_M5-D_desk-research_erasure-energy_background_RETURN.md (rehomed from track1-interview-coaching/, md5-verified identical)
-  - track1-interview-coaching/2026-06-15_M5-D_desk-research_ANGLE2-clause-language_TrackA.md (the Track-A procurement/clause-language angle, PM-driven this session)
+  - context/assessments/2026-06-15_M5-D_desk-research_ANGLE2-clause-language_TrackA.md (the Track-A procurement/clause-language angle, PM-driven this session; rehomed from the loose track1-interview-coaching/ lane in the 2026-06-18 cleanup)
 baseline: homesynapse-core HEAD 1eddd9a (M6 COMPLETE 4-of-4; M6.3 at-rest write-path encryption committed); watermark AMD-93; Doc 15 LOCKED; AMD-86 RATIFIED.
 guardrail: this assessment does NOT edit AMD-86 or Doc 15. Any re-open moves only via the formal pipeline (re-open -> DOCS review -> ratify). Background calibrates the prior; only buyer past-behavior (the interviews) produces FINDINGS.
 -->

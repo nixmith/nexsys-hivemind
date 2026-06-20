@@ -12,6 +12,44 @@ last-verified: 2026-05-27 against M3.7 closeout working tree — `./gradlew chec
 
 ---
 
+## AB-1 + AB-2 — Seam-1 go-live (auth + bind · fail-closed read) — DONE, NOT gate-verified (2026-06-20)
+
+**Coder (Claude Code).** Built **AB-1 (REST auth + bind posture)** and **AB-2 (fail-closed read contract)** per `2026-06-19_AB-1-AB-2-AB-4_Seam-1_go-live_coding-instruction.md`. **AB-4 NOT built** (⛔ AMD-94-gated, HELD — see un-gate condition in the instruction). Handed back **fix-applied / NOT gate-verified** — Nick runs `./gradlew check`. All STOP-on-Mismatch gates re-verified at HEAD `2174fcc`; every gate-table row MATCHED.
+
+**⛔ BLOCKING scope finding — AB-1 WebSocket half NOT built (success criterion #3 unmet).** `api/websocket-api` is a **Phase-2 scaffold only** at HEAD: interfaces + records, NO `WebSocketHandler`/`MessageCodec`/`EventRelay`/`WebSocketLifecycle` impl, NO `app.ws("/ws/v1", …)` Javalin wiring, and `api.ws`'s module-info has zero runtime deps (`requires transitive api.rest` only). There is **no WS upgrade handler to harden** — building WS first-message auth (4403/4408) requires building the entire WS Phase-3 runtime + new module edges (io.javalin, jackson, event-bus, state into api.ws), which is a separate WU, not "wiring existing pieces." The shared `OpaqueTokenStore` + `AuthMiddleware` are ready for it to consume. **Escalation: WS first-message auth is a separate WU; AB-1 REST + AB-2 are fully delivered and separable (as the instruction anticipated).**
+
+**What landed:**
+- **AB-1 auth (api.rest, zero new module edges / no build.gradle.kts change):** `StandardAuthMiddleware` (opaque Bearer → SHA-256 lookup, 401/403), `StandardRateLimiter` (per-key token bucket, clock-injected, ConcurrentHashMap.compute), `OpaqueTokenStore` (config-resident `api_tokens`, java.base-only persistence, first-run pairing mint → `initial_api_token` artifact + WARN), `ApiKeyClaims` (enterprise scope/site hook — designed, MVP binary). `RestFilters.installAuth(...)` = catch-all `before(*)` (path canonicalization → 401/403/429, throws to halt the pipeline) + RFC 9457 `ApiException` exception handler.
+- **AB-1 bind (lifecycle):** `HomeSynapseConfig` gains 5th component `bindHost` (default loopback `127.0.0.1`). `HomeSynapseCore.start()` Phase 5 now calls `bringUpHttpSurface()` → builds auth, `installAuth` FIRST, `app.start(config.bindHost(), config.httpPort())`. `exposeHttpSurface()` = `requireStarted()` + idempotent bring-up.
+- **AB-2 (persistence):** `PayloadDecryptionException` (typed, unchecked → propagates unwrapped through `ReadExecutor`); `SqliteEventStore.decryptStoredPayload` fails the whole read-batch closed, classifying NO_CIPHER_WIRED / MALFORMED_DEK_REF / GCM_AUTH_FAILED (CASE-b) / KEY_ABSENT_OR_DESTROYED (CASE-a); degrade seam designed-not-wired (F4-gated); `DegradedEvent` unchanged.
+
+**Consumer/pin fan-out swept + handled (the AB-3 lesson):** Making `start()` bind HTTP-behind-auth broke every existing unauthenticated HTTP E2E test → updated `HomeSynapseE2eHarness` (`authToken()` reads the pairing artifact; `baseUri()` → `127.0.0.1` to match the IPv4 loopback bind), `EndpointE2eIT`, `CrashRecoveryHttpIT` (+ its direct `HomeSynapseConfig` ctor for the new `bindHost`), `InFlightRequestShutdownIT`. Flipped `LifecycleWiringTest.start_doesNotOpenHttpSurface` → `start_opensHttpSurfaceBehindAuth` and `HomeSynapseCoreTest` C1 test → `opensHttpOnlyBehindAuth` + `httpSurfaceBindsLoopbackOnly`. `Main` HTTP-exposure messaging updated (AB-1 consequence; ctor/cipher stay AB-4-HELD).
+
+### DEFERRED — AB-1 + AB-2 build gate (Nick runs against the commit that lands this diff)
+1. Targeted (the `-Werror`/`[exports]`-sensitive touched modules): `./gradlew :api:rest-api:compileJava :api:websocket-api:compileJava :core:persistence:compileJava :lifecycle:lifecycle:compileJava :app:homesynapse-app:compileJava`
+2. Full: `./gradlew check` (touched: rest-api, persistence, lifecycle, app; **testing:integration-tests compiles in `check` but its tests are Pi-profile-gated** — run `./gradlew :testing:integration-tests:test -PpiProfile=throttled` to exercise the auth'd E2E/crash/in-flight tests).
+3. **Reason deferred:** sandbox does not run builds (CLAUDE.md — Nick owns the compile gate). **No `./gradlew` was run in-session.**
+
+### Watch-outs for the gate
+- **Javalin 6.7 API surface** used by `installAuth` (`app.before(Handler)` catch-all, `app.exception(...)`, `app.start(String,int)`, `ctx.header(String)` read / `ctx.header(String,String)` set, `ctx.attribute`, `ctx.contentType`) — verified against in-repo precedent + an adversarial review pass, but unbuilt here. If `app.start(String,int)` differs, that is the one likely surprise.
+- **A1.5 static check nuance:** the loopback bind is `app.start(config.bindHost(), config.httpPort())`, NOT a `.host(` call — `grep -rn "\.host(" lifecycle api app` will NOT match; the loopback default is proven by `HomeSynapseCoreTest.opensHttpOnlyBehindAuth`/`httpSurfaceBindsLoopbackOnly` instead.
+
+### `[REVIEW]` flags
+- `ApiKeyClaims` — NEW public type in api.rest (the enterprise claims hook; MVP enforcement binary).
+- `HomeSynapseConfig.bindHost` — record-shape change (5th component; source-incompatible for direct ctor callers — only `CrashRecoveryHttpIT`, updated).
+- `Main` HTTP messaging touched (AB-1 consequence on an otherwise-AB-4 file; ctor + cipher untouched).
+- AB-2 `KEY_ABSENT_OR_DESTROYED` message: persistence cannot name the concrete key-file path (config-side) — it names scope/version/position + the config-dir scope-key store + required perms (the literal "path + perms" of A2.1 is satisfied generically).
+
+### Gate round 1 (2026-06-20) — 2 compile fixes applied, declarations/imports only
+- **`OpaqueTokenStore.java`** — removed an unused `import java.util.Locale;` (adversarial-review-caught pre-handback; Spotless `removeUnusedImports` would have failed `check`).
+- **`SqliteEventStoreDecryptFailClosedTest.java`** — `./gradlew check` failed at `:core:persistence:compileTestJava` (3× "unreported exception `SequenceConflictException`" at the `publishRoot` call sites). Added `throws SequenceConflictException` to the `writeOneEncryptedRow` helper + the three reaching `@Test` methods + the import — matching the sibling `AtRestEncryptionWritePathTest`/`SqlitePersistenceLifecycleTest` pattern. **Declarations only — no assertion or fail-closed-logic change.** (Recurring trap: `publishRoot` declares a checked `SequenceConflictException`; coder-lessons 2026-04-10.) Re-run `./gradlew check` pending.
+
+### NEXT WU (refuse-to-close pointer)
+- **Primary: AB-4** (cipher activation via the 6-arg HSC ctor + the 1-byte envelope version tag + F3/F13) — **⛔ HELD until AMD-94 is RATIFIED + folded into Doc 15 §3.4/§5/§6 and the on-disk watermark reads AMD-94.** Re-confirm the gate at Step-0.
+- **Also queued (newly surfaced): the WebSocket Phase-3 runtime WU** — `api.ws` first-message auth (4403/4408) + handler/codec/relay/lifecycle + Javalin `app.ws` wiring, consuming the shared `OpaqueTokenStore`. This is what AB-1's success criterion #3 needs and is NOT buildable as part of AB-1.
+
+---
+
 ## AB-3 — App-Bootstrap Lifecycle Reconciliation — DONE (2026-06-19; ./gradlew check GREEN 149 tasks on pass 1; **2 WUCP-Phase-2 review fixes applied since → re-run the gate**)
 
 **Coder (Claude Code).** AB-3 (the runnability substrate) is implemented and passed a 5-agent adversarial review (zero defects) but is handed back **compile-fix-applied / NOT gate-verified** — Nick runs the gate. `HomeSynapseCore` now implements `SystemLifecycleManager` (PD-1), boots Doc-12 phase-ordered to RUNNING with the §3.10 health loop, assembles config + the three `InMemory*Registry` + the automation engine (subscribed after state-store LIVE), gates HTTP **CLOSED** (the new `exposeHttpSurface()` is the AB-1 seam), and leaves the cipher inert. `Main` boots HSC held as `SystemLifecycleManager` with a SIGTERM hook.

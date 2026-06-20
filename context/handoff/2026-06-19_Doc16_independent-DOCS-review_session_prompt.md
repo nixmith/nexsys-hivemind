@@ -3,8 +3,8 @@ file: context/handoff/2026-06-19_Doc16_independent-DOCS-review_session_prompt.md
 purpose: Dispatch-ready brief for a FRESH, CONTEXT-ISOLATED Cowork session that runs the INDEPENDENT DOCS-Project second-opinion review of Doc 16 (Superior Automation Layer) before Lock. Its distinct value over the prior review is INDEPENDENCE ON SCOPE — it must pressure-test whether Doc 16's scope is the right cut, which the prior (same-lineage) review could not. Produce a verdict + consolidated edit list. Review ONLY — do not fold. Doc 16 Lock clears the M7.2b entry-gate.
 audience: a FRESH Cowork conversation acting as an independent DOCS reviewer (nexsys-project-manager skill, Mode-1 review discipline), Nick (ratify/fold/Lock)
 state-type: session prompt (independent design-doc review)
-status: READY — authored 2026-06-19. OFF the AB-3 critical path (Doc 16 Lock gates only M7.2b, which sits behind AB-3 → AB-1/2/4 → M7.2a), so this runs fully in parallel and delays nothing. Run as its OWN fresh conversation, SEPARATE from the AMD-94 session (see the independence rule below).
-baseline: docs `32afb3f` (Doc 16 DRAFT — confirm; if Nick has pre-folded E1/E2 the SHA will differ, that is fine) / core `beb4bc3` (the landed M7.1 reality to cross-check §7.2 against). Confirm at a light preflight.
+status: READY — authored 2026-06-19; **currency-refreshed post-AB-3**. OFF the AB-3 critical path (Doc 16 Lock gates only M7.2b, which sits behind AB-3 [DONE] → AB-1/2/4 → M7.2a), so this runs fully in parallel and delays nothing. Run as its OWN fresh conversation, SEPARATE from the AMD-94 session (see the independence rule below).
+baseline: docs `32afb3f` (Doc 16 DRAFT — confirm; if Nick has pre-folded E1/E2 the SHA will differ, that is fine) / core `60d50ce` (M7.1 + AB-3 landed; cross-check §7.2 against THIS HEAD — AB-3 added composition-root wiring + the `InMemory*Registry` impls, NOT automation-contract changes, so the sealed trigger/condition/selector types + the AMD-92 event set are unchanged and the M7.1-UNAFFECTED reality holds). Confirm at a light preflight.
 reads (in order):
   - context/process/cowork-environment-model.md (FIRST — the truncated-tail mount artifact; host file tools authoritative)
   - context/status/PROJECT_SNAPSHOT.md (current state ONLY — for grounding, not for scope rationale)
@@ -31,7 +31,7 @@ A prior review (`context/audits/2026-06-19_Doc16_DOCS_Review_Return.md`) already
 
 3. **Validate/extend the prior edits.** For E1 (RunCausalChain "Existing (AMD-91)" → ratified-but-built-at-M7.2a), E2 (audit tamper-evidence inert until chain_hash live), E3 (mint [SA-INV-1..4] at Lock): agree / modify / reject each with reasoning, and add any edits the prior review missed.
 
-4. **Cross-check §7.2 against landed source** at core `beb4bc3`: confirm Doc 16 adds no sealed `TriggerDefinition`/`Selector`/`ConditionDefinition` permit and no AMD-92 event type, and leaves the `ConditionEvaluator.evaluate(...)` contract M7.1 implemented unchanged — so the **M7.1-UNAFFECTED** verdict holds and no AMD-89-class re-sequencing is hidden.
+4. **Cross-check §7.2 against landed source** at core `60d50ce` (M7.1 + AB-3): confirm Doc 16 adds no sealed `TriggerDefinition`/`Selector`/`ConditionDefinition` permit and no AMD-92 event type, and leaves the `ConditionEvaluator.evaluate(...)` contract M7.1 implemented unchanged (AB-3 wired the engine into the composition root but did not touch these contracts) — so the **M7.1-UNAFFECTED** verdict holds and no AMD-89-class re-sequencing is hidden.
 
 ## Anti-requirements to verify the doc holds
 No templating DSL · no engine retry (AMD-90-INV-01; D2/REC-162 must be *deferred*, not resolved or pre-empted) · no destructive forced migration · never lead with commodity encryption · local-first inviolate. Confirm each is operationalized, not merely asserted.

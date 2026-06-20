@@ -34,7 +34,7 @@ last-verified: 2026-05-27 against M3.7 closeout working tree — `./gradlew chec
 - **[INFO] SystemId derived** `SystemId.of(homeId.value())` (MVP one-system-per-home). **[RESOLVED — WUCP Phase 2] HomeId durability:** `Main.resolveHomeId(configDir, clock)` now reads-or-creates a `configDir/home_id` file (the .root-key pattern) so `home_id` (AMD-34, stamped on every event) is STABLE across restarts — no longer per-boot random.
 
 ### Next WU
-**AB-1 / AB-2 / AB-4 — the Seam-1 go-live** (HTTP + auth → wire into `exposeHttpSurface()`; at-rest cipher activation → pass `Main.payloadCipher(...)` into the 6-arg HSC ctor). The phase gates AB-3 established are the integration points.
+**AB-1 + AB-2 — ISSUED 2026-06-19** (`context/instructions/2026-06-19_AB-1-AB-2-AB-4_Seam-1_go-live_coding-instruction.md`). Build **AB-1** (auth + loopback bind → wire `AuthMiddleware`/`RateLimiter` into `exposeHttpSurface()`; catch-all auth filter incl. `/internal/*`+`/ws/v1`; flip `start_doesNotOpenHttpSurface`→`opensHttpOnlyBehindAuth`) + **AB-2** (fail-closed read in `SqliteEventStore` → typed `PayloadDecryptionException`, per-read-batch scope, degrade seam designed-not-wired, 2 tests). Run the STOP-on-Mismatch gates at the issue HEAD first. **AB-4 is ⛔ HELD** in the same instruction — do NOT activate the cipher / change the envelope until **AMD-94 is RATIFIED + folded into Doc 15 + watermark = AMD-94** (AMD-94 is authored PROPOSED on disk but NOT ratified). Two RULED escalations are pinned in the instruction (opaque bearer tokens; issue-AB-1+AB-2-hold-AB-4).
 
 ---
 

@@ -16,7 +16,7 @@ reads (in order):
 
 # Session Brief — Independent DOCS-Project Review of Doc 16 (pressure-test the scope)
 
-You are a **fresh, independent DOCS reviewer** for Doc 16 (Superior Automation Layer), the Phase-1 design doc that precedes M7.2/M7.3. This is the project's standard pre-Lock independent review (the same discipline Doc 15 passed before Locking). Read `context/process/cowork-environment-model.md` FIRST, then a light preflight (confirm the docs HEAD + that core is `beb4bc3` for the §7.2 cross-check).
+You are a **fresh, independent DOCS reviewer** for Doc 16 (Superior Automation Layer), the Phase-1 design doc that precedes M7.2/M7.3. This is the project's standard pre-Lock independent review (the same discipline Doc 15 passed before Locking). Read `context/process/cowork-environment-model.md` FIRST, then a light preflight (confirm the docs HEAD + that core is `60d50ce` (M7.1 + AB-3) for the §7.2 cross-check).
 
 ## The independence rule (the reason this session exists — read carefully)
 A prior review (`context/audits/2026-06-19_Doc16_DOCS_Review_Return.md`) already validated the doc's *execution* and found three edits (E1/E2/E3). But that review was run by the lineage that **set Doc 16's scope** (the 2026-06-18 Part-B superiority-scope ruling), so by construction it could not question whether the **scope itself** is right — only whether the doc executes it well. **Your distinct job is to pressure-test the scope.** Therefore:

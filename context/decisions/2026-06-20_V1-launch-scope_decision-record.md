@@ -3,7 +3,7 @@ file: context/decisions/2026-06-20_V1-launch-scope_decision-record.md
 purpose: The ratified V1 launch-scope decision record — the thin-slice MVP, the IN/OUT line, the backward-scheduled timeline, the parallel-lane model, the corrected build sequence, the enabling investments, and the open items. The forcing function that keeps scope disciplined toward Nov 25.
 audience: Nick, PM hub, the Core / Web UI / Distribution lanes, the DOCS/design lanes
 state-type: decision record
-status: RATIFIED 2026-06-20 (strategy forks ruled by Nick). Line-items D-OPEN-1/2/3 OPEN pending Nick. Supersedes nothing; sits above the milestone backlog as the scope authority.
+status: RATIFIED 2026-06-20 (strategy forks ruled by Nick); **D-OPEN-1/2/3 RESOLVED 2026-06-21 (Nick) + the wave sequence SET — see ## Open items and ## Wave sequence below**. Supersedes nothing; sits above the milestone backlog as the scope authority.
 -->
 
 # V1 Launch Scope — Decision Record (2026-06-20)
@@ -72,11 +72,20 @@ The original "fail-closed throw" framing is not how the code behaves. Verified a
 2. **The integration point is you, not agent capacity.** Three lanes is 3× demand on the one node that reviews, ratifies, and runs gates. CI-as-gate-of-record (D5a) is the mitigation — it converts that node from gate-runner to failure-adjudicator.
 3. **The hero view's Core dependency** (`RunCausalChain` + the thin causal-query API) is the seam that most affects whether the differentiator is demoable at the mid-August checkpoint. Sequence it deliberately; do not let the causal-query slice expand into all of M12.
 
-## Open items (need Nick)
+## Open items — RESOLVED 2026-06-21 (Nick)
 
-- **D-OPEN-1 — Hardware.** Is a Zigbee coordinator stick + a device fleet already procured? If not, order this week.
-- **D-OPEN-2 — The curated device set (concrete, ~5–8 devices spanning the demo archetypes).** Proposed: a dimmable light, a motion **or** contact sensor (the trigger), a button/switch, a smart plug, a temperature sensor — chosen so *one sensor-triggers-light automation plus its explainability view* is the demo. "Not 50" is this specific list, validated for 72h — confirm/adjust against what hardware is obtainable.
-- **D-OPEN-3 — Defer the WebSocket runtime?** Recommend yes (poll for V1; removes a whole lane). Confirm the demo does not strictly need live push.
+- **D-OPEN-1 — Hardware. RESOLVED.** Spec confirmed against Doc 08 §3.2–3.3 + the integration-zigbee scaffold (hub-verified host-side: the two-layer coordinator architecture is real). Buy **one coordinator per transport path** — de-risks M9's adapter work AND gives the two-path abstraction a real validation target: **primary** Sonoff ZBDongle-P (**TI CC2652P**, Z-Stack/**ZNP** path); **second path** Sonoff ZBDongle-E (**Silicon Labs EFR32MG21**, **EZSP** path) or SMLIGHT SLZB-06MG24 (EFR32MG24, more future-proof). Paths are **auto-detected at startup** (INV-CE-04 → no manual config selection); EZSP target is **v13+ / EmberZNet 7.4+** (both candidate sticks satisfy this). For the demo alone the CC2652P is sufficient; the second stick is cheap insurance that validates the EZSP adapter. **Action: order now if not in hand** — procurement lead time + the 72h validation run is the longest, non-compressible pole, ahead of any code.
+- **D-OPEN-2 — Curated device set. RESOLVED** (≡ the D-OPEN-1 shopping list — one decision). Archetypes confirmed; **models adjusted off IKEA** (TRÅDFRI line wound down in 2026 → procurement risk) to ZCL-standard parts: **dimmable light** = Philips Hue White (pairs direct to the coordinator, no Hue bridge) or an Innr/Sonoff Zigbee-3.0 bulb; **motion** = Sonoff SNZB-03P (the hero trigger); **contact** = Sonoff SNZB-04; **button/scene** = Sonoff SNZB-01; **plug** = Sonoff S26R2 ZB / S31 Lite ZB (energy); **temp/humidity** = Sonoff SNZB-02P. ~$80–120 all-in. All six map to standard ZCL clusters the device model already expresses (Doc 08 §3.5 cluster table + Doc 02 §3.6 — hub-verified, no gaps). Hero demo path: **motion → light on**, then click "why did this fire?". Tuya/Xiaomi codec quirks are deliberately OUT of the first validation (add later if wanted).
+- **D-OPEN-3 — Defer the WebSocket runtime. RESOLVED: YES, defer.** Poll the REST surfaces at 1–2s for V1. The hero view is request/response (click → query → render) and needs no push; the live device/event/health views read as real-time at a 1–2s poll for a home dashboard. Deferring removes the WS Phase-3 runtime WU from the serial Core lane AND simplifies the Web-UI lane (REST polling, no WS client / reconnection logic). The shared `OpaqueTokenStore`/`AuthMiddleware` are already built for the post-launch WS WU — nothing wasted. **The anti-requirement "no WebSocket runtime in V1" is now FIRM (not pending D-OPEN-3).**
+
+## Wave sequence — SET 2026-06-21 (Nick)
+
+Not "launch all four blind." Dependency-ordered, with the hardware decision sitting first as the schedule-critical item:
+1. **M7.2a (Core)** — zero dependencies, the longest internal pole — author + launch **now**.
+2. **Read-API contract freeze + CI-as-gate-of-record** — fast enabling steps (≈ half-day each) — run **immediately, in parallel** with kicking off M7.2a. The contract freeze is a **hard prerequisite** for the Web-UI lane.
+3. **Frontend-dev + Distribution-skeleton** — launch **right after** the contract is frozen. (Launching the UI lane against an *unfrozen* read API invites exactly the cross-lane rework the parallel model exists to prevent.)
+
+Rejected: "author all four now" (frontend-before-frozen-contract churn) and "CI + contracts first, alone" (idles the Core long-pole for no benefit — M7.2a needs neither). Net: **M7.2a + contracts/CI in the same beat → the two new lanes next.**
 
 ## Immediate actions (ordered)
 

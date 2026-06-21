@@ -15,6 +15,20 @@ last-verified: 2026-06-12 Pi-evidence session (evening) — **OQ-15-2 RESOLVED: 
 
 # PM Session Handoff
 
+## 2026-06-21 (beat 2) — Explainability research reconciled + M7.2b framed + read-API → v1.1 + lanes sharpened (Cowork PM v3 hub)
+
+**Outcome: the explainability-UX competitive research landed (Nick ran it via the deep-research harness) and is reconciled; the M7.2b action-model decision is framed on its evidence; the read-API contract is refined to v1.1; both lane prompts are sharpened — all BEFORE the lanes launch, so zero rework.** Report durable at `context/assessments/2026-06-21_explainability-UX-competitive-research.md`.
+
+- **Headline finding:** every competitor (HA/Hubitat/SmartThings/openHAB/Node-RED) fails explainability the same five ways; two gaps are wide open and unoccupied — **"why DIDN'T it fire?"** (none distinguishes condition-false vs trigger-never-matched vs device-didn't-act) and **"did the device actually DO it?"** (every trace shows command-sent, not done; optimistic state lies — HA core calls it "really bad UX," unsolved). Build BOTH hero questions, plain-language/device-backward; lead on "the explanation is never evicted" (INV-SA-03 — the #1 trace complaint structurally can't happen to us).
+- **M7.2b framed** (`context/decisions/2026-06-21_M7.2b-action-model_decision-record.md`, PROPOSED — Nick co-signs): D-1 keep no-engine-retry (REC-162 holds — evidence-backed: retry unsafe without confirmation + dangerous on momentary actuators; Hubitat gates its retry to idempotent classes, off by default); D-2 the differentiator is command-outcome *visibility* (`dispatched→confirmed|unconfirmed|failed`) via Doc 16 §3.4 + the M7.3 ledger; D-3 retry = post-MVP opt-in, gated to idempotent classes, excluded for momentary actuators.
+- **⚠ SCOPE FORK for Nick:** the "did it actually DO it?" hero half (confirmed/unconfirmed) depends on **M7.3 (PendingCommandLedger)**, not explicitly in the V1 IN-list. **Option A (PM rec): pull M7.3 into V1** (M7.2a-2 → M7.2b → M7.3 → causal-read-API → AB-4 → M9). Option B: dispatched/failed only, M7.3 post-MVP. V1-scope change → Nick rules.
+- **mid-August go/no-go criteria drafted** (4 explicit pass/fail gates: engine done / hero renders on real data / hardware validating / install proven) — in the decision record, Nick confirms.
+- **Read-API → v1.1** (pre-launch, zero rework): added the honest `UNCONFIRMED` action outcome; added the co-equal `GET /automations/{id}/non-firing` read (three-way verdict, kept thin — deep non-match recording = post-V1); added never-silent-blank `origin` on events. Scope guard now "four reads," still not all-of-M12.
+- **Lane prompts sharpened:** frontend-dev gains the 7 hero-view principles (§3a) + the two-co-equal-heroes step; Distribution-skeleton gains the §5 pairing-UX targets (reset-first, pair-near-then-move, start-order, surface interview progress/errors).
+- **Open Risks: unchanged** (OR-M13-SDNOTIFY only). **NEW pending decision: the M7.3-into-V1 scope fork (Nick).** Hardware APPROVED + ordered.
+- **Commit handed to Nick (hivemind):** the research report + the M7.2b decision record + the read-API v1.1 edits + the 2 sharpened lane prompts + this spine batch. Selective-stage host-side (phantom). Heredoc in the session report.
+- **Next: Nick** — co-sign M7.2b + rule the M7.3 scope fork; launch the (now-sharpened) lanes + commit. **Hub** — on the M7.3 ruling, fold into the V1 scope record + sequence M7.2b's instruction; reconcile lane returns as single-writer.
+
 ## 2026-06-21 — PM MISSION-CONTROL v3 LAUNCHED: hygiene rotation + #0 device brief + read-API freeze + M7.2a-2 ISSUED + CI confirmed + 2 lane prompts (Cowork PM standing hub; supersedes v2)
 
 **Outcome: the v3 hub is live as the single spine-writer; the §9 first-action sequence is executed through §9.5. Preflight PASS (all 11); zero forward-work blockers.** The truncated-tail mount phantom is ACTIVE across all three repos — host-verified intact (Doc 16 L488, RunManager L169, snapshot whole); VM `git status`/`diff` quarantined (env-model §2/§5); **blind `git add -A` is unsafe — selective-stage host-side.**

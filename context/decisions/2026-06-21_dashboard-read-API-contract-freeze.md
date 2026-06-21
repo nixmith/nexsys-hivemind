@@ -2,8 +2,9 @@
 file: context/decisions/2026-06-21_dashboard-read-API-contract-freeze.md
 purpose: The FROZEN dashboard read-API contract (v1) — the binding interface the Web-UI lane builds against and the Core lane must not break silently. Pins the EXISTING REST shapes (source-verified at core 1541446) and DEFINES the frozen-but-unbuilt shapes (events, health, the causal-chain hero, the automations list) the frontend mocks against and Core implements TO. The hard prerequisite for launching the frontend-dev lane (V1 record wave step 2).
 audience: the frontend-dev lane (builds against this), the Core lane (implements/preserves it), the hub (adjudicates any change as a cross-lane event), Nick (public-API shape is his call)
-state-type: decision / frozen contract (v1)
-status: FROZEN 2026-06-21 (v3 hub). Source-verified against core 1541446 (post-M7.2a-1): api/rest-api endpoints + RestFilters + StandardAuthMiddleware + the response DTOs. Changes route through the hub (§6).
+state-type: decision / frozen contract (v1.1)
+status: FROZEN v1 2026-06-21 (v3 hub); **v1.1 refinement same day** — pre-launch (no frontend code yet, so zero rework), folding the 2026-06-21 explainability-UX research: the honest `unconfirmed` command-outcome state (B3), the three-way `NonFiringExplanation` for "why didn't it fire?" (B3), and never-silent-blank origin attribution (B1). Source-verified against core 1541446. Changes route through the hub (§6).
+refinement-source: context/assessments/2026-06-21_explainability-UX-competitive-research.md (§3 command reliability; §2 FM-1/FM-5; §4 hero principles)
 anchors: homesynapse-core-docs/design/09-rest-api.md (Locked) · design/13-web-ui-observability-mvp.md (Locked) · design/16-superior-automation.md (RunCausalChain — the hero) · context/decisions/2026-06-20_V1-launch-scope_decision-record.md (device/event/health views + the thin causal-query API; no-WS poll 1–2s)
 -->
 
@@ -69,8 +70,11 @@ Query: `?since=<cursor>&limit=<n>&type=<eventType>&subjectId=<ulid>&sort=DESC`. 
 { "eventId": "<ulid>", "type": "state_changed", "category": "STATE",
   "occurredAt": "<ISO>", "viewPosition": 12345,
   "subjectRef": { "type": "ENTITY", "id": "<ulid>" },
-  "correlationId": "<ulid>", "summary": "<short human string>" }
+  "correlationId": "<ulid>", "causationId": "<ulid|null>",
+  "origin": "AUTOMATION | DEVICE | USER | EXTERNAL | UNKNOWN",
+  "summary": "<short human string>" }
 ```
+**Never a silent blank (v1.1, research §2 FM-1).** Every event carries an `origin`: `AUTOMATION`/`DEVICE`/`USER` when the cause is known (follow `causationId`/`correlationId` to the chain), `EXTERNAL` when the change came from outside HomeSynapse, `UNKNOWN` when the system genuinely can't attribute it. **`UNKNOWN` is an explicit, honest value — never an empty field** — so the UI distinguishes "we don't know what caused this" from "nothing caused this." This is INV-SA-03 (explanation as a projection of the log) made visible, and it's the gap every competitor leaves blank.
 Poll-tail with `since=<last nextCursor>` for new events (the 1–2s poll model; no push). Payload-bearing detail is a follow-up `GET /api/v1/events/{eventId}` if needed — **kept thin** (event LIST + on-demand detail; not a full query language).
 
 ### B2. `GET /api/v1/health` — consolidated health  *(NEW — thin aggregation; or the frontend composes A4+A5)*
@@ -100,16 +104,28 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
       "conditions": [ { "expression": "...", "evaluated": true, "result": true,
                         "observedState": [ { "entityId": "...", "attribute": "...", "value": "..." } ] } ],
       "actions": [ { "type": "...", "targetRef": {...}, "command": "...", "params": {...},
-                     "outcome": "DISPATCHED|CONFIRMED|FAILED|SKIPPED", "reason": "<string|null>" } ],
+                     "outcome": "DISPATCHED|CONFIRMED|UNCONFIRMED|FAILED|SKIPPED", "reason": "<string|null>" } ],
       "outcome": { "status": "...", "reason": "<string|null>", "durationMs": 0,
                    "actionCount": 0, "commandCount": 0 },
       "cascade": { "parentRunId": "<ulid|null>", "depth": 0 } },
     "meta": { "viewPosition": <long>, "timestamp": "<ISO>" } }
   ```
-  This maps 1:1 onto `RunCausalChain`/`ChainLink` + the AMD-92 event rows (trigger=row1, condition-evaluated=row4, action=rows5/6, conflict=row9, completed=row2). **`observedState` is the trigger-time snapshot the M7.2a-2 `RunConditionGate` captures** (the real `stateSnapshotPosition` 2a-2 wires). The "why did it NOT fire?" case is the same shape with `conditions[].result=false` / `status=SKIPPED` + reason.
+  This maps 1:1 onto `RunCausalChain`/`ChainLink` + the AMD-92 event rows (trigger=row1, condition-evaluated=row4, action=rows5/6, conflict=row9, completed=row2). **`observedState` is the trigger-time snapshot the M7.2a-2 `RunConditionGate` captures** (the real `stateSnapshotPosition` 2a-2 wires).
+  - **`actions[].outcome` — the trust win (v1.1, research §3).** `DISPATCHED` = command sent; `CONFIRMED` = the device reported the expected state (needs the `PendingCommandLedger`/M7.3 confirmation correlation); **`UNCONFIRMED` = sent, no confirmation within the timeout — the honest "we don't know" state every other platform hides behind an optimistic lie**; `FAILED` = a recorded failure reason; `SKIPPED` = not executed (e.g., a fail-fast earlier in the sequence). **The `CONFIRMED`/`UNCONFIRMED` distinction is the "did the device actually DO it?" hero half — it depends on M7.3 (see the M7.2b decision record's scope fork). If M7.3 is post-MVP, V1 ships `DISPATCHED`/`FAILED`/`SKIPPED` only and the frontend renders confirmed/unconfirmed when M7.3 lands.**
+- **`GET /api/v1/automations/{id}/non-firing?expectedSince=<cursor>` → THE OTHER HERO HALF — "why didn't it fire?" (v1.1, research §2 FM-5 / §4 #1 — a CO-EQUAL peer, the single most differentiated read).** Answers the user's "I expected X, it didn't happen — why?" by distinguishing the three non-firing reasons from data the engine already produces:
+  ```json
+  { "data": { "automationId": "<ulid>", "automationName": "...", "enabled": true,
+      "verdict": "CONDITION_NOT_MET | NEVER_TRIGGERED | ACTED_BUT_UNCONFIRMED | DISABLED",
+      "lastRelevantRunId": "<ulid|null>",
+      "explanation": "<plain-language sentence>",
+      "triggerSummary": "<what would fire this, in plain words>",
+      "lastEvaluation": { "at": "<ISO|null>", "conditionsResult": "<...|null>" } },
+    "meta": { "viewPosition": <long>, "timestamp": "<ISO>" } }
+  ```
+  V1 data sources per verdict: **CONDITION_NOT_MET** = a recent `SKIPPED` run (the causal-chain shows `conditions[].result=false`); **ACTED_BUT_UNCONFIRMED** = a run whose action outcome is `UNCONFIRMED`/`FAILED` (device-didn't-act); **NEVER_TRIGGERED** = no run in the window → report that + `triggerSummary` so the user sees what *would* fire it; **DISABLED** = the automation is off. **Scope guard:** the *deep* "why did the trigger not match" diagnosis (recording every non-matching trigger evaluation) is a **post-V1 depth** — V1 answers from existing run records + absence + config, which already beats every competitor (none distinguishes these three at all).
 - **`GET /api/v1/automations`** → the component-based automation list (supporting surface #1 — present, not built out): `{ "data": [ { "automationId", "name", "enabled", "components": [ {"type","summary"} ], "lastRunId": "<ulid|null>" } ], ... }`.
 
-**Scope guard (binds B3):** these three reads are the V1 causal surface. The contract must NOT grow into the full M12 observability/query language — no arbitrary event-graph traversal, no cross-run analytics, no audit projection. Hero + the run list + the automation list. That is the whole V1 causal read API.
+**Scope guard (binds B3):** these **four** reads (run list, causal-chain, non-firing, automation list) are the V1 causal surface. The contract must NOT grow into the full M12 observability/query language — no arbitrary event-graph traversal, no cross-run analytics, no audit projection, no per-non-match trigger recording (post-V1). The two hero questions ("why did it fire?" + "why didn't it?") + the run list + the automation list. That is the whole V1 causal read API.
 
 ---
 

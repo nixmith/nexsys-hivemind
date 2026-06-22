@@ -15,6 +15,10 @@ last-verified: 2026-06-12 Pi-evidence session (evening) — **OQ-15-2 RESOLVED: 
 
 # PM Session Handoff
 
+## 2026-06-21 (beat 3) — v4 hub handoff (v3 token-saturated; the fresh hub takes over)
+
+**Outcome: the v3 hub completed its beat and handed off to a fresh v4 hub.** M7.2a-2 (Core) is launched + building; the v4 hub prompt (`context/handoff/2026-06-21_PM-mission-control_v4_orchestrator_session_prompt.md`, supersedes v3) carries the project forward in light context. **v4's first act = the backlog M1–M4 rotation** (the one remaining hot-path token tax, ~97KB→~45KB; the v3 hub scoped it out of its own rotation), then ground via preflight, then the running loop with three lanes in flight (M7.2a-2 · frontend-dev · Distribution-skeleton). **Pending Nick (carried into v4):** the M7.2b co-sign + the M7.3-into-V1 scope fork. **Deferred to the M7.2a-2 WUCP Phase 2 (v4 carries):** the skill folds (spotless→coding-instruction-format; CI→deferred-gate discipline; the reconcile-before-launch pm-lesson; both SKILL.md masthead bumps) + the mirror sync. Open Risks unchanged. _Prior (v3 beat-2) follows._
+
 ## 2026-06-21 (beat 2) — Explainability research reconciled + M7.2b framed + read-API → v1.1 + lanes sharpened (Cowork PM v3 hub)
 
 **Outcome: the explainability-UX competitive research landed (Nick ran it via the deep-research harness) and is reconciled; the M7.2b action-model decision is framed on its evidence; the read-API contract is refined to v1.1; both lane prompts are sharpened — all BEFORE the lanes launch, so zero rework.** Report durable at `context/assessments/2026-06-21_explainability-UX-competitive-research.md`.

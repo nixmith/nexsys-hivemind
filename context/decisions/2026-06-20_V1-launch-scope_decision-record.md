@@ -3,7 +3,7 @@ file: context/decisions/2026-06-20_V1-launch-scope_decision-record.md
 purpose: The ratified V1 launch-scope decision record — the thin-slice MVP, the IN/OUT line, the backward-scheduled timeline, the parallel-lane model, the corrected build sequence, the enabling investments, and the open items. The forcing function that keeps scope disciplined toward Nov 25.
 audience: Nick, PM hub, the Core / Web UI / Distribution lanes, the DOCS/design lanes
 state-type: decision record
-status: RATIFIED 2026-06-20 (strategy forks ruled by Nick); **D-OPEN-1/2/3 RESOLVED 2026-06-21 (Nick) + the wave sequence SET — see ## Open items and ## Wave sequence below**. Supersedes nothing; sits above the milestone backlog as the scope authority.
+status: RATIFIED 2026-06-20 (strategy forks ruled by Nick); **D-OPEN-1/2/3 RESOLVED 2026-06-21 (Nick) + the wave sequence SET — see ## Open items and ## Wave sequence below**; **M7.2b co-signed + M7.3 ruled INTO V1 (Option A) 2026-06-21 (Nick) — see ## M7.2b co-sign + M7.3 below**. Supersedes nothing; sits above the milestone backlog as the scope authority.
 -->
 
 # V1 Launch Scope — Decision Record (2026-06-20)
@@ -26,7 +26,7 @@ status: RATIFIED 2026-06-20 (strategy forks ruled by Nick); **D-OPEN-1/2/3 RESOL
 
 ## IN (V1 — Nov 25)
 
-- The **superior automation engine**: M7.2a (run lifecycle / `RunManager` FSM / `RunCausalChain` / dispatch / the run-lifecycle event slice) + M7.2b (action-model freeze: computed-param resolution, run-coupled-reliability terminal contract, the D2/REC-162 disposition).
+- The **superior automation engine**: M7.2a (run lifecycle / `RunManager` FSM / `RunCausalChain` / dispatch / the run-lifecycle event slice) + M7.2b (action-model freeze: computed-param resolution, run-coupled-reliability terminal contract, the D2/REC-162 disposition) **+ M7.3 (PendingCommandLedger — the `confirmed | unconfirmed` command-outcome correlation; ruled INTO V1 2026-06-21 per the M7.2b co-sign, Option A)**.
 - The **explainability hero view** in the dashboard, reading a **thin causal-chain query API** (a focused slice of future-M12 observability, sequenced right after M7.2b — must not pull in all of M12).
 - The two **supporting differentiator surfaces** (component-based automation list; run outcomes with terminal-state + reason).
 - A **focused dashboard**: app shell, design system, auth against AB-1 tokens, device-state + event + health views, the hero view.
@@ -94,3 +94,15 @@ Rejected: "author all four now" (frontend-before-frozen-contract churn) and "CI 
 3. **Hub:** confirm CI is live on the remote and adopt it as the gate-of-record; plan its extension to the new lanes (D5a).
 4. **Hub:** author the **M7.2a coding instruction** (Core lane, the differentiator's engine — Q3-ruled next slot) and the **AB-4 dispatch** (fresh crypto context; now sequenced before M9 per D4).
 5. **Hub:** spin up the **Web UI lane** on the Core-independent surface (shell, design system, AB-1 auth, device/event/health views).
+
+## M7.2b co-sign + M7.3 into V1 — RULED 2026-06-21 (Nick)
+
+Co-signed on the evidence of the 2026-06-21 explainability-UX competitive research; the full frame + deliberation are in `context/decisions/2026-06-21_M7.2b-action-model_decision-record.md` (now RATIFIED).
+
+- **Frame co-signed (D-M7.2b-1/2/3):** keep **no-engine-retry** as the V1 default (REC-162 / AMD-90-INV-01 holds); the differentiator is **command-outcome visibility** — every action is terminal-typed **`dispatched → confirmed | unconfirmed(timeout) | failed(reason)`**; retry stays a **post-MVP, opt-in, device-class-gated** option (Hubitat's idempotent classes only; momentary actuators excluded; confirmation-channel required). No new anti-requirement — this *is* the M7.2b ruling the standing "no engine retry" anti-requirement deferred to.
+- **Scope fork RULED — Option A: M7.3 (PendingCommandLedger) is IN V1.** The `confirmed | unconfirmed` half of the "did it actually do it?" hero needs M7.3 to correlate a command to its `state_confirmed` event. It is Doc-16-UNAFFECTED, small, hardware-independent, and the architecture already produces the data — worth one extra serial Core milestone.
+- **Corrected Core sequence (extends D4):** **M7.2a-2 → M7.2b → M7.3 → thin causal-read-API → AB-4 → M9 → validation.** The thin causal-read-API now surfaces *both* hero halves (the causal chain + the command outcome) and still must not balloon into all of M12.
+- **Mid-August go/no-go — CONFIRMED:** the four pass/fail gates in the M7.2b record (engine done incl. M7.3 landed-or-in-flight; hero renders on real `RunCausalChain` data + the command-outcome state; hardware validating — motion→light on a real coordinator; install path proven). Any RED triggers a defined checkpoint decision (cut an increment or a small dated slip), never a November drift.
+- **Carry-items (not blocking):** the `unconfirmed` per-device-class timeout default (pin at M7.3 scoping); adopt Hubitat's idempotent-class list as V1 metadata so the UI can honestly label momentary actuators.
+
+**Hub follow-through:** the M7.2b coding instruction is being authored ISSUE-READY (action-model freeze: terminal contract + computed-param resolution + the ruled retry disposition), **gated on the M7.2a-2 WUCP Phase 2 return** for the exact `ActionExecutor`/`CommandDispatchService` seam signatures; **M7.3 queued immediately after M7.2b**.

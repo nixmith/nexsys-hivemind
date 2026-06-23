@@ -217,6 +217,17 @@ IMPORTANT: Derive these from FOUR sources:
   `Instant.now()` — the publisher handles `ingestTime` as the system timestamp. Using
   `Instant.now()` for `eventTime` conflates processing time with real-world occurrence
   time and breaks `COALESCE(event_time, ingest_time)` time-range queries.
+- **Record component / static-factory name collision (the M7.2a-2 gate-fix STOP-check):**
+  a Java `record X(boolean valid, ...)` AUTOMATICALLY defines an accessor method `valid()`,
+  so you CANNOT also declare a `static X valid(...)` factory or any other method named
+  `valid()` on that record — it is a compile error (the component accessor already owns the
+  name). This shipped TWICE past a clean in-session LLM self-review in M7.2a-2
+  (`ValidationResult.valid()`; `ModeDecision.admit/restartCancel/enqueue`) and ONLY the real
+  `./gradlew check` / `javac` caught it. **STOP-check before handoff: scan EVERY new or
+  modified record — for each component name, confirm no static factory, no instance method,
+  and no nested helper shares that exact name.** Prefer a distinct factory name
+  (`validated()`, `ofAdmit()`) or a canonical constructor. This is inspection-discoverable —
+  catch it pre-handoff; do not spend the gate's bounce budget on it.
 
 ## Coder Pushback Welcome
 

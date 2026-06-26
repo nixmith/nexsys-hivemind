@@ -11,6 +11,16 @@ anchors: context/planning/2026-06-21_device-acquisition-and-test-strategy_brief.
 
 **One sentence.** As the curated hardware lands (two waves), bring up both coordinator paths and characterize every device against ground truth **via a reference stack, now — before M9** — producing a **durable device-characterization corpus** that becomes M9's acceptance baseline, validates the device model (Doc 02/08) against real silicon while fixes are still cheap, and generalizes to every future protocol — all in a parallel, write-isolated, Nick-driven bench thread at **zero cost to the serial Core lane.**
 
+## 0.5 — 2026-06-26 fan-out de-risk addendum (Session A + Session C validation; v6 hub)
+
+Validated, actionable notes for the bench (from the converter-DB feasibility review + the Session C premises check):
+
+1. **For the EZSP/MG24 path, lead with ZHA (bellows) over Zigbee2MQTT.** Z2M's EZSP/Ember support is the *younger/experimental* driver; ZHA's bellows is the more mature EZSP path. If Z2M's `exposes` data capture is wanted, capture identity/clusters on ZHA first, then cross-check.
+2. **Record the EmberZNet/EZSP firmware version FIRST**, before pairing — the MG24 is newer silicon and the EZSP protocol-version-mismatch hard-failure class is real (INV-CE-04 fingerprint capture covers it; reinforce).
+3. **Naming:** the Wave-1 stick is the **MG24 (EFR32MG24)** — not the older ZBDongle-E (EFR32MG21); Wave-2's ZNP stick is the **ZBDongle-P (CC2652P)**.
+4. **Hue:** pairs direct (standard Zigbee); if it won't join, factory-reset (power-cycle sequence or Hue app/Touchlink) and pair close to the coordinator.
+5. **High-leverage bonus — empirically validate the §1-D5 converter-DB direction here.** Session A's "adapt-the-data" recommendation rests on Z2M's `exposes` capability model mapping cleanly onto our ZCL-aligned model (assessed MED-HIGH, the one hedge). The bench can **confirm that mapping on real silicon this week** for two devices — capture the Hue A19's and the SNZB-03P's `exposes` and check each maps to a HomeSynapse capability with modest transform. A clean map raises D5's technical-fit confidence; a messy one re-weights toward the curated-subset fallback sooner. Record this verdict in the corpus entry per device.
+
 ## 0. What this is, and why now
 
 The #0 acquisition brief got the hardware **ordered**; its §2a framed bring-up as something that happens "as M9 lands." This brief **moves characterization earlier** — to as-it-arrives, before M9 exists — per Nick's Call-1 ruling (Option 1). The reasoning: the hardware is the V1 record's **#1 risk-pole landing early**, but landing early only *helps* if the idle window (now → M9) is converted into risk reduction. **Idle sticks reduce nothing; sticks validated against ground truth do.** By the time the Core lane reaches M9, we want the detection fingerprints, confirmed firmware, and a device model validated against real silicon all waiting — so M9 builds fast against known-good reality instead of discovering surprises at the end, where surprises are most expensive.

@@ -15,6 +15,13 @@ You are the **frontend engineer** for HomeSynapse Core's V1 dashboard — a long
 ## The one-sentence frame
 The product is the demo, and the demo is **the explainability view over a live automation running real devices.** Everything you build sequences backward from that hero view. The device/event/health views are the supporting cast; the "why did this fire?" causal-chain view is the hero.
 
+## 0.5 — 2026-06-26 dispatch refresh (v6 hub; LAUNCH NOW under the full-parallel-fleet ruling)
+
+- **Spine state:** core `5363347` (M7.3 DELIVERED GREEN); the §1 architecture is RATIFIED (event-driven/co-located command pipeline). The hero view renders on a **LIVE** `RunCausalChain` once **M7.4** wires the pipeline (the next Core milestone). So **build the shell + device/event/health views NOW** against the existing A-class REST, and the **hero against the B3 mocks**; swap the hero to live as M7.4 + the thin causal-read-API land. Nothing here waits on M7.4.
+- **The hero is BOTH halves (v1.1):** the causal chain — **"why did this fire?" AND "why did it NOT fire?"** (the suppression-reason surface) — AND the command-outcome state **`dispatched → confirmed | unconfirmed(timeout) | failed(reason)`** ("did it actually confirm?"). Mock B3 to both; **never render a silent blank** — always an explainable, plain-language origin (the differentiator is durable, never-evicted explanation).
+- **No WebSocket in V1 (FIRM):** poll the A-class/B-class REST at 1–2s; it reads as real-time for a home dashboard.
+- Everything else in this prompt stands. Your return is a short status doc under `context/audits/`; the hub reconciles it.
+
 ## 0. Write-isolation (binds — the single-spine-writer model)
 - You write **only** under `homesynapse-core/web-ui/dashboard/…` (the declared-but-empty Gradle scaffold module — 0 source files today) and your **lane return** (a short status doc the hub reconciles).
 - You do **NOT** write: the hivemind spine (PROJECT_SNAPSHOT, pm-handoff, backlogs, decisions), core Java, the Distribution tree, or any design doc. If you need a spine/Core change, **surface it to the hub** (via Nick) — do not make it.

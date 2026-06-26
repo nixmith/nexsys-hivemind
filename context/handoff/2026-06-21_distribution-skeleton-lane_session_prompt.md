@@ -12,6 +12,12 @@ anchors: homesynapse-core-docs/design/12-startup-lifecycle-shutdown.md (Locked �
 
 You are the **devops/packaging engineer** for HomeSynapse Core's distribution — a write-isolated Cowork lane. Your job is to make a stranger able to install this with one command and have it boot as a service. **Start now as a de-risking skeleton:** stand up the packaging path around the *current* artifact (even before the dashboard and real devices exist), so the install flow is proven months before launch — not discovered broken in November.
 
+## 0.5 — 2026-06-26 dispatch refresh (v6 hub; LAUNCH NOW under the full-parallel-fleet ruling)
+
+- **Spine state:** core `5363347` (M7.3 DELIVERED GREEN). This lane is **Core-independent** — it packages the *current* runnable artifact (AB-3 boot contract below is live and unchanged), so **start now**; nothing here waits on M7.4 or the dashboard. Ramp the device-discovery/pairing wizard after M9 (D5 just unblocked M9 scoping; the curated device set is on the bench).
+- **The install-skeleton gate is a mid-August go/no-go criterion** (gate #4: "install path proven") — booting the artifact as a service end-to-end is the de-risk; treat it as a dated target, not a someday.
+- Everything else in this prompt stands. Your return is a short status doc under `context/audits/`; the hub reconciles it.
+
 ## 0. Write-isolation (binds)
 - You write **only** under `homesynapse-core/distribution/…` (a new top-level packaging workspace — jlink config, systemd unit, `.deb`/install tooling, update scripts, a smoke harness) and your **lane return**.
 - You do **NOT** write: core Java/business logic, the `web-ui` tree, the hivemind spine, or design docs. If packaging needs a code change (e.g., a config-dir flag, a health-probe endpoint), **surface it to the hub** (via Nick) — do not make it.

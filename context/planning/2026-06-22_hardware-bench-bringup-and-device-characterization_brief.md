@@ -50,18 +50,18 @@ project-knowledge/device-corpus/
 
 Pair + interview the devices with **Zigbee2MQTT or ZHA (Home Assistant)** running on the Sonoff sticks — standard reference stacks, no HomeSynapse code. They expose the coordinator firmware version and the **full device interview** (clusters/attributes/endpoints/commands) — exactly the ground truth M9 must later reproduce. Notes: **no flashing is needed** for characterization (the sticks ship with coordinator firmware) — only update firmware if it is *below* the EZSP ≥ v13 / EmberZNet ≥ 7.4 target (the stack reports the version). Use the **USB extension cable** (already ordered) to distance the stick from host USB3 — a known 2.4 GHz interference mitigation.
 
-## 3. Wave 1 — ~tomorrow (2026-06-23): MG24/EZSP + Philips Hue White + 2× SNZB-03P motion
+## 3. Wave 1 — ✅ RECEIVED 2026-06-23: MG24/EZSP + Philips Hue White-and-Color (2-pack) + 2× SNZB-03P motion + USB extension — DO ALL OF THIS NOW
 
-The **hero pair** (motion → light) lands first — so the highest-value characterization happens first.
+The **hero pair** (motion → light) is on the desk. The MEANTIME — before Wave 2 arrives and before any M9/M7.4 software exists — is the OPTIMAL window to front-load it. **The MG24/EZSP is a fully-capable Zigbee 3.0 coordinator — it runs the hero demo on its own; do NOT wait on the ZNP stick.** Front-load everything the EZSP path + the hero set can give: the coordinator fingerprint, the EZSP/EmberZNet version, the full device interviews, and **real captured event streams (motion reports, light state changes) saved as durable TEST FIXTURES** (these become M9's acceptance ground-truth AND M7.4's E2E-test inputs — a step from software-E2E toward hardware-in-the-loop). The Hue is **White-AND-Color** (richer than planned: On/Off + Level + Color-Temp + Color — characterize all of it). This builds the corpus AND hardens the repeatable **characterize → corpus → fixture → Doc-02/08-validate → integrate device-onboarding pipeline**, so Wave 2 and every future device/integration flow through it seamlessly (the durable payoff, not just two device entries).
 
 1. **Coordinator bring-up (EZSP / MG24):** connect via the extension cable; capture the fingerprint (USB VID/PID, EFR32MG24, EZSP/EmberZNet version) → `coordinators/` entry; **confirm EZSP ≥ v13 / EmberZNet ≥ 7.4** (update firmware only if below).
 2. **Characterize the hero devices** on the EZSP path via the reference stack: **Philips Hue White A19** (confirm it pairs **direct — no Hue bridge**; expect On/Off + Level Control) and **SNZB-03P motion** (expect Occupancy Sensing / IAS Zone). Capture full interviews → `devices/` entries.
 3. **Validate vs Doc 02/08 §3.5:** does each device's real cluster/attribute surface map to the capabilities/entities the device model expects? Record **MATCH** or **GAP**. **Any GAP → flag as a now-fix** (escalate to the hub for a Doc 02/08 amendment before M9).
 4. **Hero sanity (optional, high-value):** in the reference stack, manually confirm motion → light behaves as the demo needs (device sanity only — this is *not* a HomeSynapse automation).
 
-## 4. Wave 2 — ~1 week (2026-06-29/30): ZBDongle-P/ZNP + SNZB-02P/-01P/-04P + S31
+## 4. Wave 2 — ORDERED (sonoff.tech), NOT yet received, no firm ETA: ZBDongle-P/ZNP + SNZB-02P/-01P/-04P + S31
 
-1. **Coordinator bring-up (ZNP / ZBDongle-P):** fingerprint (CC2652P, Z-Stack/ZNP version) → `coordinators/` entry. This is the V1 **reference** coordinator (the demo runs on it).
+1. **Coordinator bring-up (ZNP / ZBDongle-P):** fingerprint (CC2652P, Z-Stack/ZNP version) → `coordinators/` entry. (The bench originally pegged the ZNP stick as the demo's reference coordinator; since the **MG24/EZSP arrived first and runs the hero on its own, the meantime primary IS the MG24/EZSP**. The cross-path data the bench gathers informs which coordinator the demo ultimately ships on — both paths must work either way, INV-CE-04.)
 2. **Characterize the rest of the curated set** on the ZNP path: SNZB-04P contact (IAS Zone), SNZB-01P button (Scenes/multistate), S31 Lite plug (On/Off + Metering), SNZB-02P temp/humidity (Measurement). Interviews → `devices/`; validate vs Doc 02/08; flag gaps.
 3. **Both-paths-on-one-host:** with both sticks connected, confirm they coexist and each auto-detects its path independently — the two-path abstraction's real test, and the empirical input M9's auto-detect (INV-CE-04) needs.
 4. **Re-characterize the hero pair on the ZNP path** (the demo's reference coordinator) — confirm cross-path consistency.

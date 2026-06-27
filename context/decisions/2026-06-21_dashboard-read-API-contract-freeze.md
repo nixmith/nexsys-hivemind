@@ -37,13 +37,15 @@ anchors: homesynapse-core-docs/design/09-rest-api.md (Locked) · design/13-web-u
 
 ## A. EXISTING contracts (built + source-verified — consume the real endpoints)
 
+> **Additive field (2026-06-26, §3 decision C8 — Nick co-sign): optional `name` on the entity reads.** A1/A2/A3 gain an **optional** human display `name` (string). **Core returns `name` when set, omits it when unset** (sourced from config/pairing; the UI defaults to a humanized slug only when absent); the dashboard swaps its client-side `labelFor(entityId)` humanization for the real field when it lands. Additive / backward-compatible — clients tolerate its absence. Decide-the-shape-now (here), fill-it-when-natural (the implementation sequences with the config/M9 work, not M7.4). This is the one additive change to v1.1; it is not breaking.
+
 ### A1. `GET /api/v1/entities` — device list (ListEntitiesEndpoint)
 Query: `?limit=<n>&sort=ASC|DESC&cursor=<opaque>`. Response:
 ```json
-{ "data": [ { "entityId": "<ulid>", "availability": "AVAILABLE|UNAVAILABLE|UNKNOWN", "stale": false } ],
+{ "data": [ { "entityId": "<ulid>", "name": "<string|omitted>", "availability": "AVAILABLE|UNAVAILABLE|UNKNOWN", "stale": false } ],
   "meta": { "viewPosition": 12345, "timestamp": "2026-06-21T..." } }
 ```
-The list summary is the **3-field hot-path projection** (`entityId`, `availability`, `stale`) — by design, for fast dashboards. For full attributes, follow up with A2/A3.
+The list summary is the hot-path projection (`entityId`, `availability`, `stale`, + the optional `name`) — by design, for fast dashboards. For full attributes, follow up with A2/A3.
 
 ### A2. `GET /api/v1/entities/{entityId}` — entity detail (GetEntityEndpoint)
 Returns `entityId` + `availability` + a **small set of always-rendered attributes** (hot-path detail). `{data, meta}` envelope. `404 not-found` if absent.

@@ -18,10 +18,12 @@ Ground-truth Zigbee device + coordinator characterizations, captured on a **refe
 
 ## Index (fill as entries land)
 
+> **Captured legend:** ☐ = none · **◐ = pre-populated from public reference + Doc-02/08-validated, live silicon capture pending** · ✓ = live-captured on the bench. The ◐ entries carry `[REF]` (documented) vs `[CONFIRM-ON-BENCH]` (live-only) field tags; their verdicts are final, only the raw interview values await capture. See `2026-06-23_wave1-benchup-report.md` §0.
+
 | Archetype | Model | Path(s) | Captured | Doc 02/08 verdict |
 |---|---|---|---|---|
-| Dimmable light (hero target) | Philips Hue White A19 | EZSP (W1) / ZNP (W2) | ☐ | ☐ |
-| Motion (hero trigger) | Sonoff SNZB-03P | EZSP (W1) / ZNP (W2) | ☐ | ☐ |
+| Dimmable light (hero target) | Philips Hue White A19 | EZSP (W1) / ZNP (W2) | ◐ W1 | MATCH + **GAP (full color)** — ESC-W1-HUE-01 |
+| Motion (hero trigger) | Sonoff SNZB-03P | EZSP (W1) / ZNP (W2) | ◐ W1 | **MATCH** (`occupancy`, not `motion`) — ESC-W1-SNZB03P-01 |
 | Contact | Sonoff SNZB-04P | ZNP (W2) | ☐ | ☐ |
 | Button / scene | Sonoff SNZB-01P | ZNP (W2) | ☐ | ☐ |
 | Smart plug (energy) | Sonoff S31 Lite ZB | ZNP (W2) | ☐ | ☐ |
@@ -29,7 +31,7 @@ Ground-truth Zigbee device + coordinator characterizations, captured on a **refe
 
 | Coordinator | Radio / stack | Captured |
 |---|---|---|
-| Sonoff Dongle Plus MG24 | EFR32MG24 / EZSP | ☐ |
+| Sonoff Dongle Plus MG24 | EFR32MG24 / EZSP | ◐ (EZSP v14 / EmberZNet 8.0.2 — ESC-W1-COORD-01) |
 | Sonoff ZBDongle-P | CC2652P / Z-Stack (ZNP) | ☐ |
 
 ## Method (per device)

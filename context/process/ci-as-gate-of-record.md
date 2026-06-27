@@ -37,3 +37,19 @@ The core `ci.yml` is the template. Add, per lane:
 
 ## Open item for Nick (non-blocking)
 Confirm CI is **green on the current HEAD** (`1541446`, M7.2a-1) on the remote — the spine records M7.2a-1 as gate-verified GREEN (149 tasks); a glance at the Actions tab closes the loop between "Nick ran it locally" and "CI records it." Going forward, the M7.2a-2 branch's CI run is the gate of record for that WU.
+
+## 2026-06-27 CORRECTION — `ci.yml` was NEVER actually green until today (the open item above was never closed, and could not have been)
+
+**This policy was recorded as "CONFIRMED live / adopted as gate-of-record" on 2026-06-21, but `ci.yml` had never once passed on CI.** `gradlew` was tracked **`100644` (non-executable) since the init commit**, so the runner's `./gradlew check` returned **exit 126 (permission denied)** every time. The gate looked adopted; it was decorative. The *real* gate has always been Nick's **local** `./gradlew check` (on Windows the +x bit is irrelevant — bash just runs it), which is why nobody noticed: green locally, 126 on CI. This surfaced 2026-06-27 only when the install-smoke + frontend workflows were activated and the runs were actually inspected.
+
+**Fixed 2026-06-27:** `git update-index --chmod=+x` on `gradlew` + the `scripts/*.sh` + the distribution scripts (the same Windows-commit class). `ci.yml` then ran the full `./gradlew check` **GREEN — 149 actionable tasks executed** (commit `b2529cc`), matching the local 149-task gate exactly. **CI is now genuinely the gate of record for the first time** — and the ArchUnit guards (`assertAllowedModuleDependencies`, `assertModuleGraph`, `assertRestrictions`, `assertMaxHeight`) now run green on every push, so the architecture invariants are machine-enforced.
+
+**Lesson (folded to coder-lessons + the truth-hierarchy discipline §2.4):** a *claimed* gate must be verified *actually-green* before it is recorded as live — adopting a gate ≠ the gate passing (the M2.5-retrospective class, one level up).
+
+## CI-hardening backlog (TRACKED — deferred per Nick 2026-06-27; revisit after the mid-Aug go/no-go)
+Recorded, not built (Nick chose "track it for now"):
+1. **Self-enforcing exec-bit guard** — a CI step that fails if any tracked `gradlew`/`*.sh` is mode `100644`; + `.gitattributes` (`*.sh text eol=lf`). Makes the bug we just hit structurally impossible to recur. (HIGH value, ~10 lines.)
+2. **Branch protection / required checks** — make `ci.yml` + `frontend` + `install-smoke` required status checks on `main` (a move toward PR-based merges). Converts CI from informational (main accepts red pushes) to a true merge gate — the structural enabler of the parallel-lane model. (Workflow change — Nick's call.)
+3. **Node-version future-proofing** — bump/pin the actions off the deprecated Node 20 before GitHub removes it.
+4. **arm64+amd64 matrix** for install-smoke (the distribution lane's E1).
+5. **Dependabot triage policy** — the 5 vulns (1 critical) on the default branch; ties to the Doc 17 §4 SBOM/vuln-disclosure seam (INV-PD-08 / INV-CS-05). Triage which are shipped-path vs dev/build-only.

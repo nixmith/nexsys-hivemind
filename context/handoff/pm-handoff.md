@@ -10,6 +10,16 @@ last-verified: 2026-06-27 (v8 hub launch) -- core `606d410` (M7.3+Track-A+CI fix
 
 # PM Session Handoff
 
+## 2026-06-27 (beat 19 — v8 hub) — M7.4c GATE-GREEN + WUCP Phase 2 ACCEPT — OR-M7-WIRING CLOSED (the pipeline confirms end-to-end)
+
+**M7.4c built, gate GREEN on the first run, WUCP Phase 2 ACCEPT — the confirmation half is live and OR-M7-WIRING is closed.** The full command pipeline now runs end-to-end on the real composition root: trigger → run → `command_issued` → dispatch → `command_dispatched` → (synthetic) `state_reported` → `state_confirmed`. The "did it actually confirm?" hero renders live.
+
+- **Gate.** `./gradlew check` GREEN first run, **no gate-fix** — the Coder applied the M7.4b P2 lesson and swept every consumer (the `Components` arity, `SharedScheduler`, the 4th-subscriber pin in `LifecycleWiringTest`).
+- **Phase 2 ACCEPT (verified).** git status → module-info unchanged both modules + zero event-model change → **71/41/53**. The green lifecycle/`@TempDir` tests confirm the ledger's read connection is released — **the M7.3 leak class is closed for the exact subscriber that caused it**. The E2E gate (`RunPipelineConfirmWiringTest`) proves `command_issued → command_dispatched → state_confirmed` via a synthetic `state_reported`, against `onOff()`'s real `ExpectedOutcome("on", ExactMatch(true))` + `EXACT_MATCH` — a true confirm, not an optimistic bypass.
+- **The 4 `[REVIEW]`s — ACCEPT.** (1) the **asymmetric teardown** — hub-verified against `InProcessEventBus`: `abandon()` (L217-231) closes every runtime's read connection, `unsubscribe()` (L176-184) closes the one; the graceful path gets the explicit `unsubscribe`, the abandon path is covered by `eventBus.abandon()` — both leak paths closed, and the deviation from "both branches" is the more correct read. (2) `pollExpirations()` as a `Components` Runnable; (3) `schedulePeriodic` post-construction; (4) the `onOff()` E2E. All per spec / sound.
+- **OR-M7-WIRING: CLOSED** (was the standing Open Risk — mark it resolved on the next Open-Risks pass; beat-19 is current truth). Only **M7.4d** remains in the M7.4 arc — the D2 pure-function-replay CI gate + registering D2's canonical INV-id (safety/governance, not new functionality).
+- **Next:** Nick commits (M7.4c Core + the hivemind spine) → M7.4d. Parallel/off-critical-path: the positioning re-weight; the AMD-96 currency review; the bench ASH posture; the skills design-v1 review + the new triggers/recursion deliberation.
+
 ## 2026-06-27 (beat 17 — v8 hub) — M7.4b GATE-GREEN + WUCP Phase 2 ACCEPT (the run pipeline is LIVE)
 
 **The Coder built M7.4b; the hub gate-fixed a P2 miss and ran it to GREEN, then WUCP Phase 2 = ACCEPT.** The run pipeline is wired live into the composition root for the first time — a LIVE matched trigger drives `RunManager.initiateRun` → condition gate → executor → `command_issued` → the M7.4a `command_dispatch_service` → `command_dispatched`.

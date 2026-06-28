@@ -3,7 +3,7 @@ file: context/instructions/2026-06-27_D2-replay-invariant_registration-proposal_
 purpose: The governance half of M7.4d -- a PROPOSAL to register D2 (pure-function-replay) as a canonical invariant in Architecture_Invariants_v1.md, routed through the normal review->ratify fold. The PM proposes; the PM does NOT self-mint the canonical id (the D2 record is explicit). Nick co-signs / dispatches the review; the register fold + the canonical number happen at ratification.
 audience: Nick (co-sign / route to independent review); the DOCS reviewer; the v9 PM hub (folds at ratification)
 status: PROPOSED -- awaiting Nick's review->ratify. Pairs with the M7.4d coding instruction (the CI test that enforces this invariant).
-baseline: docs HEAD 75d0345 (watermark AMD-95; invariants 170/50; AC = §50). core db8ab5f (the M7.4d CI test will be the enforcing test). Authored by the v9 PM hub 2026-06-27.
+baseline: docs HEAD 75d0345 (watermark AMD-95; invariants 170/50; AC = §50). core db8ab5f at authoring -> now 9ec5949 (M7.4d COMMITTED `4e31aed`; the enforcing test `RunPipelineReplaySafetyTest` is LANDED + CI-green — so this proposal is fully ready to route, not pending its test). Authored by the v9 PM hub 2026-06-27; currency-confirmed route-ready by the v11 hub 2026-06-28.
 -->
 
 # D2 Pure-Function-Replay — Canonical Invariant Registration Proposal (review -> ratify)

@@ -10,6 +10,17 @@ last-verified: 2026-06-28 (v10 hub, beat 27 — M7.5a GATE-GREEN + WUCP Phase 2 
 
 # PM Session Handoff
 
+## 2026-06-28 (beat 28 — v10 hub) — M7.5a COMMITTED (`9ec5949`); the bench test-and-truth-engine reframe crystallized; nexsys-bench (5th repo) + v11 authored
+
+**M7.5a is committed + pushed** (core `4e31aed`→`9ec5949`; hivemind `828cdb6`→`a9689c3`). The v10 hub then crystallized the bench reframe before saturation (Nick's explicit capture-then-execute instruction).
+
+- **The reframe (RATIFIED, co-signed):** the hardware bench is the **test-and-truth engine** — *a captured real device event stream is a seeded event log*, so real-world interactions become permanent, fast, hardware-free regression tests (extending M7.4d), and the bench is where the `confirmed|unconfirmed|failed` moat becomes measured fact. Decision-record + the five rulings (replay-as-regression + raw/transform split; `nexsys-bench` 5th repo; Ethernet/radio-off + dongle firmware reflash; ZHA-first + our harness; the research scope + 3 sharpenings): `context/decisions/2026-06-28_bench-test-and-truth-engine_decision-record.md`.
+- **The three streams:** **A** — the bench (`nexsys-bench`, scaffolded: README/IaC/Phase-0 runbook/harness+fixtures discipline; Nick's hands + hub orchestration); **B** — the device-model research (`context/handoff/2026-06-28_device-model-and-corpus_research_session_dispatch.md`, READY — realizes D5 + first-classes confirmation + returns the onboarding pipeline); **C** — Core (M7.5b — DEFERRED to the v11 hub for clean-context authoring; the one defensible cut, since M7.5b is fully reconstructable from durable sources and authors better fresh).
+- **5-repo discipline:** core / docs / hivemind / skills / **bench** (commit+push all touched before any launch).
+- **v11 authored** (`context/handoff/2026-06-28_PM-mission-control_v11_orchestrator_session_prompt.md`, supersedes v10) — carries the three-stream plan; tasks the v11 hub to author M7.5b + orchestrate the streams. The v10 prompt archives.
+- **Next (Nick):** init+push `nexsys-bench`; commit the hivemind crystallization (decision-record + research dispatch + v11 + the spine beats + the v10 archive); launch v11 + the research session; run bench Phase 0 on `hs-dev-1` (Ethernet + radio-off → Pi prep → dongle firmware reflash → ZHA → the moat measurement).
+- **Residuals unchanged:** OR-GATE-M7.4 CI-green on `4e31aed`+`9ec5949`; the D2 INV-id registration (review→ratify); Dependabot (deferred); §2 hygiene (deferred).
+
 ## 2026-06-28 (beat 27 — v10 hub) — M7.5a GATE-GREEN + WUCP Phase 2 ACCEPT (the read-API hero read lands)
 
 **M7.5a built (Claude Code), gate GREEN — verified actually-green on Nick's terminal: the targeted `:core:automation:compileJava :api:rest-api:compileJava :lifecycle:lifecycle:compileJava :core:automation:test :api:rest-api:test` (51 tasks) + `./gradlew check` (149 tasks). WUCP Phase 2 = ACCEPT.** The hero reads (`GET /api/v1/runs` + `/runs/{runId}/causal-chain`) are live as pure log-derived projections (INV-SA-03; zero mint).

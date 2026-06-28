@@ -47,6 +47,6 @@ Hot-path files (snapshot, weekly plan, both handoffs, cross-agent, lessons) are 
 
 ## 9. Misc verified quirks
 - Interactive question tools can fail mid-stream — fall back to the veto-or-default pattern and document the chosen default.
-- Host MINGW64 bash eats `!` in double-quoted commit messages (history expansion — the M6.2 commit body lost a bullet line). Messages containing `!` go via `git commit -F <file>`.
+- Host MINGW64 bash eats `!` in double-quoted commit messages (history expansion — the M6.2 commit body lost a bullet line). **Inner double-quotes are the sibling hazard:** a `"…"` fragment inside the `-m "…"` closes the shell string early → bash drops to the `>` continuation prompt and the commit never runs (paid for 2026-06-28, the M7.5b core commit — a body with `"why didn't it fire?"`). Messages containing `!`, an inner `"`, or backticks go via `git commit -F <file>` — the hub prepares that file in `ClaudeFolder/_scratch/` (a sibling of the repos, so the worker's `git add -A` never stages it), and hands the absolute `git commit -F /c/Users/.../ _scratch/<file>` command.
 - `du -k` block-size readings on the mount can mislead right after writes; use `wc -c`/`ls -l` for byte truth.
 - In-tree `mv` is committed by Nick's plain `git add -A` as renames (100% similarity preserved) — no `git mv` needed from the Cowork side.

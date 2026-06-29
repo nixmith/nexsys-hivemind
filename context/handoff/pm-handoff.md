@@ -10,6 +10,16 @@ last-verified: 2026-06-28 (v11 hub, beat 29 — LAUNCHED; preflight STALE-benign
 
 # PM Session Handoff
 
+## 2026-06-28 (beat 35 — v11 hub) — v12 hub prompt AUTHORED + the v11→v12 handoff
+
+**The v11 conversation (the full arc: launch → M7.5a/b read-API core → Stream-B research → the mid-Aug go/no-go review → AB-4 cipher activation → the v11-arc cleanup) is handing off to a fresh-context v12 hub.**
+
+- **v12 prompt:** `context/handoff/2026-06-28_PM-mission-control_v12_orchestrator_session_prompt.md` (supersedes v11). It carries the bench-reframed three-stream plan with **the bench as the critical path** + the **march to M9** (gated on the bench corpus + AMD-CAND-1; M7.5c the deferrable filler). Baseline: core `89f775d` (AB-4) / docs `75d0345` / hivemind `8f8beb1`+beat-35 / bench `2c0a33c`. DONE: the read-API differentiator core (M7.5a/b) + AB-4 (Seam-1 closed; the log encrypted-from-genesis).
+- **The v11 prompt is archived** → `context/handoff/archive/`.
+- **v12 first-act hygiene:** archive-v11 (done) + the **DEFERRED spine beat-block rotation** (the v8→v11 masthead beats → the snapshot/pm-handoff archives — HELD across the v11 arc by the truncated-tail phantom, which is ACTIVE again this beat; the v12 hub runs it once quiescent host-side). The §2 hygiene was correctly held all arc; it's a clean session-start task.
+- **Carried for Nick:** the beat-35 commit (core `89f775d` already pushed); route AMD-CAND-1 + D2 to review (parallel with the bench); rule AMD-CAND-2/3 (commit-on-word); the A4.5 Doc 15 note; the OR-GATE + AB-4 CI-green Actions glance; the Dependabot 1-critical Security-tab glance; the `nexsys-frontend` skill commit + the **Check-9 mirror sync** (the v11-arc skill-currency fold); **bench first-light = the highest-leverage next block.**
+- **Next:** launch v12 as a fresh Cowork conversation; its first act is grounding + the first-act hygiene.
+
 ## 2026-06-28 (beat 34 — v11 hub) — AB-4 DONE + GREEN + WUCP Phase 2 ACCEPT — the at-rest cipher is LIVE + the v11-arc cleanup
 
 **Nick built + gate-greened AB-4 (`./gradlew check` 149 tasks). The hub ran WUCP Phase 2 = ACCEPT (source-verified against the diff) + the v11-arc cleanup.**

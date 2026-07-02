@@ -10,6 +10,10 @@ last-verified: 2026-07-01 (v13 hub, beat 41 — launched; the v12 arc independen
 
 # PM Session Handoff
 
+## 2026-07-01 (beat 45 — v13 hub) — nexsys-frontend skill currency + dual-surface pass (nexsys-skills repo)
+
+The frontend skill (authored 06-27, pre-build-arc) brought current: the live-vs-mocked endpoint partition → re-derive-at-preflight rule (M7.5a/b hero endpoints are REAL; /events+/health await M7.5c); the HA-2026.7 watch RESOLVED (verified 2026-07-01: not-triggered traces still absent from stable — both moat halves hold; watch continues); NEW explainability §2b = the four measured AMD-97 rendering behaviors (values pointed at Doc 08 §3.6 + corpus, never hardcoded); Doc 08 added to the SKILL.md truth: block; CLAUDE.md gains a "Runtime surfaces" section (Cowork deferred-gate norm vs Claude Code run-verify-yourself). Verified zero stale phrases remain; the skill was born pointer-not-copy (aged far better than coder/PM). **Nick:** nexsys-skills commit (`_scratch/2026-07-01_skills_frontend-currency_commit-msg.txt`) + one more mirror sync (this skill's mirror is now behind) — then launch the lanes. The FE-1 lane benefits directly (it loads this skill).
+
 ## 2026-07-01 (beat 44 — v13 hub) — skill-source precision pass; Check 9 STALE pending mirror sync
 
 Pointer-not-copy applied to both skill mastheads + the PM Mode-3 state narrative; preflight 10/11 strays fixed; coder-handoff frontmatter restamped; the survey agent's "CLAUDE.md module-count wrong" claim verified FALSE (19 is correct — no edit). Full record: snapshot beat-44 (pointer, not copy). **Nick:** beat-44 hivemind commit (`_scratch/2026-07-01_hivemind_beat-44_commit-msg.txt`) → **mirror sync (Check 9)** → launch the two lanes. Deferred: mega-line overhaul rides the phantom-gated rotation; coder/references content refresh post-M9.

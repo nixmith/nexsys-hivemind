@@ -10,6 +10,10 @@ last-verified: 2026-07-01 (v13 hub, beat 41 — launched; the v12 arc independen
 
 # PM Session Handoff
 
+## 2026-07-01 (beat 44 — v13 hub) — skill-source precision pass; Check 9 STALE pending mirror sync
+
+Pointer-not-copy applied to both skill mastheads + the PM Mode-3 state narrative; preflight 10/11 strays fixed; coder-handoff frontmatter restamped; the survey agent's "CLAUDE.md module-count wrong" claim verified FALSE (19 is correct — no edit). Full record: snapshot beat-44 (pointer, not copy). **Nick:** beat-44 hivemind commit (`_scratch/2026-07-01_hivemind_beat-44_commit-msg.txt`) → **mirror sync (Check 9)** → launch the two lanes. Deferred: mega-line overhaul rides the phantom-gated rotation; coder/references content refresh post-M9.
+
 ## 2026-07-01 (beat 43 — v13 hub) — fleet committed+pushed (5 repos); ci.yml green on 52824e9; two lanes authored + launch-ready
 
 Fleet: docs `1509b34` / hivemind `cea7ae1` (beats 41+42; message says 41 — cosmetic) / core `52824e9` / skills `846fe56` / bench `5ceff3b`. Bench clean in Nick's terminal → phantom diagnosis confirmed. `ci.yml` GREEN on `52824e9` (verified via screenshot — subsumes the OR-GATE ancestor chain). **Open items:** (1) `frontend.yml` run on `52824e9` — Nick's Actions glance (path-filtered to `web-ui/dashboard/**`, so 52824e9 is its FIRST trigger; dbb0109 couldn't fire it); (2) Dependabot 5-vuln triage (1 crit/1 high/3 mod — shipped-vs-dev per beat-33 tree); (3) NEW residual: Node-20 deprecation on checkout/setup-java/setup-gradle@v4 — bump action majors at a convenient window; (4) the A4.5 Doc 15 §3.4/§6 note (Nick, still); (5) phantom-gated: spine rotation + Check-8 archival. **Lanes authored:** M9-authoring (`context/handoff/2026-07-01_M9-authoring-lane_session_prompt.md`) + FE-1 live-integration (`context/handoff/2026-07-01_frontend-live-integration_FE-1_session_prompt.md`) — both write-isolated, both return to this hub. **Next:** beat-43 commit → launch both → hub audits the M9 instruction return → Nick issues to Coder → 72 h soak → install-smoke → mid-Aug go/no-go.

@@ -14,7 +14,7 @@ last-verified: 2026-06-07 against commit 8028337
 
 ## Shared protocol
 
-This file and `../../coder/references/freshness-preflight.md` together form the freshness-preflight protocol shared by both agents. This file is the comprehensive 10-check superset; the Coder file is the Coder-relevant subset focused on code-execution drift. When either agent detects drift that affects both roles (e.g., a stale MODULE_CONTEXT or a missing traceability index), the discoverer posts a `[VERIFY-NEEDED]` to `../../context/open-questions.md` so the other agent verifies before continuing. The `$SESSION_ROOT` path-traversal convention used here is the same convention used by the WUCP `diff -rq` skill-sync check in `../../context/protocols/work-unit-completion-protocol.md` Step 10.
+This file and `../../coder/references/freshness-preflight.md` together form the freshness-preflight protocol shared by both agents. This file is the comprehensive 11-check superset; the Coder file is the Coder-relevant subset focused on code-execution drift. When either agent detects drift that affects both roles (e.g., a stale MODULE_CONTEXT or a missing traceability index), the discoverer posts a `[VERIFY-NEEDED]` to `../../context/open-questions.md` so the other agent verifies before continuing. The `$SESSION_ROOT` path-traversal convention used here is the same convention used by the WUCP `diff -rq` skill-sync check in `../../context/protocols/work-unit-completion-protocol.md` Step 10.
 
 ---
 
@@ -225,7 +225,7 @@ FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 11 checks)
 
 This preflight was introduced on 2026-04-11 as part of the hivemind overhaul. It addresses the root cause identified in `../../context/audits/2026-04-11_m2.5-arch-debt-retrospective.md` — the PM session protocol had no mechanism to detect that the hivemind was lagging behind the codebase. Without a preflight, the PM would read a 3-week-old PROJECT_SNAPSHOT and treat it as ground truth, issuing instructions based on stale assumptions about what existed and what contracts governed it.
 
-The ten checks are not exhaustive. New checks may be added as the project discovers additional drift vectors. Any proposed addition must:
+The eleven checks are not exhaustive. New checks may be added as the project discovers additional drift vectors. Any proposed addition must:
 1. Be added to this file with the PASS / STALE / CONFLICTED definitions
 2. Be added to the `FRESHNESS PREFLIGHT` output format above
 3. Be mirrored into any coder-side preflight file if it has Coder-side implications

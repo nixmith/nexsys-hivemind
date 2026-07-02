@@ -5,7 +5,7 @@ audience: Coder, PM
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-05-27 against M3.7 closeout working tree — `./gradlew check` GREEN (139 tasks). Pending commit.
+last-verified: 2026-07-01 (v13 hub — frontmatter currency restamp only; the body's newest entry is the live truth and had run far ahead of this line, which had frozen at 2026-05-27/M3.7). The newest entry below is authoritative for current task + next WU; the spine (`context/status/PROJECT_SNAPSHOT.md` newest beat) is authoritative for fleet state. Prior stamp: 2026-05-27 against M3.7 closeout working tree — `./gradlew check` GREEN (139 tasks).
 -->
 
 # Coder Session Handoff

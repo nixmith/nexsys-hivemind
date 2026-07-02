@@ -172,3 +172,15 @@ Two faces of one discipline, both paid for this arc. (a) **WUCP Phase 2 source-v
 ## 2026-06-28 | Category: governance / process | Source: v11 hub — stage a commit-on-word amendment with verbatim diffs; record V1-ships-a-subset-of-a-Locked-doc explicitly; the _scratch + git commit -F protocol
 
 Three small process wins worth keeping. (a) **A governance fold the human will rule on should be pre-staged with verbatim before→after diffs** (AMD-CAND-2/3: the Doc 02/08 color-currency fold) so it commits the moment Nick rules — "one decision away," not "author after the ruling." (b) **When the V1 wire ships a deliberate subset of a Locked design doc** (the read-API's `RunExplanation`/`NonFiringExplanation` vs Doc 16 §4's richer model; the dashboard's camelCase vs Doc 09's snake_case), RECORD the subset-vs-eventual relationship explicitly (bundle the recording into the next governance amendment that touches the same space) so a future reader does not read shipped code as contradicting a Locked doc — coherent-by-design must be coherent-on-the-record. (c) **Commit messages with shell-hostile chars** (`!`, an inner `"`, backticks) go via `git commit -F <file>`; the hub prepares the file in `ClaudeFolder/_scratch/` (a sibling of the repos, so the worker's `git add -A` never stages it) and hands the absolute `git commit -F` command (now folded into the env-model).
+
+## 2026-07-02 | Category: review-finding / verification | Source: (v13 arc, folded by the v14 hub) — absence claims need two grep forms
+
+A failed grep is not an existence disproof. The M9-authoring lane asserted "no ConfigurationAccess implementation exists anywhere" from one search form; `ScopedConfigurationAccess` (production, config module, package-private) existed the whole time and the hub audit's second grep form found it. **Lesson:** before asserting absence, vary the search (type name, interface name, `implements` clause) and grep at least two forms.
+
+## 2026-07-02 | Category: anti-pattern / environment-hygiene | Source: (v13 arc, folded by the v14 hub) — even `git add --dry-run` takes the index lock through the mount
+
+"Dry-run" is not read-only — it stranded a host-side `.git/index.lock` on 2026-07-02. **Lesson:** preview change-sets with `git --no-optional-locks status --porcelain` ONLY (env-model §4/§10).
+
+## 2026-07-02 | Category: process / quality-gate | Source: (v13 arc, folded by the v14 hub) — keep both layers of the two-layer audit
+
+The lane's adversarial self-pass and the hub's independent spot-audit each caught defects the other missed in the same week (the lane caught the FE-1 contract drifts; only the hub's independent pass caught the A31/B7 absence-claim refutation). **Lesson:** neither layer alone is sufficient; the redundancy is the mechanism.

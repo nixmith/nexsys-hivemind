@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-06-26 (v7 hub launch — preflight reconcile). The two active Coder notes below (the 2026-06-22 M7.3 + M7.2b deliveries) had their action-items RULED at beat 7 — the 6 M7.3 source-drift `[REVIEW]`s + the 2 M7.2b shape deviations were all ACCEPTED (pm-handoff beats 6/7); they are archivable at the next hygiene pass. Beats 8→11 (the v6 arc: §1 ratify, Doc 17 DRAFT, AMD-95, the two fan-outs, the Track-A first returns) added NO new Coder↔PM board entries — they were spine/research/lane work; the live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`. Spine at core `b296e76` / docs `f54d0e0` / hivemind `cd8b046`. **The next Coder comms attach at M7.4a.** Older R16/Pi-evidence/RATIFIED entries are superseded by the spine. Archived entries in archive/cross-agent-notes-2026-Q2.md.
+last-verified: 2026-07-02 (v14 hub Check-8 pass) — the pre-06-27 ruled notes sit below ## Archived. The six 2026-06-27/28 delivery notes in the active region (M7.4b/c/d · M7.5a/b · AB-4) are ALL RULED — WUCP Phase 2 ACCEPT recorded at pm-handoff beats 14–34 (now in archive/pm-handoff-beats-rotated-2026-07-02.md) — and are QUEUED for below-the-separator archival at the M7.5c-a WUCP quiescent window (a Coder session may be in flight; env-model §2b says prefer deferring shared-file moves). The next Coder comms attach at M7.5c-a (then M9.1). Older archived entries: archive/cross-agent-notes-2026-Q2.md + git history.
 -->
 
 # Cross-Agent Notes

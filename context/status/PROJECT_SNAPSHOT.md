@@ -5,10 +5,19 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub launch, beat-48 rotation — preflight STALE-benign → reconciled; fleet re-derived at launch: core 2786526 / docs 1509b34 / hivemind b9349e8 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 49 — M7.5c-a delivered + audited; fleet: core 2786526+M7.5c-a-wt / docs 1509b34 / hivemind dd162e2+beat-49 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
 -->
 
 # Project Snapshot
+
+> **2026-07-02 (v14 hub, beat 49 — M7.5c-a DELIVERED by the first in-conversation Coder lane; hub two-layer audit = WUCP Phase 2 ACCEPT, zero defects.)**
+> A4 `/internal/projection` + A5 `/internal/dlq` now emit the frozen v1.1.1 `{data, meta}` envelope (DRIFT-1 close): A4 data = frozen {mode, viewPosition, lagEvents, projectionVersion} + ruled extras {entityCount, ready}; A5 data = {depth, parkedSubscribers} + additive `subscribers[]`. `lagEvents` = max(0, logHead − cursor) via a composition-root `LongSupplier` (`eventStore::latestPosition`); `PROJECTION_VERSION` hoisted to a single constant feeding both `StateProjection.create` and the gateway.
+> RULED: parkedSubscribers = dlqDepth>0 ACCEPT (A5's DLQ framing; SUSPENDED visible via additive mode) · P6 ETag note-and-defer ACCEPT (304 is an API-wide non-feature; parity delivered) · P2 idiom-not-helper LOGGED (nine-handler extraction = post-M9 candidate WU).
+> Change set EXACTLY 10 core files, hub-verified porcelain-exact (2 endpoints · RestFilters 5→8-arg gateway · HomeSynapseCore wiring · 2 test classes, 11 tests, Clock.fixed throughout · EndpointE2eIT consumer → `$.data` paths · 3 MODULE_CONTEXTs). Zero mint 71/41/53; both module-infos + every build file UNCHANGED; zero DDL.
+> Check-8 archival EXECUTED at this quiescent window (separator relocated above the six ruled 06-27/28 notes; M7.5c-a note sole active). Beat-48 committed+pushed by Nick: hivemind `dd162e2`.
+> **OR-GATE-M7.5c-a OPEN** — Nick: targeted + full `check` → core commit (staged `_scratch/2026-07-02_core_m75ca_commit-msg.txt`, stages exactly 10) → push → `ci.yml` glance. M9.1 routing BLOCKED until resolved (§4b); FE-1b launches on the landing.
+> Fleet: core `2786526`+M7.5c-a-wt · docs `1509b34` · hivemind `dd162e2`+beat-49 · bench `5ceff3b` · skills `90f8258`.
+> **Next:** gate → core push+CI → M9.1 (serial Coder lane) ∥ FE-1b (frontend lane). W27-plan + backlog M9-row updates ride the M9.1 issuance edit. Detail: pm-handoff beat-49 (pointer, not copy).**
 
 > **2026-07-02 (v14 hub, beat 48 — LAUNCHED; the deferred spine rotation EXECUTED — phantom-safe, file-tools-only; preflight STALE-benign → reconciled → re-run PASS, all 11 checks.)**
 > Rotated: snapshot masthead beats 6–41 (27 entries) → `archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md`; the 2026-06-19/21-era Current-Work-Unit blocks (5) + the pre-beat-era Recent-Session-Log rows (30) → `archive/PROJECT_SNAPSHOT-work-unit-blocks-and-session-log-rotated-2026-07-02.md`; pm-handoff beats 5–43 (33 sections) → `archive/pm-handoff-beats-rotated-2026-07-02.md`.

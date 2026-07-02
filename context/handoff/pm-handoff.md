@@ -5,10 +5,24 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub launch, beat-48 rotation — preflight STALE-benign → reconciled; fleet re-derived at launch: core 2786526 / docs 1509b34 / hivemind b9349e8 / bench 5ceff3b / skills 90f8258; beats 5–43 rotated out). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 49 — M7.5c-a delivered by the first in-conversation Coder lane + two-layer-audited ACCEPT; OR-GATE-M7.5c-a open; fleet: core 2786526+M7.5c-a-wt / docs 1509b34 / hivemind dd162e2+beat-49 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
 -->
 
 # PM Session Handoff
+
+## 2026-07-02 (beat 49 — v14 hub) — M7.5c-a DELIVERED + audited ACCEPT (first in-conversation Coder lane); Check-8 archival executed; gate open
+
+**Lane mechanics (NEW pattern, Nick's directive):** M7.5c-a ran as a write-isolated in-conversation agent under the hub (vs the historical separate-conversation lanes) — ~300 K lane tokens, 86 tool calls, clean single-message return, hub context preserved for the audit. The two-layer audit held: every load-bearing claim source-verified (P1–P6 outcomes, the 10-file change set porcelain-exact, all 11 tests present by name, zero direct time access in rest-api tests, `PROJECTION_VERSION` single-sourced at HomeSynapseCore feeding both `StateProjection.create` and the gateway, freeze-vocabulary match on A4/A5). One suspected compile-breaker (`\`-for-`//` comment markers at the wiring site) chased and EXONERATED as a Grep-tool render artifact — host-side Read shows clean `//`; recorded so the next auditor recognizes the signature.
+
+**Rulings this beat:** (1) `[REVIEW]` `parkedSubscribers` = ids with `dlqDepth > 0` — **ACCEPT** (faithful to §A5's DLQ framing; `SubscriberMode` has no PARKED value; a SUSPENDED-but-empty-ring subscriber stays visible via the additive `subscribers[].mode`; a 2-line "wedged" widening remains available if operator feedback wants it). (2) P6 note-and-defer **ACCEPT** — server-side `If-None-Match`→304 is an API-wide non-feature; A4/A5 now have full caching parity with the conforming reads. (3) P2 observation **LOGGED**: the conforming envelope is an inline idiom, not a shared helper — a nine-handler helper-extraction refactor WU is a post-M9 candidate; do NOT fold it into M9.x.
+
+**Check-8 archival EXECUTED** (the beat-48 queue, at its named quiescent window): the `## Archived` separator relocated above the six ruled 06-27/28 notes — zero content moves; the M7.5c-a delivery note is the sole active entry; ACTIVE line rewritten accurately.
+
+**Deferred gate → OR-GATE-M7.5c-a** (Open Risks below — blocks M9.1 routing per §4b). Core commit staged: `_scratch/2026-07-02_core_m75ca_commit-msg.txt` — **stages exactly 10 paths**, all under `api/rest-api` + `lifecycle` + `testing/integration-tests`, zero hazard-class, no tokens minted (env-model §10 audit run by the hub).
+
+**Next:** Nick runs the gate → core commit + push → `ci.yml` glance (gate of record; `frontend.yml` won't trigger — no `web-ui/` paths) → hub routes **M9.1** (serial Coder lane) ∥ launches **FE-1b** (frontend lane; A4/A5 envelope-conformant — the lane drops any bare-body tolerance). The W27-plan progress line + the backlog M9-row replacement ride the M9.1 issuance edit (beat-46 ruling). Carried Nick items unchanged from beat 48.
+
+**Gate round 1 (post-write addendum):** test-compile bounce — 2 AssertJ capture errors in `DlqStatusEndpointTest` (the ONLY new test class with list-content asserts; A4's fields are scalars). Hub-fixed to the conforming typed-local idiom (2 lines, detail in OR-GATE-M7.5c-a); production compile + integration-tests check were already GREEN. The defect class is exactly what a host-side in-session compile loop kills — reinforces the M9.x→Claude-Code routing recommendation recorded this beat. Staged core commit message unchanged (still exactly 10 paths).
 
 ## 2026-07-02 (beat 48 — v14 hub) — LAUNCHED; the deferred spine rotation EXECUTED; preflight PASS on a light spine
 
@@ -87,6 +101,13 @@ Pointer-not-copy applied to both skill mastheads + the PM Mode-3 state narrative
 **Rotated 2026-06-12 evening (Pi-evidence closeout hygiene; git-object-sourced from `58794d7`):** the ratification record (Return ASSESSED → RATIFIED → mechanics), the superseded fold-abort record, the M7-AMD-block record, the M6.4-WUCP record + the M6.2-era fragment, and the RESOLVED/CLOSED build-gate blocks from Open Risks → `archive/pm-handoff-2026-06.md`. Earlier rotations per the markers preserved there. Full history in git.
 
 ## Open Risks
+
+#### OR-GATE-M7.5c-a — deferred build gate on the M7.5c-a working tree — [OPEN — blocks M9.1 routing per §4b] (NEW 2026-07-02, beat 49)
+- **Milestone:** M7.5c-a (internal-read envelope conformance). **Commit:** pending — working tree on core `2786526`; change set = exactly 10 files (7 source/test + 3 MODULE_CONTEXT).
+- **Commands (Nick):** `./gradlew :api:rest-api:compileJava :lifecycle:lifecycle:compileJava` → `./gradlew :api:rest-api:test :lifecycle:lifecycle:test` → `./gradlew check` (count pins stay **71/41/53**; both module-infos + every `build.gradle.kts` unchanged) → `./gradlew :testing:integration-tests:check` (watch `EndpointE2eIT` — DLQ paths moved under `$.data`). `-Werror` rides the convention plugin — do NOT pass it as a CLI flag.
+- **Round 1 (2026-07-02):** targeted `compileJava` GREEN + `:testing:integration-tests:check` GREEN + host porcelain exactly 10 ✓; `compileTestJava` FAILED — 2 AssertJ varargs-capture errors (`DlqStatusEndpointTest` L75/L135: `containsExactly` on a `List<?>` actual). **Hub-applied 2-line fix** (SendMessage-to-lane unavailable; mechanical class): the `@SuppressWarnings("unchecked")` typed-local idiom per conforming `ListEntitiesEndpointTest` L83–88. Lesson appended to coder-lessons. **Re-run pending:** `:api:rest-api:test :lifecycle:lifecycle:test` → `check`.
+- **Owner:** Nick. **Deferred Build Gate:** YES — the lane's sandbox attempt failed at `build-logic` (mount delete + VM JDK 11 vs 21); evidenced in coder-handoff, never silently skipped.
+- **Resolution condition:** `check` green → core commit (staged message, exactly 10 paths) → push → `ci.yml` green on the pushed commit (the gate of record). On resolution: M9.1 routes to the next Coder lane; FE-1b launches on the landing.
 
 #### OR-M7-WIRING — Command-pipeline live wiring — [✅ RESOLVED 2026-06-27 — live-wired at M7.4b/c] (formalized 2026-06-25; NEW in beat 7, 2026-06-22)
 - **RESOLVED 2026-06-27 (M7.4b producer + M7.4c confirmation/ledger; v8 beats 17/19; reconciled by the v9 hub).** The command pipeline is LIVE on the real composition root: trigger → run → `command_issued` → co-located dispatch → `command_dispatched` → (synthetic) `state_reported` → `state_confirmed`, with the live `pending_command_ledger` + `pollExpirations()` tick and paired teardown. The resolution condition's **E2E composition-root confirm gate is met** — `RunPipelineConfirmWiringTest` (host-verified present in `lifecycle/lifecycle/src/test`).

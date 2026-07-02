@@ -29,7 +29,9 @@ Each bash call is independent — **no cwd/env carryover**; use absolute paths o
 ## 4. Deletion is permission-gated; moves are not
 `rm`/`rmdir` on the mounted folder fail with "Operation not permitted" until the file-delete permission is granted (a one-time tool call per folder). Plain `mv` (renames, including cross-directory within the mount) work without it — which is why archive-rotation is always available even when deletion is not.
 
-**Git index.lock hazard (paid for 2026-06-12):** VM git commands that refresh the index (`git status`, `git add`, `git diff` without `--no-optional-locks`) CREATE `.git/index.lock` through the mount but CANNOT DELETE it (deletion gated) — when the unlink fails, a stale 0-byte lock is left ON THE HOST that blocks Nick's git until removed. Mitigations: prefer `git --no-optional-locks status` / `git log` (no index lock) for read-only state checks; if a lock strands, `mv` it aside (e.g. `index.lock.cleared-by-cowork-<date>`) and flag Nick to delete it.
+**Git index.lock hazard (paid for 2026-06-12; re-paid 2026-07-02):** VM git commands that refresh the index (`git status`, `git add`, `git diff` without `--no-optional-locks`) CREATE `.git/index.lock` through the mount but CANNOT DELETE it (deletion gated) — when the unlink fails, a stale 0-byte lock is left ON THE HOST that blocks Nick's git until removed. **`git add --dry-run` ALSO takes the lock** (verified stranding one 2026-07-02 — "dry-run" is not read-only; `--no-optional-locks` does not cover `add`). To preview a change set, use `git --no-optional-locks status --porcelain` (lock-free), never `add --dry-run`. Mitigations: prefer `git --no-optional-locks status` / `git log` (no index lock) for read-only state checks; if a lock strands, `mv` it aside (e.g. `index.lock.cleared-by-cowork-<date>`) and flag Nick to delete it.
+
+**Mount-lag scale correction (observed 2026-07-02, FE-1 lane):** the read-side lag documented above as "minutes-scale" ran **>30 minutes** for edited files in one session (a NEW file synced promptly; EDITS lagged). Design accordingly: host file tools remain authoritative and unlagged; treat any VM-side read of a recently-edited file as suspect regardless of elapsed time.
 
 ## 5. File-tool discipline
 Read-before-Edit/Write is enforced per conversation. Edit requires an exact, unique `old_string` — for mega-line files a unique substring suffices. For multi-file or structural rewrites, use a python script via bash with **all asserts before any write, all writes at the end** (a failed assert then leaves everything untouched — this saved the cross-agent rotation twice).
@@ -50,3 +52,15 @@ Hot-path files (snapshot, weekly plan, both handoffs, cross-agent, lessons) are 
 - Host MINGW64 bash eats `!` in double-quoted commit messages (history expansion — the M6.2 commit body lost a bullet line). **Inner double-quotes are the sibling hazard:** a `"…"` fragment inside the `-m "…"` closes the shell string early → bash drops to the `>` continuation prompt and the commit never runs (paid for 2026-06-28, the M7.5b core commit — a body with `"why didn't it fire?"`). Messages containing `!`, an inner `"`, or backticks go via `git commit -F <file>` — the hub prepares that file in `ClaudeFolder/_scratch/` (a sibling of the repos, so the worker's `git add -A` never stages it), and hands the absolute `git commit -F /c/Users/.../ _scratch/<file>` command.
 - `du -k` block-size readings on the mount can mislead right after writes; use `wc -c`/`ls -l` for byte truth.
 - In-tree `mv` is committed by Nick's plain `git add -A` as renames (100% similarity preserved) — no `git mv` needed from the Cowork side.
+
+## 10. Pre-commit change-set audit (adopted 2026-07-02 — Nick's check, made standing)
+
+Before ANY commit command is handed to Nick — especially a directory sweep (`git add <dir>/` or `-A`) — the preparing agent runs this audit and states the result in the handoff/return:
+
+1. **Inventory:** `git --no-optional-locks status --porcelain` (lock-free — NEVER `add --dry-run`, §4). Count the files.
+2. **Every file maps to a claimed deliverable.** Each modified/untracked path must trace to a specific item in the completion report / lane return. An unexplained file is a STOP — investigate before staging (it is either forgotten work, junk, or someone else's write).
+3. **Ignore-coverage check for the hazard classes:** runtime state (`.homesynapse/`, `*.db`, `*.log`), build output (`node_modules/`, `dist/`, `build/`, `coverage/`), secrets (`.env*`, tokens, `*.key`/`*.pem`), caches. Verify both that the patterns are in `.gitignore` AND that nothing of these classes appears in the porcelain output; spot-verify with `git ls-files | grep` that none are already TRACKED (ignore rules don't untrack).
+4. **Secrets sweep:** any session that ran a server/minted a token names the artifact and its disposition (deleted / ignored / never-written). A bearer token, pairing token, or key NEVER enters git — and never enters a commit MESSAGE either.
+5. **State the expected count in the command handoff** ("stages exactly N files") so Nick's own `git status` glance can confirm before he runs it.
+
+Lane-return templates inherit this: a return that requests a commit carries the audited file list. The skills point here (pointer-not-copy) rather than restating.

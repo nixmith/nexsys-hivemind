@@ -1,0 +1,54 @@
+<!--
+file: context/audits/2026-07-03_frontend-dev-lane_FE-1b_return.md
+purpose: Lane return — FE-1b (the v1.1.1 fold + the live smoke re-run). Folds the two adjudicated FE-1 drifts client-side and proves the poll cursor + honest states against a live Core. The write-isolated frontend micro-lane's ONE return file to the v14 hub.
+audience: the Core/PM hub (audits + folds; four ops findings to route); Nick (commits host-side; token hygiene).
+state-type: lane return (audit)
+status: RETURNED 2026-07-03. Lane baseline at start: core e3d7296 · hivemind 91203c1 (beat-50) · freeze v1.1.1 — re-verified per the brief. Core moved to ec2e3b4 (M9.1) mid-lane; delta verified DISJOINT from web-ui/ + api/rest-api/ (scoped git log empty), so the fold base and gate result carry over unchanged. Hivemind moved to 9bda395 (Doc-18 lane return) before closeout. Preflight: STALE (Checks 1/2/7 — MODULE_CONTEXT pre-M7.5c-a, client at v1.1, skill mirror pre-sync), 0 CONFLICTED; the two contract-currency STALEs are exactly this WU's mandate and were folded per the STALE protocol.
+write-isolation: honored — writes under web-ui/dashboard/** + this file + one cross-agent note append + _scratch/ commit messages. No spine edits, no commits (Nick commits host-side).
+-->
+
+# FE-1b Return — the v1.1.1 fold landed and the dashboard went live-clean
+
+**Bottom line.** Both adjudicated FE-1 drifts are folded client-side against freeze **v1.1.1**, the lane gate is green (55/55), and the live smoke re-run against core `ec2e3b4` **PASSED**: the poll loop is LIVE against the enveloped A4 (the FE-1 "views load once and never refresh" failure is closed), Health renders both cards from the enveloped A4/A5 reads, URI-form problem types were confirmed on the live wire, the Activity view renders the honest "not served yet" state, and there were zero error banners. The smoke's first attempt was blocked by an **operator token-lockout trap** (a Core/ops finding, not a dashboard defect — §4a) whose diagnosis-and-recovery is itself a deliverable of this return.
+
+## 1. What shipped (11 files, all `web-ui/dashboard/**`)
+
+**DRIFT-2 fold (slug-suffix problem types).** `contract.ts` pins `PROBLEM_TYPE_URI_PREFIX` (mirroring the amendment's ratified constant — Doc 09 §3.8 / `ProblemType.java:160`, source-verified) + a `problemSlug()` helper that strips the ratified prefix and tolerates bare slugs (client-minted problems like `network-unreachable` never travel the wire; a foreign URI is deliberately NOT slugged). `ApiProblem` gains a derived `.slug`; every type-keyed detection (auth-required / forbidden / state-store-replaying / offline / the EventsView not-found honest state) keys on the slug suffix, never the whole URI byte-for-byte. The mock now emits URI-form types so **mock === wire exactly**.
+
+**DRIFT-1 fold (A4/A5 envelope currency).** Ground-truthing confirmed **no bare-body tolerance ever existed** — the client's envelope check was always strict, and that strictness is precisely what surfaced DRIFT-1 in FE-1. The client side of this fold is therefore contract *currency*: A4 gains the ruled additive `entityCount?`/`ready?` (type-checked when present); A5 `parkedSubscribers` **corrected to the ratified `string[]`** (subscriber ids — the mirror's pre-ratification object guess would have rendered blank ids on live parked data; caught, fixed in HealthView, and test-pinned with a rejection case for the old guess); the ruled additive `subscribers[]` detail is typed and HealthView renders per-id parked counts from it when present. Mocks are wire-faithful (extras carried; the REPLAY variant flips `ready:false`).
+
+**Locks.** `CONTRACT_VERSION = v1.1.1-2026-07-02`; `contract-check.mjs` trips on version AND prefix drift; `contract.test.ts` pins the prefix, slug derivation, URI-form mock emission, detection-via-slug (including `integration-unhealthy` ≠ replaying), the ratified A4/A5 live shapes, and that bare A4/A5 bodies FAIL. Tests **45 → 55**. MODULE_CONTEXT carries the FE-1b beat + a "problem types are URI-form; key on `.slug`" gotcha.
+
+Files: `MODULE_CONTEXT.md` · `scripts/contract-check.mjs` · `src/lib/api/{contract.ts, client.ts, shapes.ts, contract.test.ts}` · `src/lib/api/mock/{mockTransport.ts, mockData.ts, scenarios.ts}` · `src/views/{EventsView.tsx, HealthView.tsx}`.
+
+## 2. Gate
+
+`npm run verify` **GREEN** in-lane: tokens ✓ lint ✓ typecheck ✓ **55/55 tests** ✓ build ✓ bundle **57.1/100 KB** ✓ contract-check **11 endpoints @ v1.1.1** ✓. Env note (§2 of the env-model, again): the VM mount served **truncated tails** of the freshly edited files, so the gate ran on a clean copy rebuilt from **git objects at HEAD + the exact edit set re-applied under assert-all-before-write** — each of the 20 replacements matched exactly once, proving gate copy ≡ host tree. Host-side `npm run verify` + the pushed `frontend.yml` run remain the gate of record and ride Nick's commit.
+
+## 3. Live smoke (2026-07-03, core `ec2e3b4`, dev proxy, `VITE_USE_MOCKS=false VITE_VALIDATE=true`)
+
+**Attempt 1 — blocked at auth (finding §4a).** Every request 403'd: the `initial_api_token` artifact Nick pasted didn't correspond to any hash in the `api_tokens` store. Two compounding traps: (i) the artifact and the store had diverged post-FE-1 (the FE-1 hygiene step deletes one half of the pair); (ii) a **stale cwd-relative `.homesynapse/` sibling at repo root** held a dead artifact that read as current. Silver lining banked: the 403 bodies on the live wire carried **URI-form `type`** (DRIFT-2's server side confirmed), and the UI's 403 path behaved exactly as designed — calm gate rejection, token cleared, no crash.
+
+**Attempt 2 — after `rm -rf app/homesynapse-app/.homesynapse` (true first-run: migrations applied=5, fresh mint).** All pass:
+- **Poll loop LIVE** — no Reconnecting chip; sidebar shows ● Live; Health renders BOTH cards from the enveloped reads (mode LIVE → "up to date and processing events in real time"; `lagEvents` 0 → "nothing — fully caught up"; `projectionVersion` 5; `viewPosition` 0; DLQ `depth` 0 → "All clear"). The FE-1 finding is closed.
+- **Cursor semantics honest on an idle log** — position holds at 0 and the meta timestamp ages ("Updated 5 min ago"): the coalesced poll correctly skips refetching when the cursor doesn't advance. Live cursor *advancement* re-verifies with real events at FE-7 (loop health, not movement, was the achievable pass criterion on an empty DB — pre-agreed).
+- **Honest state #1** — Activity renders the calm "hub doesn't share the activity feed yet" teaching state on the live `/events` 404 (the DRIFT-2 symptom, closed). Zero error banners; console clean of `[contract-drift]`.
+- **Honest state #2** — boot catching-up not observable on an empty DB (ms replay window); held by tests + `?mock=replaying`, per the brief's own expectation.
+- Overview/Ask-why/Devices all rendered from real 200s (hero four + A1) with honest empty states.
+
+## 4. Findings routed to the hub (none are contract-breaking; no client patch was made for any of them)
+
+- **(a) Operator token-lockout trap (ops/UX, DP-F/A4.5-adjacent).** `api_tokens` (hash store) and `initial_api_token` (one-time readable copy) are a pair; deleting one without the other locks the operator out with 403s and no recovery hint. Recovery paths verified: delete `config/api_tokens` → next boot re-mints on the empty store (keeps home data); or full `.homesynapse` wipe (fresh home). Neither is documented operator UX. Compounding: the runtime dir is **cwd-relative**, so historical runs can leave stale sibling `.homesynapse/` dirs (two existed on Nick's machine; the repo-root one caused the confusion and was deleted at closeout). Suggest: a documented re-pair story + consider pinning/logging the active runtime dir more prominently at mint time.
+- **(b) DEBUG logs echo raw bearer tokens.** With root DEBUG logging, Jetty request dumps print full `Authorization: Bearer …` headers (and the mint WARN prints the token once, by design). The freeze §0 claim "the raw token is never echoed or logged" holds for HomeSynapse code but not for the DEBUG transport layer. Suggest: INFO default for the `:run` task and/or an ops note that DEBUG console output is secret-bearing.
+- **(c) Correction to the FE-1 return (this lane's own).** FE-1 §1 attributed the fresh DB to `scripts/clean.sh`; the script is a **build clean only** (verified — neither standard nor `--deep` touches `.homesynapse/`). The FE-1 fresh state must have predated any runtime dir. Recorded so the next operator doesn't trust clean.sh for a data reset.
+- **(d) ExplainHub "Your automations" renders blank at zero automations** — no teaching empty-state (unlike Recent runs / Devices). Small in-system fix; deferred per the brief's scope-OUT (no new features); queue with T2 hero polish.
+
+## 5. Backlog deltas + next WU
+
+Unchanged backlog carries (mobile-first hero, PWA, virtualization/cursor-follow, ETag cap, `format.ts` copy behind `t()`), plus new: finding (d) empty-state polish; live cursor-advance verification rides FE-7. **Next recommended WU: the website lane** (gate 4's open half, per the FE-1b brief's own pointer and beat-53's three-lane plan). FE-7 rides M9.4.
+
+## 6. Commit prep (env-model §10 audits)
+
+**core (11 files, explicit add — host `npm run verify` creates an un-gitignored `dist/`, so no directory sweep):** message staged at `_scratch/2026-07-02_webui_fe1b_commit-msg.txt` (carries the full audit + file list; stages exactly 11). NOTE for the hub: `web-ui/dashboard/dist/` lacks a gitignore rule — one-line follow-up.
+**hivemind (2 files):** this return + the cross-agent note append; message staged at `_scratch/2026-07-03_hivemind_fe1b-return_commit-msg.txt` (stages exactly 2). The hivemind tree was clean at prep time (9bda395) — no in-flight hub edits to sweep.
+**Secrets disposition:** the old token (`m7zxm4…`) is dead (rejected; store wiped). A NEW pairing token was minted for the smoke — operator-held, loopback-only, empty test home; Core's own mint log instructs deleting the artifact after pairing (recommended at bench close; Bitwarden the value if retention is wanted). No token enters git or a commit message. Runtime state `.homesynapse/`, `node_modules/`, `dist/` verified untracked.

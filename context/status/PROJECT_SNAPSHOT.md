@@ -5,10 +5,16 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-03 (v14 hub, beat 54 — both returns audited ACCEPT; FE-1b closed; Doc-18 charter folded; fleet: core cf3733e / docs 1509b34 / hivemind 74b6df6+beat-54 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-03 (v14 hub, beat 56 — retrospective folded into the skills system; v15 authored; fleet: core cf3733e / docs 1509b34 / hivemind 505cf78+beats-55/56 / bench 5ceff3b / skills 90f8258+frontend-ref-uncommitted). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
 -->
 
 # Project Snapshot
+
+> **2026-07-03 (v14 hub, beat 56 — the orchestration RETROSPECTIVE folded into the skills system; the true v14 close.)**
+> env-model +§11 (client-restart semantics, twice-paid) + the §5 gate-copy recipe · pm-lessons +2 (restart-resume; lane-dispatch craft — the dispatch prompt IS the quality gate) · PM SKILL.md masthead +the lane-routing matrix/restart-resume/selective-staging/dispatch-craft pointers · nexsys-frontend build-and-ci reference +baseline-shift protocol + explicit-list staging + gate-copy pointer. **Check 9 STALE for BOTH skills — Nick's mirror sync (project-manager + nexsys-frontend).** Detail: pm-handoff beat-56.
+
+> **2026-07-03 (v14 hub, beat 55 — the v14 CLOSE: v15 AUTHORED — `context/handoff/2026-07-03_PM-mission-control_v15_orchestrator_session_prompt.md`.)**
+> v15 first-act 0 = the restart-resume protocol (twice-paid); charge = M9.2 (CC) → Doc 18 Lock before M9.3 → website lane → M9.3/M9.4 → bench acceptance + FE-7 → 72 h soak; the Wave-2 unboxing runbook rides arrival (bench-first). The v14 arc: rotation-fold · M7.5c-a · M9.1 (spine LIVE) · extensibility assessment · Doc-18 charter · FE-1b (dashboard LIVE) · the collision merge — 8 beats, 5 commits/lane-arcs landed CI-green, zero unresolved defects. Launch v15 on Nick's word.
 
 > **2026-07-03 (v14 hub, beat 54 — BOTH returns audited ACCEPT: FE-1b CLOSED [live smoke PASS, poll loop LIVE, core `cf3733e`]; the Doc-18 dossier [L-1..L-33] + requirements charter FOLDED as the Doc-18 authoring authority.)**
 > FE-1b: slug-suffix + ratified-`string[]` verified in source; host verify 55/55 matched the lane; the FE-1 load-once bug CLOSED on a live Core. Findings routed: token-lockout→A4.5/DP-F story · Bearer-echo→hardening micro-WU candidate · blank-state→T2 · dist-gitignore→website-lane commit. `frontend.yml` glance on `cf3733e` pending (Nick).

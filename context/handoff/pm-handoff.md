@@ -5,10 +5,22 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-03 (v14 hub, beat 54 — BOTH lane returns audited ACCEPT: FE-1b closed [core cf3733e] + the Doc-18 dossier/charter folded as the authoring authority; fleet: core cf3733e / docs 1509b34 / hivemind 74b6df6+beat-54 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-03 (v14 hub, beat 56 — the retrospective FOLDED into the skills system; v15 authored at beat 55; fleet: core cf3733e / docs 1509b34 / hivemind 505cf78+beats-55/56 / bench 5ceff3b / skills 90f8258+frontend-ref-uncommitted). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
 -->
 
 # PM Session Handoff
+
+## 2026-07-03 (beat 56 — v14 hub) — the orchestration retrospective FOLDED into the skills system (the true v14 close)
+
+**Nick's directive:** reflect critically on the two external lanes' dispatch/orchestration quality + this hub's own arc — inputs, outputs, context/tokenization — then harden the skills system (nexsys-hivemind AND nexsys-skills) with what was learned.
+
+**Folded:** env-model gains **§11 client-restart semantics** (the twice-paid resume protocol + its four signatures, incl. the Task-not-found rollback tell) and the **§5 gate-copy recipe** (FE-1b's mount-outrun pattern); pm-lessons **+2** (restart-resume; lane-dispatch craft — the dispatch prompt IS the quality gate: ordered ground-first reading lists, evidence-artifact/decision-artifact separation, anti-fabrication tags, prose-vs-tables size caps, known-hazards mined from prior returns, mid-lane baseline-shift protocol, re-derivable counts in returns, defer-shared-file-appends-on-foreign-writes); **PM SKILL.md masthead** gains the settled lane-routing matrix + restart-resume + selective-staging + dispatch-craft pointer clauses (pointer-not-copy — detail lives in env-model/lessons); **nexsys-frontend `references/build-and-ci-discipline.md`** gains the baseline-shift protocol + explicit-list staging + gate-copy pointer. v15 first-act (3) adjusted (lesson queue discharged; sweep = Check-8 only). **Check 9 goes STALE for BOTH skills — Nick's mirror sync covers project-manager + nexsys-frontend.**
+
+**Retrospective verdicts (compact):** the Doc-18 lane's near-perfect auditability was PROMPT-CAUSED, not luck — the demanded structures (tracing, tagging, two artifacts, done-when) are what returned. FE-1b set the return-quality bar (baseline-shift disjointness proof; explicit-list staging catching `dist/`; attempt-1 failure banked as evidence, not hidden). The hub's two real misses: the un-warned token-lockout trap (prior-return hazard mining is now doctrine) and the beat-54 collision (now env-model §11). The in-conversation micro-lane (M7.5c-a, ~300 K lane tokens) priced that pattern honestly and drove the CC-for-backend routing — empiricism over doctrine. Hub token economy validated: the light spine (beat-48 rotation) is what let one conversation carry an 8-beat arc spanning two milestones, two lane folds, an assessment, and a charter.
+
+## 2026-07-03 (beat 55 — v14 hub) — v15 AUTHORED (the v14 close)
+
+**v15 hub prompt AUTHORED:** `context/handoff/2026-07-03_PM-mission-control_v15_orchestrator_session_prompt.md`. First-act 0 = the NEW restart-resume protocol (porcelain + frontmatter freshness before any spine write; failed-anchor = halt — twice-paid); then ground → archive v14 → Check-8 sweep + the queued pm-lesson append. First substantive acts: M9.2 authoring (CC lane; charter notes + both-graph-knobs + DP-E seam + the Bearer-echo rider; DP-B confirm gates device adoption) → website-lane prompt → Doc 18 on Nick's DP-18 rulings (Lock BEFORE M9.3; the docs pass carries DP-B/C/D one-liners + A4.5 + map refresh). §3 carries the Wave-2 unboxing-runbook charge (bench-first characterization; produced from the bench guide + corpus on arrival). Launch as a fresh Cowork conversation on Nick's word; v14 closes at this beat.
 
 ## 2026-07-03 (beat 54 — v14 hub) — BOTH returns audited ACCEPT: FE-1b CLOSED; the Doc-18 dossier + charter FOLDED as the authoring authority
 

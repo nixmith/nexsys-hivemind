@@ -5,10 +5,22 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub, beat 49 — M7.5c-a delivered by the first in-conversation Coder lane + two-layer-audited ACCEPT; OR-GATE-M7.5c-a open; fleet: core 2786526+M7.5c-a-wt / docs 1509b34 / hivemind dd162e2+beat-49 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 50 — M7.5c-a LANDED CI-green; OR-GATE-M7.5c-a RESOLVED; M9.1 routed to Claude Code; FE-1b dispatched; fleet: core e3d7296 / docs 1509b34 / hivemind 8a34a7f+beat-50 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
 -->
 
 # PM Session Handoff
+
+## 2026-07-02 (beat 50 — v14 hub) — M7.5c-a LANDED CI-GREEN (`e3d7296`); M9.1 → Claude Code; FE-1b dispatched; install-smoke discovery
+
+**Gate:** round 2 GREEN — targeted tests (53 tasks) + full `check` (149) on Nick's terminal → core committed `e3d7296` (exactly the audited 10 paths; one transient push connection-reset, clean re-push) → **ci.yml ✅ AND install-smoke ✅ on the push (3 m each, screenshot-verified)**. Hivemind beat-49 committed `8a34a7f` (exactly 5 paths). OR-GATE-M7.5c-a → RESOLVED (ledger below); **M9.1 routing UNBLOCKED (§4b clear)**.
+
+**Discovery (spine correction):** `.github/workflows/install-smoke.yml` is ACTIVE on main (activated at `652f9b3` — "frontend + install-smoke workflows, mid-August gate 4") and runs on every push — the carried "install-smoke UNSCHEDULED" item was stale at the v14 brief's authoring. **Gate 4's install-smoke half is CONTINUOUSLY VERIFIED**; the residual gate-4 surface is the WEBSITE build (content exists `homesynapse-core-docs/website/`; build unstarted; lane launches after FE-1b).
+
+**Routing (Nick's decisions this session):** M9.x → **Claude Code** (host-side compile loop — the round-1 bounce class dies in-session; the instruction files are already CC-shaped; the hub stays single-spine-writer + auditor; CC returns ride coder-handoff/cross-agent per the standing protocol). FE-1b → a **separate Cowork conversation** (prompt: `context/handoff/2026-07-02_FE-1b_v111-fold-and-live-smoke_session_prompt.md`) — keeps this hub's context for orchestration + audits.
+
+**Executed this beat:** the beat-46-ruled backlog M9-row replacement (the M9 epic row → M9.1 NEXT-ROUTED + M9.2–M9.4 JIT + M9-deferred, all charter-pointed to the return §3) + the beat-50 currency note; the W27 midweek-progress block; the M9.1 dispatch annotation (HEAD `52824e9`→`e3d7296`; the M7.5c-a delta [rest-api envelopes + lifecycle PROJECTION_VERSION/installAdminEndpoints] is disjoint from the M9.1 read-set; the instruction's own RE-VERIFY-at-issue clause governs — CC re-runs the STOP gates before coding).
+
+**Next:** Nick launches FE-1b (fresh Cowork conversation on the new prompt) + opens Claude Code on `context/instructions/2026-07-02_M9.1_integration-spine_supervisor-and-command-routing_coding-instruction.md` (kickoff text in the hub conversation). Hub: audit both returns as they land (two-layer, source-checked); author M9.2 JIT after M9.1's WUCP close (grounding-subagent-before-authoring); author the website-lane prompt after FE-1b closes. Carried: Dependabot 1-critical (re-nagged on THIS push — the ~60 s Security-tab triage) · Wave-2 order EARLY · A4.5 Doc 15 note + the DP-B/C/D one-liners ride the next docs pass · Node-20 action bumps.
 
 ## 2026-07-02 (beat 49 — v14 hub) — M7.5c-a DELIVERED + audited ACCEPT (first in-conversation Coder lane); Check-8 archival executed; gate open
 
@@ -102,7 +114,8 @@ Pointer-not-copy applied to both skill mastheads + the PM Mode-3 state narrative
 
 ## Open Risks
 
-#### OR-GATE-M7.5c-a — deferred build gate on the M7.5c-a working tree — [OPEN — blocks M9.1 routing per §4b] (NEW 2026-07-02, beat 49)
+#### OR-GATE-M7.5c-a — deferred build gate on the M7.5c-a working tree — [✅ RESOLVED 2026-07-02, beat 50] (NEW 2026-07-02, beat 49)
+- **RESOLVED (beat 50):** round 2 GREEN — 53 targeted + 149 full-`check` tasks on Nick's terminal → core committed **`e3d7296`** (10 paths exact) → pushed → **ci.yml ✅ + install-smoke ✅** on the push. M9.1 routing UNBLOCKED (§4b clear). Total: ONE fix round (2 test-compile errors, hub-fixed — within the P5 one-round target for compile-class defects).
 - **Milestone:** M7.5c-a (internal-read envelope conformance). **Commit:** pending — working tree on core `2786526`; change set = exactly 10 files (7 source/test + 3 MODULE_CONTEXT).
 - **Commands (Nick):** `./gradlew :api:rest-api:compileJava :lifecycle:lifecycle:compileJava` → `./gradlew :api:rest-api:test :lifecycle:lifecycle:test` → `./gradlew check` (count pins stay **71/41/53**; both module-infos + every `build.gradle.kts` unchanged) → `./gradlew :testing:integration-tests:check` (watch `EndpointE2eIT` — DLQ paths moved under `$.data`). `-Werror` rides the convention plugin — do NOT pass it as a CLI flag.
 - **Round 1 (2026-07-02):** targeted `compileJava` GREEN + `:testing:integration-tests:check` GREEN + host porcelain exactly 10 ✓; `compileTestJava` FAILED — 2 AssertJ varargs-capture errors (`DlqStatusEndpointTest` L75/L135: `containsExactly` on a `List<?>` actual). **Hub-applied 2-line fix** (SendMessage-to-lane unavailable; mechanical class): the `@SuppressWarnings("unchecked")` typed-local idiom per conforming `ListEntitiesEndpointTest` L83–88. Lesson appended to coder-lessons. **Re-run pending:** `:api:rest-api:test :lifecycle:lifecycle:test` → `check`.

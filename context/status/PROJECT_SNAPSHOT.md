@@ -5,10 +5,18 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub, beat 49 — M7.5c-a delivered + audited; fleet: core 2786526+M7.5c-a-wt / docs 1509b34 / hivemind dd162e2+beat-49 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 50 — M7.5c-a LANDED CI-green; fleet: core e3d7296 / docs 1509b34 / hivemind 8a34a7f+beat-50 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
 -->
 
 # Project Snapshot
+
+> **2026-07-02 (v14 hub, beat 50 — M7.5c-a LANDED: `check` 149 GREEN → core `e3d7296` pushed → ci.yml ✅ + install-smoke ✅ on the push. OR-GATE-M7.5c-a RESOLVED; M9.1 UNBLOCKED + ROUTED to Claude Code.)**
+> One hub-fixed gate round (2 AssertJ capture errors, test-only; lesson recorded — within the P5 one-round target). Hivemind beat-49 committed `8a34a7f`.
+> **Discovery (spine correction):** `install-smoke.yml` is ACTIVE on main (since `652f9b3`) and green on every push — the carried "install-smoke UNSCHEDULED" gate-4 item is CORRECTED; the residual gate-4 surface is the WEBSITE build only (content exists; lane launches after FE-1b).
+> **Routing (Nick):** M9.x → Claude Code (host-side compile loop; the hub stays single-spine-writer + auditor; returns ride coder-handoff/cross-agent per protocol) · FE-1b → a separate Cowork lane (prompt: `context/handoff/2026-07-02_FE-1b_v111-fold-and-live-smoke_session_prompt.md`).
+> Executed: the beat-46-ruled backlog M9-row split (M9.1 NEXT-ROUTED · M9.2–4 JIT · M9-deferred; charter-pointed) + beat-50 currency note; W27 midweek block; M9.1 dispatch annotation (HEAD `52824e9`→`e3d7296`, delta disjoint from the read-set; CC re-runs the STOP gates per the instruction's own baseline clause).
+> Fleet: core `e3d7296` · docs `1509b34` · hivemind `8a34a7f`+beat-50 · bench `5ceff3b` · skills `90f8258`.
+> **Next:** FE-1b launch (Nick, fresh Cowork) ∥ M9.1 (Nick opens Claude Code) → hub audits both returns → M9.2 JIT authoring → website lane after FE-1b → M9.3/M9.4 → bench acceptance + 72 h soak (NQ-6 during). Detail: pm-handoff beat-50 (pointer, not copy).**
 
 > **2026-07-02 (v14 hub, beat 49 — M7.5c-a DELIVERED by the first in-conversation Coder lane; hub two-layer audit = WUCP Phase 2 ACCEPT, zero defects.)**
 > A4 `/internal/projection` + A5 `/internal/dlq` now emit the frozen v1.1.1 `{data, meta}` envelope (DRIFT-1 close): A4 data = frozen {mode, viewPosition, lagEvents, projectionVersion} + ruled extras {entityCount, ready}; A5 data = {depth, parkedSubscribers} + additive `subscribers[]`. `lagEvents` = max(0, logHead − cursor) via a composition-root `LongSupplier` (`eventStore::latestPosition`); `PROJECTION_VERSION` hoisted to a single constant feeding both `StateProjection.create` and the gateway.

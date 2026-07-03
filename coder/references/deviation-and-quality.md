@@ -359,3 +359,20 @@ These rules were established by findings from the Agent Benchmark (Q23, Q38, Q21
 - **Q23 (Stale Source Preference):** The agent read handoff documents instead of `build.gradle.kts` for SLF4J dependency scope, producing a confident but wrong answer. The code had been changed by DECIDE-01 with an explicit comment explaining why.
 - **Q38 (Confident Fabrication):** The agent invented a `LinkedHashSet` deduplication step in `EventEnvelope`'s compact constructor that does not exist in the source code, by conflating design-time discussions with actual implementation.
 - **Q21 (Derived Event Time):** The agent used `Instant.now()` for a derived event's `eventTime`, conflating processing time with event time and breaking COALESCE-based time-range query semantics.
+
+### Protocol/wire-constant work: the double-derivation discipline (M9.2, 2026-07-03)
+
+When implementing against an external standard (framing constants, status codes, magic bytes, bit layouts), two verification passes are MANDATORY, and they are different in kind:
+
+1. **Pre-write derivation:** re-derive every constant independently from the cited standard or a reference implementation BEFORE pinning it in code or a test. A test written against a mis-pinned constant enshrines the error — the test suite goes green on the wrong wire truth.
+2. **Post-write residual verification:** after the code exists, re-fetch the authoritative source (vendor header, reference implementation at a pinned version) and re-check every residual constant AGAINST THE WRITTEN CODE. M9.2's post-write pass caught `SL_STATUS_NOT_JOINED` drafted as `0x0B` (actually `SL_STATUS_IS_WAITING`; correct: `0x0017`) — a mis-pin the entire pre-write pass and every test missed, which would have broken every fresh v14 coordinator restore on real silicon.
+
+Wire truth and policy values are different classes: a wire constant has exactly one correct value (derive it); a policy value (timeout counts, retry bounds) is a project decision (cite the Locked doc; note reference-implementation disagreement without "correcting" it — coder-lessons 2026-07-03).
+
+### Checked-exception FLOW is invisible to LLM review (M9.2 gate rounds, 2026-07-03)
+
+LLM verification — including multi-agent adversarial fleets that verify signatures against real jars — does NOT reliably model JLS §11.2.3 exception-flow analysis. A Javadoc `@throws` matching the throw site *looks* complete while still failing javac. Rules:
+
+- When the compile gate is DENIED in-session, manually sweep every `new <CheckedExceptionType>` site's ENCLOSING METHOD SIGNATURE before handoff (grep the constructor, verify each `throws` clause). Do not rely on any review fleet for this class.
+- When a gate bounce reports errors of the checked-exception class, sweep the ENTIRE module for the same class before handing back — javac's error reporting can stop early and understate the defect count (M9.2: 2 reported, 3 real).
+- A checked domain exception must never be forced through a no-throws frozen interface: put the checked type on a package-private seam the adapter calls directly, and let the frozen surface rethrow unchecked cause-chained. Beware the classifier consequence: wrapped exceptions lose their classification (`ExceptionClassifier` is bare-`instanceof` by design — a wrapped permanent classifies TRANSIENT).

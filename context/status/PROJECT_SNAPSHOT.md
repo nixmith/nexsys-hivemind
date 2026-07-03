@@ -5,10 +5,17 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub, beat 53 — R-A ruled research-first; Doc-18 lane authored; fleet: core ec2e3b4 / docs 1509b34 / hivemind 7d65b35+beat-53 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-03 (v14 hub, beat 54 — both returns audited ACCEPT; FE-1b closed; Doc-18 charter folded; fleet: core cf3733e / docs 1509b34 / hivemind 74b6df6+beat-54 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
 -->
 
 # Project Snapshot
+
+> **2026-07-03 (v14 hub, beat 54 — BOTH returns audited ACCEPT: FE-1b CLOSED [live smoke PASS, poll loop LIVE, core `cf3733e`]; the Doc-18 dossier [L-1..L-33] + requirements charter FOLDED as the Doc-18 authoring authority.)**
+> FE-1b: slug-suffix + ratified-`string[]` verified in source; host verify 55/55 matched the lane; the FE-1 load-once bug CLOSED on a live Core. Findings routed: token-lockout→A4.5/DP-F story · Bearer-echo→hardening micro-WU candidate · blank-state→T2 · dist-gitignore→website-lane commit. `frontend.yml` glance on `cf3733e` pending (Nick).
+> Doc-18: nine-ecosystem dossier (anti-fabrication, six ✓✓ re-fetches) + charter (EXT-INV-1/2 candidates · seven-seam reservation list · DP-18-A/B/C for Nick — hub concurs A+B, C is Nick's). Doc 18 authors against the charter post-M9.2, Locks BEFORE M9.3.
+> Fleet: core `cf3733e` · docs `1509b34` · hivemind `74b6df6`+beat-54 · bench `5ceff3b` · skills `90f8258`. Dependabot critical COMPOUNDING (still unclassified); DP-B confirm still open.
+> Restart-collision merged out (a client restart rolled context back post-write; the resumed hub's blind re-audit CONVERGED verdict-for-verdict and re-verified contract.test.ts:154 + the commit chain in source; duplicate block removed — detail: pm-handoff beat-54 restart-collision record).
+> **Next:** hub authors v15 (capture-then-execute — v14 at saturation depth) → v15: M9.2 (CC) → Doc 18 + one-liners docs pass → website lane. Detail: pm-handoff beat-54 (pointer, not copy).**
 
 > **2026-07-02 (v14 hub, beat 53 — R-A RULED research-first; the Doc-18 research-and-charter lane AUTHORED; the three-lane forward plan set.)**
 > Doc-18 lane prompt: `context/handoff/2026-07-02_Doc18-plugin-ecosystem_research-and-charter_session_prompt.md` — ecosystem-wars research dossier + Doc-18 requirements charter (AX-7/R-C/isolation-line decision points framed with market evidence); runs PARALLEL to M9.2; Doc 18 Locks BEFORE M9.3 issues.

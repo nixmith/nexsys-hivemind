@@ -5,10 +5,20 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub, beat 51 — M9.1 delivered by Claude Code + audited ACCEPT, gate green round 2, spine LIVE; fleet: core e3d7296+M9.1-wt(26) / docs 1509b34 / hivemind 91203c1+beat-51 / bench 5ceff3b / skills 90f8258; FE-1b in flight, 11 web-ui files in the tree). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 52 — M9.1 COMMITTED ec2e3b4 + CI+install-smoke green; the extensibility/plugin-ecosystem assessment FILED; fleet: core ec2e3b4 / docs 1509b34 / hivemind a770091+beat-52 / bench 5ceff3b / skills 90f8258; FE-1b in flight). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
 -->
 
 # PM Session Handoff
+
+## 2026-07-02 (beat 52 — v14 hub) — M9.1 LANDED (`ec2e3b4`, CI + install-smoke green); the extensibility & plugin-ecosystem assessment FILED
+
+**M9.1 closed:** selective stage held exactly (26 staged / 11 web-ui unstaged, Nick's porcelain screenshot-consistent) → core `ec2e3b4` pushed → **ci.yml ✅ + install-smoke ✅** (3 m each) → hivemind beat-51 `a770091` (5 paths exact). The integration spine is on main. DP-B one-line confirm from Nick still pending (asked at beat 51).
+
+**Assessment (Nick's strategic question — is the build fit for breadth/AIoT/plugins/dominance?):** `context/assessments/2026-07-02_extensibility-and-plugin-ecosystem_PM-assessment.md`, synthesized from two read-only survey agents (code seams over `ec2e3b4`; strategy/governance alignment). **Verdicts:** D1 integration breadth YES-by-architecture (2-type frozen SPI, protocol-agnostic capability/confirmation models, breadth-by-data via D5+bench) · D2 AI/AIoT THE-SUBSTRATE-IS-THE-MOAT (replayable provenance log + causal explanations + the honest confirmation ledger + AIOT-INV-1 safety frame — built and CI-enforced) · D3 plugin ecosystem NOT-YET (static composition triple-enforced; the high-value surfaces sealed or reserved-empty; trust boundary paper-only; SDK/marketplace promised in strategy with zero governance footprint — the ONE seam class the non-precluding discipline never formally reserved) · D4 longevity YES-with-named-dependencies (AX-7, SPIKE-DC, GraalVM/FFM). **Bottom line: the foundation supports the ambition; what's missing is a governed reservation of the third-party seam class + the Wave-1→"fifty rock-solid + community" bridge — cheap now, expensive after M9.3/M14 freeze more surfaces.**
+
+**Escalations to Nick (from the assessment):** **R-A** authorize Doc 18 — Extension & Plugin Architecture (Doc-17-style seam reservation; PM authors post-M9.2, BEFORE M9.3 freezes the profile registry) · **R-B** resolve AX-7 (one ruling gates both community components and AI-as-author) · **R-C** the Connect "community integration repository access" paywall line vs the free-tier non-negotiable (flag only). PM-side obligations folded: M9.3 authoring carries the profile-registry non-preclusion constraints; the website-lane prompt carries the developer-page stub; the DP-B/DP-C/DP-D one-liners + strategic-context-map refresh ride the next docs pass; R-4 FUTURE backlog rows to name at the next backlog edit.
+
+**Next:** Nick: DP-B one-line confirm · R-A/R-B/R-C rulings (any order; none blocks M9.2) · FE-1b results when ready. Hub: **M9.2 JIT authoring** on Nick's word (grounding-subagent; charter notes + both-graph-knobs pre-verification + the DP-E coordinator-backup seam + CC-permissions note). Carried: Dependabot 1-critical (re-nagged again on the M9.1 push) · Wave-2 order EARLY · A4.5 + queued one-liners · Node-20 bumps.
 
 ## 2026-07-02 (beat 51 — v14 hub) — M9.1 DELIVERED (Claude Code) + audited ACCEPT; gate GREEN round 2; the integration spine is LIVE
 

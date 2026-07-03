@@ -5,10 +5,16 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub, beat 51 — M9.1 delivered + audited ACCEPT, spine LIVE; fleet: core e3d7296+M9.1-wt / docs 1509b34 / hivemind 91203c1+beat-51 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 52 — M9.1 COMMITTED ec2e3b4 CI-green; extensibility assessment filed; fleet: core ec2e3b4 / docs 1509b34 / hivemind a770091+beat-52 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
 -->
 
 # Project Snapshot
+
+> **2026-07-02 (v14 hub, beat 52 — M9.1 LANDED on main: core `ec2e3b4`, ci.yml ✅ + install-smoke ✅; the EXTENSIBILITY & PLUGIN-ECOSYSTEM ASSESSMENT filed.)**
+> Selective stage held exactly (26 / 11-web-ui-excluded); hivemind beat-51 `a770091`. DP-B one-line confirm pending (Nick).
+> **Assessment** (`context/assessments/2026-07-02_extensibility-and-plugin-ecosystem_PM-assessment.md`, two-survey grounding): D1 breadth YES-by-architecture · D2 AI/AIoT the-substrate-is-the-moat · D3 plugins NOT-YET (the one seam class never formally reserved; SDK/marketplace promised with zero governance footprint) · D4 longevity YES-with-named-dependencies. Escalations: **R-A Doc 18 seam-reservation authorization · R-B AX-7 ruling · R-C Connect-paywall-line review.** Binding-now watchlist: M9.3 profile registry + website IA + the queued DP-B/C/D one-liners.
+> Fleet: core `ec2e3b4` · docs `1509b34` · hivemind `a770091`+beat-52 · bench `5ceff3b` · skills `90f8258`.
+> **Next:** Nick: DP-B confirm + R-A/R-B/R-C + FE-1b results. Hub: M9.2 JIT authoring on Nick's word (charter notes + both-graph-knobs pre-verification + DP-E seam). Detail: pm-handoff beat-52 (pointer, not copy).**
 
 > **2026-07-02 (v14 hub, beat 51 — M9.1 DELIVERED by Claude Code + hub-audited ACCEPT; gate GREEN round 2 [`check` 149]; THE INTEGRATION SPINE IS LIVE.)**
 > `command_issued` → `command_dispatched` → `CommandRoutingSubscriber` causation-join → `CommandHandler.handle(CommandEnvelope)` on per-adapter VT executors. First `IntegrationSupervisor` impl (DP-10 FSM · DP-11 threads · W8 clock-driven backoff · DP-9 zero-mint lifecycle events), the public assembly, Phase-6 wiring behind the canonical 7-arg `HomeSynapseCore` ctor (empty factories skip Phase 6 — `Main` byte-identical). **INV-ES-09 pinned** by the extended replay gate (routable registered fake; recorder-zero-across-REPLAY + LIVE positive control). Zero mint 71/41/53; zero DDL.

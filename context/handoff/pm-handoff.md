@@ -5,10 +5,24 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub, beat 50 — M7.5c-a LANDED CI-green; OR-GATE-M7.5c-a RESOLVED; M9.1 routed to Claude Code; FE-1b dispatched; fleet: core e3d7296 / docs 1509b34 / hivemind 8a34a7f+beat-50 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 51 — M9.1 delivered by Claude Code + audited ACCEPT, gate green round 2, spine LIVE; fleet: core e3d7296+M9.1-wt(26) / docs 1509b34 / hivemind 91203c1+beat-51 / bench 5ceff3b / skills 90f8258; FE-1b in flight, 11 web-ui files in the tree). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
 -->
 
 # PM Session Handoff
+
+## 2026-07-02 (beat 51 — v14 hub) — M9.1 DELIVERED (Claude Code) + audited ACCEPT; gate GREEN round 2; the integration spine is LIVE
+
+**Hub layer-2 audit** (on the lane's 6-dimension source-verifying fleet + Nick's green gate): change-set arithmetic porcelain-exact — 12 M + 13 new + root `build.gradle.kts` = **26 core paths**; the 11 `web-ui/dashboard` files in the tree are the FE-1b lane's, diff-content-verified by the lane itself and EXCLUDED from this commit. Spot-verified in source: lifecycle `module-info` (integration → transitive with the `-Xlint:exports` rationale on the exported 7-arg ctor; `integration.runtime` correctly plain per the AB-3 pattern); the maxHeight raise (comment documents the 8-hop ruled path + do-not-raise rule; direction rules untouched); coder-handoff top block + cross-agent note + 2 lessons present and complete. Gate evidence: targeted compile 45 tasks + 4 suites 70 tasks GREEN (T1–T21), full `check` **GREEN 149** round 2.
+
+**Rulings (WUCP P2, all ACCEPT):** (1) assembly `Function<String, ConfigurationAccess>` — IS the hub-audit-corrected B7/DP-12 (per-integration scoping now; explicit assembly-composition freedom); (2) the persistence decoder pair outside the Files table — DP-3's own mandate (the M7.4a serializer mirrored; JPMS forbids the lifecycle alternative; zero module-info change); (3) `IntegrationSupervisorAssembly.abandon(...)` — W4-forced, `InProcessEventBus.abandon()`-precedented, additive public API (public-API shape = Nick's call; his commit co-signs); (4) root `maxHeight` 7→8 — the ruled architecture's depth, every hop an intended layer, guard stays honest. The lane's fleet found + fixed **4 supervisor lifecycle bugs in-session** (+1 regression test) — the adversarial layer earning its keep.
+
+**DP-B reconciled:** the lane carries DP-B (durable integration identity) as open for Nick; **beat-46 already RULED it** — deterministic identity derivation = permanent policy (governance one-liner still queued for the next docs pass). `IntegrationIds.deriveStable` IS that policy, not an interim. Nick: one-line confirm (or name the durable-story refinement) before M9.2's device adoption binds it.
+
+**Process findings:** (a) the CC session's in-session Gradle was PERMISSION-DENIED — the shift-left loop never ran, so the maxHeight bounce reached Nick's gate; for M9.2, allow-list targeted `./gradlew :*:compileJava :*:test` in CC (keep deny on commit/push). (b) Pre-verification lesson: pin BOTH module-graph knobs (allow-list AND height ceiling) — A33 pinned only the former.
+
+**Commit mechanics (env-model §10):** core = SELECTIVE stage `git add -A -- ':(exclude)web-ui'` → staged exactly **26** / unstaged 11 web-ui → `commit -F _scratch/2026-07-02_core_m91_commit-msg.txt` → push → ci.yml + install-smoke glance. Hivemind beat-51 = exactly **5** paths; if FE-1b lane files appear in the porcelain, HOLD them and tell the hub.
+
+**Next:** core commit+push+CI → hub authors **M9.2 JIT** (grounding-subagent first; charter notes: UG100/AN706 constants verbatim · jSerialComm + Apache-2.0 pin at the catalog line · z2m #30891 recheck for the 7.4.5 line · both-graph-knobs pre-verification) → **FE-1b return audit** when it arrives (its 11 files commit only after that audit). Carried: Dependabot 1-critical · Wave-2 order EARLY · A4.5 + the DP-B/C/D one-liners ride the next docs pass · Node-20 bumps.
 
 ## 2026-07-02 (beat 50 — v14 hub) — M7.5c-a LANDED CI-GREEN (`e3d7296`); M9.1 → Claude Code; FE-1b dispatched; install-smoke discovery
 

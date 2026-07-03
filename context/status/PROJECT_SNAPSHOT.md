@@ -5,10 +5,18 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub, beat 50 — M7.5c-a LANDED CI-green; fleet: core e3d7296 / docs 1509b34 / hivemind 8a34a7f+beat-50 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 51 — M9.1 delivered + audited ACCEPT, spine LIVE; fleet: core e3d7296+M9.1-wt / docs 1509b34 / hivemind 91203c1+beat-51 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
 -->
 
 # Project Snapshot
+
+> **2026-07-02 (v14 hub, beat 51 — M9.1 DELIVERED by Claude Code + hub-audited ACCEPT; gate GREEN round 2 [`check` 149]; THE INTEGRATION SPINE IS LIVE.)**
+> `command_issued` → `command_dispatched` → `CommandRoutingSubscriber` causation-join → `CommandHandler.handle(CommandEnvelope)` on per-adapter VT executors. First `IntegrationSupervisor` impl (DP-10 FSM · DP-11 threads · W8 clock-driven backoff · DP-9 zero-mint lifecycle events), the public assembly, Phase-6 wiring behind the canonical 7-arg `HomeSynapseCore` ctor (empty factories skip Phase 6 — `Main` byte-identical). **INV-ES-09 pinned** by the extended replay gate (routable registered fake; recorder-zero-across-REPLAY + LIVE positive control). Zero mint 71/41/53; zero DDL.
+> Round-1 bounce: `:assertMaxHeight` (the ruled lifecycle→integration-runtime edge deepens the ruled path 7→8; ceiling raised with a do-not-raise note). Lessons: pin BOTH module-graph knobs at pre-verification; CC's in-session Gradle was permission-DENIED — allow targeted compile/test for M9.2 to recover the shift-left.
+> Rulings: all four [REVIEW]s ACCEPT (corrected-B7/DP-12 Function param · DP-3 decoder pair · W4 abandon() gateway [Nick co-signs at commit] · maxHeight). The lane's fleet fixed 4 supervisor lifecycle bugs in-session (+1 regression). DP-B = already ruled at beat 46 (deterministic derivation = permanent policy) — Nick one-line confirm before M9.2.
+> Change set EXACTLY 26 core paths — SELECTIVE stage (exclude `web-ui/`; the 11 web-ui files are FE-1b's, in flight). Messages staged: `_scratch/2026-07-02_core_m91_commit-msg.txt` + `_scratch/2026-07-02_hivemind_beat-51_commit-msg.txt` (5 paths).
+> Fleet: core `e3d7296`+M9.1-wt(26) · docs `1509b34` · hivemind `91203c1`+beat-51 · bench `5ceff3b` · skills `90f8258`.
+> **Next:** Nick: selective core commit → push → ci.yml+install-smoke glance → hivemind beat-51 → DP-B one-line confirm. Hub: M9.2 JIT authoring (grounding-subagent; charter notes + both-knobs pre-verification). FE-1b return → audit → its own commit. Detail: pm-handoff beat-51 (pointer, not copy).**
 
 > **2026-07-02 (v14 hub, beat 50 — M7.5c-a LANDED: `check` 149 GREEN → core `e3d7296` pushed → ci.yml ✅ + install-smoke ✅ on the push. OR-GATE-M7.5c-a RESOLVED; M9.1 UNBLOCKED + ROUTED to Claude Code.)**
 > One hub-fixed gate round (2 AssertJ capture errors, test-only; lesson recorded — within the P5 one-round target). Hivemind beat-49 committed `8a34a7f`.

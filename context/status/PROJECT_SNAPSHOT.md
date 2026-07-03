@@ -5,10 +5,16 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub, beat 52 — M9.1 COMMITTED ec2e3b4 CI-green; extensibility assessment filed; fleet: core ec2e3b4 / docs 1509b34 / hivemind a770091+beat-52 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 53 — R-A ruled research-first; Doc-18 lane authored; fleet: core ec2e3b4 / docs 1509b34 / hivemind 7d65b35+beat-53 / bench 5ceff3b / skills 90f8258). Prior stamp chain preserved in archive/PROJECT_SNAPSHOT-beats-06-41-rotated-2026-07-02.md frontmatter.
 -->
 
 # Project Snapshot
+
+> **2026-07-02 (v14 hub, beat 53 — R-A RULED research-first; the Doc-18 research-and-charter lane AUTHORED; the three-lane forward plan set.)**
+> Doc-18 lane prompt: `context/handoff/2026-07-02_Doc18-plugin-ecosystem_research-and-charter_session_prompt.md` — ecosystem-wars research dossier + Doc-18 requirements charter (AX-7/R-C/isolation-line decision points framed with market evidence); runs PARALLEL to M9.2; Doc 18 Locks BEFORE M9.3 issues.
+> Lanes: Core M9.2→M9.3→M9.4→bench-acceptance→72 h soak (gate 3) · Frontend FE-1b→website (gate 4's open half) · Research Doc-18→charter→Lock. Beat-52 committed `7d65b35`.
+> Nick open: DP-B confirm · AX-7 + R-C (ride the charter) · Dependabot critical · Wave-2 order · A4.5 + one-liners · Node-20. Hub next: M9.2 JIT authoring (v15 handoff first if saturation dictates — capture-then-execute).
+> Fleet: core `ec2e3b4` · docs `1509b34` · hivemind `7d65b35`+beat-53 · bench `5ceff3b` · skills `90f8258`. Detail: pm-handoff beat-53 (pointer, not copy).**
 
 > **2026-07-02 (v14 hub, beat 52 — M9.1 LANDED on main: core `ec2e3b4`, ci.yml ✅ + install-smoke ✅; the EXTENSIBILITY & PLUGIN-ECOSYSTEM ASSESSMENT filed.)**
 > Selective stage held exactly (26 / 11-web-ui-excluded); hivemind beat-51 `a770091`. DP-B one-line confirm pending (Nick).

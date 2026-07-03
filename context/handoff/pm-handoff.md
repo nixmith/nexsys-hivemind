@@ -5,10 +5,18 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-02 (v14 hub, beat 52 — M9.1 COMMITTED ec2e3b4 + CI+install-smoke green; the extensibility/plugin-ecosystem assessment FILED; fleet: core ec2e3b4 / docs 1509b34 / hivemind a770091+beat-52 / bench 5ceff3b / skills 90f8258; FE-1b in flight). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
+last-verified: 2026-07-02 (v14 hub, beat 53 — R-A RULED research-first; the Doc-18 research-and-charter lane prompt AUTHORED; fleet: core ec2e3b4 / docs 1509b34 / hivemind 7d65b35+beat-53 / bench 5ceff3b / skills 90f8258; FE-1b in flight). Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-02.md frontmatter.
 -->
 
 # PM Session Handoff
+
+## 2026-07-02 (beat 53 — v14 hub) — R-A RULED (research-first Doc-18); the Doc-18 lane authored; the three-lane forward plan set
+
+**Nick's ruling on R-A:** Doc 18 proceeds RESEARCH-FIRST — a dedicated independent Cowork lane deep-dives the ecosystem wars (successes/failures/brilliant ideas of other smart-home + best-in-class plugin platforms), then articulates the Doc-18 requirements charter. Prompt AUTHORED: `context/handoff/2026-07-02_Doc18-plugin-ecosystem_research-and-charter_session_prompt.md` (two deliverables: the plugin-ecosystem-wars research dossier [anti-fabrication tagged] + the Doc-18 requirements charter [section map, invariant candidates, reservation list, AX-7/R-C/isolation-line decision points framed with market evidence for Nick]). The lane runs PARALLEL to M9.2; the hub authors Doc 18 (Mode 1) against the audited charter, targeted to Lock BEFORE M9.3 issues.
+
+**The three-lane forward plan:** Lane 1 Core (CC, serial): M9.2 authoring (hub JIT, next work product) → M9.3 (carries the assessment's profile-registry non-preclusion constraints) → M9.4 → live-bench acceptance → 72 h soak (NQ-6 during) = gate 3. Lane 2 Frontend (Cowork): FE-1b (in flight) → website lane (developer-page IA obligation) = gate 4's website half (install-smoke half already continuously green). Lane 3 Research: the Doc-18 lane → charter → Doc 18 → DOCS review → Lock. Nick's open ledger: DP-B one-line confirm · R-B AX-7 (now rides the charter's framed decision point) · R-C (same vehicle) · Dependabot critical · Wave-2 order EARLY · A4.5 + queued one-liners next docs pass · Node-20.
+
+**Hub context note (capture-then-execute):** v14 is deep; the next heavy arc (M9.2 authoring or the FE-1b/Doc-18 return audits) may warrant authoring v15 first — the hub flags the call at the next turn rather than risking a mid-arc saturation.
 
 ## 2026-07-02 (beat 52 — v14 hub) — M9.1 LANDED (`ec2e3b4`, CI + install-smoke green); the extensibility & plugin-ecosystem assessment FILED
 

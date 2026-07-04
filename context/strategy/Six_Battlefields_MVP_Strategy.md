@@ -47,6 +47,8 @@ Every feature proposal must trace to at least one battlefield. If it doesn't ser
 
 **Architecture that enables it:** All core functionality runs on local hardware. No cloud dependency in the critical path. Event bus, state store, persistence, automation engine — all local.
 
+*(D-4/REC-180 messaging rule — ACCEPTED 2026-06-12, folded here 2026-07-03: **privacy is a SEGMENT lead, not THE lead.** Mass-market messaging leads with reliability/works-together (battlefields 1 and 6); local-first is the architecture story, and privacy is its segment-scoped expression — it converts prosumer/EU audiences (where regulation has dated teeth), not the mass market. A messaging rule, not a scope change. Source: the R15 strategy-refresh drafts, `context/planning/2026-06-13_strategy-refresh-drafts_R15.md`.)*
+
 ### 3. Explainability
 
 **The claim:** A non-developer user can answer "why did the porch light turn on at 3am?" by looking at the event trace in the UI.

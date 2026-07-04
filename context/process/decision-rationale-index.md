@@ -20,7 +20,8 @@ last-verified: 2026-07-03 (v15 hub, beat 60 — authored for the wipe test; rows
 | Five-repo model; hub = single spine-writer; lanes write-isolated | Parallel agents without write collisions; one auditable truth stream | PM skill masthead; `truth-hierarchy-and-pointer-not-copy-discipline.md` |
 | Lane routing: backend M-WUs→Claude Code; frontend/research→Cowork; hub authors/audits | Priced empirically — the in-conversation micro-lane cost ~300K tokens (M7.5c-a); CC's compile loop is the shift-left | pm-handoff beat-56 (v14 retrospective); PM SKILL.md masthead |
 | Never-false-CONFIRMED (AMD-97-INV-01) + honest actuation ledger | The trust brand is the business; an unconfirmed success rendered as success is the one unforgivable lie | AMD-97 + Doc 07 §3.11; §51 |
-| Static composition now; dynamic loading a RESERVED seam (triple-banned) | Ship trust first; reserve the seam formally so activation is additive, never re-architecture | Extensibility assessment D3 (2026-07-02); charter §3 seam 1; Doc 18 (in authoring) |
+| Static composition now; dynamic loading a RESERVED seam (triple-banned) | Ship trust first; reserve the seam formally so activation is additive, never re-architecture | Extensibility assessment D3 (2026-07-02); charter §3 seam 1; **Doc 18 LOCKED 2026-07-03** |
+| **Doc 18 LOCKED + EXT-INV-1/2 MINTED (§52; 172/51 → 174/52; watermark stays AMD-97)** | New-design-doc Lock per the §49/§50 precedent — the seven seam reservations + §3.5 namespace governance are now constitutional BEFORE M9.3 freezes the registry; EXT-INV-2 minted UNSCOPED with the rung-2 enforcement arrival named INLINE in the register (the N-2 anti-paper-invariant condition) | Register §52; Doc 18 §6/§7; pm-handoff beat-65 (rulings) + v17 beat-1 (execution) |
 
 ## Strategic rulings with preserved verbatim rationale (Nick, beat 57 — the model records)
 
@@ -63,4 +64,4 @@ last-verified: 2026-07-03 (v15 hub, beat 60 — authored for the wipe test; rows
 
 ## PENDING (surface until closed — do not treat as ruled)
 
-**hashed-TCLK** (Nick security election, M9.4 window, bench-informed) · **classifier cause-walk-for-PIE-only** (hardening candidate, M9.3/M9.4 window) · **website.yml adopt-now** (recommended, awaiting Nick) · **LICENSE-flip timing** (blocks developer-page publish only) · **W-5 publish gate / hosting / deploy** (gate-4 closure = Nick's) · **AX-7 formal AMD shape** (direction ruled via DP-18-A; the amendment lands with Doc 18's docs pass).
+**hashed-TCLK** (Nick security election, M9.4 window, bench-informed) · **classifier cause-walk-for-PIE-only** (hardening candidate, M9.3/M9.4 window) · **website.yml adopt-now** (recommended, awaiting Nick) · **LICENSE-flip timing** (blocks developer-page publish only) · **W-5 publish gate / hosting / deploy** (gate-4 closure = Nick's). _AX-7 formal-AMD-shape CLOSED at the 2026-07-03 Doc 18 Lock: the direction's formal governance home is Locked Doc 18 §7.2 (watermark-neutral, §49/§50 precedent); the mechanism AMD rides Doc 16 OQ2 when an SDK/marketplace milestone actually schedules it (the OQ-2 class — deliberately not pre-authored)._

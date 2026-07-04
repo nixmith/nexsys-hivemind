@@ -5,14 +5,14 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-22 against commit 76288af
+last-verified: 2026-07-03 (v17 hub, the Doc 18 Lock docs pass — the standing Check-10 refresh: docs 15–18 rows added; the cold-boot/process layer + dossiers cataloged; §6 retired to pointer form per truth-hierarchy; stale copied counts converted to re-derive pointers)
 -->
 
 # Strategic Context Map
 
 This is the NexSys development system's map of the entire knowledge base. Use it to quickly locate relevant context before acting on any request. Nick maintains strategic context via claude.ai Projects; the PM and Coder use this map for operational context.
 
-**Last structural update:** 2026-05-28 (M3 COMPLETE; M4 scoping COMPLETE — §1/§2 advanced; KB de-poison applied; file/test counts source-verified to 724 / 1,422).
+**Last structural update:** 2026-07-03 (Doc 18 Lock pass, v17 hub — see frontmatter). _Prior: 2026-05-28 (M3 COMPLETE; M4 scoping — §1/§2 advanced; KB de-poison)._ Any count or HEAD printed in this file is a snapshot at its stamp — **re-derive from source before relying on it** (pointer-not-copy).
 **Update this file** whenever new context files are added, moved, or retired.
 
 ---
@@ -55,7 +55,7 @@ NexSys uses a two-repo model plus an operational context directory:
 
 ### A. `homesynapse-core-docs/` — Authoritative Knowledge Store
 
-#### `design/` — 14 Design Documents (All Locked)
+#### `design/` — 18 Design Documents (All Locked; 15–18 added at the 2026-07-03 refresh)
 
 Production order (from MVP §9.3) with dependency chain:
 
@@ -75,8 +75,12 @@ Production order (from MVP §9.3) with dependency chain:
 | 12 | Startup, Lifecycle & Shutdown | `12-startup-lifecycle-shutdown.md` | All preceding |
 | 13 | Web UI (Observability MVP) | `13-web-ui-observability-mvp.md` | 09, 10, 11 |
 | 14 | Master Architecture Document | `14-master-architecture-document.md` | All preceding |
+| 15 | Cryptographic Architecture | `15-cryptographic-architecture.md` | 04, 06; Locked 2026-06-07; AMD-86/94 folded |
+| 16 | Superior Automation Layer | `16-superior-automation.md` | 07; Locked 2026-06-20; INV-SA-01..04 (§49) |
+| 17 | AIoT + Cloud Readiness | `17-aiot-and-cloud-readiness.md` | 16; Locked 2026-06-26; AIOT-INV-1 (§50) |
+| 18 | Extension & Plugin Architecture | `18-extension-and-plugin-architecture.md` | 05, 06, 15, 16, 17; **Locked 2026-07-03**; EXT-INV-1/2 (§52); §3.5 binds the M9.3 profile registry |
 
-**Amendments:** `design/amendments/` — Ratified through AMD-43 as of 2026-05-16. Highlights: **AMD-25** Temporal Duration Trigger Modifier (fully integrated); **AMD-26** sqlite-jdbc virtual-thread pinning fix; **AMD-27** persistence platform-thread executor (LTD-11 exception); **AMD-32** persistence internal types (WriteCoordinator, WritePriority); **AMD-33** DomainEvent permanently non-sealed (ratified 2026-04-10, codebase aligned in `768a4e4`); **AMD-34–37** M2-bridge structural amendments (V001→25 columns, V002 DLQ, V003 snapshots); **AMD-38** checkpoint policy revision (APPLIED post-D1 spike); **AMD-39** journal_size_limit revision (WITHDRAWN post-D1 spike); **AMD-40** retention execution model (APPLIED); **AMD-41/42/43** M3 governance bundle — State Projection Execution Model, Subscriber Lifecycle/Isolation, Backpressure/Observability (APPLIED 2026-05-16). Read `homesynapse-core-docs/design/amendments/` for the full list and integration status of each AMD.
+**Amendments:** `design/amendments/` — ratified through **AMD-97** at this file's 2026-07-03 stamp; **never trust a copied watermark — re-derive from `ls design/amendments/` + the invariant register's §17 regeneration line** (the canonical cross-check). Early-era highlights (historical) — ratified through AMD-43 as of 2026-05-16: Highlights: **AMD-25** Temporal Duration Trigger Modifier (fully integrated); **AMD-26** sqlite-jdbc virtual-thread pinning fix; **AMD-27** persistence platform-thread executor (LTD-11 exception); **AMD-32** persistence internal types (WriteCoordinator, WritePriority); **AMD-33** DomainEvent permanently non-sealed (ratified 2026-04-10, codebase aligned in `768a4e4`); **AMD-34–37** M2-bridge structural amendments (V001→25 columns, V002 DLQ, V003 snapshots); **AMD-38** checkpoint policy revision (APPLIED post-D1 spike); **AMD-39** journal_size_limit revision (WITHDRAWN post-D1 spike); **AMD-40** retention execution model (APPLIED); **AMD-41/42/43** M3 governance bundle — State Projection Execution Model, Subscriber Lifecycle/Isolation, Backpressure/Observability (APPLIED 2026-05-16). Read `homesynapse-core-docs/design/amendments/` for the full list and integration status of each AMD.
 
 #### `foundations/` — Foundational References
 
@@ -89,7 +93,7 @@ Production order (from MVP §9.3) with dependency chain:
 
 | File | Contains | Authority Over |
 |---|---|---|
-| `Architecture_Invariants_v1.md` | ~94 non-negotiable system properties (INV-XX-NN identifiers) across ~18 categories (72 original + 13 M3 governance: INV-BUS-01..03, INV-PROJ-01/04/NEW-01, INV-WRITER-01, INV-SUB-ISO-01..06 + others) | What the system MUST do |
+| `Architecture_Invariants_v1.md` | The invariant register — **174 invariants / 52 categories at the 2026-07-03 Doc 18 Lock**; the identifier categories span §1–§52. **Never cite a copied total — re-derive from the §17 index table's own regeneration line** (its standing rule; pointer-not-copy) | What the system MUST do |
 | `HomeSynapse_Core_Locked_Decisions.md` | 18 locked implementation choices (LTD-01 through LTD-18), decision dependency graph | What technologies and patterns are used |
 | `HomeSynapse_Core_v1_Project_MVP.md` | MVP scope, tiered strategy, performance budgets, development process, 14-document production order | What's in/out of the MVP |
 | `DAS_Consolidated_Reference_v1.md` | Documentation and writing standards, three voice registers, content types | How we write |
@@ -204,6 +208,29 @@ Currently: `template.md` + `0001-adr-adoption.md`.
 | `strategic-lessons.md` | Strategic planning patterns, calibration observations, context engineering findings (maintained by Nick) | Appended when strategic insights emerge |
 | `pm-lessons.md` | Architecture patterns, constraint application insights, cross-subsystem observations | Appended during or after each session |
 | `coder-lessons.md` | Implementation patterns, pitfalls, workarounds, testing discoveries | Appended during or after each session |
+
+#### `process/` — the cold-boot + standing-discipline layer (cataloged at the 2026-07-03 refresh)
+
+| File | Contains | When to read |
+|---|---|---|
+| `cowork-environment-model.md` | The verified Cowork environment model — path duality, the mount-lag/phantom family (§2), index-lock hazards (§4), anchor hygiene (§5), the §10 pre-commit change-set audit, §11 restart-resume | **FIRST read of every Cowork session** |
+| `working-with-nick.md` | The operator contract — Nick's role, environment, interaction patterns (exact counts; evidence + recommendation + default; veto-or-default), cadence, risk posture, anti-patterns | Every session start (cold-boot trio) |
+| `infrastructure-map.md` | Remotes + the nexsys-io/nixmith account split, CI inventory, toolchain, bench hardware, permission surfaces | Session start (cold-boot trio); before anything infra- or secret-adjacent |
+| `decision-rationale-index.md` | Every load-bearing ruling — one-line WHY + pointer to the verbatim record; the PENDING fence | Session start (cold-boot trio); before touching any settled decision |
+| `truth-hierarchy-and-pointer-not-copy-discipline.md` | The three-layer truth hierarchy (code → Locked docs → operational memory) + the pointer-not-copy rules | When caching or citing any project fact |
+| `ci-as-gate-of-record.md` | Why an in-session LLM "clean" is never a gate — CI on the PUSHED commit is | Before declaring any gate green |
+
+Root front door: `nexsys-hivemind/START_HERE.md` (cold-boot entry point; Nick's copy-paste launch lines for all roles). An unversioned `ClaudeFolder/START_HERE.md` pointer sits outside all repos.
+
+#### `assessments/` + `audits/` + dispatch prompts (key entries)
+
+| File | Contains | When to read |
+|---|---|---|
+| `assessments/2026-07-02_plugin-ecosystem-wars_research-dossier.md` | The nine-ecosystem plugin-wars dossier (lessons L-1..L-33) — Doc 18's cited evidence base | Anything extension / marketplace / SDK |
+| `assessments/2026-07-03_device-profile-registry_research-dossier.md` | The profile-registry design dossier (Q1–Q10; recommendations §A–§K) — the M9.3 instruction's binding design constraints | M9.3 authoring, review, or audit |
+| `planning/2026-07-02_Doc-18_requirements-charter.md` | The ratified Doc 18 requirements charter | Doc 18 archaeology |
+| `audits/` | Lane returns + independent DOCS review returns — every return is two-layer audited by the hub (claims AND observations) | Auditing any lane's output |
+| `handoff/*_session_prompt.md` | Lane + orchestrator dispatch prompts. **The standing hub prompt is the newest `*_PM-mission-control_v*_orchestrator_session_prompt.md` NOT in `archive/`** | Session launch |
 
 #### Task flow
 
@@ -343,17 +370,9 @@ These are documented in the strategy files and governance documents. They constr
 
 **Always check `nexsys-hivemind/context/status/PROJECT_SNAPSHOT.md` for the latest state.** The summary below may be stale — the snapshot is always authoritative.
 
-**Phase:** P3 — Implementation (test-first). Phase 2 Interface Specification frozen 2026-03-20.
-**Revenue:** Pre-revenue
-**Code:** 20-module Gradle layout (16 JPMS-compiled production modules + 3 scaffold-only: platform-systemd, test-support, dashboard + 1 classpath-only test module: testing/integration-tests); **724 production + test Java files** (source-verified 2026-05-28; supersedes earlier "~476+"); ~173 test files. Reproducible: `find homesynapse-core -name '*.java' -not -path '*/build/*' | wc -l` — always exclude worktrees and build outputs.
-**Tests:** **1,422 @Test/@ParameterizedTest/@RepeatedTest methods** across the full test suite (source-verified 2026-05-28; supersedes earlier "~1,465+"/"~1,594+"). Contract test suites: EventStoreContractTest (27), EventBusContractTest (50), WriteCoordinatorContractTest (11), CheckpointStoreContractTest (9), ViewCheckpointStoreContractTest (10), DeadLetterStoreContractTest (10). Integration tests (Pi-profile gated): BurstLoadIT, HeapBudgetIT, Pi4SustainedLoadIT, Pi4D1SpikeIT, CrashRecoveryIT.
-**Interface specs complete:** 16 modules (Phase 2 Blocks A–S) — FROZEN
-**Current milestone:** M3 COMPLETE (2026-05-27). M4 scoping COMPLETE (2026-05-28, canonical scope). **M4.0a NEXT** (AMD-45 atomic checkpoint wiring).
-**Next critical path:** M4.0a → M4.0b (DispatchingProjectionAdvancer + real DerivationRule + one-shot backfill) → device-model expansion (Research 8) + integration-api interface freeze (Research 6); config = M6, automation = M7/M8, integration-runtime impl = M9.
-**Schedule:** Significantly ahead of the original 37-week Master Release Plan. The 37-week plan placed Weeks 1–10 as "Interface Specification" — finished in 7 days (Mar 14–20). Phase 3 persistence subsystem (M2.x) complete. Event bus production implementation with full REPLAY→LIVE algorithm + backpressure + persistent DLQ + state projection + integration tests all landed in the M3.1–M3.4b window (May 16–19). M3.6a/M3.6b composition-root prep landed May 20. See Phase 3 Progress Annotation in `master-release-plan.md` for actuals.
-**Launch target:** November 25, 2026
-**Design docs:** All 14 Locked. Amendments through AMD-43. DEC-M3-01 through DEC-M3-16 locked.
-**Nick's timeline:** College student, 3–4 hour blocks on school days, full days weekends
+**This section deliberately carries NO copied state** (retired to pointer form at the 2026-07-03 map refresh — the copied block that used to live here had drifted to 2026-05-era claims: "M4.0a NEXT," "14 docs," "AMD-43," "~94 invariants." That drift is the §2 truth-hierarchy lesson made concrete.)
+
+Durable pointers only: **phase** = P3 Implementation, test-first (active backlog: `context/planning/phase-3-milestone-backlog.md`, newest currency note first) · **live state** = `context/status/PROJECT_SNAPSHOT.md` (newest masthead beat) + `context/handoff/pm-handoff.md` · **fleet HEADs / watermark / invariant counts** — re-derive per `context/process/truth-hierarchy-and-pointer-not-copy-discipline.md` (git log per repo; the register's §17 regeneration line; `ls design/amendments/`) · **schedule + launch target** = `context/planning/master-release-plan.md` + the current week's plan in `context/planning/weeks/` · **operator context** = `context/process/working-with-nick.md`.
 
 ---
 
@@ -362,7 +381,7 @@ These are documented in the strategy files and governance documents. They constr
 Role-specific checklist of what to read at session start. Nick handles strategic direction directly (via claude.ai Projects) — no separate Hivemind agent session.
 
 ### PM Session Start
-0. **Freshness preflight** — run `project-manager/references/freshness-preflight.md` (10 checks) BEFORE any forward work
+0. **Ground first (Cowork):** `context/process/cowork-environment-model.md` → the cold-boot trio (`working-with-nick.md` · `infrastructure-map.md` · `decision-rationale-index.md`) → `truth-hierarchy-and-pointer-not-copy-discipline.md`; then the **freshness preflight** — `project-manager/references/freshness-preflight.md` (**11 checks**) BEFORE any forward work
 1. `nexsys-hivemind/context/status/PROJECT_SNAPSHOT.md`
 2. `nexsys-hivemind/context/handoff/pm-handoff.md`
 3. `nexsys-hivemind/context/handoff/cross-agent-notes.md`
@@ -428,4 +447,4 @@ These rules make update obligations explicit. Agents cannot end sessions without
 
 ---
 
-**Last verified against:** `homesynapse-core` commit `dfb045e` on `2026-05-21`.
+**Last verified against:** the five-repo fleet at the 2026-07-03 Doc 18 Lock pass (core `6ea6912` · docs at the Lock commit · hivemind v17 beat-1 · bench `5ceff3b` · skills `ae434ca`). Spot-refreshed, not a full structural re-verify — re-derive any load-bearing value from source at need.

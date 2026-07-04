@@ -47,9 +47,11 @@ Revenue is structured as progressive value creation. Each layer builds on the on
 ### Layer 2: HomeSynapse Connect (Cloud Subscription — $7.99/mo)
 
 **Price:** $7.99/month
-**What it is:** Cloud backup, remote access, voice assistant integration bridge, firmware update channel, community integration repository access.
+**What it is:** Cloud backup, remote access, voice assistant integration bridge, firmware update channel, and the **hosted/verified/one-click community-content CHANNEL** — curated update streams, version-pinned channels, breaking-change assurance. **The community integration repository itself is free and sideloadable for everyone, forever** — the paid channel funds the per-version scanning and kill-switch infrastructure that protects everyone.
 **Revenue:** Recurring SaaS. The primary early-stage revenue driver.
 **Strategic function:** Convenience upgrade for users who want remote access and cloud backup without self-hosting infrastructure. Conversion target for free-tier users.
+
+**Standing constraint (DP-18-C, ruled 2026-07-03 — reworded in the same pass as the Doc 18 Lock; verbatim rationale: pm-handoff beat-57):** community content is **never paywalled**. Connect sells the hosted/verified/one-click *channel*, not access — **"monetize trust, not access."** Exact Connect wording polishes at pricing time; the principle is ruled and Doc 18 §2 states it as a constraint.
 
 **Architectural implication:** Connect services are additive — they enhance the local system but never replace local functionality. If Connect goes down, the home still works identically.
 

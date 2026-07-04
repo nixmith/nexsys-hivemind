@@ -3,7 +3,7 @@ file: context/process/2026-05-31_two-project-claude-architecture.md
 purpose: Playbook for splitting the single "HomeSynapse Core Claude Project" into two repo-scoped Claude Projects (CORE = code, DOCS = design/governance), orchestrated by Cowork. Grounded in the Context Management Research Document (2026-05-31).
 audience: Nick, PM (Cowork sessions)
 state-type: process / reference
-status: CURRENT — 2026-05-31
+status: SUPERSEDED-in-practice — adjudicated 2026-07-04 at the v19 currency pass; Nick's final retirement ruling rides the §2D batch (veto-or-default). EVIDENCE: the Project-paste review loop described here was replaced by the LANE-ROUTING model (settled 2026-07-02/03, v14 beats 50–56) — independent reviews and research run as fresh write-isolated Cowork lanes on authored session prompts (the Doc-17 and Doc-18 independent DOCS-review lanes, the M9-arc adversarial-review lane), implementation runs in Claude Code lanes, and the hub orchestrates; no claude.ai-Project round-trip appears in any v13–v18 beat record. HISTORY PRESERVED (never delete): the context-engineering rationale below — smallest-high-signal-set, source companions as ground truth, findings-distillation-not-transcripts, one-sharp-question-last — still informs every lane brief authored today. The doc's volatile facts (14 design docs, 748 Java files, 21 MODULE_CONTEXTs, the Opus-4.6/4.7 model claims) are era-bound to 2026-05-31; do not consume them. Downstream artifacts: `project-knowledge/CLAUDE_PROJECT_{CORE,DOCS}_custom-instructions.md` + `CLAUDE_PROJECT_KNOWLEDGE_SOURCES.md` — ruled in the same §2D batch.
 -->
 
 # Two-Project Claude Architecture — Splitting CORE and DOCS

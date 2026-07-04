@@ -4,7 +4,7 @@ purpose: Cold-boot entry point for a Claude instance with ZERO conversational me
 audience: Any fresh Claude (Cowork hub, Claude Code lane, or Cowork lane); Nick.
 state-type: reference (deliberately state-free — pointer-not-copy)
 status: CURRENT
-last-verified: 2026-07-03 (v15 hub, beat 60 — authored for the wipe test)
+last-verified: 2026-07-04 (v19 hub, currency pass — FULL read: pointer-cleanliness HELD (the file is deliberately state-free; zero stale claims found); the PM launch line verified against Nick's actual v19 launch (matched the template verbatim); no content edits needed)
 -->
 
 # START HERE — cold boot for a memory-less Claude

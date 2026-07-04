@@ -5,14 +5,14 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-07-03 (v17 hub, the Doc 18 Lock docs pass — the standing Check-10 refresh: docs 15–18 rows added; the cold-boot/process layer + dossiers cataloged; §6 retired to pointer form per truth-hierarchy; stale copied counts converted to re-derive pointers)
+last-verified: 2026-07-04 (v19 hub, the currency pass — §1 + the product-table Core row de-staled to pointer form [both had survived the 2026-07-03 refresh carrying 2026-05-28-era copied state]; the module-structure table de-lossed [hand-maintained Status column RETIRED — the F2 class — and rebuilt from settings.gradle.kts, which exposed a missing `core:value-model` row]; claude.ai-Projects mechanism claims reconciled to the lane model; §8 update-rules aligned to the single-spine-writer model; §9 cited paths existence-verified)
 -->
 
 # Strategic Context Map
 
-This is the NexSys development system's map of the entire knowledge base. Use it to quickly locate relevant context before acting on any request. Nick maintains strategic context via claude.ai Projects; the PM and Coder use this map for operational context.
+This is the NexSys development system's map of the entire knowledge base. Use it to quickly locate relevant context before acting on any request. Nick rules strategy directly (operator contract: `context/process/working-with-nick.md`); the PM hub and lanes use this map for operational context. (The 2026-05-31 two-Claude-Projects review workflow is SUPERSEDED-in-practice by the lane-routing model — see that doc's masthead; Nick's retirement ruling pending at the v19 §2D batch.)
 
-**Last structural update:** 2026-07-03 (Doc 18 Lock pass, v17 hub — see frontmatter). _Prior: 2026-05-28 (M3 COMPLETE; M4 scoping — §1/§2 advanced; KB de-poison)._ Any count or HEAD printed in this file is a snapshot at its stamp — **re-derive from source before relying on it** (pointer-not-copy).
+**Last structural update:** 2026-07-04 (v19 currency pass — see frontmatter). _Prior: 2026-07-03 (Doc 18 Lock pass) · 2026-05-28 (M3-era)._ Any count or HEAD printed in this file is a snapshot at its stamp — **re-derive from source before relying on it** (pointer-not-copy).
 **Update this file** whenever new context files are added, moved, or retired.
 
 ---
@@ -24,13 +24,13 @@ An infrastructure company building the operating system and trust layer for the 
 
 **Founder:** Nick (nick@nexsys.io)
 **Domains:** nexsys.io (company), homesynapse.com (product)
-**Current phase:** P3 — Implementation (test-first). Pre-revenue. 14 design docs Locked. **724 production + test Java files across 16 JPMS-compiled modules** (plus 3 scaffold-only modules: platform-systemd, test-support, dashboard; plus 1 classpath-only test module: testing/integration-tests — 20 Gradle modules total; source-verified 2026-05-28). Phase 2 FROZEN 2026-03-20 after Blocks A–S. **M3 COMPLETE** (2026-05-27, nineteen Claude Code WUs); **M4 scoping COMPLETE** (2026-05-28 — canonical scope; `homesynapse-core-docs/design/HomeSynapse_Core_M4_Implementation_Plan_PLAN-M4-CONSOLIDATED.md`). Next work unit: **M4.0a** (AMD-45 atomic checkpoint wiring).
+**Current phase:** P3 — Implementation (test-first). Pre-revenue. **All 18 design docs Locked** (the original 14 + Docs 15–18); Phase 2 FROZEN 2026-03-20 after Blocks A–S. Volatile state (current milestone, fleet HEADs, watermark, file/test counts) is NEVER carried here — re-derive per §6: `PROJECT_SNAPSHOT.md` newest masthead beat · the backlog's currency notes · the register's regeneration line. Module census = `settings.gradle.kts` (22 subprojects + `build-logic` at the 2026-07-04 source-verify — re-derive, don't copy).
 
 ### Product Constellation
 
 | Product | Type | Phase | Status |
 |---|---|---|---|
-| **HomeSynapse Core** | Smart home OS (free, Apache 2.0) | P3 Test-First Impl | 14 design docs Locked; Phase 2 FROZEN; 20 Gradle modules (16 JPMS-compiled + 3 scaffold + 1 IT); **724 Java files**; **1,422 tests** (source-verified 2026-05-28); M3 COMPLETE 2026-05-27; M4 scoping COMPLETE 2026-05-28 (canonical); M4.0a NEXT |
+| **HomeSynapse Core** | Smart home OS (free, Apache 2.0) | P3 Test-First Impl | All 18 design docs Locked; Phase 2 FROZEN 2026-03-20; live milestone/fleet/count state = `PROJECT_SNAPSHOT.md` newest beat + the backlog (pointer, not copy) |
 | **HomeSynapse Connect** | Cloud subscription ($7.99/mo) | Phase 1 | Spec'd, not built |
 | **HomeSynapse Cloud Pro** | Premium cloud ($14.99/mo) | Phase 1 | Spec'd, not built |
 | **HomeSynapse Hub** | Hardware ($149) | Phase 1 | Spec'd, no manufacturing |
@@ -118,39 +118,41 @@ Contains completed Phase 1 governance artifacts whose findings have been fully a
 
 ### B. `homesynapse-core/` — Code Repository
 
-#### Module Structure (20-module Gradle scaffold)
+#### Module Structure (22 Gradle subprojects + `build-logic` — census re-derived from `settings.gradle.kts`, 2026-07-04)
 
-Phase 2 closed all block-level interface specification on 2026-03-20. All 16 JPMS-compiled modules have populated `module-info.java` and populated `MODULE_CONTEXT.md`. Three scaffold-only modules (platform-systemd, dashboard, test-support) carry stub MODULE_CONTEXT.md files and no Java source yet — their implementation is deferred to later phases. Module #20 (`testing/integration-tests`) was added in M3.4a (2026-05-19) — classpath-only test code (no module-info.java), Pi-profile gated.
+Phase 2 closed all block-level interface specification on 2026-03-20. **Per-module implementation STATUS is deliberately NOT maintained here** — a hand-maintained status column is the F2 rot class (the retired column had drifted to M3-era claims and the table was missing `core:value-model` entirely). Status truth = the backlog's M-rows + each module's `MODULE_CONTEXT.md`; census truth = `settings.gradle.kts`. The table keeps the STABLE columns only (module → Phase 2 block provenance):
 
-| Group | Module | Status | Phase 2 Block |
-|---|---|---|---|
-| platform/ | `platform-api` | Phase 2 spec complete; in active Phase 3 use | Block F |
-| platform/ | `platform-systemd` | Scaffold only (no Java source yet) | — |
-| core/ | `event-model` | Phase 2 spec complete; `@EventType` applied M2.1/M2.i | Blocks A, B, D |
-| core/ | `event-bus` | Phase 2 spec complete; **Phase 3 active** — InProcessEventBus (33 types), EventBusConfig, full REPLAY→LIVE | Block E |
-| core/ | `device-model` | Phase 2 spec complete | Block G |
-| core/ | `state-store` | Phase 2 spec complete; **Phase 3 active** — StateProjection, StateCheckpointSource, 19 types | Block H |
-| core/ | `persistence` | Phase 2 spec complete; **Phase 3 active** — SqliteEventStore, profile-driven PRAGMAs, 45 types | Block J |
-| core/ | `automation` | Phase 2 spec complete | Block L |
-| integration/ | `integration-api` | Phase 2 spec complete | Block I |
-| integration/ | `integration-runtime` | Phase 2 spec complete | Block O |
-| integration/ | `integration-zigbee` | Phase 2 spec complete | Block P |
-| config/ | `configuration` | Phase 2 spec complete | Block K |
-| api/ | `rest-api` | Phase 2 spec complete | Block M |
-| api/ | `websocket-api` | Phase 2 spec complete | Block N |
-| observability/ | `observability` | Phase 2 spec complete | Block Q |
-| web-ui/ | `dashboard` | Scaffold only (no Java source yet) | — |
-| lifecycle/ | `lifecycle` | Phase 2 spec complete | Block R |
-| app/ | `homesynapse-app` | Phase 2 spec complete | Block S |
-| testing/ | `test-support` | Scaffold only (no Java source yet) | — |
-| testing/ | `integration-tests` | **Phase 3 active** — M3.4a scaffold + M3.4b sustained-load/crash-recovery | M3.4a/M3.4b |
-| — | `build-logic/` | Convention plugins | n/a |
+| Group | Module | Phase 2 Block / provenance |
+|---|---|---|
+| platform/ | `platform-api` | Block F |
+| platform/ | `platform-systemd` | — (scaffold; sd_notify transport deferred to M13, OR-M13-SDNOTIFY) |
+| core/ | `event-model` | Blocks A, B, D |
+| core/ | `value-model` | — (created M4.0b-4a: `AttributeValue` relocated from device-model to break the event↔device JPMS cycle) |
+| core/ | `event-bus` | Block E |
+| core/ | `device-model` | Block G |
+| core/ | `state-store` | Block H |
+| core/ | `persistence` | Block J |
+| core/ | `automation` | Block L |
+| integration/ | `integration-api` | Block I |
+| integration/ | `integration-runtime` | Block O |
+| integration/ | `integration-zigbee` | Block P |
+| config/ | `configuration` | Block K |
+| api/ | `rest-api` | Block M |
+| api/ | `websocket-api` | Block N |
+| observability/ | `observability` | Block Q |
+| web-ui/ | `dashboard` | — (the Preact+TS SPA, BUILT at the FE-0→FE-1b lane arc — live end-to-end; `frontend.yml` CI-gated; no Java by design) |
+| lifecycle/ | `lifecycle` | Block R |
+| app/ | `homesynapse-app` | Block S |
+| testing/ | `test-support` | — (testFixtures substrate) |
+| testing/ | `integration-tests` | — (M3.4a/b; classpath-only, Pi-profile gated, excluded from default `check`) |
+| spike/ | `wal-validation` | — (throwaway spike; standing git-rm advisory) |
+| — | `build-logic/` | includeBuild — convention plugins (`-Werror` rides here) |
 
 #### `MODULE_CONTEXT.md` Files
 
 Located at `[module-path]/MODULE_CONTEXT.md` within homesynapse-core. Each contains: purpose, type inventory, dependencies, consumers, cross-module contracts, constraints, gotchas, Phase 3 notes.
 
-**Populated with real content (17 total):** platform-api, event-model, event-bus, device-model, state-store, persistence, configuration, automation, integration-api, integration-runtime, integration-zigbee, rest-api, websocket-api, observability, lifecycle, homesynapse-app, testing/integration-tests. Most recently updated: `core/event-bus/MODULE_CONTEXT.md` (2026-05-20, M3.6b — EventBusConfig, InProcessEventBus public), `core/persistence/MODULE_CONTEXT.md` (2026-05-20, M3.6a — DeploymentProfile 6 fields, LockingMode), `core/state-store/MODULE_CONTEXT.md` (2026-05-19, projection-checkpoint wiring), `testing/integration-tests/MODULE_CONTEXT.md` (2026-05-19, WUCP Phase 2 reconciliation).
+**Populated with real content:** platform-api, event-model, value-model, event-bus, device-model, state-store, persistence, configuration, automation, integration-api, integration-runtime, integration-zigbee, rest-api, websocket-api, observability, lifecycle, homesynapse-app, testing/integration-tests. Recency is NEVER copied here — `git log -- <module>/MODULE_CONTEXT.md` is the recency truth. Structure convention: top-loaded (JPMS block + type inventory first) per env-model §8.
 
 **Scaffold stubs (3 total):** platform-systemd, test-support, dashboard. These modules exist as Gradle directories with placeholder MODULE_CONTEXT.md files but contain no Java source yet; their implementation is deferred.
 
@@ -378,7 +380,7 @@ Durable pointers only: **phase** = P3 Implementation, test-first (active backlog
 
 ## 7. Agent Loading Protocol
 
-Role-specific checklist of what to read at session start. Nick handles strategic direction directly (via claude.ai Projects) — no separate Hivemind agent session.
+Role-specific checklist of what to read at session start. Nick handles strategic direction directly — no separate Hivemind agent session.
 
 ### PM Session Start
 0. **Ground first (Cowork):** `context/process/cowork-environment-model.md` → the cold-boot trio (`working-with-nick.md` · `infrastructure-map.md` · `decision-rationale-index.md`) → `truth-hierarchy-and-pointer-not-copy-discipline.md`; then the **freshness preflight** — `project-manager/references/freshness-preflight.md` (**11 checks**) BEFORE any forward work
@@ -407,10 +409,10 @@ These rules make update obligations explicit. Agents cannot end sessions without
 
 | File | Must Be Updated When | By Whom |
 |---|---|---|
-| `PROJECT_SNAPSHOT.md` | Every session end, or after completing a work unit | Whichever agent ran the session |
+| `PROJECT_SNAPSHOT.md` | Every hub beat / WU completion | **The PM hub ONLY** (single spine-writer; lanes are write-isolated) |
 | `phase-3-milestone-backlog.md` | Milestone status changes (PLANNED→NEXT→DONE) | PM when producing coding instruction, Coder when completing |
 | `phase-2-block-backlog.md` | Frozen — retroactive corrections only | PM |
-| Agent handoff files (`pm-handoff.md`, `coder-handoff.md`) | Every session end | The agent that ran the session |
+| Agent handoff files (`pm-handoff.md`, `coder-handoff.md`) | Every session end | pm-handoff: the hub only. coder-handoff: the Coder lane (one of the three lane-writable shared files — env-model §2) |
 | `pm-handoff.md` Open Risks section | Every session end; every deferred build gate logged until resolved | PM |
 | `cross-agent-notes.md` | Corrections discovered, JPMS lessons, cross-module changes | Any agent discovering something others need |
 | `strategic-context-map.md` (this file) | New files added/moved/retired, phase transitions | Nick or PM |
@@ -418,7 +420,7 @@ These rules make update obligations explicit. Agents cannot end sessions without
 | Traceability indexes | After each work unit completion | PM (WUCP Phase 2 Step 2) |
 | Dual skill mirrors (`.claude/skills/nexsys-*`) | Every WUCP Phase 2 | PM (Step 10 — `diff -rq` must return empty) |
 
-**Enforcement mechanism:** The Work Unit Completion Protocol (`context/protocols/work-unit-completion-protocol.md`) is the primary enforcement mechanism. Each agent's CLAUDE.md references the WUCP as a mandatory gate. The PM's WUCP Phase 2 drift check verifies all artifacts are current, and the session-start freshness preflight (`project-manager/references/freshness-preflight.md`) blocks forward work if the hivemind is stale. The PROJECT_SNAPSHOT.md "Recent Session Log" table serves as an audit trail — if a session appears in the log but didn't update the corresponding handoff file, that's a process failure.
+**Enforcement mechanism:** The Work Unit Completion Protocol (`context/protocols/work-unit-completion-protocol.md`) is the primary enforcement mechanism. Each agent's CLAUDE.md references the WUCP as a mandatory gate. The PM's WUCP Phase 2 drift check verifies all artifacts are current, and the session-start freshness preflight (`project-manager/references/freshness-preflight.md`) blocks forward work if the hivemind is stale. The masthead beats in PROJECT_SNAPSHOT.md are the session audit trail (the old "Recent Session Log" table is retired to pointer form, 2026-07-04) — a beat that didn't update its handoff files is a process failure.
 
 ---
 
@@ -447,4 +449,4 @@ These rules make update obligations explicit. Agents cannot end sessions without
 
 ---
 
-**Last verified against:** the five-repo fleet at the 2026-07-03 Doc 18 Lock pass (core `6ea6912` · docs at the Lock commit · hivemind v17 beat-1 · bench `5ceff3b` · skills `ae434ca`). Spot-refreshed, not a full structural re-verify — re-derive any load-bearing value from source at need.
+**Last verified against:** the five-repo fleet at the 2026-07-04 v19 currency pass (core `748962f` · docs `b65ed7d` · hivemind `68ccbf6`+pass edits · bench `5ceff3b` · skills `ae434ca`). §9 cited paths existence-verified this pass; the module census re-derived from `settings.gradle.kts`. Spot-refreshed, not a full structural re-verify — re-derive any load-bearing value from source at need.

@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-07-03 (v16 hub, beat 62 — the WEBSITE-LANE note archived SERVED: its residuals landed in docs 78e0c5c [the merged sweep — Commit-A content + Doc-18 DRAFT in one commit; provenance note in pm-handoff beat 62] with the zero-JS gate proven green on host BEFORE the commit. This frontmatter deliberately does not quote the archive-separator heading literally — the beat-59 splice lesson.) ACTIVE: 0. The M9.2 Coder note and the website-lane note are both SERVED below the separator. Older archived entries: archive/cross-agent-notes-2026-Q2.md + git history.
+last-verified: 2026-07-04 (v19 hub, currency pass — the M9.4a Coder note archived SERVED below the separator [its stated archive condition, the beats-1–4 commit, was met at the v18 close: hivemind chain to 33aae08/68ccbf6]; a STRAY SPLICE FRAGMENT excised from the active region — an orphaned tail of the pre-de-bait archival-rule sentence that rendered as a phantom heading, the third artifact of that sentence's splice-bait history. This frontmatter deliberately does not quote the archive-separator heading literally — the beat-59 splice lesson.) ACTIVE: 0. Older archived entries: archive/cross-agent-notes-2026-Q2.md + git history.
 -->
 
 # Cross-Agent Notes
@@ -16,7 +16,15 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 **Archival rule:** When an agent reads a note and confirms all action items are resolved, move the note below the archive separator at the end of this file. (This sentence deliberately does not quote the separator heading literally — it has now baited TWO anchor-splice incidents, beat-59's and M9.4a's; the v18 hub repaired the second and de-baited the text, beat 4.)
 
-## 2026-07-04 [Coder (Claude Code) -> PM hub, Nick]  (M9.4a DELIVERED — the hero loop is GREEN hardware-free; six [REVIEW] items need rulings before/at M9.4b authoring) — **SERVED (v18 hub, beat 4): all six ruled ACCEPT (pm-handoff v18 beat-4 = the rulings record); the queued items folded into the backlog M9.4b row; the gate was discharged pre-commit (check 155 GREEN). This note archives on the beats-1–4 commit.**
+---
+
+**ACTIVE: 0 (as of 2026-07-04, v19 currency pass — the M9.4a Coder note archived SERVED below; the stray splice fragment that sat above this line [an orphaned tail of the pre-de-bait archival-rule sentence, rendering as a phantom heading] was excised same pass).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
+
+## Archived
+
+_(All entries below resolved/superseded — kept inline for trail; bulk-move to `archive/cross-agent-notes-2026-Q2.md` at the next hygiene pass. The M9.4a note directly below was archived 2026-07-04 by the v19 hub at the currency pass — its "archives on the beats-1–4 commit" condition was met when the v18 beats-1–6 commits all landed (hivemind `33aae08`/`68ccbf6`). The four 2026-07-02/03 delivery notes — FE-1b · Doc-18 · M9.1 · M7.5c-a — were archived 2026-07-03 by the v15 hub at the launch quiescent window; the six 2026-06-27/28 notes were archived 2026-07-02 by the v14 hub. Separator relocation, content untouched. The M9.2 note below was EXTRACTED from the frontmatter splice at beat 59 — one canonical copy, served.)_
+
+## 2026-07-04 [Coder (Claude Code) -> PM hub, Nick]  (M9.4a DELIVERED — the hero loop is GREEN hardware-free; six [REVIEW] items need rulings before/at M9.4b authoring) — **SERVED (v18 hub, beat 4): all six ruled ACCEPT (pm-handoff v18 beat-4 = the rulings record); the queued items folded into the backlog M9.4b row; the gate was discharged pre-commit (check 155 GREEN). Archived 2026-07-04 (v19 currency pass) — the beats-1–4 commit condition was met at the v18 close.**
 
 M9.4a delivered per `context/instructions/2026-07-04_M9.4a_moat-wiring-and-hardware-free-hero-loop_coding-instruction.md` — full detail in `coder-handoff.md` (newest entry) + the session completion report. The done-when is green in-session: `HeroLoopHardwareFreeIT` (motion → `occupancy.occupied` → trigger → dispatch → real adapter → byte-asserted frame → honest CONFIRMED with the causal chain; the CT derivation with the tuned 15 s window visible on `command_issued`; the F-2 supersession pair; the identify honest verdict; timeout honesty) + `ZigbeeReplaySafetyIT` (zero NCP frames in replay, the LIVE control fires). Full `./gradlew check` = Nick's deferred gate.
 
@@ -29,16 +37,6 @@ M9.4a delivered per `context/instructions/2026-07-04_M9.4a_moat-wiring-and-hardw
 6. Two forced `HomeSynapseCore` surface additions for W10 (`registerIntegrationSchema` public gateway, java.base-only signature; package-private `schemaRegistry()`).
 
 **Also flagged ([INFO], M9.4b candidates):** the brightness capability-domain mismatch (level 0–254 at ingestion vs percent 0–100 in the derivation domain — set_brightness confirmations would false-timeout); `StandardExplanationService` renders `superseded`/`unconfirmed` as FAILED; the trigger-map `type:` selector-key collision in the automation loader (inline type-selectors on triggers are unreachable).
-
-## Archived` separator at the bottom of this file. Only notes above the separator are active. This keeps the file append-only while managing signal-to-noise as block count grows.
-
----
-
-**ACTIVE: 1 (as of 2026-07-04, M9.4a Coder closeout — the note directly above the separator).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
-
-## Archived
-
-_(All entries below resolved/superseded — kept inline for trail; bulk-move to `archive/cross-agent-notes-2026-Q2.md` at the next hygiene pass. The four 2026-07-02/03 delivery notes — FE-1b · Doc-18 · M9.1 · M7.5c-a — were archived 2026-07-03 by the v15 hub at the launch quiescent window; the six 2026-06-27/28 notes were archived 2026-07-02 by the v14 hub. Separator relocation, content untouched. The M9.2 note directly below was EXTRACTED from the frontmatter splice at beat 59 — one canonical copy, served.)_
 
 ## 2026-07-03 [Website lane (Cowork) → PM hub, Nick]  (Website lane DELIVERED: SSG ruled [Astro @ docs-repo website/site/] + 6-page skeleton green [zero-JS enforced, shared tokens cross-repo] + the R-3 developer page [truthful posture, 13-row claim→truth table] · dist-gitignore rider REFUTED with evidence — commit 1 intentionally absent, ZERO core writes · docs commit stages EXACTLY 26 · gate 4 NOT declared closed · SERVED beat 62: residuals landed docs `78e0c5c`, zero-JS gate green on host)
 

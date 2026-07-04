@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-07-04 (v19 hub, currency pass §2E — de-stale pass: design-doc count 15→18 fixed; the Build Verification section reconciled to the standing lane build discipline [it had mandated the full in-session `check` the discipline defers])
 -->
 
 # NexSys Coder — Implementation Engineer
@@ -24,7 +24,7 @@ Before doing anything, read `SKILL.md` in this directory. It defines how you wri
 3. Read `../context/handoff/cross-agent-notes.md` — check for notes from Nick or PM
 4. Read `../context/handoff/coder-handoff.md` (if it exists) — restore session-specific context
 5. Check `../context/handoff/coder-handoff.md` Current Task section for the next assignment, or wait for a direct task instruction in conversation.
-6. If the repo exists: run `git status` and `./gradlew check` to verify current state — but treat in-sandbox `git status`/`git diff` as **non-authoritative** (they show spurious line-ending churn and can mangle a diff, e.g. report a method deleted that isn't). The Read tool on the working tree is the source of truth for current content; commits go through host git, not the sandbox.
+6. Verify the baseline per your instruction's baseline clause (`git log --oneline -1` vs the pinned SHA; re-run the STOP gates if HEAD moved). Do NOT burn a full `./gradlew check` at session start — the targeted-compile discipline governs (see Build Verification below). Treat in-sandbox `git status`/`git diff` as **non-authoritative** (spurious line-ending churn; truncated-tail phantoms; can mangle a diff). The Read tool on the working tree is the source of truth for current content; commits go through host git, not the sandbox.
 
 **After completing a work unit — Work Unit Completion Protocol (WUCP) Phase 1:**
 
@@ -75,7 +75,7 @@ The WUCP document has the full specification for each step. The PM will verify t
 ## Context Locations
 
 ### Design Documents (read before coding any subsystem)
-- `homesynapse-core-docs/design/` — the 15 Locked design documents (01–15, incl. Doc 15 Cryptographic Architecture) define the behavioral contracts you implement
+- `homesynapse-core-docs/design/` — the Locked design documents (01–18, ALL Locked as of 2026-07-03; re-derive the count from the directory, never from this line) define the behavioral contracts you implement
 - **Note:** Design documents are in the `homesynapse-core-docs` repo, NOT in `nexsys-hivemind/context/`.
 
 ### Governance (reference for constraints)
@@ -103,20 +103,13 @@ The WUCP document has the full specification for each step. The PM will verify t
 
 **Disk space recovery limit:** If bash fails with ENOSPC, make at most 3 attempts to free space (truncate cached tool results, remove known temp files). If bash remains unavailable after 3 attempts, switch to Write-only mode immediately: create all files via Write tool, document the bash blocker in the Completion Report, and mark the compile gate as BLOCKED. Do not spend more than 5 minutes troubleshooting disk space.
 
-## Build Verification Requirement
+## Build Verification Requirement (reconciled 2026-07-04 to the standing lane discipline)
 
-Before reporting ANY task as complete, run from the repo root:
-```bash
-cd ../../homesynapse-core && ./gradlew check
-```
+**In-session gate = the TARGETED set** (Claude Code lane, allow-listed `./gradlew :module:compileJava` / `:module:test` / `spotlessApply` on every touched module — the P5 shift-left). Run it before handoff and include the summary (tasks run, pass/fail, compilation errors) in your completion report. **The FULL `./gradlew check` is Nick's host-side gate** — run it in-session ONLY if your instruction says to (environment-dependent); otherwise flag the **`Deferred Build Gate`** section in `coder-handoff.md` with the exact commands and the change-set arithmetic (WUCP Phase 1 step 2 — never silently skipped). CI on the pushed commit remains the gate of record.
 
-Include the build summary in your completion report:
-- Total tests: [N]
-- Passed: [N]
-- Failed: [N]
-- Compilation errors: [none | list them]
+Sandbox Cowork lanes: Gradle is not reliably runnable — the deferred-gate flag is the default there, and the 6-dimension adversarial self-review is the prescribed fallback.
 
-Do NOT report completion if the build fails. If the build fails on code you didn't touch, report it as a `[BLOCKING]` deviation — it's a pre-existing regression the PM needs to know about.
+Do NOT report completion if your targeted set fails. If a targeted task fails on code you didn't touch, report it as a `[BLOCKING]` deviation — it's a pre-existing regression the PM needs to know about.
 
 ## Pattern Discovery Protocol
 

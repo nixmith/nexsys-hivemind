@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-07-04 (v19 currency pass — the 19-row LTD at-a-glance table spot-verified at AMD-98/174/52: NO row change; the AMD-98 EZSP band narrowing is register/AMD-level [no LTD asserts protocol versions] and the confirmation-pipeline realizations are AMD-90/95/97/98 + Doc 07/08 territory; rows 16/17 stand as corrected at the v17 skills pass)
 -->
 
 # Constraint Enforcement Guide

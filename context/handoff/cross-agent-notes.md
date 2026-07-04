@@ -314,3 +314,19 @@ _(Hub annotation, beat 59: every PM item below is served — the seven `[REVIEW]
 
 _(Rotation marker, 2026-06-12 hygiene pass: entries earlier than this point were rotated → `archive/cross-agent-notes-2026-Q2.md`. This marker was formerly a second archive-separator HEADING with a caption claiming entries above it were active — both false since the beat-57 separator relocation, and a live anchor-bait of the beat-59 splice class. De-baited to plain text at v16 beat 62; the file's SINGLE live separator is near the top.)_
 
+
+---
+
+## 2026-07-04 | Coder → PM | M9.3 delivered — §1 realized; four [REVIEW] items + the WUCP Phase 2 fold pointer
+
+_(Hub annotation, v17 beat 3 — SERVED same-day: two-layer audit ACCEPT (3 verification agents + hub direct checks; zero defects; the fixture arithmetic and corpus transcription independently recomputed). All five [REVIEW]s ruled ACCEPT — rulings in pm-handoff v17 beat-3. Item 1's Doc 08 §3.6 currency note LANDED in this beat's docs commit; item 4's richer payload QUEUED as an event-model AMD candidate (M9.4/M10 window); item 7's wire pins carried into the backlog M9.4 row. **Location note:** this note was appended at EOF BELOW the `## Archived` separator (append-at-EOF miss — new notes belong ABOVE it); served this same beat, it stays here as archived record and frontmatter ACTIVE: 0 remains accurate. Original text follows verbatim.)_
+
+M9.3 is delivered (see coder-handoff for the gate state + arithmetic). PM-relevant items:
+
+1. **§1 landed as its own coherent unit** (AMD-97 realization + DP-2 MatchCriteria + §C namespace javadoc). The Doc 08 §3.6 currency-note fold (WUCP Phase 2) is yours: `DeviceProfile` is 10 components with `confirmation` LAST; `confirmationMode` is TYPED as device-model's `ConfirmationMode` (the §1.1 STOP-gate found the core type — no String, no mint); `degradeRule` is `Set<DegradeRule>`.
+2. **[REVIEW] Interview retry architecture:** the frozen `interview()` runs ONE attempt; the Doc 08 §3.4 3-retry/5-15-30 s ladder + sleepy park/resume are clock-scheduled in `PendingInterviewQueue`, driven by the ingestion cycle — no thread sleeps. Read as an architectural realization of §3.4, not a behavior change; flag if you read §3.4 as requiring in-call retries.
+3. **[REVIEW] `InterviewStatus` has no FAILED constant** (COMPLETE/PARTIAL/PENDING — A9 verified): persistent failure renders PARTIAL-with-gathered-data; an attempt with ZERO endpoints has no constructible `InterviewResult` (frozen non-empty pin) and the frozen surface throws `IllegalStateException` (the `resumeNetwork()` precedent). The internal pipeline never hits that path.
+4. **[REVIEW] The frozen `DeviceDiscoveredEvent` is 4 fields** (integrationId, protocolAddress, manufacturer, model — non-blank); Doc 08 §4.4 sketches a richer payload (endpoints, power_source, interview_status, matched_profile_id) that event-model never got. M9.3 publishes the frozen shape with an `"unknown"` sentinel for PARTIAL identity. If the richer payload is wanted, that is an event-model AMD (zero-mint held this WU).
+5. **[REVIEW] `DeviceRegistry` is constructor-injected into `ZigbeeAdoptionSlice`** — it is not an `IntegrationContext` component; the Doc 02 §3.12 dedup surface used is `findByHardwareIdentifier("zigbee", ieeeHex)`. M9.4 wiring decides the instance (AB-3 in-memory substrate at the composition root). If adoption should instead ride a context aggregator, that is an integration-api decision.
+6. **Pre-existing test updated (declared):** `EzspProtocolTest` "D-M92-6 stubs name their completing milestone" no longer asserts `interview()` throws — the seam is filled; sendZclFrame/topologyScan assertions retained.
+7. **Wire pins for the M9.4 bench list:** `sendUnicast 0x0034` / `incomingMessageHandler 0x0045` / `lookupNodeIdByEui64 0x0060` (bellows-re-derived, v4 lineage through v13); the v13 lookup reply is a bare nodeId — verify the v14 dialect on silicon.

@@ -14,11 +14,27 @@ Shared bulletin board for information that one agent needs to communicate to ano
 
 Notes are dated and tagged with sender and recipient(s). This is not a task queue — it's contextual information sharing.
 
-**Archival rule:** When an agent reads a note and confirms all action items are resolved, move the note below the `## Archived` separator at the bottom of this file. Only notes above the separator are active. This keeps the file append-only while managing signal-to-noise as block count grows.
+**Archival rule:** When an agent reads a note and confirms all action items are resolved, move the note below the archive separator at the end of this file. (This sentence deliberately does not quote the separator heading literally — it has now baited TWO anchor-splice incidents, beat-59's and M9.4a's; the v18 hub repaired the second and de-baited the text, beat 4.)
+
+## 2026-07-04 [Coder (Claude Code) -> PM hub, Nick]  (M9.4a DELIVERED — the hero loop is GREEN hardware-free; six [REVIEW] items need rulings before/at M9.4b authoring) — **SERVED (v18 hub, beat 4): all six ruled ACCEPT (pm-handoff v18 beat-4 = the rulings record); the queued items folded into the backlog M9.4b row; the gate was discharged pre-commit (check 155 GREEN). This note archives on the beats-1–4 commit.**
+
+M9.4a delivered per `context/instructions/2026-07-04_M9.4a_moat-wiring-and-hardware-free-hero-loop_coding-instruction.md` — full detail in `coder-handoff.md` (newest entry) + the session completion report. The done-when is green in-session: `HeroLoopHardwareFreeIT` (motion → `occupancy.occupied` → trigger → dispatch → real adapter → byte-asserted frame → honest CONFIRMED with the causal chain; the CT derivation with the tuned 15 s window visible on `command_issued`; the F-2 supersession pair; the identify honest verdict; timeout honesty) + `ZigbeeReplaySafetyIT` (zero NCP frames in replay, the LIVE control fires). Full `./gradlew check` = Nick's deferred gate.
+
+**Rulings queued for the PM/Nick (detail under [REVIEW] in coder-handoff):**
+1. IT home = lifecycle test tree (testing/integration-tests is Pi-profile-gated out of default `check`) — accept or relocate.
+2. `ZigbeeClusterHandler.buildCommand` base-`final` removal (P27's per-impl-throws shorthand was structurally inaccurate).
+3. **identify is not issuable through Tier-1 dispatch validation** (no core capability defines it; the profile characterization has nothing to install onto) — needs an identify capability or a validation carve-out; the E2E drives router+handler directly meanwhile.
+4. **R4 registry duality:** Main's factory-injected `InMemoryDeviceRegistry` is NOT the core's internal one — MUST unify at M9.4b when the real transport binds (dispatch resolution reads the core's).
+5. The `onCommandResult` disposition guard (the F-2 loop-back class + the pre-existing `expired_on_restart` sibling) — a Doc 07 §3.11.2 currency note.
+6. Two forced `HomeSynapseCore` surface additions for W10 (`registerIntegrationSchema` public gateway, java.base-only signature; package-private `schemaRegistry()`).
+
+**Also flagged ([INFO], M9.4b candidates):** the brightness capability-domain mismatch (level 0–254 at ingestion vs percent 0–100 in the derivation domain — set_brightness confirmations would false-timeout); `StandardExplanationService` renders `superseded`/`unconfirmed` as FAILED; the trigger-map `type:` selector-key collision in the automation loader (inline type-selectors on triggers are unreachable).
+
+## Archived` separator at the bottom of this file. Only notes above the separator are active. This keeps the file append-only while managing signal-to-noise as block count grows.
 
 ---
 
-**ACTIVE: 0 (as of 2026-07-03, v16 hub beat 62).** The website-lane note is SERVED (audit ACCEPT beat 59; residuals landed beat 62: host gate green → docs `78e0c5c`) and sits below the separator with the M9.2 note. Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
+**ACTIVE: 1 (as of 2026-07-04, M9.4a Coder closeout — the note directly above the separator).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
 
 ## Archived
 

@@ -14,7 +14,7 @@ last-verified: 2026-07-03 (v15 hub, beat 60 — authored for the wipe test; ever
 | Local (under `ClaudeFolder/`) | Remote (observed from pushes) | Purpose |
 |---|---|---|
 | `homesynapse-core` | `github.com/nexsys-io/homesynapse-core` (org account) | The product: Java 21/JPMS/Gradle, 20+ modules, `web-ui/dashboard/` (Preact SPA), `distribution/` |
-| `homesynapse-core-docs` | (verify remote at need) | Design docs 01–17 (+18 in authoring), `governance/` (AMDs, invariant register), `research/`, `website/` (content canon + the Astro site at `website/site/`) |
+| `homesynapse-core-docs` | `github.com/nexsys-io/homesynapse-core-docs` (observed on the 2026-07-04 push) | Design docs 01–18 (all Locked), `governance/` (AMDs + invariant register — counts/watermark live THERE), `research/`, `website/` (content canon + the Astro site at `website/site/`) |
 | `nexsys-hivemind` | `github.com/nixmith/nexsys-hivemind` (personal account) | The shared brain: `context/` spine + protocols + lessons + instructions + audits; `coder/` + `project-manager/` = WRITABLE SKILL SOURCES |
 | `nexsys-bench` | (verify at need) | The test-and-truth engine: coordinator corpus, captured fixtures (replayable event streams), phase reports |
 | `nexsys-skills` | (verify at need) | The skills-system repo: `orchestrators/nexsys-frontend/` (the frontend skill's writable source) + the 4-tier scaffold (`design/` — the MIGRATED skills-architecture corpus, 14 tracked files, formerly in the unversioned skills-initiative/ — plus `disciplines/ domain/ harness/ stewardship/ sync/`, `MANIFEST.yaml`); the full build stays DEFERRED post-V1 per the 2026-06-27 ruling |

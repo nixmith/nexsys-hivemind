@@ -10,7 +10,7 @@ last-verified: 2026-07-03 (v15 hub, beat 60 — authored for the wipe test; rows
 
 # Decision Rationale Index
 
-**Layer 0 — the standing registers (read these for anything not indexed here):** Locked Technical Decisions (LTD-xx) + Architecture Invariants (172/51 at AMD-97) → `homesynapse-core-docs/governance/`; ratified amendments AMD-01..97 (each carries its own rationale); the strategy layer → `nexsys-hivemind/context/strategy/` (five files; Apache-2.0 licensing + revenue model live there); `Decisions_Quick_Reference` in the docs KB.
+**Layer 0 — the standing registers (read these for anything not indexed here):** Locked Technical Decisions (LTD-xx) + Architecture Invariants → `homesynapse-core-docs/governance/` (counts and the amendment watermark are VOLATILE — re-derive from the register's §17 table and regeneration line, never from this file; the prior copied values here went stale twice); the ratified amendment series → `design/amendments/` (each carries its own rationale); the strategy layer → `nexsys-hivemind/context/strategy/` (five files; Apache-2.0 licensing + revenue model live there); `Decisions_Quick_Reference` in the docs KB.
 
 ## Architecture & process spine (the "why is it built this way" set)
 

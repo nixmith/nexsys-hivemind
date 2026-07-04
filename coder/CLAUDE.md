@@ -33,7 +33,7 @@ Read and execute `../context/protocols/work-unit-completion-protocol.md` §Phase
 1. Update MODULE_CONTEXT.md for every module touched in this work unit
 2. Update `../context/handoff/coder-handoff.md` with work unit completion state — **including the `Deferred Build Gate` flag if `./gradlew check` was not run in-session**
 3. Append discoveries to `../context/lessons/coder-lessons.md` (if new patterns found)
-4. Post cross-agent note to `../context/handoff/cross-agent-notes.md` (if needed)
+4. Post cross-agent note to `../context/handoff/cross-agent-notes.md` (if needed) — **append ABOVE the `## Archived` separator** (the file's own archival rule: only notes above it are active; an EOF-append buries the note as archived and desyncs the frontmatter ACTIVE count — the M9.3 miss, caught at PM audit)
 5. Append the WUCP Phase 1 checklist to the bottom of the Completion Report
 
 The WUCP document has the full specification for each step. The PM will verify this checklist before accepting the Completion Report and will track any deferred build gate under Open Risks.

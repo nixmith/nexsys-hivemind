@@ -4,7 +4,7 @@ purpose: The standing discipline that prevents context-rot across the three repo
 audience: PM hub, Coder, every skill, anyone authoring a summary/quick-reference
 state-type: process / discipline
 status: CURRENT — adopted 2026-06-27 (v7 hub) per the skills-architecture PM-assessment §4 (the cheap rot-fix to adopt now; full skills build deferred post-V1).
-inputs: skills-initiative/2026-06-26_skills-architecture_PM-assessment.md · 2026-06-26_skills-internal-inventory_v0.md (F1/F2/F3) · 2026-06-26_Skills-Architecture_design_v1.md (SD-1/SD-2/SD-10).
+inputs: nexsys-skills/design/2026-06-26_skills-architecture_PM-assessment.md · nexsys-skills/design/2026-06-26_skills-internal-inventory_v0.md (F1/F2/F3) · nexsys-skills/design/2026-06-26_Skills-Architecture_design_v1.md (SD-1/SD-2/SD-10). (Paths retargeted 2026-07-04: the corpus MIGRATED from the unversioned skills-initiative/ into the VERSIONED nexsys-skills repo — 14 tracked files under design/.)
 -->
 
 # Truth-Hierarchy + Pointer-Not-Copy Discipline
@@ -31,5 +31,5 @@ The single fix for the context-rot this project has repeatedly paid for (the 202
 ## 3. Scope / what this supersedes-in-practice
 
 - Applies to: every skill (`nexsys-coder`/`-project-manager`/future), every MODULE_CONTEXT, `project-knowledge/*`, and any assessment/quick-reference that caches a project fact.
-- The full skills architecture (the 4-tier model, the maintenance harness, the eval suite, the ~38-skill catalog, the stewardship tier) is **captured in `skills-initiative/` and deferred** — this note is the cheap discipline that holds the line until then.
-- The deferred-but-ratifiable design is `skills-initiative/2026-06-26_Skills-Architecture_design_v1.md` (route through independent review → Nick co-sign → Lock when Nick chooses — ratifying the *design*, not a commitment to build now).
+- The full skills architecture (the 4-tier model, the maintenance harness, the eval suite, the ~38-skill catalog, the stewardship tier) is **captured in `nexsys-skills/design/` (VERSIONED — 14 tracked files; migrated from the unversioned `skills-initiative/`, whose empty husk directory is deletable) and deferred** — this note is the cheap discipline that holds the line until then. The deferral was re-affirmed with evidence at the 2026-07-04 v17 skills pass: the discipline ran five beats, two CC lanes, and four Cowork lanes with zero skill-staleness incidents.
+- The deferred-but-ratifiable design is `nexsys-skills/design/2026-06-26_Skills-Architecture_design_v1.md` (route through independent review → Nick co-sign → Lock when Nick chooses — ratifying the *design*, not a commitment to build now).

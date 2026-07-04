@@ -63,7 +63,7 @@ Verify that no subscriber ever processes an event that is not persisted.
 
 **How to apply:** LTDs are implementation constraints. They specify WHAT to use, often with exact configuration. Your job is to ensure every relevant LTD is followed precisely.
 
-**The 19 LTDs at a glance (always read the full register for details):**
+**The 19 LTDs at a glance — a LOSSY SUMMARY (pointer-not-copy applies): the register is AUTHORITATIVE, and a reviewer who bypasses this table for the register is doing it right** (the 2026-07-03 Doc-18 reviewer did exactly that; row 16 below carried a wrong gist for weeks — corrected 2026-07-04 from the register). Cite the register in work products; use this table for recall only:
 
 | LTD | Constraint | What to Check |
 |---|---|---|
@@ -82,8 +82,8 @@ Verify that no subscriber ever processes an event that is not persisted.
 | 13 | jlink custom runtime image, systemd units | Packaging via Gradle jlink task, service management via systemd |
 | 14 | Directory-swap atomic updates, backup-before-update | Update mechanism, rollback procedure |
 | 15 | SLF4J + Logback, JFR events, structured context | Logging patterns, no System.out, JFR for performance |
-| 16 | REST (Javalin) + WebSocket + JSON Schema | API framework, schema validation of requests |
-| 17 | In-process compiled modules, build-enforced boundaries, NO ServiceLoader | No OSGi, no ServiceLoader (DECIDE-04). Direct factory construction. module-graph-assert + ArchUnit enforcement |
+| 16 | **Semantic Versioning 2.0.0 + URL-versioned REST API** (`/api/v1/…` = the API contract major, not the product version); additive-only within a major; **minimum ONE-major-version deprecation window** — the floor DP-18-A's six-release-cycle pledge builds on, never goes below | No removal/rename inside a major; deprecations carry the window; API-shape changes are additive (the REST/WS *stack* itself rides LTD-11/LTD-18) |
+| 17 | **In-process compiled integrations, API boundary enforced at BUILD time; no dynamic loading** (no dynamic JARs, no classloader isolation, no external process management) — the dynamic seam is formally RESERVED (Doc 18 §4 row 1); activating it is a future LTD-17 amendment (Doc 18 OQ-2), never a silent change | Direct factory construction at the composition root; module-graph-assert + ArchUnit enforce the boundary. (The old "DECIDE-04" citation was a PHANTOM — resolves to nothing in `governance/`; caught at Doc-18 authoring, beat 61) |
 | 18 | Web UI Technology — Preact SPA for Observability MVP, HTMX for Tier 2+ config UI | Preact for dashboard, HTMX reserved for configuration interfaces |
 | 19 | Event payload serialization via `EventTypeRegistry` + `PersistenceJacksonModule` (extends LTD-08) | Registry-driven payload (de)serialization in the persistence layer; `JacksonWarmup` pre-warm; no `@JsonTypeInfo` on domain types (Jackson-isolation / ArchUnit Rule 10) |
 

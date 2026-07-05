@@ -5,10 +5,18 @@ audience: PM, Coder
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-04 (v20 hub, beat 2 — M9.4b DELIVERED + AUDITED ACCEPT zero defects; full check GREEN 155 pre-commit (gate DISCHARGED); eight [REVIEW]s ruled; SD-5 security consequence framed for Nick (rec (a): bench-as-shipped + seed-custody WU); "unroutable" ruled TERMINAL; bench acceptance STAGED; cross-agent note served (below-separator miss repeated, annotated). Residual: core commit 64 + push + CI glance; hivemind beat-2 commit 7 M. Fleet: core dc1fb49+M9.4b-tree-pending / docs b65ed7d / hivemind c7549eb+beats-1-2-pending / bench 5ceff3b / skills 0c00ece.) Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-04.md frontmatter.
+last-verified: 2026-07-04 (v20 hub, beat 3 — THE CLOSE: M9.4b LANDED core 959f925 (64 exact) + CI GREEN both workflows (gate of record CLEARED); hivemind 8c0ba20→9bdf7a0 (7 exact); M9.4 CODE-COMPLETE — remaining = bench (STAGED, beat-2) + soak; SD-5 ruling OPEN (rec (a)); v21 AUTHORED. Fleet: core 959f925 / docs b65ed7d / hivemind 9bdf7a0+beat-3-pending / bench 5ceff3b / skills 0c00ece. Watermark AMD-98, 174/52.) Prior stamp chain preserved in archive/pm-handoff-beats-rotated-2026-07-04.md frontmatter.
 -->
 
 # PM Session Handoff
+
+## 2026-07-04 (v20 beat 3 — THE V20 CLOSE: M9.4b LANDED core `959f925` + **CI GREEN BOTH WORKFLOWS on the push (the gate of record CLEARED)**; hivemind beats 1–2 landed `8c0ba20`→`9bdf7a0`; **M9.4 IS CODE-COMPLETE** — remaining = bench + soak; SD-5 ruling OPEN (re-surfaced); v21 AUTHORED — `context/handoff/2026-07-04_PM-mission-control_v21_orchestrator_session_prompt.md`)
+
+**Landings (all exact):** core **`959f925`** (64 files: 52 M + 12 new; 4739+/316− — the create-mode list matches the staged message file-for-file) + **ci.yml ✅ + install-smoke ✅ on the push, ~3 m each — M9.4b is CLEARED end-to-end** (in-session targeted greens → Nick's full `check` 155 pre-commit → CI on the pushed commit). Hivemind beat-1 = `8c0ba20`, beat-2 = `9bdf7a0` (7 exact). Docs stranded lock file DELETED (one deletable closed). **Dependabot re-nagged on the core push — day 7+, 1 critical, now nagged on BOTH of today's pushes.** Zero count deviations anywhere this arc.
+
+**State after the arc:** the moat is CODE-COMPLETE on a real-transport-capable adapter — every honesty fence test-asserted, every gate green, the thesis one bench session away from silicon. The v20 arc, banked in ONE day: full-PASS launch → M9.4b grounded (five agent false-absences refuted; one live defect found — the un-guarded `invalid`) → authored quote-exact → dispatched → delivered → audited ACCEPT zero-defects → landed CI-green. **OPEN for Nick: (1) the SD-5 ruling** (a = bench-as-shipped + seed-custody WU before any non-bench network [REC] · b = seed WU first, bench waits · c = revert to plain) — one line closes it; **(2) the bench acceptance** per the beat-2 staged checklist; **(3) Dependabot.**
+
+**Hub next = v21's:** SD-5 intake → Nick's bench (outcomes recorded; fallback ruled WITH him if join instability shows) → 72 h soak ENTERS (NQ-6 + the W2-VAL synthetic legs chartered DURING) → the explainability-UX lane (v1.2 frontend skill; real verdicts + `brightness_percent` live; `StandardExplanationService` flattening = the named target) → JIT the next coder WU from bench outcomes + the banked queue (seed-custody leading if (a); unroutable membership row · fence effective-policy · degradeRule non-array · DECIDE-04 sweep · F-7b non-IAS row · bit-7 mask [bench-gated] · Doc 03 §8.1 currency note at the next docs pass). This hub retires at three beats + one full same-day arc.
 
 ## 2026-07-04 (v20 beat 2 — M9.4b ✅ DELIVERED + TWO-LAYER AUDIT ACCEPT (ZERO code defects); Nick's full `./gradlew check` GREEN (155) PRE-COMMIT — the deferred gate is DISCHARGED; all EIGHT [REVIEW]s ruled; the SD-5 security consequence framed for Nick's ruling; BENCH ACCEPTANCE STAGED)
 

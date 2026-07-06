@@ -12,6 +12,33 @@ last-verified: 2026-07-01 (v13 hub — frontmatter currency restamp only; the bo
 
 ---
 
+## M9.4-PJ — Permit-Join Config Wiring (bench-blocker micro-WU) — DELIVERED (2026-07-06)
+
+> **DEFERRED BUILD GATE (Nick):** full `./gradlew check` was NOT run in-session (CC-lane discipline: targeted only). Run against the M9.4-PJ working tree (built on core `959f925`, baseline EXACT — docs `b65ed7d` / bench `5ceff3b`; no baseline-shift protocol needed):
+> ```
+> ./gradlew :integration:integration-zigbee:test :app:homesynapse-app:test
+> ./gradlew check
+> ```
+> NOT run in-session at all (no in-session Gradle). The change is 1 main file + 1 new test file; zero module-info / build.gradle.kts / schema / dependency / event-mint / public-surface diffs (counts 71/41/53 untouched by construction — no event surface touched). Targeted `:integration:integration-zigbee:test` (+ the `:app:homesynapse-app:test` ArchUnit sweep for NO_DIRECT_TIME_ACCESS on the new test) are the gates of record for this WU.
+
+**Coder (Claude Code).** Built per `context/instructions/2026-07-06_M9.4-PJ_permit-join-config-wiring_coding-instruction.md` (WU-M9.4 §G pins P43/P53/P55 read first; STOP gates G-PJ1–G-PJ4 re-verified at HEAD `959f925` — all PASS, zero divergence). Tests written before implementation. A 3-lens adversarial verification workflow (instruction-compliance · test-quality · compile/-Werror/exception-flow) returned CLEAN on all three; one INFO test-message over-claim fixed in-session. Handed back **fix-clean / NOT gate-verified**.
+
+**What landed (exactly the §Scope, nothing else):**
+- **§1/§2 — read + open (production run() only):** new constant `PERMIT_JOIN_DURATION_KEY = "permit_join_duration"` beside `SERIAL_PORT_KEY`; new package-private `openPermitJoinWindow()` called in `run()` production mode AFTER `protocol.awaitNetworkUp()` + the `production_session_started` log and BEFORE `productionLoop()` (the watchdog-armed loop). Absent key ⇒ early return, no frame, no log, deadline stays null (conservative default is LAW). Present ⇒ clamp to `[PERMIT_JOIN_MIN_SECONDS=1, PERMIT_JOIN_MAX_SECONDS=254]` via `Math.max/min` (out-of-range logs ONE WARN `zigbee.permit_join_clamped: configured={} clamped={}` and proceeds), `protocol.permitJoin(n)` ONCE, then `permitJoinDeadline = clock.instant().plusSeconds(n)` recorded AFTER acceptance, INFO `zigbee.permit_join_opened: duration={}s`. NEVER in `initialize()` (INV-RF-03), NEVER in `runCycleOnce()` (the M9.4a driven cadence), NOT renewed by `attemptReopen()` (reopen ≠ boot — the PIE catch there is untouched).
+- **§3 — honest window state:** `isPermitJoinActive()` stub `return false` replaced with `permitJoinDeadline != null && clock.instant().isBefore(deadline)` (volatile read into local; deadline field is `volatile Instant`, written on the production run thread, read from query threads). Signature unchanged (the public `ZigbeeAdapter` surface is untouched).
+- **§4 — tests (before impl):** NEW `ZigbeePermitJoinTest` (5 scenarios over the scripted-NCP production ladder, the `ZigbeeProductionTransportTest` seam-driving idiom): key present ⇒ exactly ONE `0x0022` frame with duration byte `[200]` at `command[5]`, none before; key absent ⇒ zero `0x0022` across boot; out-of-range 999 ⇒ clamped frame `[254]` + the ListAppender-captured WARN; `isPermitJoinActive()` clock window (false before / true inside / false at the deadline, `TestClock.advance`); driven mode ⇒ window never opens + zero `0x0022`. No `Instant.now()`/`System.*time` in the test (injected `TestClock`).
+
+**Change-set arithmetic:** 1 modified (`ZigbeeIntegrationAdapter.java`) + 1 created (`ZigbeePermitJoinTest.java`) = **2 files**. ZERO: module-info · build.gradle.kts · `libs.versions.toml` · schema JSON (`permit_join_duration` was already present, 1–254 default 120) · event mints (71/41/53) · new public types · `CoordinatorProtocol`/`EzspCoordinatorProtocol` changes. Record STOP-check: n/a (no new records). New package-private surface only: `openPermitJoinWindow()`, `permitJoinDeadline`, the key/bound constants.
+
+### `[INFO]` (no ruling needed)
+- **No test drives the production `run()` end-to-end** — all five tests drive `openPermitJoinWindow()` via the package-private seam (the sibling `ZigbeeProductionTransportTest` idiom: `run()` blocks on `productionLoop()`/`stopSignal.await()`, so it cannot be driven synchronously without a background thread). The call-site placement (`run()`:226, after `awaitNetworkUp()` line 223, before `productionLoop()` line 227) rests on the STOP-gate read + code inspection, not a live test. Accepted harness limitation, consistent with the established pattern.
+- **The clamp reuses the value 254** that `EzspCoordinatorProtocol.PERMIT_JOIN_MAX_SECONDS` (private) also uses; the adapter clamps FIRST so a configured value never reaches the protocol's own range throw (the G-PJ4 division of labor). Two independent constants by design (the protocol's is private).
+
+### NEXT WU (refuse-to-close pointer)
+- **M9.4-TCJ — Trust Center join enablement (hub-authored 2026-07-06 on the bench evidence; `context/instructions/2026-07-06_M9.4-TCJ_trust-center-join-enablement_coding-instruction.md`).** The first silicon run (2026-07-06) proved formation/resume/permit-join/custody/honesty-fence ALL green, and surfaced the real blocker: the coordinator opens the MAC window but never sets the TC join policy / installs the transient well-known key / parses the join handler — so a Z3.0 device can't complete the key exchange (no Device_annce → no adopt). §A = setPolicy(allow preconfigured-key joins) + addTransientLinkKey(ZigBeeAlliance09 wildcard) at window-open + trustCenterJoinHandler/childJoinHandler parse (BENCH-ITERATIVE — FakeNcp verifies the logic, silicon verifies the frame ids/layouts). §B (optional, hardware-free) = wire the `channel` config key (pin ch20). north star: a device that fails key exchange must never render as joined (adoption stays Device_annce-gated). M9.4-PJ (this unit) is DONE + hub-audited ACCEPT + WUCP P2 (v21 beat-3). The M9.4b carried candidates (hashed-TCLK generated-seed custody [the SD-5 HARD GATE], 0x81/0x82 mains-with-backup, IAS dedup posture, `StandardExplanationService` verdict flattening) still stand, JIT after join works.
+
+---
+
 ## M9.4b — Real Transport, Registry Unification, and the Honest-Verdict Fences — DELIVERED (2026-07-04)
 
 > **DEFERRED BUILD GATE (Nick):** full `./gradlew check` was NOT run in-session (the CC-lane build discipline: targeted only). Run against the M9.4b working tree (built on core `dc1fb49`, baseline EXACT — docs `b65ed7d` / bench `5ceff3b`; no baseline-shift protocol needed):

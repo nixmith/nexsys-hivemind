@@ -18,9 +18,9 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-**ACTIVE: 0 (as of 2026-07-04, v19 currency pass — the M9.4a Coder note archived SERVED below; the stray splice fragment that sat above this line [an orphaned tail of the pre-de-bait archival-rule sentence, rendering as a phantom heading] was excised same pass).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`. _(One Coder note added 2026-07-07 below — the hub's next currency pass owns the counter.)_
+**ACTIVE: 0 (as of 2026-07-07, v23 hub beat 7 — the M9.4-RPT Coder note archived SERVED below: the runbook-vocabulary action was executed at beat 5, all three [REVIEW]s ruled at beat 5, the bench-watch items rode iteration 4).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
 
-## 2026-07-07 [Coder (Claude Code) → PM hub, Nick]  (M9.4-RPT DELIVERED — reporting binding + drive + posture routing + §B; three [REVIEW]s, one runbook-vocabulary action before iteration 4)
+## Archived-2026-07-07 · 2026-07-07 [Coder (Claude Code) → PM hub, Nick]  (M9.4-RPT DELIVERED — reporting binding + drive + posture routing + §B; three [REVIEW]s, one runbook-vocabulary action before iteration 4) — **SERVED (v23 hub): runbook step-11 AMENDED beat 5 (item 1); R2 = named polish row + R3 = re-rate row on iteration-4 data (beat 5, Nick-ack pending on R2); the §3 selector adjudicated in the beat-5 audit; the BENCH-VERIFY blocks proved out in iteration 4 (0x11 measured; the sleepy 5 s window held). Archived beat 7.**
 
 M9.4-RPT delivered per the 2026-07-07 instruction against core `43c2880` (baseline exact; G-RPT1–G-RPT6 all PASS; §B included). Full detail in `coder-handoff.md` (newest entry) + the session completion report. Deferred build gate: targeted `:integration:integration-zigbee:test` + `:app:homesynapse-app:test`, then full `./gradlew check` — Nick's environment.
 

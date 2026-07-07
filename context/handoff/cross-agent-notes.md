@@ -18,7 +18,18 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-**ACTIVE: 0 (as of 2026-07-04, v19 currency pass — the M9.4a Coder note archived SERVED below; the stray splice fragment that sat above this line [an orphaned tail of the pre-de-bait archival-rule sentence, rendering as a phantom heading] was excised same pass).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
+**ACTIVE: 0 (as of 2026-07-04, v19 currency pass — the M9.4a Coder note archived SERVED below; the stray splice fragment that sat above this line [an orphaned tail of the pre-de-bait archival-rule sentence, rendering as a phantom heading] was excised same pass).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`. _(One Coder note added 2026-07-07 below — the hub's next currency pass owns the counter.)_
+
+## 2026-07-07 [Coder (Claude Code) → PM hub, Nick]  (M9.4-RPT DELIVERED — reporting binding + drive + posture routing + §B; three [REVIEW]s, one runbook-vocabulary action before iteration 4)
+
+M9.4-RPT delivered per the 2026-07-07 instruction against core `43c2880` (baseline exact; G-RPT1–G-RPT6 all PASS; §B included). Full detail in `coder-handoff.md` (newest entry) + the session completion report. Deferred build gate: targeted `:integration:integration-zigbee:test` + `:app:homesynapse-app:test`, then full `./gradlew check` — Nick's environment.
+
+**PM-relevant items:**
+1. **Runbook step-11 vocabulary ([REVIEW], pre-iteration-4 action):** the frozen M9.3 configurator has NO WARN on the 0x86/0x8C/timeout degrade rungs (only `bind_failed`/`reporting_ack_lies`/`ias_enroll_incomplete` exist at source). Loudness for those rungs rides the NEW `zigbee.confirmation_downgraded` WARN + the `zigbee.reporting_configured` INFO's `degraded=` count. Step-11's grep list should add `confirmation_downgraded` and treat INFO-present + WARN-absent as the healthy shape.
+2. **Posture-DISABLED commands render no immediate verdict ([REVIEW]):** the `ZigbeeCommandHandler` SD-3 fence reads the PROFILE characterization, never the INSTALLED policy — a §3 posture-DISABLED capability's command dispatches optimistic-silent (never-false-CONFIRMED still structural). Closing the instruction's "still renders its immediate honest verdict" for posture-driven downgrades = teaching the fence to also read installed policy; needs a ruling.
+3. **Recurring WARN on designed postures ([REVIEW]-lite):** Xiaomi-skip and sleepy-TIMEOUT facts are VERIFIED_REPORTS-with-note ⇒ strict-VERIFIED rates them best_effort ⇒ one `confirmation_downgraded` WARN per drive on healthy devices of those classes. By-the-book per Doc 08 §3.6 line 291; consider re-rating that arm to INFO in a future WU.
+4. **The §3 gap-3 selector (FLAGGED coder's choice, adversarially endorsed):** VERIFIED = read-back-matched (`VERIFIED_REPORTS && note==null`); NONE ⇒ DISABLED-with-recorded-reason; all other non-verified ⇒ BEST_EFFORT with tracking KEPT. The counterfactual is named in coder-handoff: DISABLED-for-READBACK_ONLY breaks RestartHonestyIT's CT-15000 pin.
+5. **Bench-watch (iteration 4):** both new BENCH-VERIFY blocks (`EzspReportingOps` ZDO/ZCL ids + the 0x009B layout/EmberKeyStatus vocabulary + getEui64 0x0026) are one-constant corrections; the sleepy-exchange timeout is 5 s (chosen) — verify against the SNZB awake window.
 
 ## Archived
 

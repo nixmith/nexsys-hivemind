@@ -12,6 +12,34 @@ last-verified: 2026-07-01 (v13 hub — frontmatter currency restamp only; the bo
 
 ---
 
+## M9.4-KEYb — §B Progress-Status Reclassification (three-way honest verdicts) — DELIVERED (2026-07-08)
+
+> **DEFERRED BUILD GATE (Nick):** full `./gradlew check` was NOT run in-session. The instruction's CC-lane targeted allow-list RAN in-session and is **GREEN** against the M9.4-KEYb working tree (built on core `8800424`, baseline EXACT — re-verified on a clean tree at issue):
+> ```
+> ./gradlew :integration:integration-zigbee:compileJava                        # RAN in-session — GREEN (rides the test task)
+> ./gradlew :integration:integration-zigbee:test :app:homesynapse-app:test     # RAN in-session — GREEN (417 + 14 tests, 0 failed, 0 skipped)
+> ./gradlew :integration:integration-zigbee:spotlessApply                      # RAN in-session — clean, zero reformat churn
+> ./gradlew check                                                              # Nick's gate — NOT run; CI on the pushed commit is the gate of record
+> ```
+> Change: 2 main (`EzspCoordinatorProtocol.java` +14, `ZclIngestionUnit.java` +5) + 1 test (`ZigbeeKeyEstablishmentTest.java` +4 tests → 11) + 1 MODULE_CONTEXT.md WUCP update = **4 files, all integration-zigbee** (the instruction's exact declared set). ZERO: module-info · build.gradle.kts · `libs.versions.toml` · schema · event mints (71/41/53 hold — §B stays LOG-ONLY) · public surface · new types · new constants (all three progress names existed since M9.4-KEY). **`established()` BYTE-UNTOUCHED** ({0x01,0x03,0x34,0x65}); `statusName()` untouched; the malformed-drop arm unreordered (one-arm discipline); THE PIN unchanged and re-asserted on all four new tests; T-K2 (the 0x11 regression pin) untouched-and-green.
+
+**Coder (Claude Code).** Built per `context/instructions/2026-07-08_M9.4-KEYb_key-establishment-progress-reclassification_coding-instruction.md` (v24 hub, beat 3 — Nick's GO on record). STOP gates G-KB1–G-KB5 verified at HEAD `8800424` before any code: G-KB1 `handleKeyEstablishment` `:268-284` binary shape exact (malformed→DEBUG-drop, `established()`→INFO, else→WARN); G-KB2 the four success statuses exact, byte-untouched after the change; G-KB3 `key_establishment_progress` ABSENT repo-wide at baseline; G-KB4 the fenced files untouched by construction (diff --stat verified: 3 code files + MODULE_CONTEXT, insertions only); G-KB5 `assertPin` intact + record STOP-check on `KeyEstablishment` (no `progress` collision). **Tests before implementation, red-first staged:** T-KB1–T-KB4 written first; §1 `progress()` added so they compile (data-only stage); the targeted run confirmed T-KB1/T-KB2 FAILING on the DEBUG-presence assertion (the 0x06 fell to WARN — the right reason) with T-KB3/T-KB4 green by design (regression pins); then the §2 arm turned all 11 green. Handed back **gate-targeted-GREEN / full-check-deferred**.
+
+**What landed:**
+- **§1 — `KeyEstablishment.progress()` (NEW beside `established()`):** true for exactly the RULED set **{0x06 TC_RESPONDED_TO_KEY_REQUEST, 0x07 TC_APP_KEY_SENT_TO_REQUESTER, 0x0C TC_RECEIVED_FIRST_APP_KEY_REQUEST}** — Nick's ruling 2026-07-08, widens by silicon evidence + a ruling only. Javadoc carries the iteration-5a citation (a healthy exchange emitted 0x06 0.26 s before the genuine 0x34 success — progress-as-failure is a false verdict the §51 honesty greps would inherit).
+- **§2 — the middle arm in `handleKeyEstablishment`:** between the established-INFO arm and the failure-WARN fallthrough: `progress()` ⇒ ONE DEBUG **`zigbee.key_establishment_progress: device={} status={}`** and return. Invisible at the bench's INFO root — a healthy exchange's INFO stream shows exactly ONE `key_established` and ZERO `key_establishment_failed`. The INFO/WARN tokens FROZEN (runbook/§51 greps bind them); `KEY_STATUS_NONE` (0x00) and every other non-established, non-progress byte stays in the loud WARN bucket.
+- **Tests (before impl):** `ZigbeeKeyEstablishmentTest` +4 → 11: **T-KB1** the healthy iteration-5a sequence 0x06→0x34 — exactly ONE `key_established` INFO verbatim, ZERO failure WARNs, the 0x06 DEBUG progress line asserted PRESENT verbatim, PIN holds; **T-KB2** each ruled status — its DEBUG line with the right name, zero WARN, zero `key_established`, PIN holds; **T-KB3** 0x11 + 0x33 still WARN verbatim (the else-bucket survives the new arm); **T-KB4** the `progress()` truth table — the ruled three by RAW VALUE and by name, false for all four established statuses + representative failures + an unknown byte.
+
+### `[INFO]` (no ruling needed)
+- **The instruction's DEBUG-capture trap handled as specified:** the test-tree logback root is INFO, and logback filters below the logger's effective level BEFORE appenders run — T-KB1/T-KB2 set the `ZclIngestionUnit` logger to DEBUG for the delivery window and restore after (`getLevel()` = own level, null here; `setLevel(null)` restores inheritance), and assert the progress line's PRESENCE at DEBUG, never WARN-absence alone (the vacuous-VERIFY class). The idiom did not fight the module's appender pattern — no pushback needed; gotcha recorded in MODULE_CONTEXT + coder-lessons.
+- **T-KB2 delivers the three statuses through one adapter session** (three deliveries, three DEBUG lines asserted in order) rather than three isolated boots — the "each alone" semantic holds because no established/failure byte is ever delivered, and no WARN/INFO may appear across the whole run.
+- **T-KB4 pins the ruled set by RAW VALUE and symbolically** — the M9.4-KEY 0x11 lesson (symbolic binding passes wrong-but-consistent) applied to the new set.
+
+### NEXT WU (refuse-to-close pointer)
+- **The DUR design / AMD ratification, then the DUR WU** (the separate governed registries/durability work — the M9.4-KEYb instruction's own WUCP pointer; the hub authors the instruction JIT). **Silicon confirmation of KEYb piggybacks on the next fresh join** (no dedicated bench iteration): the join's INFO stream shows exactly one `key_established` and zero `key_establishment_failed` — verify opportunistically at 5b/acceptance-run intake. This WU was the prerequisite for any acceptance-run §51 leg (those greps now honestly bind `key_establishment_failed` = ACTUAL failure). Carried candidates unchanged: hashed-TCLK generated-seed custody (the SD-5 HARD GATE before any real user network), the 0x81/0x82 mains-with-backup ruling, IAS dedup posture, `StandardExplanationService` verdict flattening, the SD-3-fence-reads-installed-policy polish row, the BENCH-VERIFY javadoc flip micro-pass.
+
+---
+
 ## M9.4-KEY — TC Key-Request Policy-ID Correction + §B Vocabulary Fold — DELIVERED (2026-07-07)
 
 > **DEFERRED BUILD GATE (Nick):** full `./gradlew check` was NOT run in-session. The instruction's CC-lane targeted allow-list RAN in-session and is **GREEN** against the M9.4-KEY working tree (built on core `199324e`, baseline EXACT — re-verified at issue on a clean tree):

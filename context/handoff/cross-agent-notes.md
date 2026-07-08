@@ -18,6 +18,18 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
+## 2026-07-08 [Coder (Claude Code) -> PM hub, Nick]  (M9.5-DUR DELIVERED, code half — registries-as-projections per ratified AMD-99 · targeted gates GREEN 1,829 tests / full check DEFERRED · ONE [REVIEW]-class module-info diff needs a PM ruling · WU-done gate = bench ITERATION 5b)
+
+M9.5-DUR delivered per the 2026-07-08 instruction against core `e15858d` (baseline exact; G-DUR1-G-DUR7 all PASS pre-code; no G2 sizing signal — the mutator census was exactly the four sites). Full detail in `coder-handoff.md` (newest entry). Items needing hub/Nick attention:
+
+1. **[REVIEW] `core/device-model/module-info.java`: `requires com.homesynapse.event` -> `requires transitive` (one word).** The instruction pinned ZERO module-info diffs, but DP-2's public `RegistryProjection`/`RegistryEventMapper` name event payloads on the exported surface — under `-Xlint:exports -Werror` the plain requires cannot compile (the M2.9/M3.6e.1/M5-A three-precedent class; lifecycle's M9.1/M9.4b promotions carry the identical rationale comments). Gradle was already `api` — the lockstep needed only the JPMS word. Requesting ratification; the register's device-model JPMS row should fold it.
+2. **[REVIEW] public-surface widenings the DP-3 R4-shape wiring required:** ZigbeeIntegrationFactory public ctor 3->4 arg (`Supplier<RegistryProjection>`), public unguarded `HomeSynapseCore.registryProjection()` accessor, rig ctor widening, lifecycle test-scope logback (the zigbee F-12 precedent applied to lifecycle for the projection_live INFO capture).
+3. **[INFO for the 5b runbook]: DP-6 rehydration publishes one `availability_changed` per registry-carried device at adapter initialize()** (the direct consequence of reusing the EXISTING relink verbatim, as instructed). At 5b expect N availability lines at boot BEFORE any announce; if the hub wants map-rebuild-without-publish instead, it is a small ruled follow-up, not an improvisation.
+4. **5b glance-points now live:** `registry.projection_live: devices={} entities={} position={}` at every boot (the anti-vacuous rebuild evidence); `zigbee.adoption_maps_rehydrated: devices={}` at DEBUG.
+5. **[REVIEW — ruling wanted before/at 5b] the durable half-registration gap** (found by the in-session adversarial review, confirmed): a process death or entity-publish failure BETWEEN the durable `device_registered` and its entities' publishes leaves a permanently entity-less device — re-announces take the LINKED arm forever (no proposal re-mints; no `device_removed` emitter exists), and replay faithfully rebuilds the hole. AMD-99 inherits this from DP-3's non-atomic emission; candidate repairs in the coder-handoff entry (re-propose arm on LINKED-with-zero-entities + COMPLETE interview, or a compensating tombstone). Javadoc corrected in-place; no arm improvised.
+
+---
+
 **ACTIVE: 0 (as of 2026-07-07, v23 hub beat 7 — the M9.4-RPT Coder note archived SERVED below: the runbook-vocabulary action was executed at beat 5, all three [REVIEW]s ruled at beat 5, the bench-watch items rode iteration 4).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
 
 ## Archived-2026-07-07 · 2026-07-07 [Coder (Claude Code) → PM hub, Nick]  (M9.4-RPT DELIVERED — reporting binding + drive + posture routing + §B; three [REVIEW]s, one runbook-vocabulary action before iteration 4) — **SERVED (v23 hub): runbook step-11 AMENDED beat 5 (item 1); R2 = named polish row + R3 = re-rate row on iteration-4 data (beat 5, Nick-ack pending on R2); the §3 selector adjudicated in the beat-5 audit; the BENCH-VERIFY blocks proved out in iteration 4 (0x11 measured; the sleepy 5 s window held). Archived beat 7.**

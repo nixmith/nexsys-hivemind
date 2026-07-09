@@ -85,6 +85,8 @@ Device (physical product)
 
 **Key insight:** When an integration discovers a device, it doesn't create entities directly. It produces a `ProposedDevice` with proposed entities and capabilities. The Device Model validates and adopts them through the discovery pipeline. The integration never touches the `DeviceRegistry` or `EntityRegistry` directly.
 
+**The registries are projections of the event log (REG-INV-1, register §53 — permanent since AMD-99, 2026-07-08).** `device_registered` / `entity_registered` carry the COMPLETE device/entity records — capabilities and the installed per-device confirmation tuning included — as event-model-local mirror records (the `*Ref` family); `device_removed` is the first-class tombstone. EVERY registry mutation flows through the single apply path `RegistryProjection` (device-model), enforced by the `REGISTRY_MUTATION_ONLY_VIA_PROJECTION` ArchUnit rule — a direct `createDevice`/`updateEntity` call in production code fails the build. Adoption is write-ahead: publish (durable at `EventPublisher` return) → apply inline; apply is an upsert in log order, idempotent by identity (live self-delivery of an adoption-time event is a no-op; an idempotent RE-EMIT of the same two types IS the update path — there is no third registration event type). Boot reconstructs both registries by replaying from position 0 — the subscriber's checkpoint is reset each boot, because in-memory state must never resume from a persisted checkpoint. What you code against: identities are DURABLE across process restarts; the mirrors MUST track the device-model schema (a new component on Device / Entity / CapabilityInstance / AttributeSchema / CommandDefinition / ParameterSchema / ExpectedOutcome / Expectation / ConfirmationPolicy needs a mirror field or an explicit exclusion ruling — full fidelity, no silent drops; the gotcha lives in BOTH MODULE_CONTEXTs); enums flatten to names in mirrors EXCEPT `AttributeType`/`AttributeValue` (value-model leaves — stay typed); `Number` fields ride the AMD-52/AMD-87 lossless discipline; `Set` → sorted `List` at the mirror boundary (deterministic encoding).
+
 ## 4. The Integration Boundary
 
 This is the most important boundary for reliability (INV-RF-01).
@@ -100,6 +102,7 @@ This is the most important boundary for reliability (INV-RF-01).
 - `ManagedHttpClient` (optional) — for cloud-connected adapters
 
 **Integrations CANNOT access:**
+- The Device/Entity registry MUTATORS (REG-INV-1: mutation only via `RegistryProjection.apply*`, and only AFTER a durable publish of the same payload — the ArchUnit rule + an apply-caller census pin enforce it)
 - Another integration's entities
 - Core internals (event bus implementation, state store implementation)
 - Global configuration

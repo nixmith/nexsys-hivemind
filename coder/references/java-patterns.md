@@ -619,3 +619,8 @@ The convention plugin runs only `licenseHeader` + `removeUnusedImports` + `trimT
 When a JDK API compiles but throws at runtime on the target (e.g. JDK-21 has no AF_UNIX `SOCK_DGRAM`, so sd_notify's datagram send is unavailable), isolate the unsupported call behind a package-private seam (`interface NotifyTransport { void send(byte[]); }`), put the real impl behind it, and inject a capturing double in tests so `check` stays GREEN. The runtime gap is then confined to the composition root (the only place that constructs the real impl) — and you must say so **loudly** in the handoff + a cross-agent note, because a "looks-done" impl can otherwise hide a non-functional deployment path (M5-A; real transport deferred to M13).
 
 **Origin:** M3.3 task instruction incorrectly said "Do NOT add `requires jdk.jfr`." Build failed. Coder corrected it. PM-originated error — see `coder-lessons.md` 2026-05-17.
+
+## 14. The Conditional Operator Re-Boxes Mixed Numerics (JLS §15.25)
+
+`cond ? integerValue : longValue` applies BINARY NUMERIC PROMOTION: both branches unbox, promote to the wider type, and re-box — so an `Integer` branch silently comes back `Long` (and an `int`/`double` mix comes back `Double`). Where the declared type is `Number` (codec and mirror layers), this corrupts round-trip type fidelity while compiling clean. Pattern: when branches carry DIFFERENT boxed numeric types and the target is `Number`, use if/else assignment (no promotion) — never `?:`. Tripwire: Number-bearing serde tests pin ACTUAL types (`isInstanceOf`), not just values. Caught red-first in the M9.5-DUR mirror codec (coder-lessons 2026-07-08).
+

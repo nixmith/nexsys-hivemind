@@ -54,6 +54,14 @@ Every operator mistake in the M9.4 arc traced to a handoff that assumed context 
 - **⏺ RECORD + "paste either way."** Mark the paste-points explicitly; "either way" matters — he should never withhold a log because it looks like failure. His timestamps + button-press log ARE instrument data (§4); ask him to note the clock on every physical act.
 - **What-if branches: max three, each keyed to a log signature he can grep,** with the action attached ("`reporting_ack_lies` ⇒ STOP-and-ping; `proposal_incomplete_not_adopted` ⇒ power-cycle to re-propose, expected iteration").
 
+**§8 additions (2026-07-10 — the acceptance-run arc; ruled at the v27 retrospective):**
+
+- **Operator blocks get red-first rigor, like code.** Name the expected token AND the failure-mode tokens for every glance (the grep that matched `transport_failed` but not `transient_failure`/`integration.failed` masked the supervisor-retry signature twice); never gate a verification on a race (`sleep`-then-grep is dead — `bench.sh`’s poll-to-decisive-verdict is the pattern); never name a subcommand/flag you have not verified exists (the phantom zigpy subcommand cost a round-trip).
+- **Every physical act names its observable success signal IN ADVANCE, and journalctl is a first-class instrument.** “Did the reset take?” must be answerable at act time (the Hue 6× dance failed silently 3+ times; the kernel journal adjudicated both physical questions of the night after the fact). If no app-side token exists for a physical act, name the journal signature.
+- **Design runbooks for a tired human.** 3 a.m. operation is a standing condition, not an exception: fewer steps, hard go/no-go gates, zero judgment calls at night, the remedy ladder stated (pkill → sleep → dongle power-cycle; NO reboot unless ruled — a reboot voids the incident timeline; paid for when the foreign-network writer window went un-witnessed).
+- **Multi-line heredoc pastes are DEAD as an operator interface** (Git Bash mangled a ~40-line block outright). Files travel by scp/the bridge; paste-blocks stay short, one act per line.
+- **All bench operations go through `tools/bench.sh`** (decisive-verdict launches; refuses double-launch; kills the `$LOG`/sleep/grep race class). Operator shell improvisation is the exception and gets a named reason.
+
 ## 9. Environment discipline (pointers)
 
 Cowork env-model (`cowork-environment-model.md`) governs: host file tools are truth; VM worktree reads/diffs of fresh writes are phantom-suspect (5 hits across this arc — including a diffstat showing net deletions on a net-addition change and a grep missing a line that existed); `--no-optional-locks` only; git-object sourcing for rotations; §11 for parallel-writer/restart merges (treat the other instance's product as an un-audited return: verify its claims at source, correct against primary evidence, merge — never duplicate; the canonical block is the one the staged commit message describes).

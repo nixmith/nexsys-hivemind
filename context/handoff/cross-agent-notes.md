@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-07-04 (v19 hub, currency pass — the M9.4a Coder note archived SERVED below the separator [its stated archive condition, the beats-1–4 commit, was met at the v18 close: hivemind chain to 33aae08/68ccbf6]; a STRAY SPLICE FRAGMENT excised from the active region — an orphaned tail of the pre-de-bait archival-rule sentence that rendered as a phantom heading, the third artifact of that sentence's splice-bait history. This frontmatter deliberately does not quote the archive-separator heading literally — the beat-59 splice lesson.) ACTIVE: 0. Older archived entries: archive/cross-agent-notes-2026-Q2.md + git history.
+last-verified: 2026-07-10 (v27 hub, beat 2 — the chartered hygiene sweep: the DUR + DURb Coder notes archived SERVED below the active region [both fully consumed: the v25 beat-3 audit rulings · the v26 beat-1 intake · the acceptance run · the v27 beat-1 grounding reads]; ACTIVE: 0.) Prior: 2026-07-04 (v19 hub, currency pass — the M9.4a Coder note archived SERVED below the separator [its stated archive condition, the beats-1–4 commit, was met at the v18 close: hivemind chain to 33aae08/68ccbf6]; a STRAY SPLICE FRAGMENT excised from the active region — an orphaned tail of the pre-de-bait archival-rule sentence that rendered as a phantom heading, the third artifact of that sentence's splice-bait history. This frontmatter deliberately does not quote the archive-separator heading literally — the beat-59 splice lesson.) ACTIVE: 0. Older archived entries: archive/cross-agent-notes-2026-Q2.md + git history.
 -->
 
 # Cross-Agent Notes
@@ -18,7 +18,9 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-## 2026-07-09 [Coder (Claude Code) -> PM hub, Nick]  (M9.5-DURb DELIVERED — half-registration repair + zigbee seam pack · targeted gates GREEN 866 tests forced-fresh + lifecycle defensive-green · full check DEFERRED · silicon confirmation piggybacks on the acceptance-run entry boot)
+**ACTIVE: 0 (as of 2026-07-10, v27 hub beat 2 — the chartered hygiene sweep: the DUR + DURb Coder notes archived SERVED directly below [every action item consumed across the v25 beat-3 audit · the v26 beat-1 intake · the acceptance run · the v27 beat-1 grounding reads]; prior ACTIVE-0 stamp: 2026-07-07 v23 beat 7).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
+
+## Archived-2026-07-10 · 2026-07-09 [Coder (Claude Code) -> PM hub, Nick]  (M9.5-DURb DELIVERED — half-registration repair + zigbee seam pack · targeted gates GREEN 866 tests forced-fresh + lifecycle defensive-green · full check DEFERRED · silicon confirmation piggybacks on the acceptance-run entry boot) — **SERVED (v26 beat 1 = the intake + two-layer audit [zero code defects; the four INFOs adjudicated ACCEPT]; the grep-vocabulary items rode the acceptance run’s §51 greps; the DP-B3 supersession honored; item 3’s R2/TCJ-R2 closures recorded in the audit. Archived 2026-07-10, v27 beat 2 — the chartered sweep.)**
 
 M9.5-DURb delivered per the 2026-07-08 instruction against core `ef1d2c5` (baseline exact; G-DB1–G-DB6 all PASS first-hand). Full detail in `coder-handoff.md` (newest entry). Zero mints / schema / module-info / build-file / public-API diffs — the instruction's pins all held this time. Items for the hub's grep vocabulary + intake:
 
@@ -30,7 +32,7 @@ M9.5-DURb delivered per the 2026-07-08 instruction against core `ef1d2c5` (basel
 
 ---
 
-## 2026-07-08 [Coder (Claude Code) -> PM hub, Nick]  (M9.5-DUR DELIVERED, code half — registries-as-projections per ratified AMD-99 · targeted gates GREEN 1,829 tests / full check DEFERRED · ONE [REVIEW]-class module-info diff needs a PM ruling · WU-done gate = bench ITERATION 5b)
+## Archived-2026-07-10 · 2026-07-08 [Coder (Claude Code) -> PM hub, Nick]  (M9.5-DUR DELIVERED, code half — registries-as-projections per ratified AMD-99 · targeted gates GREEN 1,829 tests / full check DEFERRED · ONE [REVIEW]-class module-info diff needs a PM ruling · WU-done gate = bench ITERATION 5b) — **SERVED (v25 beat 3 = the rulings record: item 1/R1 module-info promotion RATIFIED-ACCEPT [hub authoring miss owned]; item 2 widenings ACCEPT; item 3 DP-6 availability_changed noted + observed at 5b; item 4 glance-points served iterations 5b + the acceptance run; item 5 half-registration → M9.5-DURb LANDED `04f5f70` + silicon-confirmed. Archived 2026-07-10, v27 beat 2.)**
 
 M9.5-DUR delivered per the 2026-07-08 instruction against core `e15858d` (baseline exact; G-DUR1-G-DUR7 all PASS pre-code; no G2 sizing signal — the mutator census was exactly the four sites). Full detail in `coder-handoff.md` (newest entry). Items needing hub/Nick attention:
 
@@ -41,8 +43,6 @@ M9.5-DUR delivered per the 2026-07-08 instruction against core `e15858d` (baseli
 5. **[REVIEW — ruling wanted before/at 5b] the durable half-registration gap** (found by the in-session adversarial review, confirmed): a process death or entity-publish failure BETWEEN the durable `device_registered` and its entities' publishes leaves a permanently entity-less device — re-announces take the LINKED arm forever (no proposal re-mints; no `device_removed` emitter exists), and replay faithfully rebuilds the hole. AMD-99 inherits this from DP-3's non-atomic emission; candidate repairs in the coder-handoff entry (re-propose arm on LINKED-with-zero-entities + COMPLETE interview, or a compensating tombstone). Javadoc corrected in-place; no arm improvised.
 
 ---
-
-**ACTIVE: 0 (as of 2026-07-07, v23 hub beat 7 — the M9.4-RPT Coder note archived SERVED below: the runbook-vocabulary action was executed at beat 5, all three [REVIEW]s ruled at beat 5, the bench-watch items rode iteration 4).** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
 
 ## Archived-2026-07-07 · 2026-07-07 [Coder (Claude Code) → PM hub, Nick]  (M9.4-RPT DELIVERED — reporting binding + drive + posture routing + §B; three [REVIEW]s, one runbook-vocabulary action before iteration 4) — **SERVED (v23 hub): runbook step-11 AMENDED beat 5 (item 1); R2 = named polish row + R3 = re-rate row on iteration-4 data (beat 5, Nick-ack pending on R2); the §3 selector adjudicated in the beat-5 audit; the BENCH-VERIFY blocks proved out in iteration 4 (0x11 measured; the sleepy 5 s window held). Archived beat 7.**
 

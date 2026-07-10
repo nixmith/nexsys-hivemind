@@ -18,6 +18,18 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
+## 2026-07-09 [Coder (Claude Code) -> PM hub, Nick]  (M9.5-DURb DELIVERED — half-registration repair + zigbee seam pack · targeted gates GREEN 866 tests forced-fresh + lifecycle defensive-green · full check DEFERRED · silicon confirmation piggybacks on the acceptance-run entry boot)
+
+M9.5-DURb delivered per the 2026-07-08 instruction against core `ef1d2c5` (baseline exact; G-DB1–G-DB6 all PASS first-hand). Full detail in `coder-handoff.md` (newest entry). Zero mints / schema / module-info / build-file / public-API diffs — the instruction's pins all held this time. Items for the hub's grep vocabulary + intake:
+
+1. **NEW frozen WARN token (DP-B1):** `zigbee.half_registration_detected: device={} deviceId={} — re-proposing for repair` — fires only on the durable half-registration state; the repair shape in a log is WARN → `device_proposed` → `proposal_accepted` → `device_adopted` with the SAME deviceId as the original adoption. NO `availability_changed` on the repair path (it never rides relink).
+2. **`zigbee.adoption_maps_rehydrated: devices={}` is now INFO and UNCONDITIONAL (DP-B3)** — the acceptance-run entry boot should show `devices=2` at adapter init (the DURb piggyback glance-point, with a normal adoption alongside). The prior DUR note's item-4 "at DEBUG" clause is superseded.
+3. **The M9.4-RPT R2 row is CLOSED (DP-B6):** the command fence now reads the INSTALLED policy first — a §3 posture-DISABLED capability's command renders the immediate honest UNCONFIRMED verdict (never silent). The M9.4-TCJ R2 stale-window limitation is CLOSED (DP-B5: successful reopen clears the deadline). The DUR note's item-5 half-registration ruling is EXECUTED (this WU).
+4. **[INFO] G-DB5 residual:** the BENCH-VERIFY token is zero in src/main + testFixtures (the DONE-when grep); the TEST tree keeps 6 comment-level references to the *discipline* (not flip targets, outside the instruction's two-file scope) — a comment-only micro-pass if the hub wants the vocabulary gone entirely.
+5. **[INFO] the §A.3 transient-key self-expiry flip is honesty-bounded:** the record never directly observed expiry (it-1: "unobserved"; never measured since) — flipped to enablement-arc evidence + "direct observation unmeasured; clear-on-window-close contingency stands", not a fabricated citation.
+
+---
+
 ## 2026-07-08 [Coder (Claude Code) -> PM hub, Nick]  (M9.5-DUR DELIVERED, code half — registries-as-projections per ratified AMD-99 · targeted gates GREEN 1,829 tests / full check DEFERRED · ONE [REVIEW]-class module-info diff needs a PM ruling · WU-done gate = bench ITERATION 5b)
 
 M9.5-DUR delivered per the 2026-07-08 instruction against core `e15858d` (baseline exact; G-DUR1-G-DUR7 all PASS pre-code; no G2 sizing signal — the mutator census was exactly the four sites). Full detail in `coder-handoff.md` (newest entry). Items needing hub/Nick attention:

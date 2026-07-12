@@ -5,7 +5,7 @@ audience: PM (Cowork); Coder (the mount-lag section)
 update-cadence: when a new environment behavior is observed and verified
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-11 (the M6.2-return session — the session that paid for most of these)
+last-verified: 2026-07-11 (v29 hub launch — §12 addendum: the Filesystem-MCP core read route + worktree-git-retired-for-core). Prior: 2026-06-11 (the M6.2-return session — the session that paid for most of these)
 -->
 
 # Cowork Environment Model (PM operating rules)
@@ -82,4 +82,6 @@ When the hub runs in REMOTE Cowork (cloud container + desktop bridge), §1's pat
 - **Spine edits** source from git objects when worktree == HEAD (hash-verify first), or from the hub's own last-written copy when the hub is provably the only writer since.
 - **Local MCP servers re-register underneath the session:** the Filesystem server's allowed-directory scope CHANGED mid-arc (ClaudeFolder → homesynapse-core only) after a host-side coder session ran. Treat local-MCP scope as VOLATILE — `list_allowed_directories` before relying on it; the bridge session-folder tools are the stable path.
 - Everything else holds: §10 commit audits (exact counts, `git commit -F` from `_scratch/`), §2 phantom adjudication (hash worktree reads against HEAD objects), lock-free porcelain only.
+- **Recently-edited CORE files: the local Filesystem MCP (scope: homesynapse-core) is the VERIFIED host-truth read route** (the v28–v29 arc; e.g. the byte-exact PortLocatorTest phantom adjudication at the v29 launch — Filesystem-read vs HEAD-object md5). Run `list_allowed_directories` first every session — the scope is VOLATILE (§12 above; it changed mid-arc once). **VM worktree git reads are RETIRED for core:** this arc a worktree git export stranded core's `index.lock` (Nick cleared it) and the §2 truncated-tail phantom served a false 570-deletion worktree diff. Object reads (`git show HEAD:<path>`, `git log`) via device_bash remain safe; a porcelain M-flag on a recently-touched core file is adjudicated by Filesystem-MCP read vs HEAD-object hash — never by a VM worktree read.
+- The bridge stage endpoint 400-rejects `.java` by extension — export via `git show HEAD:<path>` to a `.txt` under `_scratch/` and stage that.
 

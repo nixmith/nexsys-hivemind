@@ -4,11 +4,53 @@ purpose: DRAFT criteria checklist for the mid-August (~Aug 16) go/no-go — ever
 date: 2026-07-11 (lane return date; authored 2026-07-10 America/Chicago, soak day 1)
 audience: Nick (rules the gate); the hub (evidence steward; carries ratified criteria into orchestration); the bench/frontend lanes (they produce the missing evidence).
 state-type: assessment / decision-support DRAFT — becomes the gate artifact only on Nick's ratification.
-status: RETURNED by the executive-briefs lane (Track B lane (c), dispatched v27 beat 3). Authored 2026-07-10 (America/Chicago), soak day 1; filed under the lane's 2026-07-11 return date. All statuses are as-of 2026-07-10 and go stale with every beat — the hub re-derives at ratification and again at gate day.
+status: **RATIFIED 2026-07-12 (Nick — verbatim rulings: pm-handoff v30 beat 2). The §RATIFICATION block below is the OPERATIVE layer** (statuses of record + Q1–Q4 applied + the I3a/I3b split + J1 FROZEN); the draft body beneath it is preserved as authored with its 2026-07-10 statuses. Prior status: RETURNED by the executive-briefs lane (Track B lane (c), dispatched v27 beat 3). Authored 2026-07-10 (America/Chicago), soak day 1; filed under the lane's 2026-07-11 return date. All statuses are as-of 2026-07-10 and go stale with every beat — the hub re-derives at ratification and again at gate day.
 grounding: PROJECT_SNAPSHOT v27 beats 1–3 + the certified M9.4/M9.5 backlog row + the 15-row ruled post-soak stack (backlog, 2026-07-10) · nexsys-bench/docs/2026-07-06_m9.4-bench-acceptance-record.md (iteration log + acceptance-run block + the 2026-07-10 correction) · MVP §2.2/§2.3/§4/§8 · Six_Battlefields_MVP_Strategy.md · context/planning/2026-06-28_mid-august-go-no-go_readiness-review.md (the four-gate frame this draft descends from) · pm-handoff v27 beats 1–3 (rulings verbatim).
 -->
 
 # Mid-August Go/No-Go — Criteria Draft (for ratification)
+
+## RATIFICATION — 2026-07-12 (Nick; the operative layer; J1's process FROZEN)
+
+RATIFIED by Nick 2026-07-12 (rulings verbatim: `context/handoff/pm-handoff.md` v30 beat 2). This block supersedes every in-table "Status 2026-07-10" cell per the draft's own §5. **J1 is FROZEN: no criterion is added, removed, re-tagged, or re-worded without an explicit Nick re-ruling recorded in pm-handoff.** The hub re-statuses once more at gate day, against artifacts only (§4).
+
+**Rulings applied:** **Q1** — C1 = MUST N ≥ 200 · C1b = SHOULD N ≥ 500; ONE false CONFIRM at any N = automatic STOP + root-cause, overriding the count; the §1-C statistics + reachability assumption accepted as the basis of record. **Q2** — I3 SPLIT: **I3a [MUST]** = fix landed (✅ `1627978`+`3590fca`, CI-green) + B1's usb-reenumeration scenario green in the DIRECT-ATTACHED topology; **I3b [SHOULD]** = the hub-attached leg (Rosonway-gated — a MUST never depends on a third-party delivery). **Q3** — D1 = MUST 5 classes; D2 = SHOULD the button 6th (R2(B): the 01P adopts battery-only; presses log-visible, absent from the device model — deliberate scoping of record). **Q4** — the read = Sunday 2026-08-16; evidence-freeze = Friday 2026-08-14 EOD; nothing lands between freeze and read. **Carriers named** — A4 (kill −9): the first post-deploy bench session with spare minutes; H3 (clean-image fresh install): the named weekend slot Aug 8–9. **Tally after the split: 21 MUST · 8 SHOULD.**
+
+**Adjudication of record (2026-07-12, ruled with the B1 contract ruling — rider 4; J1 stays FROZEN, nothing reopens):** I3a's frozen text ("B1's usb-reenumeration scenario green in the direct-attached topology") is **SATISFIED by B1's OPERATOR manual variant** — Nick, verbatim: *"the OPERATOR manual variant is one of B1's two tiers, so a green OPERATOR rep Monday satisfies the row as frozen. Record that adjudication with the ratification block so gate day reads it, not argues it."* Gate day reads this adjudication; it does not re-litigate the tier.
+
+**Statuses of record as of 2026-07-12 (ratification re-status; the gate-day pass re-derives again):**
+
+| Row | Tag | Status 2026-07-12 |
+|---|---|---|
+| A1 | M | IN PROGRESS — soak day 3 on `04f5f70`; exit ≥ 2026-07-13 ~07:50; RSS/log deltas recorded at close-out against the stated bounds |
+| A2 | M | PENDING — Monday, runbook Phase 7 steps 20–26 verbatim |
+| A3 | M | PENDING — Monday, after A1+A2 (the hub writes the close-out) |
+| A4 | S | PENDING — carrier NAMED (ruled): the first post-deploy bench session with spare minutes |
+| B1 | M | ✅ DONE (banked 2026-07-09/10; re-proven on 72 h-aged state by A2) |
+| B2 | M | PENDING — the first Wave-2 bench session (Monday's pinned order, post-deploy) |
+| C1 | M | IN PROGRESS — ~25/200 recorded verdicts, ZERO false. RATIFICATION NOTE (honesty): the reachability assumption's scriptable suite executions now ride the CMD-API WU (discovered 2026-07-12 — the v1.1 HTTP surface is READ-ONLY; no REST command stimulus exists; AUTO command scenarios are blocked until it lands; N accumulates via waves/OPERATOR meanwhile) |
+| C1b | S | as C1 |
+| C2 | M | organic proof ✅ banked; suite port PENDING (B2) — the commanded-to-current class needs CMD-API for AUTO; device-absent + rejoin classes are wave-drivable OPERATOR |
+| C3 | M | proof ✅ banked (record positions 589/593/644); suite port PENDING (B2, same caveat) |
+| C4 | S | PENDING — B2 assertion; instrument-first arm if event timestamps do not discriminate dispatch-vs-RTT |
+| D1 | M | 2 of 5 classes; Wave-2 joins = Monday's pinned order; the four dossiers DELIVERED + audited (`ada8b46`) |
+| D2 | S | PENDING — same sessions; R2(B) governs the button's shape |
+| E1 | M | ✅ DONE — CODE-LANDED `a1f0f77` CI-green; full-bar two-layer audit ACCEPT (v28) |
+| E2 | M | rail HELD to date; silicon leg PENDING — Monday (ONE fresh formation under the generated seed = the SD-5 discharge, composing with Wave-2 joins) |
+| E3 | S | PENDING E2 |
+| F1 | M | ✅ DONE — CODE-LANDED `1aa809d` CI-green; two-layer audit ACCEPT (v29) |
+| F2 | M | PENDING — Monday silicon (SNZB-02P reports→AVAILABLE + a genuine offline leg; never-false-ALIVE both directions) |
+| G1 | M | PENDING — the explainability-lane dispatch refresh is the hub's queued act (Tuesday-tolerant; ALSO an M14-trigger condition per R1b); FE-7's data path is live code-side per F1 |
+| G2 | S | PENDING F2 + G1 |
+| H1 | M | ✅ green on `1aa809d` (both workflows; continuous obligation to gate day) |
+| H2 | M | IN MOTION — B0 ✅; B1 authored + dispatched → ⛔ G-B1-2 STOP 2026-07-12 (the command endpoints unwired; hub-owned grounding miss, corrected on the record — pm-handoff v30 beat 2); B1-reduced re-dispatch pending Nick's ruling; the FULL AUTO suite rides CMD-API |
+| H3 | M | harness ✅ (install-smoke green standing); the clean-image rep = the NAMED slot Aug 8–9 |
+| H4 | S | PENDING — Monday's deployed-build restart rep |
+| I1 | M | ✅ banked; watch-rows OPEN by design, read at gate day (INV-CH22 recurrence = live-threat STOP) |
+| I2 | M | PENDING — Monday's close-out sweep (grep evidence, commands cited) |
+| I3a | M | fix ✅ landed CI-green; the direct-attached usb-reenumeration leg PENDING — Monday-achievable via the OPERATOR manual variant under the reduced-B1 ruling |
+| I3b | S | PENDING — the hub-attached leg, Rosonway-gated |
+| J1 | M | ✅ RATIFIED + FROZEN 2026-07-12 (this block) |
 
 ## 0. The frame, restated in one paragraph
 

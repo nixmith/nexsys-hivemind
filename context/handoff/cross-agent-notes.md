@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: comms
 status: CURRENT
-last-verified: 2026-07-12 (v30 hub, beat 3 — the B1 ⛔ STOP note restamped SERVED [ruled "(c)+(a)" + five riders; B1-REV1 issued; CMD-API named]; ACTIVE: 0.) Prior: 2026-07-12 (v30 hub, first-acts — the deferred SERVED restamps ×3 executed: the M9.6-AVAIL + M9.5-DURc + M9.6-RO Coder notes retitled Archived-SERVED in place with adjudication pointers [AVAIL = v29 beat 1 · DURc/RO = v28 beat 2]; ACTIVE: 0. The v29-noted stale-VM-view hazard avoided: this edit sourced from a fresh host-side stage, size-verified 144,112 B.) Prior: 2026-07-10 (v27 hub, beat 2 — the chartered hygiene sweep: the DUR + DURb Coder notes archived SERVED below the active region [both fully consumed: the v25 beat-3 audit rulings · the v26 beat-1 intake · the acceptance run · the v27 beat-1 grounding reads]; ACTIVE: 0.) Prior: 2026-07-04 (v19 hub, currency pass — the M9.4a Coder note archived SERVED below the separator [its stated archive condition, the beats-1–4 commit, was met at the v18 close: hivemind chain to 33aae08/68ccbf6]; a STRAY SPLICE FRAGMENT excised from the active region — an orphaned tail of the pre-de-bait archival-rule sentence that rendered as a phantom heading, the third artifact of that sentence's splice-bait history. This frontmatter deliberately does not quote the archive-separator heading literally — the beat-59 splice lesson.) ACTIVE: 0. Older archived entries: archive/cross-agent-notes-2026-Q2.md + git history.
+last-verified: 2026-07-12 (Coder — the B1-REV1 desk-half delivery note ADDED to the active region [hub audit request + the Pi-half §8 paste-blocks]; ACTIVE: 1.) Prior: 2026-07-12 (v30 hub, beat 3 — the B1 ⛔ STOP note restamped SERVED [ruled "(c)+(a)" + five riders; B1-REV1 issued; CMD-API named]; ACTIVE: 0.) Prior: 2026-07-12 (v30 hub, first-acts — the deferred SERVED restamps ×3 executed: the M9.6-AVAIL + M9.5-DURc + M9.6-RO Coder notes retitled Archived-SERVED in place with adjudication pointers [AVAIL = v29 beat 1 · DURc/RO = v28 beat 2]; ACTIVE: 0. The v29-noted stale-VM-view hazard avoided: this edit sourced from a fresh host-side stage, size-verified 144,112 B.) Prior: 2026-07-10 (v27 hub, beat 2 — the chartered hygiene sweep: the DUR + DURb Coder notes archived SERVED below the active region [both fully consumed: the v25 beat-3 audit rulings · the v26 beat-1 intake · the acceptance run · the v27 beat-1 grounding reads]; ACTIVE: 0.) Prior: 2026-07-04 (v19 hub, currency pass — the M9.4a Coder note archived SERVED below the separator [its stated archive condition, the beats-1–4 commit, was met at the v18 close: hivemind chain to 33aae08/68ccbf6]; a STRAY SPLICE FRAGMENT excised from the active region — an orphaned tail of the pre-de-bait archival-rule sentence that rendered as a phantom heading, the third artifact of that sentence's splice-bait history. This frontmatter deliberately does not quote the archive-separator heading literally — the beat-59 splice lesson.) ACTIVE: 0. Older archived entries: archive/cross-agent-notes-2026-Q2.md + git history.
 -->
 
 # Cross-Agent Notes
@@ -18,7 +18,52 @@ Notes are dated and tagged with sender and recipient(s). This is not a task queu
 
 ---
 
-**ACTIVE: 0 (as of 2026-07-12, v30 hub beat 3 — the B1 ⛔ G-B1-2 STOP note RULED + restamped SERVED directly below [the ruling: "(c) + (a)" + five riders, verbatim in pm-handoff v30 beat 3; B1-REV1 issued; CMD-API = a named ruled core WU]. Prior ACTIVE-1 stamp: 2026-07-12 Coder; prior ACTIVE-0: 2026-07-12 v30 first-acts.)** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
+**ACTIVE: 1 (as of 2026-07-12, Coder — the B1-REV1 desk-half delivery note below [audit request + the Pi-half §8 paste-blocks]. Prior ACTIVE-0: 2026-07-12 v30 beat 3.)** Live state is `PROJECT_SNAPSHOT.md` + `pm-handoff.md`.
+
+## 2026-07-12 [Coder (Claude Code) → PM hub (audit), Nick (Pi operator half)] — B1-REV1 DELIVERED, desk half: the runner + 5 scenarios on the working tree (20 files, bench repo); hub two-layer audit requested BEFORE any commit; the Pi half's §8 paste-blocks below (NOTHING lands on the Pi until Nick's post-close-out word)
+
+**For the hub (audit inputs):** the full delivery record + gate adjudications + THREE [REVIEW] deviations (R1 the `after:`-scoped `reopen_no_target` forbidden — the instruction's blanket form false-FAILs every healthy run [the watchdog honestly prints no-target during the off-window: `PortWatchdog:147` immediate first attempt; the field record's attempts 1–4 pre-re-attach; `PortWatchdogTest` pins the cadence as correct], fixture-proven both directions; R2 the engine-mechanics set beyond DP-2's one sanctioned `let:` — each load-bearing for the instruction's own pinned content, documented in SCENARIO_FORMAT §5 with a ratification note; R3 the bench.sh `*)` usage-arm line split — first output line byte-identical, exit code identical) are in `coder-handoff.md` (newest entry). The in-session 4-lens self-review fleet returned 30 findings; every defect-class finding was fixed in-session and all demos re-run green. The five mandated demo transcripts ride the completion report. Working tree: bench `e48f04d` + 20 uncommitted files (2 M + 18 new); core untouched at `1aa809d`.
+
+**For Nick — the Pi half (§8 paste-blocks; run ONLY after the NQ-6 exit act + close-out + `1aa809d` deploy, runbook step 26 order):**
+
+**Block 0 — deploy.** GOAL: runner + scenarios beside bench.sh. DONE-WHEN: `~/bench.sh scenario` prints runner usage, not "runner not found".
+```
+scp -r tools scenarios pi@<pi-host>:~/nexsys-bench/
+ssh pi@<pi-host> 'ln -sf ~/nexsys-bench/tools/bench.sh ~/bench.sh && sudo apt-get install -y python3-yaml'
+~/bench.sh scenario 2>&1 | head -3
+```
+(uhubctl installs with the hub placement, Block 5 — not here.)
+
+**Block 1 — constants re-mint (BEFORE the first run; a stale constant is a scenario defect).** DONE-WHEN: `watermark` = P0 (Phase-7 step 20); `network:` matches the live boot log.
+```
+grep "registry.projection_live" $(~/bench.sh log) | tail -1
+grep "zigbee.network_resumed"   $(~/bench.sh log) | tail -1
+nano ~/nexsys-bench/scenarios/constants.yaml     # watermark: <P0>; network: verify ch/pan
+```
+⏺ RECORD the minted watermark.
+
+**Block 2 — boot-health, decisive with bundle.** ONE act: `~/bench.sh scenario boot-health` → DONE-WHEN `[PASS] boot-health` + a bundle path printed. ⏺ RECORD both.
+
+**Block 3 — the honest coverage line.** ONE act: `~/bench.sh suite all` → DONE-WHEN (expected Monday shape): `ran 1/5 — 2 SKIPPED: [command-api] · 1 SKIPPED: [usb-power] · 1 OPERATOR-deferred`. ⏺ RECORD verbatim.
+
+**Block 4 — usb-reenumeration-manual, direct-attached (satisfies the ratified I3a AS FROZEN — rider 4; M9.6-RO R-row leg (a)).** ONE command: `~/bench.sh scenario usb-reenumeration-manual` — the runner prints each act and waits for ENTER: act 1 = PULL the dongle, wait ~10 s, RE-SEAT same port, HANDS OFF; act 2 (fires only once `zigbee.reopened` is on the log) = ONE wave at the SNZB-03P — **mind the printed NOTE: if the sensor saw you at the rack, let its ~59 s occupied-hold clear BEFORE pressing ENTER, then wave once.** DONE-WHEN: `[PASS]` (detection + reopened + a NEW run with a CONFIRMED action through the reopened transport). ⏺ RECORD verdict + bundle.
+
+**Block 5 — hub-attached (I3b, non-blocking; when the Rosonway hub is placed).** Single-variable order (runbook step 26): boot-health re-run BEFORE the topology move.
+```
+sudo apt-get install -y uhubctl && sudo uhubctl        # read -l location / -p port
+nano ~/nexsys-bench/scenarios/constants.yaml           # usb.hub-location/port; capabilities.usb-power.available: true
+~/bench.sh scenario boot-health                        # post-move boot health FIRST
+~/bench.sh scenario usb-reenumeration                  # R-row leg (b)
+```
+⏺ RECORD.
+
+**Block 6 — bundles off the Pi (the paste artifacts).**
+```
+~/bench.sh bundle <scenario>-<UTC-stamp>
+scp pi@<pi-host>:~/hs-bench/bundles/<name>.tar.gz .
+```
+
+**Archive condition:** SERVED when the hub's audit adjudicates the three [REVIEW]s and the Pi-half blocks land on the record (or the hub supersedes them).
 
 ## Archived-2026-07-12 · 2026-07-12 [Coder (Claude Code) → PM hub, Nick]  (B1 ⛔ STOPPED AT G-B1-2 — the command endpoints are UNWIRED at core `1aa809d`; the v1.1 HTTP surface is READ-ONLY · zero files written in either repo · the ruled contract conversation, evidence + options below — a ruling is needed before any B1 re-dispatch) — **SERVED (v30 beat 3 = the ruling: "(c) + (a)" + FIVE RIDERS + the ~Jul-24 C1 tripwire [Nick 2026-07-12, verbatim: pm-handoff v30 beat 3]; hub layer-2 CONFIRMED all six legs at beat 2 + the AUDIT CORRECTION owned [the beat-1 grounding claim refuted — mechanism-without-driver #7; pm-lessons +1]; item 5 ruled: (c) B1-REV1 ISSUED [stubs on the `command-api` capability; the OPERATOR liveness leg on the frozen runs surface] + (a) CMD-API = a named ruled core WU [full bar, no AMD; sequenced with B2 ahead of M14 per rider 3]; item 4 ruled IN [rider 4: the OPERATOR rep satisfies I3a as frozen — recorded with the ratification block]. Restamped + archived 2026-07-12, v30 beat 3.)**
 

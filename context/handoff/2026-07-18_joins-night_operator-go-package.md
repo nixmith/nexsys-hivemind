@@ -110,3 +110,11 @@ GOAL: the bench returns to its standing posture. DONE-WHEN: all three done.
 3. Leave everything powered where it sits (placements — S31-inline-with-Hue, 04P door mount — are POST-NIGHT acts the hub sequences separately).
 
 **Hub-side afterwards (not yours tonight):** constants re-mint (`${C.fleet.devices}` 2→6 + the new network constants from Block 3) · corpus entries from the pasted evidence · the wave2 return §4 fill · the M14-condition flip (SEED ✓) on the spine.
+
+---
+
+## ADDENDUM (2026-07-18, post-M9.7-W2 audit) — the S31 ingestion-routing watch (S31-ROUTE)
+
+The M9.7-W2 Coder recorded a bench watch in MODULE_CONTEXT: **`ZclIngestionUnit.route()` gates ZCL dispatch on APS profile `0x0104`.** The S31's profileId is the wave's open CoB (`0xC05E` machine capture vs `0x0104` SmartThings — dossier §6.1-a). Consequence if OUR unit interviews at `0xC05E`: **adoption/interview/classification are UNAFFECTED** (exact_model carries; `device_adopted entities=1` still expected), but its attribute REPORTS could be skipped at ingestion routing — meaning no `state_changed` on relay edges and on_off confirmations degrading to honest `command_confirmation_timed_out` (never a false CONFIRM — the moat holds either way).
+
+**Bench probe (rides Block 8 item 3, the S31 physical-button press):** if the press yields NO state change in the log/read, this is the FIRST suspect — grep the S31's interview lines for its endpoint profile and ⏺ paste them + the press window. `profile=0xC05E` there = the known cause, adjudicated in advance: STOP on that leg (the rest of the night proceeds), and the hub authors the routing-widening micro-WU (**S31-ROUTE**, pre-named). Also ⏺ paste the S31's interview profile value EITHER WAY at Block 5 — it closes dossier CoB C-05 on the record.

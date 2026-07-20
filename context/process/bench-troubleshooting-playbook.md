@@ -38,7 +38,14 @@ Silicon fix ordering: (1) decode the evidence against the reference vocabulary F
 - **Session hygiene:** stale NCP after another host's teardown ⇒ power-cycle the dongle (the `bytesReceived=0` false-transport-defect signature); ONE process owns `/dev/zigbee`; the PJ window is 254 s max and re-opens per launch while the key is present — REMOVE the key before the soak; `pkill -f "[c]om.homesynapse.app.Main"` (bracket avoids self-match); logs via `nohup … > "$LOG" 2>&1 &` + `tail -f`.
 - **Every iteration records:** the SHA the bench runs, the config diff from the previous iteration (one variable at a time), timestamps of every physical act, and the ⏺ RECORD lines verbatim.
 
-## 7. Restart semantics (until DUR lands — check the spine for its status)
+## 7. Restart semantics (CURRENT as of 2026-07-19 — LEARN-PERSIST landed; the pre-DUR paragraph below is HISTORICAL)
+
+**§7 rewrite (2026-07-19, v35 hub — the LEARN-PERSIST close; the paragraph below is HISTORICAL, pre-M9.5-DUR).** Current restart semantics:
+
+- **The registries are event-sourced projections** (M9.5-DUR / AMD-99): adopted devices RELINK at boot (`device_relinked … re-pairing, no new adoption` + `adoption_maps_rehydrated: devices=N`); identity survives restarts (B2 silicon-proven — Wave-1 ULIDs byte-identical through a fresh formation + ~7 boots).
+- **Wire-learned IAS zoneTypes now PERSIST** (LEARN-PERSIST): the top-level `learnedZoneTypes` section of `zigbee-devices.json`, rehydrated at ingestion construction BEFORE any join can process. The boot glance is `zigbee.learned_zonetypes_rehydrated: count=N` (count=0 on a never-learned fleet is honest, not a failure). Pre-LEARN-PERSIST builds wipe the learn at restart — check the deploy SHA before relying on it.
+- **The accept-list stays initialize-time** — listing a device REQUIRES a restart; plan every adopt around that restart.
+- **The cached-interview race rule (paid 2026-07-19):** a CACHED interview proposes in <1 s, BEFORE the TCLK-gated IAS enroll (~10 s); enroll-before-propose holds ONLY for FRESH interviews. Any adopt-time dependency on a post-join learn must ride the PERSISTED learn (verified via the count glance), never the live enroll.
 
 In-memory registries rebuild EMPTY at boot (`InMemoryDeviceRegistry` — no rehydration): post-restart, an adopted device RE-PROPOSES fresh (new deviceId/entityId; the accept-list re-adopts it; old view rows orphan). Consequences to plan around: re-link/`onRejoin` arms are only exercisable WITHIN a process lifetime; entity-ID-bound anything breaks across restarts; view-row counts ≠ live-device counts after any restart. Any bench recipe promising "re-link" must not have a restart between the adoption and the re-announce.
 
@@ -61,6 +68,10 @@ Every operator mistake in the M9.4 arc traced to a handoff that assumed context 
 - **Design runbooks for a tired human.** 3 a.m. operation is a standing condition, not an exception: fewer steps, hard go/no-go gates, zero judgment calls at night, the remedy ladder stated (pkill → sleep → dongle power-cycle; NO reboot unless ruled — a reboot voids the incident timeline; paid for when the foreign-network writer window went un-witnessed).
 - **Multi-line heredoc pastes are DEAD as an operator interface** (Git Bash mangled a ~40-line block outright). Files travel by scp/the bridge; paste-blocks stay short, one act per line.
 - **All bench operations go through `tools/bench.sh`** (decisive-verdict launches; refuses double-launch; kills the `$LOG`/sleep/grep race class). Operator shell improvisation is the exception and gets a named reason.
+
+**§8 addition (2026-07-19 — the 04P bench-stop arc):**
+
+- **Grep-guards that gate a config-key ADD must anchor an ACTIVE line** (`grep -qE '^[[:space:]]*permit_join_duration:'`), never a bare substring — a commented-out key satisfies `grep -q` and the append silently no-ops (the Block-1 near-miss; the `cat` read-back was the only thing behind it). Corollary: close-downs DELETE keys rather than commenting them — a commented key plants exactly this trap for the next window.
 
 ## 9. Environment discipline (pointers)
 

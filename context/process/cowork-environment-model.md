@@ -5,7 +5,7 @@ audience: PM (Cowork); Coder (the mount-lag section)
 update-cadence: when a new environment behavior is observed and verified
 state-type: reference
 status: CURRENT
-last-verified: 2026-07-11 (v29 hub launch — §12 addendum: the Filesystem-MCP core read route + worktree-git-retired-for-core). Prior: 2026-06-11 (the M6.2-return session — the session that paid for most of these)
+last-verified: 2026-07-19 (v35 hub, beat 6 — §9 gains the NO-ATTRIBUTION-TRAILERS commit-message rule, Nick's standing directive). Prior: 2026-07-11 (v29 hub launch — §12 addendum: the Filesystem-MCP core read route + worktree-git-retired-for-core). Prior: 2026-06-11 (the M6.2-return session — the session that paid for most of these)
 -->
 
 # Cowork Environment Model (PM operating rules)
@@ -52,6 +52,7 @@ Hot-path files (snapshot, weekly plan, both handoffs, cross-agent, lessons) are 
 ## 9. Misc verified quirks
 - Interactive question tools can fail mid-stream — fall back to the veto-or-default pattern and document the chosen default.
 - Host MINGW64 bash eats `!` in double-quoted commit messages (history expansion — the M6.2 commit body lost a bullet line). **Inner double-quotes are the sibling hazard:** a `"…"` fragment inside the `-m "…"` closes the shell string early → bash drops to the `>` continuation prompt and the commit never runs (paid for 2026-06-28, the M7.5b core commit — a body with `"why didn't it fire?"`). Messages containing `!`, an inner `"`, or backticks go via `git commit -F <file>` — the hub prepares that file in `ClaudeFolder/_scratch/` (a sibling of the repos, so the worker's `git add -A` never stages it), and hands the absolute `git commit -F /c/Users/.../ _scratch/<file>` command.
+- **Commit messages carry NO attribution trailers (Nick's standing directive, 2026-07-19):** never append `Co-Authored-By:` lines, AI-attribution lines, or session-link lines to any staged commit message, in ANY repo. The four 2026-07-19 messages that landed carrying them (`f3bfd5c` / `26c8637` / `355a711` / `fb4395d`) are immutable history — never rewrite them, and never repeat the pattern.
 - `du -k` block-size readings on the mount can mislead right after writes; use `wc -c`/`ls -l` for byte truth.
 - **The host Glob tool can return "No files found" for directories that exist and are populated** (observed 2026-07-04, v19 launch: two Glob forms against `nexsys-hivemind/context/process/` both came back empty while bash `ls`, Grep, and Read all saw the files). Treat a Glob miss as UNPROVEN absence — confirm with `ls` or Grep before concluding anything is missing.
 - **VM `wc -l`/reads of recently-committed files understate them** (same truncated-tail phantom as §2 — a `wc -l` said 207 lines while host Grep found line 210). Any VM-side line/byte count on a phantom-suspect file is itself phantom-suspect.

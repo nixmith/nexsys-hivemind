@@ -25,6 +25,8 @@ not-a-lawyer: inventory of facts; the buy/wait calls are Nick's business decisio
 | Defensive tamoro variants (misspell fence: e.g., tammoro/tamorro/tomaro-class) | Unprobed post-07-12 | ~$10–15 each | Per taste at tamoro.com purchase; counsel's search results will inform which are worth fencing (Phase-E item) |
 | GitHub org `tamoro` · npm scope `@tamoro` · X/Instagram/LinkedIn/YouTube handles | UNCLAIMED (Nick, 2026-07-15) | Free | Nick's stated approach: claim in the same motion as the domain purchase, once TAMORO is "a done deal." Consistent with near-zero organic Tamoro web presence (screen 2026-07-12); residual race risk accepted knowingly. Recorded: none claimed yet — the instruction's Phase-A "claim NOW" item is consciously deferred by Nick's 2026-07-15 word. |
 
+**Freshness (2026-07-21):** tamoro.com still IN NEGOTIATION via Atom Brokerage — $2,995 offer standing, walk number $3,400, no seller resolution reported. veromo.com still NXDOMAIN (unregistered) at last probe 07-17 — the ~$12 buy remains open and is the cheapest unfinished item in the program. No handles claimed yet (Nick's read: low collision risk; deferred to ride the domain decision). Full engagement/decision state now lives in 2026-07-21_engagement-tracker.md.
+
 ## Standing constraints on this inventory
 
 - **No public use of TAMORO before G-2** (counsel's written opinion) — owning domains/handles is fine; *using* them publicly is gated.

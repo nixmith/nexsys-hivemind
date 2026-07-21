@@ -98,3 +98,23 @@ Nick pulled the three July-15 TSDR documents (examiner's amendment, snap-shot sh
 
 **Open decisions (Nick):** tamoro.com negotiation outcome (walk number stands) · veromo.com buy · LLC file-now vs post-consult · mock consult before 07-21 (offered) · R-1 ruling block draft (offered, "rule after G-2" trigger).
 **For the hub:** audit + commit the counsel-package tree (7 files + exhibits/ G/H/I + this return, all uncommitted); fold the §1a domain-clause supersession and the 07-16→07-17 TSDR reclassification into spine pointers; charter the brand-foundations one-pager (pronunciation/descriptor-system/copy-rails) into the frontend lane post-G-2 if desired.
+
+---
+
+## 9. ADDENDUM 4 — 2026-07-21: consult held; G-1 unbundled by jurisdiction; two engagements in flight
+
+**NEW SOURCE OF TRUTH for engagement status:** context/strategy/counsel-package/2026-07-21_engagement-tracker.md (living board). This addendum is the narrative log entry; the tracker is the at-a-glance state.
+
+**Pelton consult HELD 2026-07-21** (Zoom; memo sent ahead; lane ran a mock consult + cheat sheet in prep). Read: strongly aligned with the memo's thesis; declined to give specifics without engagement (correct, and a filing-mill negative-signal absent). Coaching banked (see tracker): the senior/junior "good-faith adoption" reflex (retire "they stole my name"); the disclosure asymmetry (broker=nothing, counsel=everything); search≠clearance.
+
+**G-1 EVOLVED — deviation from the instruction's single-firm Phase-1, logged for the hub:** Phase 1 is now unbundled by jurisdiction, duplication-free — **Pelton = US** (standalone $1,200 comprehensive search first → US opinion + §1(b) filing on separate agreements; VEROMO rider + Asimtote companion ride here), **Gerben = FOREIGN candidate** (JP/AU/UK/EU direct-national, own local searches, no overlap with the US search). Oliner dormant (no reply). Rationale: Pelton-US-search + Gerben-foreign = zero search duplication; the wasteful combo (Pelton search + Gerben's bundled US package) is explicitly avoided.
+
+**Two engagements in flight (both emails sent 07-21; awaiting replies):**
+- **Pelton $1,200 search:** agreement reviewed — clean/fair (escrow; not binding until paid; out-of-scope work needs separate signed agreement so $490/hr can't surprise; half/half earning). Scope-confirmation email sent BEFORE payment: 3 Qs (jurisdictions+phonetic/design coverage; $1,200-all-in vs the inert "+gov fees" boilerplate; portability + does the "written analysis" cover TOMORO §2(d)). Payment held until answered. Calibration logged: "written analysis" ≠ necessarily a formal willfulness-shield opinion (that's a later step, from whoever files).
+- **Gerben foreign quote:** his advertised US flat package ($3,000 + $350/class) reviewed and DECLINED for the US role — it's US-only, excludes SUBSTANTIVE OAs (the §2(d)/TOMORO response = the #1 risk), and would duplicate the Pelton search. Repositioned Gerben to foreign; email sent requesting the JP/AU/UK/EU quote + "rely on outside search?" + substantive-§2(d)-OA rate.
+
+**Fee reality banked:** advertised "+$350/class" is the ID-Manual floor; custom field-limited IDs likely add ~$200/class → budget ~$550/class US government fees. Substantive-OA responses are out-of-scope on flat packages everywhere — get the rate from every filer.
+
+**Open (Nick):** pay Pelton after scope reply · tamoro.com negotiation outcome (walk $3,400; no resolution reported as of 07-21) · veromo.com $12 (still NXDOMAIN 07-17; open) · LLC formation · R-1 ruling (after G-2).
+**Open (hub):** note the G-1 unbundling (deviation from the instruction — coherent, logged, not silent); audit+commit the now-11-item counsel-package tree + this return; 07-31 TSDR audit #2 scheduled; R-1 still pending post-G-2.
+**Files this session (write-isolation intact — counsel-package/ + this return only):** +2026-07-21_pelton-consult-cheat-sheet.md, +2026-07-21_engagement-tracker.md (new source-of-truth board), this Addendum 4, claims-inventory freshness pass. No spine/instruction edits; no commits ordered by the lane.

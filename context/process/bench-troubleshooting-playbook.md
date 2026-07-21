@@ -69,6 +69,11 @@ Every operator mistake in the M9.4 arc traced to a handoff that assumed context 
 - **Multi-line heredoc pastes are DEAD as an operator interface** (Git Bash mangled a ~40-line block outright). Files travel by scp/the bridge; paste-blocks stay short, one act per line.
 - **All bench operations go through `tools/bench.sh`** (decisive-verdict launches; refuses double-launch; kills the `$LOG`/sleep/grep race class). Operator shell improvisation is the exception and gets a named reason.
 
+**§8 addition (2026-07-21 — the 04P adoption run; two hub-owned package defects of one class):**
+
+- **Every operator glance-point names its instrument's SEMANTICS at authoring:** (a) log-token vs EVENT-TYPE — `state_reported` is a core event with NO happy-path log line, so a log grep for it is empty even when the sensor works (the D-1 anti-vacuous violation; verify via `projection_live`/`viewPosition` advance on a bracketed physical act, or a value read); (b) boot-once vs live — `registry.projection_live` fires ONCE per boot at `onCaughtUp()`, so a count read after an in-session adopt is frozen at the boot-time value (the D-2 mis-sequencing; fold count captures into the NEXT boot's glance); (c) terminal-materialization (the standing class). A glance asserting a token that cannot appear is a package defect, not a platform defect.
+- **Window-#2-class re-pairs: press EARLY (≥60 s of window remaining) and expect the arc to BEGIN with `device_left`** — a long-press on an already-joined SNZB is leave-then-fresh-join, and the fresh join needs an OPEN window (the 2026-07-20 incident: the leave landed 3 s after the window shut; the device sat off-network, lawfully silent, until the next window — the persisted learn made this fully recoverable).
+
 **§8 addition (2026-07-19 — the 04P bench-stop arc):**
 
 - **Grep-guards that gate a config-key ADD must anchor an ACTIVE line** (`grep -qE '^[[:space:]]*permit_join_duration:'`), never a bare substring — a commented-out key satisfies `grep -q` and the append silently no-ops (the Block-1 near-miss; the `cat` read-back was the only thing behind it). Corollary: close-downs DELETE keys rather than commenting them — a commented key plants exactly this trap for the next window.

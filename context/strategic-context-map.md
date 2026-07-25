@@ -5,14 +5,14 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-07-04 (v19 hub, the currency pass — §1 + the product-table Core row de-staled to pointer form [both had survived the 2026-07-03 refresh carrying 2026-05-28-era copied state]; the module-structure table de-lossed [hand-maintained Status column RETIRED — the F2 class — and rebuilt from settings.gradle.kts, which exposed a missing `core:value-model` row]; claude.ai-Projects mechanism claims reconciled to the lane model; §8 update-rules aligned to the single-spine-writer model; §9 cited paths existence-verified)
+last-verified: 2026-07-24 (v37 hub, beat 1 — §2C gains the strategy program-subtree entries [`fusion-program/` · `brand-program/` · `counsel-package/`] per the §8 new-tree update rule; spot-checked paths pointer-safe this pass; no other structural change). Prior: 2026-07-04 (v19 hub, the currency pass — §1 + the product-table Core row de-staled to pointer form [both had survived the 2026-07-03 refresh carrying 2026-05-28-era copied state]; the module-structure table de-lossed [hand-maintained Status column RETIRED — the F2 class — and rebuilt from settings.gradle.kts, which exposed a missing `core:value-model` row]; claude.ai-Projects mechanism claims reconciled to the lane model; §8 update-rules aligned to the single-spine-writer model; §9 cited paths existence-verified)
 -->
 
 # Strategic Context Map
 
 This is the NexSys development system's map of the entire knowledge base. Use it to quickly locate relevant context before acting on any request. Nick rules strategy directly (operator contract: `context/process/working-with-nick.md`); the PM hub and lanes use this map for operational context. (The 2026-05-31 two-Claude-Projects review workflow is SUPERSEDED-in-practice by the lane-routing model — see that doc's masthead; Nick's retirement ruling pending at the v19 §2D batch.)
 
-**Last structural update:** 2026-07-04 (v19 currency pass — see frontmatter). _Prior: 2026-07-03 (Doc 18 Lock pass) · 2026-05-28 (M3-era)._ Any count or HEAD printed in this file is a snapshot at its stamp — **re-derive from source before relying on it** (pointer-not-copy).
+**Last structural update:** 2026-07-24 (v37 hub, beat 1 — §2C gains the strategy program-subtree entries: `fusion-program/` · `brand-program/` · `counsel-package/`). _Prior: 2026-07-04 (v19 currency pass — see frontmatter) · 2026-07-03 (Doc 18 Lock pass) · 2026-05-28 (M3-era)._ Any count or HEAD printed in this file is a snapshot at its stamp — **re-derive from source before relying on it** (pointer-not-copy).
 **Update this file** whenever new context files are added, moved, or retired.
 
 ---
@@ -249,6 +249,14 @@ The strategy layer holds Nick's long-form strategic artifacts. These are read by
 | `From_Platform_to_Institution_NexSys_Strategic_Report.docx` | Long-horizon strategic arc — platform-to-institution thesis, governance model, institutional positioning | Briefs about long-term direction, institutional framing, governance questions, or partnerships beyond MVP scope |
 | `HomeSynapse_MVP_Data_Readiness_Specification.docx` | Data-readiness requirements for MVP launch — what data HomeSynapse Core must expose, in what shape, to feed the data layer downstream | Briefs that touch telemetry, event enrichment, data contracts, observability surfaces, or anything the Data Value Engine will consume |
 | `NexSys_Data_Value_Engine_Strategy.docx` | Data value engine strategy — how HomeSynapse data becomes a durable asset, the downstream products it enables, the economics of the data layer | Briefs that ask "why does this data matter" or touch the long-term data moat; read alongside the Data Readiness Specification |
+
+**Program subtrees under `strategy/` (added 2026-07-24, v37 hub — status truth lives in each tree's own files + the spine; pointer, not copy):**
+
+| Subtree | Contains | When to read |
+|---|---|---|
+| `strategy/fusion-program/` | The RULED fusion-strategy program of record (2026-07-24): the **FQ-1..FQ-6 decision package (LAW for every fusion lane)** · the phase plan of record (Phases 0–3; gate sovereignty absolute) · the attestable-privacy thesis · 4 lane charters (beachhead-discovery [sourcing may start now; also the FQ-3 trial vehicle] · provenance prior-art [POST-GATE] · competitive-watch [standing quarterly; run #1 ~Oct 2026] · phase1-commercial-feature-set [POST-GATE ONLY]). The 2026-07-23 deliberation record sits at `strategy/` root (§0 status RULED-by-pointer). | Any strategy/beachhead/provenance/competitive/funding question; BEFORE chartering or auditing any fusion lane |
+| `strategy/brand-program/` | The G-2 readiness package (5 deliverables; Addenda-RULED 2026-07-23: Architecture C · TAMORO Core · hq-canonical/bare-on-registries handles · W-A lead + D-A/D-B prototype + red retired + the §3a ALL-USERS color mandate). Return + rulings: `context/assessments/2026-07-22_brand-program_lane_return.md`. | G-2 day (BRAND-G2-EXEC) · any identity/naming/launch-surface work — R-1 stays HELD until G-2 |
+| `strategy/counsel-package/` | The counsel search/engagement program — **status board of record: `2026-07-21_engagement-tracker.md`** (Pelton = the US lane, search PAID · Gerben CLOSED bundle-only · TSDR cadence); pm-handoff §6-pointer beats supersede-where-newer. | Any trademark/counsel/domain action; before any public-use-adjacent act |
 
 #### `traceability/`
 

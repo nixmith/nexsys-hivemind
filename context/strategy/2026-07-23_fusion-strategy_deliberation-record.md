@@ -10,7 +10,7 @@ grounding: the 2026-07-23 in-conversation exchange (primary) · Six_Battlefields
 
 ## 0. What this is
 
-Nick opened the deep-strategy deliberation on 2026-07-23, immediately after the brand-program rulings: where the moat actually lives, the two-front competitive war, the commercial beachhead, Matter-as-ally, event-sourcing as strategic substrate, a provenance/audit standard, two hardware moves, a four-phase sequence, and four named risks. The lane responded with a full assessment (agreements, pushbacks, additions). Both are captured below. **Status: DELIBERATED, NOT RULED** — the successor session's mission is to drive §4's open questions to rulings and charter the §5 lanes.
+Nick opened the deep-strategy deliberation on 2026-07-23, immediately after the brand-program rulings: where the moat actually lives, the two-front competitive war, the commercial beachhead, Matter-as-ally, event-sourcing as strategic substrate, a provenance/audit standard, two hardware moves, a four-phase sequence, and four named risks. The lane responded with a full assessment (agreements, pushbacks, additions). Both are captured below. **Status: RULED 2026-07-24** — the successor session drove all six §4 questions (FQ-1..FQ-6) to rulings; the decision record of record is `context/strategy/fusion-program/2026-07-24_FQ-rulings_decision-package.md` (with the phase plan of record, the fusion thesis, and the four lane charters in the same tree). The §1–§6 capture below stands as authored — a point-in-time record, 2026-07-23. _(Status advanced DELIBERATED→RULED by the v37 hub, beat 1 — the chartered fold; pointer, not copy.)_
 
 ## 1. Nick's thesis (compressed faithfully; load-bearing lines verbatim-class)
 

@@ -2,13 +2,13 @@
 file: context/handoff/2026-07-24_cmd-api-deploy-evening_operator-brief.md
 purpose: Operator brief — THE CMD-API DEPLOY EVENING: the Pi moves `355a711` → `4bc1258` (pull → installDist → practiced restart → boot glance → boot-health), + the H4 [S] restart-honesty rep + the A4 [S] kill−9 rep as riders (the "first post-deploy bench session" both criteria rows name). Authored per playbook §8 by the v37 hub (beat 1); v37 charge 2.
 audience: Nick (one bench evening); any Cowork session guiding him runs THIS file block-by-block.
-status: READY — **deploy ≥ 2026-07-26** (Nick's soak-first ruling, 2026-07-25: the Rosonway topology carries ZERO soak hours on move day; the deploy's restart/kill−9 reps are transport-stressing and never stack onto the move day — ruling-3's purpose honored over its letter; §8 tired-human clause). Block 0a below banks the overnight soak as free evidence. Preconditions: `5b4797e` ALL-CI-GREEN standing (the CMD-API gate of record; `4bc1258` = + the two dependabot web-ui merges, zero-Java, frontend checks green) · NO other physical change in flight · **NEVER the same evening as the Rosonway topology move** (single-variable law; if Rosonway already ran, its Block-3 boot-health [PASS] must be in hand before this evening starts).
+status: READY — **deploy ≥ 2026-07-26; TARGET RE-RULED 2026-07-26 (v38 beat 5): the Pi deploys `da11f46` (the SKIP-VIS landing — CMD-API + the explanation-honesty fixes in ONE build hop), PRECONDITIONED on a ci.yml GREEN verdict for `da11f46` verified BEFORE the evening starts (⏺ it; RED ⇒ the evening is OFF, the hub adjudicates)** (Nick's soak-first ruling, 2026-07-25: the Rosonway topology carries ZERO soak hours on move day; the deploy's restart/kill−9 reps are transport-stressing and never stack onto the move day — ruling-3's purpose honored over its letter; §8 tired-human clause). Block 0a below banks the overnight soak as free evidence. Preconditions: `5b4797e` ALL-CI-GREEN standing (the CMD-API gate of record; `4bc1258` = + the two dependabot web-ui merges, zero-Java, frontend checks green) · NO other physical change in flight · **NEVER the same evening as the Rosonway topology move** (single-variable law; if Rosonway already ran, its Block-3 boot-health [PASS] must be in hand before this evening starts).
 semantics (instrument, stated — the playbook §8 class): `device_relinked` ×6 IS the lawful NORMAL-boot signature (registry rehydration; boot-health itself asserts ≥2) — zero relinks would FAIL the floor. The rejoin tokens to expect ZERO of: `device_proposed`, `UNSECURED_JOIN`, `permit_join_opened`, device announces. Availability resolves at ping-scale (minutes) — never out-wait it at a glance point; boot-health is the verdict instrument. The new write surface (`POST /api/v1/entities/{entityId}/commands`) ships DORMANT tonight — no bench scenario drives it until B2; nothing about this evening exercises it, and that is by design (the deploy is ONE variable).
 -->
 
 # Operator Brief — The CMD-API Deploy Evening (+H4/A4 riders; one evening, single-variable)
 
-**Goal:** the Pi runs **`4bc1258`** with the floor proven green, and the two cheap [S] rows both named for "the first post-deploy bench session" are banked: **H4** (restart honesty ×1 on the deployed build) and **A4** (one deliberate `kill -9` rep: zero event loss + ULID continuity).
+**Goal:** the Pi runs **`da11f46`** with the floor proven green, and the two cheap [S] rows both named for "the first post-deploy bench session" are banked: **H4** (restart honesty ×1 on the deployed build) and **A4** (one deliberate `kill -9` rep: zero event loss + ULID continuity).
 **Done-when:** FIVE ⏺ pastes are in the hub's hands — Block-0a soak glance, Block-0 floor, Block-2 boot glance + `[PASS]`, Block-3 H4 rep, Block-4 A4 rep. ⏺ EVERY block, either way — a FAIL paste is a finding, not a failure.
 
 ## Block 0a — the overnight-soak glance (run FIRST — before Block 0, because boot-health RESTARTS the app)
@@ -24,7 +24,7 @@ semantics (instrument, stated — the playbook §8 class): `device_relinked` ×6
 
 ## Block 1 — pull + build (~5–10 min; the app may stay up while Gradle builds)
 1. `git -C ~/homesynapse-core pull`
-2. `cd ~/homesynapse-core && git log --oneline -3` → expect **`4bc1258`** at HEAD (the two dependabot merges above `5b4797e`). ⏺ RECORD the SHA. ⛔ Any other HEAD ⇒ STOP + ⏺ paste — never deploy an unexpected tree.
+2. `cd ~/homesynapse-core && git log --oneline -3` → expect **`da11f46`** at HEAD (core: SKIP-VIS, above the two dependabot merges and `5b4797e`). ⏺ RECORD the SHA. ⛔ Any other HEAD ⇒ STOP + ⏺ paste — never deploy an unexpected tree. [Re-targeted from `4bc1258` at v38 beat 5 — SKIP-VIS landed on main 2026-07-26; ci.yml GREEN on `da11f46` is a hard precondition, verified before the evening.]
 3. `cd ~/homesynapse-core && ./gradlew :app:homesynapse-app:installDist`
    (the launcher lands at `app/homesynapse-app/build/install/homesynapse-app/bin/homesynapse-app` — the runbook's canonical jar set; the systemd unit stays unused on the bench per the runbook's PrivateDevices note.)
 4. ANTI-ACTIONS: no config edits · no `constants.yaml` edit (the `command-api` flip rides B2's re-mint, never tonight) · no scenario runs mid-build · no Rosonway cabling.
@@ -51,4 +51,4 @@ semantics (instrument, stated — the playbook §8 class): `device_relinked` ×6
 ## Block 5 — close
 1. All pastes → the hub next turn (corpus material; the ratchet rule). The hub re-statuses **A4 → ✅ · H4 → ✅** and records the deploy on the criteria ledger.
 2. B2 authoring proceeds against THIS deployed build; the AUTO command scenarios stay post-B2 as sequenced.
-3. If the Rosonway evening hasn't run yet, it stays a SEPARATE evening (`context/handoff/2026-07-22_rosonway-topology-move_I3b_operator-package.md`).
+3. The Rosonway evening is DONE (I3b [S] closed 2026-07-25; the topology is STANDING; the operator package is archived).

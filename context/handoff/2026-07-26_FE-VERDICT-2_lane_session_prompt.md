@@ -3,7 +3,7 @@ file: context/handoff/2026-07-26_FE-VERDICT-2_lane_session_prompt.md
 purpose: Dispatch brief for the FE-VERDICT-2 Cowork lane — consume the ruled v1.1.2 contract deltas on the explanation surfaces, render the five honest failure modes DISTINCT (Nick's 2026-07-25 law) on WCAG-clean mode-paired tokens, close G2 [S] (the availability tile renders the honest states), and bank the dashboard-deps watch. Authored by the v38 hub (beat 2); v38 charge 4.
 audience: a FRESH Cowork conversation (nexsys-frontend skill — load it first; it is the lane's constitution); the PM hub (two-layer audit on return); Nick (launch + the return paste).
 status: READY TO LAUNCH — parallel-safe (write-isolated; zero core/bench writes; core stays serialized on SKIP-VIS).
-baseline: core `4bc1258` (the two dependabot web-ui merges are IN — the deps watch item this lane closes); the SKIP-VIS core WU is AUTHORED but NOT LANDED — law (c) below governs the gap.
+baseline: core `da11f46` (SKIP-VIS LANDED on main 2026-07-26 — audit ACCEPT; not yet DEPLOYED to the Pi until the deploy evening completes; the dependabot web-ui merges are IN — the deps watch item this lane closes). Law (c) below governs exactly as written: mock to the ruled v1.1.2 shape until the deployed read surface emits it, then swap endpoint-by-endpoint.
 write-isolation (ABSOLUTE): this lane writes ONLY under `homesynapse-core/web-ui/dashboard/` + ONE return file at `nexsys-hivemind/context/audits/2026-07-26_FE-VERDICT-2_lane_return.md`. No other hivemind file, no core Java, no bench file, no commit — the return routes to the hub's two-layer audit first.
 -->
 

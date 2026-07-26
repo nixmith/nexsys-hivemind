@@ -2,7 +2,7 @@
 file: context/decisions/2026-06-21_dashboard-read-API-contract-freeze.md
 purpose: The FROZEN dashboard read-API contract (v1) — the binding interface the Web-UI lane builds against and the Core lane must not break silently. Pins the EXISTING REST shapes (source-verified at core 1541446) and DEFINES the frozen-but-unbuilt shapes (events, health, the causal-chain hero, the automations list) the frontend mocks against and Core implements TO. The hard prerequisite for launching the frontend-dev lane (V1 record wave step 2).
 audience: the frontend-dev lane (builds against this), the Core lane (implements/preserves it), the hub (adjudicates any change as a cross-lane event), Nick (public-API shape is his call)
-state-type: decision / frozen contract (v1.1)
+state-type: decision / frozen contract (v1.1 base, byte-stable; amended ADDITIVELY — current stamp **v1.1.2**, ratified 2026-07-22 [Nick ruling 1, the four-constraint law: additive-only · per-endpoint camelCase · emitter-leads · version discipline], landed core-side 2026-07-26 [WU-SKIP-VIS]; the inline **[v1.1.2 …]** notes below are the amendment record, per the v1.1.1 precedent)
 status: FROZEN v1 2026-06-21 (v3 hub); **v1.1 refinement same day** — pre-launch (no frontend code yet, so zero rework), folding the 2026-06-21 explainability-UX research: the honest `unconfirmed` command-outcome state (B3), the three-way `NonFiringExplanation` for "why didn't it fire?" (B3), and never-silent-blank origin attribution (B1). Source-verified against core 1541446. Changes route through the hub (§6).
 refinement-source: context/assessments/2026-06-21_explainability-UX-competitive-research.md (§3 command reliability; §2 FM-1/FM-5; §4 hero principles)
 anchors: homesynapse-core-docs/design/09-rest-api.md (Locked) · design/13-web-ui-observability-mvp.md (Locked) · design/16-superior-automation.md (RunCausalChain — the hero) · context/decisions/2026-06-20_V1-launch-scope_decision-record.md (device/event/health views + the thin causal-query API; no-WS poll 1–2s)
@@ -97,6 +97,11 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
   ```json
   { "data": [ { "runId": "<ulid>", "automationId": "<ulid>", "automationName": "...",
                 "triggeredAt": "<ISO>", "status": "COMPLETED|FAILED|SKIPPED|CANCELLED|INTERRUPTED",
+                 // [v1.1.2 VALUE note, 2026-07-26 — SKIP-VIS DP-3]: the runs-list SHAPE is unchanged, but the
+                 // triggeredAt VALUE is corrected — it was understated by exactly durationMs whenever the terminal
+                 // envelope carried a DP-G-inherited eventTime (Rosonway §4, proven to the microsecond). Post-fix
+                 // runs[].triggeredAt ≡ causal-chain trigger.matchedAt (test-pinned). Consumers on a PRE-fix Core
+                 // must not build ordering/age logic that trusts triggeredAt (matchedAt is the true instant there).
                 "terminalReason": "<string|null>" } ],
     "pagination": {...}, "meta": {...} }
   ```
@@ -107,7 +112,15 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
       "conditions": [ { "expression": "...", "evaluated": true, "result": true,
                         "observedState": [ { "entityId": "...", "attribute": "...", "value": "..." } ] } ],
       "actions": [ { "type": "...", "targetRef": {...}, "command": "...", "params": {...},
-                     "outcome": "DISPATCHED|CONFIRMED|UNCONFIRMED|FAILED|SKIPPED", "reason": "<string|null>" } ],
+                     "outcome": "DISPATCHED|CONFIRMED|UNCONFIRMED|FAILED|SKIPPED", "reason": "<string|null>",
+                     "resultOutcome": "<string|null>", "settled": <bool> } ],
+                     // [v1.1.2 amendment, ratified 2026-07-22 (Nick ruling 1 / GAP-1); landed 2026-07-26 (SKIP-VIS, DP-4 GO)]:
+                     // resultOutcome = the raw command_result.outcome (the live TEN-value vocabulary + adapter strings;
+                     // null when no command_result exists) — the un-collapsed disposition (superseded no longer renders
+                     // FAILED; honest-"unconfirmed" derives UNCONFIRMED with its recorded reason). settled = the Q1b
+                     // provisionality flag (false exactly while DISPATCHED with no settling record — resultOutcome null
+                     // or bare "acknowledged"); a late command_result can settle an action AFTER the run reads COMPLETED.
+                     // The five honest failure modes are pairwise-distinct on (outcome, resultOutcome, reason).
       "outcome": { "status": "...", "reason": "<string|null>", "durationMs": 0,
                    "actionCount": 0, "commandCount": 0 },
       "cascade": { "parentRunId": "<ulid|null>", "depth": 0 } },
@@ -122,7 +135,15 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
       "lastRelevantRunId": "<ulid|null>",
       "explanation": "<plain-language sentence>",
       "triggerSummary": "<what would fire this, in plain words>",
-      "lastEvaluation": { "at": "<ISO|null>", "conditionsResult": "<...|null>" } },
+      "lastEvaluation": { "at": "<ISO|null>", "conditionsResult": "<...|null>" },
+      "noCommandsIssued": <true|null> },
+      // [v1.1.2 amendment, ratified 2026-07-22 (Nick ruling 1 / CORE-P2); landed 2026-07-26 (SKIP-VIS DP-2)]:
+      // noCommandsIssued = TRUE exactly when the governing COMPLETED run's terminal payload shows
+      // actionCount > 0 with commandCount == 0 (the silent-skip class — §3.9 all-skipped runs emit nothing,
+      // so the payload arithmetic is the only log-visible disclosure); null otherwise (never false). Such runs
+      // now report ACTED_BUT_UNCONFIRMED — the clean-success "fired and confirmed" sentence is unreachable
+      // for them. Also v1.1.2: lastEvaluation.at carries the DP-3 VALUE correction (the eventTime-present
+      // branch no longer subtracts durationMs).
     "meta": { "viewPosition": <long>, "timestamp": "<ISO>" } }
   ```
   V1 data sources per verdict: **CONDITION_NOT_MET** = a recent `SKIPPED` run (the causal-chain shows `conditions[].result=false`); **ACTED_BUT_UNCONFIRMED** = a run whose action outcome is `UNCONFIRMED`/`FAILED` (device-didn't-act); **NEVER_TRIGGERED** = no run in the window → report that + `triggerSummary` so the user sees what *would* fire it; **DISABLED** = the automation is off. **Scope guard:** the *deep* "why did the trigger not match" diagnosis (recording every non-matching trigger evaluation) is a **post-V1 depth** — V1 answers from existing run records + absence + config, which already beats every competitor (none distinguishes these three at all).

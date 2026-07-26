@@ -41,7 +41,7 @@ RATIFIED by Nick 2026-07-12 (rulings verbatim: `context/handoff/pm-handoff.md` v
 | F1 | M | ✅ DONE — CODE-LANDED `1aa809d` CI-green; two-layer audit ACCEPT (v29) |
 | F2 | M | PENDING — Monday silicon (SNZB-02P reports→AVAILABLE + a genuine offline leg; never-false-ALIVE both directions) |
 | G1 | M | PENDING — the explainability-lane dispatch refresh is the hub's queued act (Tuesday-tolerant; ALSO an M14-trigger condition per R1b); FE-7's data path is live code-side per F1 |
-| G2 | S | PENDING F2 + G1 |
+| G2 | S | IN-FLIGHT — FE-VERDICT-2 lane authored 2026-07-26 (v38 beat 2); F2 ✓ (v32) · G1 ✓ (v35); closes on the lane’s landed demo |
 | H1 | M | ✅ green on `1aa809d` (both workflows; continuous obligation to gate day) |
 | H2 | M | IN MOTION — B0 ✅; B1 authored + dispatched → ⛔ G-B1-2 STOP 2026-07-12 (the command endpoints unwired; hub-owned grounding miss, corrected on the record — pm-handoff v30 beat 2); B1-reduced re-dispatch pending Nick's ruling; the FULL AUTO suite rides CMD-API |
 | H3 | M | harness ✅ (install-smoke green standing); the clean-image rep = the NAMED slot Aug 8–9 |
@@ -119,7 +119,7 @@ Legend: **[M]** = MUST (gate-blocking) · **[S]** = SHOULD (priced, non-blocking
 | # | Criterion | Tag | Evidence artifact | Status 2026-07-10 | Producer |
 |---|---|---|---|---|---|
 | G1 | **The minimum FE-7 demo**, live against the bench Pi over the FROZEN v1.1 read-API (never mocks, never improvised shapes): (a) *why did it fire* — the causal chain for a real bench-hero run rendered end-to-end; (b) *why didn't it* — a real non-firing explanation including the no-change class (ruling (b): log-derived, and the explanation NEVER upgrades or replaces a verdict); (c) *did it actually confirm* — the verdict vocabulary rendered: CONFIRMED with latency, honest-UNCONFIRMED with its measured reason, deliberately-superseded verdict-free | [M] | A scripted ≤10-minute demo run at gate day + screenshots; each tile's log token matching the underlying event (the log-token↔tile continuity from the positioning notes) | PENDING — **the explainability WU dispatch is itself the pending act** (Tuesday-tolerant rail); no lane return exists yet; FE-7 builds against the frozen v1.1 contract once dispatched | Frontend lane + hub (audit) + bench (real data) |
-| G2 | The availability tile renders F2's honest states (integrates F with G) | [S] | The same demo | PENDING F1/F2 + G1 | Frontend lane |
+| G2 | The availability tile renders F2's honest states (integrates F with G) | [S] | The same demo | IN-FLIGHT — FE-VERDICT-2 lane authored 2026-07-26, v38 beat 2 (F2 ✓ · G1 ✓); closes on the landed demo | Frontend lane |
 
 ### H. Operability (the regression floor + install)
 

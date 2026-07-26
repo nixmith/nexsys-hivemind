@@ -114,10 +114,10 @@ These are business constraints that affect engineering decisions. They don't hav
 **How they surface in engineering:**
 - "No data leaves the home by default" → Core subsystems MUST NOT have outbound network capability (INV-LF-02 enforces this architecturally)
 - "No feature-gating of core" → Every core subsystem must be fully functional without a license key or subscription
-- "Proprietary licensing preserved" → NexSys retains proprietary licensing (LicenseRef-NexSys-Proprietary). Dependencies must have permissive licenses compatible with proprietary distribution (Apache 2.0, MIT, BSD are safe; GPL and AGPL are NOT compatible).
+- "Apache 2.0 core forever — never a license rug" (the LOCKED licensing decision: `Revenue_Model_and_Licensing_Strategy.md` §"The Licensing Decision: Apache 2.0"; restated as standing law in `context/strategy/fusion-program/2026-07-24_FQ-rulings_decision-package.md`) → the core's ruled license DESTINATION is Apache 2.0; the on-disk `LicenseRef-NexSys-Proprietary` headers persist only until THE LICENSE FLIP — a named launch-runway producer (~Nov-25 launch; consumes R-1a at G-2). Engineering consequence: the dependency tree must be Apache-2.0-clean TODAY (Apache 2.0, MIT, BSD safe; GPL and AGPL NEVER — "No AGPL, no GPL in core" is the strategy's own checklist), and nothing may be built that assumes perpetual proprietary distribution, feature-gates the core, or patent-encumbers the FOSS core (the Apache-2.0 patent grant stays clean).
 - "No advertising" → No analytics, tracking, or telemetry infrastructure in core (Cloudflare Web Analytics is docs-site only)
 
-**License checking:** When the Coder introduces a dependency, verify its license is compatible with proprietary distribution. MIT, BSD, Apache 2.0 are safe. GPL and AGPL are NOT compatible — they would force open-sourcing of HomeSynapse Core, which is a one-way door the project explicitly preserves optionality on.
+**License checking:** When the Coder introduces a dependency, verify its license is Apache-2.0-compatible: MIT, BSD, Apache 2.0 are safe; GPL and AGPL are NOT — they would contaminate the Apache-2.0-destined core (and today's pre-flip distribution alike; the exclusion holds on both sides of the flip). *(Corrected 2026-07-26: the prior "one-way door … preserves optionality" framing is RETIRED — the door is ruled. Apache 2.0 forever, never a license rug; only the flip's TIMING remains open, and it belongs to the launch runway, not to engineering.)*
 
 ### Glossary Enforcement
 

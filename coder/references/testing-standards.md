@@ -366,7 +366,7 @@ Many persistence and event-bus tests need both a SQLite connection and a fixed c
 
 ## 8. Arch Rules Apply to Test Code
 
-The `NO_DIRECT_TIME_ACCESS` ArchUnit rule (see `java-patterns.md §11`) runs against `src/test/java` in every non-whitelisted module. This means:
+The Clock-injection rule binds ALL test code as project convention. The enforcing `NO_DIRECT_TIME_ACCESS` ArchUnit rule (see `java-patterns.md §11` — reach corrected 2026-06-13) mechanically scans production code in every non-whitelisted module plus `com.homesynapse.app`'s own test classpath; a non-app module's test code is convention-enforced (PM audit), not gate-enforced. Either way, in practice:
 
 - **No `Instant.now()` in tests.** Inject a `Clock` (typically `Clock.fixed(...)`) and call `clock.instant()`.
 - **No `System.currentTimeMillis()` for timing assertions.** Use `System.nanoTime()` only inside a helper that lives in the whitelisted `testing/test-support` module (`com.homesynapse.test..`) — never inline in a non-whitelisted module's test.

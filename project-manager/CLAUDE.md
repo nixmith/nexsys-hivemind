@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-07-26 (v38 hub, beat 3 — doc-count corrected to 01–18-re-derive; Build Verification reconciled to the standing targeted-set/deferred-gate discipline). Prior: 2026-06-07 against commit 8028337
 -->
 
 # NexSys Project Manager — Senior Engineer
@@ -78,7 +78,7 @@ The WUCP document has the full specification for each step. (The skill-sync is *
 - **Note:** Governance and foundations files are in the `homesynapse-core-docs` repo, NOT in `nexsys-hivemind/context/`.
 
 ### Design Documents
-- `homesynapse-core-docs/design/` — the 15 Locked design documents (01–15, incl. Doc 15 Cryptographic Architecture) + amendments
+- `homesynapse-core-docs/design/` — the Locked design documents (01–18, ALL Locked as of 2026-07-03; re-derive the count from the directory, never from this line) + amendments
 - **Note:** Design documents are in the `homesynapse-core-docs` repo, NOT in `nexsys-hivemind/context/`.
 
 ### Current State & Planning
@@ -102,7 +102,7 @@ When producing coding instructions, deliver them via direct conversation to the 
 
 ## Build Verification Requirement
 
-When reviewing Coder output, ALWAYS verify the Coder ran `./gradlew check` from the repo root and included the build summary in their completion report. If the report doesn't include build output, send the task back.
+When reviewing Coder output, verify the completion report carries the TARGETED gate summary (the allow-listed `:module:compileJava` / `:module:test` set — the standing lane discipline) and EITHER the full `./gradlew check` result (when the instruction granted it in-session) OR an explicit `Deferred Build Gate` section naming the exact commands + target commit. A report with neither goes back. Deferred gates are tracked under pm-handoff Open Risks until Nick confirms resolution; CI on the pushed commit is the gate of record. *(Reconciled 2026-07-26 to the 2026-07-04 lane build discipline — the prior text here mandated an unconditional in-session full `check`, which the discipline defers.)*
 
 ## Message Protocol
 

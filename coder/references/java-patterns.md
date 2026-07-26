@@ -456,7 +456,7 @@ jackson = ["jackson-databind", "jackson-datatype-jsr310"]
 
 ## 11. Clock Injection and NO_DIRECT_TIME_ACCESS (Arch Rule)
 
-HomeSynapse Core enforces an ArchUnit rule named `NO_DIRECT_TIME_ACCESS` that **applies to both production and test code** in non-whitelisted modules. The rule fails the build when any class calls:
+HomeSynapse Core's Clock-injection discipline applies to BOTH production and test code as project LAW. Its enforcing ArchUnit rule, `NO_DIRECT_TIME_ACCESS`, has this reach (**corrected 2026-06-13**, the M6.2 Coder finding): it runs from `com.homesynapse.app`'s test classpath, so it mechanically catches **production code in every non-whitelisted module** plus app's own test classes; a non-app module's TEST code sits outside its scan and is covered as a self-enforced convention (PM audit enforces it — do not rely on `./gradlew check` to catch it there). The rule fails the build when a scanned class calls:
 
 - `Instant.now()`, `Instant.now(Clock)` with an ambient clock
 - `LocalDateTime.now()`, `LocalDate.now()`, `ZonedDateTime.now()`, `OffsetDateTime.now()`

@@ -5,10 +5,55 @@ audience: Coder, PM
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-07-27 (v39 hub, beat 1 — the WU-DASH-SERVE DISPATCH entry prepended [newest, authoritative for current task + next WU; it supersedes the SKIP-VIS entry's next-WU=B2 pointer per the v38 beat-8 ratified sequencing: DASH-SERVE first (core lane, the idle Coder), B2 second (bench lane, hub-authored)]. Launch preconditions: Nick's skills-mirror sync (Check 9 mismatch recorded at the v39 launch) + the beat-1 hivemind push. Working tree baseline core `2040a66` clean.) Prior: 2026-07-26 (Coder, SKIP-VIS closeout — the SKIP-VIS DELIVERED entry prepended [newest, authoritative for current task + next WU]; core repo, working tree on `4bc1258` (clean at dispatch, P0 exact), all in-session gates GREEN incl. full `./gradlew check` ×2 [this WU's CC-lane grant: the targeted loop + one full check; the second check is the gate of record against the final tree] + in-session mutation verification M1–M3 with cmp-proven restores + a 4-lens adversarial review fleet (zero code defects); hub two-layer audit precedes any commit; ZERO [REVIEW] — seven [INFO]s ride the entry). Prior: 2026-07-22 (Coder, CMD-API closeout — the CMD-API DELIVERED entry prepended [newest, authoritative for current task + next WU]; core repo, working tree on `355a711` (clean at dispatch), all in-session gates GREEN incl. full `./gradlew check` [this WU's CC-lane grant] + in-session mutation verification M1–M3 with cmp-proven restores; hub two-layer audit precedes any commit; ONE [REVIEW] rides it — the app-tree ArchUnit Rule 9 scoping). Prior: 2026-07-22 CMD-API (kept below). The LEARN-PERSIST→M9.5-DUR-era entries + chain ROTATED 2026-07-26 (v38 hub, beat 5) → archive/coder-handoff-entries-rotated-2026-07-26.md; git history.
+last-verified: 2026-07-27 (Coder, DASH-SERVE closeout — the DASH-SERVE DELIVERED entry prepended [newest, authoritative for current task + next WU]; core repo, working tree on `2040a66` (clean at dispatch, P0 exact), census EXACTLY 13 (12 M + 1 new fixture), all in-session gates GREEN incl. full `./gradlew check` [this WU's CC-lane grant: the targeted loop + one full check + the mandated Node-free grep, quoted] + in-session mutation verification M1–M3 with named kills + cmp-proven restores; hub two-layer audit precedes any commit; ZERO [REVIEW] — seven [INFO]s ride the entry; next WU = B2 [bench lane, hub-authored; core QUIET until the M14 WUs].) Prior: 2026-07-27 (v39 hub, beat 1 — the WU-DASH-SERVE DISPATCH entry prepended [newest, authoritative for current task + next WU; it supersedes the SKIP-VIS entry's next-WU=B2 pointer per the v38 beat-8 ratified sequencing: DASH-SERVE first (core lane, the idle Coder), B2 second (bench lane, hub-authored)]. Launch preconditions: Nick's skills-mirror sync (Check 9 mismatch recorded at the v39 launch) + the beat-1 hivemind push. Working tree baseline core `2040a66` clean.) Prior: 2026-07-26 (Coder, SKIP-VIS closeout — the SKIP-VIS DELIVERED entry prepended [newest, authoritative for current task + next WU]; core repo, working tree on `4bc1258` (clean at dispatch, P0 exact), all in-session gates GREEN incl. full `./gradlew check` ×2 [this WU's CC-lane grant: the targeted loop + one full check; the second check is the gate of record against the final tree] + in-session mutation verification M1–M3 with cmp-proven restores + a 4-lens adversarial review fleet (zero code defects); hub two-layer audit precedes any commit; ZERO [REVIEW] — seven [INFO]s ride the entry). Prior: 2026-07-22 (Coder, CMD-API closeout — the CMD-API DELIVERED entry prepended [newest, authoritative for current task + next WU]; core repo, working tree on `355a711` (clean at dispatch), all in-session gates GREEN incl. full `./gradlew check` [this WU's CC-lane grant] + in-session mutation verification M1–M3 with cmp-proven restores; hub two-layer audit precedes any commit; ONE [REVIEW] rides it — the app-tree ArchUnit Rule 9 scoping). Prior: 2026-07-22 CMD-API (kept below). The LEARN-PERSIST→M9.5-DUR-era entries + chain ROTATED 2026-07-26 (v38 hub, beat 5) → archive/coder-handoff-entries-rotated-2026-07-26.md; git history.
 -->
 
 # Coder Session Handoff
+
+---
+
+## WU-DASH-SERVE — the dashboard serve path (package · mount · the ruled (A) auth exemption; core repo) — DELIVERED (2026-07-27)
+
+> **DEFERRED GATE (hub, then Nick):** the hub's two-layer audit precedes ANY commit order (this entry + the completion report + the cross-agent note are the audit inputs). Deferred Build Gate: **NO** — the full `./gradlew check` RAN in-session, GREEN. Working tree: core **`2040a66`** (clean at dispatch, P0 exact) + EXACTLY 13 porcelain entries = the instruction's census (12 M + 1 new fixture `lifecycle/lifecycle/src/test/resources/dashboard/index.html`). Pre-verification: ALL pins P0–P15 verified against the working tree pre-code (P14 verified against the actual Javalin 6.7.0 jar via javap: `cfg.staticFiles.add(Consumer<StaticFileConfig>)` with public `hostedPath`/`directory`/`location` fields · `cfg.spaRoot.addFile(String,String,Location)` · `Location.CLASSPATH` · `ctx.method()` → `HandlerType`; zero mismatches, zero pushback needed).
+> ```
+> ./gradlew :api:rest-api:test :lifecycle:lifecycle:test :app:homesynapse-app:test --rerun
+>                                        # BASELINE at HEAD pre-edit (forced-fresh, 68/68 tasks
+>                                        #   executed): rest-api 104/0/0 · lifecycle 56/0/0 ·
+>                                        #   app 19/0/0 (the SKIP-VIS "104" record matched — no drift)
+> red-first (tests written FIRST)        # rest-api compileTestJava FAILED: 7 missing-symbol sites on
+>                                        #   isPublicShellRequest = all 3 new unit legs red-by-compile
+>                                        #   (helper absent — disclosed as such); lifecycle 14 tests:
+>                                        #   rootRedirects RED (401 where 302 expected) ·
+>                                        #   shellServes RED (401 where 200 expected) ·
+>                                        #   writeAndDataRoutesStayGuarded GREEN-BY-CONSTRUCTION
+>                                        #   (disclosed [INFO]: it is the preservation fixture — its
+>                                        #   three asserts ARE the HEAD-preserved behaviors, incl. the
+>                                        #   encoded traversal already 400 at HEAD, which also proved
+>                                        #   the %2e%2e probe reaches isPathSafe on the wire)
+> green ×2 (per-task --rerun, executed-state verified)
+>                                        # rest-api 107/0/0 (6 @Test in RestFiltersAuthTest) ·
+>                                        #   lifecycle 59/0/0 (14 @Test in HomeSynapseCoreTest) ·
+>                                        #   app 19/0/0 — two fresh JVMs; Javalin's redirect observed
+>                                        #   302 (the smoke pin's code), SPA fallback + HEAD 200 live
+> mutation verification (in-session)     # M1 (+POST to the exemption): KILLED by the NAMED
+>                                        #   dashboardWriteAndDataRoutesStayGuarded (POST leg 404≠401);
+>                                        #   M2 (startsWith "/dash"): KILLED by the NAMED
+>                                        #   isPublicShellRequest_rejectsEverythingElse
+>                                        #   (the /dashboardevil row); M3 (exemption ABOVE isPathSafe):
+>                                        #   KILLED by the NAMED EXACT-400 traversal row — the probe
+>                                        #   SERVED under the mutant (200, expected 400): the order
+>                                        #   contract is the security property. Restores cmp-verified
+>                                        #   byte-identical ×3.
+> ./gradlew check                        # FULL GATE GREEN — 157 actionable tasks, 91 executed
+>                                        #   (run 1, the final tree). Node-free grep (steady state,
+>                                        #   run 3 after clearing a git-invisible empty scaffold dir —
+>                                        #   see [INFO]-6): EVERY :web-ui:dashboard: task
+>                                        #   NO-SOURCE/UP-TO-DATE (compileJava NO-SOURCE ·
+>                                        #   processResources NO-SOURCE · test NO-SOURCE · check
+>                                        #   UP-TO-DATE = the module WAS in the graph); grep for
+>                                        #   npmInstall|npmBuild|stageDashboard|jar → ZERO lines.
+> ```
+> **Per-DP:** DP-1 `:web-ui:dashboard` = bare-`java` resources jar, staging at `build/staged-dashboard`, npm attaches to the jar task ONLY, doLast self-assert on `dashboard/index.html`, legacy `src/main/resources/dashboard` swept by clean. DP-2 app `testRuntimeClasspath` `exclude(module = "dashboard")` (production `runtimeClasspath`/installDist untouched). DP-3 `staticFiles`+`spaRoot` CLASSPATH mount in the create lambda + `app.get("/", redirect /dashboard/)` after installAuth; install sequence otherwise untouched. DP-4 `isPublicShellRequest` classifier + the authorize() early-return BETWEEN isPathSafe and authenticate; installAuth Javadoc amended. DP-5 both install-smoke copies + setup-node@v4 '22' (byte-identical, diff-verified) + run-smoke.sh serve asserts (302 / 200, sections renumbered 6→7→8). **Deviations: ZERO [REVIEW]/[BLOCKING], seven [INFO]** (null-path guard the tests mandate; ZipFile import — Kotlin DSL shadows `java` as the extension accessor; clean sweeps the legacy staging dir; red-leg-6 green-by-construction; smoke section renumber; local removal of the git-invisible empty `src/main/resources/static` scaffold dir so the local gate matches fresh-checkout NO-SOURCE; the order-proof test also pins the hazard side — isPublicShellRequest(traversal)==true). **Next WU: B2 (bench lane — the hub authors it; core goes QUIET until the M14 WUs).** Commit staging at the hub's order: EXPLICIT paths, exactly the 13-file census, core-repo only.
 
 ---
 

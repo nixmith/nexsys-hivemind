@@ -5,18 +5,18 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-06-07 against commit 8028337; Check 6 refined 2026-07-28 (the third-location / remote-cache adjudication, mirrored from the PM preflight's Check 9 per the shared-protocol law; the two stale "the PM preflight has 10 checks" copies — false since the PM gained Check 11 — replaced with a POINTER to the PM file's §2 heading rather than a fresh copied count, per pointer-not-copy; disclosed micro-correction outside the ruled charge, in-file and zero-risk)
 -->
 
 # Coder Freshness Preflight
 
 **Run this at the start of every Coder session, immediately after loading Tier 1 context (PROJECT_SNAPSHOT.md, coder-handoff.md, cross-agent-notes.md, the active coding instruction).** The preflight detects hivemind drift before you act on stale assumptions. Skipping it is how the M2.2 / M2.4 arch-debt violations shipped undetected — see `../../context/audits/2026-04-11_m2.5-arch-debt-retrospective.md`.
 
-This is the Coder mirror of the PM's `project-manager/references/freshness-preflight.md`. The PM's preflight has 10 checks; the Coder's preflight is a smaller subset — the Coder only needs to detect drift that would make the current coding instruction unsafe to execute, not drift across the full governance layer.
+This is the Coder mirror of the PM's `project-manager/references/freshness-preflight.md`, whose §2 heading carries the current superset check count (never copy it here — it grows). The Coder's preflight is a smaller subset — the Coder only needs to detect drift that would make the current coding instruction unsafe to execute, not drift across the full governance layer.
 
 ## Shared protocol
 
-This file and `../../project-manager/references/freshness-preflight.md` together form the freshness-preflight protocol shared by both agents. The PM file is the comprehensive 10-check superset; this file is the Coder-relevant subset. When either agent detects drift that affects both roles (e.g., a stale MODULE_CONTEXT or a missing traceability index), the discoverer posts a `[VERIFY-NEEDED]` to `../../context/open-questions.md` so the other agent verifies before continuing. The `$SESSION_ROOT` path-traversal convention used here is the same convention used by the WUCP `diff -rq` skill-sync check in `../../context/protocols/work-unit-completion-protocol.md` Step 10.
+This file and `../../project-manager/references/freshness-preflight.md` together form the freshness-preflight protocol shared by both agents. The PM file is the comprehensive superset (its §2 heading is the count of record); this file is the Coder-relevant subset. When either agent detects drift that affects both roles (e.g., a stale MODULE_CONTEXT or a missing traceability index), the discoverer posts a `[VERIFY-NEEDED]` to `../../context/open-questions.md` so the other agent verifies before continuing. The `$SESSION_ROOT` path-traversal convention used here is the same convention used by the WUCP `diff -rq` skill-sync check in `../../context/protocols/work-unit-completion-protocol.md` Step 10.
 
 ---
 
@@ -85,6 +85,8 @@ diff -rq \
 - **STALE** if `diff -rq` reports "Only in ClaudeFolder" entries — a PM edit hasn't been mirrored yet; Nick runs the mirror sync externally.
 - **CONFLICTED** if `diff -rq` reports "differ" entries — same file, divergent content.
 
+**The THIRD location — a remote session's in-session skill cache (refinement, 2026-07-27; mirrors the PM preflight's Check-9 subsection per the shared-protocol law).** A role skill's bytes live in three places, not two: the writable **SOURCE** (`ClaudeFolder/nexsys-hivemind/coder/`), **Nick's local `.claude/skills/` MIRROR** (the tree host-CC sessions load — the one this check governs), and, when a session runs REMOTE, **that session's own account-synced skill copies**, which lag on their own schedule. So: **adjudicate WHICH location is stale before flagging.** A remote session may diff SOURCE against its OWN cache only to characterize its own staleness, and must never generalize that to the mirror; `diff -rq` above stays the mirror's instrument of record. A remote session that cannot mount both trees records this check as **STALE (mirror unverified from here)**, names which trees it read, and has Nick confirm the mirror rather than inferring it.
+
 ### Check 7 — Source round-trip (no fabricated types)
 
 Before writing a MODULE_CONTEXT.md update or citing a type in a handoff, confirm every class/type name resolves in `../../homesynapse-core` source, and regenerate any count from source rather than copying it from a prior doc. (Coder-side subset of the PM preflight's source-round-trip check.)
@@ -141,6 +143,7 @@ Check 3 (instruction refs exist):      PASS
 Check 4 (target MODULE_CONTEXT):       PASS
 Check 5 (arch-rule whitelist aware):   PASS
 Check 6 (dual skill mirrors):          STALE  (expected — post-PM-edit, pre-sync)
+        [remote session] read SOURCE vs own in-session cache only — MIRROR unverified from here; Nick's diff -rq is the record
 Check 7 (source round-trip):           PASS
 
 Aggregate: STALE

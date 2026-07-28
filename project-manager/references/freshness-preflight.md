@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-06-07 against commit 8028337; Check 9 refined 2026-07-28 (the third-location / remote-cache adjudication — skills-currency pass; mirrored into `../../coder/references/freshness-preflight.md` per the shared-protocol law)
 -->
 
 # Freshness Preflight
@@ -128,6 +128,20 @@ If `$0` isn't available in the current shell context (e.g., when running command
 
 Note: `.claude/skills/` is a read-only mount; the PM never writes to it. STALE is the normal state immediately after a PM edit — it clears when Nick runs his external sync. CONFLICTED is abnormal and blocks forward work.
 
+#### Check 9 and the THIRD location — a remote hub's in-session skill cache (refinement, 2026-07-27)
+
+There are **three** places a role skill's bytes can live, not two:
+
+1. **The writable SOURCE** — `ClaudeFolder/nexsys-hivemind/{coder,project-manager}/` (and `nexsys-skills/orchestrators/…` for the frontend skill). Always authoritative.
+2. **Nick's local `.claude/skills/` MIRROR** — the read-only tree host-CC lanes actually load. **This is the location Check 9 governs**, and the only one the STALE/CONFLICTED verdicts above describe.
+3. **A remote session's in-session skill copies** — when the hub (or any lane) runs as a REMOTE Cowork session, the skills it has loaded were account-synced into that session. This copy lags on its own schedule and is **not** the mirror.
+
+The rules that follow from it:
+
+- **Adjudicate WHICH location is stale before flagging.** A remote session observing that its loaded skill copies differ from source has established nothing about the mirror. It may md5 (or diff) **SOURCE vs ITS OWN cache** purely to characterize *its own* staleness — and must never generalize that result to Nick's mirror.
+- **Nick's `diff -rq` above remains the mirror's instrument of record.** A remote session that cannot mount both trees records Check 9 as **STALE (mirror unverified from here)** — conservative, aggregating as STALE per §3 — and names exactly which trees it could read. The mirror's true state is then confirmed by asking Nick, never inferred.
+- **Authoring at desk stays lawful under a stale in-session cache**, because hub reads ride SOURCE (read the reference file at repo HEAD, not the loaded skill copy). Record that adjudication in the preflight output.
+
 ### Check 10 — Strategic context map references
 
 Spot-check that every reference file cited in `../../context/strategic-context-map.md` actually exists at the cited path.
@@ -205,6 +219,7 @@ Check 6 (coder next-unit pointer):     PASS
 Check 7 (MODULE_CONTEXT populated):    PASS
 Check 8 (cross-agent-notes active):    PASS
 Check 9 (dual skill mirrors):          STALE  (expected — post-edit, pre-sync)
+        [remote hub] read SOURCE vs own in-session cache only — MIRROR unverified from here; Nick's diff -rq is the record
 Check 10 (strategic-context-map refs): PASS
 Check 11 (source round-trip):          PASS
 

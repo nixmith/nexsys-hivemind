@@ -303,3 +303,31 @@ The command status read carries per-phase timestamps (`lifecycle.<PHASE>.at` —
 3. Fold the lessons: full-corpus sweep on any wire-dialect finding (§12.7-A); pin-at-the-endpoint-read (F-6); STOP-gates get their own paste block + in-block WHERE comments (F-10); the ~5 s window doctrinal correction (F-8); the instruction-template defects F-1/F-5.
 4. B3 authoring can proceed on the rider-#1 evidence now; its first night should run the ratified 9-leg suite.
 
+---
+
+# §13 THE RE-RUN OF RECORD — FILED 2026-07-30 (v40 hub, beat 5; the operator's paste is the source)
+
+**Desk gates (desktop): PASS** — banner `@ 5965151`; both s31 files lint-clean, plans correct; the 9-leg parse loaded 9/9 zero-REFUSED with `command-confirm` SKIP-honest verbatim. [INFO] a REAL desk suite invocation writes failure bundles to `%USERPROFILE%\hs-bench\bundles\` (outside the repo; delete at leisure). **F-11 [INFO], hub-owned:** the Pi block said bare `bench.sh` (not on PATH in a fresh shell) — full-path invocation is the fix and the standing rule (playbook §8 absolute-paths, slipped); `~/nexsys-bench/tools/bench.sh` ran.
+
+**The 9-leg suite re-run (Pi, banner `@ 5965151`, boot `bench-2026-07-29-213720`, fleet 6/6 @ 25065 ch20/0x774c):**
+
+| Leg | Verdict | Bundle |
+|---|---|---|
+| boot-health | [PASS] 6/6 | `boot-health-20260730T013732Z` |
+| command-confirm | [SKIP]-honest `[hue-online]` | — |
+| command-s31-settle | **[PASS] 1/1 — first green** (terminal reached; disposition lives in the bundle) | `command-s31-settle-20260730T013737Z` |
+| command-confirm-s31 | **[FAIL]** — `expected CONFIRMED, read CONFIRMATION_TIMED_OUT` (cmd `01KYRAQ0GT9D2TJGHW0AZTGGA1`, ACCEPTED 01:37:37.819Z) | `command-confirm-s31-20260730T013743Z` |
+| command-timeout-absent | [PASS] 1/1 | `command-timeout-absent-20260730T013749Z` |
+| command-supersession | [PASS] 2/2 | `command-supersession-20260730T013756Z` |
+| command-identify-honest | [PASS] 1/1 | `command-identify-honest-20260730T013757Z` |
+| usb-reenumeration | **[FAIL]** — expected-not-seen: `transport_failed/port_unhealthy` within 30 s (the cycle command PRINTED: `uhubctl -l 3-2.4 -p 2 -a cycle -d 10`) | `usb-reenumeration-20260730T013837Z` |
+| timeout-honesty-no-change | **[PASS] 2/2 — the C2 commanded-to-current class GREEN ON DEPLOYED** (let resolved 50 via `.value`; TIMED_OUT honest; state unchanged) | `timeout-honesty-no-change-20260730T013843Z` |
+
+`ran 8/9 — 1 SKIPPED: [hue-online]`. **never-false-CONFIRMED HELD (zero false CONFIRMs — both runs of record now).**
+
+**F-12 [REVIEW] — the s31 gap class (the SECOND same-leg FAIL; the instrument now speaks before any ruling).** The settle passed, the relay was deterministically OFF, the turn_on was a REAL edge — and still no confirm inside the ~5 s window. The inter-command gap under split-settle is only settle-terminal + suite overhead (sub-second to ~5 s); the probe's proven green had ~20 s. LEADING HYPOTHESIS (unproven): S31 on/off reporting is min-interval/rate-limited — a second transition too soon after the first reports late or coalesced. **Adjudication protocol (v41 beat 1; per-hypothesis predictions BEFORE the read):** read both bundles (`command-s31-settle-…013737Z`: which disposition/when · `command-confirm-s31-…013743Z`: whether an `on` report/confirm EVER arrived and at what offset). P(min-interval): the on-report lands at a consistent offset past the window → FIX = the suite-order amendment (settle to slot 3, confirm-s31 to slot 7 — the intervening Hue legs supply a ~20 s-class gap; zero code; amends Nick's immediately-before ruling → his one-liner). P(no-report-ever): reporting-config class → a bounded look at the S31's reporting_configured params before any reorder. NEVER retune blind.
+
+**F-13 [REVIEW] — the usb flake (green last night, red tonight, leg byte-identical).** Flake = a defect (charter §5). **Discriminator (v41 beat 1, Pi, one paste):** manual `uhubctl -l 3-2.4 -p 2 -a cycle -d 10` with eyes on the live log (+40 s grep for `transport_failed|port_unhealthy|reopened`). P(cycle-works): tokens print → tonight's run = a one-off stimulus fault, re-run the suite; P(no-tokens): the cycle is not cutting VBUS (ppps state/permission class) → `sudo uhubctl` vs plain + `lsusb` before/after decide the layer. The bundle's log slice reads first either way.
+
+**Consequences:** H2 stays honest-unclaimed (full-green owed at the v41 adjudication + re-run); OBS-CONFIRM stays pending the s31 green; C2 = 2/3 classes green (rejoin port rides B3); C3 unaffected (×2 green). **Route-back: v41 beat 1 intakes this section; the evidence block + protocols are in the v41 prompt.**
+

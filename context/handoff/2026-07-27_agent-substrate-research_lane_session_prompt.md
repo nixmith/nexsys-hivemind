@@ -40,3 +40,20 @@ You are a research lane for the HomeSynapse program. The north-star document at 
 **Language law (standing, from the thesis §3.1/§6, adopted at the beat-2 intake):** every external restatement of the enforcement position uses the layered form — *the deterministic floor is MISSING from the field, not SUPERIOR to model-based judgment; L2/L3 without L1 are unsound, L1 without L2 is insufficient.* Any output of this lane that paraphrases the position must survive that check.
 
 **Return format amendment:** + **§8 the thesis-verification verdicts** (ledger rows checked · the SHORT-clock adjudication · the minimal-position-holding acts, effort-classed). Everything else in the return spec stands.
+
+---
+
+## ADDENDUM 2 (2026-07-30, v41 hub beat 1) — the instruction-vs-evidence datapoint, folded into Charge 7
+
+Charge 7 (verify the thesis itself) gains one named input: `context/strategy/2026-07-30_instruction-vs-evidence_moat-note.md`.
+
+It records a live datapoint on the substrate bet — Anthropic removed more than 80% of Claude Code's system prompt for the Claude-5 generation with no measured eval loss (primary source verified 2026-07-30; see `context/audits/2026-07-30_skills-pass-2_return.md` §7) — and the distinction that datapoint provoked: **model progress absorbs instruction; it cannot absorb evidence.** Instruction is compressible into weights, which is what training does. Evidence is a proposition about the physical world that must be observed, and a model that is better at everything is still not a witness.
+
+What Charge 7 owes this note, in this lane's own evidence discipline:
+
+1. **Has anyone already said it?** Search the prior art for this instruction/evidence distinction stated at the actuation boundary — runtime verification, functional safety, capability security, distributed-systems acknowledgement semantics, the agent-safety literature. If it is already named, we cite it rather than claim it. If it is genuinely unstated in this form, that is itself a finding worth reporting as such.
+2. **Does it survive contact?** Attempt a refutation, not a confirmation. The strongest available counter is that a sufficiently instrumented model-plus-tooling stack makes a separate witness redundant — test that against what agent platforms actually ship today, never against what they announce.
+3. **F-1 needs a watch definition.** The primary falsifier is a model generation shipping a native, verifiable actuation-evidence mechanism — not better tool-use reliability, not higher function-call accuracy. Name the specific sources a standing watch would monitor (platform and tool-API release notes, not model benchmark scores), and state how a reader would recognise the event if it happened.
+4. **Do not launder the honesty constraints.** The note's §5 states what it does NOT establish: willingness-to-pay is untouched and remains thesis §5-unproven #2; the 80% figure is first-party on first-party evals with no per-category breakdown; one datapoint is not a trend. Carry all three forward — the argument stands on its reasoning, not on its anecdote.
+
+The note routes into the Substrate Thesis §5/§9 evidence ledger BY POINTER; the thesis is a verbatim filing and is not edited in place. Any recommendation to change that routes through this lane's honesty table like every other north-star edit.

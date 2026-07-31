@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337; Check 6 refined 2026-07-28 (the third-location / remote-cache adjudication, mirrored from the PM preflight's Check 9 per the shared-protocol law; the two stale "the PM preflight has 10 checks" copies — false since the PM gained Check 11 — replaced with a POINTER to the PM file's §2 heading rather than a fresh copied count, per pointer-not-copy; disclosed micro-correction outside the ruled charge, in-file and zero-risk)
+last-verified: 2026-06-07 against commit 8028337; Check 6 refined 2026-07-28 (the third-location / remote-cache adjudication, mirrored from the PM preflight's Check 9 per the shared-protocol law; the two stale "the PM preflight has 10 checks" copies — false since the PM gained Check 11 — replaced with a POINTER to the PM file's §2 heading rather than a fresh copied count, per pointer-not-copy; disclosed micro-correction outside the ruled charge, in-file and zero-risk); the lock-free-porcelain line added 2026-07-30 (skills currency pass 2 — the spelled flag; adopted at v40 beat 1 from the skills-pass return §4b instrument finding)
 -->
 
 # Coder Freshness Preflight
@@ -17,6 +17,8 @@ This is the Coder mirror of the PM's `project-manager/references/freshness-prefl
 ## Shared protocol
 
 This file and `../../project-manager/references/freshness-preflight.md` together form the freshness-preflight protocol shared by both agents. The PM file is the comprehensive superset (its §2 heading is the count of record); this file is the Coder-relevant subset. When either agent detects drift that affects both roles (e.g., a stale MODULE_CONTEXT or a missing traceability index), the discoverer posts a `[VERIFY-NEEDED]` to `../../context/open-questions.md` so the other agent verifies before continuing. The `$SESSION_ROOT` path-traversal convention used here is the same convention used by the WUCP `diff -rq` skill-sync check in `../../context/protocols/work-unit-completion-protocol.md` Step 10.
+
+**Porcelain is lock-free, with the flag SPELLED:** any tree census this protocol (or any block you author) runs is `git --no-optional-locks status --porcelain` — a plain `status` from a tooling context can strand an `index.lock` that surfaces at Nick's keyboard (adopted v40 beat 1; carrier: `../../context/audits/2026-07-28_skills-pass_return.md` §4b).
 
 ---
 

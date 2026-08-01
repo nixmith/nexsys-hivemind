@@ -44,6 +44,8 @@ Mission: put the plugin system and the cloud platform on the radar with rigor - 
 
 ## Section N - THE OWED-ITEMS SESSION ORDER (Nick's non-hub Cowork session; laws: that session commits NOTHING, posts NOTHING public; every artifact pastes back to the hub - v43 or v44 - for intake)
 
+> **AMENDED at v43 beat 9:** this section under-specified - it pointed at chat-only context a fresh session cannot see (a hub-owned defect, recorded). **The SELF-CONTAINED packet is `context/instructions/2026-08-01_owed-items_operator-packet_v43-beat-9.md` - use THAT file** (it carries the clinic-email draft verbatim, the TSDR #2 serial + method, the brand-check pins, and the A-14 definition). The order below stands.
+
 Run in this order; the rationale is leverage-first, then quick artifacts, then reflection, then the time-gated act:
 
 1. **THE CLINIC EMAIL - FIRST.** The one act on someone else's clock (Q-26, the intake deadline nobody controls; both L-lanes independently named X-1 the launch's long pole). The draft is in the v43 beat-3 chat; the token law applies to any edits. SEND, then paste the sent text + timestamp to the hub.

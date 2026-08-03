@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-08-03 (W-SKILLS v44 — this file is now the **ONE HOME** of the Coder-technical-pushback evaluation protocol, relocated here from PM SKILL §4c's sibling §4a so the always-loaded skill carries the rule and this reference carries the procedure. All 15 original elements arrived intact, layer-2 verified; §1–§6 otherwise byte-unchanged. Census: `context/audits/2026-08-03_W-SKILLS_v44-pass_return.md`.) Prior: 2026-06-07 against commit 8028337.
 -->
 
 # Review and Quality Protocol
@@ -150,6 +150,24 @@ When the Coder reports deviations:
   - An instruction error → revise the instruction and reissue
 
 **Correctness over conformance.** When a `[REVIEW]` deviation cites "preserves prior behavior / avoids a regression," weigh it against the spec on **correctness grounds, not literal spec-conformance** — a coder deviation from a *ratified* amendment can be more-correct than the literal spec (the AMD-51 §2.6 string-fallback that avoided a permanent attribute-freeze regression is the model case). When code ships ahead of a needed spec erratum, **log the erratum as an Open Item in pm-handoff** so the ratified doc is reconciled, rather than letting spec and code drift apart silently.
+
+### Evaluating Coder Technical Pushback
+
+*(Relocated here 2026-08-03, W-SKILLS v44, from PM SKILL §4a — the always-loaded skill keeps the rule, this reference keeps the protocol. It fires at exactly the moment you are already reading this file: Coder output in hand.)*
+
+The Coder is a senior engineer with deep implementation-level insight. Pushback is valuable signal, not insubordination — the Coder sees at the code level what you cannot see at the architecture level.
+
+**The Coder SHOULD push back when:** a behavioral contract proves impractical or impossible to satisfy as specified · a specified approach will cause performance problems, concurrency bugs, or maintainability issues the instruction didn't anticipate · a better approach achieves the same contract with fewer risks · a `MODULE_CONTEXT.md` gotcha contradicts or complicates the instructions · the instructions are inconsistent with what actually exists in the codebase · there are cross-module contract implications the instructions didn't account for.
+
+**How to evaluate it — three questions, in order:**
+
+1. **Is this about the contract (WHAT) or the approach (HOW)?** HOW → the Coder likely has legitimate implementation freedom; assess whether your instruction was over-prescriptive and consider accepting their approach. WHAT → this is an architecture question; verify against the design doc and `MODULE_CONTEXT.md`, and if the Coder is right, adjust the instruction or escalate to Nick.
+2. **Does the pushback cite specific evidence?** Good pushback names specific Java behavior (virtual-thread pinning, record limitations), a `MODULE_CONTEXT.md` gotcha, a measurable performance concern, or concrete code that won't compile. **Accept evidence-based pushback; probe vague pushback** — the distinction is the whole control.
+3. **Would accepting it change the public contract?** No → accept and update the coding instruction. Yes → verify against the design doc; if warranted, update the instruction AND flag the `MODULE_CONTEXT.md` for update after implementation.
+
+**When the Coder is right:** acknowledge it plainly ("Good catch — adjusting the instruction"), update the instruction, note any revealed gap in the design doc or `MODULE_CONTEXT.md`, and escalate if the insight has cross-subsystem implications.
+
+**When the Coder is wrong:** explain WHY the instruction is correct, citing the specific design doc section, locked decision, or cross-module contract. If the concern is valid but out of scope, acknowledge it and log it as a future consideration rather than silently dropping it.
 
 ---
 

@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-08-03 (W-SKILLS v44 — this file is now the **ONE HOME** of the §4c Arch-Rule Test-Clock paste-block, and **that block was carrying a live factual defect**: it asserted the ArchUnit rule scans non-whitelisted TEST classes, contradicting addition #6 in this same file and the 2026-06-13 M6.2 enforcement-reach correction. Corrected in place; the correction note rides the section. Additions #1–#21 and every other section byte-unchanged. Census: `context/audits/2026-08-03_W-SKILLS_v44-pass_return.md`.) Prior: 2026-06-07 against commit 8028337.
 -->
 
 # Coding Instruction Format — Coder Communication Protocol
@@ -479,11 +479,13 @@ Emit the result as a `## P2 Consumer/Pin (Fan-Out) Survey` section in the instru
 
 ### Arch-Rule Test-Clock Reminder (§4c — include for non-whitelisted target modules)
 
-When the target module is outside `com.homesynapse.{app,platform,test}..`, paste this verbatim into "What to Watch Out For":
+**This is the paste-block's ONE home** (SK-INV-02; the PM SKILL §4c states the rule and its enforcement reach and points here for the text — amend it here, never there). When the target module is outside `com.homesynapse.{app,platform,test}..`, paste this verbatim into "What to Watch Out For":
 
-> **Tests must inject `Clock`.** Do NOT use `Clock.systemUTC()`, `Instant.now()`, `System.nanoTime()`, or `System.currentTimeMillis()` in this module's test code — the `NO_DIRECT_TIME_ACCESS` ArchUnit rule scans non-whitelisted test classes and fails `./gradlew check`. Use `Clock.fixed(Instant.parse("2026-01-01T00:00:00Z"), ZoneOffset.UTC)` injected via constructor/`@BeforeEach`.
+> **Tests must inject `Clock`.** Do NOT use `Clock.systemUTC()`, `Instant.now()`, `System.nanoTime()`, or `System.currentTimeMillis()` in this module's test code. Use `Clock.fixed(Instant.parse("2026-01-01T00:00:00Z"), ZoneOffset.UTC)` injected via constructor/`@BeforeEach`. **Enforcement reach:** `NO_DIRECT_TIME_ACCESS` runs from `com.homesynapse.app`'s test classpath, so it mechanically catches PRODUCTION code in every non-whitelisted module (plus app's own tests) — it does **not** scan this module's test source set. Clock-injection here is a self-enforced project convention that PM review, not `./gradlew check`, enforces.
 
 No reminder is needed when the target is `com.homesynapse.{app,platform,test}..` (whitelisted).
+
+*(Corrected 2026-08-03, W-SKILLS v44 — a live defect, not a wording change. This block previously asserted "the `NO_DIRECT_TIME_ACCESS` ArchUnit rule scans non-whitelisted test classes and fails `./gradlew check`", contradicting addition #6 below AND the PM SKILL §4c reach corrected 2026-06-13 after the M6.2 Coder finding. The correction had been folded at §4c, java-patterns §11, and testing-standards §8 — but never here, at the one copy that is pasted verbatim into every non-whitelisted coding instruction and therefore the only copy the Coder actually reads.)*
 
 ### Gated Parts & Verbatim module-info Embeds
 

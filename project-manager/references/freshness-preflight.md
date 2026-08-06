@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337; Check 9 refined 2026-07-28 (the third-location / remote-cache adjudication — skills-currency pass; mirrored into `../../coder/references/freshness-preflight.md` per the shared-protocol law)
+last-verified: 2026-06-07 against commit 8028337; Check 9 refined 2026-07-28 (the third-location / remote-cache adjudication — skills-currency pass; mirrored into `../../coder/references/freshness-preflight.md` per the shared-protocol law); Check 9 extended 2026-08-06 to the THIRD diff pair — the FE mirror (`nexsys-skills/orchestrators/nexsys-frontend` ↔ `.claude/skills/nexsys-frontend`) — per ruling R-2 (v44 beat 5; W-SKILLS-2 return)
 -->
 
 # Freshness Preflight
@@ -118,13 +118,18 @@ diff -rq \
 diff -rq \
   "$SESSION_ROOT/mnt/ClaudeFolder/nexsys-hivemind/coder" \
   "$SESSION_ROOT/mnt/.claude/skills/nexsys-coder" 2>&1
+
+# THIRD pair (adopted per R-2, v44 beat 5 — the FE mirror was previously unguarded by any preflight):
+diff -rq \
+  "$SESSION_ROOT/mnt/ClaudeFolder/nexsys-skills/orchestrators/nexsys-frontend" \
+  "$SESSION_ROOT/mnt/.claude/skills/nexsys-frontend" 2>&1
 ```
 
 If `$0` isn't available in the current shell context (e.g., when running commands ad-hoc rather than from a script), use the equivalent environment-discovery approach: start from any `ClaudeFolder` file you know exists and walk up to `mnt`, then compare against the sibling `.claude/skills/` mount. The **rule**: never hardcode the session slug. The session slug is ephemeral; the `ClaudeFolder → mnt → .claude/skills` topology is stable.
 
-- **PASS** if both `diff -rq` commands produce empty output.
-- **STALE** if either command reports "Only in" entries for files that exist only in the `ClaudeFolder` source tree (Nick has not yet run the mirror sync).
-- **CONFLICTED** if either command reports "differ" entries — the same file has divergent content in both locations.
+- **PASS** if all three `diff -rq` commands produce empty output.
+- **STALE** if any command reports "Only in" entries for files that exist only in the `ClaudeFolder` source tree (Nick has not yet run the mirror sync).
+- **CONFLICTED** if any command reports "differ" entries — the same file has divergent content in both locations.
 
 Note: `.claude/skills/` is a read-only mount; the PM never writes to it. STALE is the normal state immediately after a PM edit — it clears when Nick runs his external sync. CONFLICTED is abnormal and blocks forward work.
 

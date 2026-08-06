@@ -21,7 +21,7 @@ This protocol defines what to verify, when, and how.
 The PM tracks six categories of state:
 
 ### A. Design Document State
-Where each of the 15 design documents (01–15) sits in the lifecycle — all currently Locked.
+Where each design document sits in the lifecycle. `homesynapse-core-docs/design/` is the source of truth for the count and the list — do not hardcode either here (18 docs, all Locked, as of the Doc-18 Lock 2026-07-03; re-derive at read time).
 
 | Status | Meaning | PM Action |
 |---|---|---|

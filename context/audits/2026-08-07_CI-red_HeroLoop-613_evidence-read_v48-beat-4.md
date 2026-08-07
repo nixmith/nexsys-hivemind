@@ -38,3 +38,21 @@ Grounding surfaced this independent of today's red: **no CI verdict for the `b3d
 ## 6. Pre-ruled paths (so no outcome needs a new deliberation)
 
 Whatever the diagnosis: the fix is a **coder-lane WU** (D12 host-CC; test-only expected per the DURc precedent — if diagnosis confirms H-A, the WU evaluates promoting the named **LC-LABEL-LOG** follow-up from mitigation to retirement, scoped test-only), verified desk forced-fresh ×N + full `check`, pushed, **CI green ON that push = the gate of record and closes this file.** Freeze arithmetic: diagnosis this weekend on the three reads → instruction authored same beat → coder lane by Monday → CI green before the skeleton ships. **The freeze (Aug-14 EOD) requires a green gate of record — a probabilistically-green main is not a gate.** The L-E/L-F lanes are read-only and unaffected; S-9 and the skeleton hold schedule.
+
+---
+
+## 7. ADDENDUM — the read intakes (v48 beat 5, 2026-08-07)
+
+**Read 1 (the Actions history, screenshot intaken): H-C REFUTED AT THE INSTRUMENT.** CI #202 `60d3ab5` GREEN (Jul-31) · #203 dependabot PR GREEN (Aug-1) · #204 `96d9efb` (S-5c) GREEN (Aug-5 19:36) · #205 `3723e31` GREEN (Aug-5 19:48) · **#206 `8955e23` RED (Aug-7 06:38) — the FIRST red.** The gate was watched and green throughout the S-5 era.
+
+**The §3 hole, CORRECTED against the operator's record:** Nick DID report the S-5-era greens in-chat at the time. The accurate finding is **REPORTED-NOT-BANKED** — the verdicts reached the hub in chat and were never filed to the spine (the law-11 mild form: chat is not a storage tier), not an unwatched gate. §3's "never intaken" overstated and is corrected here. **Standing rule, minted now:** every CI verdict banks as a one-line spine entry at the next beat — "CI GREEN/RED on <sha> (run #N)" — no exceptions, no deferral to context.
+
+**Read 3 (executed by Nick ahead of sequence, disclosed): TWO re-runs, BOTH RED** — the failed-jobs re-run with debug AND a full all-jobs re-run; same test, same `:613`, 60/1 both times. **The failure is DETERMINISTIC on the current CI environment (3/3).**
+
+**The combined adjudication:** green ×2 on Aug-5 and red ×3 on Aug-7 **on code identical up to one `.md` file** ⇒ no code change caused the flip; the trigger is ENVIRONMENTAL, and the defect is LATENT IN THE TEST/CODE — an environment-sensitive race or assumption whose outcome flipped with the runner environment. The workflow floats on every axis that can drift: `runs-on: ubuntu-latest` (image rollouts), `java-version: '21'` (minor floats), actions at major tags (ci.yml :15/:23–:26). **H-D is DEAD** (the same S-5c code was green twice). **H-A stands refined:** not probabilistically-green — a race now deterministically LOST on the new environment (the DURc doctrine's own words for the prior instance: "04f5f70's green CI was probabilistic"). **H-B remains open** pending the message. The re-run instrument is now exhausted — no further re-runs; the next evidence is the report.
+
+**The completion reads (supersede §5; two remain):**
+- **R-1 (decisive):** the failed run's **`test-reports` artifact** (uploaded on failure by ci.yml :34–:40) → `lifecycle/lifecycle/build/reports/tests/test/` → the `HeroLoopHardwareFreeIT` class page → paste (or attach the HTML file to the hub chat) the failure block — the assertion MESSAGE ("timed out awaiting …") + the full stack with the call-site frame. This alone forks the diagnosis (:115 dispatch ⇒ the label-race family; :98/:102 ⇒ occupancy-upstream).
+- **R-2 (the trigger pin, 60 s):** run #205 vs run #206 → "Set up job" → the **Runner Image / version** lines — paste both. If the image version differs, the environment-change trigger is pinned at the instrument.
+
+**Shelf note (post-gate, W-2-adjacent):** the gate of record floats its own environment (`ubuntu-latest` + unpinned Java minor). The reproducible-install discipline extends to CI — pinning the runner image + toolchain post-gate makes the gate's environment a declared input instead of a drifting one. Joins the enterprise-grade schedule; nothing moves pre-freeze.

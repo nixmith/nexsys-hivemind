@@ -1,3 +1,4 @@
+<!-- ⚠⚠ STALE — QUARANTINED 2026-08-10 (v50 beat 6; Nick's cleanup directive). ACTIVELY MISDIRECTING: its "Directories that NO LONGER EXIST" list names context/governance/ and context/research/ as removed — BOTH EXIST AND ARE LOAD-BEARING TODAY — and every post-May directory class (process/, strategy/ + its three program subtrees, pre-verifications/, programs/, instructions/) is missing. Convicted by the W-COHERE audit (context/audits/2026-08-09_WCOHERE_navigation-audit_return.md, gap row 3). Do NOT navigate from this file; use the newest orchestrator prompt → the spine. This file is the natural HOME of the chartered role-indexed truth-map (post-gate) and will be rebuilt as it. Prepend-only banner — nothing below it was edited. -->
 <!--
 file: context/canonical-paths.md
 purpose: Single registry of directory and file-naming conventions. Brief authors reference this before writing path references.

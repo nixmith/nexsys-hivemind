@@ -1,3 +1,4 @@
+<!-- ⚠ DORMANT CHANNEL — BANNERED 2026-08-10 (v50 beat 6). Census ACTIVE: 0 since 2026-07-27 — in practice THE BEAT SPINE ABSORBED THIS CHANNEL (cross-agent facts ride pm-handoff beats, lane returns, and dispatch packets). Convicted by the W-COHERE audit (gap row 7). The archive below stands as history; the channel's disposition rides the post-gate truth-map WU. Prepend-only banner. -->
 <!--
 file: context/handoff/cross-agent-notes.md
 purpose: Shared bulletin board for inter-agent communication outside the formal task queue.

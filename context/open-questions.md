@@ -1,3 +1,4 @@
+<!-- ⚠ DORMANT CHANNEL — BANNERED 2026-08-10 (v50 beat 6). No write since 2026-06-13 while older procedures still gate on sweeping it — in practice THE BEAT SPINE ABSORBED THIS CHANNEL (questions/escalations ride pm-handoff beats and lane returns). Convicted by the W-COHERE audit (gap row 7). Entries below remain the honest pre-June record; the channel's disposition (retire / repoint / revive) rides the post-gate truth-map WU. Prepend-only banner. -->
 <!--
 file: context/open-questions.md
 purpose: Inter-agent register of open questions and verify-needed items. PM consults before issuing instructions; Coder consults before executing.

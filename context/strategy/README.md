@@ -1,3 +1,4 @@
+<!-- ⚠⚠ STALE — QUARANTINED 2026-08-10 (v50 beat 6). Indexes 5 files as of 2026-05-21 — MISSING the north star (2026-07-27_homesynapse-technical-overview_north-star.md), Substrate_Thesis_v0.md, the moat-watch standing directive (2026-08-06, entries W-1..W-6), and all three program subtrees (fusion-program/ · brand-program/ · counsel-package/). Convicted by the W-COHERE audit (gap row 5). The strategy layer's read order of record lives in the PM skill's strategy-layer pointer + the newest orchestrator prompt. Rebuild chartered post-gate. Prepend-only banner. -->
 <!--
 file: context/strategy/README.md
 purpose: Inventory of Nick's strategic artifacts in context/strategy/ and the rules for how agents read them.

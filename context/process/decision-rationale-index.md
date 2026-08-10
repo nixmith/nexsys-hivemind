@@ -1,3 +1,4 @@
+<!-- ⚠⚠ STALE — QUARANTINED 2026-08-10 (v50 beat 6). Newest ruling row 2026-07-08 — a month of load-bearing rulings has NO row here (R-1..R-6 v44 · the HOLD ruling v49 · A-14 · R-A(a) CONFIRMED=state-truth · HA-5 · the weekly-plans-RETIRED ruling · D-1/D-2 (H3) · the menu words). THE PM-HANDOFF BEATS (+ their archives) ARE THE RULINGS RECORD OF RECORD until the catch-up append, which is chartered post-gate. Convicted by the W-COHERE audit (gap row 5). Do not defend settled ground from this index alone. Prepend-only banner. -->
 <!--
 file: context/process/decision-rationale-index.md
 purpose: The index of load-bearing rulings — one line of WHAT + WHY each, with a pointer to where the full rationale lives. Exists so a fresh Claude can DEFEND decisions, not merely obey them, and so nobody re-litigates settled ground. This is an INDEX (pointer-not-copy): the cited source is authoritative; governance-side detail lives in the docs repo's registers/AMDs.

@@ -1,3 +1,4 @@
+<!-- ⚠⚠ STALE — QUARANTINED 2026-08-10 (v50 beat 6; Nick's cleanup directive). This file teaches the May-era model (three-surface, "Claude Code transition in progress", watermark AMD-45, docs 01–14) while the operative model is the five-repo hub-and-lanes, AMD-99+, 18 Locked docs. Convicted at file+line by the W-COHERE navigation audit (context/audits/2026-08-09_WCOHERE_navigation-audit_return.md, gap row 5). Do NOT boot, author, or adjudicate from this file. Current truth: the newest context/handoff/*_PM-mission-control_v*_orchestrator_session_prompt.md (not in archive/) → PROJECT_SNAPSHOT.md frontmatter chain → pm-handoff.md newest beats. Content rebuild chartered post-gate (the truth-map/register WUs). Prepend-only banner — nothing below it was edited. -->
 <!--
 title: Project Instructions
 last-updated: 2026-05-27

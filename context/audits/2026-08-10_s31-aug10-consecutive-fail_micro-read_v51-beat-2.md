@@ -54,7 +54,16 @@ Every adjacent same-night pair diverges at char 8; the FAIL JSON is the sole out
 
 If C2 errors (no file by that name), C1's listing shows what exists — paste it all; the hub re-derives the ownership carrier from the listing rather than guessing.
 
-## 6. Adjudication — EMPTY (fills at the next beat on Nick's paste)
+## 6. Adjudication (v51 beat 3, on Nick's bundle paste — CLOSED)
+
+**Verdict: OWN — an honest device timeout, expected-class. The §2/§3 SAME-MS premise is CORRECTED on the record: it was the hub's own THIRD instance of adjacency-as-ownership.**
+
+- **C2 (the ownership instrument):** the s31 bundle's `resolved.json` carries `command_id = 01KZNCRQED6PFF321KZQQD6HP2`, marker `POST /api/v1/entities/01KXW1W1SBJZERC9MBAMV2DWKE/commands` at 2026-08-10T08:31:29Z — the s31 entity, the s31 leg's OWN command. The FAIL JSON's commandId is the leg's own.
+- **C4 (full width):** lifecycle ACCEPTED 08:31:29.741896Z (eventId = commandId) → DISPATCHED 08:31:29.745130Z (eventId `01KZNCRQEGY3ZW5QQMT2764Y58`, distinct) → CONFIRMATION_TIMED_OUT 08:31:35.466475Z (eventId `01KZNCRX1A2TC6HDSQ9DVD6APT`, distinct), `terminal:true`. ACCEPTED→TIMED_OUT = **5.72 s** — the tail of the measured distribution straddling the 5.37 s window. Capture hygiene sound; all ULIDs distinct.
+- **C3 (anti-vacuous control): PASS** — the settle `resolved.json` returned `01KZNCRXD6J2FS9FN9673JGTES`, exact match to the journal's captured line. The read route is sound; the adjudication stands on a proven instrument.
+- **The premise correction:** the journal's leg-internal capture lines print AFTER the prior leg's `[--] bundle:` line and BEFORE their own leg's verdict line — they bind FORWARD. The hub bound `captured command_id = 01KZNCRQED6…` backward to timeout-honesty (whose command was actually `01KZNCRHFCCG1KPPVGHYM9YW4C`) and manufactured a same-ms collision that never existed. **H-WRONGREAD REFUTED · H-DISPLAY REFUTED · H-OWN CONFIRMED with the SAME-MS clause DISSOLVED.**
+- **Owned:** third instance of the adjacency-as-ownership class (Aug-9 ×2 at the closed read, tonight ×1 at the beat-2 filing). The class rule hardens: NO journal-layout rule — forward-binding included — is an ownership instrument; `resolved.json` only. Harvests: pm-lessons at the docs fold · W-SKILLS-3 · the redesigned-instrument WU (the runner should print each leg's command_id INSIDE its verdict line, killing the class at the source).
+- **Standing effects:** the Aug-10 FAIL banks as an honest timeout (distribution now TIMED_OUT 8/14 on the available record); the consecutive-FAIL branch's disposition is UNCHANGED (the fresh read on the redesigned instrument, post-gate); the §7 bar-vs-distribution NOTE strengthens — the redesign decision at S-10 is window-sizing vs honest-terminal assertion; **C1's one-way door INTACT** — the system honestly reported TIMED_OUT and the settle proved the device alive one second later. HANDS OFF held throughout; no re-open clause — this micro-read is CLOSED.
 
 ## 7. Gate impact — NONE in any branch
 

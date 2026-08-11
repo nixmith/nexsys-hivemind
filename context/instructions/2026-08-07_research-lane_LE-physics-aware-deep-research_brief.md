@@ -3,14 +3,14 @@ file: context/instructions/2026-08-07_research-lane_LE-physics-aware-deep-resear
 purpose: L-E — the physics-aware deep-research lane (Nick's GO, 2026-08-07, v48 beat 3; standing offer since v45 beat 4). Fresh Cowork session, read-only, deep research. Return is a NAMED input to the charter SKELETON (Aug-11) and S-10 THE CHARTER (Aug-12–13).
 audience: the L-E lane (a fresh Cowork session; no role skill required — this brief is self-contained)
 status: DISPATCH-READY. Dispatch line: "Read nexsys-hivemind/context/instructions/2026-08-07_research-lane_LE-physics-aware-deep-research_brief.md and execute it."
-due: return ON DISK by 2026-08-11 09:00 America/Chicago.
+due: return ON DISK by 2026-08-12 09:00 America/Chicago. (RE-STAMPED 2026-08-11, v51 beat 4 — the lane was adjudicated UN-RUN at return-absence per law 37, never dispatched; this brief stands as the order; baselines re-derive at launch per rule 8.)
 -->
 
 # L-E — Physics-Aware Core: Deep-Research Lane Brief
 
 ## Section 0 — Posture and laws (read first; these bind every sentence you write)
 
-1. **READ-ONLY.** You commit NOTHING, edit NOTHING, in any repo. Your ONLY write is your return file: `nexsys-hivemind/context/research/2026-08-XX_LE_physics-aware-deep-research_return.md` (XX = completion day; due on disk 2026-08-11 09:00 CT). A lane is verified at its RETURN ON DISK, never at word — if the file does not exist at that path, the lane did not run.
+1. **READ-ONLY.** You commit NOTHING, edit NOTHING, in any repo. Your ONLY write is your return file: `nexsys-hivemind/context/research/2026-08-XX_LE_physics-aware-deep-research_return.md` (XX = completion day; due on disk 2026-08-12 09:00 CT — re-stamped v51 beat 4). A lane is verified at its RETURN ON DISK, never at word — if the file does not exist at that path, the lane did not run.
 2. **The D5 language law.** Any restatement of the enforcement position uses ONLY the layered form: the deterministic floor is MISSING from the field, not SUPERIOR; L2/L3 without L1 are unsound; L1 without L2 is insufficient. Never "deterministic beats model."
 3. **Label every system statement** as one of: AS-BUILT (with a source citation — file + line or MODULE_CONTEXT row), DESIGNED-FOR (documented, not yet true), or PROPOSED. The north-star doc's own frontmatter carries one load-bearing DESIGNED-FOR — respect that discipline. No capability claims, anywhere, of any kind.
 4. **Gate sovereignty.** Nothing you produce moves pre-freeze code (freeze 2026-08-14 EOD; THE READ Aug-16). Every build recommendation charters POST-GATE. Your return is decision input, not a work order.

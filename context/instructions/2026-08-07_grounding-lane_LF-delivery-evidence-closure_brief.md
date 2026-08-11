@@ -3,14 +3,14 @@ file: context/instructions/2026-08-07_grounding-lane_LF-delivery-evidence-closur
 purpose: L-F — the delivery-evidence-closure grounding lane (COMMISSIONED by Nick 2026-08-07, v48 beat 3). Fresh Cowork session, read-only, source-grounded. Mission: make "closure-first" one-word-adjudicable at S-10 with real pricing. Return is a NAMED input to the charter SKELETON (Aug-11) and S-10 (Aug-12–13).
 audience: the L-F lane (a fresh Cowork session; no role skill required — this brief is self-contained)
 status: DISPATCH-READY. Dispatch line: "Read nexsys-hivemind/context/instructions/2026-08-07_grounding-lane_LF-delivery-evidence-closure_brief.md and execute it."
-due: return ON DISK by 2026-08-11 09:00 America/Chicago.
+due: return ON DISK by 2026-08-12 09:00 America/Chicago. (RE-STAMPED 2026-08-11, v51 beat 4 — the lane was adjudicated UN-RUN at return-absence per law 37, never dispatched; this brief stands as the order; baselines re-derive at launch per rule 7.)
 -->
 
 # L-F — The Delivery-Evidence Closure: Grounding + Build-Shape Pricing
 
 ## Section 0 — Posture and laws (read first)
 
-1. **READ-ONLY.** You commit NOTHING, edit NOTHING. Your ONLY write is the return file: `nexsys-hivemind/context/research/2026-08-XX_LF_delivery-evidence-closure_return.md` (XX = completion day; due on disk 2026-08-11 09:00 CT). A lane is verified at its RETURN ON DISK, never at word.
+1. **READ-ONLY.** You commit NOTHING, edit NOTHING. Your ONLY write is the return file: `nexsys-hivemind/context/research/2026-08-XX_LF_delivery-evidence-closure_return.md` (XX = completion day; due on disk 2026-08-12 09:00 CT — re-stamped v51 beat 4). A lane is verified at its RETURN ON DISK, never at word.
 2. **No capability claims.** Every system statement is AS-BUILT (cited at file+line), DESIGNED-FOR, or PROPOSED. The standing honesty rail binds absolutely: **no delivery-proof claims exist today** — DISPATCHED means hand-off to the adapter, not radio delivery; CONFIRMED means the device's own report evidenced the state (ruling R-A(a): state-truth). Your work is precisely about closing that gap; do not write as if it is closed.
 3. **Gate sovereignty:** freeze 2026-08-14 EOD; nothing here moves pre-freeze code; every option charters post-gate.
 4. **Settled ground fenced, refutation-welcome with primary evidence:** R-A(a) state-truth semantics; the REV-1 S-1 finding (CONFIRMED at source: APS-ack evidence requested then discarded); the priced coincidence window (~1.7% at 5 s / ~10% at 30 s, toward-current-state only, at the S31's measured ~5-min cadence). Challenge framings freely; challenge these facts only at source.

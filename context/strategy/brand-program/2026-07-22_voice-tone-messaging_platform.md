@@ -4,6 +4,7 @@ purpose: Deliverable 3 of the brand-program lane — the NAME-AGNOSTIC voice, to
 audience: Nick; the hub; the marketing-site lane (downstream consumer); the E3 statement's hub author (as raw material only — E3 stays hub-owned).
 state-type: lane deliverable (brand-program, authored 2026-07-23 under the 2026-07-22 lane charge).
 ruling-fold: 2026-07-23 — Architecture C RATIFIED + engine register ruled "«{{productName}}» Core" (one public name; the asymptote story lives in company boilerplate/engineering prose — which this platform's §4 final sentence already implements). No copy change required: the platform was written name-agnostic and architecture-agnostic; the rulings resolve its two open switches (§4's attribution sentence STAYS; the edition pattern is "«{{productName}}» Core/Home/Pro").
+strike-fold: 2026-08-13 — BRANCH C EXECUTED (the Pelton read came back ADVERSE on TAMORO; conditions-to-copy Branch-C notes govern): taglines T-2 and T-5 (the two evocation-dependent directions) are STRUCK from the active set, and §1's tomorrow-register paragraph is SUPERSEDED-PENDING the Q-B evocation-axis ruling (tomorrow → calm/home) at the S-10 skeleton. Nothing is deleted — history stands; the honesty set (T-1/T-3/T-4) is untouched and remains the live set. Record of record: ../counsel-package/2026-08-13_pelton-search-report_intake-adjudication.md §4/P-4.
 grounding: voice-and-tone-guidelines.md (the three registers) · explainability refs (the two durable halves; the seven hero principles; the honest-claim corrections) · Six_Battlefields_MVP_Strategy.md (+the D-4 messaging rule) · 2026-07-15_product-one-pager.md (the "your home's tomorrow" anchor; tomorrow attaches to the HOME, never to AI; deliberate brand distance from any tomorrow-adjacent AI mark) · 2026-07-10_acceptance-arc-positioning-notes.md (via the naming brief: never-false-CONFIRMED as the certified thesis).
 -->
 
@@ -29,7 +30,7 @@ Every smart-home platform tells you what it *sent*. {{productName}} tells you wh
 4. **Local-first, no cloud account** — the *frame* that makes the honesty credible, not the differentiator (competitors are local too).
 5. **Reliability / works-together** — the mass-market lead per D-4; **privacy** is the prosumer/EU segment expression, never THE lead.
 
-**The tomorrow register (the brand criterion's story, name-agnostic):** the forward-looking note always attaches to **the home, never to AI** — "your home's tomorrow," "the home that's ready for tomorrow," "built to still be right years from now." AI capability is described as gradual, advisory-first, under-the-hood, residential. No verbal or visual echo of any tomorrow-adjacent AI branding (deliberate distance, per the counsel record).
+**[SUPERSEDED-PENDING Q-B, 2026-08-13 — the tomorrow register is retired with the TAMORO candidate; the replacement (calm/home) register drafts after the axis ruling. Retained verbatim below as record.]** **The tomorrow register (the brand criterion's story, name-agnostic):** the forward-looking note always attaches to **the home, never to AI** — "your home's tomorrow," "the home that's ready for tomorrow," "built to still be right years from now." AI capability is described as gradual, advisory-first, under-the-hood, residential. No verbal or visual echo of any tomorrow-adjacent AI branding (deliberate distance, per the counsel record).
 
 ## 2. One voice, three registers (inherited, restated for the new-mark era)
 
@@ -46,10 +47,12 @@ The stranger ("mom") test is the acceptance bar for anything explanatory, in eve
 | # | Tagline | Register / why it works | Rails check |
 |---|---|---|---|
 | T-1 | **"The smart home that never lies to you."** | The thesis, weaponized; instantly comprehensible; sets up every proof point. | Clean — a self-claim, not a competitor claim. Soften to "A smart home that never lies" if "to you" reads accusatory in layout. |
-| T-2 | **"Your home's tomorrow, on your terms."** | The tomorrow-evocation + local-first sovereignty in eight words; the counsel-recorded marketing anchor, productized. | Clean; "tomorrow" attaches to the home. |
+| ~~T-2~~ **[STRUCK 2026-08-13 — Branch C]** | **"Your home's tomorrow, on your terms."** | The tomorrow-evocation + local-first sovereignty in eight words; the counsel-recorded marketing anchor, productized. | Clean; "tomorrow" attaches to the home. |
 | T-3 | **"Confirmed means confirmed."** | The honest-outcome lead in three words; the register-C voice as a brand line; ages perfectly. | Clean; provable in-product. |
 | T-4 | **"Know why. Know for sure."** | The three hero questions compressed to a rhythm; works as section headers site-wide (Why did it fire → Know why; Did it happen → Know for sure). | Clean. |
-| T-5 | **"Tomorrow's home, honestly."** | Shortest tomorrow+trust fusion; strongest as a campaign/secondary line under a bolder headline. | Clean; watch that "honestly" never reads as filler in body copy — reserve for display. |
+| ~~T-5~~ **[STRUCK 2026-08-13 — Branch C]** | **"Tomorrow's home, honestly."** | Shortest tomorrow+trust fusion; strongest as a campaign/secondary line under a bolder headline. | Clean; watch that "honestly" never reads as filler in body copy — reserve for display. |
+
+**Strike record (2026-08-13, Branch C):** T-2 and T-5 are OUT of the active set (evocation-dependent; the axis they depend on retired with TAMORO). The live set is T-1 / T-3 / T-4. New calm-axis directions draft only after Q-B rules and only name-agnostic.
 
 **Lane REC:** T-1 as the launch masthead (it is the story), T-3 as the product/hero line, T-2 held for the mainstream/consumer register when the install story matures (W-4 embargo respected: no plug-and-play claims until ruled).
 

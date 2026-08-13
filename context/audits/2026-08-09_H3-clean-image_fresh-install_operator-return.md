@@ -452,3 +452,79 @@ actually established.
 
 Bench uptime before this rep was **3 weeks 6 days** (since 2026-07-16). The restore reboot was the
 first in a month and completed cleanly.
+
+
+---
+
+# 10. F-23 — provenance proven, and the blast radius was UNDERSTATED
+
+*Added after a read-only `git` provenance check requested by the hub. Two of the three results change
+what F-23 means. Recorded as a correction, not folded in.*
+
+## 10.1 The "every green run" claim is now PROVABLE — drop the hedge
+
+| Query | Result |
+|---|---|
+| `jdk.jfr` entered in | **one commit: `b296e76`, 2026-06-26 21:29:16 -0500** |
+| `build-image.sh` (and `FLOOR`) created in | **the same commit, `b296e76`** |
+| Commits ever touching `build-image.sh` | **2** |
+| `FLOOR=` line ever modified | **never** — the only revision is its creation |
+| `b296e76` ancestor of `d26777c` (our artifact)? | **YES** |
+| `b296e76` ancestor of `ca0f41d` (install-smoke #28, the gate of record)? | **YES** |
+
+**Both halves of the defect — the `jdk.jfr` usage and the `FLOOR` that fails to cover it — arrived in
+the same commit, on 2026-06-26, and the distribution lane has never once produced a correct runtime.**
+Every green install-smoke run against a jlinked image, **including the gate of record**, certified an
+artifact whose JFR-dependent code paths cannot link. This is now stated without qualification.
+
+The **omnibus-commit hypothesis is confirmed**: `b296e76`'s own message is *"TWO COMMITS — the hivemind
+reconcile (Commit A) + the Track-A code deliverables (Commit B). Selective-stage host-side."* The
+*use* (in `core/event-bus`) and the *mitigation* (in `distribution/`) landed together in a single
+selectively-staged commit that bundled two logical changes. A cross-module invariant had to be noticed
+across that boundary, by eye, once. It wasn't, and nothing has looked since.
+
+## 10.2 🔴 CORRECTION — `jdk.jfr` is not in the integration layer. It is in the EVENT BUS.
+
+§3.1 attributes the usage to `integration-runtime`. **That is wrong.** `git grep` places every source
+site in **`core/event-bus`**:
+
+```
+core/event-bus/.../BusMetrics.java          — "implementation (BusMetricsJfr) commits jdk.jfr.Events"
+core/event-bus/.../BusMetricsJfr.java       — "constructs the corresponding jdk.jfr.Event subclass … commit()"
+core/event-bus/.../BusPublishLatencyEvent.java     extends jdk.jfr.Event
+core/event-bus/.../BusPublisherBlockedEvent.java   extends jdk.jfr.Event
+core/event-bus/.../BusSubscriberLagEvent.java      extends jdk.jfr.Event
+core/event-bus/.../BusWriteAcceptedEvent.java      extends jdk.jfr.Event
+```
+
+The observed trace is consistent: `publishLifecycle:1099 → NotifyingEventPublisher.publishRoot:56 →
+NoClassDefFoundError`. **Integration startup is where the defect SURFACED, not where it lives.** It
+lives on the **event bus publish path of an event-sourced system** — the spine.
+
+**Why this rep could not see the true extent.** The fresh install had **zero devices** and
+`viewPosition: 0`. Nothing exercised the write path. The reads that returned 200 (`/api/v1/entities`,
+`/runs`, `/automations`) all served empty projections. The only publish that occurred during the
+observation window was the integration lifecycle publish — and `INV-RF-01` caught that one and
+continued. **An idle system is exactly the system that survives this defect.**
+
+**Revised severity statement.** F-23 is not "integrations cannot start." It is: *on any artifact from
+`build-image.sh`, `jdk.jfr` is absent, and the event bus's metrics path references it. Integration
+startup is one confirmed caller. The behaviour of every other publish path on the packaged runtime is
+**untested**, and the rep's own conditions guaranteed it would stay untested.*
+
+**One question remains open** and it decides between "a metrics path is broken" and "publishing is
+broken": `BusMetrics.java`'s Javadoc implies a second implementation beside `BusMetricsJfr`. If a
+no-op fallback exists, why did it not engage — and does it protect the other publish paths? Until that
+is answered, **the upper bound on this defect is not established.**
+
+## 10.3 The scale of the jdeps gap, in one number
+
+The repository contains **23** `build.gradle.kts` modules. `build-image.sh:82` hands jdeps **one jar**.
+Up to **22 first-party modules' JDK-module dependencies have never been computed by anything.**
+`jdk.jfr` is the one that happened to be load-bearing; nothing establishes it is the only one missing.
+
+**Proposed (S), and it subsumes the narrow fix:** assert at build time that (a) every module named in
+`FLOOR` is present in the linked runtime, and (b) jlink's analysis input covers every jar on the
+runtime classpath. That converts a hand-maintained list into a checked invariant — D-6 applied to the
+build rather than to a test. Fixing only `jdk.jfr` closes this instance and leaves the other 22 modules
+uncovered.

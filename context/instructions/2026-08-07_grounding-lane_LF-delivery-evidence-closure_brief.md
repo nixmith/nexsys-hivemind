@@ -3,7 +3,7 @@ file: context/instructions/2026-08-07_grounding-lane_LF-delivery-evidence-closur
 purpose: L-F — the delivery-evidence-closure grounding lane (COMMISSIONED by Nick 2026-08-07, v48 beat 3). Fresh Cowork session, read-only, source-grounded. Mission: make "closure-first" one-word-adjudicable at S-10 with real pricing. Return is a NAMED input to the charter SKELETON (Aug-11) and S-10 (Aug-12–13).
 audience: the L-F lane (a fresh Cowork session; no role skill required — this brief is self-contained)
 status: DISPATCH-READY. Dispatch line: "Read nexsys-hivemind/context/instructions/2026-08-07_grounding-lane_LF-delivery-evidence-closure_brief.md and execute it."
-due: return ON DISK by 2026-08-12 09:00 America/Chicago. (RE-STAMPED 2026-08-11, v51 beat 4 — the lane was adjudicated UN-RUN at return-absence per law 37, never dispatched; this brief stands as the order; baselines re-derive at launch per rule 7.)
+due: return ON DISK by 2026-08-14 09:00 America/Chicago. (FINAL STAMP — v51 beat 5, 2026-08-13: SECOND consecutive UN-RUN adjudication at return-absence; DEGRADE-TO-ABSENT — S-10 adopts whatever is on disk at its close, anything later is post-gate reading; baselines re-derive at launch per rule 7.)
 -->
 
 # L-F — The Delivery-Evidence Closure: Grounding + Build-Shape Pricing

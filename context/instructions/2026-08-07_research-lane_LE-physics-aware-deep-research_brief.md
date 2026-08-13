@@ -3,7 +3,7 @@ file: context/instructions/2026-08-07_research-lane_LE-physics-aware-deep-resear
 purpose: L-E — the physics-aware deep-research lane (Nick's GO, 2026-08-07, v48 beat 3; standing offer since v45 beat 4). Fresh Cowork session, read-only, deep research. Return is a NAMED input to the charter SKELETON (Aug-11) and S-10 THE CHARTER (Aug-12–13).
 audience: the L-E lane (a fresh Cowork session; no role skill required — this brief is self-contained)
 status: DISPATCH-READY. Dispatch line: "Read nexsys-hivemind/context/instructions/2026-08-07_research-lane_LE-physics-aware-deep-research_brief.md and execute it."
-due: return ON DISK by 2026-08-12 09:00 America/Chicago. (RE-STAMPED 2026-08-11, v51 beat 4 — the lane was adjudicated UN-RUN at return-absence per law 37, never dispatched; this brief stands as the order; baselines re-derive at launch per rule 8.)
+due: return ON DISK by 2026-08-14 09:00 America/Chicago. (FINAL STAMP — v51 beat 5, 2026-08-13: SECOND consecutive UN-RUN adjudication at return-absence; DEGRADE-TO-ABSENT — S-10 adopts whatever is on disk at its close, anything later is post-gate reading; baselines re-derive at launch per rule 8.)
 -->
 
 # L-E — Physics-Aware Core: Deep-Research Lane Brief

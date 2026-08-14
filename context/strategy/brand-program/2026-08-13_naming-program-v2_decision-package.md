@@ -4,6 +4,7 @@ purpose: THE NAMING PROGRAM v2 — the post-TAMORO decision package Nick tasked 
 audience: Nick (deliberates + rules the shortlist); the hub (executes the funnel); counsel (eventually consumes the shortlist, not this file).
 state-type: decision package (rulings fold at the shortlist word; the pm-handoff beat that folds them is the record of record).
 not-a-lawyer: standing caveat — every screen here is a desk screen, not clearance; register truth rides the paid search; nothing is "cleared" until counsel's written opinion (G-2). The §2(d)/registrability reads are counsel's lane.
+ruling-fold: 2026-08-13 evening — Nick's N-rulings folded (§3b + §7): N-1 PRIMARY = ZENDOMO (F-1 primary CLOSED; hedge slot OPEN-HELD); N-2 EVERDOMO declined-closed on taste; N-3 delegated → hub decided SEND-tonight; N-4 YES (the operator packet is the instrument); N-5 hold affirmed + the push-carefully tempo (the gate-weekend plan is the instrument). VEROCOM screened in; VERDOMO re-flagged bench-pending-NL-data. Record of record: pm-handoff v52 beat 3.
 grounding: 2026-08-13_pelton-search-report_intake-adjudication.md (the TAMORO verdict + rulings Q-A/Q-B) · 2026-08-13_zendomo_candidate-field-screen.md (the ZENDOMO screen of record) · 2026-07-22_brand-architecture_decision-package.md (Architecture C, ruled; name-agnostic) · 2026-07-05_product-name-candidates.md + 2026-07-05_naming-and-domain-strategy.md (the July funnel + the exact-.com doctrine) · the v36 beat-4 rulings (archive: VEROMO declined-on-taste · TAMODO demoted · the graduated adverse-branch instrument) · screen receipts dated 2026-08-13 (§8).
 -->
 
@@ -58,6 +59,22 @@ TAMORO is RETIRED (Q-A, Nick 2026-08-13). The evocation axis is ruled OFF tomorr
 
 CALDOMO (*caldo* = hot, IT/ES — a "hot home" is a fire), DOMANI (Italian for *tomorrow* — the retired axis verbatim), MODOMO (meaning-free — fails test 1 by the TAMODO rule), DOMOZEN/DOMOKOR (domo-first — §2 subordination rule), NOVADOMO/EVODOMO ("new/evo" = futurity family + crowded elements), SERENDOMO (5 syllables).
 
+### 3b. Additions at the F-1 word (2026-08-13 evening — Nick's N-rulings)
+
+**N-1 — PRIMARY RULED: ZENDOMO** ("my favorite"). The Asimtote-pairing instinct in Nick's word is AFFIRMED on brand-architecture grounds, not just taste: the parent already carries the honesty register (the asymptote metaphor); ZENDOMO adds a NEW quality to the house — calm — where a VERO-family consumer mark would play the parent's own note twice. One house, two registers, no redundancy. The hedge slot stays OPEN-HELD for three inputs, all landing within days: (a) counsel's process answer (single-candidate vs primary + knockout-rider), (b) the NL field check below, (c) Nick's settled word. NIDOMO remains the hub's standing hedge REC.
+
+**VEROCOM (new, Nick's candidate — "Vero Communications") — screened 2026-08-13 evening:** register 0-exact on the free layer (nearest: VEROCOMFORT, Cl 17 foam, live · VEROCOMFITY, Cl 10, dead — both far-field). The weight is in the FIELD, not the register: **Verocom S.A.** exists (exact string, San José CR) · **"Vero Communications"** exists as a literal company name (UK communications consultancy — Nick's expansion phrase is someone's trading name) · the VERO element is crowded IN SOFTWARE (Vero Software — the Hexagon CAD/CAM family · the Vero social app, "True Social," a consumer Cl-9/42-class mark · the Veroboard electronics heritage) · the -COM suffix reads telecom/legacy (the Verizon-Communications pattern) · and the expansion story is off-thesis — a home OS is not a communications company; the suffix aims the brand at the wrong category. verocom.com is registered at a non-marketplace holder (acquisition murkier than the Atom/Squadhelp cases). **Verdict: valid-but-weaker — low-moderate legal exposure plus real hygiene noise plus an off-thesis suffix; BENCH, below NIDOMO.**
+
+**VERDOMO — re-proposed by Nick as a backup ("Vero Domotics"); the record, precisely:** the register retry returned **0 results** (closing the §8 unprobed disclosure), the etymology is thesis-perfect ("the true home" — the honesty story in Latin), and the hub understands the appeal. The standing flag is unchanged and SHARPENED on market relevance: VERDO- is the Dutch curse stem (*verdomme* / *verdomd*, "damn it/damned" — everyday interjections for ~24M speakers), and **the Netherlands is one of Europe's densest smart-home markets, where *domotica* is the everyday category word — the precise audience a domotics-rooted brand courts hardest is the audience that would hear the curse.** Disposition: **BENCH-PENDING-NL-DATA** — the N-4 gig set gains a dedicated Dutch-native probe on VERDOMO (the operator packet's NL addendum), converting the hub's desk claim into field data. A mild NL result + Nick's word re-enters it as hedge; a confirming result retires it with data. Instrument-first, applied to naming.
+
+**N-2 — EVERDOMO: DECLINED-CLOSED on taste** (Nick's word; the VEROMO-precedent class — taste rulings are final and cheap). The free-.com datum expires with it; no buy.
+
+**N-3 — delegated to the hub; DECIDED: SEND the full commissioning reply TONIGHT** (Thursday evening). Rationale: the primary is ruled, the fee/timeline ask commits nothing (the written payment gate holds), the process question harvests counsel's advice on exactly the open hedge decision, and the ~10-business-day clock starts three days earlier than a Monday send. The draft is SEND-CLEARED and lightly polished; nothing beyond ZENDOMO is disclosed.
+
+**N-4 — YES:** the native-speaker checks are packetized at `2026-08-13_native-speaker-check_operator-packet.md` (six blinded gigs, ~$60–120, rotation-blinded name order, the NL addendum, disclosure hygiene; post Saturday per the weekend plan).
+
+**N-5 — HOLD affirmed; the push-carefully tempo intaken:** the instrument is `../../handoff/2026-08-13_gate-weekend_plan-of-record.md` — brand progress this weekend is measured in CLOCKS STARTED (counsel tonight, gigs Saturday), not hours spent; the gate keeps the hours.
+
 ## 4. The comparative read (one paragraph, no table needed)
 
 ZENDOMO and NIDOMO are the two names that pass all six tests without a flag — ZENDOMO leads on thesis-fit (calm IS the product) and carries a completed screen; NIDOMO leads on raw warmth and needs its full screen if shortlisted. EVERDOMO passes with one soft flag (syllable count) and owns the only free .com. EVOLOFT passes the register shape and fails no test outright, but takes three soft hits (element crowding, axis energy, dwelling narrowing) that the hub weighs as materially real. Everything else is bench or dead. **The hub's slate REC: primary ZENDOMO · hedge NIDOMO (or EVERDOMO) · EVOLOFT advanced only if Nick's own weighting of the modern-energy axis differs from the hub's** — and any new name Nick generates enters the same six tests with a same-day screen.
@@ -95,11 +112,11 @@ ZENDOMO and NIDOMO are the two names that pass all six tests without a flag — 
 
 | ID | Decision | PM REC | RULING |
 |---|---|---|---|
-| **N-1** | The shortlist (Gate F-1): primary + hedge(s) from the slate — or name additions (same-day screen each) | **ZENDOMO primary · NIDOMO hedge** (EVERDOMO the alternate hedge; EVOLOFT if the modern axis outweighs) | ____ |
-| **N-2** | Register everdomo.com defensively NOW (~$12; private act, no disclosure, reversible at renewal) | **YES** — the only free exact-.com in the field; cheap optionality independent of the shortlist | ____ |
-| **N-3** | Interim courtesy note to Pelton | **SKIP** unless deliberation > ~3 weeks | ____ |
-| **N-4** | Commission native-speaker checks (JP · DE/NL · FR · ES/IT) at the shortlist ruling | **YES** (the VERDOMO exhibit) | ____ |
-| **N-5** | Marketplace price discovery on shortlisted names' domains | **HOLD until shortlist conviction; anonymized only** | ____ |
+| **N-1** | The shortlist (Gate F-1): primary + hedge(s) from the slate — or name additions (same-day screen each) | **ZENDOMO primary · NIDOMO hedge** (EVERDOMO the alternate hedge; EVOLOFT if the modern axis outweighs) | RULED 08-13 PM: PRIMARY = ZENDOMO (F-1 primary CLOSED); hedge OPEN-HELD (§3b) — NIDOMO standing REC · VEROCOM bench · VERDOMO bench-pending-NL |
+| **N-2** | Register everdomo.com defensively NOW (~$12; private act, no disclosure, reversible at renewal) | **YES** — the only free exact-.com in the field; cheap optionality independent of the shortlist | RULED 08-13 PM: DECLINED — EVERDOMO out on taste; no buy |
+| **N-3** | Interim courtesy note to Pelton | **SKIP** unless deliberation > ~3 weeks | DELEGATED → hub DECIDED: SEND the full commissioning reply tonight (§3b rationale) |
+| **N-4** | Commission native-speaker checks (JP · DE/NL · FR · ES/IT) at the shortlist ruling | **YES** (the VERDOMO exhibit) | RULED 08-13 PM: YES — operator packet authored; post Sat |
+| **N-5** | Marketplace price discovery on shortlisted names' domains | **HOLD until shortlist conviction; anonymized only** | RULED 08-13 PM: HOLD affirmed + push-carefully tempo (the gate-weekend plan governs) |
 
 ## 8. Receipts + disclosures (2026-08-13; container URL-fetch/web-search; no browser; no screenshots)
 

@@ -3,12 +3,12 @@ file: context/strategy/counsel-package/2026-08-13_pelton-reply_zendomo-search_dr
 purpose: Paste-ready reply to counsel's 2026-08-11 delivery email — accepts the TAMORO recommendation, commissions the successor-candidate (ZENDOMO) comprehensive search, asks the fee/timeline confirmation + the prioritize-vs-hedge question. One email, in-thread, full candor to counsel, nothing beyond the engagement disclosed to anyone else.
 audience: Nick (sends from his own account, in the existing thread)
 state-type: correspondence draft (send-and-log; the next intake fires on counsel's reply)
-status: DRAFT — awaiting Nick's Q-A/Q-C ratification at the skeleton, then send
+status: SEND-CLEARED 2026-08-13 evening — Q-A ruled (RETIRE) + N-1 ruled (ZENDOMO primary); N-3 delegated to the hub, decided: SEND TONIGHT (rationale: naming package §3b / the gate-weekend plan §1)
 not-a-lawyer: correspondence draft only; nothing here is legal advice.
-gate: DO NOT SEND before ruling Q-A (retire TAMORO) and Q-C (advance ZENDOMO) — the email executes both.
+gate: CLEARED (Q-A RETIRE + N-1 PRIMARY=ZENDOMO ruled 2026-08-13). Paste and send as-is tonight, in-thread.
 -->
 
-# Pelton reply — paste-ready (send after Q-A/Q-C ratify)
+# Pelton reply — paste-ready (SEND-CLEARED — send tonight, in-thread)
 
 **To:** Erik M. Pelton (reply within the existing delivery thread — do not start a new one)
 **Subject:** (in-thread reply)
@@ -19,7 +19,7 @@ Dear Mr. Pelton,
 
 Thank you — the report and search data are exactly what I needed, and I appreciate the clear bottom line. I'm accepting your recommendation: I will not be pursuing TAMORO, either as an application or in use.
 
-I'd like to commission a comprehensive search on my successor candidate: **ZENDOMO** (coined; readable as "Zen" + "domotics," i.e. calm home automation), for the same business and the same classes as before (9, 42, and 45/11 — consumer smart-home system/ecosystem with AI features, residential field). Could you confirm the fee and timeline — I'm assuming the same $1,200 flat structure as the TAMORO search, but please correct me if a successor search is priced differently.
+I'd like to commission a comprehensive search on my successor candidate: **ZENDOMO** (coined; readable as "Zen" + "domotics," i.e. calm home automation), for the same business and the same classes as before (9, 42, and 45/11 — consumer smart-home system/ecosystem with AI features, residential field). Could you confirm the fee and timeline — I'm assuming the same $1,200 flat structure as the TAMORO search, but please correct me if a successor search is priced differently. We're ready to move promptly once scope and fee are confirmed.
 
 Three notes for the analysis, in the spirit of full candor:
 

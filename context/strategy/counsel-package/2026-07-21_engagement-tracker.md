@@ -4,7 +4,7 @@ purpose: THE at-a-glance current-state board for the counsel search — supersed
 audience: Nick; the hub; any fresh counsel-lane session.
 state-type: living tracker (current-state, not a log; overwrite/refresh each update). The append-only narrative log lives in the return file; the delivery adjudication of record is 2026-08-13_pelton-search-report_intake-adjudication.md.
 not-a-lawyer: research + coaching by a non-lawyer (+AI); nothing here is legal advice or clearance. Nothing is "cleared" until counsel's written opinion (G-2).
-last-updated: 2026-08-14 08:00 (v52 hub, beat 4 — THE REPLY IS SENT: Nick sent the commissioning email Fri 08:00 in-thread, adjudicated SENT-AS-INTENDED (his own polish; zero substance drift; hygiene held). Ball: PELTON — fee/timeline confirmation; the written payment gate holds; one nudge Wed Aug-19 if silent)
+last-updated: 2026-08-15 night (v52 hub, beat 7 — PAID + COMMENCED: Pelton confirmed payment received Sat AM and the ZENDOMO comprehensive search is RUNNING (results ~Aug-27/28); his unprompted quick-USPTO note — "looks more promising than TAMORO" — banks as SENTIMENT, not clearance (G-2 remains the only graduation). Prior: 2026-08-14 08:00 (v52 hub, beat 4 — THE REPLY IS SENT: Nick sent the commissioning email Fri 08:00 in-thread, adjudicated SENT-AS-INTENDED (his own polish; zero substance drift; hygiene held). Ball: PELTON — fee/timeline confirmation; the written payment gate holds; one nudge Wed Aug-19 if silent)
 -->
 
 # Counsel Engagement & Decision Tracker (current as of 2026-08-14 morning)
@@ -19,7 +19,7 @@ last-updated: 2026-08-14 08:00 (v52 hub, beat 4 — THE REPLY IS SENT: Nick sent
 
 | Firm | Stage | Ball in whose court | What's owed next |
 |---|---|---|---|
-| **Pelton** | ZENDOMO commissioning email **SENT (Fri 08-14, 08:00, in-thread)** — fee/timeline + the hedge process question asked | **Pelton** | Scope/fee in writing → Nick pays → ~10 biz days (results ~Aug-27/28) → the successor analysis → G-2. Silent past Wed Aug-19: ONE nudge |
+| **Pelton** | **SEARCH RUNNING** — payment confirmed received (Sat 08-15 AM); commencement confirmed; informal positive noted (sentiment only) | **Pelton** | ~10 biz days → the successor analysis + report (~Aug-27/28) → the G-2 read → R-1. The hedge process answer may ride his next mail |
 | **Gerben** | Foreign candidate, post-US-filing | — | Nothing until a US filing exists |
 | **Oliner** | Backstop, dormant | — | — |
 

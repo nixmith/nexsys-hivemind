@@ -188,3 +188,17 @@ Named so nobody re-litigates them at the table (each with the reason it's fenced
 - C4's engine-side latency split assumes event timestamps discriminate dispatch-vs-RTT cleanly; if they don't, C4 needs an instrument-first arm before it can be measured (the bench discipline: never theorize twice about the same silence).
 - Two criteria have no scheduled carrier as of 2026-07-10: H3's "clean Pi image" fresh-install rep (~an hour of operator time and an SD card) and A4's kill −9 rep (~minutes inside any post-soak session) — flagged so each gets a named slot at ratification rather than a gate-day surprise.
 - This lane read the spine and the record; it did not read code. Any row that contradicts the source at ratification loses to the source (truth hierarchy).
+
+## GATE-DAY READ — 2026-08-16 (appended by the hub per §4; the read's record of account: `context/audits/2026-08-16_THE-READ_gate-record_and_verdict.md`)
+
+**VERDICT: GO** (Nick, 2026-08-16; the §0 rule applied verbatim — all 21 MUSTs green). Bounded per §4's "What GO means"; the Nov 25 runway proceeds on the S-10 close ranked program.
+
+**Per-row tally at the read:** A1 ✓ · A2 ✓ · A3 ✓ · B1 ✓ · B2 ✓ (re-proven live gate morning, G-11 bundle `boot-health-20260816T060845Z`) · C1 ✓ EXCEEDED (≈1,728 verdicts, zero false CONFIRM; door intact through the Aug-16 digest) · C2 ✓ · C3 ✓ · D1 ✓ (5/5) · E1 ✓ · E2 ✓ · F1 ✓ · F2 ✓ · G1 ✓ (live demo run LAST per §4; ⏺ set + screenshots in the read record; zero broken acts; one owned substitution stated per the amended §10) · H1 ✓ (`d26777c`) · H2 ✓ (cadence evidence: the 2026-08-16 digest, first radio-present fire post-recovery, prediction CONFIRMED) · H3 ✓† (SATISFIED on frozen terms; D-1 POSITION 1 + HARDENED FENCE; DO-NOT-SAY ×2 stand until R-4) · I1 ✓ (watch clean) · I2 ✓† (PARTIAL-CLOSED per G-5: custody ✓ · greps ✓ · running-state ✓-by-substitution · opacity pends G-4 post-READ) · I3a ✓ (as frozen, per the ratification adjudication) · J1 ✓ (held).
+
+**SHOULD: 8/8 green-or-as-scoped, zero reds priced** (A4 ✓ · C1b ✓ 3.5× · C4 in-motion-honest, n disclosed, no percentiles · D2 ✓ as-scoped · E3 discharged w/ G-5 note · G2 ✓ · H4 ✓ · I3b ✓).
+
+**Daggers of record:** the H3/D-1 fence (lift = R-4) · the I2 G-4 leg · the DX-12/13/21 liveness-gap annotation (observability-layer; C1 door intact; NEW-1 proposed Tier-1) · C4 n-only · exhibit-1-on-the-ledger (→ NEW-5) · the G-6/G-7 Aug-14/15 exclusion, stated aloud.
+
+**Evidence window of record:** through Aug-13 + Aug-16; Aug-14/15 coordinator-absent/rig-invalid, excluded from the flake distribution; s31 bound radio-present FAIL 8 · PASS 6.
+
+**J1 held through the read:** nothing added, removed, re-tagged, or re-worded at the table.

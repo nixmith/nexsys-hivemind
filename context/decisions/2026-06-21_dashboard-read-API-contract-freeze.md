@@ -144,6 +144,12 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
       // now report ACTED_BUT_UNCONFIRMED — the clean-success "fired and confirmed" sentence is unreachable
       // for them. Also v1.1.2: lastEvaluation.at carries the DP-3 VALUE correction (the eventTime-present
       // branch no longer subtracts durationMs).
+      // [wire-observation annotation, 2026-08-17 (v54 hub beat 1; the fold queued at v53 beat 7 — FE return §7 ask 1)]:
+      // on the observed live wire the lastEvaluation FIELD ITSELF is object-OR-NULL — the 2026-08-16 200 OK
+      // non-firing body served "lastEvaluation": null (on record verbatim as the provenance-labeled fixture
+      // web-ui/dashboard/src/lib/api/fixtures/wire-2026-08-16-nonfiring.ts; FE return §4.5/§5). This documents
+      // the wire AS OBSERVED — it is NOT a shape change; the client mirror records object-or-null since core
+      // beb664e (contract.ts:361), and both arms render.
     "meta": { "viewPosition": <long>, "timestamp": "<ISO>" } }
   ```
   V1 data sources per verdict: **CONDITION_NOT_MET** = a recent `SKIPPED` run (the causal-chain shows `conditions[].result=false`); **ACTED_BUT_UNCONFIRMED** = a run whose action outcome is `UNCONFIRMED`/`FAILED` (device-didn't-act); **NEVER_TRIGGERED** = no run in the window → report that + `triggerSummary` so the user sees what *would* fire it; **DISABLED** = the automation is off. **Scope guard:** the *deep* "why did the trigger not match" diagnosis (recording every non-matching trigger evaluation) is a **post-V1 depth** — V1 answers from existing run records + absence + config, which already beats every competitor (none distinguishes these three at all).

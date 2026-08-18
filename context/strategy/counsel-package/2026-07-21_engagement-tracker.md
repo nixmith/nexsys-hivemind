@@ -4,10 +4,10 @@ purpose: THE at-a-glance current-state board for the counsel search — supersed
 audience: Nick; the hub; any fresh counsel-lane session.
 state-type: living tracker (current-state, not a log; overwrite/refresh each update). The append-only narrative log lives in the return file; the delivery adjudication of record is 2026-08-13_pelton-search-report_intake-adjudication.md.
 not-a-lawyer: research + coaching by a non-lawyer (+AI); nothing here is legal advice or clearance. Nothing is "cleared" until counsel's written opinion (G-2).
-last-updated: 2026-08-15 night (v52 hub, beat 7 — PAID + COMMENCED: Pelton confirmed payment received Sat AM and the ZENDOMO comprehensive search is RUNNING (results ~Aug-27/28); his unprompted quick-USPTO note — "looks more promising than TAMORO" — banks as SENTIMENT, not clearance (G-2 remains the only graduation). Prior: 2026-08-14 08:00 (v52 hub, beat 4 — THE REPLY IS SENT: Nick sent the commissioning email Fri 08:00 in-thread, adjudicated SENT-AS-INTENDED (his own polish; zero substance drift; hygiene held). Ball: PELTON — fee/timeline confirmation; the written payment gate holds; one nudge Wed Aug-19 if silent)
+last-updated: 2026-08-17 evening (v54 hub, beat 1 — THE GIG ROW: all six native-speaker gigs POSTED Mon 08-17 AM by Nick via a dedicated tracking session (rotation-blinded order, the JP/NL/ES/IT probes, disclosure hygiene held; the packet was the script); results expected 24–72 h (~Wed–Fri) and route to the hub whole, labeled by language — any ZENDOMO 1–2 rating or curse-adjacency is a G-2 input; the NL answer settles VERDOMO bench-vs-hedge. Pelton unchanged: SEARCH RUNNING, results ~Aug-27/28; one nudge Wed 08-19 ONLY if silent.) Prior: 2026-08-15 night (v52 hub, beat 7 — PAID + COMMENCED: Pelton confirmed payment received Sat AM and the ZENDOMO comprehensive search is RUNNING (results ~Aug-27/28); his unprompted quick-USPTO note — "looks more promising than TAMORO" — banks as SENTIMENT, not clearance (G-2 remains the only graduation). Prior: 2026-08-14 08:00 (v52 hub, beat 4 — THE REPLY IS SENT: Nick sent the commissioning email Fri 08:00 in-thread, adjudicated SENT-AS-INTENDED (his own polish; zero substance drift; hygiene held). Ball: PELTON — fee/timeline confirmation; the written payment gate holds; one nudge Wed Aug-19 if silent)
 -->
 
-# Counsel Engagement & Decision Tracker (current as of 2026-08-14 morning)
+# Counsel Engagement & Decision Tracker (current as of 2026-08-17 evening)
 
 ## The architecture (unchanged — unbundled by jurisdiction, duplication-free)
 
@@ -26,7 +26,7 @@ last-updated: 2026-08-15 night (v52 hub, beat 7 — PAID + COMMENCED: Pelton con
 ## The candidate state (the funnel, current — the instrument is `../brand-program/2026-08-13_naming-program-v2_decision-package.md`)
 
 - **PRIMARY (RULED 08-13, N-1): ZENDOMO** — F-1's primary slot CLOSED; full desk screen on file; the Asimtote-pairing affirmed (complementary registers — the parent carries honesty, ZENDOMO adds calm).
-- **The HEDGE slot: OPEN-HELD** for (a) counsel's process answer (the sent email asks it) · (b) the NL field check (the native-speaker gigs, posting Sat) · (c) Nick's settled word. **NIDOMO = the standing hub REC.**
+- **The HEDGE slot: OPEN-HELD** for (a) counsel's process answer (the sent email asks it) · (b) the NL field check (the native-speaker gigs — POSTED Mon 08-17 AM; results ~Wed–Fri) · (c) Nick's settled word. **NIDOMO = the standing hub REC.**
 - **VEROCOM** (Nick's candidate, screened 08-13 evening): register 0-exact, but Verocom S.A. (CR, exact string) + "Vero Communications" (UK — the literal expansion phrase) + VERO crowded in software (Vero Software CAD · the Vero social app · Veroboard) + -COM telecom register + off-thesis suffix → **BENCH, below NIDOMO.**
 - **VERDOMO** (Nick's candidate): register 0 (retry closed the disclosure); thesis-perfect etymology; the Dutch *verdomme* flag stands and sharpens (NL is a dense smart-home market — the domotics audience hears it) → **BENCH-PENDING-NL-DATA** (the Dutch gig carries a dedicated probe; a mild result + Nick's word re-enters it).
 - **Retired/declined:** TAMORO (08-13, counsel-adverse) · EVERDOMO (08-13, taste — no buy) · VEROMO (taste, v36) · TAMODO (legal-fallback-of-last-resort only) · EVOLOFT (screened, unselected at N-1).
@@ -45,7 +45,7 @@ last-updated: 2026-08-15 night (v52 hub, beat 7 — PAID + COMMENCED: Pelton con
 
 - Pelton TAMORO search: **$1,200 SPENT + delivered** (did its exact job).
 - Pelton ZENDOMO search: **commissioned by email Fri 08-14** (~$1,200-class assumed; written confirmation is the payment gate) + optional hedge knockout-rider (~$300–600, per counsel's process answer).
-- Native-speaker checks: ~$60–120 (six gigs, Sat).
+- Native-speaker checks: ~$60–120 (six gigs — POSTED Mon 08-17 AM).
 - Pelton US opinion + §1(b) filing (post-G-2): TBD (benchmark ≤ $3,000 attorney + ~$550/class gov).
 - Domains: **tamoro.com CLOSED** (no counteroffer, no contact) · zendomo.com = Atom.com listing, **NO inquiry until G-2 conviction** (walk number set at R-1) · everdomo.com moot (declined).
 - Phase-1 spend to date: $1,200 (+ the ZENDOMO search when counsel confirms in writing).

@@ -1,3 +1,4 @@
+<!-- ⚠ COPY-OF-RECORD NOTE (2026-08-18, v54 beat 2 — the R-12 §7.3 / R-11 §5.4 finding, hub-ratified): the CANONICAL copy of this return is nexsys-skills/design/2026-08-02_context-engineering-and-skills-expansion_deep-research_return.md (banked at skills e4646a9; ADJUDICATED-stamped by W-SKILLS-3 — the item-by-item table: context/audits/2026-08-18_W-SKILLS-3_return.md §5). THIS copy diverges at one line (the Practitioner source list — one source omitted) and is NOT the adjudication target: do not adjudicate, stamp, or cite from this copy. Prepend-only note — nothing below was edited. -->
 # Context Engineering & Skills Expansion — Deep-Research Return
 
 **Date:** 2026-08-02 · **Status:** COMPLETE — proposes, does not ratify · **Requested by:** Nick

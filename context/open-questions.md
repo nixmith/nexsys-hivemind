@@ -1,15 +1,16 @@
-<!-- ⚠ DORMANT CHANNEL — BANNERED 2026-08-10 (v50 beat 6). No write since 2026-06-13 while older procedures still gate on sweeping it — in practice THE BEAT SPINE ABSORBED THIS CHANNEL (questions/escalations ride pm-handoff beats and lane returns). Convicted by the W-COHERE audit (gap row 7). Entries below remain the honest pre-June record; the channel's disposition (retire / repoint / revive) rides the post-gate truth-map WU. Prepend-only banner. -->
 <!--
 file: context/open-questions.md
-purpose: Inter-agent register of open questions and verify-needed items. PM consults before issuing instructions; Coder consults before executing.
+purpose: HISTORICAL register of the retired [OPEN-QUESTION]/[VERIFY-NEEDED] channel. THE CHANNEL IS CLOSED (ruled at the R-11 disposition, 2026-08-18; the hub ratifies): the beat spine absorbed it — questions and escalations ride pm-handoff beats and lane returns. Entries below are the honest pre-June record; nothing new is written here.
 audience: PM, Coder
 update-cadence: per-WU
 state-type: comms
-status: CURRENT
-last-verified: 2026-06-04 against `homesynapse-core` commit `e73e199` (W23 Goal 2: OQ-05-05 [Research 6 NQ-1..6] → RESOLVED — Nick adopted all six PM leans; NQ-3/4 finalize at M4.B-S2 landing. Active now = OQ-05-07 only [Research 9 residuals, deferrable]).
+status: CLOSED-CHANNEL (historical register; content preserved verbatim below the head note)
+last-verified: 2026-08-18 (R-11 lane — the ⚠ DORMANT-CHANNEL banner of 2026-08-10 (v50 beat 6, W-COHERE gap row 7) is LIFTED and replaced by this CLOSED ruling; no entry below was edited. Two items remain genuinely open and are CARRIED FORWARD BY POINTER so the closure loses nothing: OQ-05-07 (Research-9 residuals, deferrable — revisit when an operator-rebuild need surfaces) and the 2026-06-11 NO_DIRECT_TIME_ACCESS enforcement-reach decision (rides the next app-module-touching WU; its wording-half was DONE 2026-06-13). Both are named in the R-11 return §3 for the hub to re-home into pm-handoff §Open Risks at intake. Worktree only; the hub audits, Nick commits.) Prior: 2026-06-04 against `homesynapse-core` commit `e73e199` (W23 Goal 2: OQ-05-05 [Research 6 NQ-1..6] → RESOLVED — Nick adopted all six PM leans; NQ-3/4 finalize at M4.B-S2 landing. Active now = OQ-05-07 only [Research 9 residuals, deferrable]).
 -->
 
-# Open Questions Register
+# Open Questions Register — CLOSED CHANNEL (historical)
+
+> **CLOSED 2026-08-18 (R-11 disposition; the beat spine absorbed this channel — W-COHERE gap row 7).** Do not append here. New questions/escalations ride pm-handoff beats and lane returns; standing risks live at `pm-handoff.md §Open Risks`. The two still-open items above the separator are carried forward by pointer (see frontmatter). The text below is preserved verbatim as the pre-June record.
 
 Inter-agent typed-message surface for `[OPEN-QUESTION]` and `[VERIFY-NEEDED]`. See `coder/CLAUDE.md §Message Protocol` and `project-manager/CLAUDE.md §Message Protocol` for the routing rules, and `REORGANIZATION_PLAN_2026-05-20.md §5b` for the entry template.
 

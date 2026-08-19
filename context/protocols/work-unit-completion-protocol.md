@@ -1,4 +1,3 @@
-<!-- ⚠ PARTIALLY STALE — BANNERED 2026-08-10 (v50 beat 6; Nick's cleanup directive). THE WUCP'S PHASE DISCIPLINE REMAINS LAW (no work unit is done until both phases execute), but named steps below have drifted and THE BEAT SPINE + THE NEWEST ORCHESTRATOR PROMPT OUTRANK THIS FILE WHEREVER THEY DIVERGE. Known drift, convicted by the W-COHERE audit (context/audits/2026-08-09_WCOHERE_navigation-audit_return.md, gap row 2): Step-2's traceability TEMPLATE was removed 2026-04-11 · Step 6's Recent-session-log/Last-sync structures are retired (the snapshot is a frontmatter-chain + masthead file) · Step 7's weekly plans are RETIRED (Nick's ruling 2026-08-09; the beat cadence is the planning spine) · Step 10 names TWO mirror pairs, the ruled count is THREE (R-2: + nexsys-frontend) · Step 11's §Foresight-Notes route points at a section that does not exist · "10 checks" is 11 · the two-repo worldview predates the five-repo model. Currency pass chartered post-gate. Prepend-only banner — nothing below it was edited. -->
 <!--
 file: context/protocols/work-unit-completion-protocol.md
 purpose: Mandatory work-unit completion protocol (WUCP) for Phase 2 blocks and Phase 3 milestones.
@@ -6,7 +5,7 @@ audience: PM, Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-20 against commit 25bc23b
+last-verified: 2026-08-18 (R-11 lane — DELTA-REBUILT at the same path; the ⚠ PARTIALLY-STALE banner of 2026-08-10 (v50 beat 6, W-COHERE gap row 2) is LIFTED with this rebuild. The phase discipline is UNCHANGED LAW; the drifted steps are corrected: Step-2 template pointer retargeted (the TEMPLATE tree was removed 2026-04-11) · Step 6 re-grounded to the frontmatter-chain/beat-pair snapshot · Step 7 marked RETIRED (weekly plans — Nick's ruling 2026-08-09) · Step 10 carries the ruled THREE mirror pairs (R-2, 2026-08-06) · Step 11 re-pointed off the retired message channels · the copied preflight check-counts removed per pointer-not-copy · the five-repo note added. Worktree only; the hub audits, Nick commits.) Prior: 2026-05-20 against commit 25bc23b
 -->
 
 # Work Unit Completion Protocol (WUCP)
@@ -14,7 +13,8 @@ last-verified: 2026-05-20 against commit 25bc23b
 **Authority:** This protocol is mandatory for every work unit completion in Phase 2 and Phase 3. A work unit is not DONE until all applicable WUCP phases are complete.
 
 **Location:** `nexsys-hivemind/context/protocols/work-unit-completion-protocol.md`
-**Last updated:** 2026-04-11 (generalized from Block Completion Protocol v1)
+**Scope note (2026-08-18):** written in two-repo vocabulary (hivemind + core), the protocol applies across the five-repo model — a work unit may land in core, bench, or docs; the closeout artifacts live in the hivemind either way. Where a step below diverges from the beat spine or the newest orchestrator prompt, the spine outranks and the divergence is a finding.
+**Last updated:** 2026-08-18 (R-11 currency rebuild; originally 2026-04-11, generalized from Block Completion Protocol v1)
 **Owner:** Nick (process governance)
 
 ---
@@ -59,7 +59,7 @@ Compile Gate passes (or is deferred + tracked)
 │  MODULE_CONTEXT.md              │
 │  coder-handoff.md               │
 │  coder-lessons.md               │
-│  cross-agent note (if needed)   │
+│  x-agent board RETIRED (Step 4) │
 │  Deferred build gate flag (if)  │
 │  Checklist in Completion Report │
 └────────────┬────────────────────┘
@@ -73,11 +73,11 @@ Compile Gate passes (or is deferred + tracked)
 │  pm-handoff.md (incl. risks)    │
 │  pm-lessons.md                  │
 │  PROJECT_SNAPSHOT.md            │
-│  Weekly plan progress           │
+│  (weekly plans RETIRED)         │
 │  Deferred build gate audit      │
 │  Drift check (all artifacts)    │
 │  Dual skill-location sync check │
-│  Inter-agent message sweep      │
+│  Open-item sweep                │
 │  Checklist appended to review   │
 └─────────────────────────────────┘
 ```
@@ -136,11 +136,9 @@ If this work unit produced any pattern discovery, pitfall, or workaround, append
 
 If no new patterns were discovered, skip this step. Do not append a "no discoveries" entry.
 
-### Step 4 — Post cross-agent note (conditional)
+### Step 4 — Surface cross-agent information (channel re-pointed 2026-08-18)
 
-If this work unit produced information that the PM or Nick needs to act on — cross-module changes, deviation discoveries, JPMS lessons, compile-gate surprises, deferred build gate flags — append to `nexsys-hivemind/context/handoff/cross-agent-notes.md`.
-
-If nothing needs cross-agent attention, skip this step.
+The `cross-agent-notes.md` board is retired (archived with pointer stub). Information the PM or Nick must act on — cross-module changes, deviation discoveries, compile-gate surprises, deferred build gate flags — rides the Completion Report and the coder-handoff entry; the hub carries it into the spine at intake. If nothing needs cross-agent attention, skip this step.
 
 ### Step 5 — Append WUCP Checklist to Completion Report
 
@@ -187,7 +185,7 @@ Check the WUCP Phase 1 checklist in the Completion Report. Verify:
 Update (or create) the traceability file for this work unit's module.
 
 **Location:** `homesynapse-core/docs/traceability/[NN]-[module-name].md`
-**Template:** `nexsys-hivemind/context/traceability/TEMPLATE.md`
+**Model:** the newest existing index in `homesynapse-core/docs/traceability/` (the `context/traceability/TEMPLATE.md` tree was removed in the 2026-04-11 overhaul — pointer corrected 2026-08-18)
 
 For Phase 2 (interface specification), populate:
 - **Design Decision → Interface mapping:** Every design doc decision that produced an interface or type
@@ -224,23 +222,14 @@ If this work unit's review produced any new pattern, constraint application insi
 
 ### Step 6 — Update PROJECT_SNAPSHOT.md
 
-Update `nexsys-hivemind/context/status/PROJECT_SNAPSHOT.md`:
-- Module status table: update status and file counts for completed work unit(s)
-- Schedule position: recalculate days ahead/behind vs. master release plan
-- Blocking issues: add or resolve as needed
-- Next on critical path: update to reflect current state
-- Recent session log: add entry for the work unit completion(s)
-- MODULE_CONTEXT.md status line: update to reflect which modules have current MODULE_CONTEXT files
-- Last sync timestamp
+Update `nexsys-hivemind/context/status/PROJECT_SNAPSHOT.md` per its own "How to read this file" line (re-grounded 2026-08-18 — the module-status-table / Recent-Session-Log / Last-sync structures are retired):
+- Prepend a new frontmatter `last-verified:` chain segment for the work unit (newest segment first; the chain is the current-state record)
+- Verify the body's standing sections (blocking issues, critical path) still agree with the chain; correct or point where they diverge
+- The pm-handoff beat with the same stamp carries the detail — the snapshot segment points, never restates
 
-### Step 7 — Update Weekly Plan Progress
+### Step 7 — RETIRED (weekly plans)
 
-In the current week's plan (`nexsys-hivemind/context/planning/weeks/`), add completion notes for the work unit(s):
-- Which work units completed
-- Actual vs. planned timing
-- Any scope adjustments made
-
-If the current week's plan file does not exist, create it.
+**Weekly plans are RETIRED** (Nick's ruling, 2026-08-09 — recorded at pm-handoff v50 beat 6): the beat cadence is the planning spine. `planning/weeks/` is historical record; do not create or demand a current-week file. The step number is kept so older cross-references stay resolvable.
 
 ### Step 8 — Deferred Build Gate Audit
 
@@ -260,26 +249,26 @@ Verify documentation state is current. Check each item:
 | Traceability index | Exists for every module with a completed work unit | `homesynapse-core/docs/traceability/` |
 | Milestone backlog | All completed work units marked DONE with commits and dates | `phase-3-milestone-backlog.md` |
 | Agent handoff files | PM and Coder handoffs reflect current state | `nexsys-hivemind/context/handoff/` |
-| Cross-agent notes | No unresolved active items older than 1 week | `nexsys-hivemind/context/handoff/cross-agent-notes.md` |
 | Open Risks | Every deferred build gate tracked; every resolved risk removed | `pm-handoff.md` |
 
 **If any item fails the drift check:** Post a cross-agent note identifying the gap, the responsible agent, and what needs to be done. If the gap is critical, escalate to Nick.
 
 ### Step 10 — Dual Skill-Location Sync Check
 
-The hivemind maintains two copies of each agent skill directory:
+The system maintains source→mirror copies of each agent skill directory — **THREE pairs** (the third, nexsys-frontend, ruled in by R-2, 2026-08-06):
 
-- Writable source: `ClaudeFolder/nexsys-hivemind/{coder,project-manager}/`
-- Mirror (what agents actually load): `.claude/skills/nexsys-{coder,project-manager}/`
+- Writable sources: `ClaudeFolder/nexsys-hivemind/{coder,project-manager}/` and `ClaudeFolder/nexsys-skills/orchestrators/nexsys-frontend/`
+- Mirrors (what agents actually load): `.claude/skills/nexsys-{coder,project-manager,frontend}/`
 
 Both must be byte-identical at the end of every WUCP Phase 2. Resolve `$SESSION_ROOT` via path traversal at runtime (matching `project-manager/references/freshness-preflight.md`), then run:
 
 ```
 diff -rq "$SESSION_ROOT/mnt/ClaudeFolder/nexsys-hivemind/coder" "$SESSION_ROOT/mnt/.claude/skills/nexsys-coder"
 diff -rq "$SESSION_ROOT/mnt/ClaudeFolder/nexsys-hivemind/project-manager" "$SESSION_ROOT/mnt/.claude/skills/nexsys-project-manager"
+diff -rq "$SESSION_ROOT/mnt/ClaudeFolder/nexsys-skills/orchestrators/nexsys-frontend" "$SESSION_ROOT/mnt/.claude/skills/nexsys-frontend"
 ```
 
-Both commands should return empty when the mirror is in sync with the source.
+All three commands should return empty when the mirrors are in sync with the sources. From a REMOTE session the mirror is unverifiable — record `STALE (mirror unverified from here)` honestly; Nick's `diff -rq` is the record (the preflight's Check-9 remote refinement).
 
 **Interpreting the output:**
 
@@ -290,9 +279,9 @@ Both commands should return empty when the mirror is in sync with the source.
 
 **The PM never writes to `.claude/skills/`.** All edits go to the `ClaudeFolder/nexsys-hivemind/{coder,project-manager}/` source tree. Nick runs the external mirror sync. The PM's role is verification, not propagation.
 
-### Step 11 — Inter-Agent Message Sweep
+### Step 11 — Open-Item Sweep (re-pointed 2026-08-18; the typed-message channels are retired)
 
-Confirm no unresolved `[OPEN-QUESTION]` or `[VERIFY-NEEDED]` entries in `nexsys-hivemind/context/open-questions.md` are blocking the next work unit. Confirm any `[FORESIGHT-NOTE]` entries in `nexsys-hivemind/context/handoff/coder-handoff.md §Foresight Notes` have been incorporated into the next brief or explicitly carried forward.
+The `open-questions.md` and `cross-agent-notes.md` channels are retired — the beat spine absorbed them (W-COHERE gap row 7; R-11 disposition). The sweep is now: confirm the newest `coder-handoff.md` entry's deviations/asks and the newest pm-handoff beats carry no unresolved item that blocks the next work unit, and that `pm-handoff.md §Open Risks` is current. (The old `[FORESIGHT-NOTE] → coder-handoff §Foresight Notes` route pointed at a section that never existed in the live file — void.)
 
 ### Step 12 — Append WUCP Checklist to Review Output
 
@@ -308,7 +297,7 @@ At the bottom of the PM's review response, append:
 - [x/ ] pm-handoff.md updated (Open Risks section current)
 - [x/ ] pm-lessons.md appended: [summary or "No new patterns"]
 - [x/ ] PROJECT_SNAPSHOT.md updated (timestamp: YYYY-MM-DD HH:MM UTC)
-- [x/ ] Weekly plan updated for [work unit]
+- [x/ ] (Weekly plans RETIRED 2026-08-09 — line kept for form continuity; mark N/A)
 - [x/ ] Deferred build gate audit: [N open / N resolved this session]
 - [x/ ] Drift check results:
   - MODULE_CONTEXT current: [yes / no — list gaps]
@@ -316,8 +305,8 @@ At the bottom of the PM's review response, append:
   - Backlog current: [yes / no — list gaps]
   - Handoff files current: [yes / no — list gaps]
   - Open Risks current: [yes / no — list gaps]
-- [x/ ] Dual skill-location sync check: PASS (both diffs empty)
-- [x/ ] Inter-agent message sweep: no blocking `[OPEN-QUESTION]`/`[VERIFY-NEEDED]`; `[FORESIGHT-NOTE]` entries carried forward.
+- [x/ ] Dual skill-location sync check: PASS (all three diffs empty) / STALE (remote — mirror unverified from here)
+- [x/ ] Open-item sweep: coder-handoff newest entry + pm-handoff Open Risks carry nothing blocking.
 - Timestamp: YYYY-MM-DD HH:MM UTC
 ```
 
@@ -376,7 +365,7 @@ If the WUCP was not followed for a completed work unit (the scenario that caused
 5. pm-handoff.md (including Open Risks)
 6. pm-lessons.md (if new patterns)
 7. PROJECT_SNAPSHOT.md
-8. Weekly plan progress
+8. (weekly plans RETIRED)
 9. Deferred build gate audit
 10. Drift check (all artifacts)
 11. Dual skill-location sync check
@@ -385,6 +374,8 @@ If the WUCP was not followed for a completed work unit (the scenario that caused
 ---
 
 ## Symmetric Examples — Phase 2 Block vs. Phase 3 Milestone
+
+> **Currency note (2026-08-18):** both worked examples predate the beat-pair spine, the weekly-plan retirement, and the third mirror pair — read them for the SYMMETRY of obligations, not artifact mechanics; Steps 0–12 above carry the current mechanics.
 
 The WUCP is phase-agnostic. The vocabulary changes but the obligations do not. Two parallel worked examples make the symmetry concrete.
 
@@ -400,7 +391,7 @@ The WUCP is phase-agnostic. The vocabulary changes but the obligations do not. T
 
 **PM Phase 2 (same session or next session):**
 
-1. **Freshness preflight** — 10 checks; PASS required before forward work.
+1. **Freshness preflight** — all checks per `project-manager/references/freshness-preflight.md` (never copy the check count — the copied-count class is a recorded defect); PASS required before forward work.
 2. **Verify Coder Phase 1** — MODULE_CONTEXT populated, handoff updated, lesson logged, cross-agent note filed.
 3. **Traceability index** — `homesynapse-core/docs/traceability/10-websocket-api.md` updated with all 26 types mapped to Doc 10 sections.
 4. **Block backlog** — `phase-2-block-backlog.md` Block N row marked DONE with commit SHA. (Note: this backlog is FROZEN post-2026-03-20; retroactive corrections only.)
@@ -421,7 +412,7 @@ The WUCP is phase-agnostic. The vocabulary changes but the obligations do not. T
 
 **PM Phase 2 (same session — retroactive Phase 2 is a governance failure):**
 
-1. **Freshness preflight** — 10 checks; PASS required. The preflight is what catches the "my snapshot is 3 weeks behind" state that caused the 2026-04-11 arch-debt retrospective.
+1. **Freshness preflight** — all checks per the preflight file; PASS required. The preflight is what catches the "my snapshot is 3 weeks behind" state that caused the 2026-04-11 arch-debt retrospective.
 2. **Verify Coder Phase 1** — MODULE_CONTEXT populated, handoff updated with deferred-build-gate flag if applicable, lessons logged.
 3. **Traceability index** — `homesynapse-core/docs/traceability/04-persistence.md` updated. (Stub indexes acceptable during Phase 3 catch-up batch.)
 4. **Milestone backlog** — `phase-3-milestone-backlog.md` M2.5 row marked DONE with commit SHA, deviations documented.

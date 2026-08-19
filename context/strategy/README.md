@@ -1,35 +1,48 @@
-<!-- ⚠⚠ STALE — QUARANTINED 2026-08-10 (v50 beat 6). Indexes 5 files as of 2026-05-21 — MISSING the north star (2026-07-27_homesynapse-technical-overview_north-star.md), Substrate_Thesis_v0.md, the moat-watch standing directive (2026-08-06, entries W-1..W-6), and all three program subtrees (fusion-program/ · brand-program/ · counsel-package/). Convicted by the W-COHERE audit (gap row 5). The strategy layer's read order of record lives in the PM skill's strategy-layer pointer + the newest orchestrator prompt. Rebuild chartered post-gate. Prepend-only banner. -->
 <!--
 file: context/strategy/README.md
-purpose: Inventory of Nick's strategic artifacts in context/strategy/ and the rules for how agents read them.
-audience: PM, Nick
+purpose: Inventory of the strategic corpus in context/strategy/ (files + the three program subtrees) and the rules for how agents read them.
+audience: PM, executive/strategy sessions, Nick
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-05-21 against `homesynapse-core` commit `dfb045e`
+last-verified: 2026-08-18 (R-11 lane — REBUILT at the same path; the ⚠ quarantine banner of 2026-08-10 (v50 beat 6, W-COHERE gap row 5) is LIFTED with this rebuild. Census re-derived from the live tree at hivemind 45dd100: 15 top-level artifacts + 3 program subtrees, vs the 5 files the 2026-05-21 index carried. Worktree only; the hub audits, Nick commits.) Prior: 2026-05-21 against `homesynapse-core` commit `dfb045e`
 -->
 
 # Strategy
 
-Long-form strategic artifacts authored by Nick. The PM reads these in Mode 1 (Architect) when decomposing task briefs that touch product positioning, revenue, data strategy, or institutional framing. Per D-4 (`REORGANIZATION_PLAN_2026-05-20.md §13`), these files are deliberately **not** edited by agents — leave them alone.
+Long-form strategic artifacts plus the hub-run program subtrees. Per D-4 (`REORGANIZATION_PLAN_2026-05-20.md §13`), Nick's long-form files are deliberately **not** edited by agents; the program subtrees are hub-written under the D5 language law. The D5 law binds every strategy sentence (definitional home: the LAW INDEX at `context/process/edit-procedure-register.md` §3).
 
-## Files
+## The strategic frame (read first for any charter/positioning act)
 
-| File | Type | When the PM reads it |
-|---|---|---|
-| `Six_Battlefields_MVP_Strategy.md` | Markdown | Task briefs that touch feature prioritization, competitive framing, or MVP scope decisions |
-| `Revenue_Model_and_Licensing_Strategy.md` | Markdown | Any discussion of monetization, licensing, pricing, or revenue-adjacent features; canonical source for the Non-Negotiable Revenue Principles |
-| `From_Platform_to_Institution_NexSys_Strategic_Report.docx` | Word | Strategic-framing decisions, institutional positioning, long-horizon trajectory |
-| `HomeSynapse_MVP_Data_Readiness_Specification.docx` | Word | MVP data-readiness questions, telemetry obligations, data-strategy alignment |
-| `NexSys_Data_Value_Engine_Strategy.docx` | Word | Data-value engine decisions, monetization-via-data questions |
+| File | What it is |
+|---|---|
+| `2026-07-27_homesynapse-technical-overview_north-star.md` | THE NORTH STAR — the technical-overview frame the PM skill's strategy-layer pointer binds to |
+| `Substrate_Thesis_v0.md` | The substrate bet (Pi-class bright line); RS-5 feeds v1 |
+| `2026-08-06_company-scale-moat-watch_standing-directive.md` | The standing moat watch (entries W-1..) — every intake gets the quiet question |
 
-## Read rules
+## Nick's long-form artifacts (D-4: leave them alone)
 
-- **`.docx` files are authoritative.** Nick maintains them in Microsoft Word. Agents read them via the `docx` skill (see `project-manager/SKILL.md §Mode 1 Step 5`). Do not convert, edit, or shadow them with `.md` copies.
-- **`.md` files are also authoritative.** They live here because they're long-form prose Nick maintains in Markdown by preference, not because they're a degraded export of anything else.
-- **Strategy files are NOT in the Claude Project upload zone** (`project-knowledge/`) — by design. `project-knowledge/` holds *current-state* hub files agents read at session start; strategy files are read on-demand by the PM only when a task brief invokes one. The boundary keeps Tier-1 context lean.
+| File | When read |
+|---|---|
+| `Six_Battlefields_MVP_Strategy.md` | Feature prioritization, competitive framing, MVP scope |
+| `Revenue_Model_and_Licensing_Strategy.md` | Monetization/licensing/pricing; the Non-Negotiable Revenue Principles; the Apache-2.0 publish-gate context |
+| `From_Platform_to_Institution_NexSys_Strategic_Report.docx` | Institutional positioning, long-horizon trajectory |
+| `HomeSynapse_MVP_Data_Readiness_Specification.docx` | MVP data-readiness, telemetry obligations |
+| `NexSys_Data_Value_Engine_Strategy.docx` | Data-value-engine decisions |
 
-## Cross-references
+## Standing notes and deliberation records (dated; read at need)
 
-- `context/strategic-context-map.md` §6 lists the strategy layer alongside other context surfaces and notes when the PM is expected to consult it.
-- `project-manager/SKILL.md §Mode 1` (Architect) is the only place where strategy files enter active consideration during a session.
+`2026-07-05_naming-and-domain-strategy.md` · `2026-07-05_product-name-candidates.md` · `2026-07-10_acceptance-arc-positioning-notes.md` · `2026-07-23_fusion-strategy_deliberation-record.md` · `2026-07-30_instruction-vs-evidence_moat-note.md` · `asymptote-name-recommendation.md` (historical — the naming program superseded it; see `brand-program/`)
+
+## The three program subtrees (hub-written, D5-held)
+
+- **`brand-program/`** — identity/voice/naming: the naming-program v2 decision package (2026-08-13), the ZENDOMO field screen, the native-speaker-check operator packet, the voice/tone/messaging platform (the counsel gate for competitor claims lives in its §6), launch-readiness, conditions-to-copy.
+- **`counsel-package/`** — trademark/counsel: **`2026-07-21_engagement-tracker.md` is the clock of record** (Pelton, TSDR, gigs); the Pelton drafts and search-report intake adjudications; the LSU-clinic intake.
+- **`fusion-program/`** — the fusion thesis one-pager, phase plan of record, and the four lane charters (beachhead discovery · competitive watch · phase-1 commercial feature set · provenance prior-art).
+
+## Read rules (standing)
+
+- **`.docx` files are authoritative** — Nick maintains them in Word; agents read via the docx skill; never convert, edit, or shadow with `.md` copies.
+- **`.md` long-form files are also authoritative** — long-form prose Nick maintains by preference.
+- **Strategy files are read on-demand** when a brief/charter invokes one — they are not launch-path reads; the launch path is the truth-map §1.
+- Settled strategic ground is defended from `context/process/decision-rationale-index.md` → its row pointers; the pm-handoff beats hold the verbatim rulings.

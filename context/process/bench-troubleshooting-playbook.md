@@ -17,6 +17,12 @@ Never theorize twice about the same silence. When a bench outcome is ambiguous, 
 
 **§1 addendum (2026-08-06 — the v45 night-5 lesson; W-SKILLS-2 fold):** **A nightly-gate read states WHICH suite order/code actually ran — derived from the BUNDLE STAMP — BEFORE adjudicating any leg as a fix test.** The stamp is the deploy-state instrument for the night (arc-discipline 13 / coder convention 10 applied to the gate read): on night-5 the digest read 7/9 FAIL at the expected leg, but the bundle stamp placed the leg at its OLD position — the fix was never deployed, and the night adjudicated EXPECTED-FAIL-AT-THE-OLD-POSITION, not a fix refutation. A gate verdict claimed without the stamp-derived order is a deploy-state assumption, exactly the class §1 exists to kill. Carrier: pm-handoff v45 beats 8–9 (adjudicate-at-the-bundle-stamp made standing at beat 9).
 
+**§1 addenda (2026-08-18 — W-SKILLS-3 fold; the v51–v53 gate-read harvest, each rule named):**
+
+- **PI-TZ + the UTC-banner law (v53):** the Pi's displayed clock runs +1 h vs CT — Z-stamped bundles govern every timing adjudication, never the Pi's wall clock (`timedatectl` rides R-8); the nightly fires ~08:32Z ≈ ~03:32 CT. A session's date banner is UTC — RE-DERIVE the operator's America/Chicago day before ANY calendar-gated act (a read, a freeze, a filename date). Carrier: the v54 prompt §0.
+- **Rig-state-at-the-instrument (H4, v52) + `lsusb -t` hop-verification (H6, v53):** rig-state claims (what is attached, through what hop, on which driver) verify at dmesg / `lsusb -t` / driver-registration evidence, NEVER inferred from schedule state or a remembered plan — the direct-attach miss: "last night ran direct-attach" was written from a premise while the coordinator was ABSENT at the instrument. `lsusb -t` hop-verification supersedes device-number heuristics for topology.
+- **resolved.json-only ownership + command_id-in-verdict (v51 H2; the R-5 rider):** NO journal-layout rule is an ownership instrument — forward-binding included; ownership adjudicates at the per-leg `resolved.json` ONLY, until the redesigned instrument (R-5) prints `command_id` inside the verdict line. A leg/actor binding claimed from journal adjacency is the third-adjacency class (v51 beat 3), not evidence.
+
 ## 2. The mechanism-without-driver sweep — walk THROUGH the gate
 
 A green mechanism with no production caller reads as done and ships as nothing. The class hit FIVE times. The sweep rule: for every runbook-expected behavior, grep-verify the FULL production chain — emitter, caller chain, driver — and when a sweep marks X "gated on Y," sweep X's own driver THROUGH the gate to a production call site. A sweep may terminate only at code that runs in production, never at a classification. (The beat-4 sweep stopped at "reporting is adoption-gated" — the gate opened on silicon and nothing was behind it.)
@@ -103,6 +109,11 @@ Every operator mistake in the M9.4 arc traced to a handoff that assumed context 
 - **(8) Extraction patterns are fixtures (D-4).** Every grep/regex an operator will run ships only after it is exercised against a REAL captured file of the target class (bundle JSON backslash-escapes quotes — `\"ACCEPTED\"`; a pattern demanding unescaped quotes returns empty against healthy bytes). An empty result from an unverified pattern is a trilemma, not a datum.
 - **(9) The verified-verb rule extends to VERDICT VOCABULARY (D-5).** Never name a status/verdict token ("HEALTHY") the emitting surface does not produce — verify the emission vocabulary at source exactly as verbs are verified at the case statement.
 - **(10) Morning-of re-derivation (the v47 beat-2 rule).** Every deploy package's expected HEADs, bars, and pins are RE-DERIVED BY THE HUB THE MORNING OF EXECUTION — a package authored earlier carries pins a lawful remote-arrived commit (law 15) can silently invalidate. An off-pin STOP is correct operator behavior; a stale pin spends it needlessly.
+
+**§8 addenda (2026-08-18 — W-SKILLS-3 fold; the v51–v52 operator-block harvest):**
+
+- **(11) Operator blocks are ZERO-PLACEHOLDER self-contained (v51 H1).** A placeholder bash can eat is a defect — the block ships with every value filled, or the ONE unavoidable fill-in carries its own explicit fill-in-before-running warning line (arc-discipline 5's floor; H1 is the stricter bar: zero is the target, the warned fill-in is the exception that must argue for itself).
+- **(12) The Pi/host environment facts (v52, verified):** `journalctl --user` is DEAD on the bench Pi — use `systemctl --user status`; `gh` is ABSENT on the host (GitHub acts go by browser click-path); the nightly fires ~03:30 CT (~08:32Z — see the §1 PI-TZ addendum before adjudicating any timing against it). Never author a block that names a dead or absent instrument.
 
 ## 9. Environment discipline (pointers)
 

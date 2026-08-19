@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-08-03 (W-SKILLS v44 — this file is now the **ONE HOME** of the Coder-technical-pushback evaluation protocol, relocated here from PM SKILL §4c's sibling §4a so the always-loaded skill carries the rule and this reference carries the procedure. All 15 original elements arrived intact, layer-2 verified; §1–§6 otherwise byte-unchanged. Census: `context/audits/2026-08-03_W-SKILLS_v44-pass_return.md`.) Prior: 2026-06-07 against commit 8028337.
+last-verified: 2026-08-18 (W-SKILLS-3 — the R-12 currency pass, dedicated fresh lane. TWO additions, zero retirements, everything else byte-unchanged: §3 gains THE LIVE-WIRE VERIFICATION RULE (H8/NEW-8b, v53 beat 4 — carrier assigned at this pass per the ratification) · §5 gains the H7 MEASURED-THEN-GREEN definition-of-done line (pointer: the v54 prompt §0). Census + token counts: `context/audits/2026-08-18_W-SKILLS-3_return.md`.) Prior: 2026-08-03 (W-SKILLS v44 — this file is now the **ONE HOME** of the Coder-technical-pushback evaluation protocol, relocated here from PM SKILL §4c's sibling §4a so the always-loaded skill carries the rule and this reference carries the procedure. All 15 original elements arrived intact, layer-2 verified; §1–§6 otherwise byte-unchanged. Census: `context/audits/2026-08-03_W-SKILLS_v44-pass_return.md`.) Prior: 2026-06-07 against commit 8028337.
 -->
 
 # Review and Quality Protocol
@@ -140,6 +140,8 @@ Use when: The Coder has produced code and you need to verify it meets the instru
 - [ ] Integration tests use real SQLite (in-memory or temp file), not mocks for persistence
 - [ ] Performance tests reference MVP §8 targets explicitly
 
+**The live-wire verification rule (H8 / NEW-8b, STANDING — v53 beat 4):** an FE surface earns "verified" only by ONE recorded real-wire exercise; green CI on a surface never touched by a real payload is a named false-confidence class, and a mock that always populates a nullable field MANUFACTURES the false type that causes the defect (the why-not incident). Before accepting any FE-surface WU as verified, verify the exercise record exists — the wire fixture + the re-exercise plan shape: `../../context/audits/2026-08-17_FE-lane_NEW23_return.md` §5/§8.
+
 ### Deviation Assessment
 When the Coder reports deviations:
 - **[INFO] deviations:** Acknowledge and record. No action needed unless the pattern seems problematic.
@@ -204,6 +206,8 @@ After any review, verify consistency with adjacent work:
 - All deviations are [INFO] level or approved [REVIEW] level
 - The output is traceable to the design doc and task brief
 - Tests pass, including cross-subsystem consistency checks
+
+**The definition of done (H7 — THE MEASURED-THEN-GREEN FRAME, the semester's governing lens; v53 beat 4):** "done" = measured, then green — no surface outruns its instrument. An acceptance resting on green gates alone, with the surface never exercised by its real instrument, is not done; it is REPO-COMPLETE, VERIFICATION PENDING, and the review says so in those words. Carrier: the v54 prompt §0 (`../../context/handoff/2026-08-17_PM-mission-control_v54_orchestrator_session_prompt.md`).
 
 ---
 

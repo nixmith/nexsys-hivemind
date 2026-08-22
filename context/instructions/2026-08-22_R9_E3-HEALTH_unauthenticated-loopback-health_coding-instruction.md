@@ -1,0 +1,189 @@
+<!--
+file: context/instructions/2026-08-22_R9_E3-HEALTH_unauthenticated-loopback-health_coding-instruction.md
+purpose: R-9 / E3-HEALTH — close escalation E3 (an UNauthenticated loopback `/health`) because the R-6/R-8 audit (v55 beat 5, H-1) named the packaged readiness probe's ARTIFACT DEPENDENCE as an availability class: `homesynapse.service` is `Type=exec` + `ExecStartPost=health-probe.sh --wait --timeout 90` + `Restart=on-failure` + `StartLimitBurst=5/300 s`, and the probe authenticates with `config/initial_api_token` read ONCE at exec — so `revoke` of the artifact's key, deleting the artifact (which the install banner ADVISES), or a `rotate` whose restart fails after the helper's `rm -f` each end in a start-limited (DOWN) unit. The coder's `rm -f` mitigation was ACCEPTED AS TRANSITIONAL; this WU is the ROOT FIX: the probe reads `/health` (no token), the helper stops touching the artifact, the install banner's advice becomes lawful again, the doc's caveat retires. Rider R-H2 (the last-full-access-token guard) closes the self-lockout class the same audit named. The R-7 pushback items 8/9 (the cwd-dependent `VERSION` lookup; the version scheme's monotonicity) are NOT this WU's census — they are R-7b's (pointer only; the v55 beat-6 audit §4 rules them).
+audience: the R-9 Coder lane (host-side Claude Code per D12; compile loop: targeted `./gradlew :api:rest-api:compileJava :api:rest-api:test :lifecycle:lifecycle:compileJava :lifecycle:lifecycle:test`, Spotless, then full `./gradlew check`) + Nick (two words; the commit; the CI read; §OP-H on the bench after landing).
+status: ISSUE-READY (v55 beat 6). Baseline: core `62dbca3` + the R-7 commit (the 7-file arm64-channel landing — verify at launch; if R-7 has NOT landed, this WU's distribution files are still byte-identical to `62dbca3` for every path it touches EXCEPT `distribution/common.sh`, which R-7 modifies at `:57–:68` (the version arm) and this WU at `:40–:44` (the health-path default) — non-overlapping hunks; report-and-proceed). SEQUENCING: one host-CC lane at a time on the core checkout — R-9 runs BEFORE R-7b (hub-recommended) and never concurrently with it.
+return: nexsys-hivemind/context/audits/<filing-date>_R9_E3-HEALTH_return.md (filing-day dated, America/Chicago). The lane commits NOTHING — the hub audits, Nick commits; CI on the push (Build & Check + install-smoke BOTH legs) is the gate of record (law 16); the WU CLOSES at §OP-H (the only live-wire proof that the packaged unit starts with the new probe — H8).
+dispatch: "Read nexsys-hivemind/context/instructions/2026-08-22_R9_E3-HEALTH_unauthenticated-loopback-health_coding-instruction.md and execute it. - /nexsys-coder"
+pre-verification: context/pre-verifications/WU-R9.md (P1–P15) — READ FIRST; any mismatch is a STOP-and-flag.
+rulings (H10 — Nick's words at dispatch; un-worded rows stand as RECOMMENDED): **R-H1 the exemption's reach — LOOPBACK-ONLY (recommended) / ANY-SOURCE** · **R-H2 the last-full-access-token guard — IN (recommended) / OUT**.
+-->
+
+# Coding Task: R-9 / E3-HEALTH — the unauthenticated loopback `/health` (+ R-H2)
+
+**Subsystem:** rest-api (`com.homesynapse.api.rest`) · lifecycle (`com.homesynapse.lifecycle`, the composition root) · distribution (the unit, the probe's callers, the helper, the docs). **Design Docs:** Doc 09 (REST API — the auth posture, INV-SE-02), Doc 12 (boot contract / packaging; `ExecStartPost` readiness), the DASH-SERVE ruling (the posture-(A) exemption precedent, rest-api `MODULE_CONTEXT.md` §DASH-SERVE), the R-6/R-8 intake audit (`context/audits/2026-08-22_R6R8_intake_two-layer-audit_v55-beat-5.md` §3 H-1/H-2 — the finding this WU closes). **Phase:** 3-Implementation. **Task brief reference:** v55 beat 5 ruling (4): "E3-HEALTH (working id R-9) = the next Core WU after R-7, hub-authored."
+
+## What this implements (the engineering why)
+
+Every HTTP path is auth-gated by the catch-all `before(*)` filter with EXACTLY ONE exemption today — the static dashboard shell (`RestFilters.isPublicShellRequest`). The packaged unit proves readiness with `health-probe.sh`, which therefore must present a token, and the only token it can find is the first-run pairing artifact `config/initial_api_token` — a DELIVERY artifact (L3: delivery-only; the store holds hashes) that the install banner tells the operator to delete after pairing. **A readiness gate that depends on a deletable delivery artifact is an availability defect**: three operator-reachable paths (beat-5 audit H-1) end in a unit that systemd stops restarting. The probe already carries the fix's other half: `--health-path /health` switches it to an unauthenticated path (`health-probe.sh:14–:15`, `:48–:53` — anything not under `/api` or `/internal` needs no token; `load_token` returns early; no `Authorization` header is sent). What is missing is the endpoint and the exemption.
+
+**This WU adds `GET /health`** — 200 when the state projection is `LIVE`, 503 otherwise, body `{"status":"<SubscriberMode>"}` and nothing else (no version, no home id, no counts: a readiness BIT, not a data route) — exempted from the auth filter for **loopback callers only (R-H1 rec)**, wired at the composition root, and flips every readiness probe in the distribution to `--health-path /health`: the unit's `ExecStartPost`, `install.sh`'s no-systemd branch, `update.sh`'s two probes, `update-smoke.sh`'s two probes. `run-smoke.sh` KEEPS its authenticated probe as check 3 (it proves a DIFFERENT property — the minted token validates) and gains check 3b: the SAME probe binary with `--health-path /health` and NO token file → 200 (H13: the unit's instrument, re-run in the smoke). The helper's `rm -f` of the artifact (the transitional mitigation) is REMOVED; its CAUTION text retires; `token-rotation.md`'s "readiness-probe caveat" section retires to a two-line history note; `escalations.md` E3 → CLOSED at R-9. **INV-SE-02 holds in substance:** no DATA route is ever unauthenticated; `/health` discloses one enum word to a loopback peer, which the loopback peer could already infer from the 503 the readiness gate returns on any `/api/*` request.
+
+**Rider R-H2 (rec IN):** `OpaqueTokenStore.revoke(keyId)` REFUSES to revoke the LAST active full-access token (the self-lockout class: `DELETE /internal/tokens/{own}` on the only key = every client out, and — before this WU — the next restart start-limited). `rotate` is unaffected (it mints first, revokes via `revokedCopy` directly, never through `revoke()`). At HTTP → 409; at the request file → a `skipped` entry; the helper and the doc each say so in one line.
+
+## Files to read before starting (the minimum read set — #3)
+
+| File | Why |
+|---|---|
+| `context/pre-verifications/WU-R9.md` | THE GATE — P1–P15 at your checkout |
+| `api/rest-api/MODULE_CONTEXT.md` §DASH-SERVE + §R-6/R-8 TOKEN-OPS + §Gotchas | the exemption precedent (the classifier shape, the `authorize` ORDER law, the mutation-verified pins) and the store's contracts you extend |
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/RestFilters.java` `:430–:536` (`IDENTITY_ATTRIBUTE` · `installAuth` · `authorize` · `isPublicShellRequest`), `:76–:97` (`installReadinessGate`), `:230–:262` (`installTokenAdminEndpoints` — the gateway-method shape to copy), `:584–:595` (`writeProblem`) | the filter you add the second exemption to; the gateway you add |
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/ReadinessFilter.java` WHOLE | the readiness predicate (`apply` `:113–:124`), the two package-private header constants (`:72`, `:75`) `/health` reuses, the 503 body shape |
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/EndpointContext.java` + `JavalinEndpointContext.java` + `src/test/…/RecordingEndpointContext.java` | the seam the new handler writes through (status · header · json) and the recording fake its unit test drives |
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/OpaqueTokenStore.java` `:147–:154` (`TokenRecord`), `:370–:438` (`rotate` · `revoke`), `:464–:539` (`processOperatorRequests`), `:578–:584` (`activeKeyCount`) | R-H2's seam |
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/TokenAdminEndpoints.java` `:258–:282` (`revoke`) + `ProblemType.java` WHOLE | the 409 arm; the enum you extend |
+| `api/rest-api/src/test/java/com/homesynapse/api/rest/RestFiltersAuthTest.java` · `OpaqueTokenStoreTest.java` · `TokenAdminEndpointsTest.java` | the test classes you extend (their fixtures, clocks, fakes) |
+| `lifecycle/lifecycle/MODULE_CONTEXT.md` (the top blockquotes: R-6/R-8 + DASH-SERVE) + `lifecycle/lifecycle/src/main/java/com/homesynapse/lifecycle/HomeSynapseCore.java` `:176–:180` (the class implements `ReadinessSource`) + `:888–:988` (`bringUpHttpSurface`) | the one composition line and its ordering class |
+| `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/HomeSynapseCoreTest.java` `:191–:260` + `:296–:362` (the auth-posture e2e tests + the `get`/`send` helpers) | the e2e pins you add ride these helpers |
+| `distribution/smoke/health-probe.sh` WHOLE · `distribution/systemd/homesynapse.service` `:1–:63` · `distribution/common.sh` `:37–:44` · `distribution/smoke/run-smoke.sh` `:66–:77` + `:139–:147` + `:188–:194` · `distribution/install/install.sh` `:75–:93` · `distribution/update/update.sh` `:50–:80` · `distribution/update/update-smoke.sh` `:38–:67` · `distribution/deb/homesynapse-token` WHOLE · `distribution/docs/token-rotation.md` `:33–:103` + `:147–:160` · `distribution/docs/escalations.md` §E3 | every probe call site (the corpus sweep — arc-25), the helper's transitional block, the two docs |
+| `distribution/ci/install-smoke.yml` (READ-ONLY this WU) | the gate of record's shape after R-7 (two legs); you change nothing in it |
+
+**`module-info.java` (rest-api) — verbatim; ZERO change pinned (the surface-export check — #14 — walked: `installHealthEndpoint(Object, ReadinessSource)` names `com.homesynapse.state.ReadinessSource`, already `requires transitive`; `SubscriberMode` is used only inside the package-private handler — the existing plain `requires com.homesynapse.event.bus`):**
+
+```java
+module com.homesynapse.api.rest {
+    requires transitive com.homesynapse.state;
+    requires com.homesynapse.event.bus;
+    requires com.homesynapse.automation;
+    requires com.fasterxml.jackson.databind;
+    requires io.javalin;
+    requires org.slf4j;
+    exports com.homesynapse.api.rest;
+}
+```
+(comments elided here; the file's comment lines stay untouched). ZERO `build.gradle.kts` change in any module (no new dependency; lifecycle already `implementation(project(":api:rest-api"))`).
+
+## Files to create or modify
+
+### A. `HealthEndpoint` (rest-api, A) + `RestFilters.installHealthEndpoint(Object javalinApp, ReadinessSource readinessSource)` (M)
+
+- `final class HealthEndpoint implements Handler` (package-private, the `TokenAdminEndpoints`/`DlqStatusEndpoint` shape): ctor `(ReadinessSource)` with `Objects.requireNonNull`; `handle(Context)` → `apply(new JavalinEndpointContext(ctx))`; `void apply(EndpointContext ctx)` (package-private, pure, unit-tested with `RecordingEndpointContext`): `SubscriberMode mode = readinessSource.mode()`; **LIVE → `ctx.status(200)`**; **otherwise → `ctx.status(503)` + `ctx.header(ReadinessFilter.PROJECTION_STATE_HEADER, mode.name())` + `ctx.header("Retry-After", ReadinessFilter.RETRY_AFTER_SECONDS)`** (the SAME constants the readiness gate uses — one readiness vocabulary); in BOTH arms `ctx.header("Cache-Control", "no-store")` then `ctx.json(Map.of("status", mode.name()))` — the body is exactly one key. No envelope (`{data, meta}` is the data-route contract; a probe body is not a data route — state this in the class Javadoc). No identity read, no logging above DEBUG (a probe polls every 2 s; an INFO per poll is log spam — LTD-15).
+- `RestFilters.installHealthEndpoint(Object javalinApp, ReadinessSource readinessSource)`: `Objects.requireNonNull` ×2, `(Javalin)` cast, `app.get("/health", new HealthEndpoint(readinessSource))`. Javadoc: registered AFTER `installAuth` (the exemption lives in the filter, not here) and is NOT under the `/api/*` readiness gate by path — the endpoint evaluates the same predicate itself. If Javalin 6 does not answer `HEAD` for a `GET` route automatically (verify at P3 — read the Javalin behavior, do not assume), register `app.head("/health", …)` with the same handler so the probe's `HEAD` form works; say which in the return.
+
+### B. The second exemption in `authorize()` (rest-api `RestFilters.java`, M) — **RULING R-H1**
+
+- New package-private classifier beside `isPublicShellRequest`: `static boolean isHealthProbeRequest(String method, String path, String remoteAddress)` — TRUE exactly when `method ∈ {GET, HEAD}` AND `path.equals("/health")` (exact — no prefix, no trailing slash) AND **(R-H1 LOOPBACK-ONLY) `isLoopbackLiteral(remoteAddress)`** / **(R-H1 ANY-SOURCE) the address is ignored**. Null anything → false.
+- `static boolean isLoopbackLiteral(String address)` (package-private, pure): null/blank → false; strip a `%zone` suffix; if the remainder contains any character outside `[0-9A-Fa-f:.]` → false (**never hand a hostname to `InetAddress` — a resolver call from the auth filter would be a DNS-triggered stall; Jetty's `getRemoteAddr()` is always a literal, this guard makes the helper safe even if a caller is not**); else `InetAddress.getByName(literal).isLoopbackAddress()` in a `try`/`catch (UnknownHostException)` → false. Covers `127.0.0.1`, the whole `127/8`, `::1`, `0:0:0:0:0:0:0:1`, `::ffff:127.0.0.1`.
+- `authorize(...)`: the exemption becomes `if (isPublicShellRequest(m, p) || isHealthProbeRequest(m, p, ctx.ip())) return;` — **ORDER UNCHANGED**: `isPathSafe` FIRST, the exemptions second, authenticate third, rate-limit fourth (the MODULE_CONTEXT's load-bearing-order law; the reorder-mutant killer stays `HomeSynapseCoreTest`'s exact-400 traversal pin). `ctx.ip()` is Javalin 6's `Context.ip()` (= `HttpServletRequest.getRemoteAddr()`) — verify the method exists and its return shape at P3 (`javap` on the pinned Javalin jar, the R-6/R-8 R-C discipline).
+- The `installAuth` Javadoc: "EXACTLY ONE exemption" → the two exemptions named, each with its invariant (the shell: inert public bytes; `/health`: a readiness bit for loopback probes, one enum word, no data); the "one-line-reversible" sentence becomes "two early-returns, each independently reversible". The `isPublicShellRequest` Javadoc's "EXACTLY for GET/HEAD …" stays (it describes that classifier, which is unchanged).
+- **Stated residue (carry the DASH-SERVE form):** an exempted `/health` request bypasses rate-limiting (no key); the surface is loopback-bound by default; under the future LAN opt-in a LAN caller still needs a token for `/health` (R-H1 LOOPBACK-ONLY) — a LAN monitoring tool authenticates like any client. **Disclosed at authoring:** a reverse proxy or tunnel on the same host (the bench's `cloudflared` → `127.0.0.1:7070`) presents AS loopback — `/health` is reachable through it unauthenticated; the disclosure is one enum word, and the shell is already reachable the same way. Name this in the MODULE_CONTEXT row; do not widen the body to compensate.
+
+### C. `HomeSynapseCore.bringUpHttpSurface()` (lifecycle, M) — ONE line
+
+`RestFilters.installHealthEndpoint(app, this);` immediately AFTER `app.get("/", …)` (`:932`) and BEFORE `RestFilters.installReadinessGate(app, this)` (`:933`) — inside the existing ordering class (auth → the public routes → the readiness gate → the data routes). A four-line comment in the file's own voice (E3: the probe off the artifact; `this` is the same `ReadinessSource` the gate reads). Nothing else in the method moves.
+
+### D. Rider R-H2 — the last-full-access-token guard (rest-api, M ×3 + the tests) — **RULING R-H2: IN (recommended) / OUT**
+
+- `OpaqueTokenStore`: a public nested `enum RevokeOutcome { REVOKED, NOT_FOUND, REFUSED_LAST_FULL_ACCESS }`; `revoke(String keyId)` returns it (the `boolean` goes — the P2 survey below lists every caller). Under the write lock: locate the active row by `keyId` (as today); if found AND `r.scopes().contains(ApiKeyClaims.SCOPE_ALL)` AND it is the ONLY active (non-revoked, non-expired — the `activeKeyCount` predicate) full-access row → `REFUSED_LAST_FULL_ACCESS`, nothing persisted, ONE WARN naming the key id (never material): "refusing to revoke the last active full-access token {}; use rotate"; else revoke exactly as today → `REVOKED` (the stranded-artifact WARN stays as is); not found/already revoked → `NOT_FOUND`. `rotate()` is UNTOUCHED (it never calls `revoke()`; pin this with a test: rotate on a single-token store succeeds and leaves exactly one active).
+- `processOperatorRequests()` revoke arm: `REVOKED` → `revoked++`; `REFUSED_LAST_FULL_ACCESS` → `skipped.add(where + "revoke " + argument + ": refused — the last active full-access token (use rotate)")` (the key id is public by construction — same rule as the existing "already revoked" entry); `NOT_FOUND` → the existing two sub-arms unchanged.
+- `ProblemType`: ONE new constant `TOKEN_REVOKE_REFUSED("token-revoke-refused", 409, "Token Revoke Refused")` placed after `IDEMPOTENCY_KEY_CONFLICT` (the file's own 409 neighbour); its Javadoc in the file's voice (the self-lockout class). **P2 pin survey (run at execution, not assumed):** `git grep -n "ProblemType.values\|ProblemType.class\|hasSize(1[0-9])" -- '*Test.java'` — the hub's grep at authoring found ZERO count pins on the enum; if yours finds one, it joins the census with its +1.
+- `TokenAdminEndpoints.revoke(...)`: `switch (store.revoke(keyId))` — `REVOKED` → the audit line + 204 (unchanged); `NOT_FOUND` → 404 (unchanged); `REFUSED_LAST_FULL_ACCESS` → `EndpointResponses.problem(ctx, ProblemType.TOKEN_REVOKE_REFUSED, "…is the last active full-access token; rotate instead of revoking")` — NO audit line (nothing mutated). Class Javadoc's `DELETE` bullet gains the 409 arm.
+- The helper `homesynapse-token` usage text: one line under `revoke <keyId>` — "refused (and reported in the journal) when it would revoke the last active full-access token — use `rotate`". The doc: one line in §The operator path.
+
+### E. The distribution sweep (M ×8; the probe binary itself is the instrument — its CODE is untouched, its header COMMENT is made current)
+
+- `distribution/systemd/homesynapse.service`: `ExecStartPost=/opt/homesynapse/libexec/health-probe.sh --wait --timeout 90 --health-path /health`; the `:46–:49` comment rewritten (the probe hits the unauthenticated loopback `/health` — E3 closed at R-9; 200 = ready, 503 = up-but-not-ready, refused = not up; the first-run token is NOT read by the unit). `TimeoutStartSec=120` ≥ the probe's 90 s stays. **`PrivateDevices=yes` (`:93`) and its comment are R-3b's seam — NOT touched.**
+- `distribution/common.sh` `:40–:44`: `HS_HEALTH_PATH="${HS_HEALTH_PATH:-/health}"`; the comment rewritten (E3 closed; the authenticated path is what `run-smoke.sh` check 3 still uses, by name). **`:57–:68` is R-7's version arm — NOT touched.**
+- `distribution/smoke/health-probe.sh`: header comment only (`:8–:15`): the readiness model now names `/health` as the unit's path and the authenticated path as the smoke's token-validity check; `HEALTH_PATH` default (`:24`) STAYS `/api/v1/entities` (the binary's no-arg behavior is unchanged — every caller passes the path explicitly after this WU; changing the default silently would re-route any caller you did not sweep).
+- `distribution/smoke/run-smoke.sh`: check 3 unchanged (the authed probe; rename its banner to "READINESS PROBE (authed loopback — the minted token validates)"); NEW check 3b directly after it: `"${HS_OPT}/libexec/health-probe.sh" --wait --timeout 30 --health-path "${HS_HEALTH_PATH}"` → `ok "unauthenticated loopback /health green (HTTP 200 — the unit's probe path, E3)"` else `bad` + `dump_logs`. **passes-but-false line in-file:** "a `/health` that returns 200 regardless of projection mode — bounded by `HealthEndpointTest`'s 503 pin and by check 3's authed 200 (the gate and the endpoint read one `ReadinessSource`)". Check numbering: keep the digit scheme — insert as `3b` (no renumbering of 4–9; the R-1 renumber already cost one disclosure). The systemd-path PASS-line count: 18 → **19** (state it in the return; the hub's CI prediction pins it).
+- `distribution/install/install.sh` `:92` · `distribution/update/update.sh` `:60` + `:77` · `distribution/update/update-smoke.sh` `:44` + `:65`: each `--token-file "${HS_TOKEN_FILE}"` → `--health-path "${HS_HEALTH_PATH}"` (every script sources `common.sh`; the unit does not and carries the literal). Nothing else in those files moves.
+- `distribution/deb/homesynapse-token`: in `apply_request`, the `if [ "$1" = rotate ]; then … rm -f "${HS_CONFIG}/initial_api_token"; fi` block (`:110–:121`, inside `apply_request()` `:108`) is REMOVED whole (the artifact is touched only by the service from here on); the CAUTION paragraph (`:46–:49`) → two lines: the probe no longer reads the artifact (E3); `revoke` of the last full-access token is refused (R-H2, if IN). The no-arg output (`:71`, "then delete the file") is UNCHANGED and now TRUE. `status`/`mint`/`revoke`/`rotate` verbs otherwise byte-identical; POSIX `sh`; `dash -n` clean.
+- `distribution/docs/token-rotation.md`: `### The readiness-probe caveat (packaged path)` (`:71–:103`) → replaced by a 2–3 line "History" note (the caveat existed from R-6 to R-9; the unit probes `/health` now; deleting the artifact after pairing is lawful); `:156`'s cross-reference updated; §The operator path gains the R-H2 line (if IN). No other section moves.
+- `distribution/docs/escalations.md` §E3: status → CLOSED at R-9 (one line + the pointer to this instruction's return).
+
+### F. MODULE_CONTEXT rows (M ×2; delta-only, each file's own style)
+
+- rest-api: a `### E3-HEALTH — the unauthenticated loopback /health (2026-08-2x)` section after §R-6/R-8: the rows `HealthEndpoint` (package-private; the body law; the shared readiness constants) · `RestFilters.installHealthEndpoint` (public gateway; registered after `installAuth`, before the gate) · `isHealthProbeRequest` + `isLoopbackLiteral` (package-private; the R-H1 word; the DNS guard; the tunnel-presents-as-loopback disclosure) · the `authorize` order law restated with TWO exemptions · (R-H2) `RevokeOutcome` + the guard + `ProblemType.TOKEN_REVOKE_REFUSED` · the test counts (`:269`-style line: rest-api N → N+k, named per class).
+- lifecycle: one blockquote at the top in the R-6/R-8 form: the one line, its position, the invariant (auth before bind unchanged; `/health` is outside the `/api/*` gate by path and evaluates the same `ReadinessSource`).
+- app: NOT touched (no app type changes).
+
+### G. Tests (red-first where a fixture can red at HEAD — #18; disclosed otherwise)
+
+| Test | Module | Red at HEAD? |
+|---|---|---|
+| `HealthEndpointTest` (A): LIVE → 200 + `{"status":"LIVE"}` + `Cache-Control: no-store`; each non-LIVE mode (`COLD`, `REPLAY`, `TRANSITION` — walk `SubscriberMode`'s real constants at P4) → 503 + `X-HomeSynapse-Projection-State` + `Retry-After: 5` + `{"status":"<mode>"}`; the body has EXACTLY one key; a `ReadinessSource` stub flips modes between calls (no caching) | rest-api | the class does not exist → compile-red (disclosed: red-by-absence) |
+| `RestFiltersAuthTest` (M): `isHealthProbeRequest` — GET/HEAD `/health` from `127.0.0.1`, `::1`, `0:0:0:0:0:0:0:1`, `::ffff:127.0.0.1`, `127.9.9.9` → true; `/health/` · `/healthz` · `/api/health` · `POST /health` · null method/path/address → false; (R-H1 LOOPBACK-ONLY) `10.0.0.5`, `192.168.1.10`, `fe80::1%eth0`, `example.com`, `127.0.0.1 ` (trailing space) → false; `isLoopbackLiteral` pinned separately incl. the hostname guard (a string with letters outside hex → false WITHOUT throwing); the existing three shell tests UNCHANGED; `healthExemption_neverPrecedesTraversalGate` — the mirror of the DASH-SERVE reorder pin at the classifier level | rest-api | the methods do not exist → compile-red |
+| `HomeSynapseCoreTest` (M): NEW `healthServesHeaderlessOnLoopbackWhileDataRoutesStayGuarded` — after `start()` + `exposeHttpSurface()`: headerless `GET /health` → 200, body contains `"status":"LIVE"` (the projection is LIVE post-start — `:376`'s pin), `HEAD /health` → 200 (or the documented Javalin behavior), `POST /health` → 401, `GET /health/` → 401, `GET /healthz` → 401, `GET /api/v1/entities` → 401, `GET /internal/dlq` → 401, `GET /dashboard/%2e%2e/health` → 400 (the traversal gate precedes the new exemption too). (R-H1 LOOPBACK-ONLY e2e arm — OPTIONAL, only if `HomeSynapseConfig` can be built with a site-local `bindHost` WITHOUT new production code — check at P13; if it cannot, the classifier pins above are the guard and you FILE the gap as a §5 item, you do not invent a rig.) | lifecycle | RED at HEAD (200 expected, 401 observed on the loopback arm) — a real red-first fixture |
+| `OpaqueTokenStoreTest` (M, R-H2): revoke of the only full-access token → `REFUSED_LAST_FULL_ACCESS`, store unchanged on disk (byte-compare the file before/after), one WARN with the key id and no material; with a second active full-access token present → `REVOKED`; a scoped (non-`*`) token revokes even when it is the last token of any kind; the last full-access token revokes when another full-access token exists but is EXPIRED? → REFUSED (expired rows do not count — the `activeKeyCount` predicate); `rotate()` on a single-token store succeeds (one active after); the request-file `revoke` of the last key → `skipped` entry text pinned, `revoked=0`; existing revoke tests updated from `isTrue()`/`isFalse()` to the enum | rest-api | compile-red (the return type) + the guard rows red |
+| `TokenAdminEndpointsTest` (M, R-H2): `DELETE` of the caller's only full-access key → 409 `application/problem+json` with `type` = `…/token-revoke-refused`, NO audit line recorded, the token still validates afterwards; the 204/404 arms unchanged | rest-api | red (404/204 observed today) |
+
+Red-first accounting in the return: run the new/changed tests against HEAD code ONCE (the compile-red rows are disclosed as such; the `HomeSynapseCoreTest` row is the true red), capture the output, then implement.
+
+## Technical specification — contracts
+
+- **`/health` semantics are the readiness gate's semantics, read from the same `ReadinessSource`:** 200 ⇔ `mode() == LIVE`; any other mode → 503. (E3's text says "lifecycle phase (200 RUNNING / 503 otherwise)"; it is REALIZED as the projection mode because that is what today's probe path actually measures — `/api/v1/entities` answers 200 only once the `/api/*` gate sees LIVE — so the unit's readiness semantics are byte-identical before and after this WU. `/health` is NOT the Doc-09 `/api/v1/system/health` data route named in `SystemLifecycleManager`'s Javadoc; that route is unbuilt and stays unbuilt here.) The probe (`health-probe.sh:101–:107`) treats 200 = ready, 503 = keep waiting, 401/403 = hard fault (exit 3) — so a broken exemption FAILS LOUDLY at the unit (a 401 on `/health` is a start failure, never a silent pass). Body: exactly `{"status":"<SubscriberMode.name()>"}`.
+- **The exemption is exact-path, GET/HEAD, (R-H1) loopback-literal only.** `/health/`, `/healthz`, `/api/health`, any other method → the full auth path. `isPathSafe` runs first, always.
+- **Auth-before-bind (AB-1) unchanged:** `installHealthEndpoint` registers a route, not a filter; it runs after `installAuth` and before `app.start`.
+- **R-H2:** `revoke()` cannot leave the store with zero active full-access tokens; `rotate()` can never be refused. The request-file path and the HTTP path report the refusal in their own vocabulary (a `skipped` line; a 409 problem) — never a silent no-op.
+- **Zero module-info, zero build-file, zero `README.md` (`:117` fence), zero `web-ui/**`, zero `PrivateDevices` (R-3b), zero version-arm bytes in `common.sh` (R-7/R-7b).**
+
+## Locked decisions + invariants that apply
+
+LTD-11 (the store's `ReentrantLock` — the guard runs under the existing write lock; no `synchronized`) · LTD-15 (SLF4J `{}`; no INFO per probe poll) · INV-SE-02 (no data route unauthenticated — the exemption is a status bit; the MODULE_CONTEXT row states the substance) · AB-1 / C1 (auth installed before the port binds — unchanged) · Doc 12 §3.2 (`ExecStartPost` readiness; `TimeoutStartSec` ≥ the probe timeout) · L3 (no token material in logs, tests, the return) · arc-10 (every new assert ships with fixtures proving PASS and the false-verdict boundary — the 503 pins + the `/healthz`/`POST` rejects) · arc-25 (the full-corpus sweep on a finding — every `--token-file` readiness probe in `distribution/` flips) · H13 (one instrument, two rigs — the unit's probe line and run-smoke's check 3b invoke the same binary with the same path).
+
+> **Tests must inject `Clock`.** Do NOT use `Clock.systemUTC()`, `Instant.now()`, `System.nanoTime()`, or `System.currentTimeMillis()` in this module's test code. Use `Clock.fixed(Instant.parse("2026-01-01T00:00:00Z"), ZoneOffset.UTC)` injected via constructor/`@BeforeEach`. **Enforcement reach:** `NO_DIRECT_TIME_ACCESS` runs from `com.homesynapse.app`'s test classpath, so it mechanically catches PRODUCTION code in every non-whitelisted module (plus app's own tests) — it does **not** scan this module's test source set. Clock-injection here is a self-enforced project convention that PM review, not `./gradlew check`, enforces. (`HomeSynapseCoreTest` is the standing exception: it uses `Clock.systemUTC()` by its own documented reason — the bus VTs need real time; add to it in its own idiom.)
+
+**ARCH-RULE-REACH (#16):** the handler lives in `com.homesynapse.api.rest` and is wired from `com.homesynapse.lifecycle` — the same edge every other endpoint uses; `HomeSynapseArchRules` has no rule naming `/health`, `ReadinessSource`, or the rest-api → lifecycle direction beyond what `installReadinessGate` already satisfies. Zero collisions. (Verify by grepping `HomeSynapseArchRules.java` for `api.rest` at P15 — state the result.)
+
+## P2 consumer/pin survey (the hub's at authoring; re-run at execution)
+
+- `OpaqueTokenStore.revoke(String)` callers: `TokenAdminEndpoints.revoke` `:275` · `processOperatorRequests` `:513` · `OpaqueTokenStoreTest` (the revoke rows) · `TokenAdminEndpointsTest` (via the endpoint). `TokenCli` (app) reads `summaries()` only — no change. `rotate()` does not call `revoke()`.
+- `ProblemType` — no `values().length` / `hasSize` pin in any test at `62dbca3` (hub grep); the FE contract (`web-ui/dashboard/src/lib/api/contract.ts`) does not enumerate problem types — untouched.
+- `isPublicShellRequest` callers: `authorize` only; its three tests unchanged.
+- `health-probe.sh` callers: the unit `:50` · `install.sh:92` · `update.sh:60,:77` · `update-smoke.sh:44,:65` · `run-smoke.sh:73` — seven sites; six flip to `--health-path`, check 3 stays authed by design, check 3b is new.
+- `HS_HEALTH_PATH` consumers at `62dbca3`: NONE beyond its definition (hub grep) — after this WU, five scripts.
+- The 18 `[smoke] PASS` lines (CI's install-smoke, systemd path): +1 → 19.
+
+## Verification (the lane's gates, then CI)
+
+Targeted: `./gradlew :api:rest-api:compileJava :api:rest-api:compileTestJava :api:rest-api:test :lifecycle:lifecycle:compileJava :lifecycle:lifecycle:test` → Spotless → full `./gradlew check` (twice is the R-6/R-8 precedent; once green suffices if the second adds nothing). `bash -n` on every touched `.sh`; `dash -n` on `common.sh` + the helper; `shellcheck` if present (flag if absent). The twins are NOT in this census — `diff` them anyway and state "untouched". **CI on the push = the gate of record:** Build & Check GREEN (rest-api +N tests, lifecycle +1) + install-smoke BOTH legs GREEN with **19** PASS lines each (check 3b's line quoted in the return from the amd64 log) + update-smoke green through the new probe path. **The WU CLOSES at §OP-H** (the packaged unit on real hardware starting on `/health` — the H8 bar; no CI leg runs the systemd unit with the ARTIFACT ABSENT, so the bench is the proof of the availability fix: §OP-H deletes the artifact on purpose and restarts).
+
+## Files table (census-exact; R-H2 IN: 23 rows; R-H2 OUT: 18 — drop the five rows marked ‡)
+
+| File | Kind |
+|---|---|
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/HealthEndpoint.java` | A |
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/RestFilters.java` | M |
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/OpaqueTokenStore.java` | M ‡ |
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/TokenAdminEndpoints.java` | M ‡ |
+| `api/rest-api/src/main/java/com/homesynapse/api/rest/ProblemType.java` | M ‡ |
+| `api/rest-api/src/test/java/com/homesynapse/api/rest/HealthEndpointTest.java` | A |
+| `api/rest-api/src/test/java/com/homesynapse/api/rest/RestFiltersAuthTest.java` | M |
+| `api/rest-api/src/test/java/com/homesynapse/api/rest/OpaqueTokenStoreTest.java` | M ‡ |
+| `api/rest-api/src/test/java/com/homesynapse/api/rest/TokenAdminEndpointsTest.java` | M ‡ |
+| `api/rest-api/MODULE_CONTEXT.md` | M |
+| `lifecycle/lifecycle/src/main/java/com/homesynapse/lifecycle/HomeSynapseCore.java` | M |
+| `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/HomeSynapseCoreTest.java` | M |
+| `lifecycle/lifecycle/MODULE_CONTEXT.md` | M |
+| `distribution/systemd/homesynapse.service` | M |
+| `distribution/common.sh` | M |
+| `distribution/smoke/health-probe.sh` | M (comment only) |
+| `distribution/smoke/run-smoke.sh` | M |
+| `distribution/install/install.sh` | M |
+| `distribution/update/update.sh` | M |
+| `distribution/update/update-smoke.sh` | M |
+| `distribution/deb/homesynapse-token` | M |
+| `distribution/docs/token-rotation.md` | M |
+| `distribution/docs/escalations.md` | M |
+
+**Stages exactly 23 (R-H2 IN) / 18 (R-H2 OUT).** If the `ProblemType` pin survey finds a count pin, +1 and say so. Anything else dirty = STOP.
+
+## What to watch out for
+
+The `authorize` ORDER is law (`isPathSafe` first — the `%2e%2e` e2e pin kills the reorder mutant) · `ctx.ip()` — verify it exists on Javalin 6's `Context` and returns the remote literal (P3) · never resolve a name in the filter (the hex-literal guard) · Javalin + `HEAD` on a `GET` route — verify, do not assume (P3) · the `RecordingEndpointContext` records headers as a map (the R-C lesson: a recording fake proves call ORDER, not wire truth — the e2e test is the wire proof) · `HomeSynapseCoreTest` uses `Clock.systemUTC()` by design · the helper is POSIX `sh` (`dash -n`) and its no-arg output is byte-identical (pinned at R-6/R-8) · `run-smoke.sh` is `set -uo pipefail` WITHOUT `-e` — a failing probe must route through `bad`, never exit the script · the unit's `PrivateDevices` block is R-3b's · `common.sh:57–:68` is R-7's · `README.md:117` · no attribution trailers; the lane commits nothing · **welcome pushback:** if `ctx.ip()` is absent, if `HEAD` needs its own route, if a `SubscriberMode` constant I did not name exists, or if `HomeSynapseConfig` cannot take a LAN bind in tests — your flag with file+line is the deliverable, not a silent workaround.
+
+## §OP-H — after landing (Nick; the bench; ≤10 min; the WU's H8 close)
+
+```bash
+# WHERE: ssh pi (the bench card) — after `git pull` + the bench's normal rebuild; the app runs via bench.sh, NOT the unit.
+# GOAL: prove the packaged PROBE path on real hardware: the probe answers 200 on /health with NO token, and 401-class paths stay closed.
+# DONE-WHEN: three lines — "ready (200) at http://127.0.0.1:7070/health" · "401" · "200".
+/opt/homesynapse/libexec/health-probe.sh --health-path /health 2>&1 | tail -1        # expect: [health-probe] ready (200) at http://127.0.0.1:7070/health
+curl -sS -o /dev/null -w '%{http_code}\n' http://127.0.0.1:7070/api/v1/entities      # expect: 401 (the fence)
+curl -sS -w '\n' http://127.0.0.1:7070/health                                         # expect: {"status":"LIVE"}  (exactly one key)
+```
+(If `/opt/homesynapse/libexec/health-probe.sh` is absent on the bench — the bench runs from `installDist`, not the image — run `bash ~/homesynapse-core/distribution/smoke/health-probe.sh --health-path /health` instead; say which ran.) The PACKAGED-unit proof (artifact deleted on purpose → `systemctl restart` → active) rides R-3b's held-card session as its first block — the hub writes it into the R-3 packet; it is not a bench act.
+
+## Return shape
+
+§0 P1–P15 · §1 per-file hunk summary · §2 the exemption + the endpoint as shipped (verbatim) + the red-first captures · §3 gates (targeted · Spotless · full check; the PASS-line count) · §4 census at porcelain (flag spelled) · §5 deviations/pushback · §6 the R-H1/R-H2 words as received · §7 next-WU pointers (R-7b: the version scheme + the skeleton fence + `HS_DIST_DIR` + the node/upload majors + E1 — the beat-6 audit §4 has the design; R-3b: the packaged-unit artifact-absent restart proof rides its packet). WUCP Phase 1 closeout per the skill.

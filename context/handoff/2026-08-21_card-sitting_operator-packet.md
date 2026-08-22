@@ -2,7 +2,7 @@
 file: context/handoff/2026-08-21_card-sitting_operator-packet.md
 purpose: THE SATURDAY CARD-SITTING PACKET (Sat 2026-08-22) — the R-1/R-2 hardware-evidence legs (RED on the held card → GREEN on the rebuilt artifact → restore) + THE TOKEN ROTATION BLOCK. This packet SUPERSEDES the R1R2 instruction's §OP Block 2 (OVERTAKEN at the hub, v55 beat 1 — the adjudication is §0 below); §OP Blocks 1 and 3 are carried here VERBATIM in substance with the ⏺ slots widened. Self-contained per the playbook §8 contract + arc-35 (a fresh session needs nothing but this file).
 audience: Nick (operator, the ONLY hardware act of the weekend); the hub (the ⏺ intake — adjudicate-first against the predictions filed in §6; never improvise past a mismatch).
-status: ISSUE-READY (v55 beat 1). Block 0 may run TONIGHT (Fri) on the bench card; Blocks 1–3 Saturday in daylight. NEVER inside 03:00–04:15 CT (the nightly guard); a card swap spanning 03:30 CT fires the missed nightly on restore.
+status: ISSUE-READY (v55 beat 1; AMENDED beat 3 — R-0 GO received: Block 0 runs TONIGHT (Fri) on the bench card, finished before ~02:30 CT; Blocks 1–3 Saturday in daylight. THE TOKEN ROTATION BLOCK IS RETIRED — it already ran 2026-08-20 22:06 Pi-time (the enrichment listing: `api_tokens.rotated-2026-08-20` beside a fresh `api_tokens` + `initial_api_token`); Block 3 now only CONFIRMS it at the listing). NEVER inside 03:00–04:15 CT (the nightly guard); a card swap spanning 03:30 CT fires the missed nightly on restore.
 predictions: filed BEFORE the run, in §6 — derived from the ARTIFACTS at core 7c9e4fa (build-image.sh §2/§2b · run-smoke.sh checks 1–9 · debian/postinst · common.sh · the 9f99368 CI log's 16-module union), never from intent (H12).
 audit: layer-2 adversarial review at the scripts (v55 beat 1, independent agent, hub-adjudicated): TWO root-cause defects found in the first draft and corrected here BEFORE any hardware act — (1) `build-deb.sh` SKIPS `build-image.sh` when a prior image tree exists (:36–:39), so the bench's stale `distribution/image/build/` would have repackaged the OLD runtime under the new version → Block 0 now moves the old tree aside and runs `build-image.sh` explicitly, with a STOP if no `[build-image]` lines print; (2) `hs_version` wraps a commit id as `0.1.0+g<id>` ONLY when it starts with a–f (`common.sh` :62–:65 — the `[0-9]*` arm prints it bare) → the version of record is `7c9e4fa`, not `0.1.0+g7c9e4fa`; every expected string below says so. Plus the L3 masking step (the initial mint WARN-logs the raw token into the journal — `OpaqueTokenStore.java` :214–:216).
 instrument law: the probe pattern `NoClassDefFoundError|jdk.jfr|BusMetrics` is BYTE-IDENTICAL in Block 1, Block 2's discriminator, and run-smoke check 4 (H13 — one instrument, two rigs).
@@ -10,7 +10,7 @@ instrument law: the probe pattern `NoClassDefFoundError|jdk.jfr|BusMetrics` is B
 
 # The Saturday Card Sitting — Operator Packet (R-1/R-2 evidence legs + the token rotation)
 
-**Goal.** Three ⏺ pairs on real hardware: (1) **RED** — the held card's known-bad artifact (`0.1.0+gd26777c`) fails the write-path probe the way F-23 predicts; (2) **GREEN** — the artifact rebuilt from core `7c9e4fa` passes run-smoke checks 1–9 on the same card in a FRESH boot, write-path check 4 printing positive evidence; (3) **RESTORE** — the bench card back, `[PASS]` floor, and the exposed pairing token DEAD (the rotation block). **Done-when:** every ⏺ slot in §6 is filled, pasted to the hub as TEXT (crop/mask any screenshot that shows an `Authorization` header — L3), and the hub has adjudicated the set.
+**Goal.** Three ⏺ pairs on real hardware: (1) **RED** — the held card's known-bad artifact (`0.1.0+gd26777c`) fails the write-path probe the way F-23 predicts; (2) **GREEN** — the artifact rebuilt from core `7c9e4fa` passes run-smoke checks 1–9 on the same card in a FRESH boot, write-path check 4 printing positive evidence; (3) **RESTORE** — the bench card back, `[PASS]` floor, and the token-rotation state CONFIRMED at the listing (the rotation itself already ran on 08-20 — the exposed token is DEAD; no second rotation). **Done-when:** every ⏺ slot in §6 is filled, pasted to the hub as TEXT (crop/mask any screenshot that shows an `Authorization` header — L3), and the hub has adjudicated the set.
 
 **Cards and hosts (from the H3 record):** the BENCH card = `hs-dev-1`, user `homesynapse`, reached as `ssh pi` (your alias), carries the full toolchain + `~/homesynapse-core` (you pulled it to `7c9e4fa` on Fri 08-21 — that pull is Block 0's first act, already done). The HELD card = the H3 Stage-2 clean image, hostname `hs-fresh`, user `nick`, reached as `ssh -i ~/.ssh/id_ed25519_pi nick@hs-fresh.local` (the F-18 remedy; Ethernet — wlan0 is DOWN on it). **The held card has NO JDK, NO Gradle, NO repo checkout** — it is a clean Raspberry Pi OS Lite with the `.deb` installed. Everything it needs arrives by `scp` from your desktop. The coordinator NEVER attaches to the held card (SD-5). The bench card comes OUT only after a normal shutdown.
 
@@ -28,7 +28,9 @@ Also derived from the artifacts, so you are not surprised: run-smoke **check 1 i
 *Risk named (accepted at the hub):* Gradle `installDist` is the SAME output tree `bench.sh` runs the app from (`~/homesynapse-core/app/homesynapse-app/build/install/homesynapse-app/`). Zero Java/TS changed since the Thursday deploy built it (`c091f7c→7c9e4fa` = 4 scripts/YAML) ⇒ Gradle is UP-TO-DATE and rewrites nothing; the midweek deploy is the precedent for building with the app running. `build-deb.sh` does `rm -rf distribution/deb/build` — the old `.deb` there (if any) is COPIED aside first (delete-nothing).
 
 ```bash
-# WHERE: the bench card, as homesynapse — `ssh pi`. One line at a time; ⏺ every output.
+# WHERE: the bench card, as homesynapse — `ssh pi`. One line at a time; ⏺ every output. Start early enough to finish before ~02:30 CT.
+df -h / | tail -1
+# expect: several GB free (two image trees + a .deb + a tarball land on this card tonight); under ~2 GB free = STOP, ⏺, paste
 cd ~/homesynapse-core && git log --oneline -1 | cut -c1-60 && git --no-optional-locks status --porcelain | head -5
 # expect: 7c9e4fa …  and an EMPTY porcelain (if lines appear, ⏺ them and continue — the filename may gain "-dirty"; nothing else changes)
 ls -la ~/homesynapse-core/distribution/deb/build/ ~/homesynapse-core/distribution/image/build/ 2>/dev/null || echo "no prior build dirs"
@@ -184,19 +186,12 @@ Normal shutdown of the held card — from the desktop: `ssh -i ~/.ssh/id_ed25519
 # ⏺ the [PASS] line (expect: [PASS] boot-health — 6/6 positive · 0 forbidden) and the bundle name
 ```
 
-**THE TOKEN ROTATION BLOCK (sitting record §6, verbatim in substance; the exposed bearer token from the 2026-08-20 screenshots stays VALID until this runs; if the sitting slips, run THIS block alone, any daytime moment):**
+**THE TOKEN ROTATION — ALREADY RUN; CONFIRM ONLY (retired at v55 beat 3).** The 2026-08-21 enrichment listing proved the sitting-record §6 block executed on **2026-08-20 22:06 (Pi clock)**: `api_tokens.rotated-2026-08-20` (132 B, the original Jul-6 store moved aside) sits beside a FRESH `api_tokens` (132 B, 22:06) and a FRESH `initial_api_token` (44 B, 22:06) — one token in the live store, minted on the empty store; the hash of the token exposed in the 08-20 screenshots is no longer in the live store, so that token is DEAD. Do NOT rotate again (it would invalidate the re-paired browser for nothing). One glance closes the wait-state:
 
 ```bash
-# WHERE: the bench card, as homesynapse. Rotates by STORE reset (mint-new on an empty store; the old hash is preserved aside — delete nothing).
+# WHERE: the bench card, as homesynapse. Read-only.
 ls -la /home/homesynapse/hs-bench/config/
-mv /home/homesynapse/hs-bench/config/api_tokens /home/homesynapse/hs-bench/config/api_tokens.rotated-2026-08-22
-~/bench.sh restart
-ls -la /home/homesynapse/hs-bench/config/
-# expect: a FRESH api_tokens and a FRESH initial_api_token (new mtimes), api_tokens.rotated-2026-08-22 beside them
-cat /home/homesynapse/hs-bench/config/initial_api_token
-# READ IT ON THE PI TERMINAL ONLY — never paste the value anywhere; re-pair the browser with it, then ⏺ only "re-paired OK"
-~/bench.sh scenario boot-health
-# ⏺ the [PASS] line — the rotation's restart re-proves serving end-to-end
+# expect: api_tokens (Aug 20 22:06) · api_tokens.rotated-2026-08-20 (Jul 6) · initial_api_token (Aug 20 22:06) — ⏺ the three lines; if any differs from this, ⏺ and paste (no act)
 ```
 
 **Anti-actions (whole sitting):** never `rm` anything (mv/cp only) · never attach the coordinator to the held card · never run any block inside 03:00–04:15 CT · never paste a token value or an unmasked `Authorization` header · never retune a failing step on the card — ⏺ and stop · never run `build-deb.sh` from inside `distribution/` (the version string would be wrong) · never run `build-deb.sh` with a stale `distribution/image/build/` in place (it would skip the rebuild) · never edit the held card's files beyond what the blocks write (the L3 mask edits only token-value lines in the two evidence files this packet created).
@@ -206,12 +201,12 @@ cat /home/homesynapse/hs-bench/config/initial_api_token
 - **⏺ Block 0:** the two `ls -la` listings + the `~/artifacts/` listing · the grep'd SIX build-log lines · the two sha256 lines (bench) · the two sha256 lines (desktop).
 - **⏺ Block 1:** `dpkg -s` Status/Version · the `systemctl status` head · the two `ls -la` listings · the row count · the grep -ciE count · the grep head -5 · the `wc -l` of the journal dump.
 - **⏺ Block 2:** the held-card sha256 pair · the `apt install` upgrade lines (Unpacking … over …; "is running.") · `dpkg -s` Version · `cat /opt/homesynapse/VERSION` · post-reboot: `uptime -s` + status head · the discriminator count (0) · the grep head (empty) · the row count (> Block 1's) · the COMPLETE run-smoke output (masked) · `id`/`is-enabled`/`ls` before the re-install · the re-install "is running." line + `dpkg -s` · the two mask counts.
-- **⏺ Block 3:** the boot-health `[PASS]` line + bundle · the two `ls -la config/` listings · "re-paired OK" · the closing `[PASS]` line.
+- **⏺ Block 3:** the boot-health `[PASS]` line + bundle · the one `ls -la config/` listing (three expected lines).
 
 ## §6 Predictions of record (filed pre-run; the hub adjudicates EVERY deviation before any further act)
 
 - **P-0 (Block 0):** the image REBUILDS (the `[build-image]` block prints — its absence is the stale-tree STOP) on arm64 with the 16-module `--add-modules` line above (the union is architecture-independent — jdeps analyses class references; the FLOOR is literal), `floor-presence assert green: all 16`, jar count 55 (the CI count; ⏺ the observed number — a different count is a NOTE, not a red), version `7c9e4fa` (bare — the a–f-only wrapper; `-dirty` appended only if the checkout is dirty).
 - **P-1 (Block 1, RED):** rows ≥ 1 AND a matching-LINE count ≥ 6 (≈6 throws × ≥2 lines each; `NoClassDefFoundError: jdk/jfr/Event` / `ClassNotFoundException: jdk.jfr.Event`). Alternate arm: rows 0/absent with hits. BOTH-CLEAN = the refutation STOP.
 - **P-2 (Block 2, GREEN):** upgrade clean (`Version: 7c9e4fa`; `/opt/homesynapse/VERSION` = `7c9e4fa`) · fresh-boot discriminator = 0 · row count > Block 1's · run-smoke 18/18 PASS lines (nine checks) with check 4's two positive lines · `INSTALL-SMOKE PASSED` · the re-install "is running.". (If the conditional store reset ran: the fresh boot shows a NEW `api_tokens` + `initial_api_token` on the held card beside `api_tokens.rotated-2026-08-22`; checks 3/5 pass on the minted file.)
-- **P-3 (Block 3):** `[PASS] boot-health — 6/6 positive · 0 forbidden` before and after the rotation; two fresh token-store artifacts; the rotated store preserved aside.
+- **P-3 (Block 3):** `[PASS] boot-health — 6/6 positive · 0 forbidden`; the config listing unchanged from the 08-21 enrichment read (the 08-20 22:06 store + artifact, the rotated store aside).
 - **Named hazards:** the `_apt` "Download is performed unsandboxed" WARNING on a home-dir `.deb` is cosmetic (exit 0) · tunnel-refusal bursts during restarts are EXPECTED-CLASS · a `-dirty` suffix rides the version string into the filename AND the dpkg `Version:`/`Unpacking` lines (the packet's fixed filename absorbs the file; ⏺ the rest) · if `hs-fresh.local` does not resolve, `ssh pi` will not reach the held card either — read the IP from your router/`arp -a` and substitute it for `hs-fresh.local` in the FIVE ssh/scp lines (the ONLY substitution this packet ever asks for); because the same Pi hardware may hold the bench's DHCP lease, an IP-keyed `known_hosts` entry can collide with the held card's different host key — add `-o UserKnownHostsFile=~/.ssh/known_hosts_hsfresh` to those lines rather than editing `known_hosts` · the R-3 rig re-install after check 9 is a path CI never exercises (remove → install); the `id`/`is-enabled` glance prices it.

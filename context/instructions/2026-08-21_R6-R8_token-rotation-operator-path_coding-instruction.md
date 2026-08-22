@@ -6,7 +6,7 @@ status: ISSUE-READY (v55 beat 1). Baseline: core `7c9e4fa` (verify at launch; po
 return: nexsys-hivemind/context/audits/<filing-date>_R6R8_token-ops_return.md (filing-day dated, America/Chicago). The lane commits NOTHING — the hub audits, Nick commits per repo; CI on the push is the gate of record (law 16).
 dispatch: "Read nexsys-hivemind/context/instructions/2026-08-21_R6-R8_token-rotation-operator-path_coding-instruction.md and execute it. - /nexsys-coder"
 pre-verification: context/pre-verifications/WU-R6R8.md (P1–P10) — READ FIRST; any mismatch is a STOP-and-flag.
-rulings embedded (H10 — Nick's one word each; unre-worded rows stand as the RECOMMENDED default at dispatch): R-A the `/internal/tokens` endpoints IN (recommended) / OUT · R-B PI-TZ TZ-HOLD (recommended, the s31/nightly fence) / TZ-NOW (with the cron compensation, ⏺'d before and after).
+rulings RECEIVED (Nick, 2026-08-21, v55 beat 3 — H10): **R-A IN** (the `/internal/tokens` endpoints ship, with the audit-line rider in §B) · **R-B TZ-HOLD** (PI-TZ waits for R-5; §OP-B is the post-R-5 block, unchanged) · **R-C (new, hub-minted at the FE intake): the F-V2 content-type rider — IN if `EndpointContext` already exposes a content-type setter, else OUT and filed as the next-WU pointer (P11 decides; §I).
 -->
 
 # Coding Task: R-6/R-8 TOKEN-OPS — the token-rotation operator path
@@ -66,6 +66,7 @@ Package-private `final class TokenAdminEndpoints` with three `Handler`s register
 - `DELETE /internal/tokens/{keyId}` → 204 on `revoke` true; 404 problem on false. **Self-revocation is allowed** (the caller may revoke its own token; the response still completes — document it).
 - **Authorization:** every handler first resolves `ctx.attribute(RestFilters.IDENTITY_ATTRIBUTE)` → `store.claimsFor(identity.keyId())` → require `fullAccess()`, else 403 problem (`ProblemType.FORBIDDEN`, :97); a 404 uses `ProblemType.NOT_FOUND` (:38). `installAuth` already gates `/internal/*` (P5) — the handler check is the second layer for the enterprise-tier scope split the `ApiKeyClaims` javadoc anticipates. Both layers are tested.
 - No `meta.viewPosition`/ETag on these (they are not projection reads; say so in the javadoc — the `/internal/dlq` header idiom is for projection-bearing responses).
+- **The audit-line rider (Nick's R-A word, verbatim in intent):** every HTTP admin act logs ONE INFO line — `token admin: actor={keyId} verb={mint|revoke} target={keyId}` (the actor = the caller's identity keyId; the target = the minted or revoked keyId; display names may ride, hashes and raw tokens NEVER) — so the journal carries a forensic trail of token administration beside the request-file WARN. Tested: the list call logs nothing; mint/revoke log exactly one line each; no 43-char base64 run and no 64-hex run ever appears in the logger's captured output (assert with a recording appender or by asserting on the formatted message).
 
 ### C. `HomeSynapseCore.bringUpHttpSurface()` (lifecycle, M)
 
@@ -82,6 +83,10 @@ Keep the no-arg behavior byte-for-byte (print the artifact). Add: `status` → `
 ### F. `distribution/docs/token-rotation.md` (A) — the R-8 procedure doc
 
 Sections: what the pairing token is and where it lives (the store = hashes; the artifact = delivery-only; why deleting the artifact neither revokes nor re-mints — the F-S1 lesson, cited to the store's javadoc) · **the operator path on a packaged install** (`sudo homesynapse-token status|rotate|revoke <keyId>|mint <name>` + what each does + the restart it implies) · **the bench/dev recipe** (no helper: write the request line into `$HOMESYNAPSE_HOME/config/token_ops.request` as the service user, then restart through your launcher — `bench.sh restart` on the bench) · **the emergency store reset** (the sitting-record §6 block: `mv config/api_tokens config/api_tokens.rotated-<date>` → restart → a fresh mint; loses history; last resort) · **credential hygiene rules** (read tokens on the host terminal only; screenshots of request headers are token-carriers — crop/mask `Authorization`; the artifact may be deleted after pairing — the banner's advice — and `rotate` re-creates it) · **the `/internal/tokens` API** (if R-A IN: the three routes, full-access required, raw token returned once). Register C. No product claims. `distribution/README.md` is NOT touched (its :117 fence) — a one-line pointer to this doc may ride a FUTURE README edit, not this WU.
+
+### I. R-C — the F-V2 content-type rider (IN only per P11)
+
+**The finding (FE lane, 2026-08-21 return §7 ask 5, hub-verified at source):** `EndpointResponses.problem(EndpointContext ctx, ProblemType type, String detail)` (`:40–:43`) writes endpoint-level problems with `ctx.status(...)` + `ctx.json(...)` and NO content type — they reach the wire as `application/json`, while only the exception path (`RestFilters.java:551`) sends `application/problem+json`, and `contract.ts:58` + Doc 09 §3.8 say every non-2xx body is problem+json. Nothing breaks today (the FE client keys on the body's `type` slug), but the media type is not the clean discriminator the contract promises. **The fix (IN when P11 says the `EndpointContext` seam already carries a content-type setter):** `problem()` sets `application/problem+json` before the `json(...)` write; `RecordingEndpointContext` records it; ONE assertion added to an existing endpoint test that exercises a problem path (name the test in the return). **If the seam has no such method → OUT:** do not widen the seam in this WU; file F-V2 in §7 of the return as the next-WU pointer. The FE's NEW-7 discriminator is unaffected either way (it keys the ROUTER's 404 on an unrouted path; a routed problem+json 404 already renders the generic card — by design).
 
 ### G. MODULE_CONTEXT rows (M ×3): rest-api (the request file + `rotate`/`summaries`/`processOperatorRequests` + the atomic-persist gotcha + the endpoints), lifecycle (the composition line + order), app (the `token` CLI mode + the injected-clock note). Delta-only rows in each file's own style.
 
@@ -127,13 +132,13 @@ Sections: what the pairing token is and where it lives (the store = hashes; the 
 | `distribution/deb/homesynapse-token` | M |
 | `distribution/docs/token-rotation.md` | A |
 
-**Stages exactly 14 (R-A IN) / 11 (R-A OUT).** Anything else dirty at your porcelain = STOP. Zero `build.gradle.kts` edits (no new dependency; no new module edge — the instruction's own P-rows prove every `requires` already exists). `distribution/README.md` untouched. `nexsys-bench` untouched by the lane (PI-TZ is an operator act — §OP-B).
+**Stages exactly 14 (R-A IN) / 11 (R-A OUT); R-C IN adds 3 M — `EndpointResponses.java`, `RecordingEndpointContext.java`, and ONE existing endpoint test named in the return — so the R-A-IN + R-C-IN census is 17.** Anything else dirty at your porcelain = STOP. Zero `build.gradle.kts` edits (no new dependency; no new module edge — the instruction's own P-rows prove every `requires` already exists). `distribution/README.md` untouched. `nexsys-bench` untouched by the lane (PI-TZ is an operator act — §OP-B).
 
 ## What to watch out for
 
 The comment/code divergence class: the javadoc's "atomically" at :61 is made TRUE by this WU — do not leave a second comment claiming it elsewhere · `Files.move` with `ATOMIC_MOVE` across the same directory only (never across filesystems) · the Windows build: every POSIX permission call guarded; tests that need POSIX use `Assumptions` · `ConcurrentHashMap.entrySet().setValue` is the existing `revoke` idiom — `rotate` must iterate and revoke the same way, under ONE lock scope, with ONE `persist()` · the request file must be READABLE by the service user (owned by it, or mode ≥ 0640 — the helper's `install -o homesynapse -g homesynapse -m 0600` satisfies it; on the bench the ssh user IS the service user, so a bare `printf >` is lawful there) or the read-failure arm fires and nothing rotates; DELETION needs write+exec on `config/` (0700, `homesynapse`-owned), which the service user has — document both in the doc and in the helper's usage text · `systemctl restart` blocks on `ExecStartPost`; if the probe fails the helper's exit code surfaces it (never swallow) · `sudo -u homesynapse` for `status` needs the runtime's `java` to be executable by `homesynapse` (it is — the image is 0755 world-readable, P9) · the launcher applies `-Xms512m -Xmx1536m`; a CLI JVM reserving that is acceptable on the Pi (Doc 12 sizing) — do NOT add a second launcher · the `postinst` banner already says "View it with: sudo homesynapse-token" — keep the no-arg verb's output identical · Register C everywhere (no "please", no "successfully!") · delta-only: do not reformat `OpaqueTokenStore` beyond the touched methods (spotless will hold the line) · **§4c:** fixed clocks in every new test; `TokenCli` takes the clock injected.
 
-## §OP-A — after landing: the bench rotation through the NEW path (Nick; replaces the §6 store-reset if the sitting's rotation has not yet run — otherwise a second, harmless rotation that proves the path)
+## §OP-A — after landing: the bench rotation through the NEW path (Nick; the §6 store-reset ALREADY RAN on 2026-08-20 22:06 Pi-time — this is a second, harmless rotation that PROVES the new path; re-pair the browser afterwards)
 
 ```
 # WHERE: the bench card (`ssh pi`), after the WU's commit is pulled + installDist'd (bench.sh deploy idiom). ⏺ every line.
@@ -147,7 +152,7 @@ cat /home/homesynapse/hs-bench/config/initial_api_token
 ~/bench.sh scenario boot-health
 ```
 
-## §OP-B — PI-TZ (Nick; **RULING R-B: TZ-HOLD (recommended) / TZ-NOW**)
+## §OP-B — PI-TZ (Nick; **RULED TZ-HOLD 2026-08-21** — this block runs the day R-5 lands; kept here unchanged so it does not get re-authored)
 
 The Pi displays +1 h vs CT (ET); Z-stamped bundles govern; the nightly fires ~08:32Z = ~03:32 CT. **A timezone change moves any LOCAL-time schedule by one hour** — if the nightly rides a local-time `crontab`, the instrument's firing time shifts, which is a nightly change and the s31/nightly fence stands until R-5. Recommendation: **TZ-HOLD** — this block runs the day R-5 lands, unchanged. If TZ-NOW is the word, the compensation is mandatory and ⏺'d before/after:
 

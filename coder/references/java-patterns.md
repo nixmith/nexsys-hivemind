@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-08-26 (W-SKILLS-4 §1(e) — §15 added: two R-9 framework/JDK patterns, ≤3 lines each, pointer to the R-9 return; body otherwise byte-unchanged). Prior: 2026-06-07 against commit 8028337
 -->
 
 # Java Implementation Patterns for HomeSynapse
@@ -624,3 +624,9 @@ When a JDK API compiles but throws at runtime on the target (e.g. JDK-21 has no 
 
 `cond ? integerValue : longValue` applies BINARY NUMERIC PROMOTION: both branches unbox, promote to the wider type, and re-box — so an `Integer` branch silently comes back `Long` (and an `int`/`double` mix comes back `Double`). Where the declared type is `Number` (codec and mirror layers), this corrupts round-trip type fidelity while compiling clean. Pattern: when branches carry DIFFERENT boxed numeric types and the target is `Number`, use if/else assignment (no promotion) — never `?:`. Tripwire: Number-bearing serde tests pin ACTUAL types (`isInstanceOf`), not just values. Caught red-first in the M9.5-DUR mirror codec (coder-lessons 2026-07-08).
 
+
+## 15. Framework/JDK behaviors that pass green and fail in production — pin them from the bytecode (R-9, 2026-08-22)
+
+**HEAD-for-GET is answered by the framework — dishonestly for a conditional-status route.** Javalin 6's dispatch fallback (`DefaultTasks`, `javap -c`) answers `HEAD` on any `GET` route with a bare 200 and NEVER runs the handler, so a route whose status is conditional (readiness, existence, authorization) registers `app.head(path, sameHandler)` explicitly and pins it e2e through real Jetty (status + headers survive, body dropped) — "does the framework handle HEAD?" has three answers (no / yes / yes-but-wrong) and only the bytecode says which. Detail: `../../context/audits/2026-08-22_R9_E3-HEALTH_return.md` §0 P3 + §5 item 1.
+
+**A request-derived address is never handed to the resolver unless it is syntactically a literal.** JDK 21 `InetAddress.getByName`/`getAllByName` enters the literal branch only for a leading hex digit or `:`, THROWS on a failed colon-bearing parse, but resolves any colon-free non-dotted-quad via DNS and maps an EMPTY host to loopback — so a "loopback literal" classifier parses the IPv4 arm locally (strict dotted quad, resolver untouched), charset-guards the IPv6 arm plus the JDK's first-char precondition, strips Jetty's `[…]` brackets and any `%zone`, rejects the empty remainder, and pins the whole non-literal set (hostnames, hex words, `host:port`, 5-part, leading zeros, bare integers, half-brackets, zone-only, empty) as false-without-throwing. Detail: the R-9 return §2 (`isLoopbackLiteral`) + `RestFiltersAuthTest`'s three literal tables.

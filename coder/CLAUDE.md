@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-07-04 (v19 hub, currency pass §2E — de-stale pass: design-doc count 15→18 fixed; the Build Verification section reconciled to the standing lane build discipline [it had mandated the full in-session `check` the discipline defers])
+last-verified: 2026-08-26 (W-SKILLS-4 — P7 week-plan row retired ×3 → the plan-of-record pointer; P8 no closeout chain segment; the lesson-size convention at §Pattern Discovery. Return: `context/audits/2026-08-26_W-SKILLS-4_return.md`.) Prior: 2026-07-04 (v19 hub, currency pass §2E — de-stale pass: design-doc count 15→18 fixed; the Build Verification section reconciled to the standing lane build discipline [it had mandated the full in-session `check` the discipline defers])
 -->
 
 # NexSys Coder — Implementation Engineer
@@ -20,7 +20,7 @@ Before doing anything, read `SKILL.md` in this directory. It defines how you wri
 
 **At session start (load in this order):**
 1. Read `../context/status/PROJECT_SNAPSHOT.md` — instant orientation on project state
-2. Read the current week's plan in `../context/planning/weeks/` — what Nick is working on
+2. **The plan of record = the newest `../context/handoff/coder-handoff.md` entry + your active instruction.** If either points at a `../context/planning/*plan-of-record.md`, the NEWEST such file is the horizon — reached by that pointer only. (`planning/weeks/` is RETIRED — Nick 2026-08-09, `canonical-paths.md` — never a launch read.)
 3. Read `../context/handoff/cross-agent-notes.md` — check for notes from Nick or PM
 4. Read `../context/handoff/coder-handoff.md` (if it exists) — restore session-specific context
 5. Check `../context/handoff/coder-handoff.md` Current Task section for the next assignment, or wait for a direct task instruction in conversation.
@@ -31,8 +31,8 @@ Before doing anything, read `SKILL.md` in this directory. It defines how you wri
 Read and execute `../context/protocols/work-unit-completion-protocol.md` §Phase 1. This is mandatory. A work unit (Phase 2 block or Phase 3 milestone) is not done until the WUCP checklist is appended to the Completion Report. The steps are:
 
 1. Update MODULE_CONTEXT.md for every module touched in this work unit
-2. Update `../context/handoff/coder-handoff.md` with work unit completion state — **including the `Deferred Build Gate` flag if `./gradlew check` was not run in-session**
-3. Append discoveries to `../context/lessons/coder-lessons.md` (if new patterns found)
+2. Update `../context/handoff/coder-handoff.md` with work unit completion state — **including the `Deferred Build Gate` flag if `./gradlew check` was not run in-session**. **THE HANDOFF-ENTRY CONVENTION (P8):** PREPEND your DELIVERED entry to the body, newest first; its `##` heading carries the date + the lane-newest claim ("newest, authoritative for the CORE lane; supersedes …"). **The newest entry is authoritative BY POSITION.** Never prepend a frontmatter `last-verified:` chain segment — the masthead's per-closeout fields are `status` + `update-cadence` only; any chain still there is the hub's to retire, not yours to extend.
+3. Append discoveries to `../context/lessons/coder-lessons.md` (if new patterns found) — the lesson-size convention below governs
 4. Post cross-agent note to `../context/handoff/cross-agent-notes.md` (if needed) — **append ABOVE the `## Archived` separator** (the file's own archival rule: only notes above it are active; an EOF-append buries the note as archived and desyncs the frontmatter ACTIVE count — the M9.3 miss, caught at PM audit)
 5. Append the WUCP Phase 1 checklist to the bottom of the Completion Report
 
@@ -47,6 +47,7 @@ The WUCP document has the full specification for each step. The PM will verify t
    - Test status (which pass, which fail, any compilation errors)
    - `./gradlew check` summary output
    - Any `[REVIEW]` or `[BLOCKING]` deviations pending PM approval
+   (as a body entry under the handoff-entry convention above — never as a frontmatter chain segment)
 2. Append any discoveries to `../context/lessons/coder-lessons.md` (see Pattern Discovery Protocol below)
 3. If you have information relevant to Nick or the PM, append to `../context/handoff/cross-agent-notes.md`
 4. Verify any files you modified or referenced during this session are not stale per `../context/strategic-context-map.md` §8 (Staleness Rules)
@@ -54,7 +55,7 @@ The WUCP document has the full specification for each step. The PM will verify t
 ## Context Loading Tiers
 
 **Tier 1 — Always load (every session):**
-- PROJECT_SNAPSHOT.md, current week's plan, cross-agent notes, your handoff file
+- PROJECT_SNAPSHOT.md, cross-agent notes, your handoff file (its newest entry + the active instruction = the plan of record; no weekly plan — retired)
 
 **Tier 2 — Load for active work:**
 - SKILL.md + the specific references it directs for this task type
@@ -86,7 +87,7 @@ The WUCP document has the full specification for each step. The PM will verify t
 
 ### Current State & Planning
 - `../context/status/PROJECT_SNAPSHOT.md` — shared ground-truth (all agents read/write)
-- `../context/planning/weeks/` — current weekly plan (read for context on what Nick is working on)
+- `../context/planning/` — the newest `*plan-of-record.md` is the horizon, read BY POINTER only (from your instruction or the newest handoff entry); `weeks/` is RETIRED (Nick 2026-08-09) — historical, never a launch read
 
 ### Lessons & Cross-Agent Communication
 - `../context/lessons/coder-lessons.md` — your append-only lesson log
@@ -115,7 +116,7 @@ Do NOT report completion if your targeted set fails. If a targeted task fails on
 
 When you discover a new pitfall, workaround, or implementation pattern during coding:
 
-1. **Immediately append** to `../context/lessons/coder-lessons.md` using the format defined in that file (date, category, source, discovery, detail, impact)
+1. **Immediately append** to `../context/lessons/coder-lessons.md` using the format defined in that file (date, category, source, discovery, impact — `Detail` is a pointer, below). **THE LESSON-SIZE CONVENTION (W-HIVE-1 P6, ratified v56 beat 2; W-SKILLS-4 §1(d)):** each lesson **≤ 1,200 B**, **`Discovery` + `Impact` only**; **`Detail` = a one-line pointer to the return that minted it** (`context/audits/<return>.md §N`). **Rotation is the HUB's act, by COUNT never by calendar:** above **24,000 B** the hub moves the oldest lessons verbatim to `../context/lessons/archive/` until the file is ≤ 16,000 B. You append under the cap; you never rotate, and you never rewrite an existing lesson to fit.
 2. **Also flag** in your completion report for PM visibility:
 
 ```

@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-08-26 (W-SKILLS-4 §1(e) — §11 added: the R-9 refusal-guard re-fixture rule, ≤3 lines, pointer to the R-9 return; body otherwise byte-unchanged). Prior: 2026-06-07 against commit 8028337
 -->
 
 # Testing Standards for HomeSynapse
@@ -463,3 +463,7 @@ class EventBusTest {
 - **Shape tests live in `src/test/java`**, not testFixtures — they test a specific interface's structure, not a contract that implementations must satisfy.
 - **When extending an interface, update the shape test FIRST** (test-first discipline applies here too). The shape test should fail with the old count, then pass after you add the new methods.
 - **Include shape tests in Cowork prompt STOP-on-Mismatch gates.** The PM must list the shape test in "Files to Modify" for any prompt that adds methods to an interface.
+
+## 11. A Refusal Guard on a Mutator Re-Fixtures Every Single-Token Test (R-9, 2026-08-22)
+
+When a WU adds a guard that makes a mutator REFUSE (e.g. `revoke()` refusing the last active full-access token), every minimal fixture that exercised the mutator on its only such token silently becomes a refused call — the token stays valid and the assertion after it fails. **Walk the callers by `git grep -n "\.method("` across ALL test classes and modules, never by the instruction's consumer survey (a floor, not the census; the R-9 miss was a test in another class), re-fixture each with a second qualifying token, and make each fixture ASSERT the non-refused outcome (`revoke(...) == REVOKED`) so a future guard change can never make it vacuous — a fixture that merely "still passes" after a guard lands may be passing for the wrong reason.** A test the guard would refute gets the +1-and-disclose treatment, never a silent widening of the guard. Detail: `../../context/audits/2026-08-22_R9_E3-HEALTH_return.md` §0 P6 + §4/§5.

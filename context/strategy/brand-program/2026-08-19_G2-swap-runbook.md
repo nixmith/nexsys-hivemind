@@ -26,7 +26,7 @@ filed: 2026-08-19 (v54 hub, beat 3).
 | OUT | **JPMS packages / code identifiers** (`com.homesynapse.*`), repo slugs, artifact ids (`homesynapse_*.deb`) | The internal working name is not the brand; flipping it is a separate post-launch engineering ruling with zero user value now |
 | OUT | **Locked design docs, the registers, the hivemind record, archives, beats, audits** | History is never rewritten; new docs use {{NAME}} from H-hour forward |
 | OUT | **Claim language anywhere** | The D-1 DO-NOT-SAY items ride until R-4's lift — the rename changes the NAME on surfaces, never a claim |
-| OUT | **LICENSE/legal headers** | The launch LICENSE flip is its own ruled act; §1(b) filing mechanics ride counsel (LLC → filing ~early-Sep per the roadmap) |
+| OUT | **LICENSE/legal headers** | The launch LICENSE flip is its own ruled act; §1(b) filing mechanics ride counsel (the entity EXISTS: NexSys LLC, LA charter 46564936K, formed 2025-07-17 — ruling + catches at context/strategy/2026-08-27_entity-posture_NexSys-LLC_assessment.md; the §1(b) owner is NexSys LLC; filing ~early-Sep on the word) |
 
 ## §2 The sequence (H = the R-1 word)
 

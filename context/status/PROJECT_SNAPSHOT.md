@@ -5,20 +5,22 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-08-27 (v57 hub, beat 2 — beat 1 LANDED 25e6922 (8-exact); W-SKILLS-4 AUDITED ACCEPT (60/60 · 33/33; mirrors 23/23 synced); FE-SWAP-GATE VALIDATED ACCEPT (the flip = 3 M); the dec35be run detail BANKED (H12 exact); the R-3a packet PRINT-READY; the program to Sunday. Orders: core 2 · hivemind 14. Detail: pm-handoff beat 2.) Prior: 2026-08-26 (v57 hub, beat 1 — THE LAUNCH (Wed): zero drift; the beat-6 order found UN-RUN → OVERTAKEN into one combined order; W-SKILLS-4 UN-RUN (law 37) → re-dispatched; P6 EXECUTED; the R-3a packet + WU-R3 authored ahead. Order: hivemind 8. Detail: pm-handoff beat 1.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments live in the pm-handoff `:8` chain + its archives.
+last-verified: 2026-08-27 (v57 hub, beat 4 — the 2026 annual report FILED ON TIME at the primary (the "likely overdue" lean owned); the entity files updated in place; THE COMPANY-AND-BRAND BUILD strategy authored (PROPOSED); the beat-3 order OVERTAKEN → one combined order: hivemind 8. Detail: pm-handoff beat 4.) Prior: 2026-08-27 (v57 hub, beat 3 — both orders LANDED (5051fa5 · 5b21f1c; CI green); THE ENTITY RULING: NexSys LLC exists → USE-EXISTING; R-3b ISSUE-READY-pending-measurement; the R-4 packet drafted. Detail: pm-handoff beat 3.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments live in the pm-handoff `:8` chain + its archives.
 -->
 # Project Snapshot
 
 > **How to read this file:** the frontmatter `last-verified:` chain above (2 pointer segments + the rotation pointer) is the session record; the body below is an OVERWRITTEN DIGEST (W-HIVE-1 P9, ≤2 KB) — rewritten every beat, never appended. The chain and the newest pm-handoff beat block outrank everything else. Full history: `context/handoff/archive/chains-pre-region-cap-2026-08-23.md` + `archive/PROJECT_SNAPSHOT-priors-rotated-2026-08-21.md`.
 
-## The digest (v57 beat 2 — Thu 2026-08-27)
+## The digest (v57 beat 4 — Thu 2026-08-27, evening)
 
-**HEADs:** core **`dec35be`** + the FE-SWAP-GATE order OUT (2 = 1 M + 1 A under `web-ui/`; CI predictions filed: Frontend CI 211/211 · Build & Check green · install-smoke not triggered) · hivemind `25e6922` + the beat-2 order OUT (14 = 9 M + 5 A: the skills pass + both returns + the audit + the spine) · skills `5105abc` (FE tree 0-byte) · bench `4539f13` · docs `a53f474`. **NOTHING else touches the core checkout until R-3b.**
+**HEADs:** core **`5051fa5`** CLEAN (CI GREEN, Nick's word) · hivemind `5b21f1c` + the beat-4 COMBINED order OUT (8 = 3 M + 5 A; beat 3 overtaken) · skills `5105abc` · bench `4539f13` · docs `a53f474`. **The next core touch = R-3b.**
 
-**Closed:** R-1/R-2 (code+CI+HARDWARE) · R-6/R-8 · R-7 · R-7b · R-9 · W-HIVE-1 · P6 · **W-SKILLS-4** (PM 49,676 B; provenance → `references/pass-history.md`) · **FE-SWAP-GATE** (the rename is red-first; the flip = 3 M). **Banked:** the `dec35be` run `32672999145` — `hs_version=0.1.0+git20260823.231355.gdec35be` exact; the arm64 line pending Nick's paste. **Held card:** OUT, `hs-fresh — R-3/R-4 rig — 7c9e4fa`, UNPATCHED (F-S12). **Bench:** floor 8/9 · 0.28s.
+**Entity (settled):** NexSys LLC — LA 2025-07-17, charter 46564936K, USE-EXISTING; **the 2026 annual report FILED ON TIME (07/15/2026)**; next due 2027-07-17. Standing gates: **the §VIII(4) Member consent executes BEFORE the launch Apache-2.0 LICENSE flip**; the counsel wave (one email: §1(b) + trade name + two drafts) fires on the A word. Ruling: `context/strategy/2026-08-27_entity-posture_NexSys-LLC_assessment.md`.
 
-**Ready:** `context/handoff/2026-08-26_R3a_rehearsal_operator-packet.md` PRINT-READY (Sat daylight) · `context/pre-verifications/WU-R3.md`. **Authoring next (hub beat 3):** R-3b ISSUE-READY-pending-measurement · the R-4 packet · the W-SKILLS-5 charter (post-R-4; harvest: `freshness-preflight.md` Check 2 is a standing false-STALE).
+**Strategy (PROPOSED — Nick's RATIFY pending):** `context/strategy/2026-08-27_company-and-brand-build_strategy-of-record.md` — three compounding assets (evidence engine · claim register · the spine); phases P0 PROOF → P1 NAME+CHARTER → P2 SURFACE → P3 FLEET, gate-governed; the leverage doctrine (Nick's five irreplaceable hour-classes; the audit is the license to delegate); the do-not list.
 
-**Fences:** the D-1 DO-NOT-SAY pair until R-4 · `distribution/README.md:117` until W2-3 · no public brand use before G-2 · s31 legs/nightly HANDS OFF until R-5 · the hub never implements · ONE COORDINATOR, ONE BOOT.
+**Ready on disk:** R-3a packet PRINT-READY (Sat) · WU-R3 · R-3b ISSUE-READY-pending-measurement · R-4 packet DRAFT-pending-R-3b · the LLC navigator (verify-only §1). **Held card:** OUT, `7c9e4fa`, UNPATCHED. **Bench:** floor 8/9 · 0.28s.
 
-**Next:** Thu — Nick: host verify → core 2 + CI read · hivemind 14 · Check 9 · the arm64 line + `.deb` to `~/r3-artifact`. **PELTON → the word → same-day** (v57 prompt §4; hardware time never traded for it). Sat R-3a → Sat-eve R-3b (host-side CC) → Sun R-4 on R-3b's CI artifact → **THE FENCE LIFT**. Aug-31 RS-3. Program: `_scratch/2026-08-27_v57-beat-2_operator-queue.md` §6.
+**Fences:** the D-1 pair until R-4 · `README.md:117` until W2-3 · no public brand use before G-2 (trade names included) · s31/nightly HANDS OFF until R-5 · the hub never implements · ONE COORDINATOR, ONE BOOT · no public sentence outside the claim register (H9).
+
+**Next:** Nick — the beat-4 commit (8) · the arm64 line + artifact · the LLC navigator (~30–45 min, any time) · the RATIFY word. **PELTON → the word → same-day.** Sat R-3a → R-3b → Sun R-4 → **THE FENCE LIFT**. Aug-31 RS-3. Queue: `_scratch/2026-08-27_v57-beat-4_operator-queue.md`.

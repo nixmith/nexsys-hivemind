@@ -1,0 +1,30 @@
+<!--
+file: context/instructions/2026-08-28_skills-lane_W-SKILLS-5_pm-p7-fold_and_masthead-provenance_brief.md
+purpose: W-SKILLS-5 — the pass W-SKILLS-4's own harvest minted (its return, harvest 1–2 + the beat-2 audit rulings): (a) the PM tree still runs on RETIRED weekly plans — 22 references across 5 files, including a check that goes FALSE-STALE at every literal hub launch; (b) the coder masthead carries the same 2,305 B provenance class W-SKILLS-4 moved out of the PM masthead; (c) the FE masthead's mechanically-separable 2,837 B, same treatment (the FE BODY pass is NOT this charter — it needs design judgment and charters separately); (d) two small law folds minted by v57 beats 2–3 (the FE preflight's porcelain spelling; Check 9 restated against the account-synced mirror of record). Fenced BY TREE per W-SKILLS-4 harvest 4.
+audience: a dedicated fresh skills lane (the W-SKILLS-3/-4 precedent: the lane EDITS the writable sources, commits nothing; the hub audits; Nick commits; the mirrors are the account-synced trees) + the hub + Nick.
+status: DISPATCH-READY (v57 beat 7, Fri 2026-08-28). **Dispatch Saturday evening or Sunday** (runs unattended; the hub audits Monday). Baseline: hivemind at the dispatch-day HEAD; skills `5105abc`.
+return: nexsys-hivemind/context/audits/<filing-date>_W-SKILLS-5_return.md (ONE artifact; the RULE CENSUS in/out table is its spine; filing-day dated, America/Chicago — re-derive the CT day at the instrument, the W-SKILLS-4 harvest-5 hazard).
+dispatch: "Read nexsys-hivemind/context/instructions/2026-08-28_skills-lane_W-SKILLS-5_pm-p7-fold_and_masthead-provenance_brief.md and execute it. Edit only the three skill trees; one return file; no commits."
+audit bar: the census table per file (every rule name in = out; retirements ONLY by name with the ratification basis); before/after bytes at the objects; every moved byte `cmp`-identical at its carrier; the hub re-counts two files and re-executes the Check-2 replacement against a simulated launch; L3 + NUL + CR scans.
+-->
+
+# W-SKILLS-5 — the PM P7 fold + the masthead provenance moves (three trees, fenced by tree)
+
+## 0. Read first
+
+`project-manager/SKILL.md` masthead (the census form) + `references/pass-history.md` (the carrier precedent + THE SIBLING-CARRIER INDEX — read before any census so moved rules stay resolvable) · the W-SKILLS-4 return `context/audits/2026-08-26_W-SKILLS-4_return.md` (harvest 1 is your (a) census: the 22 file:line references; harvest 2 is (b)/(c)) · the beat-2 audit `context/audits/2026-08-27_W-SKILLS-4_and_FE-SWAP-GATE_intake_two-layer-audit_v57-beat-2.md` §A.6–A.7 + §B.4 (the Check-9 mirror-of-record ruling; the FE porcelain-spelling fold) · every file you touch, WHOLE, before touching it.
+
+## 1. The charges (census-exact per tree)
+
+**(a) PM tree — the P7 fold (the weekly-plan retirement reaches the PM's own files).** The 22 references across `CLAUDE.md` (×5) · `SKILL.md` (×4: `:88/:139/:171/:212`) · `references/freshness-preflight.md` (×10) · `references/review-and-quality.md` (×2) · `references/repo-state-protocol.md` (×1) — re-derive the exact list yourself (grep `weeks/|weekly plan|current week's plan`); the W-SKILLS-4 harvest-1 list is your floor, not your census. Replacement form (the coder P7 precedent, W-SKILLS-4 §3(b)): the plan of record = the newest pm-handoff beat + the snapshot + the newest `context/planning/*plan-of-record.md` BY POINTER when one exists; `planning/weeks/` is RETIRED (Nick 2026-08-09, `canonical-paths.md`) — historical, never a launch read. **The load-bearing row: `references/freshness-preflight.md` Check 2 ("Current week's plan exists" → STALE) is a standing FALSE-STALE — replace the check's SUBJECT** (the freshness object becomes the snapshot/handoff currency + the newest plan-of-record pointer resolving, not a weekly file existing). A retired CHECK is a rule retirement: name it in the census with the basis (Nick 2026-08-09 + W-SKILLS-4 harvest 1 + this brief). No other preflight check changes.
+**(b) Coder masthead — the provenance move, the (a)-of-W-SKILLS-4 precedent exactly.** `coder/SKILL.md:13` (1,482 B) + `:14` (823 B) → a new `coder/references/pass-history.md` in the SAME form as the PM's (both lines VERBATIM, `cmp`-provable at stated offsets); the replacement `:13` = a ≤400 B newest-verdict line; `:14` = the one-line pointer. The 21 arc-conventions + every other list byte-unchanged.
+**(c) FE masthead — the separable 2,837 B only** (the W-SKILLS-4 §1.3 split: the `status:` Prior-tail 2,090 B + `version-history:` 747 B) → a new `nexsys-skills/orchestrators/nexsys-frontend/references/pass-history.md`, same form, same `cmp` bar; the v1.9 segment's by-name retirement records move WHOLE (they are census records). The FE BODY is UNTOUCHED (its pass charters separately).
+**(d) Two law folds, one line each:** the FE `references/freshness-preflight.md` porcelain line SPELLS `git --no-optional-locks status --porcelain` (the beat-2 §B.4 ruling — the FE lane's un-flagged status minted a stale lock) · wherever the PM preflight defines Check 9, restate the mirror of record as THE ACCOUNT-SYNCED TREES (no host `.claude/skills` mirror exists — beat-3 finding), with `diff -rq` against a host mirror demoted to "if one exists".
+
+## 2. Fences
+
+Fenced BY TREE: `nexsys-hivemind/{project-manager,coder}/**` + `nexsys-skills/orchestrators/nexsys-frontend/**`; NOTHING under `context/**` except the return · every rule name in = out; retirements only by name with their basis · no project state enters any skill file · every moved byte `cmp`-identical at its carrier · the mirrors are Nick's/the sync's, never yours · NO attribution trailers.
+
+## 3. Return shape (≤ 4 pages)
+
+§0 the census verdict per tree (with the Check-2 retirement/replacement stated as its own row) · §1 per-file before/after bytes + the per-launch savings (hub/coder/FE) · §2 the carriers, quoted heads, `cmp` offsets · §3 the (d) diffs verbatim · §4 pushback (a "weekly plan" reference that turns out load-bearing = STOP on that line and say so) · ≤ 5 harvest lines.

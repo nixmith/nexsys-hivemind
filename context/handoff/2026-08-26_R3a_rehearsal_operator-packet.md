@@ -112,7 +112,7 @@ sudo systemctl stop homesynapse.service; sudo mv /var/lib/homesynapse/config/ini
 ```bash
 # WHERE: your desktop, Git Bash. Browser FIRST: the run page (above) → Artifacts → `distribution-artifacts-arm64` → the zip lands in ~/Downloads. (FILL-IN: nothing in this line — the zip name is the workflow's.)
 sha256sum ~/Downloads/distribution-artifacts-arm64.zip && mkdir -p ~/r3-artifact && cd ~/r3-artifact && powershell.exe -NoProfile -Command "Expand-Archive -LiteralPath \"$(cygpath -w ~/Downloads/distribution-artifacts-arm64.zip)\" -DestinationPath \"$(cygpath -w ~/r3-artifact)\" -Force" && mv ~/r3-artifact/deb/build/homesynapse_*_arm64.deb ~/r3-artifact/ && ls -la && sha256sum homesynapse_*_arm64.deb
-# expect: the ZIP hash = 1fe1c812f665cfcc2da3e9d49cb62676fa32e2f2be7d1317c6620dc5c67acbd1 (the GitHub artifact digest — the ORIGIN; a mismatch = STOP, re-download; if it persists, fall back to the arm64 job's echo-line cross-check and paste both). The zip preserves the upload tree (`deb/build/…` + `image/build/…` — the workflow's own `path:` entries; VERIFIED at the 2026-08-27 unpack) — the `mv` flattens the ONE .deb to ~/r3-artifact/homesynapse_0.1.0+git20260823.231355.gdec35be_arm64.deb (≈61.8 MB; the image .tar.gz stays under image/build/, unused). ⏺ BOTH hashes — the .deb hash from a digest-verified zip is the PINNED ORIGIN VALUE for hops 2–3 (STOP-gates I-0/I-1 compare against it). ALREADY RUN 2026-08-27 night: the zip hash MATCHED the digest; only the flatten + the .deb hash remain (queue §1).
+# expect: the ZIP hash = 1fe1c812f665cfcc2da3e9d49cb62676fa32e2f2be7d1317c6620dc5c67acbd1 (the GitHub artifact digest — the ORIGIN; a mismatch = STOP, re-download; if it persists, fall back to the arm64 job's echo-line cross-check and paste both). The zip preserves the upload tree (`deb/build/…` + `image/build/…` — the workflow's own `path:` entries; VERIFIED at the 2026-08-27 unpack) — the `mv` flattens the ONE .deb to ~/r3-artifact/homesynapse_0.1.0+git20260823.231355.gdec35be_arm64.deb (62,905,262 B; the image .tar.gz stays under image/build/, unused). ⏺ BOTH hashes — the .deb hash from a digest-verified zip is the PINNED ORIGIN VALUE for hops 2–3 (STOP-gates I-0/I-1 compare against it). ALREADY RUN AND BANKED (v57 beat 8): the zip hash MATCHED the digest AND the flatten ran — **the PINNED ORIGIN VALUE is `8156f4cb9553883b882375b915594f01fe91dc5702ce09aad65df48db25b843f`** (`homesynapse_0.1.0+git20260823.231355.gdec35be_arm64.deb`, 62,905,262 B, flat in ~/r3-artifact). Nothing remains in this block; §I-2's hops verify against that value.
 ```
 
 ```bash
@@ -124,7 +124,7 @@ sha256sum ~/Downloads/distribution-artifacts-arm64.zip && mkdir -p ~/r3-artifact
 ```bash
 # WHERE: your desktop → the held card (hop 2 of 3).
 cd ~/r3-artifact && scp -i ~/.ssh/id_ed25519_pi homesynapse_*_arm64.deb nick@hs-fresh.local: && ssh -i ~/.ssh/id_ed25519_pi nick@hs-fresh.local 'sha256sum ~/homesynapse_*_arm64.deb; dpkg-deb --field ~/homesynapse_*_arm64.deb Version Architecture'
-# expect: the SAME hash as the desktop AND the run log · `Version: 0.1.0+git20260823.231355.gdec35be` · `Architecture: arm64`. ⏺ all three lines.
+# expect: the hash = 8156f4cb9553883b882375b915594f01fe91dc5702ce09aad65df48db25b843f (the pinned origin value, banked v57 beat 8) · `Version: 0.1.0+git20260823.231355.gdec35be` · `Architecture: arm64`. ⏺ all three lines.
 ```
 
 ```bash

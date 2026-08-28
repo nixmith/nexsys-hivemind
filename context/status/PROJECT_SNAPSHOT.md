@@ -5,22 +5,22 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-08-28 (v57 hub, beat 7, Fri — draft (a) verified (one recital conform); the Pelton nudge ruled SEND; OR-TOKEN-MODE-644's core half found ALREADY FIXED at HEAD → PKG-SEC-1 shell-only, authored + HELD; W-SKILLS-5 authored; the ambitious-weekend program. Order: hivemind 4. Detail: pm-handoff beat 7.) Prior: 2026-08-27 (v57 hub, beat 6 — the origin anchor HELD (zip = digest); the unpack-layout miss owned → the flatten; ba96978 reconciled (4-of-5; the stale-card lesson); the navigator §4 rulings. Detail: pm-handoff beat 6.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments live in the pm-handoff `:8` chain + its archives.
+last-verified: 2026-08-28 (v57 hub, beat 8, Fri midday — 983bad5 landed; THE ORIGIN HASH PINNED (8156f4cb…); drafts (a)+(b) verified, the legal §4 closes; the Pelton nudge SEND NOW; the four sharpenings adopted into the packets; RS-3 tonight with the MHS datum; the MHS first read filed. Order: hivemind 6. Detail: pm-handoff beat 8.) Prior: 2026-08-28 (v57 hub, beat 7 — draft (a) verified; OR-TOKEN-MODE-644's core half found ALREADY FIXED at HEAD → PKG-SEC-1 shell-only; W-SKILLS-5 authored; the ambitious-weekend program. Detail: pm-handoff beat 7.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments live in the pm-handoff `:8` chain + its archives.
 -->
 # Project Snapshot
 
 > **How to read this file:** the frontmatter `last-verified:` chain above (2 pointer segments + the rotation pointer) is the session record; the body below is an OVERWRITTEN DIGEST (W-HIVE-1 P9, ≤2 KB) — rewritten every beat, never appended. The chain and the newest pm-handoff beat block outrank everything else. **The operator's copy-source of record is the file on disk, never a chat card.** Full history: `context/handoff/archive/chains-pre-region-cap-2026-08-23.md` + `archive/PROJECT_SNAPSHOT-priors-rotated-2026-08-21.md`.
 
-## The digest (v57 beat 7 — Fri 2026-08-28, morning)
+## The digest (v57 beat 8 — Fri 2026-08-28, midday)
 
-**HEADs:** core **`5051fa5`** CLEAN (CI GREEN) · hivemind at the beat-6 landing (⏺ pending) + the beat-7 order OUT (4 = 2 M + 2 A) · skills `5105abc` · bench `4539f13` · docs `a53f474`. **Core touch order: R-3b (Sat) → PKG-SEC-1 (Sun eve, post-R-4).**
+**HEADs:** core **`5051fa5`** CLEAN · hivemind `983bad5` + the beat-8 order OUT (7 = 6 M + 1 A) · skills `5105abc` · bench `4539f13` · docs `a53f474`. **Core touch order: R-3b (Sat) → PKG-SEC-1 (Sun eve).**
 
-**Dispatch-ready on disk:** R-3a PRINT-READY (digest-anchored; the flatten ⏺ pending) · R-3b ISSUE-READY-pending-measurement · R-4 DRAFT-pending-R-3b · **PKG-SEC-1 shell-only 3 M (HELD until post-R-4** — the mint-0600 core half found ALREADY FIXED at HEAD: `OpaqueTokenStore.writeOwnerOnlyAtomically`; the card's 644 = the Aug-13 pre-fix vintage) · **W-SKILLS-5** (Sat eve/Sun; fenced by tree; incl. the Check-2 false-STALE fix).
+**Saturday is fully armed:** the packet carries **the PINNED ORIGIN VALUE `8156f4cb…`** (the flat `.deb`, 62,905,262 B, digest-verified chain end-to-end) · the degradation branch named (a STOP slides the hardware chain; W-SKILLS-5 still dispatches) · **the lift guard in the R-4 packet** (any anomaly holds the lift one beat).
 
-**Entity/legal:** draft (a) verified (one recital conform → then (b) with the five repos) · the navigator finishing §4–§7 → the return (law 37) · NFCU application this week · FIN-1 stands. **The Pelton nudge: SEND** (the email draft in queue §1); the word outranks everything on arrival.
+**Today (Fri):** the Pelton email — **SEND NOW** (the TAMORO precedent: the nudge produced same-day delivery) · **NFCU application — FIRM today** · the navigator §5–§7 → the return (law 37; §4 CLOSED: both drafts verified at the bytes) · **RS-3 dispatches TONIGHT** with the MHS rider. **The MHS datum filed** (`context/strategy/2026-08-28_MHS-datum_first-read.md`): MHS = connectivity, not enforcement — the substrate bet validated; posture ADOPT-AND-SIT-ABOVE; the R-10 docket gains THE EXTERNAL-AGENT INTERFACE POSTURE row; no Nov-25 impact.
 
-**The weekend:** Sat R-3a → R-3b → W-SKILLS-5 · Sun R-4 → **THE FENCE LIFT + the claim register minted** → PKG-SEC-1 → RS-3 (Sun night or Mon) · Mon the audits. Hardware first, always. **Held card:** OUT, `7c9e4fa`, UNPATCHED. **Bench:** floor 8/9 · 0.28s.
+**Weekend:** Sat R-3a → R-3b → W-SKILLS-5 · Sun R-4 → the guarded LIFT + the claim register · PKG-SEC-1 · **Mon: the audits + THE SEPTEMBER PLAN OF RECORD** (every week moves ≥1 outward-chain act: register → surface → audience). **Held card:** OUT, `7c9e4fa`, UNPATCHED. **Bench:** floor 8/9.
 
 **Fences:** the D-1 pair until R-4 · `README.md:117` until W2-3 · no public brand use before G-2 · s31/nightly HANDS OFF until R-5 · the hub never implements · ONE COORDINATOR, ONE BOOT · no public sentence outside the claim register · orders never edited in place · the §VIII(4) consent at the LICENSE flip.
 
-**Next:** Nick — queue §1–§4 (the nudge · the two navigator answers · the commit (4) · the flatten if pending) + the RATIFY word. Queue: `_scratch/2026-08-28_v57-beat-7_operator-queue.md` (run from disk).
+**Next:** Nick — queue §1–§5 (`_scratch/2026-08-28_v57-beat-8_operator-queue.md`, from disk) + the RATIFY word. **PELTON → the word → same-day.**

@@ -29,7 +29,7 @@ Shell only; `bash -n` both build scripts + run-smoke after editing · run-smoke'
 
 ## §4 Gates + CI predictions (H12, filed here)
 
-Porcelain = exactly 3 M. On Nick's push: `CI / Build & Check` GREEN · install-smoke BOTH legs GREEN with the fresh runner mint landing 0600 under the new check (**this run is also the first mechanical confirmation of the R-6/R-8 mint fix on a fresh install**) · run-smoke's log shows the two new `PASS ... mode 600` lines per leg · update-smoke unaffected. The hub updates OR-TOKEN-MODE-644 at the banking beat: closes when this lands green (the "mint 0600" half is re-recorded as ALREADY-DONE-AT-HEAD, found at source v57 beat 7).
+Porcelain = exactly 3 M. On Nick's push: `CI / Build & Check` GREEN · install-smoke BOTH legs GREEN with the fresh runner mint landing 0600 under the new check (**this run is also the first mechanical confirmation of the R-6/R-8 mint fix on a fresh install**) · run-smoke's log shows the two new `PASS ... mode 600` lines per leg · update-smoke unaffected. The hub updates OR-TOKEN-MODE-644 at the banking beat: closes when this lands green (the "mint 0600" half is re-recorded as ALREADY-DONE-AT-HEAD, found at source v57 beat 7). **The hub's audit ALSO sweeps the instrument corpus for the now-stale PASS-count constants** (`grep -rn '18/18\|19 PASS\|18 \[smoke\]\|21 ok'` over `context/{handoff,instructions,process}` + the packets) — the F-S19 class: a pinned count that drifts stale bites the next operator; every hit is either updated or marked historical.
 
 ## §5 Return shape (≤ 1.5 pages)
 

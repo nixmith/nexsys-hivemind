@@ -1,0 +1,17 @@
+<!--
+file: context/strategy/brand-program/2026-08-29_G2-brief_S2-scaffold-conform_addendum.md
+purpose: Conform the 2026-08-20 G-2 readiness brief's §2 reply scaffolds to the state of record: the entity ruling (v57 b3 — NexSys LLC EXISTS, LA charter 46564936K, verified In Good Standing 2026-08-28), the two verified counsel drafts (v57 b8), and the same-day card (08-28). ONLY §2's three scaffolds are superseded here; the brief's §1 branch logic and §3–§6 stand untouched. ON THE WORD: PASTE FROM THIS FILE.
+audience: Nick (the reply, the day the word lands) · the hub
+state-type: execution conform (supersedes the brief's §2 scaffolds only)
+status: ARMED (v58 beat 2, 2026-08-29).
+-->
+
+# G-2 brief §2 — the conformed reply scaffolds (paste-ready; polish at send; nothing beyond the ruled branch is disclosed)
+
+**A (clean):** *"Thank you — the results look clear on our read as well. We'd like to proceed to the written registrability opinion on ZENDOMO and, assuming it supports filing, the §1(b) intent-to-use application(s) in the classes you recommend (we understood 9/42 core; open to your read on 45/11). The applicant will be NexSys LLC, a Louisiana limited liability company (charter 46564936K), already formed and in good standing. We'd also like the Louisiana trade-name registration handled alongside, or your advice on timing it. At the same sitting, two short internal drafts touch the filing context — a sole-member written consent approving a successor public-software license, and a confirmatory IP assignment into the LLC — we'll attach both for your refinement as part of the engagement. [Optional, at Nick's discretion: the short companion consult on the second house mark, if efficient at the same sitting.] Please send the fee breakdown for the opinion + filing so we can confirm in writing."*
+
+**B (mixed):** *"Thank you — before we decide, we'd value your risk-graded read: which of the marks you found would you treat as blocking vs coexistence-manageable, and would an ID-scope adjustment materially change the picture? If material doubt remains after that read, we're prepared to authorize the same comprehensive search on our backup candidate now rather than lose the week — please price it alongside. We'll confirm next steps in writing once we have your read."* (The pre-authorization cap is Nick's one word BEFORE the call; the runner-up name is not disclosed unless the search is commissioned.)
+
+**C (adverse):** *"Understood — thank you for the thorough search; this is exactly what it was for. We'd like to commission the same comprehensive search on our backup candidate, VERDOMO, at your earliest availability — same scope and classes as the ZENDOMO search. Please confirm the fee and the expected turnaround in writing so we can plan against it."*
+
+**Standing (unchanged from the brief and the card):** no public use of ANY candidate before a written-opinion-backed R-1 · the D-1 fence survives every branch verbatim until R-4 · counsel hygiene — everything to counsel, nothing to brokers · never "they stole my name" · the formation question is DELETED everywhere (the entity exists; asking it again misinforms counsel).

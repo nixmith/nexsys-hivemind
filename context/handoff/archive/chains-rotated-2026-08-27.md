@@ -17,3 +17,8 @@ status: ARCHIVE (read-only history)
 - 2026-08-22 (v56 beat 3 — R-9 returned + audited ACCEPT (24 = 23 + 1); CI predictions filed; R-7b 11 M. Orders: core 24 · hivemind 7. Detail: the beat-3 block.)
 - 2026-08-22 (v56 beat 2 — five lane returns audited ACCEPT; W-HIVE-1 ratified + the region-cap law; R-9 stamped (R-H1 LOOPBACK-ONLY · R-H2 IN). Orders: hivemind 11. Detail: the beat-2 block.)
 - 2026-08-22 (v56 beat 1 — the launch, zero drift; the three R-7 CI verdicts banked (arm64 3m01s) — R-7 closed; R-7b + W-HIVE-1 + 5 lane briefs authored. Orders: hivemind 11. Detail: the beat-1 block.)
+
+## Rotated 2026-08-28 (v57 beat 8): the v56 b5–b6 segments, verbatim, order as they stood
+
+- 2026-08-23 (v56 hub, beat 6 — THE CLOSE: R-7b LANDED dec35be (11-exact), CI GREEN ×3; beat 5 landed 6b7d357 (7-exact); the R-7/R-7b arc CLOSES; v57 BANKED (P5 executed) + the dispatch text issued. Order: hivemind 3. v56 closes at that commit.)
+- 2026-08-23 (v56 hub, beat 5 — R-7b AUDITED ACCEPT at the 11 diffs; @v6 RULED IN; the vacuous ! grep owned. Card sitting BANKED: RED 7/10→GREEN 0/14 + 18/18 + 6/6; F-S9/S15/S11→R-3; F-S21 CT→ET owned; OR-TOKEN-MODE-644 opens. Orders: core 11 M · hivemind 7.)

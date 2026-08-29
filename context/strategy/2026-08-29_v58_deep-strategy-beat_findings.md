@@ -3,7 +3,7 @@ file: context/strategy/2026-08-29_v58_deep-strategy-beat_findings.md
 purpose: THE §5 DEEP-STRATEGY BEAT — first delivery (workstreams a–d of the v58 mandate; (e) lands Monday as the September plan of record). Adversarial re-read of the hub's own adopted positions at the primaries; the pre-RATIFY criticism of the strategy-of-record; the Pelton zero-improvisation check (one stale load-bearing line caught); the claim-register D5 skeleton for Sunday's mint.
 audience: Nick (two words close this file's asks) · the hub · the Monday plan lane
 state-type: strategy findings (H10 form)
-status: FILED (v58 beat 2, 2026-08-29). Asks open: W-C6 word · the RATIFY-form word.
+status: FILED (v58 beat 2, 2026-08-29). ASKS CLOSED (v58 beat 3): W-C6 — ADOPTED (Nick's word) · the strategy — EDIT-ALL-4 ruled; the four edits APPLIED (v1.1); the RATIFY word pends on the edited text.
 -->
 
 # The v58 deep-strategy beat — findings (workstreams a–d)

@@ -22,3 +22,10 @@ status: ARCHIVE (read-only history)
 
 - 2026-08-23 (v56 hub, beat 6 — THE CLOSE: R-7b LANDED dec35be (11-exact), CI GREEN ×3; beat 5 landed 6b7d357 (7-exact); the R-7/R-7b arc CLOSES; v57 BANKED (P5 executed) + the dispatch text issued. Order: hivemind 3. v56 closes at that commit.)
 - 2026-08-23 (v56 hub, beat 5 — R-7b AUDITED ACCEPT at the 11 diffs; @v6 RULED IN; the vacuous ! grep owned. Card sitting BANKED: RED 7/10→GREEN 0/14 + 18/18 + 6/6; F-S9/S15/S11→R-3; F-S21 CT→ET owned; OR-TOKEN-MODE-644 opens. Orders: core 11 M · hivemind 7.)
+
+## Rotated 2026-08-29 (v58 beat 1): the v57 b1–b4 segments, verbatim, order as they stood
+
+- 2026-08-27 (v57 hub, beat 4 — the 2026 annual report FILED ON TIME at the primary (the "likely overdue" lean owned); the entity files updated in place; the company-and-brand build strategy authored (PROPOSED); beat 3 OVERTAKEN → one combined order: hivemind 8.)
+- 2026-08-27 (v57 hub, beat 3 — both orders LANDED (5051fa5 · 5b21f1c; CI green); THE ENTITY RULING: NexSys LLC exists (LA 2025-07-17) → USE-EXISTING, the state/agent pick retires; the LLC navigator staged; R-3b ISSUE-READY-pending-measurement; the R-4 packet drafted. Order: hivemind 7.)
+- 2026-08-27 (v57 hub, beat 2 — beat 1 LANDED 25e6922 (8-exact); W-SKILLS-4 AUDITED ACCEPT (60/60 · 33/33; mirrors 23/23 synced); FE-SWAP-GATE VALIDATED ACCEPT (the flip = 3 M); the dec35be run detail BANKED; the R-3a packet PRINT-READY; the program to Sunday. Orders: core 2 · hivemind 14.)
+- 2026-08-26 (v57 hub, beat 1 — THE LAUNCH (Wed): zero drift; the beat-6 order found UN-RUN → OVERTAKEN (one combined order); W-SKILLS-4 UN-RUN (law 37) → re-dispatched; P6 EXECUTED (coder-lessons 39,777 → 15,105 B, zero loss); the R-3a packet + WU-R3 authored ahead. Order: hivemind 8.)

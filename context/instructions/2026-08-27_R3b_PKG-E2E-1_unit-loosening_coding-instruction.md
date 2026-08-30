@@ -15,27 +15,26 @@ fences: ZERO Java (a .java edit seeming necessary = STOP + flag) · `distributio
 
 ## §2 The delta — stages exactly 2 M
 
-**(1) `distribution/systemd/homesynapse.service`:** replace the RAMP comment block `:91–:95` AND the `PrivateDevices=yes` line `:96` with: (a) a provenance comment — *"Serial coordinator access — MEASURED on the held card (R-3a rehearsal, 2026-08-29, drop-in 10-serial-coordinator.conf; nexsys-hivemind context/audits/2026-08-29_R3a_rehearsal_operator-record.md): the packaged service resumed the six-device network under exactly these lines (`zigbee.network_resumed: channel=20 panId=0x774c`). Class rules (`char-ttyUSB`/`char-ttyACM`, majors 188/166) survive replug renumbering where a node path would not; `DevicePolicy=closed` keeps only the standard pseudo-devices; `SupplementaryGroups=dialout` matches the node's root:dialout 0660."* — then (b) the measured `[Service]` lines **VERBATIM (H13)**:
+**(1) `distribution/systemd/homesynapse.service`:** replace the RAMP comment block `:91–:95` AND the `PrivateDevices=yes` line `:96` with: (a) a provenance comment — *"Serial coordinator access — MEASURED on the held card (R-3a rehearsal, 2026-08-30, drop-in 10-serial-coordinator.conf; nexsys-hivemind context/audits/2026-08-30_R3a_rehearsal_operator-record.md): the packaged service resumed the six-device network under exactly these lines (`zigbee.network_resumed: channel=20 panId=0x774c`). Class rules (`char-ttyUSB`/`char-ttyACM`, majors 188/166) survive replug renumbering where a node path would not; `DevicePolicy=closed` keeps only the standard pseudo-devices; `SupplementaryGroups=dialout` matches the node's root:dialout 0660."* — then (b) the measured `[Service]` lines **VERBATIM (H13)**:
 
 ```
-⟨MEASURED-TEXT — filled by the hub from the R-3a record §9; the candidate was:
+# MEASURED-TEXT — STAMPED by the hub, v58 beat 6 (2026-08-30): the R-3a record §7 measured the candidate SUFFICIENT ON FIRST TRY (P-a; zigbee.network_resumed: channel=20 panId=0x774c); the shipped lines are the candidate BYTE-IDENTICAL (H13):
 PrivateDevices=no
 DevicePolicy=closed
 DeviceAllow=char-ttyUSB rw
 DeviceAllow=char-ttyACM rw
 SupplementaryGroups=dialout
-— if P-b/P-c forced additional lines on the card, the FINAL working text is what ships, byte-identical.⟩
 ```
 
 Rules: the lines land at the seam (where `PrivateDevices=yes` stood), in the drop-in's exact order; every OTHER hardening line keeps its position and value; the DANGER block and the `ExecStartPost` probe line are untouched.
 
-**(2) `distribution/docs/boot-contract-map.md`:** ONE row in the packaged-path model — the serial-device posture: class-based `DeviceAllow` (`char-ttyUSB`/`char-ttyACM`) + `SupplementaryGroups=dialout` + `PrivateDevices=no`/`DevicePolicy=closed`, measured R-3a 2026-08-29; what STAYS hardened (`ProtectSystem=strict`, `PrivateTmp`, the syscall filter, `RestrictAddressFamilies`); pointer to the unit's provenance comment. Match the file's existing row idiom.
+**(2) `distribution/docs/boot-contract-map.md`:** ONE row in the packaged-path model — the serial-device posture: class-based `DeviceAllow` (`char-ttyUSB`/`char-ttyACM`) + `SupplementaryGroups=dialout` + `PrivateDevices=no`/`DevicePolicy=closed`, measured R-3a 2026-08-30; what STAYS hardened (`ProtectSystem=strict`, `PrivateTmp`, the syscall filter, `RestrictAddressFamilies`); pointer to the unit's provenance comment. Match the file's existing row idiom.
 
 (The `integration/integration-zigbee/MODULE_CONTEXT.md` gotcha row — packaged-path custody location + the resume-or-form consequence for migrations — is the HUB's own fold at intake, NOT in your census: the F-14-row precedent.)
 
 ## §3 What to watch out for
 
-`PrivateDevices=yes` would MASK `DeviceAllow` (it installs its own device policy) — the measured text replaces it, never coexists with it · systemd class syntax is exactly `DeviceAllow=char-ttyUSB rw` (no `/dev/`) · keep LF-only endings + the file's comment style (`# ─` rules) · do NOT reorder unrelated lines: the review diffs this file expecting EXACTLY the seam hunk · zero Java, zero README, zero workflow bytes · the arch-rule test-clock reminder is N/A (no Java, no tests in census) · red-first accounting (#18): no fixture can red at HEAD for a unit-file change — the rehearsal's own RED arms (E3-RED; P-b/P-c if they fired) are the red leg, DISCLOSED in the return, never simulated.
+`PrivateDevices=yes` would MASK `DeviceAllow` (it installs its own device policy) — the measured text replaces it, never coexists with it · systemd class syntax is exactly `DeviceAllow=char-ttyUSB rw` (no `/dev/`) · keep LF-only endings + the file's comment style (`# ─` rules) · do NOT reorder unrelated lines: the review diffs this file expecting EXACTLY the seam hunk · verify the EFFECTIVE config with `systemctl show --no-pager` (never `cat` alone — a mis-parsed drop-in still looks perfect there); expect systemd’s own `DeviceAllow=char-rtc r` in the merged view (the base unit’s clock protection — NOT ours, benign, do not puzzle over it) · zero Java, zero README, zero workflow bytes · the arch-rule test-clock reminder is N/A (no Java, no tests in census) · red-first accounting (#18): no fixture can red at HEAD for a unit-file change — the rehearsal's own RED arms (E3-RED; P-b/P-c if they fired) are the red leg, DISCLOSED in the return, never simulated.
 
 ## §4 Gates (in-lane, then the gate of record)
 

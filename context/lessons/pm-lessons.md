@@ -165,3 +165,20 @@ The consolidated micro-beat carried "fold KillMode=process into the committed un
 ## 2026-08-27 | Category: bridge-craft / order-integrity | Source: the v57 beat-5 landing (ba96978 staged 4 of its declared 5) — a delivered order edited on-device leaves a STALE TWIN in the chat, and the operator may execute the twin
 
 The beat-5 queue was delivered to the chat as a file card, then edited ON-DEVICE (the order grew 4 M → 5 M when the `:8` chain rotation joined it). Nick copied the commit block from the chat card: the glance correctly showed 5 lines, but the stale add-line staged only 4, the stale expect-line ("4 files changed") matched what he saw, and the commit landed with its message asserting "stages exactly 5 M" — a false census in immutable history (arc-29's class, reached through a NEW channel: two versions of one order in circulation). The census protection failed exactly because every check the operator ran was self-consistent WITHIN the stale twin. RULES: (1) an order, once delivered, is never edited in place — a change issues a SUPERSEDING order file under a new name (or the same file re-delivered with an explicit "the earlier card is stale; use the file on disk" line in chat); (2) the operator's copy-source of record is THE FILE ON DISK, never the chat card — state it in every queue header; (3) at the next landing the hub reconciles the commit's census claim against the actual stat line and corrects the record in the following commit message. Corrected: the missing fifth file (the chain archive) landed in the beat-6 order with the correction on the record.
+
+## 2026-08-30 — THE v58 CLOSE MINTS (folded at v59 beat 1; the v58 close order never ran — the fold executes here, from the v59 prompt §6)
+
+- **THE COMMIT-BOUNDARY LAW** (v58 b10, Nick's CONFIRM): hivemind + nexsys-skills spine/audit commits = hub-run at the bridge; homesynapse-core + nexsys-bench + homesynapse-core-docs = NICK'S HANDS ONLY — the hub prepares the msg file + the census card, stages NOTHING; Nick reviews the diff before committing. **PUSH IS ALWAYS THE OPERATOR'S** (the bridge holds no credential, by design). A delegation precedent NEVER crosses a repo boundary without the word.
+- Sweep stale git `*.lock` files aside BY RENAME before every bridge commit — the bridge cannot unlink.
+- A date-conform pass greps the WHOLE instrument, never just load-bearing lines.
+- The operator day is the CT day RE-DERIVED AT THE INSTRUMENT (the harvest-5 hazard fired twice in one night).
+- Probe sudo with `sudo -n true`, never prime blind with `-v`; prompt only where a password is known to exist (twice-proven 08-30).
+- Brief figures quote AT the dispatch baseline or say "re-derive".
+- Byte-diffs against living records extract CONTENT-ANCHORED with the comparison basis stated.
+- Every research/lane brief carries the instrument-limit disclosure line + the CT-rederivation line in its return spec.
+- Pin `anthropic==0.21.3` + `httpx<0.28` in skills briefs.
+- The borrowed-vocabulary rule: check the adjacent standards body before claiming a vacuum.
+- Packet craft: WHERE lines are load-bearing.
+- Dated quarterlies over event triggers.
+- Banking packets stage the ≤60-day Good-Standing certificate.
+- The §G screenshot carve-out for navigator packets.

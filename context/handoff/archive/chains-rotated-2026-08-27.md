@@ -37,3 +37,9 @@ status: ARCHIVE (read-only history)
 - 2026-08-28 (v57 hub, beat 7, Fri — draft (a) verified (one recital conform); the Pelton nudge ruled SEND; OR-TOKEN-MODE-644's core half found ALREADY FIXED at HEAD → PKG-SEC-1 shell-only, authored + HELD; W-SKILLS-5 authored; the ambitious-weekend program. Order: hivemind 4.)
 - 2026-08-27 (v57 hub, beat 6 — the origin anchor HELD (zip = digest, exact); the unpack-layout miss owned → the flatten step; ba96978 reconciled (staged 4 M, not 5 — the stale-chat-card lesson minted; the fifth file rides here); the navigator §4 rulings issued. Order: hivemind 5 M.)
 - 2026-08-27 (v57 hub, beat 5 — 51583f4 LANDED (8-exact); the R-3a chain re-anchored on GitHub's artifact digest (1fe1c812…); the bank ruling (Navy Federal, rec); the capital posture banked (strategy §3.5); FIN-1 minted. Order: hivemind 5 M.)
+
+## Rotated 2026-08-30 (v58 beat 8): the v58 b1–b3 segments, verbatim, order as they stood
+
+- 2026-08-29 (v58 hub, beat 3, Sat PM — W-C6 ADOPTED (Nick's word); EDIT-ALL-4 ruled → the four edits APPLIED (strategy v1.1; RATIFY pends on the edited text); RS-4 authored dispatch-ready (11bf physics · consent vacuum · Annex I close-out); the push verified EVEN at 0464ff1. Order: hivemind 5.)
+- 2026-08-29 (v58 hub, beat 2, Sat PM — the §5 beat, first delivery (a–d): W-C6 verified at the primary → rec ADOPT (+ the deterministic-floor conformity datum); 4 pre-RATIFY edits proposed; the stale G-2 §2-A formation-ask caught → the conform addendum; the register skeleton spec’d. Order: hivemind 4.)
+- 2026-08-29 (v58 hub, beat 1, Sat midday — the launch: zero drift, 40f3196/88a2022 verified landed+pushed; the LLC-checkup return audited ACCEPT (fences held; 4 deviations closed; 3 harvest rulings); the chain rotated (v57 b1–b4 → archive). Order: hivemind 5.)

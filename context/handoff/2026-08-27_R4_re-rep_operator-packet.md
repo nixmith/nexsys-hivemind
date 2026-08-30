@@ -2,10 +2,10 @@
 file: context/handoff/2026-08-27_R4_re-rep_operator-packet.md
 purpose: R-4 — THE RE-REP ON THE SHIPPED ARTIFACT (Mon 2026-08-31 evening, ~2.5–3.5 h incl. swap + fleet-arm + restore): R-3b's CI-built arm64 `.deb` (the loosening IN THE UNIT) installs on the held card, the R-3a drop-in comes OFF, and the shipped unit alone boots the real fleet and meets the four lift criteria. THE WEEK'S PRIZE: on this packet's audited record — and only then — the hub lifts the two D-1 DO-NOT-SAY sentences into the positive-scope register (H9; the lift is the HUB's Sunday-night write, never this packet's act). Authored AHEAD at v57 beat 3 (Thu); the three ⟨SLOTS⟩ fill at the R-3b landing (Sat evening).
 audience: Nick (the operator) + the hub (the record intake → the fence lift).
-status: DRAFT-PENDING-R-3b · ★-AMENDED v58 beat 7 (2026-08-30): the R-3a findings folded — the §9-B re-adoption rewrite · criteria (2)/(4) restated (rulings R-1/R-2) · the fleet-arm choreography · the optional power-loss leg · the grep/token/reset-failed/no-pager fixes; R-4 RUNS MON 2026-08-31 EVENING — the ⟨SLOTS⟩: the R-3b sha · its install-smoke run id + the ARM64 `version-grammar echo green: … sha256 …` line · the predicted version `0.1.0+git⟨R-3b commit date UTC⟩.g⟨sha⟩`. Everything else is final. FILL ALL THREE BEFORE RUNNING (each slot is marked in-line).
+status: DRAFT-PENDING-R-3b · ★-AMENDED v58 beat 7 (2026-08-30): the R-3a findings folded — the §9-B re-adoption rewrite · criteria (2)/(4) restated (rulings R-1/R-2) · the fleet-arm choreography · the optional power-loss leg · the grep/token/reset-failed/no-pager fixes; R-4 RUNS MON 2026-08-31 EVENING — the ⟨SLOTS⟩ — TWO OF THREE STAMPED v58 b8 (2026-08-30): the R-3b sha = `fa6e0e8` · the predicted version = `0.1.0+git20260830.195441.gfa6e0e8` (both from the landed core commit, computed at the instrument). STILL PENDING: the install-smoke RUN ID + the ARM64 `version-grammar echo green: … sha256 …` line — FILL AT THE CI READ, BEFORE RUNNING.
 baseline at authoring (CONFORMED v58 b7 — R-3a ran SUN 08-30): the held card carries `0.1.0+git20260823.231355.gdec35be` + the 10-serial-coordinator.conf drop-in + the CLONED bench custody (resumed, six devices) + the R-3a day's event rows (incl. the RIG re-adoptions ×2, the §10 evidence and the power-loss survival — ROWS-A ≈ 53+); the bench card is back IN with its floor `[PASS]` (restored 15:06 ET). The coordinator NEVER leaves hub 3-2.4 Port 2 in this packet (both cards resume the SAME network custody — the ONE COORDINATOR, ONE BOOT invariant is held by the sequential card swap alone).
 fences: delete NOTHING (every aside is `mv` to `~/r3-history/`) · the token pair untouched, values never pasted · NO `--allow-downgrades` (the new `+git` date orders ABOVE the installed one — apt asking for the flag = a FINDING, STOP) · the D-1 sentences are not said anywhere until the hub's lift · Pi clocks are ET — every ⏺ written ET or Z · the bench floor is back `[PASS]` before 03:00 CT (Tue 09-01).
-predictions (H12, filed now): the install is an ordinary UPGRADE (no downgrade line) · post-install `dpkg` == image `VERSION` == ⟨PREDICTED-VERSION⟩ · with the drop-in OFF, `systemctl show` reads the loosening FROM THE UNIT (PrivateDevices=no · the two DeviceAllow class rules · SupplementaryGroups=dialout) · the restart resumes in seconds: `zigbee.network_resumed: channel=20 panId=0x774c`, ZERO `network_formed` · the four criteria: (1) resumed ✓ (2) ≥1 device Available, freshness AT THE STORE (fresh `state_reported`/`availability_changed` rows — the list's Last-reported render is a known read-path gap, §10-G) (3) ROWS-B > ROWS-A, discriminator 0 (4) ≥1 bench-hero run with a rendered explanation, the automation RE-BOUND to the rig's re-adopted entities as an explicit step (ruling R-1 = (b)) · restore: `[PASS] boot-health — 6/6 positive · 0 forbidden`, PAN 0x774c, the by-id string byte-identical (F-S20).
+predictions (H12, filed now): the install is an ordinary UPGRADE (no downgrade line) · post-install `dpkg` == image `VERSION` == 0.1.0+git20260830.195441.gfa6e0e8 · with the drop-in OFF, `systemctl show` reads the loosening FROM THE UNIT (PrivateDevices=no · the two DeviceAllow class rules · SupplementaryGroups=dialout) · the restart resumes in seconds: `zigbee.network_resumed: channel=20 panId=0x774c`, ZERO `network_formed` · the four criteria: (1) resumed ✓ (2) ≥1 device Available, freshness AT THE STORE (fresh `state_reported`/`availability_changed` rows — the list's Last-reported render is a known read-path gap, §10-G) (3) ROWS-B > ROWS-A, discriminator 0 (4) ≥1 bench-hero run with a rendered explanation, the automation RE-BOUND to the rig's re-adopted entities as an explicit step (ruling R-1 = (b)) · restore: `[PASS] boot-health — 6/6 positive · 0 forbidden`, PAN 0x774c, the by-id string byte-identical (F-S20).
 -->
 
 # R-4 — the re-rep on the shipped artifact (operator packet · Mon 2026-08-31, ★-amended v58 b7)
@@ -14,16 +14,16 @@ predictions (H12, filed now): the install is an ordinary UPGRADE (no downgrade l
 
 ## §1 Fetch — R-3b's arm64 artifact (desktop; browser + Git Bash)
 
-The run page: `https://github.com/nexsys-io/homesynapse-core/actions/runs/⟨R-3b-RUN-ID — FILL IN⟩` (the install-smoke run on commit ⟨R-3B-SHA — FILL IN⟩). Open the **arm64** job → the "Version-grammar echo" step → **⏺ its `version-grammar echo green: … sha256 <64 hex>  homesynapse_⟨PREDICTED-VERSION⟩_arm64.deb` line whole** (the origin hash). Then Artifacts (bottom of the run's Summary page) → **`distribution-artifacts-arm64`** → `~/Downloads`.
+The run page: `https://github.com/nexsys-io/homesynapse-core/actions/runs/⟨R-3b-RUN-ID — FILL IN⟩` (the install-smoke run on commit fa6e0e8). Open the **arm64** job → the "Version-grammar echo" step → **⏺ its `version-grammar echo green: … sha256 <64 hex>  homesynapse_0.1.0+git20260830.195441.gfa6e0e8_arm64.deb` line whole** (the origin hash). Then Artifacts (bottom of the run's Summary page) → **`distribution-artifacts-arm64`** → `~/Downloads`.
 
 ```bash
 # WHERE: Git Bash. Keep R-3a's artifact folder clean of the OLD .deb before unpacking the new one.
 mkdir -p ~/r3-history && mv ~/r3-artifact/homesynapse_0.1.0+git20260823.231355.gdec35be_arm64.deb ~/r3-history/ 2>/dev/null; cd ~/r3-artifact && powershell.exe -NoProfile -Command "Expand-Archive -LiteralPath \"$(cygpath -w ~/Downloads/distribution-artifacts-arm64.zip)\" -DestinationPath \"$(cygpath -w ~/r3-artifact)\" -Force" && ls -la && sha256sum homesynapse_*_arm64.deb
-# expect: ONE .deb named homesynapse_⟨PREDICTED-VERSION⟩_arm64.deb (≈61.8 MB); its hash EQUALS the arm64 echo line's sha256. ⏺ both. (Two .debs listed = the mv above missed — STOP, paste, sort the folder before anything ships to the card.)
+# expect: ONE .deb named homesynapse_0.1.0+git20260830.195441.gfa6e0e8_arm64.deb (≈61.8 MB); its hash EQUALS the arm64 echo line's sha256. ⏺ both. (Two .debs listed = the mv above missed — STOP, paste, sort the folder before anything ships to the card.)
 ```
 
 ```bash
-# STOP-GATE R4-1: exactly one .deb · the hash equals the run-log line · the name carries ⟨PREDICTED-VERSION⟩ (the `+git` date NEWER than 20260823.231355). Anything else → STOP, paste.
+# STOP-GATE R4-1: exactly one .deb · the hash equals the run-log line · the name carries 0.1.0+git20260830.195441.gfa6e0e8 (the `+git` date NEWER than 20260823.231355). Anything else → STOP, paste.
 ```
 
 ## §2 The swap (bench → held card; the radio stays in Port 2)
@@ -44,7 +44,7 @@ date; dpkg-query -W -f '${Version}\n' homesynapse; systemctl is-active homesynap
 ```bash
 # WHERE: desktop → the held card. The old .deb in the card's home moves aside first (delete nothing), so the glob is unique.
 ssh -i ~/.ssh/id_ed25519_pi nick@hs-fresh.local 'mkdir -p ~/r3-history && mv ~/homesynapse_0.1.0+git20260823.231355.gdec35be_arm64.deb ~/r3-history/ 2>/dev/null; ls ~/homesynapse_*_arm64.deb 2>/dev/null; echo "---"' && cd ~/r3-artifact && scp -i ~/.ssh/id_ed25519_pi homesynapse_*_arm64.deb nick@hs-fresh.local: && ssh -i ~/.ssh/id_ed25519_pi nick@hs-fresh.local 'sha256sum ~/homesynapse_*_arm64.deb; dpkg-deb --field ~/homesynapse_*_arm64.deb Version Architecture'
-# expect: no stray .deb before the copy ("---" alone) · the SAME hash as §1 (hop 3 = the run log's) · Version ⟨PREDICTED-VERSION⟩ · arm64. ⏺ all.
+# expect: no stray .deb before the copy ("---" alone) · the SAME hash as §1 (hop 3 = the run log's) · Version 0.1.0+git20260830.195441.gfa6e0e8 · arm64. ⏺ all.
 ```
 
 ```bash
@@ -56,7 +56,7 @@ sudo sqlite3 "file:/var/lib/homesynapse/data/homesynapse-events.db?mode=ro" 'SEL
 ```bash
 # WHERE: the held card. The install (NO --allow-downgrades; apt asking to downgrade = STOP — the ordering scheme has failed, a finding).
 sudo apt install -y ~/homesynapse_*_arm64.deb 2>&1 | tail -12 && dpkg-query -W -f '${Version}\n' homesynapse && cat /opt/homesynapse/VERSION && sleep 20 && systemctl is-active homesynapse.service && sudo sqlite3 "file:/var/lib/homesynapse/data/homesynapse-events.db?mode=ro" 'SELECT COUNT(*) FROM events;' && sudo sqlite3 "file:/var/lib/homesynapse/data/homesynapse-events.db?mode=ro" 'PRAGMA integrity_check;'
-# expect: an UPGRADE tail (no "downgrad" token) · ⟨PREDICTED-VERSION⟩ TWICE · active · ROWS-AFTER ≥ pre · `ok`. ⏺ all.
+# expect: an UPGRADE tail (no "downgrad" token) · 0.1.0+git20260830.195441.gfa6e0e8 TWICE · active · ROWS-AFTER ≥ pre · `ok`. ⏺ all.
 ```
 
 ```bash
@@ -116,7 +116,7 @@ systemctl is-active homesynapse.service; sudo journalctl -u homesynapse.service 
 ```bash
 # WHERE: the held card → the physical swap → the bench card.
 sudo systemctl stop homesynapse.service && systemctl is-active homesynapse.service; sudo shutdown -h now
-# inactive (a `transport_failed` with retransmits=0/crcRejects=0/timeouts=0 during THIS stop is the ORDERLY-CLOSE signature — §10-O — not port loss; ⏺ without alarm) → ACT LED stops → power OFF → held card OUT (re-label: `hs-fresh — R-4 DONE — ⟨PREDICTED-VERSION⟩ · shipped unit · bench custody`) → bench card IN → power ON → ~90 s.
+# inactive (a `transport_failed` with retransmits=0/crcRejects=0/timeouts=0 during THIS stop is the ORDERLY-CLOSE signature — §10-O — not port loss; ⏺ without alarm) → ACT LED stops → power OFF → held card OUT (re-label: `hs-fresh — R-4 DONE — 0.1.0+git20260830.195441.gfa6e0e8 · shipped unit · bench custody`) → bench card IN → power ON → ~90 s.
 ```
 
 ```bash
@@ -127,4 +127,4 @@ sudo systemctl stop homesynapse.service && systemctl is-active homesynapse.servi
 
 ## §8 What the hub banks — and the lift (the hub's act, tonight)
 
-One line each: the hash chain · the upgrade with NO flag · the drop-in OFF + the unit's own loosening at `systemctl show` · resumed/zero-formed · the four criteria MET/MISS · the restore `[PASS]`. **THE GUARD (v57 beat 8, adopted from the strategy review): the lift consumes R-4's ⏺s only THROUGH the audit — a record that passes WITH ANY ANOMALY (an unexpected token, a timing oddity, a partial criterion) HOLDS the lift one beat while the hub adjudicates. The claim is forever; a beat of delay is nothing.** On an audited, anomaly-free four-of-four the hub writes THE FENCE LIFT: the two D-1 sentences enter the positive-scope register as *"verified on real hardware at commit ⟨R-3B-SHA⟩: the packaged artifact runs the Zigbee integration and publishes events (six-device bench fleet RE-ADOPTED on the cloned-custody rig; the bench-hero automation re-bound to the rig’s entities as an explicit rehearsal step; 2026-08-31, the re-rep record at context/audits/…)"* — at the claim-fence register + the north-star honesty state. `distribution/README.md:117` does NOT lift (W2-3 owns it). The ⏺ record files at `context/audits/2026-08-31_R4_re-rep_operator-record.md`.
+One line each: the hash chain · the upgrade with NO flag · the drop-in OFF + the unit's own loosening at `systemctl show` · resumed/zero-formed · the four criteria MET/MISS · the restore `[PASS]`. **THE GUARD (v57 beat 8, adopted from the strategy review): the lift consumes R-4's ⏺s only THROUGH the audit — a record that passes WITH ANY ANOMALY (an unexpected token, a timing oddity, a partial criterion) HOLDS the lift one beat while the hub adjudicates. The claim is forever; a beat of delay is nothing.** On an audited, anomaly-free four-of-four the hub writes THE FENCE LIFT: the two D-1 sentences enter the positive-scope register as *"verified on real hardware at commit fa6e0e8: the packaged artifact runs the Zigbee integration and publishes events (six-device bench fleet RE-ADOPTED on the cloned-custody rig; the bench-hero automation re-bound to the rig’s entities as an explicit rehearsal step; 2026-08-31, the re-rep record at context/audits/…)"* — at the claim-fence register + the north-star honesty state. `distribution/README.md:117` does NOT lift (W2-3 owns it). The ⏺ record files at `context/audits/2026-08-31_R4_re-rep_operator-record.md`.

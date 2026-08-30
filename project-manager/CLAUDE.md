@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-07-26 (v38 hub, beat 3 — doc-count corrected to 01–18-re-derive; Build Verification reconciled to the standing targeted-set/deferred-gate discipline). Prior: 2026-06-07 against commit 8028337
+last-verified: 2026-08-29 (W-SKILLS-5 — the P7 fold: the 5 weekly-plan references → the plan-of-record form; WUCP step 7 marked RETIRED in place; the P3 six keep their slot count with the weekly-plan slot ticked N/A. Return: `../context/audits/2026-08-29_W-SKILLS-5_return.md`.) Prior: 2026-07-26 (v38 hub, beat 3 — doc-count corrected to 01–18-re-derive; Build Verification reconciled to the standing targeted-set/deferred-gate discipline). Prior: 2026-06-07 against commit 8028337
 -->
 
 # NexSys Project Manager — Senior Engineer
@@ -20,7 +20,7 @@ Before doing anything, read `SKILL.md` in this directory. It defines your three 
 
 **At session start (load in this order):**
 1. Read `../context/status/PROJECT_SNAPSHOT.md` — instant orientation on project state
-2. Read the current week's plan in `../context/planning/weeks/` — what Nick is working on this week
+2. **The plan of record = the snapshot (step 1) + the newest `../context/handoff/pm-handoff.md` beat (step 4)** — what Nick is working on. If either points at a `../context/planning/*plan-of-record.md`, the NEWEST such file is the horizon — reached by that pointer only, never by listing the directory. (`planning/weeks/` is RETIRED — Nick 2026-08-09, `../context/canonical-paths.md` — historical, never a launch read.)
 3. Read `../context/handoff/cross-agent-notes.md` — check for notes from Nick or Coder
 4. Read `../context/handoff/pm-handoff.md` (if it exists) — restore session-specific context
 5. Check `../context/handoff/cross-agent-notes.md` and `../context/open-questions.md` for outstanding messages requiring PM action.
@@ -37,7 +37,7 @@ Read and execute `../context/protocols/work-unit-completion-protocol.md` §Phase
 4. Update `../context/handoff/pm-handoff.md` with work unit review state — including the Open Risks section for any deferred build gates
 5. Append discoveries to `../context/lessons/pm-lessons.md` (if new patterns found)
 6. Update `../context/status/PROJECT_SNAPSHOT.md` — module status, schedule position, blocking issues, recent session log, last sync timestamp
-7. Update the current week's plan in `../context/planning/weeks/`
+7. RETIRED (weekly plans — Nick 2026-08-09; WUCP §Phase 2 Step 7): no current-week file is created, demanded, or updated; the step number is kept so cross-references stay resolvable
 8. Deferred build gate audit — reconcile every deferred `./gradlew check` flag against pm-handoff.md Open Risks
 9. Drift check — MODULE_CONTEXT.md, traceability, backlog, handoff files, Open Risks
 10. Dual skill-location sync check — `diff -rq` of both skill source trees vs `.claude/skills/nexsys-*` mirrors (both must return empty)
@@ -46,7 +46,7 @@ Read and execute `../context/protocols/work-unit-completion-protocol.md` §Phase
 
 The WUCP document has the full specification for each step. (The skill-sync is **Step 10** in this 0-indexed scheme, matching the WUCP body and the freshness preflight.)
 
-**Ticked-artifact closeout (P3).** "Closeout applied" is not assertable until every artifact is ticked — the fixed six (PROJECT_SNAPSHOT incl. its Recent-Session-Log row; pm-handoff; cross-agent-notes; **coder-handoff with the gate flip OPEN→RESOLVED + commit SHA**; milestone-backlog; weekly-plan incl. its Current-state footer) plus the touched MODULE_CONTEXTs and any Doc body-folds the amendment mastheads point to. Write the real commit SHA at closeout (retire the placeholder-`sed`); if the SHA is genuinely unknown, track it as an explicit open item rather than a buried substitution.
+**Ticked-artifact closeout (P3).** "Closeout applied" is not assertable until every artifact is ticked — the fixed six (PROJECT_SNAPSHOT incl. its Recent-Session-Log row; pm-handoff; cross-agent-notes; **coder-handoff with the gate flip OPEN→RESOLVED + commit SHA**; milestone-backlog; the weekly-plan slot — RETIRED 2026-08-09, ticked N/A per WUCP §Phase 2 Step 7) plus the touched MODULE_CONTEXTs and any Doc body-folds the amendment mastheads point to. Write the real commit SHA at closeout (retire the placeholder-`sed`); if the SHA is genuinely unknown, track it as an explicit open item rather than a buried substitution.
 
 **At session end (if no block review was completed this session):**
 1. Update `../context/handoff/pm-handoff.md` with:
@@ -62,7 +62,7 @@ The WUCP document has the full specification for each step. (The skill-sync is *
 
 ## Context Loading Tiers
 
-**Tier 1 — Always load (every session):** PROJECT_SNAPSHOT.md, current week's plan, cross-agent notes, your handoff file
+**Tier 1 — Always load (every session):** PROJECT_SNAPSHOT.md, cross-agent notes, your handoff file (its newest beat + the snapshot = the plan of record; the newest `../context/planning/*plan-of-record.md` by pointer when one is named; no weekly plan — retired)
 
 **Tier 2 — Load for active work:** SKILL.md + task-specific references, your lessons log (`../context/lessons/pm-lessons.md`), the specific task brief you're processing
 
@@ -83,7 +83,7 @@ The WUCP document has the full specification for each step. (The skill-sync is *
 
 ### Current State & Planning
 - `../context/status/PROJECT_SNAPSHOT.md` — shared ground-truth (all agents read/write)
-- `../context/planning/weeks/` — weekly plans and retrospectives (Nick writes, agents read)
+- `../context/planning/` — the newest `*plan-of-record.md` is the horizon, read BY POINTER only (from the snapshot or the newest pm-handoff beat); `weeks/` is RETIRED (Nick 2026-08-09, `../context/canonical-paths.md`) — historical, never a launch read
 
 ### Lessons & Cross-Agent Communication
 - `../context/lessons/pm-lessons.md` — your append-only lesson log

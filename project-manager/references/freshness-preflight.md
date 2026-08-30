@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337; Check 9 refined 2026-07-28 (the third-location / remote-cache adjudication — skills-currency pass; mirrored into `../../coder/references/freshness-preflight.md` per the shared-protocol law); Check 9 extended 2026-08-06 to the THIRD diff pair — the FE mirror (`nexsys-skills/orchestrators/nexsys-frontend` ↔ `.claude/skills/nexsys-frontend`) — per ruling R-2 (v44 beat 5; W-SKILLS-2 return)
+last-verified: 2026-08-29 (W-SKILLS-5 — (a) Check 2 RE-SUBJECTED: the check "Current week's plan exists" is RETIRED BY NAME (basis: Nick 2026-08-09 · W-SKILLS-4 harvest 1 · the W-SKILLS-5 brief) and its slot now checks that the plan of record resolves; the other weekly-plan references (§1 · Checks 4/6/8 · §4 · §6) folded to the plan-of-record form with no verdict logic changed; (d) Check 9's mirror of record restated to the account-synced trees (v57 beat 3), the host `diff -rq` demoted to "if one exists" — two lines. Return: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.) Prior: 2026-06-07 against commit 8028337; Check 9 refined 2026-07-28 (the third-location / remote-cache adjudication — skills-currency pass; mirrored into `../../coder/references/freshness-preflight.md` per the shared-protocol law); Check 9 extended 2026-08-06 to the THIRD diff pair — the FE mirror (`nexsys-skills/orchestrators/nexsys-frontend` ↔ `.claude/skills/nexsys-frontend`) — per ruling R-2 (v44 beat 5; W-SKILLS-2 return)
 -->
 
 # Freshness Preflight
@@ -20,7 +20,7 @@ This file and `../../coder/references/freshness-preflight.md` together form the 
 
 ## 1. When to Run
 
-- **At PM session start**, immediately after loading Tier 1 context (PROJECT_SNAPSHOT.md, current week's plan, cross-agent notes, pm-handoff.md). Do not process any task brief until the preflight has reported PASS.
+- **At PM session start**, immediately after loading Tier 1 context (PROJECT_SNAPSHOT.md, cross-agent notes, pm-handoff.md — its newest beat + the snapshot = the plan of record; no weekly plan, retired). Do not process any task brief until the preflight has reported PASS.
 - **At the start of WUCP Phase 2**, before verifying the Coder's Phase 1 checklist. If the preflight reports STALE or CONFLICTED, the review cannot proceed as forward work — see §5.
 - **After any session where Nick has edited hivemind files directly** (he'll flag this in cross-agent-notes.md).
 
@@ -38,13 +38,13 @@ Read the `Last Sync` timestamp at the top of `../../context/status/PROJECT_SNAPS
 - **STALE** if the timestamp is older than 14 days OR does not match the most recent session log entry.
 - **CONFLICTED** if the `Last Sync` field is missing, malformed, or shows a future date.
 
-### Check 2 — Current week's plan exists
+### Check 2 — The plan of record resolves (SUBJECT REPLACED 2026-08-29 — the check "Current week's plan exists" is RETIRED by name: Nick 2026-08-09 · W-SKILLS-4 harvest 1 · the W-SKILLS-5 brief; it was a standing false-STALE at every literal launch after the weekly plans retired)
 
-Check `../../context/planning/weeks/` for a file matching the current ISO week (e.g., `2026-W15_apr06-apr12.md`).
+The plan of record = the newest `last-verified:` beat segment of `../../context/handoff/pm-handoff.md` + the newest `last-verified:` beat segment of `../../context/status/PROJECT_SNAPSHOT.md` + the newest `../../context/planning/*plan-of-record.md` BY POINTER when either of those names one. (`../../context/planning/weeks/` is RETIRED — Nick 2026-08-09, `../../context/canonical-paths.md` — historical only: never demand, create, or check for a current-week file.)
 
-- **PASS** if the file exists AND its Status field is `IN_PROGRESS` or `COMPLETE`.
-- **STALE** if no file exists for the current week, or the file exists but has Status `TEMPLATE` or is missing a Status line.
-- **CONFLICTED** if multiple files exist for the same week, or the file's date range doesn't match the actual ISO week.
+- **PASS** if the two newest beat segments name the SAME hub/beat AND every `*plan-of-record.md` either of them names resolves to an existing file at the path given.
+- **STALE** if the snapshot's newest beat is behind the handoff's, or the newest pm-handoff beat is older than 14 days, or a named `*plan-of-record.md` is absent at the path given.
+- **CONFLICTED** if the two spine files name DIFFERENT horizons (different `*plan-of-record.md` files, or one names a plan the other records as superseded), or the snapshot's newest beat is AHEAD of the handoff's — a contradictory plan of record.
 
 ### Check 3 — Recent commits vs. PROJECT_SNAPSHOT
 
@@ -58,7 +58,7 @@ Run `git -C ../../homesynapse-core log --oneline -20` and compare the most recen
 
 Read `../../context/planning/phase-3-milestone-backlog.md`. Cross-reference every milestone marked DONE against:
 - PROJECT_SNAPSHOT.md current milestone
-- The weekly plan that contained the milestone
+- The pm-handoff beat that closed the milestone (the weekly plan that once carried it is RETIRED — Nick 2026-08-09; milestones closed before then keep their historical `weeks/` reference)
 - An actual commit in `git log` (cited by SHA)
 
 - **PASS** if every DONE milestone has all three references.
@@ -82,7 +82,7 @@ Read `../../context/handoff/coder-handoff.md`. The most recent entry must explic
 
 - **PASS** if the most recent entry names the next work unit by ID (e.g., `M2.6` or `Block T`).
 - **STALE** if the entry says "awaiting direction" without a next-unit pointer.
-- **CONFLICTED** if the entry names a next work unit that contradicts the weekly plan or milestone backlog.
+- **CONFLICTED** if the entry names a next work unit that contradicts the plan of record (the newest pm-handoff beat, or the pointed-at `*plan-of-record.md`) or the milestone backlog.
 
 ### Check 7 — MODULE_CONTEXT.md files populated for completed Phase 2 modules
 
@@ -100,7 +100,7 @@ Read `../../context/handoff/cross-agent-notes.md`. Every entry above the `## Arc
 
 - **PASS** if all active entries satisfy both conditions.
 - **STALE** if any active entry is older than 14 days and unresolved.
-- **CONFLICTED** if an entry is marked resolved but the resolution contradicts PROJECT_SNAPSHOT or the weekly plan.
+- **CONFLICTED** if an entry is marked resolved but the resolution contradicts PROJECT_SNAPSHOT or the newest pm-handoff beat.
 
 ### Check 9 — Dual skill-location mirrors
 
@@ -138,13 +138,13 @@ Note: `.claude/skills/` is a read-only mount; the PM never writes to it. STALE i
 There are **three** places a role skill's bytes can live, not two:
 
 1. **The writable SOURCE** — `ClaudeFolder/nexsys-hivemind/{coder,project-manager}/` (and `nexsys-skills/orchestrators/…` for the frontend skill). Always authoritative.
-2. **Nick's local `.claude/skills/` MIRROR** — the read-only tree host-CC lanes actually load. **This is the location Check 9 governs**, and the only one the STALE/CONFLICTED verdicts above describe.
+2. **THE ACCOUNT-SYNCED SKILL TREES — THE MIRROR OF RECORD** (restated 2026-08-29, W-SKILLS-5 (d); basis: v57 beat 3 — Nick keeps NO host `.claude/skills/` mirror). These are the copies a remote hub or lane loads, and Nick's "skills synced" means these. **This is the location Check 9 governs**, and the PASS/STALE/CONFLICTED verdicts above are evaluated against it — instrument: a per-file `md5sum` (or `diff`) of each writable SOURCE tree against its synced tree, all three pairs (the v57 beat-2 §A.6 form). The `diff -rq` block above against a host `.claude/skills/` mirror runs only IF such a mirror exists; its absence is neither STALE nor CONFLICTED.
 3. **A remote session's in-session skill copies** — when the hub (or any lane) runs as a REMOTE Cowork session, the skills it has loaded were account-synced into that session. This copy lags on its own schedule and is **not** the mirror.
 
 The rules that follow from it:
 
 - **Adjudicate WHICH location is stale before flagging.** A remote session observing that its loaded skill copies differ from source has established nothing about the mirror. It may md5 (or diff) **SOURCE vs ITS OWN cache** purely to characterize *its own* staleness — and must never generalize that result to Nick's mirror.
-- **Nick's `diff -rq` above remains the mirror's instrument of record.** A remote session that cannot mount both trees records Check 9 as **STALE (mirror unverified from here)** — conservative, aggregating as STALE per §3 — and names exactly which trees it could read. The mirror's true state is then confirmed by asking Nick, never inferred.
+- **The per-file SOURCE-vs-synced comparison is the mirror's instrument of record; the host `diff -rq` applies only if a host mirror exists.** A remote session whose loaded skill copies came from the account-synced trees may compare them against SOURCE to characterize the synced trees AS OF ITS LOAD (a lag is STALE, never CONFLICTED, until Nick re-syncs); a session that can read neither tree records Check 9 as **STALE (mirror unverified from here)** — conservative, aggregating as STALE per §3 — and names exactly which trees it could read. The mirror's true state is then confirmed at the synced trees or by asking Nick, never inferred.
 - **Authoring at desk stays lawful under a stale in-session cache**, because hub reads ride SOURCE (read the reference file at repo HEAD, not the loaded skill copy). Record that adjudication in the preflight output.
 
 ### Check 10 — Strategic context map references
@@ -181,7 +181,7 @@ When the preflight reports STALE, the PM's activity is **restricted to retroacti
 
 **Allowed activity under STALE:**
 - Retroactive WUCP Phase 2 for the most recent completed work unit
-- Updating PROJECT_SNAPSHOT.md, the weekly plan, and pm-handoff.md to match the actual codebase state
+- Updating PROJECT_SNAPSHOT.md and pm-handoff.md (the plan of record) to match the actual codebase state
 - Populating a missing MODULE_CONTEXT.md from a completed Phase 2 module
 - Archiving expired cross-agent notes
 - Running Nick's external mirror sync (if STALE came from Check 9 only — request Nick in cross-agent-notes.md)
@@ -190,7 +190,7 @@ When the preflight reports STALE, the PM's activity is **restricted to retroacti
 - Issuing new coding instructions
 - Processing a new task brief beyond reading it to queue
 - Declaring any work unit DONE in the backlog
-- Advancing the weekly plan to a new milestone
+- Advancing the plan of record to a new milestone (a pm-handoff beat that opens one, or a new `*plan-of-record.md`)
 
 When the reconciliation is complete, re-run the preflight. Continue only after PASS.
 
@@ -216,7 +216,7 @@ Record the preflight result at the top of the PM session log or the WUCP Phase 2
 ```
 FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC
 Check 1 (PROJECT_SNAPSHOT timestamp):  PASS
-Check 2 (current week plan):           PASS
+Check 2 (plan of record resolves):     PASS
 Check 3 (commits vs snapshot):         PASS
 Check 4 (milestone backlog):           PASS
 Check 5 (pm-handoff Open Risks):       PASS

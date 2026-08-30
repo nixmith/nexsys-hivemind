@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-08-29 (W-SKILLS-5 — the P7 fold: §2's task-brief check re-pointed off the retired weekly plan to the plan of record; everything else byte-unchanged. Return: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.) Prior: 2026-06-07 against commit 8028337
 -->
 
 # Repository State Protocol
@@ -140,7 +140,7 @@ The status of governance, strategy, and research files.
 
 ### Before processing any task brief:
 1. Check design document status for all cited dependencies
-2. Check PROJECT_SNAPSHOT.md and the current week's plan for any changes since the task brief was written
+2. Check PROJECT_SNAPSHOT.md, the newest pm-handoff beat, and the pointed-at `*plan-of-record.md` (if any) for changes since the task brief was written — weekly plans are RETIRED (Nick 2026-08-09)
 3. **Read MODULE_CONTEXT.md for all modules in the dependency chain** — this gives you the complete picture of existing types, contracts, and gotchas without re-reading every source file
 4. If Phase 3: check repo for module existence and current code state
 

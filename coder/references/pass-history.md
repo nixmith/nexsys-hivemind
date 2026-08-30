@@ -1,0 +1,23 @@
+<!--
+file: coder/references/pass-history.md
+purpose: PROVENANCE carrier for `coder/SKILL.md` — the skills-pass census narratives and the pass ledger that used to ride the SKILL.md masthead at every coder launch (W-SKILLS-5, charge (b): 2,813 B of provenance moved here VERBATIM — the PM's W-SKILLS-4 charge-(a) precedent; no rule lives in this file). Also carries the SIBLING-CARRIER INDEX (rules minted by earlier passes that live at other carriers), which a future census must keep resolvable.
+audience: the skills lane (W-SKILLS-N) + the hub at a skills audit beat. NOT a launch read.
+update-cadence: per skills pass — SKILL.md `last-verified:` keeps ONLY the newest pass's ≤ 400 B census verdict + return pointer; the demoted verdict line moves here whole, newest first, under §1.
+state-type: history (provenance)
+status: CURRENT
+last-verified: 2026-08-29 (W-SKILLS-5 — created; both lines below are byte-identical to SKILL.md :13–:14 as they stood at this pass's launch baseline (2026-08-26 → 2026-08-29), `cmp`-verified in the return §2: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.)
+-->
+
+# Coder skill — pass history (provenance)
+
+Every line in this file is a RECORD of a past skills pass, kept whole so that no rule name a census ever counted goes unlocatable. The rules themselves live in `SKILL.md`'s four lists (arc-conventions · durable-build-disciplines · strategy-layer · state-pointer) or at the sibling carriers the index in §2 names. Paths inside the moved lines are as written at `SKILL.md` — relative to `coder/`, not to this directory. Nothing here is loaded at a coder launch.
+
+## §1 Demoted `last-verified:` verdict lines (newest first; each moved VERBATIM from the SKILL.md masthead)
+
+### Moved 2026-08-29 by W-SKILLS-5 (the SKILL.md `last-verified:` line as it stood 2026-08-26 → 2026-08-29)
+
+last-verified: 2026-08-26 (**W-SKILLS-4** — the launch-cost + conventions pass. **RULE CENSUS 33-in / 33-out, every name surviving, zero retirements; masthead lists byte-unchanged.** TWO body deltas, both at §7a: step 2 gains THE HANDOFF-ENTRY CONVENTION (P8 — no frontmatter chain segment at closeout; the newest entry is authoritative by position); step 3 gains the lesson-size pointer (§1(d); carrier: `CLAUDE.md` §Pattern Discovery Protocol). Return: `../context/audits/2026-08-26_W-SKILLS-4_return.md`.) Prior: 2026-08-06 (**W-SKILLS-2** — the v45 hygiene pass. **RULE CENSUS 33-in / 33-out, every name surviving, zero retirements:** arc-conventions 21→21 (item (10) gains the v45 bundle-stamp exhibit pointer — a pointer, not a rule) · durable-build-disciplines 8→8 · strategy-layer 3→3 · state-pointer 1→1. Body deltas (+2 laws living in the body, disclosed): the R-5 re-invoke-after-compaction one-liner (top) and the §7a RETURN-ON-DISK rule (v45 beat 8 — a WU is not DELIVERED until its return file exists at the named path). Narrative + counts: `../context/audits/2026-08-05_W-SKILLS-2_return.md`.) Prior: 2026-08-03 (**W-SKILLS v44** — the currency + optimization pass, dedicated fresh lane. **RULE CENSUS 32-in / 33-out, every prior name surviving:** the five parallel arc-convention blocks (v40 · v39 · v32 · dur · bench) are COLLAPSED INTO ONE INDEXED `arc-conventions` list of 21 — the move the PM masthead took at the 2026-07-28 pass — with every convention keeping its name and sub-clauses, and the five per-block detail-source pointers hoisted once into the list header; **+item (21) CHAT IS NOT A STORAGE TIER** (the v43 harvest, H-2, which binds the Coder's own reports); the v44 KillMode exhibit rides item (3) as a pointer. durable-build-disciplines 8→8 · strategy-layer 3→3 · state-pointer 1→1 · body byte-unchanged. Counts, adjudication, and the layer-2 audit: `../context/audits/2026-08-03_W-SKILLS_v44-pass_return.md`.)
+
+## §2 The pass ledger + THE SIBLING-CARRIER INDEX (the SKILL.md `pass-history:` line, moved VERBATIM 2026-08-29 by W-SKILLS-5)
+
+pass-history (PROVENANCE, not law): 2026-07-30 currency pass 2 · 2026-07-28 currency pass 1 · 2026-07-26 v38 b3 · 2026-07-18 v32 close-out · 2026-07-08 v25 b6 · 2026-07-07 v23 b7 — returns at `../context/audits/2026-07-30_skills-pass-2_return.md` + `…/2026-07-28_skills-pass_return.md`, the rest at `../context/handoff/pm-handoff.md` + `archive/`. **Rules these passes minted that live at sibling carriers, not in the list above:** the `NO_DIRECT_TIME_ACCESS` enforcement-reach correction → §2/§8 below + java-patterns §11 + testing-standards §8 · the §3.9 SKIP-VIS READ-side truth → item (9) · the lock-free-porcelain line + the Check-6 third-location refinement → `references/freshness-preflight.md` · registries-as-projections → mental-model §3 · the `?:` re-box class → java-patterns §14.

@@ -29,3 +29,11 @@ status: ARCHIVE (read-only history)
 - 2026-08-27 (v57 hub, beat 3 — both orders LANDED (5051fa5 · 5b21f1c; CI green); THE ENTITY RULING: NexSys LLC exists (LA 2025-07-17) → USE-EXISTING, the state/agent pick retires; the LLC navigator staged; R-3b ISSUE-READY-pending-measurement; the R-4 packet drafted. Order: hivemind 7.)
 - 2026-08-27 (v57 hub, beat 2 — beat 1 LANDED 25e6922 (8-exact); W-SKILLS-4 AUDITED ACCEPT (60/60 · 33/33; mirrors 23/23 synced); FE-SWAP-GATE VALIDATED ACCEPT (the flip = 3 M); the dec35be run detail BANKED; the R-3a packet PRINT-READY; the program to Sunday. Orders: core 2 · hivemind 14.)
 - 2026-08-26 (v57 hub, beat 1 — THE LAUNCH (Wed): zero drift; the beat-6 order found UN-RUN → OVERTAKEN (one combined order); W-SKILLS-4 UN-RUN (law 37) → re-dispatched; P6 EXECUTED (coder-lessons 39,777 → 15,105 B, zero loss); the R-3a packet + WU-R3 authored ahead. Order: hivemind 8.)
+
+## Rotated 2026-08-29 (v58 beat 4): the v57 b5–b9 segments, verbatim, order as they stood
+
+- 2026-08-28 (v57 hub, beat 9, Fri PM — b94946a 6-of-7 (stale card; archive lands b9); RS-3 audited ACCEPT (5 primaries; 3 re-prices adopted); Pelton results ~Mon — same-day card armed; §9-2 pre-ruling; MHS addendum, waitlist WATCH; NFCU packet ready. Order: hivemind 8.)
+- 2026-08-28 (v57 hub, beat 8, Fri midday — 983bad5 landed; THE ORIGIN HASH PINNED (8156f4cb…); drafts (a)+(b) verified, the legal §4 closes; Pelton SEND NOW; the four sharpenings adopted into the packets; RS-3 tonight with the MHS datum; the MHS first read filed. Order: hivemind 7.)
+- 2026-08-28 (v57 hub, beat 7, Fri — draft (a) verified (one recital conform); the Pelton nudge ruled SEND; OR-TOKEN-MODE-644's core half found ALREADY FIXED at HEAD → PKG-SEC-1 shell-only, authored + HELD; W-SKILLS-5 authored; the ambitious-weekend program. Order: hivemind 4.)
+- 2026-08-27 (v57 hub, beat 6 — the origin anchor HELD (zip = digest, exact); the unpack-layout miss owned → the flatten step; ba96978 reconciled (staged 4 M, not 5 — the stale-chat-card lesson minted; the fifth file rides here); the navigator §4 rulings issued. Order: hivemind 5 M.)
+- 2026-08-27 (v57 hub, beat 5 — 51583f4 LANDED (8-exact); the R-3a chain re-anchored on GitHub's artifact digest (1fe1c812…); the bank ruling (Navy Federal, rec); the capital posture banked (strategy §3.5); FIN-1 minted. Order: hivemind 5 M.)

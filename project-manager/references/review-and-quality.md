@@ -5,7 +5,7 @@ audience: PM
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-08-18 (W-SKILLS-3 — the R-12 currency pass, dedicated fresh lane. TWO additions, zero retirements, everything else byte-unchanged: §3 gains THE LIVE-WIRE VERIFICATION RULE (H8/NEW-8b, v53 beat 4 — carrier assigned at this pass per the ratification) · §5 gains the H7 MEASURED-THEN-GREEN definition-of-done line (pointer: the v54 prompt §0). Census + token counts: `context/audits/2026-08-18_W-SKILLS-3_return.md`.) Prior: 2026-08-03 (W-SKILLS v44 — this file is now the **ONE HOME** of the Coder-technical-pushback evaluation protocol, relocated here from PM SKILL §4c's sibling §4a so the always-loaded skill carries the rule and this reference carries the procedure. All 15 original elements arrived intact, layer-2 verified; §1–§6 otherwise byte-unchanged. Census: `context/audits/2026-08-03_W-SKILLS_v44-pass_return.md`.) Prior: 2026-06-07 against commit 8028337.
+last-verified: 2026-08-29 (W-SKILLS-5 — the P7 fold: §6 step 7 marked RETIRED in place; the P3 six keep their slot count with the weekly-plan slot ticked N/A, and its load-bearing sentence re-pointed at Check 4 + the re-subjected Check 2. Everything else byte-unchanged. Return: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.) Prior: 2026-08-18 (W-SKILLS-3 — the R-12 currency pass, dedicated fresh lane. TWO additions, zero retirements, everything else byte-unchanged: §3 gains THE LIVE-WIRE VERIFICATION RULE (H8/NEW-8b, v53 beat 4 — carrier assigned at this pass per the ratification) · §5 gains the H7 MEASURED-THEN-GREEN definition-of-done line (pointer: the v54 prompt §0). Census + token counts: `context/audits/2026-08-18_W-SKILLS-3_return.md`.) Prior: 2026-08-03 (W-SKILLS v44 — this file is now the **ONE HOME** of the Coder-technical-pushback evaluation protocol, relocated here from PM SKILL §4c's sibling §4a so the always-loaded skill carries the rule and this reference carries the procedure. All 15 original elements arrived intact, layer-2 verified; §1–§6 otherwise byte-unchanged. Census: `context/audits/2026-08-03_W-SKILLS_v44-pass_return.md`.) Prior: 2026-06-07 against commit 8028337.
 -->
 
 # Review and Quality Protocol
@@ -227,7 +227,7 @@ After approving a completed work unit (Phase 2 block or Phase 3 milestone), exec
 4. Update `../context/handoff/pm-handoff.md` — including the Open Risks section for deferred build gates
 5. Append to `../context/lessons/pm-lessons.md` (if new patterns)
 6. Update `../context/status/PROJECT_SNAPSHOT.md`
-7. Update the current week's plan file
+7. RETIRED (weekly plans — Nick 2026-08-09; WUCP §Phase 2 Step 7; the step number is kept so cross-references stay resolvable)
 8. Deferred build gate audit — reconcile every deferred `./gradlew check` against Open Risks
 9. Drift check across all artifacts
 10. Dual skill-location sync check (`diff -rq` of both skill source trees vs `.claude/skills/nexsys-*` mirrors)
@@ -236,7 +236,7 @@ After approving a completed work unit (Phase 2 block or Phase 3 milestone), exec
 
 The WUCP Phase 2 checklist format is documented in `work-unit-completion-protocol.md` Step 12. Use it verbatim. (The skill-sync is **Step 10** in this 0-indexed scheme — matching the WUCP body and the freshness preflight.)
 
-**Ticked-artifact closeout (P3).** "Closeout applied" is not assertable until every artifact is ticked — the fixed six (PROJECT_SNAPSHOT incl. its Recent-Session-Log row; pm-handoff; cross-agent-notes; **coder-handoff with the gate flip OPEN→RESOLVED + commit SHA**; milestone-backlog; weekly-plan incl. its Current-state footer) plus the touched MODULE_CONTEXTs and any Doc body-folds the amendment mastheads point to. The freshness preflight's backlog/weekly checks are load-bearing precisely because a hurried closeout under-updates those two. Write the real commit SHA at closeout — retire the placeholder-`sed`.
+**Ticked-artifact closeout (P3).** "Closeout applied" is not assertable until every artifact is ticked — the fixed six (PROJECT_SNAPSHOT incl. its Recent-Session-Log row; pm-handoff; cross-agent-notes; **coder-handoff with the gate flip OPEN→RESOLVED + commit SHA**; milestone-backlog; the weekly-plan slot — RETIRED 2026-08-09, ticked N/A per WUCP §Phase 2 Step 7) plus the touched MODULE_CONTEXTs and any Doc body-folds the amendment mastheads point to. The freshness preflight's backlog check (Check 4) and plan-of-record check (Check 2 — re-subjected 2026-08-29 off the retired weekly plan) are load-bearing precisely because a hurried closeout under-updates those two. Write the real commit SHA at closeout — retire the placeholder-`sed`.
 
 **Amendment review depth (P4).** Match review ceremony to the amendment track (`constraint-enforcement.md §6`): a shared block review for trivial additive amendments; a full independent DOCS-Project review for anything touching a persisted shape, a behavioral contract, or a new invariant.
 

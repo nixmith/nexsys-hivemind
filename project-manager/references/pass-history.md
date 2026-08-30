@@ -5,7 +5,7 @@ audience: the skills lane (W-SKILLS-N) + the hub at a skills audit beat. NOT a l
 update-cadence: per skills pass — SKILL.md `last-verified:` keeps ONLY the newest pass's ≤ 400 B census verdict + return pointer; the demoted verdict line moves here whole, newest first, under §1.
 state-type: history (provenance)
 status: CURRENT
-last-verified: 2026-08-26 (W-SKILLS-4 — created; both lines below are byte-identical to SKILL.md :13–:14 as they stood at this pass's launch baseline (2026-08-18 → 2026-08-26), `cmp`-verified in the return §2: `context/audits/2026-08-26_W-SKILLS-4_return.md`.)
+last-verified: 2026-08-29 (W-SKILLS-5 — the W-SKILLS-4 verdict line demoted here WHOLE under §1, the first exercise of this file's update-cadence convention (ratified v57 beat 2 §A.7); byte-identical to SKILL.md :13 as it stood 2026-08-26 → 2026-08-29, `cmp`-verified in the return §2: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.) Prior: 2026-08-26 (W-SKILLS-4 — created; both lines below are byte-identical to SKILL.md :13–:14 as they stood at this pass's launch baseline (2026-08-18 → 2026-08-26), `cmp`-verified in the return §2: `context/audits/2026-08-26_W-SKILLS-4_return.md`.)
 -->
 
 # PM skill — pass history (provenance)
@@ -13,6 +13,10 @@ last-verified: 2026-08-26 (W-SKILLS-4 — created; both lines below are byte-ide
 Every line in this file is a RECORD of a past skills pass, kept whole so that no rule name a census ever counted goes unlocatable. The rules themselves live in `SKILL.md`'s four lists (arc-disciplines · durable-disciplines · strategy-layer · state-pointer) or at the sibling carriers the index in §2 names. Nothing here is loaded at a hub launch.
 
 ## §1 Demoted `last-verified:` verdict lines (newest first; each moved VERBATIM from the SKILL.md masthead)
+
+### Moved 2026-08-29 by W-SKILLS-5 (the SKILL.md `last-verified:` line as it stood 2026-08-26 → 2026-08-29)
+
+last-verified: 2026-08-26 (**W-SKILLS-4** — the launch-cost + conventions pass. **RULE CENSUS 60-in / 60-out, every name surviving, zero retirements; the four rule lists BYTE-UNCHANGED** (arc-disciplines 37 · durable D1–D18 · strategy-layer 4 · state-pointer 1). Return: `context/audits/2026-08-26_W-SKILLS-4_return.md`. Prior verdicts: `references/pass-history.md` §1.)
 
 ### Moved 2026-08-26 by W-SKILLS-4 (the SKILL.md `last-verified:` line as it stood 2026-08-18 → 2026-08-26)
 

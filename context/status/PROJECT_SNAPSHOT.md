@@ -5,7 +5,7 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-08-30 (v59 hub, beat 1, Sun ~16:25 — v59 BOOTED (EXECUTION WEEK); the v58 close adjudicated UN-RUN → the close duties executed at beat 1; THE SITTING LIVE (G3 issued; G4 margin ~4.5 h). Order: hivemind 4 = 3 M + 1 A. Detail: pm-handoff v59 beat 1.) Prior: 2026-08-30 (v58 hub, beat 11, Sun ~15:45 — the CI pair landed (run 33333075509; origin hash pinned 452a2f95…; the prediction EXACT on the third surface); THE R-4 PACKET COMPLETE — G1 closed; the sitting is GO on G3+G4. Order: hivemind 4 M. Detail: pm-handoff beat 11.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
+last-verified: 2026-08-30 (v59 hub, beat 2, Sun ~16:45 — the navigator dispatch (arc-35/H11): the sitting choreography → a fresh navigator session; the record scaffolded; the hub holds audit + lift. Order: hivemind 4 = 2 M + 2 A. Detail: pm-handoff v59 beat 2.) Prior: 2026-08-30 (v59 hub, beat 1, Sun ~16:25 — v59 BOOTED (EXECUTION WEEK); the v58 close adjudicated UN-RUN → the close duties executed at beat 1; THE SITTING LIVE (G3 issued; G4 margin ~4.5 h). Order: hivemind 4 = 3 M + 1 A. Detail: pm-handoff v59 beat 1.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
 -->
 # Project Snapshot
 
@@ -23,4 +23,4 @@ last-verified: 2026-08-30 (v59 hub, beat 1, Sun ~16:25 — v59 BOOTED (EXECUTION
 
 **Fences (unchanged):** the D-1 pair until R-4 · `README.md:117` until W2-3 · no public brand use before G-2 · s31/nightly HANDS OFF until R-5 · the hub never implements · ONE COORDINATOR, ONE BOOT · no public sentence outside the register · orders never edited/grown after their card ships · the §VIII(4) consent at the LICENSE flip · held card `7c9e4fa` UNPATCHED · bench floor 8/9 (Tue 03:00 CT) · PKG-SEC-1 held post-R-4.
 
-**Next:** Nick — G3 → the sitting §1→§7 from the packet ON DISK → ⏺s here. **PELTON → the word → the card.**
+**Next:** the NAVIGATOR session walks the sitting (the beat-2 dispatch); Nick returns HERE with one line — `R-4 record filed` | `STOP at §X` → the hub audit → the lift + the mint. **PELTON → the word → the card.**

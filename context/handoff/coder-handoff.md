@@ -10,6 +10,8 @@ last-verified: 2026-08-23 (Coder, R-7b version-scheme closeout — the R7b DELIV
 
 # Coder Session Handoff
 
+> **CURRENCY STAMP (v59 beat 4, 2026-08-30 — the PKG-SEC-1 §4 stale-constant sweep):** every entry below is HISTORICAL — R-9/R-7b/R-3b all LANDED (core `7c57d7f`). The current lane state: **PKG-SEC-1 DELIVERED** (3 M uncommitted at `7c57d7f`; return `context/audits/2026-08-30_PKG-SEC-1_return.md`; hub audit ACCEPT at `context/audits/2026-08-30_PKG-SEC-1_intake_audit_v59-beat-4.md`; Nick’s commit + push + CI pends). **run-smoke ok-sites are now 23** — the 19-PASS / 18/18 counts quoted below are historical, never re-pin them.
+
 ---
 
 ## R-7b — the version scheme `0.1.0+git<YYYYMMDD.HHMMSS>.g<sha>` (R-V) + the skeleton fence + HS_DIST_DIR/git-first order + the node/upload majors + riders i/j/k + E1 (CORE repo, distribution-only) — DELIVERED (2026-08-23; NEWEST — authoritative for the CORE lane; supersedes the R-9 DELIVERED entry below as lane-newest — R-9 landed at e845cd9)

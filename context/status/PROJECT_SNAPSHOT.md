@@ -5,7 +5,7 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-08-31 (v59 hub, beat 8, Mon ~17:25 — THE PELTON WORD: B-MIXED at the card; same-day acts executed; the DOMO layer-2 to the call; the B reply + cap word to Nick. Order: hivemind 4 = 3 M + 1 A. Detail: pm-handoff v59 beat 8.) Prior: 2026-08-31 (v59 hub, beat 7, Mon ~12:25 — CI banked GREEN on c368909 → OR-TOKEN-MODE-644 CLOSED; FE-HONEST-1 LANDED f519f42 (frontend.yml green; verify reproduced; porcelain clean). Order: hivemind 3 M. Detail: pm-handoff v59 beat 7.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
+last-verified: 2026-08-31 (v59 hub, beat 9, Mon ~17:45 — RS-6 chartered (the ZENDOMO filing-decision lane; dispatch-at-will). Order: hivemind 3 = 2 M + 1 A. Detail: pm-handoff v59 beat 9.) Prior: 2026-08-31 (v59 hub, beat 8, Mon ~17:25 — THE PELTON WORD: B-MIXED at the card; same-day acts executed; the DOMO layer-2 to the call; the B reply + cap word to Nick. Order: hivemind 4 = 3 M + 1 A. Detail: pm-handoff v59 beat 8.) Prior: 2026-08-31 (v59 hub, beat 7, Mon ~12:25 — CI banked GREEN on c368909 → OR-TOKEN-MODE-644 CLOSED; FE-HONEST-1 LANDED f519f42 (frontend.yml green; verify reproduced; porcelain clean). Order: hivemind 3 M. Detail: pm-handoff v59 beat 7.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
 -->
 # Project Snapshot
 
@@ -21,4 +21,4 @@ last-verified: 2026-08-31 (v59 hub, beat 8, Mon ~17:25 — THE PELTON WORD: B-MI
 
 **Fences (pm-handoff carries the roster):** D-1 pair · README:117 · G-2 brand (EVERY branch) · s31/nightly · hub-never-implements · one-coordinator · register-only public sentences · §VIII(4).
 
-**Next:** Nick — the B reply + the cap word + the NFCU call. **The call → the scoping ruling → the branch word.**
+**Next:** Nick — the B reply + the cap word + the NFCU call; dispatch RS-6 at will. **The call → the scoping ruling → the branch word.**

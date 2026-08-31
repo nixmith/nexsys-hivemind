@@ -5,7 +5,7 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-08-30 (v59 hub, beat 3, Sun ~21:20 — R-4 intake: ACCEPT-WITH-NOTES, THREE OF FOUR (C4 miss-blocked structural — F-R4-2); the D-1 lift HELD; MINT-NARROW|HOLD to Nick; PKG-SEC-1 un-held; bench floor [PASS]. Order: hivemind 4 = 3 M + 1 A. Detail: pm-handoff v59 beat 3.) Prior: 2026-08-30 (v59 hub, beat 2, Sun ~16:45 — the navigator dispatch (arc-35/H11): the sitting choreography → a fresh navigator session; the record scaffolded; the hub holds audit + lift. Order: hivemind 4 = 2 M + 2 A. Detail: pm-handoff v59 beat 2.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
+last-verified: 2026-08-30 (v59 hub, beat 3, Sun ~21:20 — R-4 intake: ACCEPT-WITH-NOTES, THREE OF FOUR (C4 miss-blocked structural — F-R4-2); the D-1 lift HELD; MINT-NARROW|HOLD to Nick; PKG-SEC-1 un-held; bench floor [PASS]. Order: hivemind 5 = 4 M + 1 A. Detail: pm-handoff v59 beat 3.) Prior: 2026-08-30 (v59 hub, beat 2, Sun ~16:45 — the navigator dispatch (arc-35/H11): the sitting choreography → a fresh navigator session; the record scaffolded; the hub holds audit + lift. Order: hivemind 4 = 2 M + 2 A. Detail: pm-handoff v59 beat 2.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
 -->
 # Project Snapshot
 
@@ -13,7 +13,7 @@ last-verified: 2026-08-30 (v59 hub, beat 3, Sun ~21:20 — R-4 intake: ACCEPT-WI
 
 ## The digest (v59 beat 3 — Sun 2026-08-30, ~21:20)
 
-**HEADs:** core **`7c57d7f`** · hivemind `5c9b5f5` + the beat-3 order (**4 = 3 M + 1 A**) · skills `edcf060` · bench `4539f13` · docs `a53f474`. Boundary law holds.
+**HEADs:** core **`7c57d7f`** · hivemind `5c9b5f5` + the beat-3 order (**5 = 4 M + 1 A**) · skills `edcf060` · bench `4539f13` · docs `a53f474`. Boundary law holds.
 
 **R-4 RAN AND CLOSED (Sun eve, via the navigator session): THREE OF FOUR.** C1/C2/C3 MET at the ⏺s (hash chain 3-hop identical `452a2f95…` · ordinary upgrade, zero loss, integrity ok · loosening FROM THE UNIT · resumed every start, formed 0 · rows 70→80, discriminator 0). C4 MISS-BLOCKED — STRUCTURAL: **F-R4-2 (MAJOR)** custody clones the NETWORK not the REGISTRY (bench pos 25065/6-dev vs held 40/2-dev); bench-hero refs belong to the bench card. **F-R4-1**: the shipped pipeline converts no silent-rejoiner. Record: `audits/2026-08-30_R4_re-rep_operator-record.md` · audit: `audits/2026-08-30_R4_intake_two-layer-audit_v59-beat-3.md` (ACCEPT-WITH-NOTES; all raised contradictions benign-with-mechanism). **THE D-1 LIFT DID NOT WRITE — Nick's word pends: MINT-NARROW | HOLD.**
 

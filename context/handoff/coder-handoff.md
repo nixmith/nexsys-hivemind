@@ -10,7 +10,7 @@ last-verified: 2026-08-23 (Coder, R-7b version-scheme closeout — the R7b DELIV
 
 # Coder Session Handoff
 
-> **CURRENCY STAMP (v59 beat 4, 2026-08-30 — the PKG-SEC-1 §4 stale-constant sweep):** every entry below is HISTORICAL — R-9/R-7b/R-3b all LANDED (core `7c57d7f`). The current lane state: **PKG-SEC-1 DELIVERED** (3 M uncommitted at `7c57d7f`; return `context/audits/2026-08-30_PKG-SEC-1_return.md`; hub audit ACCEPT at `context/audits/2026-08-30_PKG-SEC-1_intake_audit_v59-beat-4.md`; Nick’s commit + push + CI pends). **run-smoke ok-sites are now 23** — the 19-PASS / 18/18 counts quoted below are historical, never re-pin them.
+> **CURRENCY STAMP (v59 close, 2026-08-31):** every entry below is HISTORICAL. Core HEAD **`f519f42` CLEAN** — PKG-SEC-1 LANDED `c368909` (CI green, run 33346067195; OR-TOKEN-MODE-644 CLOSED) and FE-HONEST-1 LANDED `f519f42` (frontend.yml 33418520416 green). run-smoke ok-sites = 23 (the 19-PASS / 18/18 counts below are historical, never re-pin). Next core WUs charter at R-10: the CG-1/2/3 additive contract amendment · the F-R4-1 adoption-gap ruling · PKG-SEC-2 (`context/planning/2026-08-30_R10-docket_additions_from-R4.md`).
 
 ---
 

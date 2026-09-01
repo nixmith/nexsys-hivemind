@@ -182,3 +182,15 @@ The beat-5 queue was delivered to the chat as a file card, then edited ON-DEVICE
 - Dated quarterlies over event triggers.
 - Banking packets stage the ≤60-day Good-Standing certificate.
 - The §G screenshot carve-out for navigator packets.
+
+## 2026-08-31 — THE v59 CLOSE MINTS (folded AT the close — the close ran this time)
+
+- **Lift criteria are checked REACHABLE against the instrument's own census at packet authoring** (second §9-B-class occurrence — R-4's C4 was unreachable at dispatch: two sensor entities, no actuator, on file in the R-3a return).
+- **A census line names its UNIT and stays re-derivable from the artifact** (the "35 operator paste-backs" vs 31-surviving-glyphs mismatch, R-4 record intake).
+- **A lane may re-pin an existing test lock ONLY when the lock itself encodes the chartered defect — and must disclose it** (FE-HONEST-1: the old assertion locked the §10-G false wording; hub-ruled ACCEPT).
+- **A CHAIN ROTATION ALWAYS COUNTS THE ARCHIVE FILE IN THE BEAT CENSUS** (fired twice in one session, v59 b3 and b6).
+- **GUARDED SPLICES: every assert AND every region-cap check runs BEFORE the first byte is written.** A write-then-assert script leaves breached files on disk (fired repeatedly v59 b6–b11; the b6 snapshot shipped 3,722 B over-cap before the fix). Compute all transforms, assert all caps, then write.
+- **The operator-day law extends to the hub's own BEAT STAMPS**: every stamp re-derives the clock at the instrument (harvest-5 fired ON THE HUB — b3/b3a stamped ~21:20 from a mental clock while the instrument read 19:45).
+- **Desk gotchas (PKG-SEC-1 lane, msys/Git-Bash):** `TZ=<IANA>` date silently reports GMT (no tzdata) — cross-derive CT from the local clock or the Windows tz database; `MSYS2_ARG_CONV_EXCL='*'` disables path-mangling for `wsl -e` args.
+- **Counsel emails are QUESTION-SHAPED; the lean is withheld until counsel's grading lands** — the unbiased-instrument law applied to counsel (the Pelton pre-call email, v59 b11).
+- **The two-axis brand-risk frame** (carrier: the b8/b10 brand-program records): registration failure = recoverable (fees/months); use-stoppage = the catastrophic axis; a §1(b) filing is use-independent INFORMATION-PURCHASE — the examiner's answer arrives before public use exists, and the priority date is the asset waiting forfeits.

@@ -73,3 +73,7 @@ Prior: 2026-08-30 (v59 hub, beat 5, Sun ~20:20 — PKG-SEC-1 COMMITTED+PUSHED by
 ## chain segment rotated 2026-08-31 (v59 beat 11) — v59 b6, verbatim
 
 Prior: 2026-08-30 (v59 hub, beat 6, Sun ~21:45 — BOTH EVENING LANES RETURNED + AUDITED (one combined audit): RS-5 ACCEPT-WITH-NOTES (2 ★s hub-re-fetched VERBATIM-CONFIRMED; Doc 18 readings faithful at the bytes; THE CONVERGENCE FINDING — plugins-as-data-with-a-measured-verdict — to the strategy beat) · FE-HONEST-1 ACCEPT repo-complete (11 paths verified at porcelain; the test re-pin ruled ACCEPT; CG-1/2/3 docketed as ONE additive amendment; gate of record = Nick's verify/CI). Order: hivemind 7 = 4 M + 3 A.)
+
+## chain segment rotated 2026-08-31 (v59 CLOSE) — v59 b7, verbatim
+
+Prior: 2026-08-31 (v59 hub, beat 7, Mon ~12:25 — CI BANKED GREEN on c368909 (install-smoke 33346067195; the two PASS mode-600 lines VERBATIM — the first mechanical confirmation of the R-6/R-8 mint fix on a fresh install) → OR-TOKEN-MODE-644 CLOSED · FE-HONEST-1 LANDED f519f42 (frontend.yml 33418520416 GREEN; verify 230/230 REPRODUCED at the keyboard; porcelain-verified CLEAN; the +315-vs-668 stat reconciled clean) · the reading guide delivered. Order: hivemind 3 M.)

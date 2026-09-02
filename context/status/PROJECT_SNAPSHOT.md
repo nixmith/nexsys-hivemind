@@ -5,22 +5,22 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-09-02 (v60 hub, beat 2, Wed ~08:10 — RS-7 + the second opinion AUDITED ACCEPT (seven ★ re-fetched verbatim); WISCOR RETIRED (the spoken form is Whisker's mark) · ZINDOMO RETIRED · VERDOMO the incumbent hedge · the channel-neighbour-first mint · RS-8 CHARTERED (coinage sprint + the 08-13 slate, inverted screen) · the email to Erik drafted · the words out (W-1 RETIRE-BOTH→RS-8 rec · W-2 send). Order: hivemind 8 = 3 M + 5 A. Detail: pm-handoff v60 beat 2.) Prior: 2026-09-02 (v60 hub, beat 1, Wed ~07:10 — the v60 boot, zero drift; Tuesday intaken: NFCU OPEN (FIN-1's row closed); the Pelton call graded ASARUM hard on first-to-use → HOLD-AND-SWITCH; ZINDOMO + WISCOR → RS-7 chartered; the scoping ruling filed. Order: hivemind 6 = 4 M + 2 A. Detail: pm-handoff v60 beat 1.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
+last-verified: 2026-09-02 (v60 hub, beat 3, Wed ~09:00 — Nick's words: W-1 = (a), W-2 = SEND; the plan of record filed (VERDOMO the default search name; RS-8 the parallel challenger; the ONE comprehensive Fri 09-04; file 9+42 the week of 09-14; hard stop 09-18; two searches max; no chat grading). Order: hivemind 3 = 2 M + 1 A. Detail: pm-handoff v60 beat 3.) Prior: 2026-09-02 (v60 hub, beat 2, Wed ~08:10 — RS-7 + the second opinion AUDITED ACCEPT; WISCOR + ZINDOMO RETIRED; VERDOMO the incumbent hedge; the channel-neighbour-first mint; RS-8 CHARTERED. Order: hivemind 8 = 3 M + 5 A. Detail: pm-handoff v60 beat 2.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
 -->
 # Project Snapshot
 
 > **How to read this file:** the frontmatter `last-verified:` chain above (2 pointer segments + the rotation pointer) is the session record; the body below is an OVERWRITTEN DIGEST (W-HIVE-1 P9, ≤2 KB) — rewritten every beat, never appended. The chain and the newest pm-handoff beat block outrank everything else. **The operator's copy-source of record is the file on disk, never a chat card.** Full history: `context/handoff/archive/chains-pre-region-cap-2026-08-23.md` + `archive/PROJECT_SNAPSHOT-priors-rotated-2026-08-21.md`.
 
-## The digest (v60 beat 2 — Wed 2026-09-02, ~08:10)
+## The digest (v60 beat 3 — Wed 2026-09-02, ~09:00)
 
-**HEADs:** core `f519f42` CLEAN · hivemind = the v60 beat-2 commit (ahead of origin; Nick's push pending) · skills `edcf060` · bench `4539f13` · docs `a53f474`.
+**HEADs:** core `f519f42` CLEAN · hivemind = the v60 beat-3 commit (ahead of origin; Nick's push pending) · skills `edcf060` · bench `4539f13` · docs `a53f474`.
 
-**THE BRAND, TODAY:** ZENDOMO HELD (counsel: ASARUM hard on first-to-use) · **WISCOR RETIRED** (the spoken form is Whisker's mark — WHISKER CONNECT/WHISKEROS, an HA integration, six TTAB oppositions in 2025; seven primaries hub-confirmed) · **ZINDOMO RETIRED** · VERDOMO = the incumbent hedge (loud: 67 live DOMOs). **RS-8 CHARTERED** — the coinage sprint + the 08-13 slate through the INVERTED screen (channel-neighbour + homophones FIRST; the comprehensive LAST, fed one name): `context/strategy/brand-program/2026-09-02_RS8_successor-name_coinage-sprint_research-charter.md`. The ruling + the email draft: `…/2026-09-02_successor-name_ruling_post-RS7.md`. Target: one name to Erik by Wed 09-09.
+**THE NAME — THE PLAN OF RECORD** (`context/strategy/brand-program/2026-09-02_successor-name_plan-of-record_two-track.md`): ZENDOMO · ZINDOMO · WISCOR retired. **Track 1: VERDOMO = the default search name** (the floor). **Track 2: RS-8 runs today** (the six broker names ride); it displaces VERDOMO only on the screen AND Nick's preference — **Thu 09-03**. **Fri 09-04: the ONE comprehensive** at Erik's quote → the opinion ~09-11/14 → **FILE §1(b) 9+42 the week of 09-14** → **hard stop Fri 09-18** (the runner-up to the second and LAST search). Two searches = the cap. **Rule: no name-by-name grading in chat.** The email to Erik: SENT 09-02 (plan §3).
 
-**NICK'S WORDS OUT:** W-1 RETIRE-BOTH → RS-8 (rec) | + the WISCOR question-line | WISCOR-to-comprehensive | VERDOMO-now · W-2 send the Erik email. NFCU: OPEN (FIN-1 closed). **Still un-relayed:** the bench floor · MINT-NARROW|HOLD · RATIFY · RATIFY-PLAN · the Annex paste.
+**Un-relayed (fifth remark):** the bench floor · MINT-NARROW|HOLD · RATIFY · RATIFY-PLAN · the Annex paste. NFCU: OPEN (FIN-1 closed).
 
 **Standing:** today's HA 2026.9 skim · O-2 · the H8 FE exercise · the R-10 docket Fri–Sat · 09-09 Apple (the §9-2 paste). R-4: 3-of-4, the lift HELD.
 
-**Fences:** no public brand use before a written-opinion-backed R-1 — oral leans are not opinions · no domain purchase (wiscor.com $2,699 NOT bought) · the D-1 pair pending the word · register-only public sentences.
+**Fences:** no public brand use before a written-opinion-backed R-1 — filing changes nothing here · no domain purchase before the opinion · counsel hears the candidate at commissioning · the D-1 pair pending the word.
 
-**Next:** RS-8 return → audit → the bracket → counsel's light knockout on 2–3 → ONE comprehensive.
+**Next:** RS-8 return → audit → the search-name word → commission → file.

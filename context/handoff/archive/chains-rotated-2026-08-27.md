@@ -83,3 +83,7 @@ Prior: 2026-08-31 (v59 hub, beat 7, Mon ~12:25 — CI BANKED GREEN on c368909 (i
 Prior: 2026-08-31 (v59 hub, beat 9, Mon ~17:45 — RS-6 CHARTERED (the ZENDOMO file-or-switch evidence lane, Nick's ask, the shutdown axis weighted; enforcement-propensity crux + crowd arithmetic + shutdown-vector ranking + the VERDOMO screen; dispatch-at-will; feeds the decision + the Pelton call). Order: hivemind 3 = 2 M + 1 A.)
 
 Prior: 2026-08-31 (v59 hub, beat 8, Mon ~17:25 — THE PELTON WORD ARRIVED (EMP&A summary 08-31 + the 08-21 TM Ready report): CLASSIFIED **B-MIXED** AT THE CARD, same-day acts executed — NO public act; G-2 holds at §1; runbook/FE-flip/B-1 HOLD; the placeholder subset proceeds (v1.1 §2-P1); the B scaffold reply to Nick TODAY + the pre-auth cap word; the call = the scoping instrument (ruling files post-call). Layer-2 at the raw report: the STANDALONE-DOMO family unpriced in the letter (the MAZIGH pending cl-9 smart-home-security DOMO; the LOCKIN pending speakers DOMO; NHK/Linea/Domo-Inc actives) — on the call agenda. Order: hivemind 4 = 3 M + 1 A.)
+
+## chain segment rotated 2026-09-02 (v60 beat 2) — v59 b10, verbatim
+
+Prior: 2026-08-31 (v59 hub, beat 10, Mon ~18:45 — RS-6 AUDITED ACCEPT: THE TWO-ZENDO FINDING confirmed by four hub re-fetches (the registrant vs the HA/Homey-app developer — the sharpest sentence priced the composite); LOCKIN's DOMO REGISTERED 08-18; FILE-NOW lean CONCURRED conditioned on the call. Order: hivemind 5 = 3 M + 2 A.)

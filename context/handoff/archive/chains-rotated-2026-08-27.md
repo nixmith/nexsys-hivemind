@@ -87,3 +87,7 @@ Prior: 2026-08-31 (v59 hub, beat 8, Mon ~17:25 — THE PELTON WORD ARRIVED (EMP&
 ## chain segment rotated 2026-09-02 (v60 beat 2) — v59 b10, verbatim
 
 Prior: 2026-08-31 (v59 hub, beat 10, Mon ~18:45 — RS-6 AUDITED ACCEPT: THE TWO-ZENDO FINDING confirmed by four hub re-fetches (the registrant vs the HA/Homey-app developer — the sharpest sentence priced the composite); LOCKIN's DOMO REGISTERED 08-18; FILE-NOW lean CONCURRED conditioned on the call. Order: hivemind 5 = 3 M + 2 A.)
+
+## chain segment rotated 2026-09-02 (v60 beat 4) — v59 b11, verbatim
+
+Prior: 2026-08-31 (v59 hub, beat 11, Mon ~20:15 — THE CALL BOOKED (Tue 09-01 14:30) + THE PREP PACKET FILED (the question-shaped pre-call email · 7-item agenda · cited facts · do-not-say · outcome tree); ruling: SEND the reply tonight, lean withheld; the myzendo read adjudicated both edges. Order: hivemind 3 = 2 M + 1 A.)

@@ -179,3 +179,13 @@ Recorded because §0.3's channel was exceeded and the hub should decide whether 
 - No screenshot was ever requested.
 - Nick's health data was explicitly declined rather than collected, at §C.3.3.
 - **No commit, no push, no staging.** This file is the only thing written to the repository. Nick commits it per the hub's order.
+
+---
+
+## §I — The state word (appended 2026-09-02, v60 beat 1; §F.6 said this return is appendable)
+
+**Nick's word, Tue 2026-09-01 (relayed Wed 09-02 at the v60 boot), verbatim:** "I was able to fully set up the NFCU business account, and we are now officially set up with that and can use the account as necessary."
+
+**State: COMPLETED + OPERATIONAL.** FIN-1's "NFCU business account opened" row **CLOSES** on this word. No §0.2 datum was requested or recorded; no account number, balance, or credential appears anywhere in the hivemind.
+
+**What remains open under FIN-1 (Nick's own checklist, unverified by the hub, attested when he chooses):** §F.5's day-one items — alerts on every debit · strongest available MFA · statements on · share minimum maintained · recurring business charges migrated off the personal card as renewals come up. The **10-01 quarterly** tripwire keeps its NFCU share-minimum line. §C.4's capitalisation observation stands as written: the hygiene law is theoretical until the account carries the company's actual recurring expenses — a September-plan row, not a bank question.

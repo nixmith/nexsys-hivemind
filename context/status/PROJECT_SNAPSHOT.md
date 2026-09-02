@@ -5,22 +5,22 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-08-31 (v59 CLOSE, Mon ~22:20 — the close RAN: the v60 prompt authored slots-filled; the mints folded; the stance filed; pointers refreshed. Order: hivemind 7 = 5 M + 2 A. Detail: pm-handoff v59 CLOSE.) Prior: 2026-08-31 (v59 hub, beat 11, Mon ~20:15 — the call BOOKED Tue 14:30; the prep packet FILED; send the reply tonight. Order: hivemind 4 = 3 M + 1 A. Detail: pm-handoff v59 beat 11.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
+last-verified: 2026-09-02 (v60 hub, beat 1, Wed ~07:10 — the v60 boot, zero drift; Tuesday intaken: NFCU OPEN (FIN-1's row closed); the Pelton call graded ASARUM hard on first-to-use → HOLD-AND-SWITCH; ZINDOMO + WISCOR → RS-7 chartered; the scoping ruling filed; the H10 words out. Order: hivemind 6 = 4 M + 2 A. Detail: pm-handoff v60 beat 1.) Prior: 2026-08-31 (v59 CLOSE, Mon ~22:20 — the close RAN: the v60 prompt authored slots-filled; the mints folded; the stance filed; pointers refreshed. Order: hivemind 7 = 5 M + 2 A. Detail: pm-handoff v59 CLOSE.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
 -->
 # Project Snapshot
 
 > **How to read this file:** the frontmatter `last-verified:` chain above (2 pointer segments + the rotation pointer) is the session record; the body below is an OVERWRITTEN DIGEST (W-HIVE-1 P9, ≤2 KB) — rewritten every beat, never appended. The chain and the newest pm-handoff beat block outrank everything else. **The operator's copy-source of record is the file on disk, never a chat card.** Full history: `context/handoff/archive/chains-pre-region-cap-2026-08-23.md` + `archive/PROJECT_SNAPSHOT-priors-rotated-2026-08-21.md`.
 
-## The digest (v59 CLOSE — Mon 2026-08-31, ~22:20)
+## The digest (v60 beat 1 — Wed 2026-09-02, ~07:10)
 
-**THE v60 SESSION BOOTS FROM `context/handoff/2026-08-31_PM-mission-control_v60_orchestrator_session_prompt.md` (slots filled at this close).**
+**HEADs:** core `f519f42` CLEAN · hivemind = the v60 beat-1 commit (ahead of origin; Nick's push pending) · skills `edcf060` · bench `4539f13` · docs `a53f474`.
 
-**HEADs:** core **`f519f42`** CLEAN (FE-HONEST-1 landed; PKG-SEC-1 `c368909` CI green; OR-TOKEN-MODE-644 CLOSED) · hivemind = the v59 CLOSE commit · skills `edcf060` · bench `4539f13` · docs `a53f474`.
+**TUESDAY, INTAKEN:** NFCU **OPEN + OPERATIONAL** (FIN-1's row CLOSED; the return §I). **THE PELTON CALL:** ASARUM = the one real red flag on FIRST-TO-USE (USD pricing + US downloads) even with the two entities split → **HOLD-AND-SWITCH**; the FILE-lean SUPERSEDED. **Successor candidates: ZINDOMO (counsel's oral lean) · WISCOR (Nick's coined name) → RS-7 CHARTERED** (`context/strategy/brand-program/2026-09-02_RS7_WISCOR-ZINDOMO_clearance-screen_research-charter.md`; dispatch = Nick's one-paste line). The ruling: `context/strategy/brand-program/2026-09-02_pelton-call_scoping-ruling.md`.
 
-**TUESDAY (decision day):** the bench floor relay (03:00 CT run) · **the NFCU call** (§F checklist) · **THE PELTON CALL 14:30** (prep packet + Nick's FILE-lean stance on file, lean withheld) → the scoping ruling that evening → **FILE | SWITCH**. Wed: the HA 2026.9 skim.
+**NICK'S WORDS OUT:** W-1 HOLD-ZENDOMO-PENDING-RS7 (rec) | FILE-DESPITE | SWITCH-NOW-ZINDOMO · W-2 the follow-up email to Erik. **Still un-relayed:** the bench floor · MINT-NARROW|HOLD · RATIFY · RATIFY-PLAN · the Annex paste.
 
-**Standing:** the THREE WORDS (MINT-NARROW|HOLD · RATIFY · RATIFY-PLAN) + the Annex paste · O-2 · the H8 FE exercise · the R-10 docket Fri–Sat (+ the additions file + the RS-5 convergence ruling). R-4: 3-of-4, the lift HELD.
+**Standing:** today's HA 2026.9 skim · O-2 · the H8 FE exercise · the R-10 docket Fri–Sat · 09-09 Apple (the §9-2 paste). R-4: 3-of-4, the lift HELD.
 
-**Fences (pm-handoff §6/v60 §3.6 carries the roster):** no public brand use before a written-opinion-backed R-1 — FILING CHANGES NOTHING HERE · the D-1 pair pending the word · register-only public sentences · the backup name unspoken unless commissioning.
+**Fences:** no public brand use before a written-opinion-backed R-1 — an ORAL lean on a call is not a written opinion; FILING CHANGES NOTHING HERE · WISCOR unspoken to counsel until commissioning · the D-1 pair pending the word · register-only public sentences.
 
-**Next:** dispatch v60 with the one-paste line; Tuesday routes the rest.
+**Next:** RS-7 return → the two-layer audit → the branch word → counsel's search on ONE survivor.

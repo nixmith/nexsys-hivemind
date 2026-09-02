@@ -77,3 +77,9 @@ Prior: 2026-08-30 (v59 hub, beat 6, Sun ~21:45 — BOTH EVENING LANES RETURNED +
 ## chain segment rotated 2026-08-31 (v59 CLOSE) — v59 b7, verbatim
 
 Prior: 2026-08-31 (v59 hub, beat 7, Mon ~12:25 — CI BANKED GREEN on c368909 (install-smoke 33346067195; the two PASS mode-600 lines VERBATIM — the first mechanical confirmation of the R-6/R-8 mint fix on a fresh install) → OR-TOKEN-MODE-644 CLOSED · FE-HONEST-1 LANDED f519f42 (frontend.yml 33418520416 GREEN; verify 230/230 REPRODUCED at the keyboard; porcelain-verified CLEAN; the +315-vs-668 stat reconciled clean) · the reading guide delivered. Order: hivemind 3 M.)
+
+## chain segments rotated 2026-09-02 (v60 beat 1) — v59 b8–b9, verbatim
+
+Prior: 2026-08-31 (v59 hub, beat 9, Mon ~17:45 — RS-6 CHARTERED (the ZENDOMO file-or-switch evidence lane, Nick's ask, the shutdown axis weighted; enforcement-propensity crux + crowd arithmetic + shutdown-vector ranking + the VERDOMO screen; dispatch-at-will; feeds the decision + the Pelton call). Order: hivemind 3 = 2 M + 1 A.)
+
+Prior: 2026-08-31 (v59 hub, beat 8, Mon ~17:25 — THE PELTON WORD ARRIVED (EMP&A summary 08-31 + the 08-21 TM Ready report): CLASSIFIED **B-MIXED** AT THE CARD, same-day acts executed — NO public act; G-2 holds at §1; runbook/FE-flip/B-1 HOLD; the placeholder subset proceeds (v1.1 §2-P1); the B scaffold reply to Nick TODAY + the pre-auth cap word; the call = the scoping instrument (ruling files post-call). Layer-2 at the raw report: the STANDALONE-DOMO family unpriced in the letter (the MAZIGH pending cl-9 smart-home-security DOMO; the LOCKIN pending speakers DOMO; NHK/Linea/Domo-Inc actives) — on the call agenda. Order: hivemind 4 = 3 M + 1 A.)

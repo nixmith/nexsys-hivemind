@@ -91,3 +91,9 @@ Prior: 2026-08-31 (v59 hub, beat 10, Mon ~18:45 — RS-6 AUDITED ACCEPT: THE TWO
 ## chain segment rotated 2026-09-02 (v60 beat 4) — v59 b11, verbatim
 
 Prior: 2026-08-31 (v59 hub, beat 11, Mon ~20:15 — THE CALL BOOKED (Tue 09-01 14:30) + THE PREP PACKET FILED (the question-shaped pre-call email · 7-item agenda · cited facts · do-not-say · outcome tree); ruling: SEND the reply tonight, lean withheld; the myzendo read adjudicated both edges. Order: hivemind 3 = 2 M + 1 A.)
+
+## chain segments rotated 2026-09-02 (v60 beat 5) — v60 b3a + b3, verbatim
+
+Prior: 2026-09-02 (v60 hub, beat 3a, Wed ~09:10 — the RS-7 lane's §7 ADDENDUM landed on the mount post-b2 (Nick's direct ask to the lane, ~08:00): WYZCOR · WYZCORE = KNOCKOUTS — zero on every register, but the Y-spelling reads 'Wyze Core' (Wyze's own Home Monitoring Core kit) in front of a ~21-mark incontestable Wyze family in our exact goods/channel; wyzcore.com a live third-party business; hub-read ACCEPT, consistent with the retire ruling; committed for porcelain hygiene. Order: hivemind 3 M.)
+
+Prior: 2026-09-02 (v60 hub, beat 3, Wed ~09:00 — NICK'S WORDS: W-1 = (a) RETIRE-BOTH → RS-8 in parallel, the WISCOR line NOT sent · W-2 = SEND (the email finalised, as-sent text filed) · THE PLAN OF RECORD FILED (brand-program/2026-09-02_successor-name_plan-of-record_two-track.md): VERDOMO = the default search name (the floor); RS-8 the free challenger, displacing only on the screen AND Nick's preference (Thu 09-03); the ONE comprehensive Fri 09-04 at Erik's quote; file §1(b) 9+42 the week of 09-14; the hard stop Fri 09-18 → the runner-up to the second and LAST search; the rule change: no name-by-name grading in chat · the last eight chat-graded names recorded (six broker names ride RS-8; ZENUBI/ZENNODI graded — ASUS ZENWIFI + CERN ZENODO verified at Justia — ride only if appended). Order: hivemind 3 = 2 M + 1 A.)

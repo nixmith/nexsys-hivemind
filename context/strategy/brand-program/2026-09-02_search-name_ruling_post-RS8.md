@@ -57,3 +57,5 @@ G-2: no public use of HUSHOLM or any name before a written-opinion-backed R-1. N
 
 **§3 revised — the go-ahead email (send on Erik's quote; the name spoken at commissioning):**
 > Hi Erik — thanks for the quote. Please go ahead with the comprehensive search and written opinion on **VERDOMO** (one word, V-E-R-D-O-M-O), for an intent-to-use application in Classes 9 and 42 in the name of NexSys LLC, with identifications drawn to local-first home-automation and device-control software. Three things from our own screen you'll want to grade: the standalone-DOMO family in Classes 9/42 (DOMOTZ, MAJORDOMO, DOMOS, LOCKIN's DOMO, Domo Inc.) — how the crowd cuts; a small Spanish property-management company using the same string with a 2025 Class 36 filing in Spain — relevant only to any later EU filing, I assume, but I'd like your read; and whether "domo" as a domotics root raises any descriptiveness question in EU markets we should plan around. — Nick
+
+**§5.1 (beat 6):** the go-ahead email is SUPERSEDED by the FINAL text at `2026-09-02_VERDOMO_EU-priors_assessment.md` §5 (adds the EUTM VERDOMONDO row). The assessment's §4 decision tree governs the act on Erik's reply.

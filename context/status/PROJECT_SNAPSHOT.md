@@ -5,13 +5,13 @@ audience: All
 update-cadence: per-WU
 state-type: current
 status: CURRENT
-last-verified: 2026-09-02 (v61 beat 4, Wed ~20:03 — the v62 skeleton authored (slots fill at the close); the clock law + no-commit-on-failed-splice written into its §0; the 3a stamp disclosed. Order: hivemind 4 = 3 M + 1 A. Detail: pm-handoff v61 beat 4.) Prior: 2026-09-02 (v61 beat 3, Wed ~19:58 — the R-10 docket cards authored ahead (16 H10 rows, each ≤2 KB, each grounded); the O-2 held card (its paste = the FAILCHAN premise); the sitting is words. Order: hivemind 6 = 4 M + 2 A (census corrected at 3a). Detail: pm-handoff v61 beat 3.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
+last-verified: 2026-09-02 (v61 beat 5, Wed ~20:07 — the F-R4-1 coding instruction authored ahead, ruling-slotted, grounded at source + evidence (the unknown-sender-during-window hook is the fix; one new silicon surface named). Order: hivemind 4 = 3 M + 1 A. Detail: pm-handoff v61 beat 5.) Prior: 2026-09-02 (v61 beat 4, Wed ~20:03 — the v62 skeleton authored (slots fill at the close); the clock law + no-commit-on-failed-splice written into its §0; the 3a stamp disclosed. Order: hivemind 4 = 3 M + 1 A. Detail: pm-handoff v61 beat 4.) Prior: THE FULL PRIOR CHAIN verbatim at context/handoff/archive/chains-pre-region-cap-2026-08-23.md + archive/chains-rotated-2026-08-27.md; rolled-off segments: the pm-handoff `:8` chain + its archives.
 -->
 # Project Snapshot
 
 > **How to read this file:** the frontmatter `last-verified:` chain above (2 pointer segments + the rotation pointer) is the session record; the body below is an OVERWRITTEN DIGEST (W-HIVE-1 P9, ≤2 KB) — rewritten every beat, never appended. The chain and the newest pm-handoff beat block outrank everything else. **The operator's copy-source of record is the file on disk, never a chat card.** Full history: `context/handoff/archive/chains-pre-region-cap-2026-08-23.md` + `archive/PROJECT_SNAPSHOT-priors-rotated-2026-08-21.md`.
 
-## The digest (v61 beat 4 — Wed 2026-09-02, ~20:03)
+## The digest (v61 beat 5 — Wed 2026-09-02, ~20:07)
 
 **THE v61 SESSION IS LIVE — THE ENGINEERING WEEKS, STRATEGY-FIRST.** HEADs: core `f519f42` CLEAN · hivemind = this beat (ahead 3; Nick's push) · skills `edcf060` · bench `4539f13` · docs `a53f474`.
 
@@ -23,4 +23,4 @@ last-verified: 2026-09-02 (v61 beat 4, Wed ~20:03 — the v62 skeleton authored 
 
 **THE NAME — VERDOMO.** Erik: no reply (the tree; the nudge Fri midday). RS-9 running. Hard stop 09-18.
 
-**NEXT:** the four coding-WU charters ruling-slotted (F-R4-1 · PKG-SEC-2 · CG-1/2/3 · FE-STATE-DIALECT; MODULE_CONTEXT first) · the H8 navigator packet. **The v62 skeleton is on disk** (`context/handoff/2026-09-02_PM-mission-control_v62_orchestrator_session_prompt.md`; slots fill at the close). Fences: no public brand use before a written-opinion-backed R-1 · s31/nightly HANDS OFF until R-5 · the hub never implements.
+**THE CHARTERS:** F-R4-1 AUTHORED, ruling-slotted (`context/instructions/2026-09-02_coder-lane_F-R4-1_…_RULING-SLOTTED.md`; the unknown-sender-during-window hook; one new silicon surface) · NEXT: PKG-SEC-2 · CG-1/2/3 · FE-STATE-DIALECT · the H8 packet. **The v62 skeleton is on disk** (`context/handoff/2026-09-02_PM-mission-control_v62_orchestrator_session_prompt.md`; slots fill at the close). Fences: no public brand use before a written-opinion-backed R-1 · s31/nightly HANDS OFF until R-5 · the hub never implements.

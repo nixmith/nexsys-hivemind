@@ -1,19 +1,20 @@
 <!--
 file: context/handoff/2026-09-02_v61_OPERATOR-BRIEF_for-Nick.md
-purpose: NICK'S OPERATOR BRIEF — revised at v61 beat 11 (Thu 2026-09-03 ~07:35 CT) after both lanes returned: the s31 evidence read (ACCEPT — the FAIL was transport collateral from the suite's own port-kill leg; the 09-03 nightly fired late and PASSED 8/9 — the hub's "missed" was wrong) and PKG-SEC-2 (ACCEPT-WITH-RULINGS — the permit-join default removal accepted; his commit is next). Every act Nick performs from here, in order, with the exact command or paste. The spine outranks this file if they differ.
+purpose: NICK'S OPERATOR BRIEF — revised at v61 beat 12, the last beat (Thu 2026-09-03 ~07:50 CT): PKG-SEC-2 landed ef02d13 (CI pending); Check 9 two of three (the frontend skill must be re-uploaded); the v62 boot paste points at the §9 agenda. Earlier: beat 11 (~07:35 CT) after both lanes returned: the s31 evidence read (ACCEPT — the FAIL was transport collateral from the suite's own port-kill leg; the 09-03 nightly fired late and PASSED 8/9 — the hub's "missed" was wrong) and PKG-SEC-2 (ACCEPT-WITH-RULINGS — the permit-join default removal accepted; his commit is next). Every act Nick performs from here, in order, with the exact command or paste. The spine outranks this file if they differ.
 audience: Nick
 state-type: operator brief
-status: LIVE at v61 beat 11 (supersedes the beat-10 brief in place). This hub session closes at beat 11; the next boots from context/handoff/2026-09-02_PM-mission-control_v62_orchestrator_session_prompt.md (§D).
+status: LIVE at v61 beat 12 (supersedes the beat-11 brief in place). This hub session closes at beat 11; the next boots from context/handoff/2026-09-02_PM-mission-control_v62_orchestrator_session_prompt.md (§D).
 -->
 
 # Operator brief — what Nick does, in order (revised beat 11)
 
 ## Status of what you already did
-- **F-R4-1: LANDED** (`a1c6966`, CI green). **PKG-SEC-2: RETURNED and AUDITED** — ACCEPT-WITH-RULINGS (`context/audits/2026-09-03_intake_two-layer-audit_v61-beat-11_s31-read+PKG-SEC-2.md` Part B). The lane caught something real: composing the zigbee schema at boot would have made its `permit_join_duration: 120` default live and **opened the Zigbee network for joins for two minutes on every unconfigured boot**. The default is gone; the adapter's law (absent key ⇒ no window) is now honest in the schema too. Your commit is §A.
+- **F-R4-1: LANDED** (`a1c6966`, CI green). **PKG-SEC-2: LANDED** (`ef02d13`, pushed ~07:40 CT — **paste the CI verdict**; the deferred gate closes on green). Its audit — ACCEPT-WITH-RULINGS (`context/audits/2026-09-03_intake_two-layer-audit_v61-beat-11_s31-read+PKG-SEC-2.md` Part B). The lane caught something real: composing the zigbee schema at boot would have made its `permit_join_duration: 120` default live and **opened the Zigbee network for joins for two minutes on every unconfigured boot**. The default is gone; the adapter's law (absent key ⇒ no window) is now honest in the schema too. Your commit is §A.
 - **The s31 read: RETURNED and AUDITED — ACCEPT** (Part A). The 09-02 FAIL was collateral from the suite's own `usb-reenumeration` leg: the port was killed and reopened 6.4 s before the s31 command, and the reopen path resumes the network without waiting for it to come up. No fix now (the s31/nightly fence stands until R-5); two candidate rows go to the next docket for your word. **The 09-03 nightly was not missed — it fired late (~06:12 CT, when the bench card came back) and PASSED 8/9. My "missed" was wrong; corrected in the spine.**
-- **The skills:** you said you will re-sync the three folders — the next hub session verifies byte-identity at boot.
+- **The skills — two of three:** `nexsys-project-manager` and `nexsys-coder` are byte-identical to their sources in the account (ledgers present). **`nexsys-frontend` is GONE from the account** — the sync removed it at 12:43Z and nothing re-added it; re-upload `nexsys-skills/orchestrators/nexsys-frontend/` whole (§C).
 
-## A. Commit PKG-SEC-2 (core is your hands; ≈5 min)
+## A. Commit PKG-SEC-2 — DONE (`ef02d13`); one thing left: the CI verdict
+Paste the Actions verdict for `ef02d13` (Build & Check + install-smoke) into the next hub session's first message. A red comes back as the run URL — never re-run `main`. The census card and commands below are the record of what you ran.
 The census card: exactly **10 = 8 M + 2 A**:
 ```
 M  app/homesynapse-app/MODULE_CONTEXT.md
@@ -42,12 +43,12 @@ Paste the push line and the CI verdict (Build & Check + install-smoke). A red co
 cd ~/Desktop/Code/ClaudeFolder/nexsys-hivemind && git push origin main
 ```
 
-## C. Re-sync the three skill FOLDERS (Check 9) — as you said
-`nexsys-hivemind/project-manager/` → `nexsys-project-manager` · `nexsys-hivemind/coder/` → `nexsys-coder` · `nexsys-skills/orchestrators/nexsys-frontend/` → `nexsys-frontend`. The files that must appear in the account copies: `references/laws-ledger.md` (PM, Coder), `references/field-evidence-and-rulings.md` (Frontend), and the updated `references/pass-history.md` in all three.
+## C. Re-upload the FRONTEND skill folder (Check 9 — two of three landed)
+`nexsys-skills/orchestrators/nexsys-frontend/` → the account skill `nexsys-frontend` (SKILL.md v1.13 + CLAUDE.md + the 7 references incl. `field-evidence-and-rulings.md`). PM and Coder are verified byte-identical; nothing to redo there. Tell the next hub "frontend re-uploaded".
 
 ## D. Boot the next hub session (Cowork) — this one closes with this brief
 A fresh Cowork conversation with the `nexsys-project-manager` skill:
-> Boot v62. Read `nexsys-hivemind/context/handoff/2026-09-02_PM-mission-control_v62_orchestrator_session_prompt.md` whole and execute its §1 exactly; then §8. Nick's standing report: PKG-SEC-2 <committed as <sha> + pushed, CI <green|red|pending> | not yet committed> · the skill folders <synced | not yet> · the words <given below | not yet>.
+> Boot v62. Read `nexsys-hivemind/context/handoff/2026-09-02_PM-mission-control_v62_orchestrator_session_prompt.md` whole; execute its §1 exactly, then run the session on its §9 agenda (Block 0 → 6), one census-exact commit per block. Nick's standing report: PKG-SEC-2 landed `ef02d13`, CI <green | red: <run URL> | pending> · the frontend skill <re-uploaded | not yet> · the 09-04 nightly line <paste | not yet read> · Erik <no reply | reply pasted below> · the words <given below | not yet>.
 
 Its first acts: bank your PKG-SEC-2 CI verdict · verify the skill sync · hand you the Doc 12 correction-note commit line (docs repo, one paragraph the audit already drafted) · then author the FAILCHAN instruction, the R-4b packet (two new step-0 items: set `permit_join_duration` on the held card for the run; pre-validate the card's `zigbee.yaml` against the fragment), and the two docket rows from the s31 read for your word.
 

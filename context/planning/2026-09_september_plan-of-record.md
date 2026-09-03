@@ -3,7 +3,7 @@ file: context/planning/2026-09_september_plan-of-record.md
 purpose: THE SEPTEMBER PLAN OF RECORD — the §5(e) synthesis, authored Sun 2026-08-30 (v58 beat 7) so Monday is a review-and-word, not an authoring session. Hours-costed against the A-14 floor (~15 h/wk; the weekday paste loop 15–30 min; weekends anchor deep work). Inherits: the RS-3 §6.2 tripwires · the RS-4 clocks · the v58 rulings (R-4 = Mon eve; the mint bindings; the new OR rows) · the strategy v1.1 (E-1 the outward-chain guarantee governs every week). Gates govern; the dates are the current expectation.
 audience: Nick (the RATIFY-PLAN word) · the hub (executes by beats) · every September lane
 state-type: plan of record
-status: **PROPOSED (v58 beat 7, 2026-08-30).** Nick's word Monday: RATIFY-PLAN / EDIT ⟨lines⟩ / HOLD. On ratification this is the horizon the spine's Check-2 resolves to.
+status: **RATIFIED (v61 beat 1, 2026-09-02 — by Nick's delegation; the record: `context/strategy/2026-09-02_v61-b1_three-words_delegated-ruling.md`) WITH THE §0-bis CONFORM.** This is the horizon the spine's Check-2 resolves to; where §0-bis and §1–§4 differ, §0-bis and the v61 prompt §4 govern; the R-10 sitting amends by row. Prior: PROPOSED (v58 beat 7, 2026-08-30).
 -->
 
 # The September plan of record (P0 exit → P1 → P2 entry)
@@ -11,6 +11,12 @@ status: **PROPOSED (v58 beat 7, 2026-08-30).** Nick's word Monday: RATIFY-PLAN /
 ## §0 The spine of the month, in one paragraph
 
 Week 1 banks THE PROOF (R-4 → the guarded lift → the claim register minted) and fires the name decision on the Pelton word; week 2 executes the word's branch (filing + swap program on A; the pre-authorized fallback on B/C) and reads the Apple event through the ratified pre-ruling; weeks 3–4 build THE SURFACE from the register (story kit + website wave under the identity gate) while the engineering lanes close the R-4.5/R-5 fences. Every week ships ≥1 outward-chain act (E-1: register → surface → audience — the engine must not only polish itself). The Pelton word OUTRANKS everything on arrival, any day it lands.
+
+## §0-bis The conform of record (v61 beat 1, 2026-09-02 — re-keyed to the facts since 08-30)
+
+1. **Wk-1's mint = MINT-NARROW.** R-4 (08-30) returned three-of-four (C4 miss-blocked, structural — F-R4-2); C-001 minted NARROW and LIVE at `7c57d7f` on 09-02 (the two-entity rig: runs Zigbee + publishes events); the wide row (the fleet re-adoption + the automation) waits on R-4b (wk 3). The wk-1 outward-chain act is MET by the narrow mint.
+2. **Wk-2's branch = the VERDOMO opinion loop, not "the A word".** The Pelton call (09-01) graded ZENDOMO out on first-to-use; VERDOMO chosen (09-02); the Pelton email SENT; the go-ahead FINAL (the assessment §5) fires on Erik's quote → the comprehensive (~09-11) → the written opinion → FILE §1(b) cl. 9 + 42 → the .com walk number the same day. The swap program, the counsel wave, and B-1 identity wait on the OPINION; the E-2 slip posture applies meanwhile (name-independent P2 substance proceeds). The hard stop: Fri 09-18.
+3. **The R-10 docket (Fri–Sat 09-05/06)** = §1's rows + `2026-08-30_R10-docket_additions_from-R4.md` items 1–10 + **F-R4-1 · F-R4-2 · R-4b · PKG-SEC-2 · the CG-1/2/3 additive contract amendment · FE-STATE-DIALECT · the strategy beat** (the v61 prompt §3.3). PKG-SEC-1 CLOSED (`c368909`); FE-HONEST-1 LANDED (`f519f42`; live-verification pending the H8 real-wire exercise). NFCU OPEN (FIN-1 closed 09-01).
 
 ## §1 Week 1 (Mon 09-01 → Sun 09-06) — the proof banked, the word fired
 

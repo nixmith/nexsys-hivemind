@@ -125,3 +125,7 @@ Prior: 2026-09-02 (v61 beat 2, Wed ~19:50 (stamp corrected at b3 — mis-stamped
 ## chain segment rotated 2026-09-02 (v61 beat 5) — v61 b3, verbatim
 
 Prior: 2026-09-02 (v61 beat 3, Wed ~19:58 — THE R-10 DOCKET CARDS AUTHORED AHEAD: sixteen H10 ruling cards, one per §3.3 row, every card ≤2 KB, grounded at its primary, each with the household/company line (context/planning/2026-09-02_R10-docket_ruling-cards_v61-b3.md, 19.6 KB) · THE O-2 HELD CARD authored (context/handoff/2026-09-02_O2_held-card_next-boot_operator-card.md; ~5 min; its Block-2 paste = the measured premise of the OR-FAILCHAN §6-B fix — the charter authors on it, never ahead of it) · the sitting is now WORDS, not deliberation. Order: hivemind 6 = 4 M + 2 A (census corrected at 3a — the in-line 5 shipped stale; the b3 commit cc8c3e3 staged 6 exactly).)
+
+## chain segment rotated 2026-09-02 (v61 beat 6) — v61 b4, verbatim
+
+Prior: 2026-09-02 (v61 beat 4, Wed ~20:03 (instrument 01:02Z) — THE v62 SKELETON AUTHORED at the first quiet window past mid-session (context/handoff/2026-09-02_PM-mission-control_v62_orchestrator_session_prompt.md, 13.4 KB; slots fill at the v61 close; the CLOCK LAW + the no-commit-on-failed-splice law written into its §0; six mint candidates in its §6) · the 3a commit-message stamp (~20:05) disclosed against the instrument (00:59Z = 19:59 CT) · NEXT: the F-R4-1 charter grounding at the MODULE_CONTEXT files. Order: hivemind 4 = 3 M + 1 A.)

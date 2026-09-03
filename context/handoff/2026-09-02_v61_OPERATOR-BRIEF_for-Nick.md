@@ -1,65 +1,59 @@
 <!--
 file: context/handoff/2026-09-02_v61_OPERATOR-BRIEF_for-Nick.md
-purpose: NICK'S OPERATOR BRIEF at the v61 hub's beat 7 (Wed 2026-09-02 ~20:16 CT) — every act Nick performs from here to the R-10 sitting and through week 2, in order, with the exact command or paste and what to paste back. Written on Nick's ask ("ensure any and all instructions or commands I need to follow are clearly and fully articulated"). The spine (pm-handoff newest block) outranks this file if they ever differ.
+purpose: NICK'S OPERATOR BRIEF — revised at v61 beat 8 (Wed 2026-09-02 ~21:20 CT) after his Parts A–F: the push BANKED; RS-9 intaken (audit + the confidence/posture ruling); O-2 adjudicated (wrong card — harmless — now R-4b step 0); Part B answered by the deliberation guide; Part E explained plainly; Part F confirmed (the dispatch IS the Row-10 word). Every act Nick performs from here, in order, with the exact command or paste. The spine outranks this file if they differ.
 audience: Nick
 state-type: operator brief
-status: LIVE at v61 beat 7. Superseded by the next brief the hub writes.
+status: LIVE at v61 beat 8 (supersedes the beat-7 brief in place).
 -->
 
-# Operator brief — what Nick does, in order
+# Operator brief — what Nick does, in order (revised beat 8)
 
-## A. Tonight (≈5 minutes)
-**A1. Push the hivemind** (7 hub commits since your last push; more may follow — push whenever, batches are fine):
-```bash
-cd ~/Desktop/Code/ClaudeFolder/nexsys-hivemind
-git status
-git push origin main
-```
-Expected: `nothing to commit, working tree clean` and a line like `34137aa..<newest> main -> main`. **Paste the push output back** (I bank the push state at the next beat).
+## Status of what you already did
+- **A — the push: BANKED** (`34137aa..e9cb9a1`, 8 commits; origin in sync). Push again whenever; batches fine.
+- **RS-9: RETURNED and AUDITED** (ACCEPT-WITH-NOTES; `context/audits/2026-09-02_RS9_intake_two-layer-audit_v61-beat-8.md`). Nothing for you to do: its counsel appendix rides WITH the go-ahead email on Erik's quote.
+- **D — O-2: ran on the wrong card, harmlessly.** `ssh pi` = `hs-dev-1` = the BENCH card, where the systemd unit does not exist (the bench runs via `~/bench.sh`); every command failed with "not loaded/not found" and changed nothing. My defect — the card named "the held card" without its address. The held card is `nick@hs-fresh.local`, a SEPARATE SD card physically swapped into the same Pi. **Do NOT swap cards tonight:** the measurement the FAILCHAN charter needed (exit 143 on SIGTERM) is already on record from R-3a and is explained at source, so O-2 is now step 0 of R-4b's packet — it rides the next planned swap.
+- **F — the F-R4-1 dispatch: CONFIRMED.** Pasting the dispatch line with "§0 is RULED: (a)" IS your Row-10 word; recorded as such. Nothing else in that instruction waits on the sitting.
 
-**A2. (Optional, 10–15 min of reading, for the sitting):** the strategy card `context/strategy/2026-09-02_v61-b2_strategy-beat_card_convergence-flip-arc.md` (§0 is the five-word table) and the docket cards `context/planning/2026-09-02_R10-docket_ruling-cards_v61-b3.md` (sixteen rows; each ends with what it buys the household / the company). Nothing to do but read.
-
-## B. The words — at the sitting (Fri–Sat 09-05/06) or any time earlier
-Answer in this exact shape (one message; I parse it and splice every ruling into the plan, the OR register, and strategy v1.2):
+## B. The words — read the guide, then answer in one message
+`context/planning/2026-09-02_R10-sitting_DELIBERATION-GUIDE_for-Nick.md` walks every decision in plain language: what it is about, the rec and why, what changes if you choose otherwise, where I am unsure. Then:
 ```
 STRATEGY: R-1 <a|b|c|d> · R-2 <a|b|c> · R-3 <a|b|c> · R-4 <a|b> · R-5 <a|b>
-DOCKET:   ADOPT-ALL-RECS            ← or per-row overrides, e.g.  Row 5 HOLD · Row 12 b · Row 13 a′
+DOCKET:   ADOPT-ALL-RECS                    ← or overrides, e.g.  Row 2 HOLD · Row 12 b
+OPTIONAL: TIER-2 GO                          ← B-1 identity starts now, name-tokenized (see C)
 ```
-Lawful alternatives: `DELEGATE` (the beat-1 form — I decide on the V/C/I frame and record it) · `EDIT Row N: …` · `REVERT <MINT-NARROW|RATIFY|RATIFY-PLAN>` if you disagree with any of the three words I decided by your delegation at beat 1 (zero cost; the register row goes RETIRED, never deleted). The recs are in bold in each card; you never need to restate them.
+Also lawful: `DELEGATE` · `EDIT Row N: …` · `REVERT <MINT-NARROW|RATIFY|RATIFY-PLAN>`. Row 10 is already worded by your dispatch.
 
-## C. The brand paste loop (≤15 min whenever it fires)
-**C1. Erik's reply:** when it lands, **paste it in full** into the chat, headers and all. I key it to the decision tree (assessment §4) and hand you the go-ahead email from the file on disk (§5) the same day. No grading in chat, no new names in chat.
-**C2. No reply by Fri 09-04 midday:** send the one-line nudge. Draft (edit freely; it is yours):
-> *Hi Erik — a quick follow-up on Wednesday's note (the VERDOMO comprehensive: the written summary, fee/turnaround, whether a knockout tier makes sense, and the filing shape). Whenever you have a moment this week. Thanks — Nick.*
-Then tell me "nudge sent" + the time.
-**C3. RS-9:** nothing to do. When the lane returns, tell me "RS-9 returned" — I verify the file on disk and run its one audit beat. Its counsel appendix goes to Erik with or after the go-ahead, on my card.
-**C4. Fence reminders (no act):** no public use of VERDOMO anywhere; no .com purchase before the written opinion; counsel hears a candidate only at commissioning. Hard stop for the whole name program: Fri 09-18.
+## C. The brand paste loop (≤15 min when it fires) — and the assumed-name posture
+The ruling on your Part C is at `context/strategy/brand-program/2026-09-02_VERDOMO_post-RS9_confidence-and-public-posture_ruling.md`. In one line: act as if the name is VERDOMO for everything that stays inside; put it on nothing a stranger can see until Erik's written opinion. Three tiers: name-independent public work — GO now · name-dependent PRIVATE work — GO now, name-tokenized (B-1 may start early on your `TIER-2 GO`) · PUBLIC use, handles, the .com, the repo rename — FENCED until the opinion.
+**C1. Erik's reply →** paste it in full; I key it to the tree and hand you the go-ahead email from disk the same day (now with RS-9's §A attached and the grade order: VERDO.AI · DOMOTZ's cl. 42 vs ours · MORDOMO · EU VERDO · EU Linea 2000 DOMO · the exclusions · the translation statement · Domo consent as fallback).
+**C2. No reply by Fri 09-04 midday →** send the one-line nudge (edit freely): *"Hi Erik — a quick follow-up on Wednesday's note (the VERDOMO comprehensive: the written summary, fee/turnaround, whether a knockout tier makes sense, and the filing shape). Whenever you have a moment this week. Thanks — Nick."* Then tell me "nudge sent" + time.
+**C3. Fences (no act):** no public VERDOMO use; no .com before the opinion; no handles; hard stop Fri 09-18.
 
-## D. The held card — O-2 (≈5 minutes, whenever the HELD card next powers; before Saturday if convenient)
-Open `context/handoff/2026-09-02_O2_held-card_next-boot_operator-card.md` and run its three paste blocks in order on the **HELD card** (the R-4 rig card — **not** the bench card; s31/nightly stay hands-off until R-5). **Paste back all the ⏺ values either way** — the Block-2 reading (`ExecMainStatus`/`Result` after one clean stop) is the measured premise the FAILCHAN charter (Row 6) is written on; a "0 / success" reading is as valuable as "143 / exit-code".
+## E. Two standing items, explained plainly (once; I will not re-ask)
+**E1. The Annex I paste (≈1 min; LOW priority).** Background: one of our adopted positions (W-C6) says the EU Machinery Regulation (EU) 2023/1230 is the legal carrier that makes a deterministic safety floor the cheaper conformity path from 2027-01-20, because ML-based safety functions land in its Annex I and draw notified-body assessment. The research lane confirmed the articles but could not fetch the ANNEX I text (the site blocked it), and my fetch truncates before the annexes. To close the last gap we want the annex VERBATIM. **Do:** open https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng in your browser → scroll to "ANNEX I" → copy PART A and PART B (the numbered lists) → paste them into the chat with today's date. That is all.
+**E2. The bench floor (≈30 s, read-only).** Background: the bench card runs a nightly test suite; its verdict line is the "floor" (e.g. `[PASS] 8/9`). We track it; it has not been relayed since 09-01. **Do:**
+```bash
+ssh pi
+/usr/bin/tail -n 5 ~/hs-bench/digests/nightly.log
+```
+Paste the output. Touch nothing else on that card (s31/nightly are hands-off until R-5).
 
-## E. Two standing items — once, no rush, and I will not re-ask
-**E1. The Annex I paste (W-C6 → [VERIFIED], ≈1 min):** open EUR-Lex CELEX 32023R1230 (Regulation (EU) 2023/1230), copy **Annex I Parts A and B verbatim**, paste into the chat with the access date. I file it; the lane could not fetch it (418).
-**E2. The bench floor:** paste the newest bench-floor line (`[PASS] n/9` or `[FAIL] …`) from wherever you read it. Read-only — no action on the bench card.
-
-## F. Week 2 — the Coder lanes (after the words; each ≈10 min of your time per landing)
-**F1. Dispatch F-R4-1 first** (it proves the loop). Host-side Claude Code session in `homesynapse-core`, the `nexsys-coder` skill loaded, targeted gradle allow-listed. Paste this one line:
-> *Execute `nexsys-hivemind/context/instructions/2026-09-02_coder-lane_F-R4-1_interview-on-rejoin_coding-instruction_RULING-SLOTTED.md`. §0 is RULED: (a). Tests first. Commit NOTHING. File the return at `nexsys-hivemind/context/audits/<today CT>_F-R4-1_return.md`.*
-When the lane says done, tell me "F-R4-1 returned". I audit at the bytes and hand you **the msg file + the census card** (N files, named).
-**F2. Your commit (CORE IS YOUR HANDS):**
+## F. Week 2 — the Coder lanes (≈10 min of your time per landing)
+**F1. F-R4-1 — DISPATCHED tonight (your word).** When the lane says done, tell me "F-R4-1 returned"; I audit at the bytes and hand you the msg file + the census card.
+**F2. Your commit (core is your hands):**
 ```bash
 cd ~/Desktop/Code/ClaudeFolder/homesynapse-core
-git status --porcelain            # must match the census card EXACTLY (count + paths); if not, STOP and paste it to me
+git status --porcelain     # must match the census card EXACTLY — if not, STOP and paste it to me
 git add <the exact paths from the card>
 git commit -F ../_scratch/<the msg file I name>
 git push origin main
 ```
-Paste the push line. Then **relay the CI verdict** when the run finishes (the run URL + green/red) — it banks as one spine line (law 16). Never re-run main as a fix; a red run comes back to me.
-**F3. Then PKG-SEC-2** the same way, with `§0 is RULED: (a′)` in the dispatch line (`…_PKG-SEC-2_zigbee-schema-admission_coding-instruction_RULING-SLOTTED.md`).
-**F4. The CG batch, FE-STATE-DIALECT, and the H8 real-wire exercise** — I author those instructions next (the v62 session if this one closes first); you dispatch on the same one-line shape when I hand you each.
+Paste the push line, then relay the CI verdict (run URL + green/red). Never re-run main as a fix.
+**F3. PKG-SEC-2 — dispatch after the words (or now, if you give Row 13 (a′) by dispatch the same way):** *"Execute `nexsys-hivemind/context/instructions/2026-09-02_coder-lane_PKG-SEC-2_zigbee-schema-admission_coding-instruction_RULING-SLOTTED.md`. §0 is RULED: (a′). Tests first. Commit NOTHING. File the return at `nexsys-hivemind/context/audits/<today CT>_PKG-SEC-2_return.md`."*
+**F4. Next from me:** the FAILCHAN instruction (its premise is now measured), the CG batch, FE-STATE-DIALECT, the H8 packet — each with the same one-line dispatch shape.
 
-## G. Dated pastes
-**09-09 (Wed) after the Apple event:** tell me in one line what, if anything, was announced about home actuation, agents, or a confirmation/policy mechanism — I execute the §9-2 paste from the pre-ruling file. **09-07 SCITT** and the IFA watch I read myself; no act from you.
+## G. Dated
+**09-09** after the Apple event: one line on what (if anything) was announced about home actuation / agents / a confirmation mechanism. SCITT (09-07) and IFA I read myself.
 
 ## H. What you never need to do
-Grade a name in chat · write a commit message · stage hivemind or skills files (hub-run) · answer a question twice (the Annex paste and the bench floor were asked once, here) · re-run CI on main.
+Grade a name in chat · write a commit message · stage hivemind/skills files · swap SD cards for O-2 alone · answer E1/E2 twice · re-run CI on main.

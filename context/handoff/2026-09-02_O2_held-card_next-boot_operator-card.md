@@ -3,7 +3,7 @@ file: context/handoff/2026-09-02_O2_held-card_next-boot_operator-card.md
 purpose: THE O-2 HELD CARD — the ~5-minute operator act owed since R-4 (record 2026-08-30 O-2: the shipped unit lands in systemd state `failed` after a clean `systemctl stop`; the packet expected `inactive`). Rides WHENEVER the held card next powers. Its two pastes are ALSO the measured premise for the OR-FAILCHAN §6-B fix (R-10 Row 6) — the charter authors on these values, never ahead of them (arc-discipline 1).
 audience: Nick (the operator) · the hub (the intake, one line at the next beat)
 state-type: operator card (playbook §8 contract)
-status: HELD — executes at the next power-on of the HELD card (the R-4 rig card; NOT the bench card — s31/nightly HANDS OFF until R-5).
+status: DEFERRED TO R-4b (its packet's STEP 0) — v61 beat 8. **The 09-02 run (Nick, ~21:00 CT) executed on `hs-dev-1` = THE BENCH CARD (`ssh pi`), where `homesynapse.service` does not exist (the bench runs via `~/bench.sh`); every command failed harmlessly ("Unit … not loaded/not found"); the bench is untouched.** The hub's defect: this card said "the HELD card" without its ssh target. THE HELD CARD IS `nick@hs-fresh.local` (`ssh -i ~/.ssh/id_ed25519_pi nick@hs-fresh.local`, per the R-4 packet §2) and it is a SEPARATE SD CARD physically swapped into the same Pi — powering it means taking the bench card out (a bench-down act; the nightly fires ~03:32 CT). The §6-B premise (exit 143 on SIGTERM) is ALREADY MEASURED at R-3a §6-B and mechanism-explained at source (the JVM's default SIGTERM exit = 143; the unit has no `SuccessExitStatus=`), so the FAILCHAN charter no longer waits on this card; Block 2 becomes a CONFIRMATION at R-4b. Do not swap cards for this alone.
 -->
 
 # O-2 — the held card's next boot (~5 min)
@@ -14,7 +14,7 @@ status: HELD — executes at the next power-on of the HELD card (the R-4 rig car
 
 ## Block 1 — after power-on, wait ~90 s, then (all on the held card):
 ```bash
-# WHERE: the HELD card (the R-4 rig), ssh session, any directory
+# WHERE: the HELD card ONLY — `ssh -i ~/.ssh/id_ed25519_pi nick@hs-fresh.local` (hostname hs-fresh). NOT `ssh pi` (= hs-dev-1, the bench card). Verify first: `/usr/bin/hostname` must print hs-fresh.
 /usr/bin/date -u
 /usr/bin/systemctl show -p ActiveState -p SubState -p Result -p ExecMainStatus -p NRestarts homesynapse.service
 /usr/bin/journalctl -u homesynapse.service -b --no-pager | /usr/bin/grep -c adoption_maps_rehydrated
@@ -24,7 +24,7 @@ status: HELD — executes at the next power-on of the HELD card (the R-4 rig car
 
 ## Block 2 — ONE clean stop, then read the exit (this is the O-2 value):
 ```bash
-# WHERE: the HELD card
+# WHERE: the HELD card (hs-fresh) — `/usr/bin/hostname` must print hs-fresh
 /usr/bin/sudo /usr/bin/systemctl stop homesynapse.service
 /usr/bin/sleep 5
 /usr/bin/systemctl show -p ActiveState -p SubState -p Result -p ExecMainStatus -p ExecMainCode homesynapse.service
@@ -33,7 +33,7 @@ status: HELD — executes at the next power-on of the HELD card (the R-4 rig car
 
 ## Block 3 — bring it back:
 ```bash
-# WHERE: the HELD card
+# WHERE: the HELD card (hs-fresh) — `/usr/bin/hostname` must print hs-fresh
 /usr/bin/sudo /usr/bin/systemctl reset-failed homesynapse.service
 /usr/bin/sudo /usr/bin/systemctl start homesynapse.service
 /usr/bin/sleep 20

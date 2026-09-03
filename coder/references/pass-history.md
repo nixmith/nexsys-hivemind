@@ -5,14 +5,18 @@ audience: the skills lane (W-SKILLS-N) + the hub at a skills audit beat. NOT a l
 update-cadence: per skills pass — SKILL.md `last-verified:` keeps ONLY the newest pass's ≤ 400 B census verdict + return pointer; the demoted verdict line moves here whole, newest first, under §1.
 state-type: history (provenance)
 status: CURRENT
-last-verified: 2026-08-29 (W-SKILLS-5 — created; both lines below are byte-identical to SKILL.md :13–:14 as they stood at this pass's launch baseline (2026-08-26 → 2026-08-29), `cmp`-verified in the return §2: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.)
+last-verified: 2026-09-03 (W-SKILLS-6 — the W-SKILLS-5 verdict line demoted here WHOLE under §1; the four lists moved to `references/laws-ledger.md`; the census is now taken across SKILL.md ∪ laws-ledger.md.) Prior: 2026-08-29 (W-SKILLS-5 — created; both lines below are byte-identical to SKILL.md :13–:14 as they stood at this pass's launch baseline (2026-08-26 → 2026-08-29), `cmp`-verified in the return §2: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.)
 -->
 
 # Coder skill — pass history (provenance)
 
-Every line in this file is a RECORD of a past skills pass, kept whole so that no rule name a census ever counted goes unlocatable. The rules themselves live in `SKILL.md`'s four lists (arc-conventions · durable-build-disciplines · strategy-layer · state-pointer) or at the sibling carriers the index in §2 names. Paths inside the moved lines are as written at `SKILL.md` — relative to `coder/`, not to this directory. Nothing here is loaded at a coder launch.
+Every line in this file is a RECORD of a past skills pass, kept whole so that no rule name a census ever counted goes unlocatable. The rules themselves live in `references/laws-ledger.md`'s four lists (moved there whole from the SKILL.md masthead 2026-09-03 by W-SKILLS-6; SKILL.md §2 keeps the operative one-liners) (arc-conventions · durable-build-disciplines · strategy-layer · state-pointer) or at the sibling carriers the index in §2 names. Paths inside the moved lines are as written at `SKILL.md` — relative to `coder/`, not to this directory. Nothing here is loaded at a coder launch.
 
 ## §1 Demoted `last-verified:` verdict lines (newest first; each moved VERBATIM from the SKILL.md masthead)
+
+### Moved 2026-09-03 by W-SKILLS-6 (the SKILL.md `last-verified:` line as it stood 2026-08-29 → 2026-09-03; the same pass moved the FOUR LISTS whole — SKILL.md :15–:39 — to `references/laws-ledger.md`, lines byte-identical, and rewrote the SKILL.md body to the token shape: research `context/research/2026-09-03_agent-skills_best-practices_hub-synthesis_W-SKILLS-6.md`)
+
+last-verified: 2026-08-29 (**W-SKILLS-5** — the masthead provenance move, the W-SKILLS-4 (a) precedent. **RULE CENSUS 33-in / 33-out, every name surviving, zero retirements; the four lists + the body BYTE-UNCHANGED** (arc-conventions 21 · durable-build 8 · strategy 3 · state-pointer 1). Return: `../context/audits/2026-08-29_W-SKILLS-5_return.md`. Prior: `references/pass-history.md` §1.)
 
 ### Moved 2026-08-29 by W-SKILLS-5 (the SKILL.md `last-verified:` line as it stood 2026-08-26 → 2026-08-29)
 

@@ -5,14 +5,18 @@ audience: the skills lane (W-SKILLS-N) + the hub at a skills audit beat. NOT a l
 update-cadence: per skills pass — SKILL.md `last-verified:` keeps ONLY the newest pass's ≤ 400 B census verdict + return pointer; the demoted verdict line moves here whole, newest first, under §1.
 state-type: history (provenance)
 status: CURRENT
-last-verified: 2026-08-29 (W-SKILLS-5 — the W-SKILLS-4 verdict line demoted here WHOLE under §1, the first exercise of this file's update-cadence convention (ratified v57 beat 2 §A.7); byte-identical to SKILL.md :13 as it stood 2026-08-26 → 2026-08-29, `cmp`-verified in the return §2: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.) Prior: 2026-08-26 (W-SKILLS-4 — created; both lines below are byte-identical to SKILL.md :13–:14 as they stood at this pass's launch baseline (2026-08-18 → 2026-08-26), `cmp`-verified in the return §2: `context/audits/2026-08-26_W-SKILLS-4_return.md`.)
+last-verified: 2026-09-03 (W-SKILLS-6 — the W-SKILLS-5 verdict line demoted here WHOLE under §1; the four rule lists moved to `references/laws-ledger.md`; the census is now taken across SKILL.md ∪ laws-ledger.md.) Prior: 2026-08-29 (W-SKILLS-5 — the W-SKILLS-4 verdict line demoted here WHOLE under §1, the first exercise of this file's update-cadence convention (ratified v57 beat 2 §A.7); byte-identical to SKILL.md :13 as it stood 2026-08-26 → 2026-08-29, `cmp`-verified in the return §2: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.) Prior: 2026-08-26 (W-SKILLS-4 — created; both lines below are byte-identical to SKILL.md :13–:14 as they stood at this pass's launch baseline (2026-08-18 → 2026-08-26), `cmp`-verified in the return §2: `context/audits/2026-08-26_W-SKILLS-4_return.md`.)
 -->
 
 # PM skill — pass history (provenance)
 
-Every line in this file is a RECORD of a past skills pass, kept whole so that no rule name a census ever counted goes unlocatable. The rules themselves live in `SKILL.md`'s four lists (arc-disciplines · durable-disciplines · strategy-layer · state-pointer) or at the sibling carriers the index in §2 names. Nothing here is loaded at a hub launch.
+Every line in this file is a RECORD of a past skills pass, kept whole so that no rule name a census ever counted goes unlocatable. The rules themselves live in `references/laws-ledger.md`'s four lists (arc-disciplines · durable-disciplines · strategy-layer · state-pointer — moved there whole from the SKILL.md masthead 2026-09-03 by W-SKILLS-6; SKILL.md §3 keeps the every-beat one-liners) or at the sibling carriers the index in §2 names. Nothing here is loaded at a hub launch.
 
 ## §1 Demoted `last-verified:` verdict lines (newest first; each moved VERBATIM from the SKILL.md masthead)
+
+### Moved 2026-09-03 by W-SKILLS-6 (the SKILL.md `last-verified:` line as it stood 2026-08-29 → 2026-09-03; the same pass moved the FOUR RULE LISTS whole — SKILL.md :15–:73 — to `references/laws-ledger.md`, lines byte-identical, and rewrote the SKILL.md body to the token shape: research `context/research/2026-09-03_agent-skills_best-practices_hub-synthesis_W-SKILLS-6.md`)
+
+last-verified: 2026-08-29 (**W-SKILLS-5** — the PM P7 fold. **RULE CENSUS 60-in / 60-out, every name surviving; the four rule lists BYTE-UNCHANGED**; 4 body lines folded off the RETIRED weekly plan (Nick 2026-08-09); one retirement by name at the preflight (Check 2's SUBJECT). Return: `context/audits/2026-08-29_W-SKILLS-5_return.md`. Prior: `references/pass-history.md` §1.)
 
 ### Moved 2026-08-29 by W-SKILLS-5 (the SKILL.md `last-verified:` line as it stood 2026-08-26 → 2026-08-29)
 

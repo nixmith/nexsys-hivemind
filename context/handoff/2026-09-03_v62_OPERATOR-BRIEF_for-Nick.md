@@ -3,7 +3,7 @@ file: context/handoff/2026-09-03_v62_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR BRIEF for the v62 session — every act he is asked to perform, in order, FULLY ARTICULATED (his standing directive, 2026-09-03: "ensure that any/all instructions specifically for me are explicit and fully articulated"). Each act carries WHAT · WHY · HOW (the exact command or paste) · EXPECTED RESULT · REPORT BACK (the exact line to paste to the hub). Supersedes the v61 brief in place.
 audience: Nick
 state-type: operator brief
-status: LIVE at v62 beat 2 (Fri 2026-09-04, instrument 02:xxZ = Thu ~21:xx CT) — revised whole on THE WORDS (given 09-03 ~20:40 CT; the record: context/strategy/2026-09-04_R10-sitting_THE-WORDS_ruling-record.md) and on his four-day plan, ADOPTED as the plan of record for 09-03..09-07 with the hub's three guards (§0). Revised again at beat 3 (the FAILCHAN dispatch line) and beat 4 (the R-4b packet path). The spine (pm-handoff newest beat) outranks this file if they disagree.
+status: LIVE at v62 beat 3 (Fri 2026-09-04, instrument ~02:4xZ = Thu ~21:4x CT) — §A now carries the FAILCHAN dispatch line verbatim (the instruction is on disk). Beat 2 revised it whole on THE WORDS (given 09-03 ~20:40 CT; the record: context/strategy/2026-09-04_R10-sitting_THE-WORDS_ruling-record.md) and on his four-day plan, ADOPTED as the plan of record for 09-03..09-07 with the hub's three guards (§0). Next revision at beat 4 (the R-4b packet path). The spine (pm-handoff newest beat) outranks this file if they disagree.
 -->
 
 # Operator brief — what Nick does, in order (v62, beat 2 — the four days)
@@ -15,7 +15,11 @@ status: LIVE at v62 beat 2 (Fri 2026-09-04, instrument 02:xxZ = Thu ~21:xx CT) �
 ## §A TONIGHT (Thu 09-03) — launch the FAILCHAN Coder lane (≤5 min of your hands; the lane is the evening)
 - **WHAT:** one Coder session on `homesynapse-core` executing the FAILCHAN instruction (Row 6 (a) + EXITCODE (a)): the unit's `Restart=`/`SuccessExitStatus` ruling, the `ExitCode` wiring in `Main` (your caveat: `System.exit(code)` in `main` after `start()` threw and teardown ran — never in a shutdown hook; the exit behind a thin seam so the mapping is unit-tested), the unit-lint assert, and the orderly-path emission classification table (§6-B · §10-O · §10-M · §10-I).
 - **WHY:** two boot-honesty defects gone before the hardware session; the unit fix rides Saturday's artifact if CI is green in time.
-- **HOW:** the dispatch line is handed at beat 3 (in chat, and as §0 of the instruction file `context/instructions/2026-09-04_coder-lane_FAILCHAN_boot-honesty-sweep_coding-instruction.md`). Paste it into a host-side Claude Code session in `~/Desktop/Code/ClaudeFolder/homesynapse-core`. **One lane on the core tree: nothing else touches `homesynapse-core` until its return is audited.**
+- **HOW:** open a host-side Claude Code session in `~/Desktop/Code/ClaudeFolder/homesynapse-core` and paste this, verbatim (the instruction is on disk at `context/instructions/2026-09-04_coder-lane_FAILCHAN_boot-honesty-sweep_coding-instruction.md`):
+  ```
+  date -u first. Boot as the nexsys-coder skill. Baseline: this tree must be at ef02d13 and clean — verify with `git log -1 --format=%h` and `git status --porcelain` (STOP and report if not). Execute nexsys-hivemind/context/instructions/2026-09-04_coder-lane_FAILCHAN_boot-honesty-sweep_coding-instruction.md exactly: read its §0 contract and the minimum read set first; tests first, red at HEAD; Parts A, B, C; the census is 18 = 13 M + 5 A unless you declare a deviation in §0. Return ONE file at nexsys-hivemind/context/audits/2026-09-04_FAILCHAN_return.md, §0 card first, ≤12 KB target. Stage nothing; commit nothing; the hub audits and Nick commits.
+  ```
+  **One lane on the core tree: nothing else touches `homesynapse-core` until its return is audited.** The lane may run targeted Gradle on your desk; the full `check` + install-smoke are CI on your push.
 - **EXPECTED RESULT:** the return file exists at the path the instruction names (`context/audits/2026-09-04_FAILCHAN_return.md`); the hub audits two-layer; you commit from the hub's msg file + census card; CI on your push is the gate of record.
 - **REPORT BACK:** `FAILCHAN: returned` (then the hub's audit → the commit block) · after your push: `FAILCHAN pushed <sha>, CI <green|red: <run URL>>`.
 

@@ -3,12 +3,37 @@ file: context/planning/2026-09-02_R10-docket_ruling-cards_v61-b3.md
 purpose: THE R-10 DOCKET'S RULING CARDS — one H10 card per §3.3 row of the v61 prompt (the September plan §1 Fri–Sat rows + the 08-30 additions + the six v61 rows), authored AHEAD at v61 beat 3 (Wed 2026-09-02 ~19:58 CT) so the Fri–Sat 09-05/06 sitting is words, not deliberation. Each card: the question · the options graded · the rec · refutable-by · WHAT IT BUYS the household / the company (Nick's v61 weighting) · sequence. Every card grounded at its primary (named in-card). The strategy beat's card is separate: `context/strategy/2026-09-02_v61-b2_strategy-beat_card_convergence-flip-arc.md`.
 audience: Nick (one word per card at the sitting; ADOPT-ALL-RECS / DELEGATE / per-row are lawful forms — D15) · the hub (splices rulings into the plan, the OR register, the charters)
 state-type: ruling cards (H10)
-status: AUTHORED AHEAD — dispatch-ready for the sitting. The coding-WU charters (F-R4-1 · PKG-SEC-2 · CG-1/2/3 · FE-STATE-DIALECT) author with their ruling slots against these cards; they finalize on the words.
+status: **RULED 2026-09-03 ~20:40 CT (banked v62 beat 2)** — ADOPT-ALL-RECS + EDIT Row 2 · EDIT Row 12 · TIER-2 GO; the verdict table under the forms paragraph; the verbatim record at `context/strategy/2026-09-04_R10-sitting_THE-WORDS_ruling-record.md`. Prior: AUTHORED AHEAD (v61 beat 3) — dispatch-ready for the sitting; the coding-WU charters finalized on these words.
 -->
 
 # R-10 docket — the ruling cards (16 rows)
 
 **Ruling forms accepted up front (D15):** per-row words · "ADOPT-ALL-RECS" · "DELEGATE" (the v61-b1 form; the hub records) · "EDIT ⟨row⟩: …". Rows marked ★ are the sitting's load-bearing rows (they charter code).
+
+## THE WORDS — RULED 2026-09-03 ~20:40 CT (banked v62 beat 2; the verbatim record: `context/strategy/2026-09-04_R10-sitting_THE-WORDS_ruling-record.md`)
+
+Nick: `DOCKET: ADOPT-ALL-RECS` · `EDIT Row 2: (b), as a DATED design note first (the Doc 17/02 AMD charters with the P4 build); weeks 3–4, after R-4b and the CG batch land` · `EDIT Row 12: (a); the fallback fires on a criterion-0 miss at this weekend's R-4b, not on the 09-14 calendar date` · `OPTIONAL: TIER-2 GO`.
+
+| Row | Verdict | Where it executes |
+|---|---|---|
+| 1 | (a) — the §9-2 Apple pre-ruling executes as a paste on 09-09 | the hub hands the paste 09-09 |
+| 2 | (b) EDITED — a DATED design note first; the Doc 17/02 AMD charters with the P4 build; the lane runs weeks 3–4 after R-4b + CG | the Row 2 design-note lane (dispatch Mon 09-07 if reached; else wk 3) |
+| 3 | (b) — record the SCITT outcome, read at source | the hub, 09-07 |
+| 4 | (a) — RS-4 §1.7 adopted as the sensing register's physics anchor | the register preamble |
+| 5 | (b) HOLD — sd_notify stays behind the seam; T-0 is NOT spoken this month | OR-M13-SDNOTIFY (status line) |
+| 6 ★ | (a) — the FAILCHAN sweep WU, root-correct 143; + EXITCODE (a) as instance 5 | the FAILCHAN instruction (v62 beat 3) |
+| 7 | (a) — the `<N>`-prefix on the console handler | OR-JOURNALD-PRIO; charter queued behind FAILCHAN |
+| 8 | (b) — additive first: ULID + ISO siblings (the Core half of Row 15) | the F-S8 charter (Mon menu / wk 3) |
+| 9 | (a) — the 15 h/wk floor confirmed | standing |
+| 10 ★ | (a) — worded by dispatch 09-02; LANDED `a1c6966` | done |
+| 11 | (a) — custody clones the NETWORK, not the REGISTRY; the loud runbook sentence + rows | the R-4b packet + the docs rows |
+| 12 | (a) EDITED — after F-R4-1 (landed); the announce-class fallback (b) fires on a criterion-0 MISS at Sat 09-06's R-4b, not on 09-14 | the R-4b navigator packet (the fallback branch inside) |
+| 13 ★ | (a′) — worded by dispatch 09-03; LANDED `ef02d13`, CI green | done |
+| 14 ★ | (a) — one v1.1.x bump, all three fields (CG-1/2/3) | the CG Core instruction (Sun AM) → the FE fast-follow (Sun PM) |
+| 15 | (a) — after the CG batch; the Core half first | the F-S8/FE-STATE-DIALECT charter |
+| 16 | PRE-LEAN (a); RULED AT H8 (no word needed) | the H8 real-wire exercise (Mon 09-07) |
+
+**Rows 17+ (the addendum, authored after the words):** 17 REOPEN-NETUP · 18 S31-SETTLE-AFTER-REENUM · 19 SILENT-PATHS + DORMANT-DEFAULTS · 20 the INV-CE-02 gloss + Doc 08 §9 · 21 EXITCODE-UNWIRED (RULED (a) by the 09-03 word; carried for the record) · 22–25 the Pelton-week orphan rows (Doc 09 §15 Q1 · the JDK trajectory · the IR emit question · the events endpoint; ORPHANS (a) — ≤1 KB each, words at the R-5 charter) · 26 STRAT-BEYOND-MVP (the post-MVP deep-reasoning card; runs at the go-ahead).
 
 ---
 

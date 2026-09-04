@@ -34,3 +34,7 @@ Act as if the name is VERDOMO for everything that does not leave the building. P
 
 ## §4 The words this ruling asks
 None required — it executes under the plan of record and the standing rules. **One OPTIONAL scheduling word, Nick's hours:** `TIER-2 GO` = B-1 identity begins now, name-tokenized, ahead of the opinion (the September plan had it charter ON the opinion; this ruling permits earlier at the cost of wordmark hours only). Silence = it charters on the opinion, as planned.
+
+## §6 TIER-2 GO — GIVEN (2026-09-03 ~20:40 CT, the R-10 sitting; banked v62 beat 2)
+
+Nick's `OPTIONAL: TIER-2 GO`. Effect: name-DEPENDENT but PRIVATE work may start NOW under VERDOMO as the working assumption, name-TOKENIZED (`{{NAME}}` in every artifact; the wordmark/logotype is the LAST layer authored; cost if the name dies = the wordmark hours only). B-1 identity charters as a lane the moment hours exist (it slides whole, never shrinks — the September plan §2). Tier 3 is UNCHANGED: PUBLIC use stays FENCED to the written opinion (G-2; hard stop Fri 09-18). Record: `context/strategy/2026-09-04_R10-sitting_THE-WORDS_ruling-record.md`.

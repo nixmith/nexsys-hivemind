@@ -169,3 +169,7 @@ Prior: 2026-09-03 (v62 beat 1 — THE v62 BOOT, Thu ~14:48 (instrument 19:48Z) �
 ## chain segment rotated 2026-09-04 (v62 beat 4) — v62 b2, verbatim
 
 Prior: 2026-09-04 (v62 beat 2 — THE WORDS, Thu ~21:06 CT (instrument Fri 02:06Z) — the sitting's words given 09-03 ~20:40 CT and SPLICED: strategy v1.2 RATIFIED (R-1 b · R-2 b · R-3 b · R-4 a · R-5 a; A-1..A-7 + the FOP-DATES rows) · the docket RULED (ADOPT-ALL-RECS + EDIT Row 2 · EDIT Row 12) · TIER-2 GO · EXITCODE a · FOP-DATES a · ORPHANS a · Nick's four-day plan ADOPTED with three guards (the September plan §0-ter) · the push banked (d66eeed) · E1 blocked at source (EUR-Lex outage, both surfaces). Order: hivemind 9 = 8 M + 1 A.)
+
+## chain segment rotated 2026-09-04 (v62 beat 5) — v62 b3, verbatim
+
+Prior: 2026-09-04 (v62 beat 3 — THE FAILCHAN INSTRUCTION, Thu ~21:19 CT (instrument Fri 02:19Z) — authored on source at ef02d13 on the ruled words (Row 6 (a) + EXITCODE (a)): Part A the unit stops lying (`SuccessExitStatus=143` · `Restart=always` ruled with the reason · a unit-directive lint · the run-smoke stop assert) · Part B the `ExitCode` contract wired (the report beside the throw; the exit in `main`, never the hook; the mapping tested, the exit not) · Part C the orderly-path ruling table (§10-O fixed · §10-M classified at source · §10-I routed) · ten tests, the census 18 = 13 M + 5 A · the dispatch line in the brief §A. Order: hivemind 5 = 4 M + 1 A.)

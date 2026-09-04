@@ -59,3 +59,8 @@ A 110 KB record with a one-screen §0 verdict surface (the four criteria with ev
 - The September plan §0-ter: R-4b DONE; C-002 LIVE; the fleet → R-4c.
 - The record §10: the hub's verdict surface (this audit's §0).
 - The playbook + the packet pattern: at the close (the mints).
+
+## §6 Post-audit corrections (v62 beat 8, the close — 2026-09-04 ~16:52 CT)
+- **F-R4b-F, the device identity (§1 row 13):** `nwk=0x15ac` = the **SNZB-02P `0xF044D3FFFED2A201`** — Nick's device mapping (09-04), replacing "plausible attribution by cluster". The SNZB-03P is adopted, so its ACT-2 wave never reached the unknown-sender arm; that evidence is on the held card's journal (down now; read at the next power-on). The row's conclusion (the router-parented SLEEPY device misses 0x0061) is unchanged.
+- **Row 33's entity→device mapping:** given by Nick in the same message; lost verbatim at the hub's compaction; NOT written from memory — v63 asks for one line and writes it then.
+- **Nick's word on the mint: `C-002: STANDS`.** P-1: `charter` (a bench row after CG; safety limits in code — §3's third ruling executes).

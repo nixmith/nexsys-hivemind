@@ -181,3 +181,7 @@ Prior: 2026-09-04 (v62 beat 4 — THE FAILCHAN INTAKE, Fri ~07:29 CT (instrument
 ## chain segment rotated 2026-09-04 (v62 beat 7) — v62 b5, verbatim
 
 Prior: 2026-09-04 (v62 beat 5 — THE R-4b NAVIGATOR PACKET, Fri ~07:36 CT (instrument 12:36Z) — authored on the R-4 record + the F-R4-1 audit + the FAILCHAN audit: guard 1 as §0 · the window timed to the plug's :54s cadence · three provocations for criterion 0 · the announce-class fallback §6-F (Row 12, Nick's EDIT) · C4 by path A/B on the held card's own entities · the FAILCHAN stop-proof at §5 iff it rides · the R-4 record's three instrument defects fixed. Order: hivemind 4 = 3 M + 1 A.)
+
+## chain segment rotated 2026-09-04 (v62 beat 8) — v62 b6, verbatim
+
+Prior: 2026-09-04 (v62 beat 6 — FAILCHAN LANDED 7af2d6c, CI #225 RED, Fri ~10:51 CT (instrument 15:51Z) — the verdict banked (law 16): HeroLoopHardwareFreeIT "timed out awaiting the dispatched On frame"; local green after a full clean; prior reds in the Actions history; the lane's loop behaviorally identical without a close; the deferred gate OPEN — no other core lane before the fix · guard 1 answered: R-4b on ef02d13's artifact · the R-4b NAVIGATOR prompt (a bounded troubleshooting license, three tiers) + the record scaffold · the brief §A2 (the token-census instrument) + §A3 (the dispatch line). Order: hivemind 6 = 4 M + 2 A.)

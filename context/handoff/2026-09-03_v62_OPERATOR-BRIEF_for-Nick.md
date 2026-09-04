@@ -3,10 +3,43 @@ file: context/handoff/2026-09-03_v62_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR BRIEF for the v62 session — every act he is asked to perform, in order, FULLY ARTICULATED (his standing directive, 2026-09-03). Each act carries WHAT · WHY · HOW (the exact command or paste) · EXPECTED RESULT · REPORT BACK. Supersedes the v61 brief in place.
 audience: Nick
 state-type: operator brief
-status: LIVE at v62 beat 7 (Fri 2026-09-04, instrument ~21:0xZ = 16:0x CT) — R-4b DONE four-of-four; C-002 LIVE; the remainder of the day re-cut (§R-4b-DONE). Beat 6: §A executed (7af2d6c pushed; CI #225 RED); §A2 the token-census instrument (STILL OWED); §A3 the navigator dispatched and closed. Beat 4 revised it whole on FAILCHAN's return and on "R-4b: Friday". The spine (pm-handoff newest beat) outranks this file if they disagree.
+status: v62 CLOSED at beat 8 (Fri 2026-09-04, instrument 21:52Z = 16:52 CT) — §CLOSE is the ONLY live section (five acts: file the census · push · dispatch v63 · Erik Monday · I-1 optional); everything below it is the day's history (R-4b DONE four-of-four; C-002 LIVE and STANDS; FAILCHAN on main with CI #225 RED; FAILCHAN-FIX-1 ruled instrument-first, authored by v63). The v63 hub authors the v63 brief at its beat 1; this file retires then.
 -->
 
-# Operator brief — what Nick does, in order (v62, beat 4 — THE DAY: Friday 09-04)
+# Operator brief — what Nick does, in order (v62 — CLOSED at beat 8; §CLOSE is the only live section)
+
+## §CLOSE (beat 8, Fri ~16:52 CT) — v62 IS CLOSED; five acts, in order (≈12 min of your hands, then v63 takes over)
+**Your words are banked** (`C-002: STANDS` · `P-1: charter` → a bench row after CG · `BEYOND: at-C-002` → the post-MVP horizon INPUT this weekend · Erik Monday evening · `0x15ac` = the SNZB-02P). **One thing I could not keep:** the Row 33 entity→device mapping you gave — my context was compacted mid-session and the verbatim line was lost; I did not reconstruct it. You restate it in one line to v63 (act 3's paste has the slot). The same compaction is why v62 closes now: FAILCHAN-FIX-1 must be authored on the census BYTES, and a fresh window holds them whole — so act 1 puts them on disk.
+
+### Act 1 — file the §A2 census to disk (≤3 min; your desktop, the terminal where `~/ci-225/…` lives)
+**WHAT:** re-run the census and write it into the hivemind repo as a text file (v63 commits it at its beat 1 — you stage nothing). **WHY:** an instrument a WU authors on is filed at the bytes, never held in chat (a v62 mint). `cd` to your `nexsys-hivemind` checkout first (the directory you push from).
+```bash
+R=~/ci-225/lifecycle/lifecycle/build/reports/tests/test/classes/com.homesynapse.lifecycle.HeroLoopHardwareFreeIT.html
+OUT=context/audits/2026-09-04_CI-225_HeroLoopHardwareFreeIT_stdout-census.txt
+test -f "$R" && test -d context/audits && { echo "# CI #225 (run 33875188761) on 7af2d6c — the HeroLoopHardwareFreeIT class report; filed by Nick $(date -u +%Y-%m-%dT%H:%M:%SZ) at the v62 close"; echo; echo "## token census (the §A2 regex)"; grep -oE 'zigbee\.[a-z_]+|lifecycle\.[a-z_]+|integration\.[a-z_]+|automation\.[a-z_]+' "$R" | sort | uniq -c | sort -rn; echo; echo "## <N> journald-prefix count (both raw and HTML-escaped forms)"; grep -cE '^(<|&lt;)[0-9](>|&gt;)' "$R"; echo; echo "## the report's text, last 150 lines (tags stripped)"; sed 's/<[^>]*>//g' "$R" | tail -150; } > "$OUT" && wc -c "$OUT" || echo "STOP: wrong directory or the report is missing — tell v63"
+git status --porcelain; ls ~/ci-225/lifecycle/lifecycle/build/test-results/test/ 2>/dev/null | head -3; test -d ~/ci-225/lifecycle/lifecycle/build/test-results/test || echo "no test-results XML in the artifact"
+```
+**EXPECTED:** `wc -c` prints a few thousand bytes; `git status --porcelain` prints exactly one line `?? context/audits/2026-09-04_CI-225_HeroLoopHardwareFreeIT_stdout-census.txt`; the last line names the XML (`TEST-com.homesynapse.lifecycle.HeroLoopHardwareFreeIT.xml`) or says none is in the artifact (a datum for I-2). **REPORT BACK (to v63):** `census filed (<bytes>) · XML: <present | absent>`.
+
+### Act 2 — push the hivemind (≤1 min; the same directory)
+**WHAT/WHY:** beats 4–8 (six commits) are local only; the push is yours by law.
+```bash
+git log --oneline -1 | cut -c1-60; git rev-list --count origin/main..HEAD; git push origin main
+```
+**EXPECTED:** the first line begins `<sha> hivemind: v62 beat 8 — THE v62 CLOSE`; the count is `6`; the push ends `f0ee4ee..<that sha>  main -> main`. **REPORT BACK (to v63):** `hivemind pushed` (or the error text whole).
+
+### Act 3 — dispatch v63 (≤2 min; a FRESH Cowork conversation with the ClaudeFolder connected)
+Paste this as its first message, verbatim, after filling the four ⟨slots⟩ from acts 1–2 (and the I-1 slot if you did act 5; else `not done`):
+```
+Boot as the v63 PM MISSION-CONTROL hub. Read nexsys-hivemind/context/handoff/2026-09-04_PM-mission-control_v63_orchestrator_session_prompt.md WHOLE and execute its §1 exactly (date -u first; the spine outranks its §2), then its §8. My first report: hivemind push = ⟨pushed | ahead N + the error⟩ · the census file = ⟨filed (N bytes) · XML present|absent⟩ · Row 33's entity→device mapping (01M19RHWXYZYJMM26SX0E41HXN): ⟨one line⟩ · I-1 the prior reds: ⟨not done | #169: <test · message> · #183: … · #206: …⟩ · the 09-05 nightly: ⟨not fired yet | the digest line⟩. Hand me the v63 brief, then FAILCHAN-FIX-1.
+```
+**EXPECTED:** it confirms the five HEADs and the fold grep, commits the census file at beat 1, hands you the v63 brief, and authors FAILCHAN-FIX-1 (instrument-first) next. **This v62 conversation is then retired** — nothing further is pasted here.
+
+### Act 4 — Erik (Monday 09-07, evening; your words)
+No nudge over Labor Day (your call, banked). Monday evening you email; if you want a draft, ask v63 Monday and it hands you one in the brief. **REPORT BACK:** `Erik: sent` (or his reply, whole).
+
+### Act 5 — OPTIONAL, I-1 (≤5 min, any time before v63's Block 1; read-only)
+**WHAT:** in GitHub → Actions → the `Build & Check` workflow, open runs **#169, #183, #206** → the red job → the `Test` step's failure summary. **WHY:** if the same test (`HeroLoopHardwareFreeIT`) with the same message failed before FAILCHAN existed, the red is a pre-existing determinism class (branch a) and the fix WU starts there; if not, FAILCHAN is the suspect (branch b). **REPORT BACK (in act 3's slot):** one line per run: `#183: <test class · the one-line message>`.
 
 ## §0 Banked, and today's shape (no action)
 - **DONE:** the hivemind push `d66eeed..f0ee4ee` (in sync) · the FAILCHAN lane RETURNED and AUDITED — **ACCEPT-WITH-RULINGS** (R1 ACCEPT: `homesynapse.yaml` is the real root document; R2 ACCEPT: the 19th file is the §10-M ruling comment the instruction itself prescribed — the hub's Files-table miss). The audit: `context/audits/2026-09-04_FAILCHAN_intake_two-layer-audit_v62-beat-4.md`.

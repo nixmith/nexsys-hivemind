@@ -3,7 +3,7 @@ file: context/handoff/2026-09-03_v62_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR BRIEF for the v62 session — every act he is asked to perform, in order, FULLY ARTICULATED (his standing directive, 2026-09-03). Each act carries WHAT · WHY · HOW (the exact command or paste) · EXPECTED RESULT · REPORT BACK. Supersedes the v61 brief in place.
 audience: Nick
 state-type: operator brief
-status: v62 CLOSED at beat 8; beat 9 POST-CLOSE (Fri 2026-09-04, instrument 22:12Z = 17:12 CT) — §CLOSE is the ONLY live section (Act 1 the census · Act 2 DONE · Act 2b push beat 9 · Act 2c I-0 + the words PR5:/PROTECT: · Act 3 dispatch v63 from context/handoff/2026-09-04_v63_dispatch-prompt.md · Act 4 Erik Monday · Act 5 I-1 optional); everything below it is the day's history (R-4b DONE four-of-four; C-002 LIVE and STANDS; FAILCHAN on main with CI #225 RED; FAILCHAN-FIX-1 ruled instrument-first, authored by v63). The v63 hub authors the v63 brief at its beat 1; this file retires then.
+status: RETIRED IN PLACE at v63 beat 1 (Fri 2026-09-04, instrument 23:10Z = 18:10 CT) — superseded by context/handoff/2026-09-05_v63_OPERATOR-BRIEF_for-Nick.md (Nick's operator queue; its Act 1 re-issues this file's §CLOSE Act 1 verbatim — the census was not filed at the v62 close). Everything below is the v62 day's history (R-4b DONE four-of-four; C-002 LIVE and STANDS; FAILCHAN on main with CI #225 RED; PR #5 merged → dc3328b, RED on ReplayTransitionIT:212 — banked at v63 beat 1).
 -->
 
 # Operator brief — what Nick does, in order (v62 — CLOSED at beat 8; §CLOSE is the only live section)

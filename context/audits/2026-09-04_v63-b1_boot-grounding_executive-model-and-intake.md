@@ -1,0 +1,109 @@
+<!--
+file: context/audits/2026-09-04_v63-b1_boot-grounding_executive-model-and-intake.md
+purpose: THE v63 BEAT-1 GROUNDING AUDIT — (§0) the one-screen executive model, checked line-by-line against strategy v1.2, the claim register and the September plan; (§1) the boot at the instrument (five HEADs, the fold, the preflight); (§2) the intake — Nick's dispatch message FILED at the bytes (the dc3328b CI log, the pull, the screenshots' reading); (§3) THE THREE-RUN TABLE on 7af2d6c's Java bytes — non-determinism established at the instrument, TWO classes in TWO modules; (§4) the hub's own source reads for FAILCHAN-FIX-1 Part A — what the ruling did not have; (§5) the document/model disagreements, each settled at the instrument; (§6) the hub-originated contribution in ruling form (H10).
+audience: the hub (v63 → v64) · Nick (§5/§6 are the decisions) · the FIX-1 lane (§3/§4 are its Part-A premises, by line)
+state-type: audit (filed evidence; chat is not a storage tier)
+status: FILED v63 beat 1, Fri 2026-09-04 (instrument 22:52Z = 17:52 CT). Supersedes nothing; the beat-8 census read in pm-handoff v62 b8 stands and is sharpened here.
+-->
+
+# v63 beat 1 — the grounding audit: the executive model · the intake · the three-run table · Part A's source premises
+
+## §0 The one-screen executive model (checked against the documents; every line's source named)
+
+| Line | The model | Checked at |
+|---|---|---|
+| **What the product IS** | A local-first, event-sourced smart-home runtime: a SQLite event store, an in-process bus whose subscribers walk COLD→REPLAY→TRANSITION→LIVE, a real Zigbee/EZSP adapter over a watchdog'd serial transport, one systemd unit on a Pi card. Its floor is deterministic (injected clocks — LTD-09/`NO_DIRECT_TIME_ACCESS`), measured on real hardware (the bench, the nightly, the R-4 series), and honest about its own failures (never-false-ALIVE; honest CONFIRMED/UNCONFIRMED verdicts; FAILCHAN). **D5: that floor is MISSING from the field, not superior to it.** | strategy v1.2 `:6` (the D5 law line) · `:15` (the two goals) · Doc 12 by pointer |
+| **What the WEDGE is** | THE MEASURED CORPUS — claims minted only on measured objects. **C-001 LIVE, narrow** (`7c57d7f`'s artifact installs and boots). **C-002 LIVE and STANDS** (Nick's word 09-04): ONE mains router adopted through the rejoin path in 315 ms + ONE automation whose command the device CONFIRMED in 10,051 ms, on `ef02d13`, Path B. **C-003 = a SLOT**: the six-device fleet re-adopted (routers by rejoin, sleepy devices by the ZDO `IEEE_addr_req` second surface) — behind F-R4-1b + R-4c. | `claim-register.md` `:6 :9 :22–:24 :26` |
+| **What each FENCE protects** | **G-2 / the brand hard stop 09-18**: no public use of a candidate name before a written-opinion-backed clearance — the name is a hedge until counsel says otherwise; the rename-slip fallback 10-31 keeps the flip's launch moment from waiting on the name. **s31/nightly HANDS OFF until R-5**: the nightly is the bench's truth engine; a hand on s31 corrupts the floor the R-5 settle redesign must be measured against. **The deferred gate on a red `main`**: one lane on the core tree; no other core lane before the fix WU; never a `main` re-run — a re-run manufactures a green the bytes did not earn. **The commit boundary**: core/bench/docs are Nick's hands, hivemind/skills the hub's at the bridge, push always Nick's — the hub never implements, so every line of code has a human commit behind it. | v1.2 `:59 :69` · the plan §8 · the skill §1/§5 · the v62 prompt §0 |
+| **The CRITICAL PATH to the runway** | FAILCHAN-FIX-1's green (**now: the mechanism behind BOTH reds**, §3) → CG-1/2/3 (+ Row 30 inside) → the FE fast-follow → H8 real-wire → R-4c / C-003 (behind F-R4-1b) → the R-4.5/R-5 charter (the nightly fence lifts by its own proof) · the dated words 09-07 Erik · 09-11 `EU: ship|defer` · 09-15 `Activate: apply|hold` · 09-18 the hard stop · the Apache-2.0 flip in Oct on counsel, landing with the rename in-tree (10-31 fallback) · P4 BEYOND post-Nov-25 (Row 26 fires now as an INPUT). | the plan §0-ter · §2 `:49` · v1.2 `:28–:29 :56–:59` |
+
+**Where the model and a document disagreed** → §5. Every disagreement was settled at the instrument before this beat wrote a byte of the spine.
+
+## §1 The boot at the instrument (§1 of the v63 prompt, executed)
+
+`date -u` → **Fri Sep 4 22:39:52 UTC 2026** (17:39 CT). Five HEADs: core **`dc3328b`** (drift from the expected `7af2d6c` — Nick's PR #5 merge, fast-forwarded by his `git pull`; ahead 0; porcelain clean; adjudicated at `git log -3 --format='%h %p'`, §3) · hivemind **`2e3f733`** (the v62 beat 9 commit; ahead 0 — the push is banked; porcelain **clean, and the census file is ABSENT** — §5-D4) · skills `f9c0bf4` ✓ (a stale `.git/HEAD.lock` present — swept by rename before any skills commit) · bench `4539f13` ✓ · docs `a53f474` ✓. The fold grep = 1 ✓. **Preflight: PASS (11/11)** — Check 3 adjudicated (core one merge ahead of the snapshot's `7af2d6c`, accounted at this beat); **Check 9 three-of-three byte-identical** (28 files, every md5 equal: `project-manager` · `coder` · `orchestrators/nexsys-frontend` vs the account-synced trees this session loaded); Check 11 rode the source reads (`HeroLoopHardwareFreeIT` `:318 :324 :614`, `ZigbeeIntegrationAdapter` `:808–:859`, `CommandRoutingSubscriber` `:194`, `InProcessEventBus` `:250 :480 :487` all resolve).
+
+## §2 The intake — Nick's dispatch message, at the bytes
+
+Nick's message carried the v63 dispatch prompt with its STATE slots **unfilled** (`PR5: ⟨merged | held⟩` etc. — the ⟨⟩ placeholders verbatim) plus three primaries, filed here verbatim so nothing rides chat:
+
+**(a) The hivemind push (Nick's terminal):** `2e3f733 hivemind: v62 beat 9 — POST-CLOSE (Fri ~17:12 CT,` · count `1` · `204c5ba..2e3f733  main -> main`. Banked: hivemind in sync at `2e3f733`.
+
+**(b) The core pull (Nick's terminal):** `From https://github.com/nexsys-io/homesynapse-core · 7af2d6c..dc3328b  main -> origin/main · Updating 7af2d6c..dc3328b · Fast-forward · web-ui/dashboard/package-lock.json | 74 ++++++++++++++++++++++---------------- · 1 file changed, 43 insertions(+), 31 deletions(-)`. Banked: **PR #5 MERGED** (`dc3328b`); the Java tree byte-identical to `7af2d6c`'s.
+
+**(c) The CI log of `dc3328b`'s `main` run (`Build & Check`), the failing tail verbatim:**
+```
+> Task :core:event-bus:test
+
+M3.2 — REPLAY→TRANSITION→LIVE integration test > subscriber resumes from persisted checkpoint and catches up to LIVE without gaps under continuous publish FAILED
+    java.lang.AssertionError at ReplayTransitionIT.java:212
+
+221 tests completed, 1 failed, 30 skipped
+> Task :core:event-bus:test FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1788560925928.json
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':core:event-bus:test'.
+> There were failing tests. See the report at: file:///home/runner/work/homesynapse-core/homesynapse-core/core/event-bus/build/reports/tests/test/index.html
+
+BUILD FAILED in 1m 28s
+93 actionable tasks: 93 executed
+Error: Process completed with exit code 1.
+```
+The command line above it: `./gradlew check --no-daemon` (no `--continue`). The task list that ran BEFORE the failure (from the same log): `:api:rest-api:test` · `:app:homesynapse-app:test` · `:config:configuration:test` · `:core:automation:test` · `:core:device-model:test` · then `:core:event-bus:test` FAILED. **`:lifecycle:lifecycle:test` does not appear in the log: Gradle stopped at the first failing task.**
+
+**(d) The two screenshots (the commit list + the checks banner), read:** `dc3328b` "Merge pull request #5 …" ✗ **1/2** · `8e6e0e1` "build(deps-dev): bump browserslist in /web-ui/dashboard" (dependabot[bot], "9 hours ago") ✓ **2/2** · `7af2d6c` FAILCHAN ✗ **2/3**. The banner on `dc3328b`: `CI / Build & Check (push)` **Failing after 1m** · `Frontend CI / Lint · Typecheck · Test (a11y) · Build · Budget · Contract (push)` Successful in 30s. The check counts reconcile against the three workflows at source: `7af2d6c` = Build & Check ✗ + install-smoke amd64 ✓ + install-smoke arm64 ✓ (its paths matched `distribution/**`, `app/**`, `lifecycle/**`; no `web-ui/` change → no Frontend run) = 2/3; `8e6e0e1` = Build & Check ✓ + Frontend ✓ (install-smoke's PR paths do not match `web-ui/`) = 2/2; `dc3328b` = Build & Check ✗ + Frontend ✓ = 1/2.
+
+**Unreported at dispatch (each an act in the v63 brief):** `PROTECT:` · the census file (absent on disk — §1) · Row 33's entity→device line · I-1 (the prior reds #169/#183/#206) · the 09-05 nightly (not fired yet; ~08:32Z Sat).
+
+## §3 THE THREE-RUN TABLE — non-determinism established at the instrument (I-0 answered without a click)
+
+**I-0, resolved by `git log`:** `git --no-optional-locks log -3 --format='%h %p %s'` at core prints `dc3328b 7af2d6c 8e6e0e1 Merge pull request #5 …` · **`8e6e0e1 7af2d6c` build(deps-dev): bump browserslist** · `7af2d6c ef02d13 … FAILCHAN …`. Dependabot's commit has **`7af2d6c` as its sole parent**, so PR #5's merge ref = `8e6e0e1`'s tree = `7af2d6c`'s Java bytes + one `package-lock.json`. Its `Build & Check` (`ci.yml` runs on every `pull_request: main`, no path filter, `./gradlew check`) executed the whole suite — the lifecycle suite included — on FAILCHAN's Java bytes, and was GREEN. The Checkout line Nick was asked to read is no longer needed: the parentage is the harder fact.
+
+| Run | Tree (Java bytes) | `:core:event-bus:test` | `:lifecycle:lifecycle:test` (HeroLoop) | Verdict |
+|---|---|---|---|---|
+| CI #225 — push `7af2d6c` | `7af2d6c` | GREEN (ran before lifecycle) | **RED** — `HeroLoopHardwareFreeIT.timeoutHonesty_noReportNeverConfirms` `:324` "timed out awaiting the dispatched On frame" (`:614`) | RED |
+| PR #5 — `8e6e0e1` (parent `7af2d6c`) | `7af2d6c` + package-lock | GREEN | GREEN | **GREEN** |
+| push `dc3328b` (merge of the two) | `7af2d6c` + package-lock | **RED** — `ReplayTransitionIT.replayTransitionLiveEndToEnd` `:212` (the `awaitCheckpoint` throw) | **NOT RUN** — Gradle stopped at event-bus (no `--continue`) | RED |
+
+**Three runs of identical Java bytes; three different outcomes; two failing classes in two modules — one of them (`core:event-bus`) untouched by FAILCHAN.** Non-determinism on this tree is established at the instrument. The v62 beat-9 weighting ("toward (a)/(c), against a deterministic guard regression (b)") is now a finding, not a weighting — and the failure class is wider than the FAILCHAN commit and wider than one test.
+
+**Two corollaries the plan must absorb.** (1) `dc3328b`'s run is NOT a HeroLoop sample (the suite never reached lifecycle) — the v63 prompt §2 and the beat-9 ruling said it would be; §5-D1. (2) With two independent flaky ITs, a fix that repairs only HeroLoop leaves every future `main` push a coin flip on ReplayTransitionIT — and `main` red = no other core lane. CG's dispatch, FE's, H8's artifact and the C-003 measurement all sit behind that coin. §6 rules on it.
+
+## §4 The hub's own source reads — what Part A now rests on (line-cited at `dc3328b`; identical bytes to `7af2d6c`)
+
+**S1 — the §10-O hunk cannot reach the red test.** `ZigbeeIntegrationAdapter.run()` `:413–:421`: when `channelOpener != null` ("Driven mode (M9.4a): the rig owns the cycle cadence via runCycleOnce()") the adapter opens the transport, starts the session, logs `zigbee.session_started`, parks on `stopSignal.await()` and RETURNS. **`productionLoop()` (`:808`) is only called from the production branch (`:435`).** `ZigbeeHardwareFreeRig` is driven mode by construction (`deliverAndCycle()` `:178–:181` calls `adapter().runCycleOnce()` from the test thread). FAILCHAN's whole adapter diff (`git diff ef02d13 7af2d6c -- …ZigbeeIntegrationAdapter.java` → hunks `@@ -797,8 +797,15` · `@@ -812,10 +819,25` · `@@ -827,6 +849,15` — `productionLoop` + `closeRequested`) is therefore unreachable in `HeroLoopHardwareFreeIT`. **I-4 as ruled (revert the hunk in a scratch worktree) measures nothing** → re-cut to the whole-tree pair `ef02d13` vs `7af2d6c` (§6). FAILCHAN's reachable hunks in this test are the lifecycle ones (`HomeSynapseCore.java` +71, `SystemLifecycleManager.java` +25 — the start/stop path) and `ZclIngestionUnit.java` +13 (a comment block only, `@@ -416,6 +416,19`).
+
+**S2 — the class report's two singular tokens, read at their emitters, name the red method's mechanism.** `integration.route_join_miss ×1`: `CommandRoutingSubscriber.routeDispatched()` `:181–:198` — on a `command_dispatched` whose `causationId` has no cached `command_issued`, it WARNs and **"skipping dispatch"** — *"No dispatch, no result event — the ledger's timeout owns the outcome."* No frame is ever sent. The cache is filled by the SAME subscriber consuming `command_issued` (`cacheIssued()` `:152`), from a totally-ordered log; `command_cache_evicted` is absent from the census (capacity is not the cause). **A miss on a LIVE subscriber therefore requires that subscriber to have skipped or reordered its own `command_issued` delivery.** Uniqueness argument (lawful — it is not a per-method count claim): four of the five methods PASSED their frame waits, so their joins HIT; the single miss belongs to the single red method. `zigbee.command_result ×1`: `ZigbeeCommandHandler.publishResult()` `:337–:353` logs it for handler-produced verdicts — the identify method's immediate `unconfirmed` (`:244–:247`) — consistent with one handler verdict per class.
+
+**S3 — the routing subscriber IS in the test's LIVE barrier.** It is registered at `HomeSynapseCore.java:836` under `IntegrationSupervisorAssembly.SUBSCRIBER_ID`, and `awaitRuntimeSubscribersLive()` (`:481–:493`) waits on `integration_supervisor` among five. So the miss happened in LIVE mode, not during the subscriber's own transition.
+
+**S4 — three UNLOGGED drop points on the LIVE delivery path, in the product.** `InProcessEventBus.notifyEvent()` (`:235`): `eventStore.readFrom(globalPosition - 1, 1)`; **if the page is empty (`:250`) → `return`** — the notification is never offered to any subscriber. `liveLoop()` (`:460`): processes ONLY offered positions (`pendingPositions().poll()`, then `LockSupport.park()` `:471`); never pages forward from the checkpoint; on an empty page (`:480`) → `continue`; on **any exception from the read (`:487–:488`, "Transient read failure — skip this position; retain mode") → `continue`**. A position dropped here is lost to that subscriber permanently — the next successful delivery writes a checkpoint past it (`:508`). None of the three emits a token, so the class report cannot show them. **This is a failure through a silent channel — FAILCHAN's mirror image — in the module whose determinism the D5 floor stands on.** The SQLite store is the one in play for HeroLoop (`tempDir.resolve("homesynapse-events.db")`, `:346`); the fixture `InMemoryEventStore` (ReplayTransitionIT) is `ReentrantReadWriteLock`-protected (`:55 :110–:126`), so for THAT test the empty/throwing read is not the mechanism — the transition/park handshake is where its instrument points (`TransitionCoordinator.drainAndPromote()` `:83`, whose page-empty `continue` at `:100` is a fourth silent drop — its `catch (Exception e)` at `:107` SUSPENDs, which is honest; `notifyEvent`'s `vt != null` guard at `:302`).
+
+**S5 — ReplayTransitionIT `:212` is the `awaitCheckpoint` throw; the message decides the phase.** `:112` awaits checkpoint 1000 within 15 s (phase 1, a single bus, no concurrent publisher); `:167` awaits 1500 within 30 s (phase 2, the restarted bus with a 500-event publisher at ~100/s during REPLAY→TRANSITION→LIVE — the race the test exists to catch). The Gradle console prints no message; the HTML report does. **`ci.yml` `:34–:40` uploads `**/build/reports/tests/` (HTML) on failure only, never `build/test-results/` (XML)** — so the per-method XML split of #225 (I-2 as ruled) never existed to recover, and `dc3328b`'s `test-reports` artifact carries the ReplayTransitionIT message (an act for Nick, 3 min).
+
+**S6 — the test's own shape does not distinguish the red method.** `:318–:333` (`fireManual` → `command_issued` found → `awaitTrue(sentFrame(0x0006,0x01))`, 500×20 ms = 10 s, `:607–:615`) is the same sequence as brightness (`:273–:278`) and CT (`:169–:179`), both of which passed; identify additionally awaits `command_dispatched` (`:233`). Each method boots a fresh core on a fresh `@TempDir` (`bootAndAdopt` `:339`); `tearDown` calls `core.stop()`. `PRODUCTION_CYCLE_MILLIS = 50` (`:146`) is irrelevant in driven mode. No Gradle parallelism (`gradle.properties` absent; `tasks.withType<Test>` sets only `useJUnitPlatform()` + one jvmArg, conventions `:48–:51`): CI runs modules serially on a 2-vCPU runner.
+
+## §5 Document ↔ model disagreements — each settled at the instrument
+
+| # | The document said | The instrument says | Settled |
+|---|---|---|---|
+| D1 | v63 prompt §2 / beat 9: the merge commit's `main` run "is a SECOND sample for the table" (for HeroLoop). | `dc3328b`'s run failed in `:core:event-bus:test` and never reached lifecycle (§2c). It is a sample for a DIFFERENT class. | The table in §3 replaces the sentence; FIX-1's charter widens (§6). |
+| D2 | The ruling's I-4: "the same loop with the §10-O hunk (`:822/:835`) reverted". | The hunk is inside `productionLoop()`, never called in driven mode (§4-S1). | I-4 re-cut to `ef02d13` vs `7af2d6c` whole-tree loops (the instruction Part A). |
+| D3 | The ruling's I-2: "the per-method XML split of #225". | `ci.yml` uploads HTML only, on failure (§4-S5). | I-2 re-cut: the fix branch ships `outputPerTestCase` + XML upload `if: always()` + `--continue`; per-method truth exists from the fix branch onward. |
+| D4 | The prompt's expected hivemind state: "porcelain clean OR exactly one `??` = the census file Nick filed". | Porcelain clean because NOTHING was filed; the dispatch's slots were pasted unfilled. | Act 1 of the v62 brief is re-issued verbatim as v63 brief Act 1; FIX-1 dispatches without it (its Part A rebuilds per-method truth on the fix branch) and the hub reads the `route_join_miss` WARN line when the file lands. |
+| D5 | Snapshot/prompt: core `7af2d6c`, CI #225 RED. | Core `dc3328b`; `main` RED on TWO runs, two classes. The gate is OPEN on `dc3328b`. | Spine + snapshot rewritten at this beat. |
+| D6 | Beat 9: "the merge is Nick's click" with the Checkout line as I-0. | I-0 answered by parentage (`8e6e0e1`'s parent is `7af2d6c`). | The click stands (harmless); the read is retired. |
+
+## §6 The hub-originated contribution (H10) — the FIX-1 charter is THE CLASS, not the instance
+
+**Task:** FAILCHAN-FIX-1's scope on a `main` that is red on two independent tests.
+**Question:** Does the one permitted core lane fix `HeroLoopHardwareFreeIT` alone, or the delivery-nondeterminism class both reds belong to?
+**Options:** (a) **THE CLASS** — one lane, instrument-first on BOTH classes (I-3 loops on both; the four silent drop points tokenized as observability-only edits before any loop; the fix on the measured mechanism), plus the CI instrumentation that makes every future red self-describing (`outputPerTestCase`, XML upload always, `--continue`). Cost: ≈+1 lane-day; CG slips the same. Risk: the loops reproduce nothing locally (branch c) — then the branch's own repeated CI is the instrument and the WU still lands the tokens + the CI change, so the NEXT red carries its mechanism. Buys: a `main` that is green for a reason, and — on the runway horizon — a measured statement about the bus's liveness under pressure, which is the D5 floor applied to our own core; a bus that drops a delivery silently is a claim-killer found in CI before a household finds it. (b) **THE INSTANCE** — HeroLoop only; fastest to a single green. Cost: every later push flips on ReplayTransitionIT at whatever its rate is (three runs, one red: the sample says it is not rare); each flip is a fresh fix WU and a frozen core tree; CG/FE/H8 each pay it. (c) **QUARANTINE** — tag both ITs out of `check` and fix later. Cost: the gate of record stops measuring the thing the product claims; refused on D5 grounds — a test that exists but never runs "reads as coverage" (format law #13).
+**PM recommendation: (a).** Horizon named: it serves the runway (the corpus's core claim) and the September plan (one fix, not a series); it costs the next commit ≈one day.
+**Refutable-by:** I-1 showing #169/#183/#206 were all a THIRD, unrelated class (then the class is "CI-flaky ITs" generally and the CI instrumentation alone is the WU, the mechanism fixes each a row); or the 20× loops on `ef02d13` reproducing HeroLoop only (branch b) — then the lifecycle hunks are the fix and ReplayTransitionIT is its own row behind it.
+**Blocking:** no — the instruction is authored to (a) and dispatch-ready; Nick's word `FIX1: class | instance` on the brief; `class` is assumed if he pastes the dispatch line as written.
+
+**The second contribution, named before it costs (a risk for the plan, not this WU):** the `main`-red law + `--continue` absent means one flaky module HIDES the verdict of every module after it; with `--continue` a red run still fails (the gate holds) but reports every failing task. This is a two-line `ci.yml` change inside FIX-1; it makes the next red a full sample instead of a truncated one. Recommended as part of (a); harmless under (b).

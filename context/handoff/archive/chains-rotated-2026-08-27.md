@@ -173,3 +173,7 @@ Prior: 2026-09-04 (v62 beat 2 — THE WORDS, Thu ~21:06 CT (instrument Fri 02:06
 ## chain segment rotated 2026-09-04 (v62 beat 5) — v62 b3, verbatim
 
 Prior: 2026-09-04 (v62 beat 3 — THE FAILCHAN INSTRUCTION, Thu ~21:19 CT (instrument Fri 02:19Z) — authored on source at ef02d13 on the ruled words (Row 6 (a) + EXITCODE (a)): Part A the unit stops lying (`SuccessExitStatus=143` · `Restart=always` ruled with the reason · a unit-directive lint · the run-smoke stop assert) · Part B the `ExitCode` contract wired (the report beside the throw; the exit in `main`, never the hook; the mapping tested, the exit not) · Part C the orderly-path ruling table (§10-O fixed · §10-M classified at source · §10-I routed) · ten tests, the census 18 = 13 M + 5 A · the dispatch line in the brief §A. Order: hivemind 5 = 4 M + 1 A.)
+
+## chain segment rotated 2026-09-04 (v62 beat 6) — v62 b4, verbatim
+
+Prior: 2026-09-04 (v62 beat 4 — THE FAILCHAN INTAKE, Fri ~07:29 CT (instrument 12:29Z) — the lane returned (03:20Z) + audited ACCEPT-WITH-RULINGS at the bytes (19 = 14 M + 5 A; R1 `homesynapse.yaml` ACCEPT · R2 the §10-M comment ACCEPT — the hub's table miss; two instruction claims corrected by the lane at source, owned: the 0x32 status, the display-name grep) · OR-FAILCHAN instance 6 (residual, LOW) recorded · the msg file + census card in Nick's hands; CI on his push = the gate; guard 1 re-keyed to TODAY (R-4b is Friday) · the brief re-cut to the day · the v63 skeleton authored. Order: hivemind 9 = 6 M + 3 A.)

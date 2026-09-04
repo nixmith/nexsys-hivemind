@@ -3,7 +3,7 @@ file: context/handoff/2026-09-03_v62_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR BRIEF for the v62 session — every act he is asked to perform, in order, FULLY ARTICULATED (his standing directive, 2026-09-03). Each act carries WHAT · WHY · HOW (the exact command or paste) · EXPECTED RESULT · REPORT BACK. Supersedes the v61 brief in place.
 audience: Nick
 state-type: operator brief
-status: LIVE at v62 beat 4 (Fri 2026-09-04, instrument ~12:4xZ = 07:4x CT) — revised whole on FAILCHAN's return (ACCEPT-WITH-RULINGS; the commit block is §A) and on Nick's word "R-4b: Friday — the whole day". The four-day plan (§0-ter) shifts one day earlier: Fri R-4b · Sat CG → FE · Sun/Mon H8 + the menu. The spine (pm-handoff newest beat) outranks this file if they disagree.
+status: LIVE at v62 beat 6 (Fri 2026-09-04, instrument ~16:0xZ = 11:0x CT) — §A executed (7af2d6c pushed; CI #225 RED on HeroLoopHardwareFreeIT); §A2 the token-census instrument; §A3 the R-4b NAVIGATOR dispatch line (the navigator prompt + the record scaffold are on disk). Guard 1 answered: R-4b on ef02d13's artifact. Beat 4 revised it whole on FAILCHAN's return and on "R-4b: Friday". The spine (pm-handoff newest beat) outranks this file if they disagree.
 -->
 
 # Operator brief — what Nick does, in order (v62, beat 4 — THE DAY: Friday 09-04)
@@ -12,7 +12,23 @@ status: LIVE at v62 beat 4 (Fri 2026-09-04, instrument ~12:4xZ = 07:4x CT) — r
 - **DONE:** the hivemind push `d66eeed..f0ee4ee` (in sync) · the FAILCHAN lane RETURNED and AUDITED — **ACCEPT-WITH-RULINGS** (R1 ACCEPT: `homesynapse.yaml` is the real root document; R2 ACCEPT: the 19th file is the §10-M ruling comment the instruction itself prescribed — the hub's Files-table miss). The audit: `context/audits/2026-09-04_FAILCHAN_intake_two-layer-audit_v62-beat-4.md`.
 - **TODAY, in order:** §A commit + push FAILCHAN (≤5 min) → CI runs (~20–30 min: Build & Check + install-smoke on two architectures) while the hub authors the R-4b packet → §B the R-4b hardware session (~3 h) on whichever artifact guard 1 selects → midday: §C Erik's nudge if silent → afternoon: the R-4b audit; C-002 mints on four-of-four → §D the CG-1/2/3 Core lane if hours remain (else Saturday). **Guard 1, re-keyed to today:** the FAILCHAN artifact rides R-4b only if BOTH CI legs are GREEN before the packet's install step; otherwise the packet installs `ef02d13`'s artifact — the packet carries both paths, you choose by one glance at Actions. **Guard 2:** any R-4b Core defect takes the next core-tree slot before CG. **Guard 3:** the afternoon is a menu — the audit first.
 
-## §A NOW — commit + push FAILCHAN (your hands; ≤5 min)
+## §A-DONE — FAILCHAN committed `7af2d6c` and pushed (07:54 CT); **CI #225 RED** (`HeroLoopHardwareFreeIT` — "timed out awaiting the dispatched On frame"; local re-run green after a full clean; prior reds exist in the Actions history). Guard 1 is answered: **R-4b runs on `ef02d13`'s artifact.** `main` is red until the fix lands — no other core lane dispatches before it (the deferred-gate rule); the fix WU is the exception.
+
+## §A2 NOW — the token census from the CI test report (≤3 min; the instrument the fix WU authors on)
+```bash
+grep -oE 'zigbee\.[a-z_]+|lifecycle\.[a-z_]+|integration\.[a-z_]+|automation\.[a-z_]+' ~/ci-225/lifecycle/lifecycle/build/reports/tests/test/classes/com.homesynapse.lifecycle.HeroLoopHardwareFreeIT.html | sort | uniq -c | sort -rn | head -40
+```
+Paste the whole output. Then the last 60 lines of the class's standard output: open that `.html` in a browser → the "Standard output" tab → copy the tail → paste. (If the tab is empty, say so — that is a datum too.)
+**REPORT BACK:** the census + the tail. The hub hands you `FAILCHAN-FIX-1` within ~30 min of the paste.
+
+## §A3 NOW — dispatch the R-4b NAVIGATOR session (a fresh Cowork conversation with the ClaudeFolder connected; ≤2 min)
+Paste this as its first message, verbatim:
+```
+Boot as the R-4b NAVIGATOR. Read nexsys-hivemind/context/handoff/2026-09-04_R-4b_navigator_session-prompt.md WHOLE and execute its §A–§F exactly; your read-set is its §B, in order; the record you fill is nexsys-hivemind/context/audits/2026-09-04_R-4b_re-rep_operator-record.md. State at dispatch: ARTIFACT = ef02d13's (CI on the FAILCHAN commit 7af2d6c is RED — skip the §5 stop-proof block; §9's stop reads failed/143, the known lie); the BENCH card is in the Pi; the hub session stays open in parallel for any STOP. date -u first. Start me at the packet's §0 and walk me one block at a time.
+```
+**EXPECTED:** it reads the five files, confirms the state line back to you, and hands you §0/§1. **REPORT BACK (to the hub, only at a STOP or at the close):** `STOP at §X` + the record's §X, or `R-4b record filed`.
+
+## §A-ORIGINAL (executed) — commit + push FAILCHAN (your hands; ≤5 min)
 - **WHAT:** ONE commit in `homesynapse-core` of exactly the 19 files the lane produced, from the hub's message file; then push; then read CI.
 - **WHY:** CI on your push is the gate of record (the full `./gradlew check` + the install-smoke matrix did not run on the desk); guard 1 needs its verdict before R-4b installs.
 - **THE CENSUS CARD — 19 = 14 M + 5 A:**

@@ -165,3 +165,7 @@ Prior: 2026-09-03 (v61 beat 12 — THE LAST BEAT, Thu ~07:50 (instrument 12:49Z)
 ## chain segment rotated 2026-09-04 (v62 beat 3) — v62 b1, verbatim
 
 Prior: 2026-09-03 (v62 beat 1 — THE v62 BOOT, Thu ~14:48 (instrument 19:48Z) — zero drift on five HEADs · CI GREEN on `ef02d13` BANKED (the PKG-SEC-2 gate CLOSED) · Check 9 three-of-three at the bytes (28/28 md5) · preflight PASS 11/11 · THE DEEP READ (Nick's brief) filed as one audit — EXITCODE-UNWIRED source-verified (a FAILCHAN-class boot-honesty defect: `ExitCode` unreferenced; the unit's `RestartPreventExitStatus=10` can never match) + README/docs-repo/strategy/planning currency findings, each with a disposition · OR-TOKEN-MODE-644 CLOSED + rotated · the v62 operator brief (fully articulated; three H10s: EXITCODE · FOP-DATES · ORPHANS). Order: hivemind 6 = 4 M + 2 A.)
+
+## chain segment rotated 2026-09-04 (v62 beat 4) — v62 b2, verbatim
+
+Prior: 2026-09-04 (v62 beat 2 — THE WORDS, Thu ~21:06 CT (instrument Fri 02:06Z) — the sitting's words given 09-03 ~20:40 CT and SPLICED: strategy v1.2 RATIFIED (R-1 b · R-2 b · R-3 b · R-4 a · R-5 a; A-1..A-7 + the FOP-DATES rows) · the docket RULED (ADOPT-ALL-RECS + EDIT Row 2 · EDIT Row 12) · TIER-2 GO · EXITCODE a · FOP-DATES a · ORPHANS a · Nick's four-day plan ADOPTED with three guards (the September plan §0-ter) · the push banked (d66eeed) · E1 blocked at source (EUR-Lex outage, both surfaces). Order: hivemind 9 = 8 M + 1 A.)

@@ -3,7 +3,7 @@ file: context/handoff/2026-09-03_v62_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR BRIEF for the v62 session — every act he is asked to perform, in order, FULLY ARTICULATED (his standing directive, 2026-09-03). Each act carries WHAT · WHY · HOW (the exact command or paste) · EXPECTED RESULT · REPORT BACK. Supersedes the v61 brief in place.
 audience: Nick
 state-type: operator brief
-status: v62 CLOSED at beat 8 (Fri 2026-09-04, instrument 21:52Z = 16:52 CT) — §CLOSE is the ONLY live section (five acts: file the census · push · dispatch v63 · Erik Monday · I-1 optional); everything below it is the day's history (R-4b DONE four-of-four; C-002 LIVE and STANDS; FAILCHAN on main with CI #225 RED; FAILCHAN-FIX-1 ruled instrument-first, authored by v63). The v63 hub authors the v63 brief at its beat 1; this file retires then.
+status: v62 CLOSED at beat 8; beat 9 POST-CLOSE (Fri 2026-09-04, instrument 22:12Z = 17:12 CT) — §CLOSE is the ONLY live section (Act 1 the census · Act 2 DONE · Act 2b push beat 9 · Act 2c I-0 + the words PR5:/PROTECT: · Act 3 dispatch v63 from context/handoff/2026-09-04_v63_dispatch-prompt.md · Act 4 Erik Monday · Act 5 I-1 optional); everything below it is the day's history (R-4b DONE four-of-four; C-002 LIVE and STANDS; FAILCHAN on main with CI #225 RED; FAILCHAN-FIX-1 ruled instrument-first, authored by v63). The v63 hub authors the v63 brief at its beat 1; this file retires then.
 -->
 
 # Operator brief — what Nick does, in order (v62 — CLOSED at beat 8; §CLOSE is the only live section)
@@ -21,19 +21,23 @@ git status --porcelain; ls ~/ci-225/lifecycle/lifecycle/build/test-results/test/
 ```
 **EXPECTED:** `wc -c` prints a few thousand bytes; `git status --porcelain` prints exactly one line `?? context/audits/2026-09-04_CI-225_HeroLoopHardwareFreeIT_stdout-census.txt`; the last line names the XML (`TEST-com.homesynapse.lifecycle.HeroLoopHardwareFreeIT.xml`) or says none is in the artifact (a datum for I-2). **REPORT BACK (to v63):** `census filed (<bytes>) · XML: <present | absent>`.
 
-### Act 2 — push the hivemind (≤1 min; the same directory)
-**WHAT/WHY:** beats 4–8 (six commits) are local only; the push is yours by law.
+### Act 2 — DONE (22:0xZ): `f0ee4ee..204c5ba  main -> main`, banked at beat 9.
+
+### Act 2b — push beat 9 (≤1 min; the same directory)
+**WHAT/WHY:** beat 9 (post-close) put the dispatch prompt and the PR rulings on disk; the push is yours.
 ```bash
 git log --oneline -1 | cut -c1-60; git rev-list --count origin/main..HEAD; git push origin main
 ```
-**EXPECTED:** the first line begins `<sha> hivemind: v62 beat 8 — THE v62 CLOSE`; the count is `6`; the push ends `f0ee4ee..<that sha>  main -> main`. **REPORT BACK (to v63):** `hivemind pushed` (or the error text whole).
+**EXPECTED:** the line begins `<sha> hivemind: v62 beat 9 — POST-CLOSE`; the count `1`; the push ends `204c5ba..<sha>  main -> main`.
 
-### Act 3 — dispatch v63 (≤2 min; a FRESH Cowork conversation with the ClaudeFolder connected)
-Paste this as its first message, verbatim, after filling the four ⟨slots⟩ from acts 1–2 (and the I-1 slot if you did act 5; else `not done`):
-```
-Boot as the v63 PM MISSION-CONTROL hub. Read nexsys-hivemind/context/handoff/2026-09-04_PM-mission-control_v63_orchestrator_session_prompt.md WHOLE and execute its §1 exactly (date -u first; the spine outranks its §2), then its §8. My first report: hivemind push = ⟨pushed | ahead N + the error⟩ · the census file = ⟨filed (N bytes) · XML present|absent⟩ · Row 33's entity→device mapping (01M19RHWXYZYJMM26SX0E41HXN): ⟨one line⟩ · I-1 the prior reds: ⟨not done | #169: <test · message> · #183: … · #206: …⟩ · the 09-05 nightly: ⟨not fired yet | the digest line⟩. Hand me the v63 brief, then FAILCHAN-FIX-1.
-```
-**EXPECTED:** it confirms the five HEADs and the fold grep, commits the census file at beat 1, hands you the v63 brief, and authors FAILCHAN-FIX-1 (instrument-first) next. **This v62 conversation is then retired** — nothing further is pasted here.
+### Act 2c — I-0 + two words on GitHub (≤4 min; read-only except your two clicks)
+**WHAT:** (i) **I-0** — open PR #5 → the **Checks** tab → `Build & Check` → the job → expand the `Run actions/checkout` step → find the line `HEAD is now at … Merge <sha> into <base>` and read the **base** sha. **WHY:** `ci.yml` runs `./gradlew check` on every PR with no path filter, so that green run executed the lifecycle suite — `HeroLoopHardwareFreeIT` included — on the PR's merge ref. If the base is `7af2d6c`, the test PASSED on Java bytes identical to the red run's: the failure is non-deterministic on this tree, which weighs the fix toward branch (a)/(c) and away from a deterministic guard bug (b). **REPORT (in the dispatch slot):** `I-0: into 7af2d6c` | `into <sha>` | `not read`.
+(ii) **`PR5:`** — the hub's recommendation is **merge** (a HIGH dev-dep alert closed; the merge commit's own `main` run is a second sample; a sample NEVER clears the gate — only FIX-1's green does; the FIX-1 lane's dispatch will begin `git pull --ff-only`). Your click, your word: `PR5: merged | held`.
+(iii) **`PROTECT:`** — the banner. Recommendation **(a)**: Settings → Branches → add a rule for `main` with ONLY "Block force pushes" + "Do not allow deletions" (safe; changes nothing about how you push). **Not** "Require status checks" now — that rejects your direct pushes and forces a PR workflow for every core commit; it is named docket Row 34 for the public-flip sitting. Your word: `PROTECT: a | b | dismissed`.
+
+### Act 3 — dispatch v63 (≤3 min; a FRESH Cowork conversation with the ClaudeFolder connected)
+**The copy-source is the file on disk:** open `context/handoff/2026-09-04_v63_dispatch-prompt.md`, fill every ⟨slot⟩ in its STATE AT DISPATCH paragraph (PR5 · PROTECT · the census file · I-0 · Row 33's mapping · I-1 · the nightly), then paste the fenced block WHOLE as the first message. It is the v57 dispatch's shape, re-cut for v63: how to read (a one-screen executive model checked against the documents), how to reason (three horizons), and independent thought as a deliverable (one hub-originated contribution per beat, in ruling form; disagreement with evidence attached).
+**EXPECTED:** it boots from the v63 prompt, confirms the five HEADs and the fold grep, writes its executive model and names any document it disagrees with, commits the census file at beat 1, hands you the v63 brief, then authors FAILCHAN-FIX-1 on the file and on source. **This v62 conversation is then retired.**
 
 ### Act 4 — Erik (Monday 09-07, evening; your words)
 No nudge over Labor Day (your call, banked). Monday evening you email; if you want a draft, ask v63 Monday and it hands you one in the brief. **REPORT BACK:** `Erik: sent` (or his reply, whole).

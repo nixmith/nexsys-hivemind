@@ -3,10 +3,10 @@ file: context/handoff/2026-09-05_v63_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR QUEUE for v63 — every act he performs, in order, fully articulated (WHAT · WHY · the exact command or paste · EXPECTED RESULT · REPORT BACK), with a self-contained CONTEXT preamble so Nick — or any other Claude session he hands this file to — can understand the state of record and the hub's reasoning WITHOUT inventing context. The copy-source of record is this file on disk, never a chat card. Nick's directive (09-03) + his v63 ask (09-04 evening): "an operator queue/guide … in order, and with all context necessary".
 audience: Nick · any helper session (read §CONTEXT first; every claim there has a file path)
 state-type: operator brief (live; the hub re-cuts it at every beat that changes an act)
-status: v63 CLOSED at beat 3 (Sat 2026-09-05, instrument 17:44Z = 12:44 CT) — §CLOSE is the ONLY new section (Act C1 push · Act C2 dispatch v64 · Act C3 hand the lane's return to v64); §NOW and §QUEUE stay valid for every open act (3 · 10 · 7 · 8 · 9 · FENCE-BUS). The v64 hub authors the v64 brief at its beat 1; this file retires then.
+status: RETIRED 2026-09-05 (v64 beat 1, 18:33Z = 13:33 CT) — superseded by context/handoff/2026-09-05_v64_OPERATOR-BRIEF_for-Nick.md, which carries §CONTEXT refreshed, §NOW at three horizons, and §QUEUE Acts 3 · 6 · 7 · 8 · 9 · 10 · 11 (numbers kept) plus Act A (the ReplayIT stamp) and the words FENCE-BUS / BLOCK6. This file is historical from here; the v63 §CLOSE acts C1–C3 are DONE (C1 the push 00c2d7f · C2 the v64 dispatch, slots filled · C3 pending the lane, now v64's Act 6).
 -->
 
-# Operator brief — v63: what Nick does, in order
+# Operator brief — v63: what Nick does, in order — RETIRED at v64 beat 1 (the live queue: 2026-09-05_v64_OPERATOR-BRIEF_for-Nick.md)
 
 ## §CLOSE (beat 3, Sat 2026-09-05 ~12:44 CT) — v63 IS CLOSED on context health; v64 takes the lane's return. Three acts for you, in order; §NOW and §QUEUE below stay valid for everything else.
 

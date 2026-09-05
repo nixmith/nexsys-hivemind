@@ -3,10 +3,32 @@ file: context/handoff/2026-09-05_v64_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR QUEUE for v64 — every act he performs, in order, fully articulated (WHAT · WHY · the exact command or paste · EXPECTED RESULT · REPORT BACK), with a self-contained §CONTEXT preamble so Nick — or any other Claude session he hands this file to — can understand the state of record and the hub's reasoning WITHOUT inventing context. The copy-source of record is this file on disk, never a chat card. Act numbers continue the v63 brief's (Acts 3 · 6 · 7 · 8 · 9 · 10 · 11 keep their numbers); the new acts are lettered (A …).
 audience: Nick · any helper session (read §CONTEXT first; every claim there has a file path)
 state-type: operator brief (live; the hub re-cuts it at every beat that changes an act)
-status: LIVE from v64 beat 1 (Sat 2026-09-05, 13:33 CT = 18:33Z). Supersedes context/handoff/2026-09-05_v63_OPERATOR-BRIEF_for-Nick.md (retired in place at this beat). Re-cut at beat 2 (18:57Z): Act A re-purposed; the CG line drafted; the words CG2-SCOPE / ROW30 added. Beat 3 (19:06Z): THE BEYOND INPUT filed (the Later line). Beat 5 (20:15Z): the return audited; Acts 6–8 re-cut with the audited cards.
+status: v64 CLOSED at beat 6 (Sat 2026-09-05, instrument 20:23Z = 15:23 CT) — §CLOSE is the ONLY new section (Act C1 push · Act C2 dispatch v65 · Act C3 the landing to v65); §QUEUE Acts 7 · 8 · 3 · 10 · 9 and the words stay valid. The v65 hub authors the v65 brief at its beat 1; this file retires then.
 -->
 
-# Operator brief — v64: what Nick does, in order
+# Operator brief — v64: what Nick does, in order (v64 CLOSED at beat 6; §CLOSE first)
+
+## §CLOSE (beat 6, Sat 2026-09-05 ~15:23 CT) — v64 IS CLOSED on context health; v65 takes the landing. Three acts for you, in order; §QUEUE below stays valid for Acts 7 · 8 · 3 · 10 · 9 and the words.
+
+**Why close now, in one sentence:** this window carried a boot, the CG instruction, THE BEYOND INPUT, the v65 skeleton and the FIX-1 audit at the bytes; your two pushes and their CI verdicts deserve a fresh window that banks each as one line and dispatches CG the minute the gate is green.
+
+### Act C1 — push the hivemind (≤1 min; `~/Desktop/Code/ClaudeFolder/nexsys-hivemind`)
+```bash
+git log --oneline -1 | cut -c1-70; git rev-list --count origin/main..HEAD; git push origin main
+```
+**EXPECTED:** the line begins `<sha> hivemind: v64 beat 6 — THE v64 CLOSE`; the count `6`; the push ends `00c2d7f..<sha>  main -> main`. **REPORT BACK (to v65):** `pushed <sha>`.
+
+### Act C2 — dispatch v65 (≤2 min; a FRESH Cowork conversation with the ClaudeFolder connected) — do this after Act 7 and Act 8 if you can, but do it either way
+Fill the ⟨slots⟩ and paste as the first message:
+```
+You are the v65 PM MISSION-CONTROL hub for NexSys / HomeSynapse. Boot from nexsys-hivemind/context/handoff/2026-09-05_PM-mission-control_v65_orchestrator_session_prompt.md — execute its §1 exactly (date -u first; the spine — pm-handoff.md line 8 + the newest THREE beat blocks + PROJECT_SNAPSHOT.md — outranks its §2). The posture of record is the v63 dispatch prompt, context/handoff/2026-09-04_v63_dispatch-prompt.md: read it whole and hold every line of it — independent thought as a deliverable (one hub-originated contribution per beat, in ruling form), three horizons on every proposal, instrument-first AND source-first, the token economy as law, Nick's directive (WHAT · WHY · paste · EXPECTED · REPORT BACK) carried in an ordered operator queue with a §CONTEXT preamble. The executive model is on disk (the grounding audit §0, context/audits/2026-09-04_v63-b1_boot-grounding_executive-model-and-intake.md; re-checked at v64) — check it, do not re-derive it. STATE AT DISPATCH: FIX-1a ⟨not pushed | pushed <sha>, CI <green | red: the FAILED lines>⟩ · FIX-1b ⟨not pushed | pushed <sha>, CI <green | red: …>, samples <k/3 green | red on #k: line>⟩ · Act 3, the dc3328b ReplayTransitionIT message: ⟨the line | not read⟩ · the 09-05 nightly: ⟨the line | not read⟩ · FENCE-BUS: ⟨add | hold | later⟩ · BLOCK6: ⟨pull | hold⟩ · hivemind pushed through ⟨sha⟩. First acts: §1 (the five HEADs · the fold grep · the preflight) → beat 1 (the landing banked as CI lines; Act 3 adjudicated) → if the gate is CLEARED: the CG dispatch line handed and Block 4 (the FE fast-follow) drafted ahead; if a red re-opened it: the red's XML is the instrument — adjudicate against the pre-registered prediction before any charter. Record this dispatch text in the beat-1 spine write.
+```
+**EXPECTED:** it boots from the v65 prompt, confirms the five HEADs and the fold grep, banks your CI lines, and either hands the CG line or adjudicates the red. **This v64 conversation is then retired.**
+
+### Act C3 — the landing (any time; to v65, not here)
+Acts 7 → 8 as written below (the cards are audited and exact). Report each push and its CI verdict to v65 in the REPORT BACK form; if Act 8's push is green, run the three veto-only samples and report them too. Act 3 and Act 10 stay open — hand their lines to v65.
+
+---
 
 ## §CONTEXT — the state of record, for you or any helper session (every line has a path; nothing here is from memory)
 

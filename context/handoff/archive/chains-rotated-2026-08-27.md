@@ -221,3 +221,7 @@ Prior: 2026-09-05 (v64 beat 2 — THE CG-1/2/3 INSTRUCTION AUTHORED AHEAD + THE 
 ## chain segment rotated 2026-09-05 (v64 beat 5) — v64 b3, verbatim
 
 Prior: 2026-09-05 (v64 beat 3 — THE BEYOND INPUT AUTHORED, Sat ~14:06 CT (instrument 19:06Z) — docket Row 26 fired: eight P4+ rows in compounding order (B-1 delivery guarantee → B-2 policy kernel → B-3 shadow mode → B-4/B-8 · B-5/B-6 · B-7 conditional on Q1), each with its D5 claim, dependency graph, minting measurement, fence and not-build; eight questions for the sitting, none answered; the hub's lean for the P4 opener B-1 (A). The corpus 66 runs, 0 RED at 19:03Z. Order: hivemind 5 = 4 M + 1 A.)
+
+## chain segment rotated 2026-09-05 (v64 beat 6) — v64 b4, verbatim
+
+Prior: 2026-09-05 (v64 beat 4 — THE v65 SKELETON AUTHORED (the tripwire), Sat ~14:09 CT (instrument 19:09Z) — slots fill at the close; §0 carries the three v64 additions; §8 branches on what v64 leaves (A). Order: hivemind 4 = 3 M + 1 A.)

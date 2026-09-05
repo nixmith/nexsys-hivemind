@@ -3,7 +3,7 @@ file: context/handoff/2026-09-05_v64_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR QUEUE for v64 — every act he performs, in order, fully articulated (WHAT · WHY · the exact command or paste · EXPECTED RESULT · REPORT BACK), with a self-contained §CONTEXT preamble so Nick — or any other Claude session he hands this file to — can understand the state of record and the hub's reasoning WITHOUT inventing context. The copy-source of record is this file on disk, never a chat card. Act numbers continue the v63 brief's (Acts 3 · 6 · 7 · 8 · 9 · 10 · 11 keep their numbers); the new acts are lettered (A …).
 audience: Nick · any helper session (read §CONTEXT first; every claim there has a file path)
 state-type: operator brief (live; the hub re-cuts it at every beat that changes an act)
-status: v64 CLOSED at beat 6 (Sat 2026-09-05, instrument 20:23Z = 15:23 CT) — §CLOSE is the ONLY new section (Act C1 push · Act C2 dispatch v65 · Act C3 the landing to v65); §QUEUE Acts 7 · 8 · 3 · 10 · 9 and the words stay valid. The v65 hub authors the v65 brief at its beat 1; this file retires then. Beat 7 (post-close, 22:52Z): Acts 7–8 re-cut to the v2 censuses (10 · 6); C1′; the words REFINE / W-SKILLS-7.
+status: v64 CLOSED at beat 6 (Sat 2026-09-05, instrument 20:23Z = 15:23 CT) — §CLOSE is the ONLY new section (Act C1 push · Act C2 dispatch v65 · Act C3 the landing to v65); §QUEUE Acts 7 · 8 · 3 · 10 · 9 and the words stay valid. The v65 hub authors the v65 brief at its beat 1; this file retires then. Beat 7 (post-close, 22:52Z): Acts 7–8 re-cut to the v2 censuses (10 · 6); C1′; the words REFINE / W-SKILLS-7. Beat 8 (post-close, 23:54Z): the landing banked (the gate CLEARED at e5fa035); C1 re-cut; the Erik card; the CG dispatch pointer.
 -->
 
 # Operator brief — v64: what Nick does, in order (v64 CLOSED at beat 6; §CLOSE first)
@@ -16,7 +16,7 @@ status: v64 CLOSED at beat 6 (Sat 2026-09-05, instrument 20:23Z = 15:23 CT) — 
 ```bash
 git log --oneline -1 | cut -c1-70; git rev-list --count origin/main..HEAD; git push origin main
 ```
-**EXPECTED (re-cut at beat 7 — `110fe88` is already pushed):** the line begins `<sha> hivemind: v64 beat 7 — POST-CLOSE`; the count `1`; the push ends `110fe88..<sha>  main -> main`. **REPORT BACK (to v65):** `pushed <sha>`.
+**EXPECTED (re-cut at beat 8 — `c8977f0` is already pushed; FIX-1a `5ed9178` + FIX-1b `e5fa035` landed, THE GATE CLEARED):** the line begins `<sha> hivemind: v64 beat 8 — POST-CLOSE`; the count `1`; the push ends `c8977f0..<sha>  main -> main`. **REPORT BACK (to v65):** `pushed <sha>`.
 
 ### Act C2 — dispatch v65 (≤2 min; a FRESH Cowork conversation with the ClaudeFolder connected) — do this after Act 7 and Act 8 if you can, but do it either way
 Fill the ⟨slots⟩ and paste as the first message:
@@ -25,8 +25,8 @@ You are the v65 PM MISSION-CONTROL hub for NexSys / HomeSynapse. Boot from nexsy
 ```
 **EXPECTED:** it boots from the v65 prompt, confirms the five HEADs and the fold grep, banks your CI lines, and either hands the CG line or adjudicates the red. **This v64 conversation is then retired.**
 
-### Act C3 — the landing (any time; to v65, not here)
-Acts 7 → 8 as written below (the cards are audited and exact). Report each push and its CI verdict to v65 in the REPORT BACK form; if Act 8's push is green, run the three veto-only samples and report them too. Act 3 and Act 10 stay open — hand their lines to v65.
+### Act C3 — the landing (DONE: `5ed9178` · `e5fa035`, "all checks pass" → THE GATE CLEARED) — what remains, to v65
+Sample #4's CI verdict (`5ed9178`'s run) in one line · the three veto-only samples (Actions → CI → Run workflow on `main` ×3; a red re-opens the gate) · Act 3 · Act 10 · the words `BLOCK6` · `ERIK` · `EXPEDITE`. **The Erik go-ahead:** the card `context/strategy/brand-program/2026-09-05_pelton-reply_go-ahead_H10_and_draft.md` — §2 the ruling (rec (a) commission now + expedite), §3 the draft to send with RS-9 §A1–A5 attached; REPORT: `Erik: go-ahead sent <date> · expedite <yes/no>`. **CG:** on your word to v65 (or now), paste the dispatch line at the end of `context/instructions/2026-09-05_coder-lane_CG-123_read-API-v1.1.3-additive_coding-instruction.md` into a host-side Claude Code session in `homesynapse-core`, filling `<FIX-1b's sha>` = `e5fa035` — the one core lane; nothing else on the core tree while it runs.
 
 ---
 

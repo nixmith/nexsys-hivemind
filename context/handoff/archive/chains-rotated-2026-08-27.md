@@ -229,3 +229,7 @@ Prior: 2026-09-05 (v64 beat 4 — THE v65 SKELETON AUTHORED (the tripwire), Sat 
 ## chain segment rotated 2026-09-05 (v64 beat 7) — v64 b5, verbatim
 
 Prior: 2026-09-05 (v64 beat 5 — THE FIX-1 RETURN AUDITED TWO-LAYER AT THE BYTES, Sat ~15:15 CT (instrument 20:15Z) — FIX-1a ACCEPT (9 = 7 M + 2 A exact) · FIX-1b ACCEPT-WITH-RULINGS as a 7-file patch: HeroLoop (c) DP-2 · ReplayIT (a) — the TRANSITION drain delivered but never checkpointed (the hub's :302/phase-2 theory refuted, owned) · a sixth silent path named at source → FIX-2 with a runner prediction pre-registered · the corpus 176 runs, 2 RED (ReplayIT, phase 1, unloaded), 0 Token: hits · the two cards in Nick's hands (A the audit · the return · the patch · the corpus ×13). Order: hivemind 22 = 6 M + 16 A.)
+
+## chain segment rotated 2026-09-05 (v64 beat 8) — v64 b6, verbatim
+
+Prior: 2026-09-05 (v64 beat 6 — THE v64 CLOSE, Sat ~15:23 CT (instrument 20:23Z) — closed on context health with the two FIX-1 cards in Nick's hands and the landing pending: the v65 prompt filled and LIVE (M) · the mints folded (ten) · the brief §CLOSE = push · dispatch v65 · the landing to v65. Order: hivemind 6 M.)

@@ -56,3 +56,9 @@ No skills rewrite in a window that has already carried an audit (this one) · no
 ## §5 The words
 - `REFINE: go | hold` — the program as chartered (rec **go**; it is v1.2 §3 rule 4 made explicit, and it costs the critical path nothing).
 - `W-SKILLS-7: fresh-window | v65-inline` — rec **fresh-window** (a skills pass is deep work with a ~40 KB read-set; the v65 window owns the landing and CG).
+
+## §6 Nick's words and guards (2026-09-05 ~18:xx CT, verbatim where they are words; recorded v64 beat 8)
+**Words:** `REFINE: go` · `W-SKILLS-7: fresh-window` · `FENCE-BUS: add` (the register line written at this beat).
+**Guards on the program (binding; each re-cuts §3's sequencing):** (1) **Lane C FIRST** — the deep-work window protocol is written before Lane A dispatches, so the skills pass runs under it. (2) **Lane A folds BOTH the v63 mints (ten) and the v64 mints into the ledgers in one pass; every SKILL.md byte-unchanged; Check 9 confirmed at the bytes after.** (3) **Lane B's docs half rides Block 6** so Nick's hands touch the docs repo once. (4) **Nothing in the program dispatches before the CG dispatch line is in Nick's hands.**
+**The gate, pinned in Nick's words (supersedes any looser hub phrasing):** *"FIX-1a's push run is sample #4; FIX-1b's push run is the gate. A red on FIX-1b's run — HeroLoop or anything else — means the gate is NOT cleared: FIX-2 is the next and only core lane, CG waits, and the three veto-only samples are not taken until a push run is green. 'The instrument working' describes a red's readability, never its verdict."* Recorded as the law's wording; the hub's "a red is the instrument working" applies to sample #4's readability only.
+**Sequence as re-cut:** the CG dispatch line handed (on the cleared gate) → Lane C (hub, v65) → Lane A dispatched in a fresh window under Lane C's protocol → Lane B hivemind half in v65's idle beats; the docs half at Block 6 → Check 9 at the next boot.

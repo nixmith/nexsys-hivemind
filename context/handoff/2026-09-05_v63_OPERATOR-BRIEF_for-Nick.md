@@ -3,10 +3,32 @@ file: context/handoff/2026-09-05_v63_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR QUEUE for v63 — every act he performs, in order, fully articulated (WHAT · WHY · the exact command or paste · EXPECTED RESULT · REPORT BACK), with a self-contained CONTEXT preamble so Nick — or any other Claude session he hands this file to — can understand the state of record and the hub's reasoning WITHOUT inventing context. The copy-source of record is this file on disk, never a chat card. Nick's directive (09-03) + his v63 ask (09-04 evening): "an operator queue/guide … in order, and with all context necessary".
 audience: Nick · any helper session (read §CONTEXT first; every claim there has a file path)
 state-type: operator brief (live; the hub re-cuts it at every beat that changes an act)
-status: LIVE from v63 beat 2 (Sat 2026-09-05, instrument 17:39Z = 12:39 CT) — §NOW carries the state after Nick's Acts 1/2/4 and the lane dispatch, and THE PLAN FROM HERE at three horizons; §QUEUE acts carry their statuses inline. Beat-1 status: LIVE from v63 beat 1 (Fri 2026-09-04). Retires context/handoff/2026-09-03_v62_OPERATOR-BRIEF_for-Nick.md in place.
+status: v63 CLOSED at beat 3 (Sat 2026-09-05, instrument 17:44Z = 12:44 CT) — §CLOSE is the ONLY new section (Act C1 push · Act C2 dispatch v64 · Act C3 hand the lane's return to v64); §NOW and §QUEUE stay valid for every open act (3 · 10 · 7 · 8 · 9 · FENCE-BUS). The v64 hub authors the v64 brief at its beat 1; this file retires then.
 -->
 
 # Operator brief — v63: what Nick does, in order
+
+## §CLOSE (beat 3, Sat 2026-09-05 ~12:44 CT) — v63 IS CLOSED on context health; v64 takes the lane's return. Three acts for you, in order; §NOW and §QUEUE below stay valid for everything else.
+
+**Why close now, in one sentence:** the lane's return is a ≥60-run corpus plus two commit cards, and its two-layer audit belongs in a window that has not already carried two boots of source reading — the same lesson v62 paid for when compaction ate the census.
+
+### Act C1 — push the hivemind (≤1 min; `~/Desktop/Code/ClaudeFolder/nexsys-hivemind`)
+```bash
+git log --oneline -1 | cut -c1-70; git rev-list --count origin/main..HEAD; git push origin main
+```
+**EXPECTED:** the line begins `<sha> hivemind: v63 beat 3 — THE v63 CLOSE`; the count `3`; the push ends `2e3f733..<sha>  main -> main`. **REPORT BACK (to v64):** `pushed <sha>`.
+
+### Act C2 — dispatch v64 (≤2 min; a FRESH Cowork conversation with the ClaudeFolder connected) — do this whether or not the lane has returned
+Fill the ⟨slots⟩ and paste as the first message:
+```
+You are the v64 PM MISSION-CONTROL hub for NexSys / HomeSynapse. Boot from nexsys-hivemind/context/handoff/2026-09-05_PM-mission-control_v64_orchestrator_session_prompt.md — execute its §1 exactly (date -u first; the spine — pm-handoff.md line 8 + the newest THREE beat blocks + PROJECT_SNAPSHOT.md — outranks its §2). The posture of record is the v63 dispatch prompt, context/handoff/2026-09-04_v63_dispatch-prompt.md: read it whole and hold every line of it — independent thought as a deliverable (one hub-originated contribution per beat, in ruling form), three horizons on every proposal, instrument-first AND source-first, THE BEYOND INPUT as deep work, velocity with zero discipline relaxation, the token economy as law, Nick's directive (WHAT · WHY · paste · EXPECTED · REPORT BACK) carried in an ordered operator queue with a §CONTEXT preamble. The executive model is already on disk (the grounding audit §0, context/audits/2026-09-04_v63-b1_boot-grounding_executive-model-and-intake.md) — check it against the documents; do not re-derive it. STATE AT DISPATCH: the FIX-1 lane ⟨returned — the file exists at context/audits/2026-09-05_FIX-1_return.md | still running⟩ · Act 3, the dc3328b ReplayTransitionIT message: ⟨the line | not read⟩ · the 09-05 nightly: ⟨the digest line | not read⟩ · FENCE-BUS: ⟨add | hold | later⟩ · hivemind pushed through ⟨sha⟩. First acts: §1 (the five HEADs · the fold grep · the preflight) → beat 1 (the intake) → Block 1 (the return's two-layer audit at the corpus bytes → FIX-1a's msg file + card → FIX-1b's) if the return is on disk, else Block 2 (the CG-1/2/3 instruction drafted ahead) until it lands. Record this dispatch text in the beat-1 spine write.
+```
+**EXPECTED:** it boots from the v64 prompt, confirms the five HEADs and the fold grep, and either starts the audit or starts CG. **This v63 conversation is then retired.**
+
+### Act C3 — when the lane finishes (any time; to v64, not here)
+Tell v64 `FIX-1 lane returned` and paste the lane's last ~10 lines. Then Acts 7 → 8 → 9 as written in §QUEUE below, with the msg files v64 hands you. Act 3 and Act 10 stay open — hand their lines to v64.
+
+---
 
 ## §CONTEXT — the state of record, for you or any helper session (every line has a path; nothing here is from memory)
 

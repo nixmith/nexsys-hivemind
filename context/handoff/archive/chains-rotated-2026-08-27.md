@@ -213,3 +213,7 @@ Prior: 2026-09-05 (v63 beat 3 — THE v63 CLOSE, Sat ~12:44 CT (instrument 17:44
 ## chain segment rotated 2026-09-05 (v64 beat 3) — v64 b1, verbatim
 
 Prior: 2026-09-05 (v64 beat 1 — THE v64 BOOT + THE INTAKE, Sat ~13:33 CT (instrument 18:33Z) — zero drift on five HEADs (core dc3328b · hivemind 00c2d7f in sync) · preflight PASS 11/11, Check 9 28/28 · the return ABSENT, the lane's tree = FIX-1a's census exact at 18:25Z · the dispatch's slots filled and verified, filed verbatim (A) · the model checked at its cites · the hub's contribution: a stamp defect in its own FIX-1 instruction found at source (awaitCheckpoint prints no resting checkpoint) → Act A one paste into the running lane · the Block-1 rules R1–R6 pre-filed (A the intake audit) · the v64 brief = Nick's queue (A). Order: hivemind 7 = 4 M + 3 A.)
+
+## chain segment rotated 2026-09-05 (v64 beat 4) — v64 b2, verbatim
+
+Prior: 2026-09-05 (v64 beat 2 — THE CG-1/2/3 INSTRUCTION AUTHORED AHEAD + THE CORPUS READ LIVE, Sat ~13:57 CT (instrument 18:57Z) — v1.1.3 in the SKIP-VIS shape, grounded at source (A; 17 M + 0 A; ⛔ gated on FIX-1b's green) · two rulings inside: CG-2 A1-only (Row 8's serializer untouched) · Row 30 = zero Core change at source · arch rules 8–11 zero collisions · the corpus 0 RED in 38 under 2-core pressure — the hub's prediction missed, adjudicated first; branch (c) materializing; Act A re-purposed for the runner's first red. Order: hivemind 6 = 5 M + 1 A.)

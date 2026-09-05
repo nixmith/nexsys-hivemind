@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="M3.2 — REPLAY→TRANSITION→LIVE integration test" tests="1" skipped="0" failures="1" errors="0" timestamp="2026-09-05T21:48:25" hostname="DESKTOP-SRK0P9D" time="18.708">
+  <properties/>
+  <testcase name="subscriber resumes from persisted checkpoint and catches up to LIVE without gaps under continuous publish" classname="com.homesynapse.event.bus.ReplayTransitionIT" time="18.708">
+    <failure message="java.lang.AssertionError: Checkpoint for 'replay-it-sub' did not reach 1000 within 15000 ms (resting checkpoint 28)" type="java.lang.AssertionError">java.lang.AssertionError: Checkpoint for 'replay-it-sub' did not reach 1000 within 15000 ms (resting checkpoint 28)
+	at com.homesynapse.event.bus.ReplayTransitionIT.awaitCheckpoint(ReplayTransitionIT.java:214)
+	at com.homesynapse.event.bus.ReplayTransitionIT.replayTransitionLiveEndToEnd(ReplayTransitionIT.java:112)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

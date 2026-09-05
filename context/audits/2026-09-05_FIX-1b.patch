@@ -1,6 +1,6 @@
 diff -ruN a/core/event-bus/MODULE_CONTEXT.md b/core/event-bus/MODULE_CONTEXT.md
---- a/core/event-bus/MODULE_CONTEXT.md	2026-09-05 14:31:53.783485400 -0500
-+++ b/core/event-bus/MODULE_CONTEXT.md	2026-09-05 14:31:53.797491600 -0500
+--- a/core/event-bus/MODULE_CONTEXT.md	2026-09-05 16:29:44.311293300 -0500
++++ b/core/event-bus/MODULE_CONTEXT.md	2026-09-05 16:29:44.332374500 -0500
 @@ -42,7 +42,7 @@
  |---|---|---|---|
  | `EventBus` | interface (8 methods) | Notification-driven subscription/delivery contract for event distribution | Methods: `subscribe(SubscriberInfo)`, `unsubscribe(String)`, `notifyEvent(long)`, `subscriberPosition(String)`, `subscribeRuntime(SubscriberInfo, Subscriber)`, `resume(String)`, `subscriberInfo(String)`, `subscribers()`. The 4 new methods have default implementations throwing UnsupportedOperationException for backward compatibility. Does NOT have a `publish()` method — the bus is notification-only. |
@@ -43,18 +43,18 @@ diff -ruN a/core/event-bus/MODULE_CONTEXT.md b/core/event-bus/MODULE_CONTEXT.md
 -**GOTCHA (FAILCHAN-FIX-1a, 2026-09-05): the LIVE loop never pages forward from the checkpoint — a position not offered is a position not delivered, and a position offered but not READ is lost to that subscriber.** `liveLoop` processes only positions `notifyEvent` offered into `pendingPositions` and issues ONE single-position read per offer (`readFrom(pos - 1, 1)` through the subscriber's read executor); `drainAndPromote` does the same for queued positions. If that read returns an empty page or throws, the loop `continue`s and the next successful delivery writes a checkpoint PAST the lost position — nothing re-reads it. `notifyEvent`'s own read of the same position is a fourth arm: an empty page there offers the position to NO subscriber. Before FIX-1a all four arms were unlogged (the grounding audit `context/audits/2026-09-04_v63-b1_boot-grounding_executive-model-and-intake.md` §4 S4). Since FIX-1a every arm emits one `DeliveryAnomaly` BEFORE its `return`/`continue`; the skip itself is unchanged in FIX-1a (FIX-1b turns it into a bounded retry, then an honest SUSPEND).
 +**GOTCHA (FAILCHAN-FIX-1a, 2026-09-05): the LIVE loop never pages forward from the checkpoint — a position not offered is a position not delivered, and a position offered but not READ is lost to that subscriber.** `liveLoop` processes only positions `notifyEvent` offered into `pendingPositions` and issues ONE single-position read per offer (`readFrom(pos - 1, 1)` through the subscriber's read executor); `drainAndPromote` does the same for queued positions. If that read returns an empty page or throws, the loop `continue`s and the next successful delivery writes a checkpoint PAST the lost position — nothing re-reads it. `notifyEvent`'s own read of the same position is a fourth arm: an empty page there offers the position to NO subscriber. Before FIX-1a all four arms were unlogged (the grounding audit `context/audits/2026-09-04_v63-b1_boot-grounding_executive-model-and-intake.md` §4 S4). Since FIX-1a every arm emits one `DeliveryAnomaly` BEFORE its `return`/`continue`. **Since FIX-1b (DP-2, same day) a drop is never a skip:** the LIVE loop and the TRANSITION drain retry the read 5× with a doubling park and then SUSPEND the subscriber honestly (`LIVE_READ_EXHAUSTED` / `TRANSITION_READ_EXHAUSTED`); `notifyEvent`'s empty page still emits and then offers the position UNFILTERED to every active subscriber (the loops filter after their own read). The checkpoint is never written for a position that was not delivered. Pins: `DeliveryAnomalyEmissionTest` T5–T7, T-R1, T-R2.
 +
-+**GOTCHA (FIX-1b, 2026-09-05): a publish burst that ends inside TRANSITION used to leave the checkpoint at the REPLAY tail — every event delivered, none of the TRANSITION ones checkpointed.** `drainAndPromote` delivered queued positions but never wrote a checkpoint; the next LIVE delivery would have caught the checkpoint up, but if no further event arrived the persisted position rested at the REPLAY tail (`ReplayTransitionIT` phase 1: `Checkpoint … did not reach 1000 within 15000 ms` — reproduced on the desk 2 of 36 runs pinned to 2 carriers WITHOUT load; the loaded subscriber is still in REPLAY when the burst ends and REPLAY checkpoints its tail, so the loaded shape never showed it). Since FIX-1b the drain checkpoints each SUCCESS delivery (gated on `!atomicCheckpoint()`, the AMD-45 §2.2 rule). Pin: `DeliveryAnomalyEmissionTest.transitionDeliveries_advanceCheckpoint` — the concurrent burst is run INSIDE the driver's tail page read (one thread, the real interleaving; the FAILCHAN §10-O pattern). The instrument for the next red: `ReplayTransitionIT.awaitCheckpoint` / `awaitMode` messages now carry the resting `checkpoint=` / `mode=` stamps (bounds unchanged).
++**GOTCHA (FIX-1b, 2026-09-05): a publish burst that ends inside TRANSITION used to leave the checkpoint at the REPLAY tail — every event delivered, none of the TRANSITION ones checkpointed.** `drainAndPromote` delivered queued positions but never wrote a checkpoint; the next LIVE delivery would have caught the checkpoint up, but if no further event arrived the persisted position rested at the REPLAY tail (`ReplayTransitionIT` phase 1: `Checkpoint … did not reach 1000 within 15000 ms` — reproduced on the desk 2 of 36 runs pinned to 2 carriers WITHOUT load; the loaded subscriber is still in REPLAY when the burst ends and REPLAY checkpoints its tail, so the loaded shape never showed it). Since FIX-1b the drain checkpoints each SUCCESS delivery (gated on `!atomicCheckpoint()`, the AMD-45 §2.2 rule). Pin: `DeliveryAnomalyEmissionTest.transitionDeliveries_advanceCheckpoint` — the concurrent burst is run INSIDE the driver's tail page read (one thread, the real interleaving; the FAILCHAN §10-O pattern). The instrument for the next red is FIX-1a's `(resting checkpoint N)` stamp in `ReplayTransitionIT.awaitCheckpoint` (bounds unchanged).
  
  **GOTCHA (FIX-1a): the anomaly emitter's contract.** Invoked on the OBSERVING thread — the publisher's thread for `NOTIFY_NOT_VISIBLE`, the subscriber's virtual thread for the other kinds — so it must be safe to call from any thread and must not block. The bus wraps every call in `try/catch (RuntimeException)` and swallows: an instrument must never become a failure channel (`DeliveryAnomalyEmissionTest` T4 pins it — a throwing emitter neither escapes `notifyEvent` nor kills the subscriber's VT). The composition root (lifecycle) owns the transport: one SLF4J WARN, grep-stable token `bus.delivery_anomaly: kind= subscriber= position= detail= at=`. Never add `org.slf4j` to this module for it (`QueueSaturationHealthCheck.java:39–:43`).
  
 @@ -279,3 +282,4 @@
  - **M3.6b out-of-scope (deferred to later WUs):** Per-subscriber capacity overrides (all subscribers share the same `EventBusConfig` per INV-SUB-ISO-05); `QueueSaturationHealthCheck` visibility promotion (M3.6d, DEC-M3-16 part 3); composition-root wiring (M3.6d consumes `EventBusConfig` and the now-public `InProcessEventBus`); retuning the default capacity for any tier (`HOME_DEFAULT` preserves the prior 10,000 / 5,000 values per SD-1); deriving `EventBusConfig` from `DeploymentProfile` (future work mirroring M3.6a's `PersistenceConfig` pattern).
  - **Performance targets:** Bus notification fan-out within 1ms for 20 subscribers. CheckpointStore.writeCheckpoint() within 1ms.
- - **FAILCHAN-FIX-1a (2026-09-05) — the delivery-drop class made visible:** new public record `DeliveryAnomaly` (+ nested `Kind`); `InProcessEventBus` gains the 8-arg constructor with a trailing `Consumer<DeliveryAnomaly>` (the 7-arg form delegates with a no-op emitter) and a private `emitAnomaly(...)` (swallows `RuntimeException`, stamps from the injected clock); emits at `notifyEvent`'s empty page (`NOTIFY_NOT_VISIBLE`, subscriber `"*"`), `liveLoop`'s empty page (`LIVE_READ_EMPTY`) and read exception (`LIVE_READ_FAILED`); `TransitionCoordinator` gains a package-private `Consumer<DeliveryAnomaly>` ctor parameter (the bus passes its emitter) and emits `TRANSITION_READ_EMPTY` at `drainAndPromote`'s empty page. Behaviour otherwise byte-unchanged (every `return`/`continue` stays). `module-info.java` byte-unchanged; no new `requires`; the seven canonical metrics untouched. Tests: `DeliveryAnomalyEmissionTest` (4, red-first: compile-red at `dc3328b` → 4 behaviour-red with the seams inert → green) — `:core:event-bus:test` 221 → 225 (30 skipped unchanged). The composition root's route: `HomeSynapseCore` `bus.delivery_anomaly` WARN (lifecycle MODULE_CONTEXT). Instruction: `nexsys-hivemind/context/instructions/2026-09-04_coder-lane_FAILCHAN-FIX-1_CI-nondeterminism_coding-instruction.md`.
-+- **FAILCHAN-FIX-1b (2026-09-05) — the mechanism, on the measurement:** ReplayIT branch (a): `TransitionCoordinator` gains `CheckpointStore` and checkpoints every SUCCESS TRANSITION delivery (gated); HeroLoop branch (c) → DP-2: `InProcessEventBus.readLivePosition` (5 attempts, 1→2→4→8 ms parks, `LIVE_READ_EXHAUSTED` + SUSPEND), `offerUnfiltered` + `routeByMode` on `notifyEvent`'s empty page, `TransitionCoordinator.readQueuedPosition` (same shape, `TRANSITION_READ_EXHAUSTED`); `DeliveryAnomaly.Kind` 5 → 6. `ReplayTransitionIT` gains the `checkpoint=`/`mode=` message stamps (bounds byte-unchanged); `HeroLoopHardwareFreeIT` untouched. Tests +5 (T5 `liveReadRetried_thenDelivered` · T6 `liveReadExhausted_suspendsHonestly` · T7 `notifyNotVisible_stillOffersToLive` · T-R1 `transitionDeliveries_advanceCheckpoint` · T-R2 `transitionReadExhausted_suspendsHonestly`; all RED on the FIX-1a bytes, GREEN after) — `:core:event-bus:test` 225 → 230. The loop corpus (125 runs + the smoke) at `nexsys-hivemind/context/audits/2026-09-05_FIX-1_loops/`; the return `…/2026-09-05_FIX-1_return.md`.
+ - **FAILCHAN-FIX-1a (2026-09-05) — the delivery-drop class made visible:** new public record `DeliveryAnomaly` (+ nested `Kind`); `InProcessEventBus` gains the 8-arg constructor with a trailing `Consumer<DeliveryAnomaly>` (the 7-arg form delegates with a no-op emitter) and a private `emitAnomaly(...)` (swallows `RuntimeException`, stamps from the injected clock); emits at `notifyEvent`'s empty page (`NOTIFY_NOT_VISIBLE`, subscriber `"*"`), `liveLoop`'s empty page (`LIVE_READ_EMPTY`) and read exception (`LIVE_READ_FAILED`); `TransitionCoordinator` gains a package-private `Consumer<DeliveryAnomaly>` ctor parameter (the bus passes its emitter) and emits `TRANSITION_READ_EMPTY` at `drainAndPromote`'s empty page. Behaviour otherwise byte-unchanged (every `return`/`continue` stays). `module-info.java` byte-unchanged; no new `requires`; the seven canonical metrics untouched. Tests: `DeliveryAnomalyEmissionTest` (4, red-first: compile-red at `dc3328b` → 4 behaviour-red with the seams inert → green) — `:core:event-bus:test` 221 → 225 (30 skipped unchanged). The composition root's route: `HomeSynapseCore` `bus.delivery_anomaly` WARN (lifecycle MODULE_CONTEXT). `ReplayTransitionIT.awaitCheckpoint`'s throw carries ONE stamp — `(resting checkpoint N)` — so a red run's XML names the stall's location, not only the phase (hub note v64 b1: N below the target ⇒ the TRANSITION drain delivered without checkpointing; N ≥ target ⇒ late, not lost); every wait, interval and target is byte-unchanged. Instruction: `nexsys-hivemind/context/instructions/2026-09-04_coder-lane_FAILCHAN-FIX-1_CI-nondeterminism_coding-instruction.md`.
++- **FAILCHAN-FIX-1b (2026-09-05) — the mechanism, on the measurement:** ReplayIT branch (a): `TransitionCoordinator` gains `CheckpointStore` and checkpoints every SUCCESS TRANSITION delivery (gated); HeroLoop branch (c) → DP-2: `InProcessEventBus.readLivePosition` (5 attempts, 1→2→4→8 ms parks, `LIVE_READ_EXHAUSTED` + SUSPEND), `offerUnfiltered` + `routeByMode` on `notifyEvent`'s empty page, `TransitionCoordinator.readQueuedPosition` (same shape, `TRANSITION_READ_EXHAUSTED`); `DeliveryAnomaly.Kind` 5 → 6. Neither IT is touched by FIX-1b (the one message stamp is FIX-1a's); `HeroLoopHardwareFreeIT` untouched throughout. Tests +5 (T5 `liveReadRetried_thenDelivered` · T6 `liveReadExhausted_suspendsHonestly` · T7 `notifyNotVisible_stillOffersToLive` · T-R1 `transitionDeliveries_advanceCheckpoint` · T-R2 `transitionReadExhausted_suspendsHonestly`; all RED on the FIX-1a bytes, GREEN after) — `:core:event-bus:test` 225 → 230. The loop corpus (125 runs + the smoke) at `nexsys-hivemind/context/audits/2026-09-05_FIX-1_loops/`; the return `…/2026-09-05_FIX-1_return.md`.
 diff -ruN a/core/event-bus/src/main/java/com/homesynapse/event/bus/DeliveryAnomaly.java b/core/event-bus/src/main/java/com/homesynapse/event/bus/DeliveryAnomaly.java
---- a/core/event-bus/src/main/java/com/homesynapse/event/bus/DeliveryAnomaly.java	2026-09-05 14:31:53.533900400 -0500
-+++ b/core/event-bus/src/main/java/com/homesynapse/event/bus/DeliveryAnomaly.java	2026-09-05 14:31:53.547422400 -0500
+--- a/core/event-bus/src/main/java/com/homesynapse/event/bus/DeliveryAnomaly.java	2026-09-05 16:29:44.402292800 -0500
++++ b/core/event-bus/src/main/java/com/homesynapse/event/bus/DeliveryAnomaly.java	2026-09-05 16:29:44.419345900 -0500
 @@ -88,10 +88,17 @@
          TRANSITION_READ_EMPTY,
  
@@ -78,8 +78,8 @@ diff -ruN a/core/event-bus/src/main/java/com/homesynapse/event/bus/DeliveryAnoma
      }
  }
 diff -ruN a/core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEventBus.java b/core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEventBus.java
---- a/core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEventBus.java	2026-09-05 14:31:53.404244100 -0500
-+++ b/core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEventBus.java	2026-09-05 14:31:53.417762700 -0500
+--- a/core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEventBus.java	2026-09-05 16:29:44.485738400 -0500
++++ b/core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEventBus.java	2026-09-05 16:29:44.507650600 -0500
 @@ -45,7 +45,10 @@
   * {@code Consumer<DeliveryAnomaly>} BEFORE the path returns or continues; the
   * composition root routes it to the log as {@code bus.delivery_anomaly}. The
@@ -337,8 +337,8 @@ diff -ruN a/core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEven
       * from the bus's injected clock (FIX-1a). Never throws: a
       * {@link RuntimeException} from the emitter is swallowed, because an
 diff -ruN a/core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoordinator.java b/core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoordinator.java
---- a/core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoordinator.java	2026-09-05 14:31:53.468361400 -0500
-+++ b/core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoordinator.java	2026-09-05 14:31:53.481873300 -0500
+--- a/core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoordinator.java	2026-09-05 16:29:44.573240100 -0500
++++ b/core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoordinator.java	2026-09-05 16:29:44.596421500 -0500
 @@ -11,6 +11,7 @@
  import java.time.Clock;
  import java.time.Instant;
@@ -525,8 +525,8 @@ diff -ruN a/core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoo
              // The emitter is an instrument; its failure is not the coordinator's.
          }
 diff -ruN a/core/event-bus/src/test/java/com/homesynapse/event/bus/DeliveryAnomalyEmissionTest.java b/core/event-bus/src/test/java/com/homesynapse/event/bus/DeliveryAnomalyEmissionTest.java
---- a/core/event-bus/src/test/java/com/homesynapse/event/bus/DeliveryAnomalyEmissionTest.java	2026-09-05 14:31:53.611496300 -0500
-+++ b/core/event-bus/src/test/java/com/homesynapse/event/bus/DeliveryAnomalyEmissionTest.java	2026-09-05 14:31:53.625613000 -0500
+--- a/core/event-bus/src/test/java/com/homesynapse/event/bus/DeliveryAnomalyEmissionTest.java	2026-09-05 16:29:44.662635300 -0500
++++ b/core/event-bus/src/test/java/com/homesynapse/event/bus/DeliveryAnomalyEmissionTest.java	2026-09-05 16:29:44.683824900 -0500
 @@ -35,6 +35,7 @@
  import java.util.concurrent.locks.ReentrantLock;
  import java.util.function.BooleanSupplier;
@@ -800,49 +800,9 @@ diff -ruN a/core/event-bus/src/test/java/com/homesynapse/event/bus/DeliveryAnoma
          }
  
          private String throwMessageFor(long position) {
-diff -ruN a/core/event-bus/src/test/java/com/homesynapse/event/bus/ReplayTransitionIT.java b/core/event-bus/src/test/java/com/homesynapse/event/bus/ReplayTransitionIT.java
---- a/core/event-bus/src/test/java/com/homesynapse/event/bus/ReplayTransitionIT.java	2026-09-05 14:31:53.715263300 -0500
-+++ b/core/event-bus/src/test/java/com/homesynapse/event/bus/ReplayTransitionIT.java	2026-09-05 14:31:53.730783200 -0500
-@@ -209,8 +209,11 @@
-             }
-             Thread.sleep(50L);
-         }
-+        // FIX-1b stamp: the resting checkpoint is the diagnostic (below target ⇒ the
-+        // TRANSITION drain delivered without checkpointing; target-1 ⇒ a lost LIVE wake).
-         throw new AssertionError("Checkpoint for '" + subscriberId
--                + "' did not reach " + target + " within " + maxWaitMillis + " ms");
-+                + "' did not reach " + target + " within " + maxWaitMillis
-+                + " ms (checkpoint=" + store.readCheckpoint(subscriberId) + ")");
-     }
- 
-     /**
-@@ -221,9 +224,11 @@
-                                   SubscriberMode target,
-                                   long maxWaitMillis) throws InterruptedException {
-         long intervals = Math.max(1L, maxWaitMillis / 50L);
-+        SubscriberMode lastSeen = null;
-         for (long i = 0; i < intervals; i++) {
-             try {
--                if (bus.subscriberInfo(subscriberId).mode() == target) {
-+                lastSeen = bus.subscriberInfo(subscriberId).mode();
-+                if (lastSeen == target) {
-                     return;
-                 }
-             } catch (IllegalArgumentException ignored) {
-@@ -231,7 +236,9 @@
-             }
-             Thread.sleep(50L);
-         }
-+        // FIX-1b stamp: the resting mode names the phase the subscriber stalled in.
-         throw new AssertionError("Subscriber '" + subscriberId
--                + "' did not reach " + target + " within " + maxWaitMillis + " ms");
-+                + "' did not reach " + target + " within " + maxWaitMillis
-+                + " ms (mode=" + lastSeen + ")");
-     }
- }
 diff -ruN a/lifecycle/lifecycle/MODULE_CONTEXT.md b/lifecycle/lifecycle/MODULE_CONTEXT.md
---- a/lifecycle/lifecycle/MODULE_CONTEXT.md	2026-09-05 14:31:53.850568600 -0500
-+++ b/lifecycle/lifecycle/MODULE_CONTEXT.md	2026-09-05 14:31:53.863091900 -0500
+--- a/lifecycle/lifecycle/MODULE_CONTEXT.md	2026-09-05 16:29:44.749398800 -0500
++++ b/lifecycle/lifecycle/MODULE_CONTEXT.md	2026-09-05 16:29:44.771519000 -0500
 @@ -2,7 +2,7 @@
  
  > **FAILCHAN (2026-09-04, R-10 Row 6 (a) + EXITCODE (a)): C12-04 is wired at the composition root — a fatal startup failure leaves a structured report and ONE structured line, and the throw type is UNCHANGED.** New PUBLIC record **`StartupFailureReport(LifecyclePhase phase, String subsystem, String recommendation)`** (compact ctor `requireNonNull` ×3; `subsystem` is the `recordSubsystem` vocabulary — `configuration` · `persistence` · `event-bus` · `device-model` · `state-store` · `automation` · `rest-api` · `observability` · `integration` — or `"unknown"` before Phase 1). **`SystemLifecycleManager` +1 `default` method** `Optional<StartupFailureReport> lastStartupFailure()` (default `Optional.empty()`; interface evolution per java-patterns §12 — NO test double implements the interface at HEAD, the grep found only `HomeSynapseCore`; no shape test exists). **`HomeSynapseCore`:** (i) a `private volatile String initializing = "unknown"` marker set IMMEDIATELY BEFORE each fatal-set init inside `bootstrap()` — `"configuration"` at the top of the Phase-1 block (the whole block, service assembly + schema composition + `load()`, is the configuration init: the `configStart` bookend spans it, so a malformed bundled fragment ALSO reads `configuration` → exit 10, deterministic, never looped) · `"persistence"` before `PersistenceFactory.start` · `"event-bus"` before the bus build (Phase 2 RECORDS the two together — the marker is what tells 11 from 12) · `"device-model"` / `"state-store"` / `"automation"` at their Step-3 inits · `"observability"` (Phase 4) · `"rest-api"` before `bringUpHttpSurface()` · `"integration"` (Phase 6; only the assembly/subscribe outside the bounded try can escape — INV-RF-01 keeps the supervisor start non-fatal, T7 pins an empty report); (ii) `start()` resets `lastStartupFailure` to empty at its top, and its catch builds `Optional.of(new StartupFailureReport(phase, initializing, recommendationFor(initializing)))` BEFORE the teardown (so `phase` is the failing phase, not SHUTTING_DOWN/STOPPED) and emits the C12-04 line **`lifecycle.startup_failed: phase={} subsystem={} recommendation="{}" — tearing down initialized subsystems`** with the throwable LAST (stack trace); `throw fatal;` stays EXACTLY as it was — the throw type is never wrapped (the schema-admission pin T9b `IllegalArgumentException` and the new T4 `ConfigurationLoadException` pin both hold); (iii) `@Override lastStartupFailure()` returns the volatile field; (iv) private static `recommendationFor(String)`: `configuration` → "check the configuration file (homesynapse.yaml + integrations/) — a schema or syntax error is deterministic; the unit does not restart on it" · `persistence` → "verify the event store file and disk; run the integrity check; restore from the pre-upgrade snapshot if corrupt" · `event-bus` → "report: the in-process bus failed to initialize — a defect, not an operator condition" · default → "inspect the log and the JFR recording; report with the phase and subsystem named". Consumer: `Main` maps the report to the process `ExitCode` (`app/homesynapse-app/MODULE_CONTEXT.md` §FAILCHAN). **Tokens (LTD-15, grep-stable):** ERROR `lifecycle.startup_failed` (keys `phase=`, `subsystem=`, `recommendation="…"`; ONE per failed `start()`; replaces the former free-text "Fatal error during startup" line). Tests: `HomeSynapseCoreStartupFailureTest` (+4, lifecycle 75 → 79): T4 malformed `homesynapse.yaml` → (FOUNDATION, configuration) + the line + the HEAD throw type · T5 an event-store path that is a DIRECTORY → (DATA_INFRASTRUCTURE, persistence) · T6 the three empty arms · T7 the INV-RF-01 non-report. `module-info.java` byte-unchanged; no Gradle change.

@@ -209,3 +209,52 @@ ReplayIT · fix1b · run-10 · GREEN · 19:55:58.800→19:56:34.060 · rc=0 · t
 # run-0-smoke (pre-sequence, 18:18:06Z→18:18:37Z, pinned + knob, NO busy loops): ReplayIT · fix1a · RED · rc=1 · tests=1 failures=1 time=18.656 · tokens: none · RED: Checkpoint for 'replay-it-sub' did not reach 1000 within 15000 ms — XML + gradle.log at ReplayIT/fix1a/run-0-smoke/
 # TOTALS: 175 loop runs + 1 smoke = 176. RED 2 (both ReplayIT, PHASE 1, pinned WITHOUT load; zero bus.delivery_anomaly / route_join_miss tokens in any run). Pre-fix: HeroLoop 0/90 (fix1a pinned+load 20 · cpu-shape 10 · ef02d13 20 · fix1a-noload 20 → 0 RED); ReplayIT with load 0/20; ReplayIT WITHOUT load 2/36 (smoke 1/1 · fix1a-noload 1/20 · fix1a-stamp 0/15). Post-fix (FIX-1b): ReplayIT no-load 20/20 · HeroLoop pinned+load 20/20 · ReplayIT pinned+load 10/10.
 # Reading a line: `class · tree · run-NN · GREEN|RED · start→end UTC · rc · tests/skipped/failures/errors/time · tokens: …[ · RED: method :: message]`. Instruments (scripts + the affinity probe) under instrument/.
+# hubstamp sequence start 2026-09-05T21:28:24Z — FIX-1a bytes + the hub's awaitCheckpoint stamp '(resting checkpoint N)' (v64 b1 note); the ReplayIT row re-run per the note
+# busy pids: 336132,335692
+# loop start 2026-09-05T21:28:24Z mode=pinned tree=fix1a-hubstamp class=ReplayIT task=:core:event-bus:test xml=C:/Users/Nick/Desktop/Code/ClaudeFolder/homesynapse-core/core/event-bus/build/test-results/test/TEST-com.homesynapse.event.bus.ReplayTransitionIT.xml
+ReplayIT · fix1a-hubstamp · run-01 · GREEN · 21:28:24.808→21:29:32.405 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="17.008" · tokens: none
+ReplayIT · fix1a-hubstamp · run-02 · GREEN · 21:29:32.628→21:30:19.859 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="11.475" · tokens: none
+ReplayIT · fix1a-hubstamp · run-03 · GREEN · 21:30:20.076→21:30:53.526 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="10.461" · tokens: none
+ReplayIT · fix1a-hubstamp · run-04 · GREEN · 21:30:53.721→21:31:41.239 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="16.938" · tokens: none
+ReplayIT · fix1a-hubstamp · run-05 · GREEN · 21:31:41.450→21:32:32.605 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="11.48" · tokens: none
+ReplayIT · fix1a-hubstamp · run-06 · GREEN · 21:32:32.815→21:33:21.358 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="11.207" · tokens: none
+ReplayIT · fix1a-hubstamp · run-07 · GREEN · 21:33:21.566→21:34:13.277 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="10.783" · tokens: none
+ReplayIT · fix1a-hubstamp · run-08 · GREEN · 21:34:13.488→21:35:05.405 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="12.814" · tokens: none
+ReplayIT · fix1a-hubstamp · run-09 · GREEN · 21:35:05.606→21:36:05.165 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="21.321" · tokens: none
+ReplayIT · fix1a-hubstamp · run-10 · GREEN · 21:36:05.379→21:36:47.456 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="9.63" · tokens: none
+ReplayIT · fix1a-hubstamp · run-11 · GREEN · 21:36:47.663→21:37:43.336 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="12.812" · tokens: none
+ReplayIT · fix1a-hubstamp · run-12 · GREEN · 21:37:43.555→21:38:37.465 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="15.066" · tokens: none
+ReplayIT · fix1a-hubstamp · run-13 · GREEN · 21:38:37.667→21:39:31.930 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="13.617" · tokens: none
+ReplayIT · fix1a-hubstamp · run-14 · GREEN · 21:39:32.137→21:40:27.899 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="14.129" · tokens: none
+ReplayIT · fix1a-hubstamp · run-15 · GREEN · 21:40:28.110→21:41:23.181 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="13.152" · tokens: none
+ReplayIT · fix1a-hubstamp · run-16 · GREEN · 21:41:23.386→21:42:15.840 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="13.687" · tokens: none
+ReplayIT · fix1a-hubstamp · run-17 · GREEN · 21:42:16.051→21:43:10.071 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="13.914" · tokens: none
+ReplayIT · fix1a-hubstamp · run-18 · GREEN · 21:43:10.281→21:44:11.293 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="20.261" · tokens: none
+ReplayIT · fix1a-hubstamp · run-19 · GREEN · 21:44:11.502→21:45:04.005 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="13.611" · tokens: none
+ReplayIT · fix1a-hubstamp · run-20 · GREEN · 21:45:04.216→21:46:09.751 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="21.25" · tokens: none
+# loop end 2026-09-05T21:46:09Z
+# busy loops stopped
+# loop start 2026-09-05T21:46:10Z mode=pinned tree=fix1a-hubstamp-noload class=ReplayIT task=:core:event-bus:test xml=C:/Users/Nick/Desktop/Code/ClaudeFolder/homesynapse-core/core/event-bus/build/test-results/test/TEST-com.homesynapse.event.bus.ReplayTransitionIT.xml
+ReplayIT · fix1a-hubstamp-noload · run-01 · GREEN · 21:46:10.566→21:46:31.157 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.072" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-02 · GREEN · 21:46:31.350→21:46:51.321 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.119" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-03 · GREEN · 21:46:51.520→21:47:11.628 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.065" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-04 · GREEN · 21:47:11.819→21:47:32.254 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.118" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-05 · GREEN · 21:47:32.441→21:47:52.491 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.072" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-06 · GREEN · 21:47:52.689→21:48:13.009 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.067" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-07 · RED · 21:48:13.209→21:48:44.069 · rc=1 · tests="1" skipped="0" failures="1" errors="0" time="18.708" · tokens: none · RED: subscriber resumes from persisted checkpoint and catches up  :: java.lang.AssertionError: Checkpoint for 'replay-it-sub' did not reach 1000 within 15000 ms (resting checkpoint 28)
+ReplayIT · fix1a-hubstamp-noload · run-08 · GREEN · 21:48:44.310→21:49:04.985 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.083" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-09 · GREEN · 21:49:05.188→21:49:25.899 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.106" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-10 · GREEN · 21:49:26.111→21:49:46.360 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.081" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-11 · GREEN · 21:49:46.569→21:50:07.322 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.06" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-12 · GREEN · 21:50:07.515→21:50:27.785 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.066" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-13 · GREEN · 21:50:27.996→21:50:49.100 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.092" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-14 · GREEN · 21:50:49.291→21:51:09.820 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.085" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-15 · GREEN · 21:51:10.017→21:51:30.510 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.119" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-16 · GREEN · 21:51:30.703→21:51:50.551 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.013" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-17 · GREEN · 21:51:50.746→21:52:11.074 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.09" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-18 · GREEN · 21:52:11.277→21:52:31.222 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.047" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-19 · GREEN · 21:52:31.423→21:52:51.364 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.067" · tokens: none
+ReplayIT · fix1a-hubstamp-noload · run-20 · GREEN · 21:52:51.553→21:53:11.966 · rc=0 · tests="1" skipped="0" failures="0" errors="0" time="8.067" · tokens: none
+# loop end 2026-09-05T21:53:12Z
+# hubstamp sequence end 2026-09-05T21:53:12Z
+# TOTALS v2 (after the hub-stamp re-run, v64 b1 note): 215 loop runs + 1 smoke = 216. RED 3 — all ReplayIT, PHASE 1, pinned WITHOUT load (smoke · fix1a-noload run-20 · fix1a-hubstamp-noload run-07, the stamped one: `(resting checkpoint 28)`). ReplayIT pinned WITH load 0/40 (fix1a 20 · fix1a-hubstamp 20); WITHOUT load 3/56 (smoke 1/1 · fix1a-noload 1/20 · fix1a-stamp 0/15 · fix1a-hubstamp-noload 1/20). HeroLoop pre-fix 0/90. Post-fix (FIX-1b): ReplayIT no-load 20/20 · HeroLoop pinned+load 20/20 · ReplayIT pinned+load 10/10. Zero bus.delivery_anomaly / route_join_miss tokens in any run.

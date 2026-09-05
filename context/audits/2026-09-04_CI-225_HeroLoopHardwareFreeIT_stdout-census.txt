@@ -1,0 +1,176 @@
+# CI #225 (run 33875188761) on 7af2d6c — the HeroLoopHardwareFreeIT class report; filed by Nick 2026-09-05T15:27:24Z at the v62 close
+# REDACTED at v63 beat 2 (2026-09-05): two ephemeral CI test-JVM API token values (OpaqueTokenStore "Minted the initial HomeSynapse API token" lines, minted inside /tmp/junit-* dirs of a runner JVM that no longer exists) replaced by <REDACTED test-token TOKLEN=N> per the TOKLEN-OK law; nothing else changed.
+
+## token census (the §A2 regex)
+     10 zigbee.device_proposed
+     10 zigbee.device_announce
+     10 zigbee.device_adopted
+     10 zigbee.availability_changed
+      5 zigbee.session_started
+      5 zigbee.ncp_configured
+      5 zigbee.learned_zonetypes_rehydrated
+      5 zigbee.initialized
+      5 zigbee.characterization_unmatched
+      5 zigbee.availability_seeded
+      5 zigbee.adoption_maps_rehydrated
+      5 lifecycle.integration_schema_registered
+      5 integration.zigbee
+      5 integration.launched
+      1 zigbee.command_result
+      1 lifecycle.html
+      1 integration.route_join_miss
+
+## <N> journald-prefix count (both raw and HTML-escaped forms)
+0
+
+## the report's text, last 150 lines (tags stripped)
+12:57:07.173 [Test worker] INFO  o.e.jetty.server.AbstractConnector -- Stopped ServerConnector@6ac45c0c{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+12:57:07.173 [Test worker] INFO  o.e.j.server.handler.ContextHandler -- Stopped o.e.j.s.ServletContextHandler@581c9bb7{/,null,STOPPED}
+12:57:07.174 [Test worker] INFO  io.javalin.Javalin -- Javalin has stopped
+12:57:07.186 [Test worker] INFO  c.h.p.SqlitePersistenceLifecycle -- WAL checkpoint completed: database=/tmp/junit-14086690967029569157/homesynapse-events.db
+12:57:07.186 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- Shutting down DatabaseExecutor
+12:57:07.187 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- DatabaseExecutor shutdown complete
+12:57:07.187 [Test worker] INFO  c.h.p.SqlitePersistenceLifecycle -- Persistence layer stopped: database=/tmp/junit-14086690967029569157/homesynapse-events.db
+12:57:07.187 [Test worker] INFO  c.h.lifecycle.HomeSynapseCore -- HomeSynapseCore stopped: db=/tmp/junit-14086690967029569157/homesynapse-events.db (stop())
+12:57:07.196 [Test worker] INFO  c.h.c.StandardConfigurationService -- Configuration loaded: schema=1.0 sections=1 issues=0
+12:57:07.196 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- Starting DatabaseExecutor: path=/tmp/junit-13393986113230284656/homesynapse-events.db readThreads=1
+12:57:07.197 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- New database detected — applying creation-time PRAGMAs
+12:57:07.202 [Test worker] INFO  c.h.persistence.MigrationRunner -- Migration run starting: path=db/migration/events files=5
+12:57:07.206 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=1 description='initial event store schema'
+12:57:07.207 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=1 description='initial event store schema' duration=0ms
+12:57:07.208 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=2 description='subscriber dead letter queue'
+12:57:07.208 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=2 description='subscriber dead letter queue' duration=0ms
+12:57:07.209 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=3 description='add snapshots and drop redundant index'
+12:57:07.210 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=3 description='add snapshots and drop redundant index' duration=0ms
+12:57:07.210 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=4 description='dlq operational indices'
+12:57:07.210 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=4 description='dlq operational indices' duration=0ms
+12:57:07.210 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=5 description='at rest payload encryption columns'
+12:57:07.211 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=5 description='at rest payload encryption columns' duration=0ms
+12:57:07.212 [Test worker] INFO  c.h.persistence.MigrationRunner -- Migration run complete: applied=5 skipped=0 duration=0ms
+12:57:07.213 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- DatabaseExecutor started: path=/tmp/junit-13393986113230284656/homesynapse-events.db
+12:57:07.213 [Test worker] INFO  c.h.persistence.EventTypeRegistry -- EventTypeRegistry initialized with 55 event types
+12:57:07.294 [Test worker] INFO  c.h.persistence.JacksonWarmup -- JacksonWarmup pre-populated 55 event type(s)
+12:57:07.295 [Test worker] INFO  c.h.p.SqlitePersistenceLifecycle -- Persistence layer started: database=/tmp/junit-13393986113230284656/homesynapse-events.db, profile=TESTING, readThreads=1
+12:57:07.300 [hs-sub-registry_projection] INFO  c.h.l.RegistryProjectionSubscriber -- registry.projection_live: devices=0 entities=0 position=0
+12:57:07.300 [hs-sub-state_projection] INFO  c.homesynapse.state.StateProjection -- StateProjection state_projection caught up at position 0; projection.replay.duration_ms=0 events_replayed=0
+12:57:07.325 [Test worker] WARN  c.h.api.rest.OpaqueTokenStore -- Minted the initial HomeSynapse API token (shown once). Pair a client with this bearer token, then delete the artifact at /tmp/junit-13393986113230284656/config/initial_api_token. Token: <REDACTED test-token TOKLEN=43>
+12:57:07.329 [Test worker] INFO  io.javalin.Javalin -- Starting Javalin ...
+12:57:07.329 [Test worker] INFO  org.eclipse.jetty.server.Server -- jetty-11.0.25; built: 2025-03-13T00:15:57.301Z; git: a2e9fae3ad8320f2a713d4fa29bba356a99d1295; jvm 21.0.12.1+9-LTS
+12:57:07.332 [Test worker] INFO  o.e.j.s.s.DefaultSessionIdManager -- Session workerName=node0
+12:57:07.333 [Test worker] INFO  o.e.j.server.handler.ContextHandler -- Started o.e.j.s.ServletContextHandler@682e445e{/,null,AVAILABLE}
+12:57:07.333 [Test worker] INFO  o.e.jetty.server.AbstractConnector -- Started ServerConnector@582a3b19{HTTP/1.1, (http/1.1)}{127.0.0.1:39717}
+12:57:07.333 [Test worker] INFO  org.eclipse.jetty.server.Server -- Started Server@2616b618{STARTING}[11.0.25,sto=0] @13384ms
+12:57:07.333 [Test worker] INFO  io.javalin.Javalin -- Javalin started in 4ms \o/
+12:57:07.334 [Test worker] INFO  io.javalin.Javalin -- Static file handler added: StaticFileConfig(hostedPath=/dashboard, directory=/dashboard, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1&lt;jakarta.servlet.http.HttpServletRequest, java.lang.Boolean&gt;, mimeTypes={}, roles=[]). File system location: 'file:///home/runner/work/homesynapse-core/homesynapse-core/lifecycle/lifecycle/build/resources/test/dashboard/'
+12:57:07.334 [Test worker] INFO  io.javalin.Javalin -- Listening on http://127.0.0.1:39717/
+12:57:07.335 [Test worker] INFO  io.javalin.Javalin -- You are running Javalin 6.7.0 (released June 22, 2025. Your Javalin version is 438 days old. Consider checking for a newer version.).
+12:57:07.335 [Test worker] INFO  c.h.lifecycle.HomeSynapseCore -- HTTP surface exposed on 127.0.0.1:39717 behind bearer-token auth (AB-1, C1 closed); loopback-default bindHost=127.0.0.1
+12:57:07.337 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.adoption_maps_rehydrated: devices=0
+12:57:07.337 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.availability_seeded: devices=0 from_sidecar=0 unknown=0
+12:57:07.337 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.learned_zonetypes_rehydrated: count=0
+12:57:07.337 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.initialized: integration_id=6V1CMGY2HKF4H1FGZ4H7F257FS data_dir=/tmp/junit-13393986113230284656/zigbee mode=driven
+12:57:07.337 [integration-supervisor-start] INFO  c.h.i.r.StandardIntegrationSupervisor -- integration.launched: integration_id=6V1CMGY2HKF4H1FGZ4H7F257FS integration_type=zigbee io_type=SERIAL
+12:57:07.338 [integration-zigbee-0] INFO  c.h.integration.zigbee.AshSession -- ASH session connected: ashVersion=2 resetCode=0x2
+12:57:07.338 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- EZSP session negotiated: protocolVersion=13 stackType=2 stackVersion=0x7430
+12:57:07.338 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- zigbee.ncp_configured: zdo_flags=0x3 stack_profile=2 security_level=5
+12:57:07.338 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.session_started: protocolVersion=13
+12:57:07.340 [Test worker] INFO  c.h.lifecycle.HomeSynapseCore -- HomeSynapseCore RUNNING: db=/tmp/junit-13393986113230284656/homesynapse-events.db, configDir=/tmp/junit-13393986113230284656/config, homeId=01JAAAAAAAAAAAAAAAAAAAAAAB, automations=6; HTTP exposed behind bearer-token auth on 127.0.0.1:39717 (AB-1), cipher inert=true
+12:57:07.341 [Test worker] INFO  c.h.lifecycle.HomeSynapseCore -- lifecycle.integration_schema_registered: type=zigbee stage=direct
+12:57:07.345 [Test worker] INFO  c.h.i.z.StandardAvailabilityTracker -- zigbee.availability_changed: device=0x00124B0012345678 available=true
+12:57:07.345 [Test worker] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.device_announce: device=0x00124B0012345678 nwk=0x6b9a
+12:57:07.345 [Test worker] INFO  c.h.i.z.StandardAvailabilityTracker -- zigbee.availability_changed: device=0x0017880109AB12CD available=true
+12:57:07.345 [Test worker] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.device_announce: device=0x0017880109AB12CD nwk=0x260f
+12:57:07.347 [Test worker] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0x00124B0012345678 manufacturer=eWeLink model=SNZB-03P profile=sonoff_snzb_03p status=COMPLETE source=announce
+12:57:07.352 [Test worker] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0x0017880109AB12CD manufacturer=Signify Netherlands B.V. model=LCA017 profile=philips_hue_white_color_a19 status=COMPLETE source=announce
+12:57:07.371 [Test worker] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0x00124B0012345678 deviceId=01KDVE9KD8A2KT9PAY1N1470B8 entities=1
+12:57:07.373 [Test worker] WARN  c.h.i.z.ConfirmationOverrideInstaller -- zigbee.characterization_unmatched: profile=philips_hue_white_color_a19 names capabilities the classifier did not map: [effect] — skipped (tolerate-unknown)
+12:57:07.380 [Test worker] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0x0017880109AB12CD deviceId=01KDVE9KD8A2KT9PAY1N1470BE entities=1
+12:57:07.471 [Test worker] INFO  io.javalin.Javalin -- Stopping Javalin ...
+12:57:07.471 [Test worker] INFO  org.eclipse.jetty.server.Server -- Stopped Server@2616b618{STOPPING}[11.0.25,sto=0]
+12:57:07.471 [Test worker] INFO  o.e.jetty.server.AbstractConnector -- Stopped ServerConnector@582a3b19{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+12:57:07.472 [Test worker] INFO  o.e.j.server.handler.ContextHandler -- Stopped o.e.j.s.ServletContextHandler@682e445e{/,null,STOPPED}
+12:57:07.473 [Test worker] INFO  io.javalin.Javalin -- Javalin has stopped
+12:57:07.488 [Test worker] INFO  c.h.p.SqlitePersistenceLifecycle -- WAL checkpoint completed: database=/tmp/junit-13393986113230284656/homesynapse-events.db
+12:57:07.488 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- Shutting down DatabaseExecutor
+12:57:07.488 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- DatabaseExecutor shutdown complete
+12:57:07.489 [Test worker] INFO  c.h.p.SqlitePersistenceLifecycle -- Persistence layer stopped: database=/tmp/junit-13393986113230284656/homesynapse-events.db
+12:57:07.489 [Test worker] INFO  c.h.lifecycle.HomeSynapseCore -- HomeSynapseCore stopped: db=/tmp/junit-13393986113230284656/homesynapse-events.db (stop())
+12:57:07.497 [Test worker] INFO  c.h.c.StandardConfigurationService -- Configuration loaded: schema=1.0 sections=1 issues=0
+12:57:07.498 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- Starting DatabaseExecutor: path=/tmp/junit-14861065526241575773/homesynapse-events.db readThreads=1
+12:57:07.499 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- New database detected — applying creation-time PRAGMAs
+12:57:07.507 [Test worker] INFO  c.h.persistence.MigrationRunner -- Migration run starting: path=db/migration/events files=5
+12:57:07.509 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=1 description='initial event store schema'
+12:57:07.511 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=1 description='initial event store schema' duration=0ms
+12:57:07.511 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=2 description='subscriber dead letter queue'
+12:57:07.511 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=2 description='subscriber dead letter queue' duration=0ms
+12:57:07.511 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=3 description='add snapshots and drop redundant index'
+12:57:07.512 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=3 description='add snapshots and drop redundant index' duration=0ms
+12:57:07.513 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=4 description='dlq operational indices'
+12:57:07.513 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=4 description='dlq operational indices' duration=0ms
+12:57:07.513 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applying migration: version=5 description='at rest payload encryption columns'
+12:57:07.514 [Test worker] INFO  c.h.persistence.MigrationRunner -- Applied migration: version=5 description='at rest payload encryption columns' duration=0ms
+12:57:07.514 [Test worker] INFO  c.h.persistence.MigrationRunner -- Migration run complete: applied=5 skipped=0 duration=0ms
+12:57:07.515 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- DatabaseExecutor started: path=/tmp/junit-14861065526241575773/homesynapse-events.db
+12:57:07.515 [Test worker] INFO  c.h.persistence.EventTypeRegistry -- EventTypeRegistry initialized with 55 event types
+12:57:07.600 [Test worker] INFO  c.h.persistence.JacksonWarmup -- JacksonWarmup pre-populated 55 event type(s)
+12:57:07.601 [Test worker] INFO  c.h.p.SqlitePersistenceLifecycle -- Persistence layer started: database=/tmp/junit-14861065526241575773/homesynapse-events.db, profile=TESTING, readThreads=1
+12:57:07.606 [hs-sub-registry_projection] INFO  c.h.l.RegistryProjectionSubscriber -- registry.projection_live: devices=0 entities=0 position=0
+12:57:07.606 [hs-sub-state_projection] INFO  c.homesynapse.state.StateProjection -- StateProjection state_projection caught up at position 0; projection.replay.duration_ms=0 events_replayed=0
+12:57:07.633 [Test worker] WARN  c.h.api.rest.OpaqueTokenStore -- Minted the initial HomeSynapse API token (shown once). Pair a client with this bearer token, then delete the artifact at /tmp/junit-14861065526241575773/config/initial_api_token. Token: <REDACTED test-token TOKLEN=43>
+12:57:07.636 [Test worker] INFO  io.javalin.Javalin -- Starting Javalin ...
+12:57:07.636 [Test worker] INFO  org.eclipse.jetty.server.Server -- jetty-11.0.25; built: 2025-03-13T00:15:57.301Z; git: a2e9fae3ad8320f2a713d4fa29bba356a99d1295; jvm 21.0.12.1+9-LTS
+12:57:07.638 [Test worker] INFO  o.e.j.s.s.DefaultSessionIdManager -- Session workerName=node0
+12:57:07.639 [Test worker] INFO  o.e.j.server.handler.ContextHandler -- Started o.e.j.s.ServletContextHandler@7336fd8f{/,null,AVAILABLE}
+12:57:07.639 [Test worker] INFO  o.e.jetty.server.AbstractConnector -- Started ServerConnector@2bcda694{HTTP/1.1, (http/1.1)}{127.0.0.1:41187}
+12:57:07.639 [Test worker] INFO  org.eclipse.jetty.server.Server -- Started Server@30036a18{STARTING}[11.0.25,sto=0] @13690ms
+12:57:07.639 [Test worker] INFO  io.javalin.Javalin -- Javalin started in 3ms \o/
+12:57:07.640 [Test worker] INFO  io.javalin.Javalin -- Static file handler added: StaticFileConfig(hostedPath=/dashboard, directory=/dashboard, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1&lt;jakarta.servlet.http.HttpServletRequest, java.lang.Boolean&gt;, mimeTypes={}, roles=[]). File system location: 'file:///home/runner/work/homesynapse-core/homesynapse-core/lifecycle/lifecycle/build/resources/test/dashboard/'
+12:57:07.640 [Test worker] INFO  io.javalin.Javalin -- Listening on http://127.0.0.1:41187/
+12:57:07.640 [Test worker] INFO  io.javalin.Javalin -- You are running Javalin 6.7.0 (released June 22, 2025. Your Javalin version is 438 days old. Consider checking for a newer version.).
+12:57:07.640 [Test worker] INFO  c.h.lifecycle.HomeSynapseCore -- HTTP surface exposed on 127.0.0.1:41187 behind bearer-token auth (AB-1, C1 closed); loopback-default bindHost=127.0.0.1
+12:57:07.642 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.adoption_maps_rehydrated: devices=0
+12:57:07.642 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.availability_seeded: devices=0 from_sidecar=0 unknown=0
+12:57:07.642 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.learned_zonetypes_rehydrated: count=0
+12:57:07.642 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.initialized: integration_id=6V1CMGY2HKF4H1FGZ4H7F257FS data_dir=/tmp/junit-14861065526241575773/zigbee mode=driven
+12:57:07.643 [integration-supervisor-start] INFO  c.h.i.r.StandardIntegrationSupervisor -- integration.launched: integration_id=6V1CMGY2HKF4H1FGZ4H7F257FS integration_type=zigbee io_type=SERIAL
+12:57:07.643 [integration-zigbee-0] INFO  c.h.integration.zigbee.AshSession -- ASH session connected: ashVersion=2 resetCode=0x2
+12:57:07.644 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- EZSP session negotiated: protocolVersion=13 stackType=2 stackVersion=0x7430
+12:57:07.644 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- zigbee.ncp_configured: zdo_flags=0x3 stack_profile=2 security_level=5
+12:57:07.644 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.session_started: protocolVersion=13
+12:57:07.646 [Test worker] INFO  c.h.lifecycle.HomeSynapseCore -- HomeSynapseCore RUNNING: db=/tmp/junit-14861065526241575773/homesynapse-events.db, configDir=/tmp/junit-14861065526241575773/config, homeId=01JAAAAAAAAAAAAAAAAAAAAAAB, automations=6; HTTP exposed behind bearer-token auth on 127.0.0.1:41187 (AB-1), cipher inert=true
+12:57:07.647 [Test worker] INFO  c.h.lifecycle.HomeSynapseCore -- lifecycle.integration_schema_registered: type=zigbee stage=direct
+12:57:07.650 [Test worker] INFO  c.h.i.z.StandardAvailabilityTracker -- zigbee.availability_changed: device=0x00124B0012345678 available=true
+12:57:07.650 [Test worker] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.device_announce: device=0x00124B0012345678 nwk=0x6b9a
+12:57:07.650 [Test worker] INFO  c.h.i.z.StandardAvailabilityTracker -- zigbee.availability_changed: device=0x0017880109AB12CD available=true
+12:57:07.651 [Test worker] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.device_announce: device=0x0017880109AB12CD nwk=0x260f
+12:57:07.652 [Test worker] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0x00124B0012345678 manufacturer=eWeLink model=SNZB-03P profile=sonoff_snzb_03p status=COMPLETE source=announce
+12:57:07.656 [Test worker] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0x0017880109AB12CD manufacturer=Signify Netherlands B.V. model=LCA017 profile=philips_hue_white_color_a19 status=COMPLETE source=announce
+12:57:07.676 [Test worker] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0x00124B0012345678 deviceId=01KDVE9KD8A2KT9PAY1N1470CR entities=1
+12:57:07.678 [Test worker] WARN  c.h.i.z.ConfirmationOverrideInstaller -- zigbee.characterization_unmatched: profile=philips_hue_white_color_a19 names capabilities the classifier did not map: [effect] — skipped (tolerate-unknown)
+12:57:07.686 [Test worker] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0x0017880109AB12CD deviceId=01KDVE9KD8A2KT9PAY1N1470CY entities=1
+12:57:07.763 [Test worker] INFO  io.javalin.Javalin -- Stopping Javalin ...
+12:57:07.763 [Test worker] INFO  org.eclipse.jetty.server.Server -- Stopped Server@30036a18{STOPPING}[11.0.25,sto=0]
+12:57:07.764 [Test worker] INFO  o.e.jetty.server.AbstractConnector -- Stopped ServerConnector@2bcda694{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+12:57:07.764 [Test worker] INFO  o.e.j.server.handler.ContextHandler -- Stopped o.e.j.s.ServletContextHandler@7336fd8f{/,null,STOPPED}
+12:57:07.765 [Test worker] INFO  io.javalin.Javalin -- Javalin has stopped
+12:57:07.776 [Test worker] INFO  c.h.p.SqlitePersistenceLifecycle -- WAL checkpoint completed: database=/tmp/junit-14861065526241575773/homesynapse-events.db
+12:57:07.776 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- Shutting down DatabaseExecutor
+12:57:07.776 [Test worker] INFO  c.h.persistence.DatabaseExecutor -- DatabaseExecutor shutdown complete
+12:57:07.776 [Test worker] INFO  c.h.p.SqlitePersistenceLifecycle -- Persistence layer stopped: database=/tmp/junit-14861065526241575773/homesynapse-events.db
+12:57:07.777 [Test worker] INFO  c.h.lifecycle.HomeSynapseCore -- HomeSynapseCore stopped: db=/tmp/junit-14861065526241575773/homesynapse-events.db (stop())
+
+
+
+
+
+
+
+Wrap lines
+
+
+Generated by 
+Gradle 8.8 at Sep 4, 2026, 12:57:19 PM
+
+
+
+

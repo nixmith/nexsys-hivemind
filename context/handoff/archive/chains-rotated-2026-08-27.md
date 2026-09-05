@@ -217,3 +217,7 @@ Prior: 2026-09-05 (v64 beat 1 — THE v64 BOOT + THE INTAKE, Sat ~13:33 CT (inst
 ## chain segment rotated 2026-09-05 (v64 beat 4) — v64 b2, verbatim
 
 Prior: 2026-09-05 (v64 beat 2 — THE CG-1/2/3 INSTRUCTION AUTHORED AHEAD + THE CORPUS READ LIVE, Sat ~13:57 CT (instrument 18:57Z) — v1.1.3 in the SKIP-VIS shape, grounded at source (A; 17 M + 0 A; ⛔ gated on FIX-1b's green) · two rulings inside: CG-2 A1-only (Row 8's serializer untouched) · Row 30 = zero Core change at source · arch rules 8–11 zero collisions · the corpus 0 RED in 38 under 2-core pressure — the hub's prediction missed, adjudicated first; branch (c) materializing; Act A re-purposed for the runner's first red. Order: hivemind 6 = 5 M + 1 A.)
+
+## chain segment rotated 2026-09-05 (v64 beat 5) — v64 b3, verbatim
+
+Prior: 2026-09-05 (v64 beat 3 — THE BEYOND INPUT AUTHORED, Sat ~14:06 CT (instrument 19:06Z) — docket Row 26 fired: eight P4+ rows in compounding order (B-1 delivery guarantee → B-2 policy kernel → B-3 shadow mode → B-4/B-8 · B-5/B-6 · B-7 conditional on Q1), each with its D5 claim, dependency graph, minting measurement, fence and not-build; eight questions for the sitting, none answered; the hub's lean for the P4 opener B-1 (A). The corpus 66 runs, 0 RED at 19:03Z. Order: hivemind 5 = 4 M + 1 A.)

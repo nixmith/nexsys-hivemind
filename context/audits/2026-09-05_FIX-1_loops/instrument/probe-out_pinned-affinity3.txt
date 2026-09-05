@@ -1,0 +1,2 @@
+availableProcessors=2 vtParallelism=(default) os=Windows 11
+# measured 2026-09-05 18:1xZ under: cmd /c start "" /affinity 3 /B /WAIT ... java Probe.java

@@ -1,0 +1,64 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors
+> Task :build-logic:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+> Task :core:value-model:compileJava UP-TO-DATE
+> Task :core:value-model:processResources NO-SOURCE
+> Task :core:value-model:classes UP-TO-DATE
+> Task :core:value-model:jar UP-TO-DATE
+> Task :platform:platform-api:compileJava UP-TO-DATE
+> Task :platform:platform-api:processResources NO-SOURCE
+> Task :platform:platform-api:classes UP-TO-DATE
+> Task :platform:platform-api:jar UP-TO-DATE
+> Task :core:event-model:compileJava UP-TO-DATE
+> Task :core:event-model:processResources UP-TO-DATE
+> Task :core:event-model:classes UP-TO-DATE
+> Task :core:event-model:jar UP-TO-DATE
+> Task :core:event-bus:compileJava UP-TO-DATE
+> Task :core:event-bus:processResources NO-SOURCE
+> Task :core:event-bus:classes UP-TO-DATE
+> Task :core:event-bus:jar UP-TO-DATE
+> Task :core:event-model:compileTestFixturesJava UP-TO-DATE
+> Task :core:event-bus:compileTestFixturesJava UP-TO-DATE
+> Task :core:event-bus:processTestFixturesResources NO-SOURCE
+> Task :core:event-bus:testFixturesClasses UP-TO-DATE
+> Task :core:event-bus:testFixturesJar UP-TO-DATE
+> Task :core:event-bus:compileTestJava UP-TO-DATE
+> Task :core:event-bus:processTestResources NO-SOURCE
+> Task :core:event-bus:testClasses UP-TO-DATE
+> Task :core:event-model:processTestFixturesResources NO-SOURCE
+> Task :core:event-model:testFixturesClasses UP-TO-DATE
+> Task :core:event-model:testFixturesJar UP-TO-DATE
+
+> Task :core:event-bus:test
+
+M3.2 — REPLAY?TRANSITION?LIVE integration test > subscriber resumes from persisted checkpoint and catches up to LIVE without gaps under continuous publish FAILED
+    java.lang.AssertionError: Checkpoint for 'replay-it-sub' did not reach 1000 within 15000 ms
+        at com.homesynapse.event.bus.ReplayTransitionIT.awaitCheckpoint(ReplayTransitionIT.java:212)
+        at com.homesynapse.event.bus.ReplayTransitionIT.replayTransitionLiveEndToEnd(ReplayTransitionIT.java:112)
+
+1 test completed, 1 failed
+
+> Task :core:event-bus:test FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':core:event-bus:test'.
+> There were failing tests. See the report at: file:///C:/Users/Nick/Desktop/Code/ClaudeFolder/homesynapse-core/core/event-bus/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 29s
+25 actionable tasks: 2 executed, 23 up-to-date

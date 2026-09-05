@@ -3,7 +3,7 @@ file: context/handoff/2026-09-05_v64_OPERATOR-BRIEF_for-Nick.md
 purpose: NICK'S OPERATOR QUEUE for v64 — every act he performs, in order, fully articulated (WHAT · WHY · the exact command or paste · EXPECTED RESULT · REPORT BACK), with a self-contained §CONTEXT preamble so Nick — or any other Claude session he hands this file to — can understand the state of record and the hub's reasoning WITHOUT inventing context. The copy-source of record is this file on disk, never a chat card. Act numbers continue the v63 brief's (Acts 3 · 6 · 7 · 8 · 9 · 10 · 11 keep their numbers); the new acts are lettered (A …).
 audience: Nick · any helper session (read §CONTEXT first; every claim there has a file path)
 state-type: operator brief (live; the hub re-cuts it at every beat that changes an act)
-status: LIVE from v64 beat 1 (Sat 2026-09-05, 13:33 CT = 18:33Z). Supersedes context/handoff/2026-09-05_v63_OPERATOR-BRIEF_for-Nick.md (retired in place at this beat). Re-cut at beat 2 (18:57Z): Act A re-purposed; the CG line drafted; the words CG2-SCOPE / ROW30 added. Beat 3 (19:06Z): THE BEYOND INPUT filed (the Later line).
+status: LIVE from v64 beat 1 (Sat 2026-09-05, 13:33 CT = 18:33Z). Supersedes context/handoff/2026-09-05_v63_OPERATOR-BRIEF_for-Nick.md (retired in place at this beat). Re-cut at beat 2 (18:57Z): Act A re-purposed; the CG line drafted; the words CG2-SCOPE / ROW30 added. Beat 3 (19:06Z): THE BEYOND INPUT filed (the Later line). Beat 5 (20:15Z): the return audited; Acts 6–8 re-cut with the audited cards.
 -->
 
 # Operator brief — v64: what Nick does, in order
@@ -54,24 +54,36 @@ Hub note (v64 beat 1, 18:2xZ): a stamp defect in the instruction's §A.5 ReplayI
 - `FENCE-BUS: add | hold` — a fence line on the claim register: "no claim of delivery completeness (an event reaches every subscriber that matches it) until OR-BUS-SILENT-DROP closes." Costs nothing public; keeps C-002 read as exactly what it measured. Rec `add`.
 - `BLOCK6: pull | hold` — whether the hub pulls the docs correction block (your hands, `homesynapse-core-docs`) ahead of THE BEYOND INPUT while the lane runs (§NOW H2). Rec `hold` unless you want Saturday-evening hands work.
 
-### Act 6 — hand the return to the hub (≤1 min; when the lane says it is done)
+### Act 6 — ✅ DONE by the hub (the return landed 19:59Z; audited ACCEPT / ACCEPT-WITH-RULINGS at 20:1xZ — `context/audits/2026-09-05_FIX-1_intake_two-layer-audit_v64.md`)
 **WHAT:** tell v64 `FIX-1 lane returned` and paste the lane's last ~10 lines. Do NOT summarize the return; do NOT stage anything. **WHY:** the hub's two-layer audit (its own re-execution at the corpus bytes: `SUMMARY.md` line-by-line; every red run's XML — which anomaly kind, which subscriber, which position, whether `route_join_miss` sits in the same method; the §A.5 table against the filed predictions, mismatches first; the corpus redacted before it is staged) is what turns a return into a landing. **EXPECTED:** the hub files the audit at `context/audits/2026-09-05_FIX-1_intake_two-layer-audit_v64.md`, then hands you TWO msg files + census cards, in order. **REPORT BACK:** nothing further until Act 7's card arrives.
 
-### Act 7 — commit + push FIX-1a = SAMPLE #4 (your hands; ≤5 min; the exact census card + msg-file path arrive with the audit)
-**WHAT:** ONE commit in `homesynapse-core` of exactly FIX-1a's files (9 = 7 M + 2 A per the instruction, or 10 = 8 M + 2 A if Act A landed — the audit's card is authoritative), from the hub's msg file; then push; then read CI. **WHY:** this push is the first `main` run that reports every failing task (`--continue`), per-method XML, full assertion messages, and the new `bus.delivery_anomaly` WARN tokens. Whether it is green or red, it is the first self-describing run; **it does NOT clear the gate** (only FIX-1b's does) — a red here on a flake is the instrument working.
+### Act 7 — commit + push FIX-1a = SAMPLE #4 (your hands; ≤5 min; THE CARD BELOW IS AUTHORITATIVE — audited at porcelain: 9 = 7 M + 2 A)
+**WHAT:** ONE commit in `homesynapse-core` of exactly FIX-1a's 9 files (7 M + 2 A — the stamps ride FIX-1b's patch, not this commit), from the hub's msg file; then push; then read CI. **WHY:** this push is the first `main` run that reports every failing task (`--continue`), per-method XML, full assertion messages, and the new `bus.delivery_anomaly` WARN tokens. Whether it is green or red, it is the first self-describing run; **it does NOT clear the gate** (only FIX-1b's does) — a red here on a flake is the instrument working.
 ```bash
 cd ~/Desktop/Code/ClaudeFolder/homesynapse-core
 git log -1 --format=%h                  # EXPECT: dc3328b
-git status --porcelain | wc -l          # EXPECT: the card's N — anything else: STOP and paste `git status --porcelain`
-# the `git add` line arrives with the card (exact paths; never `git add -A .`)
-git diff --cached --name-status | wc -l # EXPECT: N
-git commit -F ../_scratch/<the msg file the hub names>
+git status --porcelain | wc -l          # EXPECT: 9 — anything else: STOP and paste `git status --porcelain`
+git add .github/workflows/ci.yml build-logic/src/main/kotlin/homesynapse.java-conventions.gradle.kts core/event-bus/MODULE_CONTEXT.md core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEventBus.java core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoordinator.java lifecycle/lifecycle/MODULE_CONTEXT.md lifecycle/lifecycle/src/main/java/com/homesynapse/lifecycle/HomeSynapseCore.java core/event-bus/src/main/java/com/homesynapse/event/bus/DeliveryAnomaly.java core/event-bus/src/test/java/com/homesynapse/event/bus/DeliveryAnomalyEmissionTest.java
+git diff --cached --name-status | wc -l # EXPECT: 9
+git commit -F ../_scratch/2026-09-05_core_FIX-1a_commit-msg.txt
 git push origin main
 ```
 (No attribution trailers on your commits — your standing directive.) **EXPECTED:** the push prints `dc3328b..<sha>  main -> main`; Actions starts `CI` (`install-smoke` only if a matching path changed — FIX-1a touches none; `Frontend` no). **THEN READ CI (~5 min later):** GREEN or RED, and if RED the `… FAILED` lines (now possibly more than one, by design). **REPORT BACK:** `FIX-1a pushed <sha> · CI <green | red: <the FAILED lines> | pending>`.
 
 ### Act 8 — commit + push FIX-1b = THE GATE (your hands; ≤5 min; then the samples)
-**WHAT:** the second commit, exactly FIX-1b's census from its card; push; read CI. **WHY:** its green is the clearance of record — `main` green for a reason, with the mechanism named in the return's §1 table. Then (your word `SAMPLES: veto-only`): Actions → `CI` → **Run workflow** (the button exists once FIX-1a is on `main`) → branch `main` → run it **3 times**, reading each. **A red sample re-opens the gate** (the hub reads its XML — the next instrument); three greens add nothing to the clearance the push run already gave — they can only take it away. (Same commands as Act 7 with FIX-1b's N and msg file; `git log -1` EXPECTs FIX-1a's sha.) **REPORT BACK:** `FIX-1b pushed <sha> · CI <green | red: …> · samples <3/3 green | red on #k: <the FAILED line>>`. On green: the CG-1/2/3 dispatch line (the hub has it drafted).
+**WHAT:** the second commit, exactly FIX-1b's census from its card; push; read CI. **WHY:** its green is the clearance of record — `main` green for a reason, with the mechanism named in the return's §1 table. Then (your word `SAMPLES: veto-only`): Actions → `CI` → **Run workflow** (the button exists once FIX-1a is on `main`) → branch `main` → run it **3 times**, reading each. **A red sample re-opens the gate** (the hub reads its XML — the next instrument); three greens add nothing to the clearance the push run already gave — they can only take it away. The exact sequence (FIX-1b lives as a PATCH beside the return — the lane kept the two commits' bytes separable):
+```bash
+cd ~/Desktop/Code/ClaudeFolder/homesynapse-core
+git log -1 --format=%h                  # EXPECT: FIX-1a's sha (from Act 7)
+git status --porcelain | wc -l          # EXPECT: 0 — anything else: STOP
+git apply -p1 ../nexsys-hivemind/context/audits/2026-09-05_FIX-1b.patch
+git status --porcelain | wc -l          # EXPECT: 7 (all M) — anything else: STOP and paste `git status --porcelain`
+git add core/event-bus/MODULE_CONTEXT.md core/event-bus/src/main/java/com/homesynapse/event/bus/DeliveryAnomaly.java core/event-bus/src/main/java/com/homesynapse/event/bus/InProcessEventBus.java core/event-bus/src/main/java/com/homesynapse/event/bus/TransitionCoordinator.java core/event-bus/src/test/java/com/homesynapse/event/bus/DeliveryAnomalyEmissionTest.java core/event-bus/src/test/java/com/homesynapse/event/bus/ReplayTransitionIT.java lifecycle/lifecycle/MODULE_CONTEXT.md
+git diff --cached --name-status | wc -l # EXPECT: 7
+git commit -F ../_scratch/2026-09-05_core_FIX-1b_commit-msg.txt
+git push origin main
+```
+(If `git apply` prints CRLF warnings, they are harmless; if it REFUSES, STOP and paste its output — do not `--3way`.) **REPORT BACK:** `FIX-1b pushed <sha> · CI <green | red: …> · samples <3/3 green | red on #k: <the FAILED line>>`. On green: the CG-1/2/3 dispatch line (the hub has it drafted).
 
 ### Act 9 — push the hivemind after every hub beat (≤1 min each; `~/Desktop/Code/ClaudeFolder/nexsys-hivemind`)
 ```bash

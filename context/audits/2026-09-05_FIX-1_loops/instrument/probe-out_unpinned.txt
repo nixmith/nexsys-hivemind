@@ -1,0 +1,1 @@
+availableProcessors=24 vtParallelism=(default) os=Windows 11

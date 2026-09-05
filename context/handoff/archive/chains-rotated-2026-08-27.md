@@ -209,3 +209,7 @@ Prior: 2026-09-05 (v63 beat 2 — THE INTAKE OF ACTS 1/2/4 + THE LANE DISPATCHED
 ## chain segment rotated 2026-09-05 (v64 beat 2) — v63 b3, verbatim
 
 Prior: 2026-09-05 (v63 beat 3 — THE v63 CLOSE, Sat ~12:44 CT (instrument 17:44Z) — closed on context health with the FIX-1 lane running: the return's audit is v64's first block · the v64 prompt authored and LIVE (A) · the mints folded (ten) · the brief §CLOSE = push · dispatch v64 · hand the return to v64. Order: hivemind 6 = 5 M + 1 A.)
+
+## chain segment rotated 2026-09-05 (v64 beat 3) — v64 b1, verbatim
+
+Prior: 2026-09-05 (v64 beat 1 — THE v64 BOOT + THE INTAKE, Sat ~13:33 CT (instrument 18:33Z) — zero drift on five HEADs (core dc3328b · hivemind 00c2d7f in sync) · preflight PASS 11/11, Check 9 28/28 · the return ABSENT, the lane's tree = FIX-1a's census exact at 18:25Z · the dispatch's slots filled and verified, filed verbatim (A) · the model checked at its cites · the hub's contribution: a stamp defect in its own FIX-1 instruction found at source (awaitCheckpoint prints no resting checkpoint) → Act A one paste into the running lane · the Block-1 rules R1–R6 pre-filed (A the intake audit) · the v64 brief = Nick's queue (A). Order: hivemind 7 = 4 M + 3 A.)

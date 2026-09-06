@@ -285,3 +285,7 @@ Prior: 2026-09-06 (v65 beat 7 — POST-CLOSE: 093d5b4 banked (CI green; Dependab
 ## chain segment rotated 2026-09-06 (v66 beat 3) — v66 b1, verbatim
 
 Prior: 2026-09-06 (v66 beat 1 — THE v66 BOOT + THE INTAKE: zero drift on five HEADs (core 093d5b4 clean — FE-113 not on the tree; hivemind 7e914ab = v65 b7, AHEAD 1 — the push owed); preflight PASS 11/11, Check 9 28/28; no lane on disk; the dispatch text filed verbatim; the deliverable named (THE H8-a PACKET by 13:30 CT); the brief §NEXT = FE-113's paste, §HELD re-printed, Sun ~10:38 CT (instrument 2026-09-06T15:38Z). Order: hivemind 5 = 4 M + 1 A.)
+
+## chain segment rotated 2026-09-06 (v66 beat 4) — v66 b2, verbatim
+
+Prior: 2026-09-06 (v66 beat 2 — BLOCK 1: THE H8-a PACKET authored + the record scaffolded (on disk 2 h+ ahead of the 13:30 CT hand-off); guard 1 corrected at source (install-smoke's path filters — the artifact of record is f25291b's run, Java = 093d5b4's); the four keys pre-registered from source; FE-113 dispatched 10:42 CT; the push banked 20182e3..7f14059; TR-0 handed, Sun ~10:52 CT (instrument 2026-09-06T15:52Z). Order: hivemind 6 = 4 M + 2 A.)

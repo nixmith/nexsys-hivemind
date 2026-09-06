@@ -37,3 +37,8 @@ First acts: §1 (the five HEADs · the fold grep · the preflight) → the execu
 
 Execute all tasks, problems, and deeper assessments thoroughly and pay attention to details. I (Nick) am fully aligned with your judgment and intuitions for this conversation — and I want you to disagree with me in writing when the evidence says to. Take all the time necessary for deep work. Note that it is Friday 9/4, evening; the v62 session closed at 16:52 CT today, and its close beat (v62 b8, plus the post-close b9) is the newest block on the spine.
 ```
+## Addendum — v65 beat 1a (Lane C, the deep-work window protocol): the two lines every dispatch in this shape now carries
+Recorded here because this file is the posture's exemplar (the v65 dispatch cites it whole); the fenced block above is Nick's paste of record and stays verbatim. From v65 on, a dispatch in this shape carries, inside its STATE/First-acts paragraph, these two lines (`context/process/deep-work-window_protocol.md` §2):
+
+8. **NAME THIS WINDOW'S ONE DELIVERABLE** — its path and its cap — before the first act; the window closes on it, never on the agenda's remainder.
+9. **STATE THE PREDICTIONS YOU WILL ADJUDICATE** — filed before the first read; a miss is owned in writing before any card line; the return's evidence is read against them FIRST.

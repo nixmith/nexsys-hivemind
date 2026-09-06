@@ -1,0 +1,58 @@
+<!--
+file: context/instructions/2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md
+purpose: THE DISPATCH for W-SKILLS-7 — Lane A of the refinement program (the charter `context/planning/2026-09-05_v64_effectiveness-second-check_and_refinement-program_charter.md` §3 Lane A + §4 the fences + §6 Nick's guards), shaped by `context/process/deep-work-window_protocol.md` §2 (the deliverable · the read-set · the predictions · the fences · the clock). A fresh Cowork window with `ClaudeFolder` connected; the lane WRITES, the hub audits and commits (hivemind + skills are hub-run at the bridge); Nick re-syncs the account skills once after the commit.
+audience: the W-SKILLS-7 lane (reads this whole; then the read-set, in order, nothing older) · Nick (the one-paste line at §7) · the v65 hub (the audit rules at §6)
+state-type: lane dispatch (ruling-slotted: Nick's words `REFINE: go` · `W-SKILLS-7: fresh-window` given 09-05)
+status: AUTHORED v65 beat 1a (Sat 2026-09-05 ~21:42 CT; instrument 2026-09-06T02:42Z) under Lane C (guard 1) and after the CG line was handed (guard 4, the v65 brief Act 1). Dispatches on Nick's paste.
+-->
+
+# W-SKILLS-7 — the three role skills gain the v63 + v64 laws, in their ledgers, SKILL.md byte-unchanged
+
+## §0 The contract (read first; every line binds)
+- **THE ONE DELIVERABLE:** the three skills' `references/` ledgers carry every v63 mint (ten), every v64 mint (ten), the §9-L law (v64 b7) and the b9 mint ("counsel's closed days are free research days") as RULES WITH MECHANISMS AND EXHIBIT PATHS, placed where the reader that needs each one reads — and **every `SKILL.md` is BYTE-UNCHANGED** (Nick's guard 2; the charter §3's "one pointer line" is superseded by the guard — the pointer goes to `references/pass-history.md`). The return: `nexsys-hivemind/context/audits/<CT-date>_W-SKILLS-7_return.md`, **§0 card first (≤3 KB), whole file ≤12 KB.**
+- **The write-set (nothing else is touched):** `nexsys-hivemind/project-manager/references/{laws-ledger.md, coding-instruction-format.md, freshness-preflight.md, review-and-quality.md, pass-history.md}` · `nexsys-hivemind/coder/references/{deviation-and-quality.md, testing-standards.md, laws-ledger.md, pass-history.md}` · `nexsys-skills/orchestrators/nexsys-frontend/references/{contract-consumer.md, pass-history.md}`. Declare the census exactly in §0 (expected ≈11 M across two repos; a file you did not need to touch is declared "untouched" with the reason).
+- **Stage nothing; commit nothing.** The hub audits at the bytes and commits both repos at the bridge; Nick pushes and re-syncs. Your last line: `RETURNED <path> <bytes>`.
+- **`date -u` first** for your own stamps; every `last-verified:` line you write derives from it (CT = UTC−5 this week).
+
+## §1 The read-set, in order (nothing older; nothing else)
+1. `context/process/deep-work-window_protocol.md` (§2 and §6 are your contract's shape).
+2. The charter §3 Lane A + §4 + §6 (the deltas, the fences, the guards) — the LAW of this pass.
+3. `context/lessons/pm-lessons.md` — "THE v63 CLOSE MINTS" (:254–:265) and "THE v64 CLOSE MINTS" (:267–end), verbatim; then `context/handoff/pm-handoff.md` v64 beat 7 (the §9-L paragraph, "owned:") and v64 beat 9 (the "Mint (W-SKILLS-7 folds)" sentence).
+4. `context/lessons/coder-lessons.md` — the newest three entries (2026-09-03 · 09-04 · 09-05).
+5. The two v64 audits: `context/audits/2026-09-05_v64-b1_boot-and-intake_audit.md` §3–§4 · `context/audits/2026-09-05_FIX-1_intake_two-layer-audit_v64.md` §0, §7, §9 — the exhibits your rules will cite by path + section.
+6. The three `SKILL.md` (read to learn what each ledger's reader already holds — NOT to edit) and every `references/*.md` in the write-set, whole.
+7. `context/research/2026-09-03_agent-skills_best-practices_hub-synthesis_W-SKILLS-6.md` §2–§3 (the token shape and why it is the asset).
+
+## §2 The deltas (each a rule = its operative sentence + mechanism + exhibit path; the charter §3 Lane A names them — this section names the PLACEMENT and the numbering)
+- **PM `laws-ledger.md` §1:** continue the indexed list from **(38)**. Fold in this order: the ten v63 mints, then the ten v64 mints, then §9-L, then the b9 mint — **but dedupe by MECHANISM against arcs (1)–(37):** a mint whose mechanism an existing arc already carries becomes an ADDENDUM SENTENCE on that arc ("addendum v6N: …" + the new exhibit), not a new number. Return a mapping table: mint → arc number, or → "addendum to (N)". Expected: ≈14–18 new arcs, the rest addenda.
+- **PM `coding-instruction-format.md`:** laws **#23 the separable-bytes law · #24 the diagnostic-readability check · #25 the measurement-shape law · #26 the operator-note law** (the charter's wording is the draft; sharpen at the exhibit). Each cites its exhibit (the FIX-1 audit §7 R1 · the v64 intake §3 · the FIX-1 audit §2 · the v64 b7 §9-L).
+- **PM `freshness-preflight.md`:** Check 9's instrument AS RUN (per-file `md5sum` of the three SOURCE trees on the device vs the session's synced trees; 28 files at v64 and v65) written as the procedure beside the existing `diff -rq` block; Check 10's basename resolution via `git ls-files` of the five repos (a wide `find` on the mount times out) — the v65 b1 audit §3 is the exhibit for both.
+- **PM `review-and-quality.md` §3:** "a return that refutes the instruction's mechanism theory WITH line cites is the best outcome of instrument-first working" — the adjudication order (mismatches first; the theory owned in writing) as the standard; exhibit: the FIX-1 audit §7 R2.
+- **Coder `deviation-and-quality.md`:** the patch-shaped delivery for multi-commit lanes as the standard `[REVIEW]` shape (exhibit: the FIX-1 audit §7 R1 + `context/audits/2026-09-05_FIX-1b.patch`) · the corpus convention (`SUMMARY.md` header + one line per run + a TOTALS line; RED runs' XML + log only; ≤400 KB; the redactor before filing) · the two-stage red-first (compile-red at HEAD, then behaviour-red with inert hooks) when a type does not yet exist.
+- **Coder `testing-standards.md`:** the SLF4J-free-module gotcha (an IT's `system-out` is empty — the failure MESSAGE is the only channel; stamp it) · the Windows desk instrument block (`start /affinity`; the `ORG_GRADLE_PROJECT_*` env form for `-P` values under cmd; `--console plain`; the `availableProcessors` probe) · "the desk is not the runner" as a rule on rate claims (exhibit: the v64 mints, first bullet).
+- **Coder `laws-ledger.md`:** ONLY the coder-facing subset of the above (the separable-bytes law; the diagnostic-readability check; the desk-is-not-the-runner rule), numbered from its own last entry; everything else is PM-side.
+- **FE `contract-consumer.md`:** the v1.1.x additive procedure (bump `CONTRACT_VERSION`/`EXPECTED_VERSION` → `v1.1.3-<date>`; extend `contract.ts` types optional-nullable; `shapes.ts` validators; mocks that DO NOT always populate the new field — the H8 false-type class; the honesty tests) with v1.1.3's four keys (`deviceId` · `lastReported` · `triggerRef` · `components[].ref`) as the worked example; the sentence "`outcome: CONFIRMED` with `resultOutcome: null` is the honest happy path — the zigbee handler publishes results only on failure" (exhibit: the CG instruction §DP-5; pm-handoff v64 b2).
+- **The three `pass-history.md`:** one `### Moved/Added 2026-09-0x by W-SKILLS-7` section each, pointing at your return; the SKILL.md `last-verified:` lines are NOT edited (guard 2).
+
+## §3 Predictions (filed before you read; adjudicate them FIRST in your §0)
+- **P1** the mechanism-dedupe collapses ≥4 of the 22 candidate mints into addenda on existing arcs (v63's "chat is not a storage tier" siblings; v64's "verified at porcelain" siblings).
+- **P2** no SKILL.md needs a byte (guard 2 holds without loss — every law lands in a ledger a SKILL.md already points at).
+- **P3** each SKILL.md's token count before = after (byte-unchanged ⇒ trivially; report the byte count of each as the check).
+- **P4** the census lands at 11 M + 0 A; a 12th file is a `[REVIEW]`, not a silent add.
+
+## §4 The fences (the charter §4 + Nick's guards, binding)
+No rewrite of any SKILL.md (byte-unchanged; the md5 before/after in your §0) · no growth of any SKILL.md · no project state in any skill file (HEADs, WUs, dates, names live in the spine; a rule's EXHIBIT may cite a dated path — that is a pointer, not state) · no re-opening of ruled laws (the ledgers ADD arcs and addenda, never edit ruled sentences) · no edit outside the write-set · no docs-repo or core-repo touch · no candidate brand name anywhere in a skill file (the FE skill's rule: name-light, `BRAND.productName`) · stage nothing, commit nothing.
+
+## §5 The clock
+≈2–3 h of lane time. Your §0 card is a living card from the first hour (the census so far · the mapping table so far); at the 3-hour mark you file what exists and write `RETURNED` — a partial return with an honest §0 outranks a complete one later. If a read-set file is absent at its path: STOP, name it, file the return with the gap.
+
+## §6 The hub's audit rules (pre-filed; you may read them)
+R1 every SKILL.md md5 equal before/after (the hub re-computes at the device) · R2 the census exactly your §0 declaration at porcelain in BOTH repos · R3 every new arc cites an exhibit path that EXISTS (the hub resolves each) · R4 the mapping table accounts for all 22 candidates (10 + 10 + §9-L + b9) · R5 no ruled sentence in (1)–(37) edited (`git diff` shows additions only inside §1's existing entries, or the addendum form) · R6 Check 9 at the bytes after Nick re-syncs (the count reported: 28 expected — the same files, new bytes). Mismatches adjudicated first; your `[REVIEW]` with cites is first-class evidence.
+
+**The alternative shape this dispatch did not take:** fold the 22 mints into the three SKILL.md files as one-line laws (§3-style) with the ledgers untouched — rejected: W-SKILLS-6's token shape (each SKILL.md ≤ ~4k tokens, surviving compaction whole) is the asset Nick's guard 2 protects; a law in SKILL.md is read by every session whether or not it needs it, a law in a ledger is read when its section is cited — the ledger placement wins on both the token economy and the guard, and the SKILL.md already points at every ledger.
+
+## §7 THE DISPATCH LINE (Nick pastes into a FRESH Cowork conversation with `ClaudeFolder` connected — only after Lane C is committed, which it is at v65 beat 1a)
+```
+date -u first. You are the W-SKILLS-7 skills lane for NexSys/HomeSynapse. Read nexsys-hivemind/context/instructions/2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md WHOLE, then its §1 read-set in order and nothing older. Execute §2 exactly under §4's fences: every SKILL.md byte-unchanged (md5 before/after in your §0); the write-set only; stage nothing, commit nothing. Adjudicate §3's predictions first in your §0. Return ONE file at nexsys-hivemind/context/audits/<today's CT date>_W-SKILLS-7_return.md (§0 card ≤3 KB first: the census exact · the mint→arc mapping table · the SKILL.md md5s; whole ≤12 KB). ≈2–3 h; a partial return with an honest §0 outranks a complete one later. Your last line: RETURNED <path> <bytes>. You report to the v65 hub, not to me.
+```
+**REPORT BACK (Nick → v65):** `W-SKILLS-7: dispatched <hh:mm CT>`; later the lane's `RETURNED` line verbatim. After the hub's commit: re-sync the account skills once, then `SKILLS: synced`.

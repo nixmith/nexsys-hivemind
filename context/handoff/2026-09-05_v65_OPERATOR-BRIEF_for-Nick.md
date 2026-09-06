@@ -43,8 +43,12 @@ date -u first. Boot as the nexsys-coder skill. Baseline: this tree must be at e5
 6. `DISPATCH-FILE: delete` — ONLY if you deleted `context/handoff/2026-09-05_v65_dispatch-text_for-Nick.md` on purpose; otherwise nothing (the hub restored it).
 **REPORT BACK:** the six lines in one message; `not read` is a valid value for 1–4.
 
-### Act 4 — W-SKILLS-7 in a fresh window — NOT YET (the hub hands the line after Lane C commits; guard 1)
-**WHAT (when handed):** one paste into a fresh Cowork window with `ClaudeFolder` connected; the lane folds the v63 AND v64 mints into the three skills' `references/` ledgers, every `SKILL.md` byte-unchanged; ≈2–3 h; hub-run commits at the bridge; then you re-sync the account skills once and the next boot's Check 9 confirms the count. **Until handed:** nothing.
+### Act 4 — W-SKILLS-7 in a fresh window — LIVE (≤2 min; a FRESH Cowork conversation with `ClaudeFolder` connected; parallel-safe — two repos, neither the core tree)
+**WHAT:** paste the line below whole. **WHY:** Lane C is committed (`context/process/deep-work-window_protocol.md`, guard 1) and the CG line is in your hands (guard 4); the lane folds the v63 AND v64 mints (22 candidates) into the three skills' `references/` ledgers with every `SKILL.md` byte-unchanged (guard 2), ≈2–3 h; it stages and commits nothing — the hub audits at the bytes and commits both repos; you then re-sync the account skills once. The dispatch of record: `context/instructions/2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md`.
+```
+date -u first. You are the W-SKILLS-7 skills lane for NexSys/HomeSynapse. Read nexsys-hivemind/context/instructions/2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md WHOLE, then its §1 read-set in order and nothing older. Execute §2 exactly under §4's fences: every SKILL.md byte-unchanged (md5 before/after in your §0); the write-set only; stage nothing, commit nothing. Adjudicate §3's predictions first in your §0. Return ONE file at nexsys-hivemind/context/audits/<today's CT date>_W-SKILLS-7_return.md (§0 card ≤3 KB first: the census exact · the mint→arc mapping table · the SKILL.md md5s; whole ≤12 KB). ≈2–3 h; a partial return with an honest §0 outranks a complete one later. Your last line: RETURNED <path> <bytes>. You report to the v65 hub, not to me.
+```
+**EXPECTED:** the lane reads the dispatch, the protocol and the charter, then the mints, then the ledgers; its §0 card grows from the first hour. **REPORT BACK:** `W-SKILLS-7: dispatched <hh:mm CT>`; later its `RETURNED` line verbatim; after the hub's commit and your re-sync, `SKILLS: synced`.
 
 ### Act 5 — push the hivemind after every hub beat (≤1 min each; `~/Desktop/Code/ClaudeFolder/nexsys-hivemind`)
 ```bash

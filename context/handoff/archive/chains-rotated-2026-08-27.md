@@ -265,3 +265,7 @@ Prior: 2026-09-05 (v65 beat 2 — THE FOUR-LANE MAP (context/planning/2026-09-05
 ## chain segment rotated 2026-09-05 (v65 beat 5) — v65 b3, verbatim
 
 Prior: 2026-09-05 (v65 beat 3 — BLOCK 4: the FE fast-follow FE-113 authored ahead, ruling-slotted (context/instructions/2026-09-05_frontend-lane_FE-113_read-API-v1.1.3-mirror_fast-follow_instruction.md; 11 M + 1 A; the tri-state honesty idiom; the wire literals as slots the CG audit fills; EXPECTED_VERSION does not exist in the tree) · the map re-cut on the record: the FE lane dispatches on CG's LANDING, not its audit (one lane on the core tree; the plan's guard (ii)), Sat ~21:58 CT (instrument 2026-09-06T02:58Z). Order: hivemind 5 = 4 M + 1 A.)
+
+## chain segment rotated 2026-09-06 (v65 beat 6) — v65 b4, verbatim
+
+Prior: 2026-09-05 (v65 beat 4 — THE v65 CLOSE, Sat ~22:03 CT (instrument 2026-09-06T03:03Z) — closed on context health with four lanes running (CG · RS-10 · RS-11 · W-SKILLS-7) and every return left to v66's fresh window; the v66 prompt LIVE (handoff/2026-09-05_PM-mission-control_v66_orchestrator_session_prompt.md: the pre-filed rules as boot reads; CG first, then RS-10 → RS-11 → the card → W-SKILLS-7); the mints folded (ten); the brief §CLOSE = push · dispatch v66 on the first return · the returns to v66. Order: hivemind 6 = 5 M + 1 A.)

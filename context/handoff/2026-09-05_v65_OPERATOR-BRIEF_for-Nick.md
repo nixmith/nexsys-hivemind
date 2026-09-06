@@ -29,6 +29,31 @@ Each lane's `RETURNED <path> <bytes>` line verbatim (CG · RS-10 · RS-11 · W-S
 
 ---
 
+## §POST-CLOSE-2 (beat 6, Sun 2026-09-06 ~09:41 CT) — CG LANDED `f25291b`, CI GREEN (banked). Eight acts; the first two are the leverage acts, the rest fill your spare windows. The program of record: `context/planning/2026-09-06_v65-b6_post-landing_program_and_four-charters.md`.
+
+### Act Q1 — the nanoid lock-only bump (≤5 min; `~/Desktop/Code/ClaudeFolder/homesynapse-core`; Dependabot #12 — BEFORE FE-113)
+**WHAT:** bump the transitive `nanoid` 3.3.16 → 3.3.18 in `web-ui/dashboard/package-lock.json` only. **WHY:** GHSA-2v37-7h3g-55p8 (an infinite loop in `customAlphabet`/`customRandom` at size 0); a build-time dependency of postcss — not in the served bundle, so no household exposure — but hygiene is five minutes, and a security fix never rides a feature commit; FE-113's baseline becomes this sha. `3.3.18` exists on the registry (2026-08-07) and is inside every `^3.3.16` range — Dependabot's "cannot update" is a stale read.
+```bash
+cd web-ui/dashboard && npm ls nanoid 2>/dev/null | grep nanoid | head -3      # EXPECTED: nanoid@3.3.16 (deduped) lines
+npm update nanoid --package-lock-only && npm ls nanoid 2>/dev/null | grep -c '3.3.18'   # EXPECTED: ≥1 (and zero 3.3.16 lines)
+cd ../.. && git --no-optional-locks status --porcelain                          # EXPECTED: exactly " M web-ui/dashboard/package-lock.json"
+git add web-ui/dashboard/package-lock.json && git commit -m "chore(deps): nanoid 3.3.16 -> 3.3.18 (lock-only; GHSA-2v37-7h3g-55p8, Dependabot #12; a build-time dependency of postcss, not in the served bundle)" && git push origin main
+```
+**EXPECTED:** one file in the commit; `f25291b..<sha>`; both workflows green (frontend.yml runs `npm ci` + `verify`; the alert closes on its next scan). If `npm update` leaves 3.3.16 in place (an unexpected resolver hold), STOP and report the `npm ls nanoid` output — the fallback is an `overrides` entry, ruled on the hub's word, not improvised. **REPORT BACK:** `NANOID: landed <sha> · CI <green | red: line>`.
+
+### Act Q2 — FE-113, the fast-follow (one paste; a FRESH Cowork window) — after Q1's CI is green, with Q1's sha as the baseline
+The line is in §POST-CLOSE Act P3 above — fill `⟨CG's landed sha⟩` with **Q1's sha** (the tree FE-113 must find clean). **REPORT BACK:** `FE-113: dispatched <hh:mm CT>`; later its `RETURNED` line.
+
+### Act Q3 — the words (one message; the first three before Tuesday morning)
+`SEARCH-NAME: <…>` · `ASR-VERDOMU: pass <spellings> | fail` · `RS10-STAR: <line>` · **`H8: <Tue | Wed evening>`** · **`R4C: <Sat 09-12 | Sun 09-13>`** · `BEYOND-LETTERS: X | keep` · `DESIGN: start | hold` · `BLOCK6: pull | hold` · the six owed lines · W-SKILLS-7's state.
+
+### Acts Q4–Q7 — four read-only lanes, any order, each its own FRESH Cowork window (the pastes are in the program file §5; none touches the core tree; none waits on CI)
+**Q4 RS-12-F** (the fanciful-domus sprint; 3–5 h; scoped to the redirect and runner-up slots — Tuesday's send does not wait on it) · **Q5 TR-0** (the actuation chokepoint census; ≤2 h; decides whether B-2 is one line or a refactor) · **Q6 TR-1** (the position census as a bench verb; ≤3 h; the MVP's event-loss audit instrument = the fence's evidence closure = B-1's measurement) · **Q7 HERO-0** (the null census of v1.1.3; ≤2 h; the hero's four empty states before a pixel). **REPORT BACK:** `<lane>: dispatched <hh:mm>`; later each `RETURNED` line.
+
+### Act Q8 — push the hivemind (`6542ef3..<sha>`, count 7 with this beat) and dispatch v66 (Act C2's paste; its prompt is re-cut) when the first of these returns lands.
+
+---
+
 ## §POST-CLOSE (beat 5, Sat 2026-09-05 ~22:55 CT) — the returns landed Saturday night and were audited HERE on your directive; five acts, in order
 
 **Leverage line:** Act P1 — your CG commit + push. CI green on it releases FE-113, the core slot for F-R4-1b, H8 and Block 6; nothing else tonight unblocks anything.

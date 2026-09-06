@@ -289,3 +289,7 @@ Prior: 2026-09-06 (v66 beat 1 — THE v66 BOOT + THE INTAKE: zero drift on five 
 ## chain segment rotated 2026-09-06 (v66 beat 4) — v66 b2, verbatim
 
 Prior: 2026-09-06 (v66 beat 2 — BLOCK 1: THE H8-a PACKET authored + the record scaffolded (on disk 2 h+ ahead of the 13:30 CT hand-off); guard 1 corrected at source (install-smoke's path filters — the artifact of record is f25291b's run, Java = 093d5b4's); the four keys pre-registered from source; FE-113 dispatched 10:42 CT; the push banked 20182e3..7f14059; TR-0 handed, Sun ~10:52 CT (instrument 2026-09-06T15:52Z). Order: hivemind 6 = 4 M + 2 A.)
+
+## chain segment rotated 2026-09-06 (v66 beat 5) — v66 b3, verbatim
+
+Prior: 2026-09-06 (v66 beat 3 — BLOCK 2: the F-R4-1b coding instruction authored ahead on 093d5b4, ⛔ gated on FE-113's landing (the ZDO IEEE_addr_req third resolver after a clean 0x0061 miss; package-private on the concrete protocol; 6 M + 0 A; module-info zero change; suite 582 → 588 predicted), Sun ~11:03 CT (instrument 2026-09-06T16:03Z). Order: hivemind 5 = 4 M + 1 A.)

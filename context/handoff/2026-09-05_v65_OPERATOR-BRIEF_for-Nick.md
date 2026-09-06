@@ -3,10 +3,31 @@ file: context/handoff/2026-09-05_v65_OPERATOR-BRIEF_for-Nick.md
 purpose: Nick's operator queue for the v65 session — every act fully articulated (WHAT · WHY · the paste · EXPECTED · REPORT BACK), in dependency order, under a §CONTEXT preamble any helper session can boot from. Re-cut at every beat; the newest §NOW is the live plan.
 audience: Nick (executes, in order) · any helper Claude session Nick hands it to (§CONTEXT is self-contained; every line has a path)
 state-type: operator queue (hub-authored; the file on disk is the copy-source of record, never a chat card)
-status: LIVE at v65 beat 1 (Sat 2026-09-05 ~21:36 CT; instrument 2026-09-06T02:36Z).
+status: CLOSED at v65 beat 4 (Sat 2026-09-05 ~22:03 CT; instrument 2026-09-06T03:03Z). §CLOSE is the live section; §QUEUE stays valid for Acts 1–4 and the words.
 -->
 
-# Operator brief — what Nick does, in order (v65, beat 1)
+# Operator brief — what Nick does, in order (v65 — CLOSED at beat 4; §CLOSE is the live section)
+
+## §CLOSE (beat 4, Sat 2026-09-05 ~22:03 CT) — v65 IS CLOSED on context health; v66 takes the returns. Three acts for you, in order; §QUEUE below stays valid for Acts 1 · 2 · 3 · 4 and the words.
+
+**Why close now, in one sentence:** this window carried the boot, Lane C, the W-SKILLS-7 dispatch, the four-lane map, Monday's frame and the FE-113 instruction; four lanes are running and their returns — CG's 17-file census, two research verdicts, a 22-mint ledger pass — each deserve a fresh window that audits them at the bytes with the rules already pre-filed.
+
+### Act C1 — push the hivemind (≤1 min; `~/Desktop/Code/ClaudeFolder/nexsys-hivemind`)
+```bash
+git log --oneline -1 | cut -c1-70; git rev-list --count origin/main..HEAD; git push origin main
+```
+**EXPECTED:** the line begins `<sha> hivemind: v65 beat 4 — THE v65 CLOSE`; the count is the number of v65 commits not yet pushed (5 if none were); the push ends `6542ef3..<sha>  main -> main` (or from your last pushed sha). **REPORT BACK (to v66):** `pushed <sha>`.
+
+### Act C2 — dispatch v66 (≤2 min; a FRESH Cowork conversation with the ClaudeFolder connected) — when the FIRST return lands (CG's, most likely; or Sunday morning either way)
+```
+You are the v66 PM MISSION-CONTROL hub for NexSys / HomeSynapse. Boot from nexsys-hivemind/context/handoff/2026-09-05_PM-mission-control_v66_orchestrator_session_prompt.md — execute its §1 EXACTLY (date -u first; the spine — pm-handoff.md line 8 + the newest THREE beat blocks + PROJECT_SNAPSHOT.md — outranks its §2; the five HEADs; the fold grep; the preflight). Every §0 law of that prompt holds by reference; the posture of record is context/handoff/2026-09-04_v63_dispatch-prompt.md (+ its v65 addendum); the five rituals of record are context/handoff/2026-09-05_v65_dispatch-text_verbatim.md — hold every line. This window's ONE deliverable is THE RETURNS' AUDITS under the pre-filed rules (context/audits/2026-09-05_v65-b1_boot-and-intake_audit.md §6–§7) and, if both RS returns are in, THE DECISION CARD as the pre-registered frame applied (context/strategy/brand-program/2026-09-05_monday-decision-frame_pre-registered.md). STATE AT DISPATCH (verify each at the instrument; the record wins): CG: ⟨running | returned <path> <bytes>⟩ · RS-10: ⟨running | returned <path> <bytes>⟩ · RS-11: ⟨running | returned <path> <bytes>⟩ · W-SKILLS-7: ⟨not yet | dispatched hh:mm | returned <path> <bytes>⟩ · sample4: ⟨…⟩ · samples: ⟨…⟩ · act3: ⟨…⟩ · nightly 09-05: ⟨…⟩ · BLOCK6: ⟨pull | hold⟩ · DESIGN: ⟨start | hold | not yet⟩ · hivemind pushed through ⟨sha⟩. First acts: §1 → beat 1 (name the deliverable; the intake at the bytes; this text verbatim) → the CG audit first → RS-10 → RS-11 → the card → W-SKILLS-7 → FE-113's slots filled and its line handed on CG's landing → the F-R4-1b charter ahead. Author ahead of need; commit at every block with a census-exact card; past mid-session the v67 skeleton; close on context health, never on a cliff.
+```
+**EXPECTED:** it boots from the v66 prompt, names its deliverable, censuses the returns on disk, and audits CG first. **This v65 conversation is then retired — except for banking any lines you send it before v66 boots (a post-close beat, census-exact).**
+
+### Act C3 — the returns, to v66
+Each lane's `RETURNED <path> <bytes>` line verbatim (CG · RS-10 · RS-11 · W-SKILLS-7); the six owed lines (Act 3) whenever you have them; `DESIGN: start | hold`; your words on THE BEYOND when you read it. CG's commit + push is YOUR hands after v66's audit hands you the card — never before.
+
+---
 
 ## §CONTEXT — the state of record (every line has a path; nothing here is from memory)
 - **The gate is CLEARED.** Core `e5fa035` (FIX-1b, "all checks pass" — banked v64 b8, law 16) on top of `5ed9178` (FIX-1a = sample #4). Porcelain clean, in sync. One lane may open on the core tree: **CG-1/2/3** (`context/instructions/2026-09-05_coder-lane_CG-123_read-API-v1.1.3-additive_coding-instruction.md`; 17 M + 0 A; the dispatch line at its end; the audit rules and the hub's predictions PRE-FILED at `context/audits/2026-09-05_v65-b1_boot-and-intake_audit.md` §6).

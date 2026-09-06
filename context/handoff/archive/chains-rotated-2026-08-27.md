@@ -253,3 +253,7 @@ Prior: 2026-09-05 (v64 beat 10 — POST-CLOSE: THE v65 DISPATCH TEXT + THE RESEA
 ## chain segment rotated 2026-09-05 (v65 beat 2) — v65 b1, verbatim
 
 Prior: 2026-09-05 (v65 beat 1 — THE v65 BOOT + THE INTAKE, Sat ~21:36 CT (instrument 2026-09-06T02:36Z) — hivemind 6542ef3 = origin (b10 pushed; the dispatch text's dcf52d0 one commit stale — the record wins) · core e5fa035 clean, the gate cleared (banked b8) · preflight PASS 11/11, Check 9 28/28 · the paste byte-identical to the on-disk text, every slot unfilled → six lines owed · the dispatch-text file deleted in the tree post-push → restored from HEAD · CG not dispatched at the instrument → the line = Act 1 · H10: the expedite turnaround unmeasured (3 vs 5 days across two documents) → the frame takes 5, Tuesday asks · CG + RS-10/RS-11 rules and predictions pre-filed. Order: hivemind 6 = 3 M + 3 A.)
+
+## chain segment rotated 2026-09-05 (v65 beat 3) — v65 b1a, verbatim
+
+Prior: 2026-09-05 (v65 beat 1a — LANE C: the deep-work window protocol written and committed (context/process/deep-work-window_protocol.md) · the W-SKILLS-7 dispatch authored under it and the line handed (guards 1, 2, 4 satisfied; 22 candidate mints from arc (38), mechanism-dedupe; SKILL.md byte-unchanged), Sat ~21:42 CT (instrument 2026-09-06T02:42Z). Order: hivemind 7 = 5 M + 2 A.)

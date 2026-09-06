@@ -273,3 +273,7 @@ Prior: 2026-09-05 (v65 beat 4 — THE v65 CLOSE, Sat ~22:03 CT (instrument 2026-
 ## chain segment rotated 2026-09-06 (v65 beat 7) — v65 b5, verbatim
 
 Prior: 2026-09-05 (v65 beat 5 — POST-CLOSE: the three returns audited at the bytes on Nick's directive — CG-123 ACCEPT (17 M exact; R1 accepted; two rows opened: REFACTOR-1 · the deviceId consistency window) · RS-10 SPEND-JUSTIFIED · RS-11 ACCEPT · THE DECISION CARD under the pre-registered frame (63 · 67 · 65 · 54 of 85; no displacement) → SEARCH-NAME: VERDOMO (rec); the ruling ACT, no RS-12; FE-113's slots filled; the v66 prompt re-cut, Sat ~22:55 CT (instrument 2026-09-06T03:55Z). Order: hivemind 13 = 8 M + 5 A.)
+
+## chain segment rotated 2026-09-06 (v66 beat 1) — v65 b6, verbatim
+
+Prior: 2026-09-06 (v65 beat 6 — POST-CLOSE: CG-123 LANDED f25291b, CI green (banked; the passive count 2/20) · Dependabot #12 triaged at source → a lock-only nanoid bump before FE-113 · Nick's plan adjudicated (agree ×7 · edit ×2 · fixtures are captured, never regenerated) · his partial BEYOND words recorded · four read-only lanes chartered (RS-12-F · TR-0 · TR-1 · HERO-0; planning/2026-09-06_v65-b6_post-landing_program_and_four-charters.md) · the fanciful-domus question: research yes, hold no, Sun ~09:41 CT (instrument 2026-09-06T14:41Z). Order: hivemind 7 = 6 M + 1 A.)

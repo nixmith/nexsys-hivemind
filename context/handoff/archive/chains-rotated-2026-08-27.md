@@ -261,3 +261,7 @@ Prior: 2026-09-05 (v65 beat 1a — LANE C: the deep-work window protocol written
 ## chain segment rotated 2026-09-05 (v65 beat 4) — v65 b2, verbatim
 
 Prior: 2026-09-05 (v65 beat 2 — THE FOUR-LANE MAP (context/planning/2026-09-05_v65_four-lane-map_14-days.md; the order of windows CG → RS-10 → RS-11 → W-SKILLS-7 → FE on CG's audit → DESIGN; the ruling: F-R4-1b is the next core lane, not the dispatch's four; two 2029 tests; the B-1 label collision H10) + MONDAY'S DECISION FRAME PRE-REGISTERED, unread of any return (the RS-10 living card existed, 759 B, no RETURNED line — RS-10 dispatched ≈21:4x CT) (brand-program/2026-09-05_monday-decision-frame_pre-registered.md: gates S1/S2 · weights /100 with S7 = 15 Nick's · the verdict word's three branches · the cost-per-day table at expedite = 5), Sat ~21:52 CT (instrument 2026-09-06T02:52Z). Order: hivemind 7 = 5 M + 2 A.)
+
+## chain segment rotated 2026-09-05 (v65 beat 5) — v65 b3, verbatim
+
+Prior: 2026-09-05 (v65 beat 3 — BLOCK 4: the FE fast-follow FE-113 authored ahead, ruling-slotted (context/instructions/2026-09-05_frontend-lane_FE-113_read-API-v1.1.3-mirror_fast-follow_instruction.md; 11 M + 1 A; the tri-state honesty idiom; the wire literals as slots the CG audit fills; EXPECTED_VERSION does not exist in the tree) · the map re-cut on the record: the FE lane dispatches on CG's LANDING, not its audit (one lane on the core tree; the plan's guard (ii)), Sat ~21:58 CT (instrument 2026-09-06T02:58Z). Order: hivemind 5 = 4 M + 1 A.)

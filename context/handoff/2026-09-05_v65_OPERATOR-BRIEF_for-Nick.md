@@ -3,7 +3,7 @@ file: context/handoff/2026-09-05_v65_OPERATOR-BRIEF_for-Nick.md
 purpose: Nick's operator queue for the v65 session — every act fully articulated (WHAT · WHY · the paste · EXPECTED · REPORT BACK), in dependency order, under a §CONTEXT preamble any helper session can boot from. Re-cut at every beat; the newest §NOW is the live plan.
 audience: Nick (executes, in order) · any helper Claude session Nick hands it to (§CONTEXT is self-contained; every line has a path)
 state-type: operator queue (hub-authored; the file on disk is the copy-source of record, never a chat card)
-status: CLOSED at v65 beat 4 (Sat 2026-09-05 ~22:03 CT; instrument 2026-09-06T03:03Z). §CLOSE is the live section; §QUEUE stays valid for Acts 1–4 and the words.
+status: SUPERSEDED at v65 beat 7 (Sun 2026-09-06) by context/handoff/2026-09-06_v66_OPERATOR-BRIEF_for-Nick.md — THE OPERATOR-LOAD LAW's shape (§NEXT one act · §HELD-BY-THE-HUB · §DONE). §CONTEXT stays a valid state read; the queues below are RETIRED (their pastes remain valid copy-sources where §HELD points at them). status: CLOSED at v65 beat 4 (Sat 2026-09-05 ~22:03 CT; instrument 2026-09-06T03:03Z). §CLOSE is the live section; §QUEUE stays valid for Acts 1–4 and the words.
 -->
 
 # Operator brief — what Nick does, in order (v65 — CLOSED at beat 4; §CLOSE is the live section)

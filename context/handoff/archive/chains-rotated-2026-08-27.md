@@ -281,3 +281,7 @@ Prior: 2026-09-06 (v65 beat 6 — POST-CLOSE: CG-123 LANDED f25291b, CI green (b
 ## chain segment rotated 2026-09-06 (v66 beat 2) — v65 b7, verbatim
 
 Prior: 2026-09-06 (v65 beat 7 — POST-CLOSE: 093d5b4 banked (CI green; Dependabot #12 FIXED; the passive count 3/20) · the hivemind pushed through 20182e3 · THE OPERATOR-LOAD LAW recorded (Nick's word; pm-lessons; the brief re-shaped: §NEXT one act · §HELD-BY-THE-HUB · §DONE) · his edits adopted (H8-a today ~15:00 CT; the four read-only windows open) and his words banked (SEARCH-NAME: VERDOMO provisional, re-given Tue 07:00 · BEYOND-LETTERS: keep · DESIGN: hold · BLOCK6: pull) · the v66 prompt RE-AUTHORED WHOLE (the H8-a packet by 13:30 CT) · the v66 brief (A) · RS-12-F re-cut, Sun ~10:27 CT (instrument 2026-09-06T15:27Z). Order: hivemind 9 = 8 M + 1 A.)
+
+## chain segment rotated 2026-09-06 (v66 beat 3) — v66 b1, verbatim
+
+Prior: 2026-09-06 (v66 beat 1 — THE v66 BOOT + THE INTAKE: zero drift on five HEADs (core 093d5b4 clean — FE-113 not on the tree; hivemind 7e914ab = v65 b7, AHEAD 1 — the push owed); preflight PASS 11/11, Check 9 28/28; no lane on disk; the dispatch text filed verbatim; the deliverable named (THE H8-a PACKET by 13:30 CT); the brief §NEXT = FE-113's paste, §HELD re-printed, Sun ~10:38 CT (instrument 2026-09-06T15:38Z). Order: hivemind 5 = 4 M + 1 A.)

@@ -297,3 +297,7 @@ Prior: 2026-09-06 (v66 beat 3 — BLOCK 2: the F-R4-1b coding instruction author
 ## chain segment rotated 2026-09-06 (v66 beat 6) — v66 b4, verbatim
 
 Prior: 2026-09-06 (v66 beat 4 — BLOCK 6 (pull): the docs correction block applied to the docs working tree by a guarded splice (5 M, +19/−12; nothing staged; Nick's one act = the commit, after H8-a) + the freeze doc amended to v1.1.3 (the hub's write; six inline notes); TR-0's living card on disk (not yet a return), Sun ~11:12 CT (instrument 2026-09-06T16:12Z). Order: hivemind 6 = 5 M + 1 A.)
+
+## chain segment rotated 2026-09-06 (v66 beat 7) — v66 b5, verbatim
+
+Prior: 2026-09-06 (v66 beat 5 — TWO INTAKES: FE-113 returned + audited ACCEPT-WITH-TWO-RULINGS (16 = 14 M + 2 A exact; both [REVIEW]s the hub's misses, owned; the landing card = the act after HERO-0) · TR-0 returned + audited ACCEPT (P1–P4 hold; B-2 RULED a bounded insertion at CommandRoutingSubscriber:249; three rows), Sun ~11:18 CT (instrument 2026-09-06T16:18Z). Order: hivemind 10 = 6 M + 4 A.)

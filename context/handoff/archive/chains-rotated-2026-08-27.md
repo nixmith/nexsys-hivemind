@@ -237,3 +237,7 @@ Prior: 2026-09-05 (v64 beat 6 — THE v64 CLOSE, Sat ~15:23 CT (instrument 20:23
 ## chain segment rotated 2026-09-05 (v64 beat 9) — v64 b7, verbatim
 
 Prior: 2026-09-05 (v64 beat 7 — POST-CLOSE: the return v2 re-audited at the delta, the cards re-cut (FIX-1a 10 · FIX-1b 6), Sat ~17:52 CT (instrument 22:52Z) — Act A executed by the lane after the v1 audit (the hub's ordering miss owned, §9-L); the stamped red read `resting checkpoint 28` = the REPLAY tail (T-R1 corroborated live); the corpus 216 runs, 3 RED; Nick's push banked (00c2d7f..110fe88); the effectiveness second-check + the refinement program chartered (W-SKILLS-7 · REPO-CONTEXT · the deep-work window; A). Order: hivemind 13 = 10 M + 3 A.)
+
+## chain segment rotated 2026-09-05 (v64 beat 10) — v64 b8, verbatim
+
+Prior: 2026-09-05 (v64 beat 8 — POST-CLOSE: THE LANDING BANKED — THE GATE CLEARED, Sat ~18:54 CT (instrument 23:54Z) — FIX-1a 5ed9178 (sample #4, verdict owed) · FIX-1b e5fa035 "all checks pass" → the gate cleared on the push run; CG may dispatch · Nick's words REFINE: go · W-SKILLS-7: fresh-window · FENCE-BUS: add (the register line written) · four guards + the gate's wording pinned · Erik quoted ($1,200 · 5 bd · expedite) with an unsighted DOMO caution = the LOCKIN DOMO RS-9 tables → H10 rec (a) commission now, appendix + on-sight redirect + expedite; the go-ahead drafted (A) · BLOCK6 H10 rec hold. Order: hivemind 8 = 7 M + 1 A.)

@@ -301,3 +301,7 @@ Prior: 2026-09-06 (v66 beat 4 — BLOCK 6 (pull): the docs correction block appl
 ## chain segment rotated 2026-09-06 (v66 beat 7) — v66 b5, verbatim
 
 Prior: 2026-09-06 (v66 beat 5 — TWO INTAKES: FE-113 returned + audited ACCEPT-WITH-TWO-RULINGS (16 = 14 M + 2 A exact; both [REVIEW]s the hub's misses, owned; the landing card = the act after HERO-0) · TR-0 returned + audited ACCEPT (P1–P4 hold; B-2 RULED a bounded insertion at CommandRoutingSubscriber:249; three rows), Sun ~11:18 CT (instrument 2026-09-06T16:18Z). Order: hivemind 10 = 6 M + 4 A.)
+
+## chain segment rotated 2026-09-06 (v66 beat 8) — v66 b6, verbatim
+
+Prior: 2026-09-06 (v66 beat 6 — FE-113 LANDED d192d17 (frontend + ci green; the passive count 4/20) · HERO-0 audited ACCEPT (F1 a wire defect — LASTREPORTED-1; F2 → FE-NULL-1; EXPLAIN-1..10 → the v1.1.4 batch; DESIGN: start lawful) · the B-7 ADR drafted (chain-ready, not computed) · NICK'S DIRECTIVE → the STATE-OF-THE-PROGRAM assessment + trajectory + hygiene program filed (seven words; HIVE-CLEAN-1 · W-SKILLS-8 dispatch lines), Sun ~12:04 CT (instrument 2026-09-06T17:04Z). Order: hivemind 8 = 4 M + 4 A.)

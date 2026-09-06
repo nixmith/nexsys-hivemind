@@ -80,3 +80,9 @@ _Rotation 2026-08-26 (v57 hub, beat 1 - P6): the ten oldest entries (2026-08-02 
 
 ## 2026-09-06 — FE-113 (the FE lane's lesson, folded by the hub at v66 beat 5)
 - **A fence that names a constant is grepped at source across EVERY file type before dispatch.** The FE-113 instruction's §5 fenced `EXPECTED_VERSION` as "does not exist in the tree" (the v65 b3 grounding grepped `.ts` only); it lives in `web-ui/dashboard/scripts/contract-check.mjs` and gates `npm run verify` — the very gate the lane was ordered to keep green. The lane's `[REVIEW]` was the lawful move; the hub ruled ACCEPT and owned the fence. Companion: the desk VM could not run the toolchain (disk 99% full → `npm ci` ENOSPC); the lane ran the pre-gate in its container on `git archive HEAD web-ui/dashboard` and moved the 16 files back with md5 round-trips — a lawful fallback, now recorded (FE-DESK-1).
+
+## 2026-09-06 | Category: testing / harness defaults / resolver chains | Source: WU F-R4-1b (the ZDO IEEE_addr_req second surface)
+
+**Discovery:** Adding a resolver AFTER an existing miss changes the meaning of every pre-existing scenario that scripts that miss. T7 (the once-per-epoch sets clear on reopen) scripted only the 0x0061 miss and expected an unresolved candidate; with the harness's new default air script (SUCCESS — a device asked for its own EUI64 answers) it RESOLVED, and the instruction's "every existing test stays green" was refuted at the instrument (589 run / 1 failed). The P2 survey grepped the retired reason string (`lookup_miss`); T7 asserts the WARN's COUNT, not its reason.
+
+**Impact:** when a WU appends a step to a resolution chain, grep the harness for the PRIOR surface's miss script (here `lookupStatus = 0x01`), not the log token, and script the new surface in each (a status, or silence) — then strengthen the hit test to pin the new surface's once-per-epoch bound too. Detail: `context/audits/2026-09-06_F-R4-1b_return.md` §0 R1 + §3 O6.

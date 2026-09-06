@@ -1,0 +1,58 @@
+<!--
+file: context/planning/2026-09-05_v65_four-lane-map_14-days.md
+purpose: THE FOUR-LANE MAP (v65 ritual 1) — fourteen days (09-05 → 09-19) across BACKEND · FRONTEND · RESEARCH · DESIGN in parallel: per lane its next three units, what each unblocks, the ONE operator act, where it waits. Hub-originated; re-cut when a lane lands, never more often than a beat.
+audience: Nick (§0; one act per lane) · the hub (the rulings) · any lane (its row)
+state-type: plan (a hypothesis; REVERT-able; the spine outranks it)
+status: AUTHORED v65 beat 2 (Sat 2026-09-05 ~21:52 CT; instrument 2026-09-06T02:52Z). ≤12 KB (the cap).
+-->
+
+# The four-lane map — fourteen days, four windows
+
+## §0 The order of windows, and the graph
+**Open in this order:** ① BACKEND/CG (the one core lane; FRONTEND and two RESEARCH units wait on it) → ② RS-10 (load-bearing) → ③ RS-11 (insurance) → ④ W-SKILLS-7 (parallel-safe) → ⑤ FRONTEND/the fast-follow (on CG's AUDITED return — §2) → ⑥ DESIGN (on Tuesday's working name). Three windows stay busy while the core lane runs: RS-10, RS-11, W-SKILLS-7 tonight; the FE lane, DESIGN, TR-1 from Tuesday.
+```
+CG-1/2/3 (core; running) ──audited──→ FE fast-follow (v1.1.3 mirror) ──→ H8 real-wire reads the keys ──→ FE-HONEST-1 VERIFIED · the explain hero's live bar
+   └──landed (CI green)──→ the freeze-doc v1.1.3 note · Block 6 (one docs touch: INV-BUS-02 · AMD-45 note · Doc 12/08 lines) · the next core lane = F-R4-1b (§1)
+F-R4-1b (core) + P-1 (bench; Nick's hands, parallel) ──→ R-4c ──→ C-003 (the fleet sentence)          FIX-2 preempts F-R4-1b ONLY on the pre-registered runner signal
+RS-10 ∥ RS-11 ──Mon audits──→ THE DECISION CARD (the frame pre-registered) ──Tue──→ the go-ahead (the working name) ──→ DESIGN B-1/identity under {{NAME}} ──opinion ≈09-15──→ public
+THE BEYOND (Nick's words) ──→ TR-1 (the position census as a bench verb; research only) ──→ B-1/bus (a bench row; after R-5 lifts the nightly fence) ──→ B-2 · B-3
+```
+**Leverage line:** CG's landing — the only node with three edges into other lanes. **Where the record disagrees with the dispatch text:** it names FIX-2 · B-1 · AMD-45 · P-1 as the next-core-lane candidates; the plan of record (§0-ter 5) names **F-R4-1b "the fleet's gate"** — a core lane the four are not (FIX-2 is CONDITIONAL on an unfired signal; B-1/bus a P4 bench row behind Nick's words and R-5; AMD-45 a docs note; P-1 a `nexsys-bench` row in Nick's hands). §1 follows the record. **A label collision, fixed by suffix:** "B-1" names both THE BEYOND's delivery guarantee and the plan's identity block → **B-1/bus** · **B-1/identity** here; an H10 to re-letter THE BEYOND's rows (X-1…X-8) rides Nick's words on it.
+
+## §1 BACKEND — the core tree, one lane at a time (by law)
+| Unit | What it is | Unblocks | Waits on |
+|---|---|---|---|
+| **U1 — CG-1/2/3** (tonight; ≈2–4 h lane; audit ≤30 min; Nick's commit + push; CI = the gate) | the v1.1.3 additive keys (`deviceId` · `lastReported` · `triggerRef` · `components[].ref`), 17 M + 0 A; Row 30 zero lines | the FE fast-follow · H8's read of the keys · the freeze note · Block 6 · the next lane | nothing — the gate is cleared |
+| **U2 — F-R4-1b** (the ZDO `IEEE_addr_req` second surface for sleepy devices; charter authored AHEAD during CG; dispatches on CG's CI green) | the miss arm R-4b measured (`lookup_eui64_failed nwk=0x15ac status=0x1`) closes; the fleet becomes re-adoptable → **R-4c → C-003** | R-4c (09-12/13) · the C-003 slot · the fleet story | CG landed; P-1 for R-4c's power arm (bench, parallel) |
+| **U3 — Row 7 JOURNALD-PRIO (`<N>`-prefix) + FIX-2's INSTRUMENT half (`LIVE_OUT_OF_ORDER` token + a monotonic guard on the per-delivery checkpoint), one small lane** — or **FIX-2 whole** if the signal has fired | OR-JOURNALD-PRIO closes on a card read; the sixth silent path self-describes before it is fixed | the H8 journal read; OR-BUS-SILENT-DROP's passive closure | F-R4-1b landed; the 20-run passive window read |
+**THE RULING — the next core lane after CG is F-R4-1b.** Dependency: C-003 ← R-4c ← (F-R4-1b ∧ P-1); C-003 is the wedge's next minted sentence — no other candidate lifts a register row. **Refutable fact:** a post-FIX-1b HeroLoop red on `main` with `route_join_miss ×1` and ZERO `bus.delivery_anomaly` lines (the pre-registered H12) → FIX-2 preempts by the gate law; F-R4-1b follows it. Three horizons: the next commit — CG; the month — F-R4-1b → R-4c/C-003 in weeks 2–3 as the plan wrote it; the runway — B-1/bus is buildable only after R-5 lifts the nightly fence, so it does not compete for this fortnight's slot however much it compounds. **The ONE operator act:** Act 1 tonight; one commit + push at CG's landing.
+**The 2029 test — B-1/bus (every later row is an enforcement layer on this bus).** Glad: at-least-once + ordered-per-subscriber, measured on the Pi's own pressure, the anomaly a typed signal, AMD-43's seven metrics untouched — a floor a policy kernel stands on without a distributed rewrite. Regret: exactly-once or a DLQ built before a measurement demanded it — semantics the household never needed, paid in every consumer's complexity. The separating fact: the position census on N nights — a redelivery that ever changed physical state means the scope fence was wrong.
+**The alternative shape:** batch F-R4-1b, Row 7 and FIX-2's instrument into one post-CG lane — rejected: three mechanisms in one census make mismatches unattributable and a CI red unreadable by class; one mechanism per lane made FIX-1's red self-describing.
+
+## §2 FRONTEND — contract-backed and mock-backed until CG lands
+| Unit | What it is | Unblocks | Waits on |
+|---|---|---|---|
+| **U1 — the FE fast-follow on v1.1.3** (Block 4; drafted AHEAD this session; dispatches on CG's AUDITED return — the shapes freeze at the audit, CI's green follows within hours) | `CONTRACT_VERSION` `v1.1.2-2026-07-26` → `v1.1.3-<date>`; `contract.ts` optional-nullable; `shapes.ts` validators; mocks that do NOT always populate the new keys (the H8 false-type class); the honesty tests; the `outcome: CONFIRMED` + `resultOutcome: null` sentence | the hero's data (U2); H8's live-wire bar #22 (REPO-COMPLETE until H8 reads the keys on the card) | CG audited — a `[REVIEW]` that changes a shape re-cuts U1 first |
+| **U2 — THE EXPLAINABILITY HERO** (why did it fire · why didn't it · did it actually confirm) — charter first, then one FE lane | a contract CENSUS before a pixel: `RunChainView`/`CausalChain` (why it fired: `triggerRef` + the chain) · `WhyNotView` (why it didn't: the verdicts already surfaced) · `outcome` + `resultOutcome` (did it confirm) — a COMPOSITION of three existing surfaces plus the four keys, on the Overview; a question the frozen contract cannot answer honestly becomes a docket row (EXPLAIN-n), never a mock that lies | the demo the community front needs (v1.2: no community front before the explain surface can be the demo) · the design system's first real page | U1 landed; DESIGN U1's tokens (soft) |
+| **U3 — FE-STATE-DIALECT (Row 15)** — the §10-G unreadable class closed at the root | the `/state` two-dialect fix, FE side | Row 8's Core WU (F-S8) — a core lane AFTER F-R4-1b; not this fortnight unless the slot frees |
+**The ONE operator act:** one paste (the FE lane, a fresh window) when the hub says CG is audited — ≈Sunday. **The 2029 test — the read-API's shape (additive v1.1.x vs a v2).** Glad: every new fact rode an additive nullable key on the frozen v1.1, no consumer broke, every honesty test names what "unknown" means. Regret: a v2 cut for elegance that re-derived every fixture and mock while the fleet grew. The separating fact: a key the additive rule cannot express honestly (a meaning must change, not a field be gained) — then a v2.
+**The alternative shape:** dispatch the FE lane NOW on the instruction's §Wire shapes — rejected by one number: the last three core lanes each out-verified the hub at source (P3 predicts a fourth); a day's FE work on a shape the lane then corrects is a day lost, and the audit lands within hours.
+
+## §3 RESEARCH — RS-10 ∥ RS-11 to Monday's card; then the technical research THE BEYOND's rows need
+| Unit | What it is | Unblocks | Waits on |
+|---|---|---|---|
+| **U1 — RS-10 ∥ RS-11 → the two-layer audits (Mon) → THE DECISION CARD** (the frame: `…brand-program/2026-09-05_monday-decision-frame_pre-registered.md`) | Tuesday's go-ahead re-cut to the chosen name; the working `{{NAME}}` for DESIGN; the Wed 09-09 RS-12 decision | — | Nick's two pastes tonight; his words Monday |
+| **U2 — TR-1: THE POSITION CENSUS AS A BENCH VERB** (named here; chartered on Nick's words on THE BEYOND; research only) | B-1/bus's minting measurement: a census over the event store × the checkpoint store (every published position × every matching subscriber → delivered?) — source-first on the persistent checkpoint store on the card and the in-memory one in the ITs; its data shape; its cost per night; a bench verb, not a Core seam | B-1/bus · the R-5 charter's evidence shape | Nick's word on THE BEYOND; R-5 for any run on the card |
+| **U3 — the dated reads (hub, no lane):** E1 Mon (EUR-Lex; the op.europa.eu fallback) · SCITT CCF Last Call 09-07 · the 09-09 Apple read (the §9-2 pre-ruling as a paste) · `EU: ship|defer` 09-11 | the 09-11 and 09-15 words | the calendar |
+**The ONE operator act:** the two research pastes tonight; Monday, the words on the card. **Named for the sitting, not chartered:** TR-2 — the actuation-boundary policy kernel in the field (what exists; what is missing, in D5 language) — B-2's precondition beside Doc 02's risk classes. **The alternative shape:** charter TR-1 now for a Sunday window — rejected: THE BEYOND has no words yet, and a lane on an un-ruled row spends Monday's attention, which the card needs whole.
+
+## §4 DESIGN — the tokenized design system and the B-1/identity block under `{{NAME}}` (Tier 2: private, tokenized; nothing public before the written opinion)
+| Unit | What it is | Unblocks | Waits on |
+|---|---|---|---|
+| **U1 — the token audit → the design-system doc of record** | `tokens.dtcg.json` + `tokens.css` + `fonts.css` already exist in the dashboard; read them against `brand-and-design-system.md` §4's token model, name every value in code but not in a doc (or the reverse), write the doc the FE and the site both consume — name-light, `BRAND.productName`, red retired from identity | the hero ships on ratified tokens; B-1/identity has a floor | nothing — name-independent (Tier 1) |
+| **U2 — B-1/identity, the 10–16 h design block** (slides WHOLE, never shrinks) | the story-kit substance · the voice registers applied · the wordmark/logotype LAST and under `{{NAME}}`; a runner-up swap must cost a day, not the block | the site skin (W2) · the swap program's assets | Tuesday's working name (RESEARCH U1); Nick's hours (`DESIGN: start | hold`) |
+| **U3 — the swap runbook dry run** | the FE flip on a branch (never merged before the opinion) · `brand.mjs:14` · the README patch drafted | the A word's day-of execution | U2's wordmark; the opinion (≈09-15) for anything merged or public |
+**The ONE operator act:** `DESIGN: start | hold` — whether Nick spends the block's hours before the opinion (Tier 2 makes it lawful; if the name dies the cost is the wordmark hours). Rec: `start` U1 now (Tier 1) and U2 after Tuesday. **The alternative shape:** the whole block in week 3 under the cleared name — rejected: it stacks 10–16 h of Nick's hands on the filing week, the flip prep and R-4c; Tier 2 exists so the name-independent 80 % lands first.
+
+## §5 Re-cut
+**Re-cut trigger:** CG landing · a red on `main` · the decision card · Nick's words on THE BEYOND — never more often than a beat.

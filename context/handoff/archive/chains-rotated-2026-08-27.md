@@ -249,3 +249,7 @@ Prior: 2026-09-05 (v64 beat 9 — POST-CLOSE: THE PRE-SPEND PROGRAM CHARTERED �
 ## chain segment rotated 2026-09-05 (v65 beat 1a) — v64 b10, verbatim
 
 Prior: 2026-09-05 (v64 beat 10 — POST-CLOSE: THE v65 DISPATCH TEXT + THE RESEARCH PROMPTS, Sat ~21:12 CT (2026-09-06T02:12Z) — b9 pushed; Nick asked for a prompt giving the hub "the conviction … to think more creatively and strategically", research prompts, the four lanes → (A) handoff/2026-09-05_v65_dispatch-text_for-Nick.md — FIVE BOUNDED RITUALS (four-lane map · alternative shape · leverage line · 2029 test · pre-registration) + slots + first acts; (A) brand-program/2026-09-05_RS10-RS11_dispatch-prompts_long-form.md; pointers in the charter §4 + the brief C2. Order: hivemind 7 = 5 M + 2 A.)
+
+## chain segment rotated 2026-09-05 (v65 beat 2) — v65 b1, verbatim
+
+Prior: 2026-09-05 (v65 beat 1 — THE v65 BOOT + THE INTAKE, Sat ~21:36 CT (instrument 2026-09-06T02:36Z) — hivemind 6542ef3 = origin (b10 pushed; the dispatch text's dcf52d0 one commit stale — the record wins) · core e5fa035 clean, the gate cleared (banked b8) · preflight PASS 11/11, Check 9 28/28 · the paste byte-identical to the on-disk text, every slot unfilled → six lines owed · the dispatch-text file deleted in the tree post-push → restored from HEAD · CG not dispatched at the instrument → the line = Act 1 · H10: the expedite turnaround unmeasured (3 vs 5 days across two documents) → the frame takes 5, Tuesday asks · CG + RS-10/RS-11 rules and predictions pre-filed. Order: hivemind 6 = 3 M + 3 A.)

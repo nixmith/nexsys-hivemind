@@ -60,6 +60,7 @@ git log --oneline -1 | cut -c1-70; git rev-list --count origin/main..HEAD; git p
 - **Erik:** HELD until Tuesday's card; the go-ahead draft (`…/2026-09-05_pelton-reply_go-ahead_H10_and_draft.md` §3) is re-cut by the hub Monday night to the chosen name, with the expedite-days sentence added.
 - **Monday:** E1 (the hub, EUR-Lex) · SCITT CCF Last Call ends (record the outcome) · your words on the decision card.
 - **09-09:** the Apple one-liner (the hub hands the paste). **09-11:** `EU: ship|defer`. **09-15:** `Activate: apply|hold`. **09-17:** Silabs. **09-18:** the hard stop.
+- **Two words, no rush (the four-lane map §3–§4):** `DESIGN: start | hold` — whether you spend the identity block's hours before the opinion (Tier 2 makes it lawful; rec `start` on the token audit now, the block after Tuesday) · your words on THE BEYOND INPUT's rows (`context/strategy/2026-09-05_post-MVP-horizon_strategy-card-INPUT.md`; nothing adopts before them; TR-1 charters on them) — with, if you agree, `BEYOND-LETTERS: X` to re-letter its rows X-1…X-8 so "B-1" stops naming two things.
 
 ## §WHAT YOU DO NOT DO (this weekend)
 Touch the core tree while CG runs (one lane) · re-run `main` CI · take the samples before a push run is green (one is) · hand a name to Erik before Tuesday's card · grade a name in chat · touch s31 or the nightly · `--allow-downgrades` anything · push anything but the hivemind and (after the hub's audit) CG's commit.

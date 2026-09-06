@@ -293,3 +293,7 @@ Prior: 2026-09-06 (v66 beat 2 — BLOCK 1: THE H8-a PACKET authored + the record
 ## chain segment rotated 2026-09-06 (v66 beat 5) — v66 b3, verbatim
 
 Prior: 2026-09-06 (v66 beat 3 — BLOCK 2: the F-R4-1b coding instruction authored ahead on 093d5b4, ⛔ gated on FE-113's landing (the ZDO IEEE_addr_req third resolver after a clean 0x0061 miss; package-private on the concrete protocol; 6 M + 0 A; module-info zero change; suite 582 → 588 predicted), Sun ~11:03 CT (instrument 2026-09-06T16:03Z). Order: hivemind 5 = 4 M + 1 A.)
+
+## chain segment rotated 2026-09-06 (v66 beat 6) — v66 b4, verbatim
+
+Prior: 2026-09-06 (v66 beat 4 — BLOCK 6 (pull): the docs correction block applied to the docs working tree by a guarded splice (5 M, +19/−12; nothing staged; Nick's one act = the commit, after H8-a) + the freeze doc amended to v1.1.3 (the hub's write; six inline notes); TR-0's living card on disk (not yet a return), Sun ~11:12 CT (instrument 2026-09-06T16:12Z). Order: hivemind 6 = 5 M + 1 A.)

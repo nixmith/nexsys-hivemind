@@ -321,3 +321,7 @@ Prior: 2026-09-06 (v66 beat 9 — POST-CLOSE: F-R4-1b LANDED 39c8dd3 (CI green; 
 ## chain segment rotated 2026-09-07 (v67 beat 2) — v66 b10, verbatim
 
 Prior: 2026-09-07 (v66 beat 10 — POST-CLOSE: HIVE-CLEAN-1 LANDED 30f800d (ACCEPT; 188) · W-SKILLS-8 LANDED 90529d1 + skills c630c5c (ACCEPT-WITH-ONE-RULING; the four SKILL.md count strings fixed by the hub) · THE CONTEXT-BUDGET LAW minted on v66's measured curve; the v67 prompt re-cut (a ≤45 KB boot budget; the newest ONE beat); the brief at the stable path context/handoff/OPERATOR-BRIEF_for-Nick.md; 95 beats rotated to archive; Nick's Act A = the Git Bash card, Mon ~11:2x CT (instrument 2026-09-07T16:2xZ). Order: hivemind 11 = 8 M + 2 A + 1 D.)
+
+## chain segment rotated 2026-09-07 (v67 beat 3) — v67 b1, verbatim
+
+Prior: 2026-09-07 (v67 beat 1 — THE v67 BOOT on the STABLE prompt: boot read-set 35.0 KB; Act A verified at the bytes (five HEADs clean, ahead 0 ×5; Check 9 28/28; preflight 12/12); the dispatch filed verbatim with Nick's four words (PELTON: email TONIGHT = Block 4 pulled forward to tonight · NAMING-B a gated one-file charter · ASR-VERDOMU/RS10-STAR owed, not gates · Erik U.S. only); TR-1's paste = Nick's one act; 8 blocks rotated (v66 b6 → v65 b6), Mon ~18:22 CT (instrument 2026-09-07T23:22Z). Order: hivemind 6 = 4 M + 2 A.)

@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-08-26 (W-SKILLS-4 §1(e) — §11 added: the R-9 refusal-guard re-fixture rule, ≤3 lines, pointer to the R-9 return; body otherwise byte-unchanged). Prior: 2026-06-07 against commit 8028337
+last-verified: 2026-09-07 (W-SKILLS-8 — §12 the SLF4J-free-module gotcha · §13 the Windows desk instrument block · §14 the miss-script sweep + the sleepy-device physics note; §1–§11 byte-unchanged; return `../../context/audits/2026-09-07_W-SKILLS-8_return.md`). Prior: 2026-08-26 (W-SKILLS-4 §1(e) — §11 added: the R-9 refusal-guard re-fixture rule, ≤3 lines, pointer to the R-9 return; body otherwise byte-unchanged). Prior: 2026-06-07 against commit 8028337
 -->
 
 # Testing Standards for HomeSynapse
@@ -467,3 +467,29 @@ class EventBusTest {
 ## 11. A Refusal Guard on a Mutator Re-Fixtures Every Single-Token Test (R-9, 2026-08-22)
 
 When a WU adds a guard that makes a mutator REFUSE (e.g. `revoke()` refusing the last active full-access token), every minimal fixture that exercised the mutator on its only such token silently becomes a refused call — the token stays valid and the assertion after it fails. **Walk the callers by `git grep -n "\.method("` across ALL test classes and modules, never by the instruction's consumer survey (a floor, not the census; the R-9 miss was a test in another class), re-fixture each with a second qualifying token, and make each fixture ASSERT the non-refused outcome (`revoke(...) == REVOKED`) so a future guard change can never make it vacuous — a fixture that merely "still passes" after a guard lands may be passing for the wrong reason.** A test the guard would refute gets the +1-and-disclose treatment, never a silent widening of the guard. Detail: `../../context/audits/2026-08-22_R9_E3-HEALTH_return.md` §0 P6 + §4/§5.
+
+## 12. The SLF4J-Free-Module Gotcha — an IT's `system-out` Is Empty, the Failure MESSAGE Is the Only Channel (FAILCHAN-FIX-1, 2026-09-05; folded 2026-09-07 by W-SKILLS-8)
+
+A module that is SLF4J-free by its own design note (the event bus: seven metrics locked by amendment; no logger) produces an integration-test XML whose `<system-out>` is EMPTY even under `outputPerTestCase` + `exceptionFormat FULL`. The ONLY diagnostic channel a red run leaves behind is the `<failure message>` — so every wait/await helper's `AssertionError` message carries the discriminating value (the resting checkpoint, the mode, the phase) as a STAMP: `throw new AssertionError("… did not reach " + target + " within " + maxWaitMillis + " ms (resting checkpoint " + store.readCheckpoint(id) + ")")`. A stamp changes the message only — never a wait, an interval or a target — and is declared `[INFO]`. Read the helper's throw BEFORE any loop runs (ledger convention (23)); a loop whose red cannot say where it stalled measures the phase and nothing else. Exhibit: `../../context/audits/2026-09-05_v64-b1_boot-and-intake_audit.md` §3; the live reading it bought: `../../context/audits/2026-09-05_FIX-1_intake_two-layer-audit_v64.md` §9 (`resting checkpoint 28`).
+
+## 13. The Windows Desk Instrument Block — Pinning, Properties, Console (FAILCHAN-FIX-1, 2026-09-05; folded 2026-09-07 by W-SKILLS-8)
+
+The reference block for a "runner-shaped" loop on a Windows desk, as the FIX-1 lane ran it (the scripts of record: `../../context/audits/2026-09-05_FIX-1_loops/instrument/` — `fix1-loop.sh`, `busy-start.ps1`, `Probe.java` and the probe outputs); adapt the module, the class and the counts, never the shape:
+
+```bash
+# From Git-Bash/WSL-less desks the loop driver is bash calling cmd.exe; the recipe's `taskset -c 0,1` becomes an affinity mask.
+# pinned (the runner's 2-carrier shape): mask 3 = cores 0,1; /B /WAIT so the caller sees the exit code; every run a FRESH Gradle JVM.
+ORG_GRADLE_PROJECT_vtParallelism=2 cmd.exe /c start "" /affinity 3 /B /WAIT cmd.exe /c gradlew.bat :core:event-bus:test --tests "$FQCN" --rerun --no-daemon --offline --console plain
+# unpinned (the CPU-shape row): the same line without `start … /affinity 3` and with the property unset (env -u ORG_GRADLE_PROJECT_vtParallelism).
+# -P values under cmd ride the environment as ORG_GRADLE_PROJECT_<prop>=<value> (cmd's batch tokenizer splits on `=`; a -P token is fragile).
+# load: two CPU-bound PowerShell loops with $p.ProcessorAffinity = [IntPtr]3 (the same mask), started before the run, killed after.
+# the pin is PROVEN from inside a JVM, never from Task Manager: a Probe.java printing Runtime.getRuntime().availableProcessors() under the same `start /affinity 3` — 2 pinned, 24 unpinned; the probe output is filed in the corpus's instrument/ folder.
+```
+
+Rules: `--console plain` so the full assertion text lands in the log (the rich console truncates); the corpus records per run the affinity mask, the load shape (busy loops on/off), `availableProcessors`, the wall time and the verdict; sweep the load axis in BOTH directions (the lighter shape reproduced a race the loaded one hid); every log tails through the token redactor before it lands on a repo path (`../../project-manager/references/laws-ledger.md` arc (41)). **The desk is not the runner** (ledger convention (24)): the numbers a desk produces adjudicate the desk; the runner's corpus adjudicates the CI prediction. Exhibit: coder-lessons 2026-09-05; `../../context/audits/2026-09-05_FIX-1_return.md` §1 + the corpus `../../context/audits/2026-09-05_FIX-1_loops/SUMMARY.md` (its header carries the instrument shape).
+
+## 14. Harness Sweeps After a Resolver Is Added — the Miss-Script Sweep, and Physics the Desk Cannot Model (F-R4-1b, 2026-09-06; folded 2026-09-07 by W-SKILLS-8)
+
+**The miss-script sweep (ledger convention (25)).** When a WU appends a resolver or a step after an existing miss in a resolution chain: (1) `git grep -n` the HARNESS for the PRIOR surface's miss SCRIPT — the fixture value that scripts the miss (`lookupStatus = 0x01`), not the log token and not the retired reason string; (2) list every scenario that scripts it — each one's meaning changes the moment the new surface can resolve (the harness's default reply to the new request is usually SUCCESS: a device asked for its own address answers); (3) script the new surface in each (a failure status, or silence) so the scenario keeps asserting what it asserted; (4) STRENGTHEN the hit test to pin the new surface's once-per-epoch bound (asked once per reopen; counts, not reasons); (5) declare the re-fixtured pre-existing tests as `[REVIEW]` — the instruction's "every existing test stays green" was a prediction, refuted at the instrument. Exhibit: `../../context/audits/2026-09-06_F-R4-1b_return.md` §0 R1 + §3 O6; coder-lessons 2026-09-06.
+
+**Physics the desk cannot model (ledger convention (27)).** A synchronous scripted reply pins the frame shape and the bound's derivation; it says nothing about a sleepy end device behind a router parent, which answers only inside the parent's indirect window. Write the test as the shape pin, cite the bound's derivation from the interview step timeout, and name in the return's observations that the wire decides — never "verified" for the timing, and never a re-tuned timeout from desk numbers. Exhibit: the F-R4-1b instruction DP-4 (`../../context/instructions/archive/2026-09-06_coder-lane_F-R4-1b_zdo-ieee-addr-req_second-surface_coding-instruction.md`) + the return §3 O4.

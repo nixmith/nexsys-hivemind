@@ -72,7 +72,7 @@ Preferences, style and scope expansion are `[INFO]` notes, not pushback. Never m
 | `references/java-patterns.md` | Any Java: typed ULIDs, sealed types, records, virtual threads, SQLite, Jackson, logging, JPMS lockstep. |
 | `references/testing-standards.md` | Writing or reviewing tests — red-first, JUnit 5, categories, ArchUnit, the fixed-clock parent class. |
 | `references/deviation-and-quality.md` | Before reporting ANY work complete — the self-review checklist, the deviation report and comment standards. |
-| `references/laws-ledger.md` | The full convention ledger (21 arc-conventions · the durable-build disciplines · the strategy layer · the state pointer) with exhibits — read a number's detail when §2 cites it. |
+| `references/laws-ledger.md` | The full convention ledger (the arc-conventions, numbered from (1) · the durable-build disciplines · the strategy layer · the state pointer) with exhibits — read a number's detail when §2 cites it. |
 | `references/pass-history.md` | Provenance of skills passes; never a launch read. |
 
 Also: `../context/protocols/work-unit-completion-protocol.md` §Phase 1 at closeout; `CLAUDE.md` beside this file for the session protocol; the strategy layer (the north star + the Substrate Thesis, pointers in the ledger) only when a WU touches the agent layer or research.

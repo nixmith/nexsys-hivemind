@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-08-29 (W-SKILLS-5 — (a) Check 2 RE-SUBJECTED: the check "Current week's plan exists" is RETIRED BY NAME (basis: Nick 2026-08-09 · W-SKILLS-4 harvest 1 · the W-SKILLS-5 brief) and its slot now checks that the plan of record resolves; the other weekly-plan references (§1 · Checks 4/6/8 · §4 · §6) folded to the plan-of-record form with no verdict logic changed; (d) Check 9's mirror of record restated to the account-synced trees (v57 beat 3), the host `diff -rq` demoted to "if one exists" — two lines. Return: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.) Prior: 2026-06-07 against commit 8028337; Check 9 refined 2026-07-28 (the third-location / remote-cache adjudication — skills-currency pass; mirrored into `../../coder/references/freshness-preflight.md` per the shared-protocol law); Check 9 extended 2026-08-06 to the THIRD diff pair — the FE mirror (`nexsys-skills/orchestrators/nexsys-frontend` ↔ `.claude/skills/nexsys-frontend`) — per ruling R-2 (v44 beat 5; W-SKILLS-2 return)
+last-verified: 2026-09-07 (W-SKILLS-8 — Check 9 gains its instrument AS RUN (the per-file md5 procedure beside the `diff -rq` block); Check 10 gains its instrument (`git ls-files` basename resolution, never a wide `find`); Check 12 THE ARCHIVE CONVENTION added — text identical in the coder and frontend preflights; the check count 11 → 12 in the heading, the aggregate and the output format; no verdict logic changed. Return: `../../context/audits/2026-09-07_W-SKILLS-8_return.md`.) Prior: 2026-08-29 (W-SKILLS-5 — (a) Check 2 RE-SUBJECTED: the check "Current week's plan exists" is RETIRED BY NAME (basis: Nick 2026-08-09 · W-SKILLS-4 harvest 1 · the W-SKILLS-5 brief) and its slot now checks that the plan of record resolves; the other weekly-plan references (§1 · Checks 4/6/8 · §4 · §6) folded to the plan-of-record form with no verdict logic changed; (d) Check 9's mirror of record restated to the account-synced trees (v57 beat 3), the host `diff -rq` demoted to "if one exists" — two lines. Return: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.) Prior: 2026-06-07 against commit 8028337; Check 9 refined 2026-07-28 (the third-location / remote-cache adjudication — skills-currency pass; mirrored into `../../coder/references/freshness-preflight.md` per the shared-protocol law); Check 9 extended 2026-08-06 to the THIRD diff pair — the FE mirror (`nexsys-skills/orchestrators/nexsys-frontend` ↔ `.claude/skills/nexsys-frontend`) — per ruling R-2 (v44 beat 5; W-SKILLS-2 return)
 -->
 
 # Freshness Preflight
@@ -14,7 +14,7 @@ last-verified: 2026-08-29 (W-SKILLS-5 — (a) Check 2 RE-SUBJECTED: the check "C
 
 ## Shared protocol
 
-This file and `../../coder/references/freshness-preflight.md` together form the freshness-preflight protocol shared by both agents. This file is the comprehensive 11-check superset; the Coder file is the Coder-relevant subset focused on code-execution drift. When either agent detects drift that affects both roles (e.g., a stale MODULE_CONTEXT or a missing traceability index), the discoverer posts a `[VERIFY-NEEDED]` to `../../context/open-questions.md` so the other agent verifies before continuing. The `$SESSION_ROOT` path-traversal convention used here is the same convention used by the WUCP `diff -rq` skill-sync check in `../../context/protocols/work-unit-completion-protocol.md` Step 10.
+This file and `../../coder/references/freshness-preflight.md` together form the freshness-preflight protocol shared by both agents. This file is the comprehensive superset (its §2 heading carries the count of record); the Coder file is the Coder-relevant subset focused on code-execution drift. When either agent detects drift that affects both roles (e.g., a stale MODULE_CONTEXT or a missing traceability index), the discoverer posts a `[VERIFY-NEEDED]` to `../../context/open-questions.md` so the other agent verifies before continuing. The `$SESSION_ROOT` path-traversal convention used here is the same convention used by the WUCP `diff -rq` skill-sync check in `../../context/protocols/work-unit-completion-protocol.md` Step 10.
 
 ---
 
@@ -26,9 +26,9 @@ This file and `../../coder/references/freshness-preflight.md` together form the 
 
 ---
 
-## 2. The Eleven Checks
+## 2. The Twelve Checks (eleven until 2026-09-07; Check 12 added by W-SKILLS-8)
 
-Run all eleven. Each check either passes, flags STALE, or flags CONFLICTED. Do not short-circuit — one PASS does not excuse running the others, because drift compounds.
+Run all twelve. Each check either passes, flags STALE, or flags CONFLICTED. Do not short-circuit — one PASS does not excuse running the others, because drift compounds.
 
 ### Check 1 — PROJECT_SNAPSHOT.md last-sync timestamp
 
@@ -133,6 +133,26 @@ If `$0` isn't available in the current shell context (e.g., when running command
 
 Note: `.claude/skills/` is a read-only mount; the PM never writes to it. STALE is the normal state immediately after a PM edit — it clears when Nick runs his external sync. CONFLICTED is abnormal and blocks forward work.
 
+#### Check 9 — the instrument AS RUN (added 2026-09-07 by W-SKILLS-8; the per-file `md5sum` form of the mirror-of-record comparison, beside the `diff -rq` block above)
+
+The mirror of record is the ACCOUNT-SYNCED skill trees (the subsection below); a remote hub compares the three SOURCE trees on the device against the copies its own session loaded, per file, and reports the count. The procedure as executed at the v64 and v65 boots (28 files, all three trees; the count is re-derived each run — it grows when a references file is added):
+
+```bash
+# On the device (device_bash), from the mount root — the SOURCE side: one md5 per file, path-relative, sorted.
+cd "$HOME/mnt/ClaudeFolder"
+for t in nexsys-hivemind/project-manager nexsys-hivemind/coder nexsys-skills/orchestrators/nexsys-frontend; do
+  (cd "$t" && find . -type f -name '*.md' | sort | xargs md5sum)
+done > /tmp/skills-source.md5
+wc -l /tmp/skills-source.md5      # the file count of record (28 at the v64/v65 boots; re-derive, never copy)
+
+# In the session (Bash), the SYNCED side: the same loop over the loaded skill trees
+# (their root is wherever the session's skills are mounted — resolve it by topology, never hardcode it), sorted the same way.
+# Then compare the two lists: every line equal ⇒ PASS; a path present on one side only ⇒ STALE ("Only in"); the same path with a different md5 ⇒ CONFLICTED ("differ").
+diff <(sort /tmp/skills-source.md5) <(sort /tmp/skills-synced.md5) && echo "CHECK 9: N/N identical at the bytes"
+```
+
+Report the count as `Check 9: N/N identical at the bytes` (or the STALE/CONFLICTED lines verbatim). The `diff -rq` block above is this same comparison against a HOST mirror, run only if one exists. Exhibit: `../../context/audits/2026-09-05_v65-b1_boot-and-intake_audit.md` §3 (the preflight line as executed).
+
 #### Check 9 and the THIRD location — a remote hub's in-session skill cache (refinement, 2026-07-27)
 
 There are **three** places a role skill's bytes can live, not two:
@@ -155,6 +175,8 @@ Spot-check that every reference file cited in `../../context/strategic-context-m
 - **STALE** if a cited file has been renamed but the map still shows the old name.
 - **CONFLICTED** if a cited file is missing entirely.
 
+**The instrument (added 2026-09-07 by W-SKILLS-8):** resolve each cited path's BASENAME against `git ls-files` of the repo it should live in — `git -C ../../ ls-files | grep -F '<basename>'` per repo (the five repos: core · docs · hivemind · skills · bench) — never a wide `find` over the mount, which times out on the device bridge. A basename that resolves at a DIFFERENT path than cited is STALE (renamed/moved); a basename that resolves nowhere is CONFLICTED. Exhibit: `../../context/audits/2026-09-05_v65-b1_boot-and-intake_audit.md` §3.
+
 ### Check 11 — Source round-trip (no fabricated types or stale counts)
 
 Spot-check that state docs (PROJECT_SNAPSHOT, the Knowledge Primer, MODULE_CONTEXTs) have not drifted from source: every class/type name a state doc cites must `grep`-resolve in `../../homesynapse-core`, and every quantitative claim (test count, file count, type count, module count, amendment status) must be regenerable from source or the authoritative register — not copied forward from a prior doc.
@@ -165,11 +187,31 @@ Spot-check that state docs (PROJECT_SNAPSHOT, the Knowledge Primer, MODULE_CONTE
 
 This generalizes the research-brief module-info embedding discipline to the project-knowledge docs themselves: doc-to-doc consistency is necessary but not sufficient — it can make a fabrication *more* consistent without making it *true*.
 
+### Check 12 — The archive convention (SHARED-PROTOCOL; added 2026-09-07 by W-SKILLS-8; this check keeps the PM preflight's number in every role file so the three files cite ONE number)
+
+A live directory listing shows only CURRENT files: an executed or superseded dispatch, instruction, prompt or plan carries a terminal `status:` (EXECUTED / SUPERSEDED / ARCHIVED / FILED) or lives under an `archive/` subtree, so that a session which greps `context/` for "ISSUE-READY" or "LIVE" — or a lane that reads the instructions directory — is offered only what is actually current. The three greps below are the invariant; run them from the hivemind root. The EXCLUSION lists are STATE and are re-derived at the instrument each time: the lanes the newest spine beat records as RUNNING or DISPATCH-READY (by the file's basename), today's CT date prefix, and the newest orchestrator prompt's version — never a list copied from a prior run.
+
+```bash
+cd nexsys-hivemind
+# 1. instructions: every ISSUE-READY / DISPATCH-READY / LIVE / READY file is a lane the spine records as running or dispatch-ready, or dated today
+grep -l '^status: \(ISSUE-READY\|DISPATCH-READY\|LIVE\|READY\)' context/instructions/*.md | grep -v '<running-lane-basenames>\|<today-CT-date>_' | wc -l   # expected 0
+# 2. orchestrator prompts: exactly one LIVE prompt — the newest
+grep -l '^status: LIVE' context/handoff/*orchestrator_session_prompt.md | grep -v '<newest-prompt-version>' | wc -l                              # expected 0
+# 3. the retired weekly-plan tree carries no tracked file
+git ls-files 'context/planning/weeks/*' | wc -l                                                                                                    # expected 0
+```
+
+- **PASS** if all three counts are zero.
+- **STALE** if any count is nonzero — name the files; the fix is a terminal `status:` line or a move under `archive/` (a hygiene act, never a rewrite of the file's body).
+- **CONFLICTED** is never returned by this check (an over-current tree is drift, not a contradiction).
+
+Exhibit (the invariant's origin and its first run; paths from the mount root, as the block's own `cd` is): `nexsys-hivemind/context/instructions/2026-09-07_HIVE-CLEAN-1_hygiene-lane_dispatch.md` §4 (the concrete exclusion lists of that day are recorded there, not here); `nexsys-hivemind/context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md` §2.7 (the census that minted it). The text of this check is IDENTICAL in `project-manager/references/freshness-preflight.md`, `coder/references/freshness-preflight.md` and `nexsys-skills/orchestrators/nexsys-frontend/references/freshness-preflight.md` (the shared-protocol rule) — amend all three or none.
+
 ---
 
 ## 3. Aggregating to PASS / STALE / CONFLICTED
 
-- **PASS** — all eleven checks returned PASS. Forward work is unblocked. Proceed to the task brief.
+- **PASS** — all twelve checks returned PASS. Forward work is unblocked. Proceed to the task brief.
 - **STALE** — at least one check returned STALE, zero returned CONFLICTED. See §4.
 - **CONFLICTED** — at least one check returned CONFLICTED, regardless of other results. See §5.
 
@@ -227,6 +269,7 @@ Check 9 (dual skill mirrors):          STALE  (expected — post-edit, pre-sync)
         [remote hub] read SOURCE vs own in-session cache only — MIRROR unverified from here; Nick's diff -rq is the record
 Check 10 (strategic-context-map refs): PASS
 Check 11 (source round-trip):          PASS
+Check 12 (archive convention):         PASS
 
 Aggregate: STALE
 Allowed activity: retroactive reconciliation only
@@ -236,7 +279,7 @@ Blocking issue: Nick's external mirror sync pending (Check 9)
 If the aggregate is PASS, a single-line record suffices:
 
 ```
-FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 11 checks)
+FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 12 checks)
 ```
 
 ---
@@ -245,7 +288,7 @@ FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 11 checks)
 
 This preflight was introduced on 2026-04-11 as part of the hivemind overhaul. It addresses the root cause identified in `../../context/audits/2026-04-11_m2.5-arch-debt-retrospective.md` — the PM session protocol had no mechanism to detect that the hivemind was lagging behind the codebase. Without a preflight, the PM would read a 3-week-old PROJECT_SNAPSHOT and treat it as ground truth, issuing instructions based on stale assumptions about what existed and what contracts governed it.
 
-The eleven checks are not exhaustive. New checks may be added as the project discovers additional drift vectors. Any proposed addition must:
+The twelve checks are not exhaustive. New checks may be added as the project discovers additional drift vectors. Any proposed addition must:
 1. Be added to this file with the PASS / STALE / CONFLICTED definitions
 2. Be added to the `FRESHNESS PREFLIGHT` output format above
 3. Be mirrored into any coder-side preflight file if it has Coder-side implications

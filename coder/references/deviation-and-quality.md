@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337
+last-verified: 2026-09-07 (W-SKILLS-8 — §7 added: the patch-shaped delivery as the standard `[REVIEW]` shape for a multi-commit lane · the corpus convention · the two-stage red-first; §1–§6 byte-unchanged; return `../../context/audits/2026-09-07_W-SKILLS-8_return.md`). Prior: 2026-06-07 against commit 8028337
 -->
 
 # Deviation Protocol and Quality Standards
@@ -376,3 +376,19 @@ LLM verification — including multi-agent adversarial fleets that verify signat
 - When the compile gate is DENIED in-session, manually sweep every `new <CheckedExceptionType>` site's ENCLOSING METHOD SIGNATURE before handoff (grep the constructor, verify each `throws` clause). Do not rely on any review fleet for this class.
 - When a gate bounce reports errors of the checked-exception class, sweep the ENTIRE module for the same class before handing back — javac's error reporting can stop early and understate the defect count (M9.2: 2 reported, 3 real).
 - A checked domain exception must never be forced through a no-throws frozen interface: put the checked type on a package-private seam the adapter calls directly, and let the frozen surface rethrow unchecked cause-chained. Beware the classifier consequence: wrapped exceptions lose their classification (`ExceptionClassifier` is bare-`instanceof` by design — a wrapped permanent classifies TRANSIENT).
+
+---
+
+## 7. Delivery Shapes — Multi-Commit Lanes, the Corpus Convention, the Two-Stage Red (FAILCHAN-FIX-1, 2026-09-05; folded 2026-09-07 by W-SKILLS-8)
+
+### The patch-shaped delivery is the standard `[REVIEW]` shape for a multi-commit lane
+
+When the instruction orders more than one commit from one uncommitted tree and does not name the delivery shape (the PM format's #23 now requires it; older instructions may not), deliver: **the tree at commit 1** (porcelain = commit 1's census exactly) **+ one patch per further commit** under `context/audits/<date>_<WU><suffix>.patch`, produced by `git diff` of the delta against the commit-1 tree, with the **round-trip proven in the return** — `git apply --check -p1` OK · `git apply --stat` = exactly the declared files with their +/− · applied, md5 of each file recorded, reverted, the tree md5-equal to commit 1. Declare it as `[REVIEW]` "delivery shape: tree + patch (the instruction named none)" with the per-commit census in §0 (`FIX-1a 10 = 8 M + 2 A · FIX-1b 6 M as the patch`). The stamps that a hub note asks for ride the commit the note names, not the later one. Exhibit: `../../context/audits/2026-09-05_FIX-1_return.md` §0/§3 + `../../context/audits/2026-09-05_FIX-1b.patch`; ruling `../../context/audits/2026-09-05_FIX-1_intake_two-layer-audit_v64.md` §7 R1.
+
+### The corpus convention (loop runs filed as evidence)
+
+A measurement corpus lives under `context/audits/<date>_<WU>_loops/` and holds: **`SUMMARY.md`** — a header (the instrument shape: machine, affinity, `availableProcessors`, load shape, the redaction statement) + ONE line per run (label · run number · verdict · wall time · the discriminator read from the artifact) + a **TOTALS line** the hub checks the census against (a `TOTALS v2` line is appended, never edited, when runs are added); **RED runs only** keep their JUnit XML + `gradle.log` (green runs are the SUMMARY line); the whole corpus **≤ 400 KB**; **the redactor runs before filing** — every log and XML is grepped for `Token:` and any hit is replaced by `<REDACTED test-token TOKLEN=…>` with the redaction stated in the header; the return's §0 states the corpus size and `grep -rl 'Token:' → 0`. Exhibit: `../../context/audits/2026-09-05_FIX-1_loops/SUMMARY.md`; the audit rules it satisfies: `../../context/audits/2026-09-05_v64-b1_boot-and-intake_audit.md` §4 R3/R4.
+
+### The two-stage red-first when a type does not yet exist
+
+When the tests reference a type or hook the WU introduces, "red at HEAD" has two honest stages, both recorded in the red-first table: **(1) compile-red at HEAD** — the tests do not compile because the type is absent (the timestamp); then **(2) behaviour-red with inert hooks** — the type/record declared and every hook a no-op, so the tests compile and FAIL for the behavioral reason the instruction predicts (the timestamp); then green. A red that is only stage (1) proves nothing about the behavior; a table that shows only stage (2) hides that the type was written before the test. Exhibit: `../../context/audits/2026-09-05_FIX-1_return.md` §0 (T1–T4 red at 18:02Z compile-red, 18:05Z behaviour-red); the pattern generalized: coder-lessons 2026-09-04 + 2026-09-05.

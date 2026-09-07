@@ -5,7 +5,7 @@ audience: Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-06-07 against commit 8028337; Check 6 refined 2026-07-28 (the third-location / remote-cache adjudication, mirrored from the PM preflight's Check 9 per the shared-protocol law; the two stale "the PM preflight has 10 checks" copies — false since the PM gained Check 11 — replaced with a POINTER to the PM file's §2 heading rather than a fresh copied count, per pointer-not-copy; disclosed micro-correction outside the ruled charge, in-file and zero-risk); the lock-free-porcelain line added 2026-07-30 (skills currency pass 2 — the spelled flag; adopted at v40 beat 1 from the skills-pass return §4b instrument finding)
+last-verified: 2026-09-07 (W-SKILLS-8 — Check 12 THE ARCHIVE CONVENTION added under the shared-protocol rule, its text identical to the PM and frontend preflights; the aggregate + output format gain its line; nothing else touched; return `../../context/audits/2026-09-07_W-SKILLS-8_return.md`). Prior: 2026-06-07 against commit 8028337; Check 6 refined 2026-07-28 (the third-location / remote-cache adjudication, mirrored from the PM preflight's Check 9 per the shared-protocol law; the two stale "the PM preflight has 10 checks" copies — false since the PM gained Check 11 — replaced with a POINTER to the PM file's §2 heading rather than a fresh copied count, per pointer-not-copy; disclosed micro-correction outside the ruled charge, in-file and zero-risk); the lock-free-porcelain line added 2026-07-30 (skills currency pass 2 — the spelled flag; adopted at v40 beat 1 from the skills-pass return §4b instrument finding)
 -->
 
 # Coder Freshness Preflight
@@ -29,7 +29,7 @@ This file and `../../project-manager/references/freshness-preflight.md` together
 
 ---
 
-## 2. The Seven Checks
+## 2. The Seven Checks (+ Check 12, the shared-protocol archive convention, added 2026-09-07)
 
 ### Check 1 — PROJECT_SNAPSHOT.md vs. coder-handoff.md consistency
 
@@ -97,11 +97,31 @@ Before writing a MODULE_CONTEXT.md update or citing a type in a handoff, confirm
 - **STALE** if a count was copied forward and no longer matches source.
 - **CONFLICTED** if a cited type does not exist in source — a fabrication; do not write it into MODULE_CONTEXT or the handoff.
 
+### Check 12 — The archive convention (SHARED-PROTOCOL; added 2026-09-07 by W-SKILLS-8; this check keeps the PM preflight's number in every role file so the three files cite ONE number)
+
+A live directory listing shows only CURRENT files: an executed or superseded dispatch, instruction, prompt or plan carries a terminal `status:` (EXECUTED / SUPERSEDED / ARCHIVED / FILED) or lives under an `archive/` subtree, so that a session which greps `context/` for "ISSUE-READY" or "LIVE" — or a lane that reads the instructions directory — is offered only what is actually current. The three greps below are the invariant; run them from the hivemind root. The EXCLUSION lists are STATE and are re-derived at the instrument each time: the lanes the newest spine beat records as RUNNING or DISPATCH-READY (by the file's basename), today's CT date prefix, and the newest orchestrator prompt's version — never a list copied from a prior run.
+
+```bash
+cd nexsys-hivemind
+# 1. instructions: every ISSUE-READY / DISPATCH-READY / LIVE / READY file is a lane the spine records as running or dispatch-ready, or dated today
+grep -l '^status: \(ISSUE-READY\|DISPATCH-READY\|LIVE\|READY\)' context/instructions/*.md | grep -v '<running-lane-basenames>\|<today-CT-date>_' | wc -l   # expected 0
+# 2. orchestrator prompts: exactly one LIVE prompt — the newest
+grep -l '^status: LIVE' context/handoff/*orchestrator_session_prompt.md | grep -v '<newest-prompt-version>' | wc -l                              # expected 0
+# 3. the retired weekly-plan tree carries no tracked file
+git ls-files 'context/planning/weeks/*' | wc -l                                                                                                    # expected 0
+```
+
+- **PASS** if all three counts are zero.
+- **STALE** if any count is nonzero — name the files; the fix is a terminal `status:` line or a move under `archive/` (a hygiene act, never a rewrite of the file's body).
+- **CONFLICTED** is never returned by this check (an over-current tree is drift, not a contradiction).
+
+Exhibit (the invariant's origin and its first run; paths from the mount root, as the block's own `cd` is): `nexsys-hivemind/context/instructions/2026-09-07_HIVE-CLEAN-1_hygiene-lane_dispatch.md` §4 (the concrete exclusion lists of that day are recorded there, not here); `nexsys-hivemind/context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md` §2.7 (the census that minted it). The text of this check is IDENTICAL in `project-manager/references/freshness-preflight.md`, `coder/references/freshness-preflight.md` and `nexsys-skills/orchestrators/nexsys-frontend/references/freshness-preflight.md` (the shared-protocol rule) — amend all three or none.
+
 ---
 
 ## 3. Aggregating to PASS / STALE / CONFLICTED
 
-- **PASS** — all seven checks PASS. Proceed with the coding instruction.
+- **PASS** — all seven checks PASS, and Check 12 PASS. Proceed with the coding instruction.
 - **STALE** — at least one check STALE, zero CONFLICTED. See §4.
 - **CONFLICTED** — at least one check CONFLICTED, regardless of others. See §5.
 
@@ -147,6 +167,7 @@ Check 5 (arch-rule whitelist aware):   PASS
 Check 6 (dual skill mirrors):          STALE  (expected — post-PM-edit, pre-sync)
         [remote session] read SOURCE vs own in-session cache only — MIRROR unverified from here; Nick's diff -rq is the record
 Check 7 (source round-trip):           PASS
+Check 12 (archive convention):         PASS
 
 Aggregate: STALE
 Allowed activity: ground-truth gathering only; escalate to PM
@@ -155,7 +176,7 @@ Allowed activity: ground-truth gathering only; escalate to PM
 If PASS, single-line record suffices:
 
 ```
-CODER FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 7 checks)
+CODER FRESHNESS PREFLIGHT — 2026-MM-DD HH:MM UTC — PASS (all 7 checks + Check 12)
 ```
 
 ---

@@ -38,7 +38,7 @@ For every brief, in order — do not skip:
 2. **Verify dependencies** at the repo (`references/repo-state-protocol.md`): docs at status, modules present, decisions ruled in the spine, the prior WU's Phase 2 closed, no unresolved deferred gate (§5). Any unmet → STOP and report the sequencing to Nick. ≥3 assumed source signatures → write `context/pre-verifications/WU-<id>.md` first.
 3. **Read `MODULE_CONTEXT.md` and `module-info.java` for every module touched or depended on** (the list of record: `homesynapse-core/settings.gradle.kts`). Embed the verbatim `module-info.java` in every instruction and research brief (module names are fabricated otherwise — the Research-6 lesson). Gotchas flow into "What to Watch Out For"; the Consumers section names who breaks.
 4. **Constraints and cross-subsystem impact** — `references/constraint-enforcement.md`, `references/cross-subsystem-awareness.md`; the brief cites some INV/LTDs, never all.
-5. **Author** per `references/coding-instruction-format.md` (its numbered laws #1–#22 are binding; the arch-rule test-clock paste-block lives there, §Arch-Rule Test-Clock Reminder, for every target module outside `com.homesynapse.{app,platform,test}..`). Every lane brief pre-declares: read-set · return path (`context/audits/<CT-filing-date>_<WU>_return.md`) · return cap · §0-first shape · the instrument-limit + CT-rederivation lines · `date -u` first for the lane's own stamps. **Author ahead of need**; a ruling-slotted instruction dispatches on the word.
+5. **Author** per `references/coding-instruction-format.md` (its numbered laws — #1 onward; the file's Additions sections carry the count — are binding; the arch-rule test-clock paste-block lives there, §Arch-Rule Test-Clock Reminder, for every target module outside `com.homesynapse.{app,platform,test}..`). Every lane brief pre-declares: read-set · return path (`context/audits/<CT-filing-date>_<WU>_return.md`) · return cap · §0-first shape · the instrument-limit + CT-rederivation lines · `date -u` first for the lane's own stamps. **Author ahead of need**; a ruling-slotted instruction dispatches on the word.
 6. **Self-review** per `references/review-and-quality.md`; then hand Nick the one-paste dispatch line.
 7. **Audit the return at the bytes — two layers, always** (§3 law 1); rule the pushback on evidence (`references/review-and-quality.md` §3); file the intake audit under `context/audits/`.
 8. **Prepare the landing**: the core msg file + the census card (exact paths, M/A/D counts) for Nick's hands; the CI verdict on his push is the gate of record and banks as one spine line.
@@ -79,13 +79,13 @@ Escalate when: the preflight is CONFLICTED; the "why" is unclear; a task conflic
 ## 6. References — one level deep; read when
 | File | Read when |
 |---|---|
-| `references/freshness-preflight.md` | Every boot — mandatory (Checks 1–11; Check 9 = the skill-mirror sync; Check 11 = the source round-trip). |
+| `references/freshness-preflight.md` | Every boot — mandatory (Checks 1–12; Check 9 = the skill-mirror sync; Check 11 = the source round-trip; Check 12 = the archive convention). |
 | `references/coding-instruction-format.md` | Authoring any coding instruction or spike brief (the numbered laws; the test-clock paste-block). |
 | `references/review-and-quality.md` | Reviewing any output — returns, design docs, specs; ruling pushback (§3). |
 | `references/constraint-enforcement.md` | Turning governance rules (INV / LTD / locked decisions) into concrete constraints. |
 | `references/repo-state-protocol.md` | Verifying what exists before issuing instructions; the census discipline. |
 | `references/cross-subsystem-awareness.md` | Work that touches a subsystem boundary or a downstream design doc. |
-| `references/laws-ledger.md` | The full rule ledgers (37 arc-disciplines · D1–D18 · the strategy layer · the state pointer) with their exhibits — read a numbered law's detail when §3 cites it; read whole at a skills audit. |
+| `references/laws-ledger.md` | The full rule ledgers (the arc-disciplines, numbered from (1) · D1–D18 · the strategy layer · the state pointer) with their exhibits — read a numbered law's detail when §3 cites it; read whole at a skills audit. |
 | `references/pass-history.md` | Provenance of past skills passes; the sibling-carrier index. Never a launch read. |
 
 Also read, always: `MODULE_CONTEXT.md` of every module involved (the project's persistent memory: type inventories, cross-module contracts, sealed hierarchies, gotchas), `context/process/bench-troubleshooting-playbook.md` before any bench-iterative WU, and `context/process/cowork-environment-model.md` §§9–12 for the bridge, the ghost-commit class and the overtaken-order form.

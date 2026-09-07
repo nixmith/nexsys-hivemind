@@ -305,3 +305,7 @@ Prior: 2026-09-06 (v66 beat 5 — TWO INTAKES: FE-113 returned + audited ACCEPT-
 ## chain segment rotated 2026-09-06 (v66 beat 8) — v66 b6, verbatim
 
 Prior: 2026-09-06 (v66 beat 6 — FE-113 LANDED d192d17 (frontend + ci green; the passive count 4/20) · HERO-0 audited ACCEPT (F1 a wire defect — LASTREPORTED-1; F2 → FE-NULL-1; EXPLAIN-1..10 → the v1.1.4 batch; DESIGN: start lawful) · the B-7 ADR drafted (chain-ready, not computed) · NICK'S DIRECTIVE → the STATE-OF-THE-PROGRAM assessment + trajectory + hygiene program filed (seven words; HIVE-CLEAN-1 · W-SKILLS-8 dispatch lines), Sun ~12:04 CT (instrument 2026-09-06T17:04Z). Order: hivemind 8 = 4 M + 4 A.)
+
+## chain segment rotated 2026-09-06 (v66 beat 9) — v66 b7, verbatim
+
+Prior: 2026-09-06 (v66 beat 7 — RS-12-F returned + audited ACCEPT (no displacement; the listener test measured; the POST-HOC row on the card; Tuesday stands) · THE RIG DID NOT HAPPEN (a time-gated act held behind the report chain — owned; H8: tonight | Tue is Nick's word) · the session synthesis + decision record filed under DELEGATE (D1–D7) · F-R4-1b's dispatch handed on d192d17, Sun ~16:25 CT (instrument 2026-09-06T21:25Z). Order: hivemind 8 = 5 M + 3 A.)

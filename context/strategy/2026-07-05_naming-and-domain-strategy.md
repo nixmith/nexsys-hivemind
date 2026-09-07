@@ -1,3 +1,6 @@
+<!--
+status: REFERENCE — 2026-07-05 — superseded-by: context/strategy/brand-program/2026-09-02_successor-name_plan-of-record_two-track.md
+-->
 # Naming & Domain Strategy — evaluation of your candidates
 
 **Date:** 2026-07-05 (rev. 2 — updated: you own `asimtote.com` + variants)

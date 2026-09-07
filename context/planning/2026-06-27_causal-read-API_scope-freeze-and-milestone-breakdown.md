@@ -3,7 +3,7 @@ file: context/planning/2026-06-27_causal-read-API_scope-freeze-and-milestone-bre
 purpose: The v9 hub's strategic scope-freeze + milestone breakdown for the thin causal-read-API — the next Core slot after the M7.4 arc. Right-sizes the read-API per P1 (size visible at scoping), pins the IN/OUT line against the FROZEN v1.1 dashboard read-API contract, and sequences the sub-milestones. The authority the M-RA coding instructions build against.
 audience: Nick (scope authority — this operationalizes his delegation "drive the core forward"), the v9 PM hub (authors the M-RA instructions to this), the Coder (builds to it), the Web-UI lane (consumes the same v1.1 contract).
 state-type: planning / scope-freeze + milestone breakdown
-status: PROPOSED 2026-06-27 (v9 hub) — Nick delegated the read-API scope call; this is that call. Folds into the backlog M-RA rows on co-sign.
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: PROPOSED 2026-06-27 (v9 hub) — Nick delegated the read-API s
 baseline: core db8ab5f (the M7.4 arc COMPLETE — the live pipeline produces RunCausalChain + the run-lifecycle/dispatch/confirmation events the read-API projects). docs 75d0345 (Doc 09 REST / Doc 13 Web-UI / Doc 16 RunCausalChain — Locked).
 anchors: context/decisions/2026-06-21_dashboard-read-API-contract-freeze.md (the FROZEN v1.1 contract — the binding shapes) · context/decisions/2026-06-20_V1-launch-scope_decision-record.md (the thin slice; "must not balloon into all of M12") · context/planning/2026-06-26_v6-forward-plan_execution-refresh.md (Core sequence: read-API → AB-4 → M9).
 -->

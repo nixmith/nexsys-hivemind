@@ -4,6 +4,7 @@ purpose: NICK'S PRE-CALL STANCE OF RECORD (2026-08-31 evening, verbatim below th
 audience: the v60 hub · Nick · the post-call scoping ruling
 state-type: founder position (pre-call; superseded by the post-call ruling)
 hub notes (two grounding lines, appended at filing): (1) the office-action budget should become a NUMBER on the call (ask what a response cycle actually costs at their rates) so "budgeted, not a crisis" is priced, not assumed; (2) FILE ≠ any public-use unlock — the G-2 fence (no public use before a written-opinion-backed R-1) survives the filing untouched, and heavy brand spend stays R-1-gated behind the first office action where practical (RS-6 §5). Otherwise the hub concurs with this stance as written and finds it evidence-grounded at the audited record (RS-6 + the beat-10 audit).
+status: REFERENCE — 2026-08-31 — superseded-by: context/strategy/brand-program/2026-08-31_pelton-results_B-MIXED_classification_and_hub-assessment.md
 -->
 
 # Nick's pre-call stance (verbatim, 2026-08-31)

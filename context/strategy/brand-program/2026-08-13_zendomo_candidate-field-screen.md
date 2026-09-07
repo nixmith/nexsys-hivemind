@@ -5,6 +5,7 @@ audience: Nick; engaged counsel (as a candidate brief); the hub.
 state-type: hub deliverable (brand-program; screen receipts dated 2026-08-13).
 not-a-lawyer: standing caveat — this is a desk screen and strategy frame, not clearance and not legal advice. The §2(d)/registrability read is counsel's; the register carries marks no web screen surfaces (phonetic equivalents especially — the TAMORO precedent: the free layer screened CLEAN and the paid search then surfaced TOMORO-adjacent conflicts in four directions). G-2 remains the only graduation.
 sibling-precedent: 2026-07-22_tamodo-candidate-field-screen.md (format + method); the TAMORO verdict of record: ../counsel-package/2026-08-13_pelton-search-report_intake-adjudication.md.
+status: REFERENCE — 2026-08-13 — superseded-by: context/strategy/brand-program/2026-08-31_RS6_zendomo-filing-decision_research-charter.md
 -->
 
 # ZENDOMO — Candidate Field Screen (2026-08-13)

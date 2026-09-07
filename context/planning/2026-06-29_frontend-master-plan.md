@@ -3,7 +3,7 @@ file: context/planning/2026-06-29_frontend-master-plan.md
 purpose: The Frontend Master Plan — a research-backed, critically-analyzed plan for ALL remaining frontend work across BOTH surfaces (the observability dashboard + the marketing website), grounded in the verified built state + the Locked contracts + the prior brand/UX research. PLANNING ONLY — the build lane executes against this; this session does not build.
 audience: Nick (scope + strategy authority; deep on backend, largely new to frontend — so this is written to be LEGIBLE and decision-supporting for a non-frontend-expert); the PM mission-control hub (reconciles this into the spine + hands it to the frontend build lane); the frontend build lane (executes it).
 state-type: planning / strategy (one deep planning arc → this plan). Decision-support, not a build spec.
-status: DRAFT FOR NICK 2026-06-29 (frontend strategy + planning lane, nexsys-frontend role in PLANNING register). Routes to the hub for reconciliation; the BLOCKING decisions in §5 are Nick's to rule.
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: DRAFT FOR NICK 2026-06-29 (frontend strategy + planning lane
 anchors (truth this plan is built ON — pointer-not-copy; cite, never copy a token value or contract shape):
   - BUILT STATE (rank-1): homesynapse-core/web-ui/dashboard/src/ · FRONTEND_DOCTRINE.md · MODULE_CONTEXT.md
   - FROZEN contract (consume, never invent): context/decisions/2026-06-21_dashboard-read-API-contract-freeze.md (v1.1)

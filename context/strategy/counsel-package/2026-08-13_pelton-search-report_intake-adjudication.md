@@ -6,6 +6,7 @@ state-type: intake adjudication + decision analysis (append-only record; rulings
 not-a-lawyer: the hub is not a lawyer; nothing here is legal advice. Counsel's written analysis (filed as Exhibit, below) is the professional instrument; this file adjudicates its intake and frames the BUSINESS decision Nick asked for.
 exhibits-filed-this-beat: exhibits/2026-08-11_pelton-comprehensive-search_summary-and-analysis.pdf (the 7-page report; Erik Pelton signature, dated Aug 11, 2026) · exhibits/2026-07-28_TMReady_word-search-report_TAMORO.docx (the enclosed raw search data, July 28, 2026 — USPTO + WIPO + 50 states + common law + domains).
 provenance: delivered by counsel via email Tue 2026-08-11 ~20:00 CT ("see attached search report and data. Let us know if you have any questions or want to discuss – or want to proceed with an application at the USPTO."); handed to the v52 hub as its first intake 2026-08-13 with Nick's thoughts (ZENDOMO successor proposal — screened at ../brand-program/2026-08-13_zendomo_candidate-field-screen.md).
+status: REFERENCE — 2026-08-13 — superseded-by: context/strategy/brand-program/2026-08-31_pelton-results_B-MIXED_classification_and_hub-assessment.md
 -->
 
 # Pelton Comprehensive Search — Intake Adjudication + Disposition Analysis (v52 beat 1)

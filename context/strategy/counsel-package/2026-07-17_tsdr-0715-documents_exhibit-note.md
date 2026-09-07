@@ -4,6 +4,7 @@ purpose: Reading of the three July 15, 2026 TSDR documents (Nick-pulled 2026-07-
 audience: engaged counsel; Nick; the hub.
 state-type: lane deliverable (counsel-navigator, 2026-07-17).
 not-a-lawyer: a factual document reading by a non-lawyer (+AI); legal significance is for counsel.
+status: REFERENCE — 2026-07-17 — superseded-by: context/strategy/counsel-package/2026-08-01_tsdr-audit-2_sn79411529.md
 -->
 
 # The July 15, 2026 TSDR Documents — Reading + Reclassification (proposed Exhibits G/H/I)

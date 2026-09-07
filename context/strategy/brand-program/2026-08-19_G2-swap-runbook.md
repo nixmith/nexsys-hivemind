@@ -5,6 +5,7 @@ audience: Nick (executes the operator blocks) + the hub (authors the flip WU + a
 state-type: strategy / execution runbook (ARMED-INERT until G+R; nothing here authorizes any public act before G-2 — the standing no-public-use law binds).
 laws: no public use of any candidate before G-2 (tracker law) · the D-1 DO-NOT-SAY fence survives the rename VERBATIM on every surface until R-4 lifts it (H9) — a rename never touches claim language · historical records are NEVER rewritten (the spine, archives, beats, audits, Locked docs keep the working name; pointer-not-copy) · deletion never (rebuild-or-archive) · census-exact commits, one msg per order.
 filed: 2026-08-19 (v54 hub, beat 3).
+status: REFERENCE — 2026-08-19 — superseded-by: none
 -->
 
 # The 48-Hour Brand-Swap Runbook ({{NAME}}; armed on G-2-clean + R-1)

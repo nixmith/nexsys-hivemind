@@ -3,7 +3,7 @@ file: context/instructions/2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md
 purpose: THE DISPATCH for W-SKILLS-7 — Lane A of the refinement program (the charter `context/planning/2026-09-05_v64_effectiveness-second-check_and_refinement-program_charter.md` §3 Lane A + §4 the fences + §6 Nick's guards), shaped by `context/process/deep-work-window_protocol.md` §2 (the deliverable · the read-set · the predictions · the fences · the clock). A fresh Cowork window with `ClaudeFolder` connected; the lane WRITES, the hub audits and commits (hivemind + skills are hub-run at the bridge); Nick re-syncs the account skills once after the commit.
 audience: the W-SKILLS-7 lane (reads this whole; then the read-set, in order, nothing older) · Nick (the one-paste line at §7) · the v65 hub (the audit rules at §6)
 state-type: lane dispatch (ruling-slotted: Nick's words `REFINE: go` · `W-SKILLS-7: fresh-window` given 09-05)
-status: AUTHORED v65 beat 1a (Sat 2026-09-05 ~21:42 CT; instrument 2026-09-06T02:42Z) under Lane C (guard 1) and after the CG line was handed (guard 4, the v65 brief Act 1). Dispatches on Nick's paste.
+status: SUPERSEDED 2026-09-07 — by: context/instructions/2026-09-07_W-SKILLS-8_skills-pass_lane-dispatch.md (which reads this file whole) · was: AUTHORED v65 beat 1a (Sat 2026-09-05 ~21:42 CT; instrument 2
 -->
 
 # W-SKILLS-7 — the three role skills gain the v63 + v64 laws, in their ledgers, SKILL.md byte-unchanged

@@ -3,7 +3,7 @@ file: context/programs/matter-design/returns/A1_stack-survey_return.md
 purpose: Lane A1 return — the evidence-cited state of every route by which a Java 21 JPMS local-first event-sourced system can act as a Matter controller. Options dossier; NO winner (the fit-walk is A3's, the choice is Nick's at memo B1).
 audience: the Matter design-program hub (two-layer audit); lane A3 (fit-walk consumer — §3.3 WS-seam enumeration + §6 sidecar evidence are its inputs); lane A5 (license pins, §7); Nick (B1 ruling evidence).
 state-type: assessment / research return (point-in-time; every ecosystem claim carries confidence + as-of date; re-verify at consumption).
-status: RETURN READY for hub audit — authored 2026-07-19 by the A1 stack-survey research lane (write-isolated; this file is the lane's only repo write). Research executed via four parallel evidence sub-lanes (~100 primary-source fetches, all dated 2026-07-19).
+status: PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter horizon (Strategy v1.2) · was: RETURN READY for hub audit — authored 2026-07-19 by the A1 s
 confidence-key: [VERIFIED-current] = fetched from an authoritative/primary source this lane session (2026-07-19) · [community-reported] = forums/blogs/secondary press · [inference] = this lane's reasoning from cited facts (reasoning stated) · [banked] = already held in a cited repo doc (pointer, not re-research). LICENSE claims are verified at the LICENSE file itself, not repo sidebar labels.
 -->
 

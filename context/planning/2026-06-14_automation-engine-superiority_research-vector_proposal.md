@@ -3,7 +3,7 @@ file: context/planning/2026-06-14_automation-engine-superiority_research-vector_
 purpose: PM research-vector proposal (Nick-requested 2026-06-14, Track-4) — the candidate research avenues to make the HomeSynapse automation engine FAR superior to Home Assistant / Apple Home / Google Home, top-tier across local-first, cloud-dependent, and hybrid deployments, and safely scalable to arbitrarily large/complex homes AND enterprise. This is a PROPOSAL the PM hands to Nick for approval/sequencing — not a decision and not a research brief itself. Candidate briefs registered here feed the research agenda.
 audience: Nick (approves + sequences), PM, the M7.x design sessions, the Track-2 app-bootstrap charter session
 state-type: planning / research-vector proposal
-status: DRAFT 2026-06-14 — registered in research-agenda.md (Track-3/4 addendum). Dispatch sequencing: AFTER the M7.1/M7.2 design beats land, so each brief pressure-tests a real engine, not a blank sheet (the same discipline that made R-δ land — assess against shipped ground, not aspiration).
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: DRAFT 2026-06-14 — registered in research-agenda.md (Track-3
 baseline: homesynapse-core HEAD 1eddd9a (M6 COMPLETE 4-of-4; M7.1 trigger/condition path ISSUED). Grounds: the R-δ competitive deep-dive + assessment (AX-1..AX-10); Doc 07 (Automation Engine, Locked + AMD-25); AMD-88/89/90/91/92/93; the merged-disposition M7/M8 charter; the M7.1 instruction (SD-1..SD-9).
 -->
 

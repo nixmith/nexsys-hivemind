@@ -2,7 +2,7 @@
 file: context/pre-verifications/WU-DASH-SERVE.md
 purpose: Pre-verification pins for WU-DASH-SERVE (the dashboard serve path: package + mount + the ruled auth exemption). Every P-item below is an OBSERVED source signature, read at core HEAD `2040a66` on 2026-07-27 by the v39 hub (remote session; reads via the Filesystem-MCP host-truth route + git-object reads per env-model §12). The Coder verifies each pin against the working tree BEFORE executing; any mismatch is a STOP-and-report, never an improvise.
 audience: Coder (read before the instruction), hub (audit layer-2 anchor).
-status: ISSUE-READY 2026-07-27 (v39 hub, beat 1). Companion instruction: context/instructions/2026-07-27_DASH-SERVE_dashboard-serve-path_coding-instruction.md
+status: CONSUMED by DASH-SERVE · was: ISSUE-READY 2026-07-27 (v39 hub, beat 1). Companion instruct
 -->
 
 # WU-DASH-SERVE — Pre-Verification (P0–P15)

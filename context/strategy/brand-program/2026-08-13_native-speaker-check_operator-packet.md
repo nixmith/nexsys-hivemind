@@ -5,6 +5,7 @@ audience: Nick (posts the gigs; pastes results back); the hub (folds results int
 state-type: operator packet (execute Sat per the weekend plan §3; results expected 24–72 h per gig).
 disclosure-hygiene: reveal NOTHING about the company, the product's specifics, or which name is preferred. The names are "candidates under consideration for a smart-home product." No urgency signals. Screen-name accounts are fine.
 budget: ~$10–20/gig × 6 ≈ $60–120 total. Venue: Fiverr ("proofreading/localization" + language) or Upwork; filter for NATIVE speakers currently living in-country; 5-star history; deliver-in-48h.
+status: REFERENCE — 2026-08-13 — superseded-by: context/strategy/brand-program/native-speaker-results/2026-08-19_results-bank_and_adjudication.md
 -->
 
 # Native-Speaker Check — Operator Packet (post Sat; ~30–45 min total)

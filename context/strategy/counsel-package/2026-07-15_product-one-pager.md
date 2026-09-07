@@ -4,6 +4,7 @@ purpose: Counsel-package item (a) — what TAMORO actually brands, in plain Engl
 audience: engaged counsel (after G-1); Nick.
 state-type: lane deliverable (counsel-navigator, 2026-07-15). Sources: PROJECT_SNAPSHOT (2026-07-15), the 2026-07-10 positioning notes, the 2026-07-05 strategy docs, the memo Part 3/8.
 not-a-lawyer: prepared by the prospective client (+AI); facts for counsel's use, not legal analysis.
+status: REFERENCE — 2026-07-15 — superseded-by: none
 -->
 
 # TAMORO — What the Mark Will Actually Brand (Product One-Pager for Counsel)

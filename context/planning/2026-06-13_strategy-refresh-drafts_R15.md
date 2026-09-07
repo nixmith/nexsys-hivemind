@@ -3,7 +3,7 @@ file: context/planning/2026-06-13_strategy-refresh-drafts_R15.md
 purpose: The merged-disposition §2f strategy-refresh drafts — six items + the file-4-vs-file-2 data-monetization reconciliation line. PM-drafted, insert-ready text per target file; NICK VETOES CONTENT before any of it touches the strategy layer. Nothing here is folded into context/strategy/ until vetoed.
 audience: Nick (veto/approve per item), PM (folds approved items), M5-C session (shares the same copy)
 state-type: planning (draft-pending-veto)
-status: DRAFT 2026-06-13 — authored at the M7-AMD-block session (W25 Lane 6). Per-item veto: strike what you don't want, the rest folds.
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: DRAFT 2026-06-13 — authored at the M7-AMD-block session (W25
 anchors: context/assessments/2026-06-12_Research_15_PM_Assessment.md (Step D re-run + Step F note 2); merged disposition §2f; context/strategy/ files 1–5
 -->
 

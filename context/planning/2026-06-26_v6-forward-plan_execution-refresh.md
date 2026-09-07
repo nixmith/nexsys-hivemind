@@ -3,7 +3,7 @@ file: context/planning/2026-06-26_v6-forward-plan_execution-refresh.md
 purpose: The v6 hub's execution-layer refresh of the V1 launch-scope record — the gate-anchored ~7-week plan from 2026-06-26 to the mid-August go/no-go, under Nick's "full parallel fleet now" ruling. Refreshes the V1 record's execution view to the post-§1 / M7.3-done / Wave-1-on-the-bench / Doc-17-review-passed state; the V1 record (2026-06-20, RATIFIED) remains the SCOPE AUTHORITY (the IN/OUT line, Nov 25, the four gates) — this does not supersede it, it operationalizes it.
 audience: Nick, the v6 PM hub, the four lanes (Core / Web-UI / Distribution / Bench).
 state-type: planning / execution refresh
-status: ACTIVE — authored 2026-06-26. Ruling: Nick co-signed "full parallel fleet now" (run all four lanes concurrently; execute the V1-ruled parallel model rather than drift to Core-serial).
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: ACTIVE — authored 2026-06-26. Ruling: Nick co-signed "full p
 anchors: context/decisions/2026-06-20_V1-launch-scope_decision-record.md (the scope authority — D1–D5, the wave, the Nov-25 backward schedule, the mid-August go/no-go) + the M7.2b co-sign/M7.3-into-V1 addendum; context/decisions/2026-06-25_deeper-M7-automation-architecture_decision-record.md (§1 D1–D5, RATIFIED); context/planning/phase-3-milestone-backlog.md (M7.4 NEXT); context/planning/2026-06-22_hardware-bench-bringup-and-device-characterization_brief.md (the bench); the frontend-dev + distribution-skeleton lane prompts.
 -->
 

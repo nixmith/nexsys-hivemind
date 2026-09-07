@@ -6,6 +6,7 @@ state-type: decision package (rulings fold at the shortlist word; the pm-handoff
 not-a-lawyer: standing caveat — every screen here is a desk screen, not clearance; register truth rides the paid search; nothing is "cleared" until counsel's written opinion (G-2). The §2(d)/registrability reads are counsel's lane.
 ruling-fold: 2026-08-13 evening — Nick's N-rulings folded (§3b + §7): N-1 PRIMARY = ZENDOMO (F-1 primary CLOSED; hedge slot OPEN-HELD); N-2 EVERDOMO declined-closed on taste; N-3 delegated → hub decided SEND-tonight; N-4 YES (the operator packet is the instrument); N-5 hold affirmed + the push-carefully tempo (the gate-weekend plan is the instrument). VEROCOM screened in; VERDOMO re-flagged bench-pending-NL-data. Record of record: pm-handoff v52 beat 3.
 grounding: 2026-08-13_pelton-search-report_intake-adjudication.md (the TAMORO verdict + rulings Q-A/Q-B) · 2026-08-13_zendomo_candidate-field-screen.md (the ZENDOMO screen of record) · 2026-07-22_brand-architecture_decision-package.md (Architecture C, ruled; name-agnostic) · 2026-07-05_product-name-candidates.md + 2026-07-05_naming-and-domain-strategy.md (the July funnel + the exact-.com doctrine) · the v36 beat-4 rulings (archive: VEROMO declined-on-taste · TAMODO demoted · the graduated adverse-branch instrument) · screen receipts dated 2026-08-13 (§8).
+status: REFERENCE — 2026-08-13 — superseded-by: context/strategy/brand-program/2026-09-02_successor-name_plan-of-record_two-track.md
 -->
 
 # Naming Program v2 — Criterion, Doctrine, Slate, Process, Legal Roadmap

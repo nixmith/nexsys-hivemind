@@ -3,7 +3,7 @@ file: context/programs/matter-design/dispatches/2026-07-19_A5_integration-2-and-
 purpose: Dispatch prompt for research lane A5 — integration #2 beyond Matter (re-derived against today's state) + the certification/CSA-membership posture as a commercial decision framed for Nick.
 audience: a fresh write-isolated Cowork research lane (NOT the PM hub; do not load the PM skill).
 state-type: session prompt (lane dispatch).
-status: READY — authored 2026-07-19 by the Matter design-program hub (launch beat 1).
+status: PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter horizon (Strategy v1.2) · was: READY — authored 2026-07-19 by the Matter design-program hub
 -->
 
 # Lane A5 — Integration #2 + the Certification Posture (commercial framing; Nick rules)

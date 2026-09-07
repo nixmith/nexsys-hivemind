@@ -4,6 +4,7 @@ purpose: §4 execution — the shortlist of 3 (+2 alternates), with receipts, an
 audience: Nick (sends; rules G-1 after consults).
 state-type: lane deliverable (counsel-navigator, 2026-07-15).
 not-a-lawyer: research screens by a non-lawyer (+AI); every claim carries (source, date). Nothing here is legal advice or an endorsement of counsel quality — the §4 consult protocol is the vetting instrument.
+status: REFERENCE — 2026-07-15 — superseded-by: context/strategy/counsel-package/2026-07-21_engagement-tracker.md
 -->
 
 # Attorney Shortlist + Intro Emails (§4 execution, 2026-07-15)

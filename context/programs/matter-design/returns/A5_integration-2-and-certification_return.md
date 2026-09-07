@@ -3,7 +3,7 @@ file: context/programs/matter-design/returns/A5_integration-2-and-certification_
 purpose: Lane A5 return — (i) the integration-#2 ranking re-derived against the 2026-07-19 state (Matter design program running; M14 conditional standing; Gen4-stimulus rider in force), packaged as the B5 sequencing frame; (ii) the certification / CSA-membership / trademark posture as a commercial decision brief, packaged as the B4 options table. Evidence and RECs fenced throughout; Nick rules at B4/B5.
 audience: the Matter design-program hub (two-layer audit → Phase B memos B4/B5); Nick (the rulings).
 state-type: assessment (point-in-time; every dollar figure and policy claim carries a fetch date; re-verify at consumption).
-status: RETURN READY for hub audit — authored 2026-07-19 by the A5 research lane (write-isolated; this file is the lane's only repo write).
+status: PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter horizon (Strategy v1.2) · was: RETURN READY for hub audit — authored 2026-07-19 by the A5 r
 confidence-key: [VERIFIED-current: URL, fetched YYYY-MM-DD] = fetched from an authoritative/primary source this session · [community-reported: URL] = secondary press/forums/vendor explainers · [inference — reasoning stated] = this lane's reasoning from cited facts · [banked: repo-path §] = already held in a cited repo doc (pointer, not re-research).
 -->
 

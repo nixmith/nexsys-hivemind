@@ -3,7 +3,7 @@ file: context/planning/2026-06-13_side-research-candidates_CORE-DOCS.md
 purpose: Enumerated side-research candidates for the two Claude Projects (CORE / DOCS) — the open technical questions worth investigating in parallel to provide insight and technical guidance for upcoming Core milestones. Companion to the 2026-06-13 next-coding-instruction session prompt.
 audience: Nick, PM
 state-type: planning / research-agenda delta
-status: READY — Nick selects + dispatches (veto-or-default); each lands as an R-series return, PM-assessed
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: READY — Nick selects + dispatches (veto-or-default); each la
 -->
 
 # Side-Research Candidates — CORE / DOCS Projects (2026-06-13)

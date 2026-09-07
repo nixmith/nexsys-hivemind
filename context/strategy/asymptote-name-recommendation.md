@@ -1,3 +1,6 @@
+<!--
+status: REFERENCE — 2026-06-19 — superseded-by: context/strategy/brand-program/2026-09-02_successor-name_plan-of-record_two-track.md
+-->
 # Naming Decision: the "asymptote" coinage
 
 **Scope:** spelling selection for a coined, fanciful, ownable brand (Googol/Sonos model). Surface scan only — **not** legal clearance. Date of research: **12 June 2026**.

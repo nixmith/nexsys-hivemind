@@ -4,6 +4,7 @@ purpose: §4 vetting instrument — the consult questions with what GOOD and BAD
 audience: Nick (runs the consults; rules G-1).
 state-type: lane deliverable (counsel-navigator, 2026-07-15).
 not-a-lawyer: a vetting aid by a non-lawyer (+AI), not legal advice.
+status: REFERENCE — 2026-07-15 — superseded-by: context/strategy/counsel-package/2026-07-21_engagement-tracker.md
 -->
 
 # Consult Scorecard (30 minutes; memo sent ahead)

@@ -3,7 +3,7 @@ file: context/planning/2026-09-03_next-sessions_PROGRAM_v62-onward.md
 purpose: THE NEXT-SESSIONS PROGRAM — Nick's ask (2026-09-03 ~04:20Z): plan the next work sessions (research, coding, hardware, brand, process) to use our time optimally and COMPOUND progress on the source code and the smart-home functionality. Authored at v61 beat 9 on the measured state (F-R4-1 returned + audited ACCEPT; O-2 measured; RS-9 audited; the posture ruling adopted by Nick). Governs session ordering until the September plan of record is re-spliced on the sitting's words; the spine outranks this file where they differ.
 audience: Nick (his acts, hours, and calendar) · the hub (session mandates, in order)
 state-type: program (planning)
-status: LIVE from v61 beat 9. Re-splice on: the sitting's words · the F-R4-1 CI verdict · Erik's reply · the R-4b outcome.
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: LIVE from v61 beat 9. Re-splice on: the sitting's words · th
 -->
 
 # The next sessions — ordered to compound

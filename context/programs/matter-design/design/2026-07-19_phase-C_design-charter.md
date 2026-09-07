@@ -3,7 +3,7 @@ file: context/programs/matter-design/design/2026-07-19_phase-C_design-charter.md
 purpose: The Phase-C authoring charter — the self-contained brief from which the Doc-19-class Matter integration design DRAFT is authored to the full DESIGN_DOC_TEMPLATE bar. Carries the ruled design law (B1–B5 + Nick's sharpenings), the per-section input inventory, the BLOCKING-question inventory, the adversarial-review lane plan, and the continuation line. Authorable by this program hub or a fresh program-hub session (ONE at a time).
 audience: the program hub (the author); the independent adversarial review lane (reads the same charter); Nick (rulings already landed — this file executes them).
 state-type: charter (Phase C of the Matter design program; write-isolated).
-status: ACTIVE — authored 2026-07-19 at beat 3, on the B1–B5 rulings.
+status: PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter horizon (Strategy v1.2) · was: ACTIVE — authored 2026-07-19 at beat 3, on the B1–B5 rulings
 continuation line (if a fresh session authors): Follow all instructions in nexsys-hivemind/context/programs/matter-design/design/2026-07-19_phase-C_design-charter.md — /nexsys-project-manager  (first act: read 00_PROGRAM_STATUS.md in full, then this file, then the required reads §4; the prior program-hub session retires on this launch.)
 -->
 

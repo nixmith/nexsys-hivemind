@@ -5,6 +5,7 @@ audience: Nick (rules the branch); the hub (executes the ruled branch: the reply
 inputs-of-record: the field bank (`native-speaker-results/2026-08-19_results-bank_and_adjudication.md` — ZENDOMO clean ×6; hedge REC VERDOMO) · the swap runbook (`2026-08-19_G2-swap-runbook.md`, armed-inert) · the naming package §6 (the eight-step legal roadmap) + money map v2 · the tracker (search RUNNING; results ~Aug-27/28) · the gate-weekend plan §5 funnel (G-2 → R-1 → 48-h swap → opinion → LLC → §1(b) ~early-Sep).
 not-a-lawyer: research + decision-staging by a non-lawyer (+AI); nothing here is legal advice; counsel's written opinion is the only clearance instrument (G-2's own definition).
 filed: 2026-08-20 (v54 hub, beat 4).
+status: REFERENCE — 2026-08-20 — superseded-by: context/strategy/brand-program/2026-08-29_G2-brief_S2-scaffold-conform_addendum.md
 -->
 
 # G-2 Readiness — The Decision Brief (rule one branch, execute same-day)

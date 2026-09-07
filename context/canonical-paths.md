@@ -5,7 +5,7 @@ audience: All
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-08-18 (R-11 lane — REBUILT at the same path per the rebuild-or-archive charge; the ⚠ quarantine banner of 2026-08-10 (v50 beat 6, W-COHERE gap row 3) is LIFTED with this rebuild. Directory census re-derived from the live tree at hivemind 45dd100; the wrong "no-longer-exist" entries (context/governance/ · context/research/ — both load-bearing) are corrected; every post-May directory class added. Worktree only; the hub audits, Nick commits.) Prior: 2026-05-21 against `homesynapse-core` commit `dfb045e`
+last-verified: 2026-09-07 (HIVE-CLEAN-1 lane — § The archive convention added; `weeks/` re-pointed to `archive/weeks/`; `open-questions.md` path updated to `context/archive/`. Worktree only; the hub audits, Nick commits.) Prior: 2026-08-18 (R-11 lane — REBUILT at the same path per the rebuild-or-archive charge; the ⚠ quarantine banner of 2026-08-10 (v50 beat 6, W-COHERE gap row 3) is LIFTED with this rebuild. Directory census re-derived from the live tree at hivemind 45dd100; the wrong "no-longer-exist" entries (context/governance/ · context/research/ — both load-bearing) are corrected; every post-May directory class added. Worktree only; the hub audits, Nick commits.) Prior: 2026-05-21 against `homesynapse-core` commit `dfb045e`
 -->
 
 # Canonical Paths Registry
@@ -21,12 +21,19 @@ last-verified: 2026-08-18 (R-11 lane — REBUILT at the same path per the rebuil
 - Decisions: `context/decisions/` · Rationale index: `context/process/decision-rationale-index.md`
 - Process (cold-boot + standing disciplines): `context/process/` (env-model, playbook, truth-hierarchy, working-with-nick, infrastructure-map, this register's sibling files)
 - Protocols: `context/protocols/work-unit-completion-protocol.md` (+ `archive/`)
-- Planning: `context/planning/` — `phase-3-milestone-backlog.md`, `master-release-plan.md`, `research-agenda.md`, `months/`, `weeks/` (**weekly plans RETIRED** — Nick 2026-08-09; historical only), `archive/`
+- Planning: `context/planning/` — `phase-3-milestone-backlog.md`, `master-release-plan.md`, `research-agenda.md`, `months/`, `archive/` (incl. `archive/weeks/` — **weekly plans RETIRED** — Nick 2026-08-09; moved under `archive/` by HIVE-CLEAN-1 2026-09-07; historical only)
 - Strategy: `context/strategy/` + subtrees `brand-program/` · `counsel-package/` · `fusion-program/` (inventory + read rules: `context/strategy/README.md`)
 - Governance: `context/governance/project-instructions.md` (thin front door — EXISTS and is load-bearing)
 - Research: `context/research/` (charter inputs + research-lane returns landing in the hivemind — EXISTS and is load-bearing)
 - Lessons: `context/lessons/{coder,pm,strategic}-lessons.md` (+ `archive/`)
-- Also live: `context/open-questions.md` (CLOSED channel — historical register) · `context/pre-verifications/` · `context/programs/matter-design/` · `context/coding-instructions/archive/` · `context/relay/archive/` · `context/status/archive/`
+- Also live: `context/archive/open-questions.md` (CLOSED channel — historical register) · `context/pre-verifications/` · `context/programs/matter-design/` · `context/coding-instructions/archive/` · `context/relay/archive/` · `context/status/archive/`
+
+## The archive convention (HIVE-CLEAN-1, 2026-09-07)
+
+(i) An executed OPERATIONAL file (prompt · packet · brief · dispatch text · instruction · lane brief) lives in its own directory's `archive/` (`context/handoff/archive/prompts/` for orchestrator prompts, `context/handoff/archive/<yyyy-mm>/` for packets/briefs/dispatch texts, `context/instructions/archive/` for instructions and lane briefs) with a status-line PREFIX — `EXECUTED <date> — return: … · audit: … · was: …` or `SUPERSEDED <date> — by: … · was: …` — and its body untouched. The evidence trees (`context/audits/**` · `context/assessments/**` · `context/research/**`) never move.
+(ii) A cited path that is not found is looked up in `<dir>/archive/` (same filename) before it is called missing.
+(iii) A `status:` line is an audited claim about NOW: `LIVE` / `READY` / `ISSUE-READY` / `DISPATCH-READY` are asserted only of work not yet done; what is over carries the prefix and keeps its original text after `· was:`.
+(iv) The invariant (Check 12 of the freshness preflight): `grep -l '^status: \(ISSUE-READY\|DISPATCH-READY\|LIVE\|READY\)' context/instructions/*.md` minus the live dispatches reads 0 · `grep -l '^status: LIVE' context/handoff/*orchestrator_session_prompt.md` minus the current version reads 0 · `git ls-files 'context/planning/weeks/*'` reads 0.
 
 ## File naming
 
@@ -54,7 +61,7 @@ last-verified: 2026-08-18 (R-11 lane — REBUILT at the same path per the rebuil
 
 ## Inter-agent message kinds (SUPERSEDED 2026-08-18)
 
-The typed-message channels are retired — the beat spine absorbed them (W-COHERE gap row 7; ruled at the R-11 disposition, hub ratifies): questions, escalations, and cross-agent facts ride pm-handoff beats, lane returns, and dispatch packets. `context/open-questions.md` is a closed historical register; `cross-agent-notes.md` is an archived pointer stub; the `[FORESIGHT-NOTE] → coder-handoff §Foresight Notes` route pointed at a section that never existed in the live file and is void.
+The typed-message channels are retired — the beat spine absorbed them (W-COHERE gap row 7; ruled at the R-11 disposition, hub ratifies): questions, escalations, and cross-agent facts ride pm-handoff beats, lane returns, and dispatch packets. `context/archive/open-questions.md` is a closed historical register; `cross-agent-notes.md` is an archived pointer stub; the `[FORESIGHT-NOTE] → coder-handoff §Foresight Notes` route pointed at a section that never existed in the live file and is void.
 
 ## Directories that NO LONGER EXIST (catch stale references — corrected 2026-08-18)
 

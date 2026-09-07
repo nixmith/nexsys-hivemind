@@ -4,6 +4,7 @@ purpose: Counsel-package item (c) — everything secured (registrar, dates) vs o
 audience: engaged counsel; Nick.
 state-type: lane deliverable (counsel-navigator, 2026-07-15). Update on every claim/purchase (each is a §6 one-liner).
 not-a-lawyer: inventory of facts; the buy/wait calls are Nick's business decisions, not legal advice.
+status: REFERENCE — 2026-07-15 — superseded-by: context/strategy/brand-program/2026-07-23_domain-handle-claims-refresh.md
 -->
 
 # Domain & Handle Claims Inventory (as of 2026-07-15)

@@ -3,7 +3,7 @@ file: context/programs/matter-design/dispatches/2026-07-19_A3_architecture-fit_l
 purpose: Dispatch prompt for research lane A3 — every A1 stack option walked against HomeSynapse's invariants, seams, and process model. Output: a fit matrix, not a winner.
 audience: a fresh write-isolated Cowork research lane (NOT the PM hub; do not load the PM skill). Repo-read-heavy; web only to confirm stack facts A1 also covers.
 state-type: session prompt (lane dispatch).
-status: READY — authored 2026-07-19 by the Matter design-program hub (launch beat 1).
+status: PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter horizon (Strategy v1.2) · was: READY — authored 2026-07-19 by the Matter design-program hub
 -->
 
 # Lane A3 — Architecture Fit (options × OUR invariants; a fit matrix, not a winner)

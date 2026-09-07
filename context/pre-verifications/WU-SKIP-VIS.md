@@ -2,7 +2,7 @@
 file: context/pre-verifications/WU-SKIP-VIS.md
 purpose: Pre-verification artifact for WU-SKIP-VIS (per the M3.6d protocol — every assumed source element observed at authoring, with signatures, so the Coder verifies rather than trusts). All observations 2026-07-26, host-truth reads at core HEAD `4bc1258` (worktree clean ≡ HEAD; lock-free porcelain 0).
 audience: Coder (read BEFORE the instruction; re-verify each pin at execution — mismatch ⇒ STOP + report), PM hub (layer-2 anchor).
-status: CURRENT at authoring. Companion: context/instructions/2026-07-26_SKIP-VIS_explanation-honesty_coding-instruction.md
+status: CONSUMED by SKIP-VIS · was: CURRENT at authoring. Companion: context/instructions/2026-0
 -->
 
 # WU-SKIP-VIS — Pre-Verification (P0–P14)

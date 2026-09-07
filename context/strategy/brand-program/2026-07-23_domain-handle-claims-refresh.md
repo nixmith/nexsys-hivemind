@@ -5,6 +5,7 @@ audience: Nick; the hub; the counsel lane (as input to its next inventory pass).
 state-type: lane deliverable (brand-program; screen receipts dated 2026-07-23).
 not-a-lawyer: availability screens by a non-lawyer (+AI); registrar-grade confirm required before any spend; nothing here is clearance; no public use of any candidate mark before G-2 (the standing counsel discipline).
 method: domains via Google DNS-over-HTTPS (dns.google/resolve, NS records; NXDOMAIN = available-signal, NOERROR = registered; the coromni caveat stands — NXDOMAIN can mask registered-undelegated, confirm at registrar). Handles via direct HTTPS profile probes from the cloud session; several platforms block automated reads (recorded honestly as INCONCLUSIVE, with the one-minute desk check named).
+status: REFERENCE — 2026-07-23 — superseded-by: none
 -->
 
 # Domain & Handle Claims Refresh — screens of 2026-07-23

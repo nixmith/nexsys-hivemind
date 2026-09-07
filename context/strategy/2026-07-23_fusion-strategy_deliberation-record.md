@@ -4,6 +4,7 @@ purpose: The deliberation of record for the moat/beachhead/standards/"fusion" st
 audience: the fusion-strategy deliberation session (primary consumer); Nick; the hub (audit + spine pointers).
 state-type: strategy deliberation record (point-in-time capture, 2026-07-23; authored by the brand-program lane session at Nick's direct charge — outside that lane's original write scope, flagged for hub audit; Nick commits explicit-paths as always).
 grounding: the 2026-07-23 in-conversation exchange (primary) · Six_Battlefields_MVP_Strategy.md · Revenue_Model_and_Licensing_Strategy.md (LOCKED: Apache 2.0; the four-layer model; patient capital; no-extraction principles) · 2026-06-23_explainability-differentiator-moat_research.md · 2026-06-27_smart-home-ecosystem-currency_research-return.md · 2026-07-02_extensibility-and-plugin-ecosystem_PM-assessment.md + Doc 18 · 2026-07-11_integration-roadmap_research-return.md (§3 Matter state; §7 license/cert inheritance) · 2026-07-10_acceptance-arc-positioning-notes.md · the brand-program tree (context/strategy/brand-program/).
+status: REFERENCE — 2026-07-23 — superseded-by: context/strategy/fusion-program/2026-07-24_FQ-rulings_decision-package.md
 -->
 
 # Fusion-Strategy Deliberation Record — 2026-07-23

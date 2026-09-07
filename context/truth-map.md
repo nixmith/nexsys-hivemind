@@ -1,11 +1,11 @@
 <!--
 file: context/truth-map.md
-purpose: THE ROLE-INDEXED TRUTH-MAP — for every role × task-class: where CURRENT truth lives (repo + path + section) and what outranks what. Built by R-11 (brief: context/instructions/2026-08-17_R11_wayfinding-truth-map_lane_brief.md) against the W-COHERE top-10 gap list (context/audits/2026-08-09_WCOHERE_navigation-audit_return.md §2). THE ONE-HOP BAR governs this file: a fresh session handed ONLY this map must reach the correct, CURRENT artifact in one hop. Volatile state is POINTED AT, never copied in — no HEADs, counts, or dates-of-things live here.
+purpose: THE ROLE-INDEXED TRUTH-MAP — for every role × task-class: where CURRENT truth lives (repo + path + section) and what outranks what. Built by R-11 (brief: context/instructions/archive/2026-08-17_R11_wayfinding-truth-map_lane_brief.md) against the W-COHERE top-10 gap list (context/audits/2026-08-09_WCOHERE_navigation-audit_return.md §2). THE ONE-HOP BAR governs this file: a fresh session handed ONLY this map must reach the correct, CURRENT artifact in one hop. Volatile state is POINTED AT, never copied in — no HEADs, counts, or dates-of-things live here.
 audience: every fresh session, every role — the first navigation read after the dispatch line names a role or a task
 state-type: reference (wayfinding)
 status: CURRENT — placement PROPOSED at context/truth-map.md by the R-11 lane (the brief's REC); the hub ratifies at intake
 owner: the hub — re-verified at every orchestrator-prompt banking (arc close) per the maintenance-loop law; the register row is context/process/edit-procedure-register.md §2 (class 10)
-last-verified: 2026-08-18 (R-11 lane — authored at hivemind 45dd100 against the W-COHERE gap list; worktree only, the lane commits nothing; the hub audits and orders the commit)
+last-verified: 2026-09-07 (HIVE-CLEAN-1 lane — one row added (what is current in `context/instructions/`); moved paths re-pointed. Worktree only; the hub audits, Nick commits.) Prior: 2026-08-18 (R-11 lane — authored at hivemind 45dd100 against the W-COHERE gap list; worktree only, the lane commits nothing; the hub audits and orders the commit)
 -->
 
 # The Truth-Map (role-indexed)
@@ -31,11 +31,12 @@ last-verified: 2026-08-18 (R-11 lane — authored at hivemind 45dd100 against th
 | Session launch / state | The newest non-archived orchestrator prompt, §1 → the spine per its own How-to-read lines: `context/status/PROJECT_SNAPSHOT.md` (frontmatter chain, newest segments first) + `context/handoff/pm-handoff.md` (newest beats first; `## Open Risks` at the tail is standing) |
 | The program of record (post-gate semester) | `context/assessments/2026-08-14_S10_close_ranked-program.md` (R-1..R-15 as ratified 2026-08-16, pm-handoff v53 beat 4) + the newest prompt's Section-2 program row; the spine outranks on any divergence |
 | Brief / dispatch authoring | The practiced form: the newest lane briefs in `context/instructions/` + the PM skill's arc-disciplines (`project-manager/SKILL.md`); returns file to `context/audits/`, dated by FILING day (§3.2 below) |
+| What is current in `context/instructions/`? | The directory listing minus `archive/` — everything executed carries an `EXECUTED`/`SUPERSEDED` status prefix and lives in `context/instructions/archive/` (the archive convention, `context/canonical-paths.md`, HIVE-CLEAN-1 2026-09-07) |
 | Return intake / two-layer audit | The PM skill's review discipline + the newest audited intake beats in `pm-handoff.md`; labels are claims, quotes are evidence |
 | Spine-write + commit-order mechanics | `context/process/cowork-environment-model.md` §§10–12 (the best-maintained standing file; §11 ghost-commit/OVERTAKEN-ORDER; §12 addenda) |
 | WU closeout | `context/protocols/work-unit-completion-protocol.md` — the phase discipline is LAW; steps rebuilt current 2026-08-18 (R-11) |
 | Defending settled rulings | `context/process/decision-rationale-index.md` (catch-up appended 2026-08-18, R-11) → each row's pointer; the pm-handoff beats + `context/handoff/archive/` hold the verbatim records and remain authoritative for wording |
-| Planning spine | The beat cadence + `context/planning/phase-3-milestone-backlog.md` head currency note (the S-10 close is the operative post-gate program). **Weekly plans are RETIRED** (Nick's ruling 2026-08-09, recorded at the WUCP banner-lift and v50 beat 6); `planning/weeks/` is historical |
+| Planning spine | The beat cadence + `context/planning/phase-3-milestone-backlog.md` head currency note (the S-10 close is the operative post-gate program). **Weekly plans are RETIRED** (Nick's ruling 2026-08-09, recorded at the WUCP banner-lift and v50 beat 6); `planning/archive/weeks/` is historical |
 | Named laws (D5, laws 1–16, H1–H11, L1/L3, …) | The LAW INDEX at `context/process/edit-procedure-register.md` §3 — every named law → its one definitional home |
 
 ### Coder
@@ -88,9 +89,9 @@ last-verified: 2026-08-18 (R-11 lane — authored at hivemind 45dd100 against th
 
 1. **Hardlink twins.** Host files can be filesystem-hardlinked; the device bridge refuses link-alias reads; an edit risks writing through to an unknown twin. The enumeration of record (in-tree ends, link counts, and the outside-the-root finding) is the R-11 return `context/audits/2026-08-18_R11_wayfinding_return.md` §4; the operating rule (break-with-byte-identical-copy before editing, flag the twin) folds into `context/process/cowork-environment-model.md` §12 at R-12. No link surgery outside a chartered edit.
 2. **The return-filename convention (minted v54 beat 1).** Returns are dated by the operator-day they are FILED (America/Chicago), never by the due date. **Two grandfathered aliases are committed history — do not rename:** `context/audits/2026-08-20_RS1_verdict-honesty-competitive-study_return.md` and `context/audits/2026-08-21_RS2_physics-world-model_charter-evidence_return.md` were both **filed 2026-08-17** (v53 beat 9); their filenames carry due-dates from before the convention was minted.
-3. **The retired message channels.** `context/open-questions.md` is a CLOSED channel (ruling recorded at its head, 2026-08-18) and `context/handoff/cross-agent-notes.md` is an archived pointer stub — the beat spine absorbed both: questions, escalations, and cross-agent facts ride pm-handoff beats, lane returns, and dispatch packets. `[FORESIGHT-NOTE]`/`[OPEN-QUESTION]` routing in older procedure files is superseded accordingly.
+3. **The retired message channels.** `context/archive/open-questions.md` is a CLOSED channel (ruling recorded at its head, 2026-08-18) and `context/handoff/cross-agent-notes.md` is an archived pointer stub — the beat spine absorbed both: questions, escalations, and cross-agent facts ride pm-handoff beats, lane returns, and dispatch packets. `[FORESIGHT-NOTE]`/`[OPEN-QUESTION]` routing in older procedure files is superseded accordingly.
 4. **The skills mirror.** Three source→mirror pairs (PM · coder · FE); the mirror is read-only to sessions; Nick's external sync propagates; a remote session records Check 9 "STALE (mirror unverified from here)" honestly. **The mirror's absolute host-disk location is recorded nowhere on disk** (W-COHERE 1.3-B) — flagged to Nick at the R-11 return; until he supplies it, session-relative topology (preflight Check 9) is the only address.
-5. **Weekly plans RETIRED** (Nick, 2026-08-09 — recorded v50 beat 6 and at the WUCP rebuild): the beat cadence is the planning spine; `planning/weeks/` is historical record. No instrument should demand a current-week file.
+5. **Weekly plans RETIRED** (Nick, 2026-08-09 — recorded v50 beat 6 and at the WUCP rebuild): the beat cadence is the planning spine; `planning/archive/weeks/` is historical record. No instrument should demand a current-week file.
 
 ## §4 — The registries this map points at (function split, so nothing is duplicated)
 

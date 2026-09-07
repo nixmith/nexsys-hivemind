@@ -4,6 +4,7 @@ purpose: Desk field-screen of TAMODO as a second product-name candidate (Nick's 
 audience: Nick; engaged counsel (as a candidate brief); the hub.
 state-type: hub deliverable (counsel-package; screen receipts dated 2026-07-22).
 not-a-lawyer: standing caveat — this is a desk screen and strategy frame, not clearance and not legal advice. The §2(d) legal read is counsel's; the register carries marks no web screen surfaces (phonetic equivalents especially). G-2 remains the only graduation.
+status: REFERENCE — 2026-07-22 — superseded-by: none
 -->
 
 # TAMODO — Candidate Field Screen (2026-07-22)

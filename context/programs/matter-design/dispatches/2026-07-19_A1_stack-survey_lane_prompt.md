@@ -3,7 +3,7 @@ file: context/programs/matter-design/dispatches/2026-07-19_A1_stack-survey_lane_
 purpose: Dispatch prompt for research lane A1 — the honest state of Matter controller implementations reachable from a Java 21 JPMS local-first system.
 audience: a fresh write-isolated Cowork research lane (NOT the PM hub; do not load the PM skill).
 state-type: session prompt (lane dispatch).
-status: READY — authored 2026-07-19 by the Matter design-program hub (launch beat 1).
+status: PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter horizon (Strategy v1.2) · was: READY — authored 2026-07-19 by the Matter design-program hub
 -->
 
 # Lane A1 — Matter Stack Survey (evidence dossier; options, no winner)

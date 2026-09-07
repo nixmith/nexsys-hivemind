@@ -6,6 +6,7 @@ state-type: strategy / field-evidence bank (raw deliverables beside this file in
 provenance: six Fiverr gigs per context/strategy/brand-program/2026-08-13_native-speaker-check_operator-packet.md (rotation-blinded order · the NL VERDOMO addendum · disclosure hygiene held — no checker saw the company, the parent, or a preference). Raw files: 2026-08-19_JP+operator-paste_all-six.txt (the JP text result rides in it) · 2026-08-19_NL_DutchResults.docx · 2026-08-19_DE_GermanResults.docx · 2026-08-19_FR_Guillaume.docx · 2026-08-19_ES_linguistic-read.docx · 2026-08-19_IT_ItalianResults.docx. The JP pronunciation AUDIO (mp3) is an operator-held exhibit — Nick's testimony of record: "the ZENDOMO pronunciation was definitely the smoothest and cleanest sounding in Japanese"; the seller's own note: VERDOMO the most natural in katakana. (The mp3 may be dropped into this directory at leisure; its absence blocks nothing.)
 honesty-frame: n=6 individual native speakers, one per market — anecdotal field data, NOT market research; it prices linguistic risk and register fit, never demand. Weighted accordingly everywhere below.
 filed: 2026-08-19 (v54 hub, beat 3 — filing-day convention).
+status: REFERENCE — 2026-08-19 — superseded-by: none
 -->
 
 # N-4 Native-Speaker Field Results — Bank + Adjudication (6/6)

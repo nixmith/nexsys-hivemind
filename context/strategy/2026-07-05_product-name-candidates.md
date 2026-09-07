@@ -1,3 +1,6 @@
+<!--
+status: REFERENCE — 2026-07-05 — superseded-by: context/strategy/brand-program/2026-09-02_successor-name_plan-of-record_two-track.md
+-->
 # Consumer Product-Name Candidates (under the Asimtote parent)
 
 **Date:** 2026-07-05

@@ -5,6 +5,7 @@ audience: engaged counsel; Nick.
 state-type: lane deliverable (counsel-navigator, 2026-07-15).
 not-a-lawyer: EVERY row below is a SCREEN by a non-lawyer (+AI) over public surfaces. Nothing here is a clearance; the only thing that graduates a name from "screened" to "cleared" is counsel's written opinion (Gate G-2).
 method: domains via Google DNS-over-HTTPS (https://dns.google/resolve?name=X&type=NS): NXDOMAIN = available-signal; NOERROR = registered; SERVFAIL = registered-with-dead-NS ("the coromni precedent" — NXDOMAIN can also mask registered-undelegated names; registrar-grade confirm required at purchase). Registers via TSDR direct (aggregators proven months-stale on the TOMORO file, 2026-07-12).
+status: REFERENCE — 2026-07-15 — superseded-by: none
 -->
 
 # Screening-Receipts Appendix (compiled 2026-07-15)

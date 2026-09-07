@@ -3,7 +3,7 @@ file: context/planning/2026-06-30_frontend-pre-hardware-sprint.md
 purpose: The frontend execution strategy for the pre-hardware window — everything to accomplish on the dashboard between now and when the Sonoff hardware arrives, so that the moment Core is up on real device data the mid-Aug "hero on real data" gate is a fast, low-risk SWAP, not a build. Builds on the master plan + amendment-1; this is the windowed sprint plan the build lane executes.
 audience: the frontend build lane (executes this); the PM hub (reconciles into the spine + hand-off); Nick (the decisions at the end; the strategy authority).
 state-type: planning (windowed sprint plan / amendment-2 to the 2026-06-29 master plan).
-status: DRAFT FOR NICK 2026-06-30 (frontend planning register). Builds on _amendment-1 (Nick's 4 rulings, all folded + shipped as FE-0/FE-2/FE-3 + D-FE-10). The mission: reach world-class-on-mocks + swap-ready before hardware.
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: DRAFT FOR NICK 2026-06-30 (frontend planning register). Buil
 anchors: context/planning/2026-06-29_frontend-master-plan.md (+ _amendment-1) · context/decisions/2026-06-21_dashboard-read-API-contract-freeze.md (FROZEN v1.1) · web-ui/dashboard/ (built state, core 7b9680c + the D-FE-10 delta) · FRONTEND_DOCTRINE.md
 -->
 

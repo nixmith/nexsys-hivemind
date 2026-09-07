@@ -3,7 +3,7 @@ file: context/programs/matter-design/00_PROGRAM_STATUS.md
 purpose: Program-of-record status file for the Matter/Integrations Design Program — phase tracker, §-beat log, ruling ledger, audit protocol. The MAIN hub (v34+) consumes §-pointer beats from THIS file; the program hub is its only writer.
 audience: the program hub (single writer); Nick (rulings + purchases); the MAIN hub (pointer consumption only).
 state-type: current (program-scoped; NO project spine state lives here — HEADs, watermarks, milestone status re-derive at the spine per truth-hierarchy).
-status: CURRENT — beat 3 (B1–B5 RULED; Phase C OPEN), 2026-07-19.
+status: PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter horizon (Strategy v1.2) · was: CURRENT — beat 3 (B1–B5 RULED; Phase C OPEN), 2026-07-19.
 charter: context/handoff/2026-07-19_matter-design-program_hub_session_prompt.md (RULED by Nick 2026-07-19 — pm-handoff v33 beat 5, verbatim there).
 write-isolation (ABSOLUTE): this program writes ONLY under context/programs/matter-design/. Never the spine, never core/docs/bench/skills. Commits are Nick's, ordered with exact counts per env-model §10.
 -->

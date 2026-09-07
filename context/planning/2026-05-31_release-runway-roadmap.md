@@ -4,7 +4,7 @@ purpose: Re-baselined now->launch roadmap for HomeSynapse v1. Anchors to master-
 audience: Nick, PM
 update-cadence: per-milestone (or when the launch target / scope changes)
 state-type: future
-status: CURRENT — issued 2026-05-31 (M4.B-S1 closeout)
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: CURRENT — issued 2026-05-31 (M4.B-S1 closeout)
 anchors: context/planning/master-release-plan.md (37-week baseline); context/planning/phase-3-milestone-backlog.md (Core milestones); context/status/PROJECT_SNAPSHOT.md (current state)
 -->
 

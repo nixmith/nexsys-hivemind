@@ -4,6 +4,7 @@ purpose: Counsel-package item (e) — the ASIMTOTE company-mark companion brief,
 audience: engaged counsel; Nick.
 state-type: lane deliverable (counsel-navigator, 2026-07-15). Sources: 2026-07-11 naming-decision brief; 2026-06-13 naming-research PM assessment; 2026-07-05 naming & domain strategy.
 not-a-lawyer: every register/domain claim is a dated SCREEN by a non-lawyer (+AI); nothing is cleared until counsel's written opinion.
+status: REFERENCE — 2026-07-15 — superseded-by: none
 -->
 
 # ASIMTOTE — Company-Mark Companion Brief (for a combined-quote engagement)

@@ -3,7 +3,7 @@ file: context/programs/matter-design/dispatches/2026-07-19_A4_moat-translation_l
 purpose: Dispatch prompt for research lane A4 — how never-false-CONFIRMED / never-false-ALIVE translate onto Matter's interaction model, and what the corpus/bench doctrine looks like for Matter. The differentiating lane.
 audience: a fresh write-isolated Cowork research lane (NOT the PM hub; do not load the PM skill).
 state-type: session prompt (lane dispatch).
-status: READY — authored 2026-07-19 by the Matter design-program hub (launch beat 1).
+status: PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter horizon (Strategy v1.2) · was: READY — authored 2026-07-19 by the Matter design-program hub
 -->
 
 # Lane A4 — The Moat Translation (what makes OUR Matter integration worth shipping)

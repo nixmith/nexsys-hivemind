@@ -4,6 +4,7 @@ purpose: Counsel-package item (d) — the entity/chain-of-title state, teeing up
 audience: engaged counsel; Nick.
 state-type: lane deliverable (counsel-navigator, 2026-07-15).
 not-a-lawyer: a factual tee-up; entity choice and chain-of-title sequencing are exactly the questions being put TO counsel.
+status: REFERENCE — 2026-07-15 — superseded-by: context/strategy/2026-08-27_entity-posture_NexSys-LLC_assessment.md
 -->
 
 # Entity Status Note (memo Part 11 Q6 tee-up)

@@ -4,7 +4,7 @@ purpose: Decision-support synthesis — turns the three prior M4 deliberation ar
 audience: Nick (decision-maker); PM authored as senior systems architect.
 update-cadence: one-shot (consumed when Nick picks the M5 posture and the W24 plan is written)
 state-type: future (decision-support — NOT a decision, NOT a milestone, NOT an amendment)
-status: CURRENT — issued 2026-06-06 (post-M4)
+status: HISTORICAL 2026-09-07 — superseded by: context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md §3 · was: CURRENT — issued 2026-06-06 (post-M4)
 anchors: context/audits/2026-06-05_M4-retrospective.md; context/audits/2026-06-06_M3-M4_foundation-readiness-assessment.md; context/assessments/2026-06-06_core-language-replatform-assessment.md (+ 2026-06-06_rust-velocity-compounding-analysis.md); context/planning/2026-06-05_next-piece-recommendation.md; context/planning/2026-05-31_release-runway-roadmap.md; context/planning/phase-3-milestone-backlog.md
 last-verified: 2026-06-06 against homesynapse-core HEAD `8ef9e9f` (M4 COMPLETE; watermark AMD-64; projectionVersion 5; working tree clean). New load-bearing code claims source-verified (file:line) this session; foundation-readiness findings (2026-06-06, HEAD-verified) trusted, not re-audited.
 -->

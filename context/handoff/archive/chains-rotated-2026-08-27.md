@@ -317,3 +317,7 @@ Prior: 2026-09-06 (v66 beat 8 — THE v66 CLOSE: F-R4-1b returned + audited ACCE
 ## chain segment rotated 2026-09-07 (v67 beat 1) — v66 b9, verbatim
 
 Prior: 2026-09-06 (v66 beat 9 — POST-CLOSE: F-R4-1b LANDED 39c8dd3 (CI green; the passive count 5/20); the HIVE-CLEAN-1 and W-SKILLS-8 dispatches authored as self-contained files (the recipe as scripts; the skills addendum) and handed as Acts 10 + 11 by Nick's word, Sun ~20:06 CT (instrument 2026-09-07T01:06Z). Order: hivemind 6 = 4 M + 2 A.)
+
+## chain segment rotated 2026-09-07 (v67 beat 2) — v66 b10, verbatim
+
+Prior: 2026-09-07 (v66 beat 10 — POST-CLOSE: HIVE-CLEAN-1 LANDED 30f800d (ACCEPT; 188) · W-SKILLS-8 LANDED 90529d1 + skills c630c5c (ACCEPT-WITH-ONE-RULING; the four SKILL.md count strings fixed by the hub) · THE CONTEXT-BUDGET LAW minted on v66's measured curve; the v67 prompt re-cut (a ≤45 KB boot budget; the newest ONE beat); the brief at the stable path context/handoff/OPERATOR-BRIEF_for-Nick.md; 95 beats rotated to archive; Nick's Act A = the Git Bash card, Mon ~11:2x CT (instrument 2026-09-07T16:2xZ). Order: hivemind 11 = 8 M + 2 A + 1 D.)

@@ -17,7 +17,7 @@ You are the PM and most-senior engineer of the NexSys development system: the qu
 1. `date -u` **first**; every stamp you write derives from an instrument reading, never from a mental clock.
 2. If this is a hub session, read the newest `context/handoff/*_PM-mission-control_v*_orchestrator_session_prompt.md` not in `archive/` **whole** — its §1 boot procedure and §0 laws govern this session and outrank this file where they are more specific.
 3. Run `references/freshness-preflight.md`. **PASS** → work. **STALE** → the only allowed work is retroactive WUCP Phase 2 for every closed-but-unrecorded WU. **CONFLICTED** → escalate to Nick; never resolve silently.
-4. Read the spine: `context/handoff/pm-handoff.md` (the frontmatter `last-verified:` chain + the newest THREE beat blocks) and `context/status/PROJECT_SNAPSHOT.md` whole. **The newest beat outranks everything else, including the session prompt's state section.**
+4. Read the spine: `context/handoff/pm-handoff.md` (the frontmatter `last-verified:` chain + the newest ONE beat block — older ones only when it sends you there; the session prompt's boot byte budget governs every read) and `context/status/PROJECT_SNAPSHOT.md` whole. **The newest beat outranks everything else, including the session prompt's state section.**
 5. Re-derive repo state at the instrument — `git --no-optional-locks status --porcelain` and `log -1` in each of the five repos (core · docs · hivemind · skills · bench). Drift → adjudicate at `git log` before the first spine write.
 6. **After any auto-compaction, re-invoke this skill before the next authoring act** (compaction keeps only a skill's first 5,000 tokens).
 
@@ -88,7 +88,7 @@ Escalate when: the preflight is CONFLICTED; the "why" is unclear; a task conflic
 | `references/laws-ledger.md` | The full rule ledgers (the arc-disciplines, numbered from (1) · D1–D18 · the strategy layer · the state pointer) with their exhibits — read a numbered law's detail when §3 cites it; read whole at a skills audit. |
 | `references/pass-history.md` | Provenance of past skills passes; the sibling-carrier index. Never a launch read. |
 
-Also read, always: `MODULE_CONTEXT.md` of every module involved (the project's persistent memory: type inventories, cross-module contracts, sealed hierarchies, gotchas), `context/process/bench-troubleshooting-playbook.md` before any bench-iterative WU, and `context/process/cowork-environment-model.md` §§9–12 for the bridge, the ghost-commit class and the overtaken-order form.
+Also read, always: `MODULE_CONTEXT.md` of every module involved (the project's persistent memory: type inventories, cross-module contracts, sealed hierarchies, gotchas), `context/process/bench-troubleshooting-playbook.md` before any bench-iterative WU, and `context/process/cowork-environment-model.md` §§9–12 by range at the first bridge anomaly (a lock, a ghost commit, an overtaken order) — the session prompt's bridge conventions carry the operative form.
 
 ## 7. Definition of done — copy this checklist into the closing beat
 - [ ] The return exists on disk at the named path; audited two-layer; the audit filed under `context/audits/`.

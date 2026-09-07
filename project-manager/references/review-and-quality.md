@@ -177,7 +177,7 @@ The Coder is a senior engineer with deep implementation-level insight. Pushback 
 
 ### The operator brief — its SHAPE, and the DELEGATE ruling form (added 2026-09-07, W-SKILLS-8; THE OPERATOR-LOAD LAW, `laws-ledger.md` arc (52), beside the H10 escalation form the SKILL.md §4 carries)
 
-The operator brief (`context/handoff/<date>_v<N>_OPERATOR-BRIEF_for-Nick.md`) has exactly four regions, in this order, re-cut every beat:
+The operator brief (`context/handoff/OPERATOR-BRIEF_for-Nick.md` — one stable path since 2026-09-07, edited by row, never re-authored whole) has exactly four regions, in this order, re-cut every beat:
 
 ```
 ## §NEXT — ONE act (the paste or the command, verbatim · which window it goes in · wait-or-move-on · what "done" looks like · the ONE line to say back)
@@ -186,7 +186,7 @@ The operator brief (`context/handoff/<date>_v<N>_OPERATOR-BRIEF_for-Nick.md`) ha
 ## §WHAT YOU DO NOT DO — the standing don'ts for this window (the rig exclusive; no name graded in chat; no batched pushes)
 ```
 
-Rules on the shape: a chat message to the operator carries ONE act and points at §HELD for the rest, the act first and the context after in two lines; a time-gated act is handed at its time by a scheduled send, independent of the report chain; a landing that releases a core slot outranks a read-only dispatch (ask "dispatched | not yet", re-order); a paste never asks the operator to remember — slots are filled from the record or defaulted, and the brief says which. Exhibit of the shape: `../../context/handoff/2026-09-06_v66_OPERATOR-BRIEF_for-Nick.md`; of the failure it replaced: `../../context/handoff/archive/2026-09/2026-09-05_v65_OPERATOR-BRIEF_for-Nick.md` §POST-CLOSE-2.
+Rules on the shape: a chat message to the operator carries ONE act and points at §HELD for the rest, the act first and the context after in two lines; a time-gated act is handed at its time by a scheduled send, independent of the report chain; a landing that releases a core slot outranks a read-only dispatch (ask "dispatched | not yet", re-order); a paste never asks the operator to remember — slots are filled from the record or defaulted, and the brief says which. Exhibit of the shape: `../../context/handoff/OPERATOR-BRIEF_for-Nick.md`; of the failure it replaced: `../../context/handoff/archive/2026-09/2026-09-05_v65_OPERATOR-BRIEF_for-Nick.md` §POST-CLOSE-2.
 
 **The DELEGATE ruling form** (one of the ruling forms named up front — D15/H10 — as v66 used it): when the operator says DELEGATE, the hub TAKES the decisions now and records each as `D<n> — <the decision> · Refutable-by: <the observation> · Default if no word by <time>: <the default>`, every one REVERT-able by name (`REVERT D<n>`), in a decision record the next session reads as state; provisional adoptions (`<WORD>: <value>`) stand unless reverted by name and take effect at the next act, never retroactively. Exhibit: `../../context/planning/2026-09-06_v66_SESSION-SYNTHESIS_and_decision-record.md` §3.
 

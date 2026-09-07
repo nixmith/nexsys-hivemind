@@ -309,3 +309,7 @@ Prior: 2026-09-06 (v66 beat 6 — FE-113 LANDED d192d17 (frontend + ci green; th
 ## chain segment rotated 2026-09-06 (v66 beat 9) — v66 b7, verbatim
 
 Prior: 2026-09-06 (v66 beat 7 — RS-12-F returned + audited ACCEPT (no displacement; the listener test measured; the POST-HOC row on the card; Tuesday stands) · THE RIG DID NOT HAPPEN (a time-gated act held behind the report chain — owned; H8: tonight | Tue is Nick's word) · the session synthesis + decision record filed under DELEGATE (D1–D7) · F-R4-1b's dispatch handed on d192d17, Sun ~16:25 CT (instrument 2026-09-06T21:25Z). Order: hivemind 8 = 5 M + 3 A.)
+
+## chain segment rotated 2026-09-07 (v66 beat 10) — v66 b8, verbatim
+
+Prior: 2026-09-06 (v66 beat 8 — THE v66 CLOSE: F-R4-1b returned + audited ACCEPT-WITH-TWO-RULINGS (6 M + 0 A exact; suite 589; R1 T7 re-fixtured, R2 T3e — both the hub's, owned); the landing card = Nick's one act; install-smoke's path filter → the R-4c artifact needs a workflow_dispatch (CI-PATHS-1 chartered); the v67 prompt authored in the STABLE form (D5) — no state in it; the hivemind pushed by Nick 7f14059..33f2127, Sun ~18:12 CT (instrument 2026-09-06T23:12Z). Order: hivemind 10 = 7 M + 3 A.)

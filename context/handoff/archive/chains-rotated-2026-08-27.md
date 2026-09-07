@@ -313,3 +313,7 @@ Prior: 2026-09-06 (v66 beat 7 — RS-12-F returned + audited ACCEPT (no displace
 ## chain segment rotated 2026-09-07 (v66 beat 10) — v66 b8, verbatim
 
 Prior: 2026-09-06 (v66 beat 8 — THE v66 CLOSE: F-R4-1b returned + audited ACCEPT-WITH-TWO-RULINGS (6 M + 0 A exact; suite 589; R1 T7 re-fixtured, R2 T3e — both the hub's, owned); the landing card = Nick's one act; install-smoke's path filter → the R-4c artifact needs a workflow_dispatch (CI-PATHS-1 chartered); the v67 prompt authored in the STABLE form (D5) — no state in it; the hivemind pushed by Nick 7f14059..33f2127, Sun ~18:12 CT (instrument 2026-09-06T23:12Z). Order: hivemind 10 = 7 M + 3 A.)
+
+## chain segment rotated 2026-09-07 (v67 beat 1) — v66 b9, verbatim
+
+Prior: 2026-09-06 (v66 beat 9 — POST-CLOSE: F-R4-1b LANDED 39c8dd3 (CI green; the passive count 5/20); the HIVE-CLEAN-1 and W-SKILLS-8 dispatches authored as self-contained files (the recipe as scripts; the skills addendum) and handed as Acts 10 + 11 by Nick's word, Sun ~20:06 CT (instrument 2026-09-07T01:06Z). Order: hivemind 6 = 4 M + 2 A.)

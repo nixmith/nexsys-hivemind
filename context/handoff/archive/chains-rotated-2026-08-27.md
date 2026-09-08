@@ -329,3 +329,7 @@ Prior: 2026-09-07 (v67 beat 1 — THE v67 BOOT on the STABLE prompt: boot read-s
 ## chain segment rotated 2026-09-07 (v67 beat 4) — v67 b2, verbatim
 
 Prior: 2026-09-07 (v67 beat 2 — BLOCK 4 AUTHORED + HANDED: the Erik go-ahead re-cut for TONIGHT (five constraints; U.S. only) + Appendix B (the RS-10 page) at …/brand-program/2026-09-07_pelton-go-ahead_TONIGHT_re-cut_and_RS10-appendix.md; TR-1 dispatched 18:30 CT; the wait-state = Erik's sight-read (negative → NAMING-B) · `EXPEDITE:` · the opinion, Mon ~18:4x CT (instrument 2026-09-07T23:39Z). Order: hivemind 5 = 4 M + 1 A.)
+
+## chain segment rotated 2026-09-08 (v67 beat 5) — v67 b3, verbatim
+
+Prior: 2026-09-07 (v67 beat 3 — NAMING-B chartered as ONE FILE, GATED (T1 Erik's negative sight-read · T2 an opinion knockout · never before): the DOMO-entire gate, S2a → S2b /40 pre-registered, Job A the bench re-graded, Job B coinage beyond domus with a cited source, the listener test mandatory, P1–P4, the return ≤14 KB, the hub's ≤2 h after; not dispatched, Mon ~18:4x CT (instrument 2026-09-07T23:43Z). Order: hivemind 5 = 4 M + 1 A.)

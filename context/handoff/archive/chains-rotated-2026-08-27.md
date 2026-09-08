@@ -325,3 +325,7 @@ Prior: 2026-09-07 (v66 beat 10 — POST-CLOSE: HIVE-CLEAN-1 LANDED 30f800d (ACCE
 ## chain segment rotated 2026-09-07 (v67 beat 3) — v67 b1, verbatim
 
 Prior: 2026-09-07 (v67 beat 1 — THE v67 BOOT on the STABLE prompt: boot read-set 35.0 KB; Act A verified at the bytes (five HEADs clean, ahead 0 ×5; Check 9 28/28; preflight 12/12); the dispatch filed verbatim with Nick's four words (PELTON: email TONIGHT = Block 4 pulled forward to tonight · NAMING-B a gated one-file charter · ASR-VERDOMU/RS10-STAR owed, not gates · Erik U.S. only); TR-1's paste = Nick's one act; 8 blocks rotated (v66 b6 → v65 b6), Mon ~18:22 CT (instrument 2026-09-07T23:22Z). Order: hivemind 6 = 4 M + 2 A.)
+
+## chain segment rotated 2026-09-07 (v67 beat 4) — v67 b2, verbatim
+
+Prior: 2026-09-07 (v67 beat 2 — BLOCK 4 AUTHORED + HANDED: the Erik go-ahead re-cut for TONIGHT (five constraints; U.S. only) + Appendix B (the RS-10 page) at …/brand-program/2026-09-07_pelton-go-ahead_TONIGHT_re-cut_and_RS10-appendix.md; TR-1 dispatched 18:30 CT; the wait-state = Erik's sight-read (negative → NAMING-B) · `EXPEDITE:` · the opinion, Mon ~18:4x CT (instrument 2026-09-07T23:39Z). Order: hivemind 5 = 4 M + 1 A.)

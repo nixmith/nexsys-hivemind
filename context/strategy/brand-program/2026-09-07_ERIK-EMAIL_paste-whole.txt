@@ -1,0 +1,104 @@
+Subject: Re: Follow-up to Tuesday's call — go-ahead on the comprehensive search
+
+Hi Erik,
+
+Thank you — this answers what I needed. Please go ahead with the comprehensive search and written opinion at the $1,200 you quoted. The candidate is VERDOMO, for an intent-to-use application in Classes 9 and 42 in the name of NexSys LLC. Our proposed identifications are in Appendix A below (§A4) — please correct them freely; the exclusions at the end of each are deliberate.
+
+The DOMO point first, because it is the one thing I'd like you to read before the search begins. The concern you raised is the LOCKIN (U.S.) INC. standalone DOMO (Reg. 8404753 — cameras, alarm systems, biometric locks and lock software). Appendix B below is our own research pass at the prosecution record (not legal analysis): among other things, the twelve DOMO-morpheme marks in Classes 9/42 examined since LOCKIN's application was on file, of which the examiners raised LOCKIN against the identical word DOMO and against one DOMO-initial mark claiming LOCKIN's own goods — and against none of the three MOR-/AURA-/MAJOR- formatives, which registered or published without a DOMO citation. The question I'd most value your read on, put plainly: does VERDOMO read as one coined word, or as VER- plus a dominant DOMO? — and, on the record in Appendix B, how much weight DOMO carries in this field.
+
+If, on seeing the name against Appendix B, you believe the LOCKIN DOMO is a blocking problem on sight, please tell me before starting the search, and we will redirect the same search and opinion, at the same fee, to our fallback candidate, VERDOMU. Otherwise, please proceed with VERDOMO.
+
+On the expedited turnaround: before I commit to it, could you tell me what turnaround the expedite would actually buy (business days from your start) and what the surcharge would be? Please don't hold the search for my answer — start on the standard five-business-day turnaround, and I'll confirm the expedite by return email the same day you reply if the days and the price make sense for us.
+
+In the written opinion, the order in which I'd value your read: (1) the LOCKIN DOMO, as above; (2) DOMOTZ's Class 42 registration against our Class 42 identification — Appendix B carries our proposal to drop the "design and development of home-automation software for others" clause if you think it helps; (3) VERDO.AI; (4) MORDOMO; (5) whether the §A4 exclusions help or hurt; (6) whether a translation statement is needed; (7) whether a consent from Domo, Inc. is a realistic fallback if it is cited (Appendix B notes the one consent on the record). This engagement is U.S. only; I'll handle any EU questions separately.
+
+Timeline on our side: we plan to file within days of a clean opinion, as you offered, and to buy the matching .com the same day. If anything in the appendices is wrong or unhelpful, please disregard it — it is there to save you time, not to steer you.
+
+Thank you again to you and Denisse.
+
+Best,
+Nick
+
+
+==============================
+APPENDIX A — the pre-opinion dossier on the name (our own research pass, 2026-09-02; not legal analysis)
+==============================
+
+A1 The DOMO family in cl. 9/42 (live) — with prosecution facts
+| Mark | Sn / Reg | Owner | Cl. | Goods (verbatim excerpt) | Prosecution |
+|---|---|---|---|---|---|
+| DOMO | 85371693 / 4377003 | DOMO, INC. (DE) | 9, 42 | "downloadable computer software for generating, manipulating and displaying charts, and graphs…; computer software, namely, computing and operating software for the collection and management of data and information…" | Reg. 2013; §8/§15 2019; renewed 2023-10-02 |
+| DOMO.AI | 98565293 | DOMO, INC. | 42 | "Artificial intelligence as a service (AIAAS) services … for … data analytics, and business analytics…" | Published 2025-04-01; Opp. 91300673: Domoai Pte. Ltd. (plaintiff) v. Domo, Inc. (defendant); suspended 2026-08-20 |
+| DOMO DOJO / DOMO IS THE BUSINESS CLOUD | 4984782 / 6108135 | Domo, Inc. | 41-42 / 35-42 | BI training; "software for business management, data mining… business intelligence…" | Live (DOMO BUSINESS CLOUD 5675636 cancelled) |
+| DOMOTZ | 86766760 / 5781917 | DOMOTZ INC. | 42, 9 | 42: "Consulting services in the field of home and office automation; design of home and office automation systems; … software as a service (SAAS) featuring firmware and software for use on computers and devices for accessing, monitoring, inspecting, viewing, and controlling remote computers and devices; … server hosting services for home and office automation systems." 9: "…computer hardware and computer networking hardware, firmware, software, and downloadable mobile applications, all for accessing, monitoring… and controlling remote computers and devices…" | Reg. 2019-06-18; §8 & §15 accepted/acknowledged 2025-01-02 |
+| DOMO | 99001229 / 8404753 | LOCKIN (U.S.) INC. | 9 | "Cameras; Alarm monitoring systems; Biometric locks; … software … for use with electric locks, burglar alarms…; Downloadable computer software for permitting users to monitor their home, office and other facilities…" | Reg. 2026-08-18; no office action |
+| DOMO | 79395895 | NHK ENTERPRISES, INC. | 9,14,16,20,21,24,28,41,42 | 9: "Computer game programs downloadable via computer networks; … computers…" | §66(a). Full refusal 2024-09-28; FINAL 2025-12-31: "The likelihood of confusion refusal based on Registration Nos. 4377003, 4984782, 6108135, and 5675636 is obviated based on the consent agreement submitted by applicant."; remaining refusal only v. 6842537 (DOMO cutlery); divided; published 2026-07-28 |
+| DOMO | 79444992 | MAZIGH Richard | 9,28,35,41 | games, toys | §66(a). Refusal 2026-05-01 citing "Registration Nos. 5078664, 4366310, 6108135, 4377003, 4284940" (DOMOGOOD, DOMO MUSIC GROUP, Domo ×2, MAJORDOMO) |
+| DOMO | 50033965 | SKYLRK HOLDINGS INC. | 9 | "Wireless speakers; Audio speakers." | §1(b) filed 2026-08-05 |
+| MORDOMO | 98733161 / 7848245 | Sharge Technology Inc. (WY) | 9 | "Smartwatches; Downloadable mobile applications for connecting to and interacting with external intelligent hardware, namely, for AI interactions… settings control, and data exchange between external AI-enabled hardware and mobile devices…; Smart glasses…" | NFA 2025-03-19: "SEARCH RESULTS – NO CONFLICTING MARKS FOUND"; translation required ("MORDOMO" = "BUTLER"); Reg. 2025-07-01 |
+| MAJORDOMO | 99792674 | Major Domus, Inc. | 42, 9 | AI wardrobe app/SaaS | §1(b); no OA; published 2026-08-18 |
+| DOMOS (+2) | 99641518/-20/-22 | Domos Technology, Inc. | 42, 9 | "software for property management and leasing of residential real estate…" | NFA 2026-06-09: 2(d) v. 6083807 DOMOS COLIVING only |
+| AURADOMO | 99179560 / 8279652 | Aura Domo LLC (GA) | 42 | "Software as a service (SAAS) services featuring software using artificial intelligence for generating text, images, audio, and video content…" | NFA: ID only; opposed by LOOP BV (AURA) → dismissed 2026-05-13; Reg. 2026-06-02 |
+| DOMOAI | 99170921 | DOMOAI PTE. LTD. (SG) | 42 | AI media SaaS | Suspended 2025-09-29 pending Opp. 91300673 |
+| KIDOMO | 90302867 / 6680677 | Jie Te Xun Technology (HK) | 9, 28 | "…Baby monitors; … Digital door locks; … Electric sensors; … Motion sensors…" | No OA; "The wording 'KIDOMO' has no meaning in a foreign language."; Reg. 2022 |
+| DOMOBILE | 86670751 / 5004782 | DOMOBILE CO., LTD (CN) | 9 | "…Computer operating programs, recorded…" | No OA; "no meaning in a foreign language"; Reg. 2016 |
+| DOMOTICS / FJ DOMOTICS | 7158002 / 8118853 | Domotics RE-Technologies LLC / Freddy Multiservice LLC | 9(+36) / 9 | real-estate listing app / "Batteries; Inverters; … Solar panels…" | 7158002: no OA, no disclaimer. 8118853 NFA 2023-09-15: "Applicant must disclaim the wording 'DOMOTICS' because it is merely descriptive of a feature of applicant's goods…" |
+| Others live | MINDOMO 7238522 (9/42) · AUDOMO 6279016 (42; now CVS) · DOMOLINE 99904255 (9 dimmers/switches/relays; pending) · ENDOMONDO 8173871 (9/42) · DOMOGOOD 5078664 (9) |
+Counts: `WM:*domo* AND (IC:009 OR IC:011 OR IC:042) AND LD:true` = 67 (= RS-7/RS-8); `WM:domo AND LD:true` = 50.
+
+A2 Neighbours (US)
+- VERDO.AI sn 79448974 — conversis GmbH (DE); §66(a); filed 2025-10-31; cl. 9 "Software for the integration of artificial intelligence and machine learning in the field of big data; software; artificial intelligence software; machine learning software"; cl. 42 "…platforms for artificial intelligence as software as a service [SaaS]…"; cl. 35. NFA 2026-05-16: identification requirement only. Under Examination.
+- VERDOX Reg. 8178616/-17 (cl. 9), 7368918/-19 (40/42); VERDOCS Reg. 6269511/-12 (42); VERDO COIN/DATA/MINER dead.
+- verdom*: VERDOMASTER Reg. 8324895 (cl. 8; CN; 2026-06-30; live); VERDOMIT Reg. 4366360 (E.G.O. Elektro-Gerätebau; cl. 1,6,7,9,11,17,19,20,21; cancelled 2021-07-18); VERDOME Reg. 1424869 (cl. 21; cancelled 2007). verdoma*/verdumo*/verdommo*/"ver domo"/virdomo*/werdomo*/ferdomo* = 0 live; `WM:verdom* AND FD:[2026-08-01 TO 2026-09-03]` = 0.
+- VERO in 9/42 live = 28 (VERO social app 5116140; VERO ELECTRIC 7657330); VERO* = 96; VERD* = 131.
+- TTABVUE party "Domo, Inc." = 9 rows; as plaintiff only BUSINESS-IN-A-BOX v. Box (91241718, 2018) + two extensions. NHK v. Domo Records 91202124 (2011); DOMO MUSIC GROUP registered anyway.
+
+A3 EU / world records by number
+- ES N0493970 VERDOMO — nombre comercial; Marc Arendt, Camí des Pujol s/n, 07620 Llucmajor; cl. 36 "ADMINISTRACION DE VIVIENDAS; ALQUILER DE VIVIENDAS; …"; filed 09/12/2025; 26/02/2026 "EFECTUADO TRAM. ART.18.4 LEY SIN DETECTAR ANTERIORIDADES RELEVANTES"; 05/03/2026 "PUBLICACION DE SOLICITUD"; 03/09/2026 "En tramitación"; no opposition recorded.
+- EUTM 018825272 Verdomondo — word; Christina Bonde, Tisvilde Bygade 9D, 3220 Tisvildeleje (DK); filed 18/01/2023; reg. 04/05/2023; exp. 18/01/2033; cl. 38 "Tilvejebringelse af adgang til en e-markedsplads [portal] på computernetværk"; no representative. Art. 18(1) EUTMR use period → 04/05/2028.
+- IR 1436040 VERDO — Verdo A/S, Agerskellet 7, DK-8920 Randers NV (rep. Zacco); figurative (grey/green); reg. 16/04/2018, exp. 16/04/2028; designates EM, NO, CH; EUIPO: 2 oppositions (B 3 078 864 withdrawn; B 3 076 423 rejected 2020), "IR accepted" 16/02/2021. Cl. 9 "Alarms and alarm installations, including burglar alarms and fire alarms; electric monitoring apparatus; … apparatus and instruments for conducting, switching, transforming, accumulating, regulating or controlling electricity; … apparatus for measuring of the energy consumption as well as software for use herewith." Cl. 11 "… heat pumps." Cl. 42 "… design and development of computer hardware and software…". Also DK VA 2009 03235 / 03242 (cl. incl. 9, 42); UK00003690621 (2021; incl. 42).
+- EUTM 017972281 DOMO — word; Linea 2000 B.V., Dompel 9, 2200 Herentals; reg. 06/11/2019; exp. 24/10/2028; cl. 3,7,8,9,11,20,21,24,26; cl. 9 "…apparatus and instruments for conducting, switching, transforming, accumulating, regulating or controlling electricity; calculating machines; computers; …scales…".
+- EUTM 017965694 WERDOMO — word; Fabryka Mebli WERSAL (PL); reg. 30/01/2019; cl. 20 "Meble i akcesoria meblowe wyposażenia domu." (+ UK00917965694). EUTM 016309511 VERDOMA — Bayer AG; cl. 5, 10 (+DE, UK).
+- CN 31653551 VERDO (cl. 9; 2018); CN 45497964 维多默 (cl. 9; Xi'an Weiduomo Automation; 2020). TMview "contains VERDOM" = 69 (JP/KR 0); "contains VERDOMO" = 2.
+- EU decisions (verbatim): B 3 046 882 DOMOLETTI v. DOMO (2019, rejected) — "The earlier marks, 'DOMO' are distinctive to an average degree. The signs are visually and aurally similar to a low degree." "…the sign is likely to be perceived as a whole." B 3 161 393 domono v. DOMO (2022, partially upheld 7/9/11) — "the elements 'DOMO' and 'DOMONO' are meaningless for the relevant public and, therefore, distinctive"; "downloadable software applications for mobile phones are similar to the opponent's computers". B 3 141 618 Domovik v. DOMO (2024, refused). 8511 C MYDOMO (2014, partially invalid; BoA R 2648/2014-4 confirmed) — "'DOMO' which is the entire earlier mark and the last four letters of the contested one… may be perceived by the English-speaking public as the possessive pronoun." B 3 076 423 Verdú v. VERDO (2020, rejected) — "the public will associate the verbal element 'VERDO' with the green colour." GC T-618/24 athom smart home (2026) — cl. 9 plugs/sockets/circuit breakers "can be controlled and managed remotely" → similar to smart-home goods.
+
+A4 Proposed identifications (for counsel to correct)
+- Cl. 9: Downloadable computer software for controlling, automating, monitoring and coordinating connected home devices, sensors, lighting, heating, ventilation, locks and appliances via a local network; downloadable operating-system software and recorded firmware for home-automation hubs and controllers; home-automation hubs and controllers, namely, computer hardware for local processing of sensor data and device commands; downloadable mobile applications for configuring and controlling the foregoing; none of the foregoing being business-intelligence or data-analytics software, remote network-monitoring or IT help-desk software for managed service providers, electricity-metering apparatus or energy-utility software, or household electrical appliances or lighting fixtures.
+- Cl. 42: Providing temporary use of on-line non-downloadable software for controlling, automating and monitoring connected home devices; software as a service (SaaS) featuring software for configuring home-automation rules and reviewing automation event histories; design and development of home-automation software for others; none of the foregoing being business-intelligence or data-analytics services, provision of access to electronic marketplaces, remote monitoring of computer networks for managed service providers, or energy-supply advisory services.
+
+A5 The domotics-root argument — register precedents (facts only)
+1. USPTO treats "DOMOTICS" as merely descriptive of home-automation goods (FJ DOMOTICS, 2023) yet registered DOMOTICS alone for a real-estate app (7158002) and accepted "no meaning in a foreign language" for KIDOMO/DOMOBILE. 2. Domo, Inc.'s DOMO has been cited only against identical DOMO marks (NHK 2024; MAZIGH 2026); X-DOMO marks in cl. 9/42 registered with no DOMO citation (MORDOMO 2025 "no conflicting marks"; LOCKIN DOMO 2026 no OA; MAJORDOMO 2026 no OA; AURADOMO 2025 ID-only; DOMOS 2026 cited DOMOS COLIVING, not DOMO; KIDOMO 2022; AUDOMO 2021; DOMOBILE 2016). 3. Domo, Inc. resolves DOMO conflicts by consent (NHK final action 2025-12-31). 4. EUIPO treats DOMO as of normal/average distinctiveness (2014, 2019, 2022), has not treated a -DOMO suffix as descriptive, and found DOMO inside a 9-letter word "perceived as a whole" (DOMOLETTI) while DOMO-initial and MY+DOMO forms lost. 5. EUIPO reads VERD-/VERDO as "green" (B 3 076 423): VERDOMO's conceptual read in ES/IT/PT/FR is "green + home/dome".
+
+
+==============================
+APPENDIX B — the DOMO family at the prosecution record (2026-09-05)
+==============================
+
+Appendix B — the DOMO family in Classes 9 and 42 at the USPTO prosecution record. Our own research pass, 2026-09-05; not legal analysis. Every figure was read at the TSDR document (the prosecution history, the office action, or the examiner's search summary), except where marked "inferred". Figures are as of 2026-09-05.
+
+B1 — Citation census. Applications in Classes 9/42 containing *domo*, filed 2018 onward: 55 (53 examined; 25 registered). Section 2(d) citations of any DOMO-family registration: 2, both against the identical word DOMO — NHK's DOMO (SN 79395895; refused 2024-09-28 on Domo, Inc.'s registrations; the refusals "obviated based on the consent agreement submitted by applicant" in the final action of 2025-12-31, one unrelated cutlery citation remaining; published 2026-07-28) and MAZIGH's DOMO (SN 79444992; non-final action 2026-05-01; prior-pending advisory naming LOCKIN's application among seven DOMO marks; no response yet). Formatives of the form X-DOMO cited on any DOMO registration: 0 of 15. DOMOTZ cited against any of the 53: 0. Median filed-to-publication for the uncited registrations: 9.4 months.
+
+B2 — The LOCKIN temporal test. LOCKIN's DOMO (SN 99001229) was filed 2025-01-16 (§1(b)); the examiner's search summary of 2025-06-27 shows 251 live *domo* records viewed (DOMOTZ and Domo, Inc. among them) and nothing cited; approved without an action; registered 2026-08-18 (Reg. 8404753). Of the 12 DOMO-morpheme marks in Classes 9/42 examined after that filing date:
+
+| Mark (filed) | Examined | Outcome | LOCKIN raised? |
+|---|---|---|---|
+| MORDOMO | 2025-03-19 | "no conflicting marks"; reg. 2025-07-01 | no |
+| DOMO DESIGN ×2 (cl. 42) | 2025-09-26 | no conflict; reg. 2026-03-24 | no |
+| DOMOAI | 2025-09-29 | "no conflicting registered marks"; suspended on Domo, Inc.'s own prior-pending DOMO.AI | no |
+| AURADOMO | 2025-12-14 | identification amendment only; reg. 2026-06-02 | no |
+| DOMOLINE (SN 99449012) | 2026-03-09 | "no conflicting registered marks" + a prior-pending advisory on 99001229 (its Class 9 list claimed alarm installations, video monitors, electric locks — LOCKIN's goods); abandoned unanswered 06-10 | yes (advisory) |
+| MAZIGH DOMO (identical word) | 2026-05-01 | refused on Domo, Inc.'s registrations + the advisory above | yes (advisory) |
+| DOMOS ×3 | 2026-06-09 | cited DOMOS COLIVING only | no |
+| MAJORDOMO | 2026-07-24 | no action; published | no |
+
+LOCKIN raised against: the identical word, and a DOMO-initial mark claiming LOCKIN's goods — 2 of 12. Against the X-DOMO formatives: 0 of 3. Against DOMO-initial software/services marks: 0 of 6.
+
+B3 — The field, counted. Live Class 9/42 records containing the string: 51; DOMO-morpheme marks: 35, across 28 owners. In home automation, monitoring, locks and security: 4 registered owners coexisting — Domotz (Reg. 5781917, §8/§15), LOCKIN (8404753), KIDOMO (6680677: baby monitors, digital door locks, motion sensors; approved 2021 without an action), MAMIDOMO (7962062, video baby monitors) — plus one pending. LOCKIN, KIDOMO and MAMIDOMO are use-based; DOMOTZ carries §8/§15. TMEP §1207.01(d)(iii) (May 2026) on third-party registrations of the same component for similar goods: "…may be given some weight to show … that a mark or a portion of a mark has a normally understood descriptive or suggestive connotation, leading to the conclusion that the term or mark component is relatively weak" (citing Juice Generation v. GS Enters., 794 F.3d 1334 (Fed. Cir. 2015)).
+
+B4 — DOMOTZ's Class 42 against our §A4 Class 42. DOMOTZ 5781917, Class 42, includes "design of home and office automation systems" and SaaS "for accessing, monitoring, inspecting, viewing, and controlling remote computers and devices". Our §A4 Class 42 includes "design and development of home-automation software for others" (the closest overlap) and SaaS "for controlling, automating and monitoring connected home devices". Our proposal, for your judgment: drop the "design and development … for others" clause from Class 42. Register fact: DOMOTZ was cited against none of the 53, including LOCKIN's identical DOMO ("software for permitting users to monitor their home") and KIDOMO's door locks and monitors.
+
+B5 — Recoverability on the record. The one DOMO-family citation overcome: NHK's DOMO, by a consent agreement from Domo, Inc. (B1). No X-DOMO formative has ever been cited, so there is no by-argument precedent either way. Three DOMO-string applications were abandoned unanswered after an action (DOMOLINE, LIV DOMO, DOMOBIOS) — cause unknown (inferred: not evidence of unanswerability).
+
+B6 — The question (TMEP §1207.01(b)(iii), "Comparing Marks that Contain Additional Matter"). Whether VERDOMO reads as one coined word or as VER- plus a dominant DOMO (Stone Lion v. Lion Capital, 746 F.3d 1317 (Fed. Cir. 2014), against Shen Mfg. v. Ritz Hotel, 393 F.3d 1238 (Fed. Cir. 2004) and Jack Wolfskin v. New Millennium Sports, 797 F.3d 1363 (Fed. Cir. 2015)); DOMO's weight in this field (B3); and the goods — LOCKIN's locks, alarms, cameras and lock software against our hub software. We hold no view we'd ask you to adopt; B2 is the register's answer so far.
+
+Limits of this pass. Office-action text is not indexed by the USPTO search: the census walks marks containing the DOMO string, so a DOMO citation raised against a mark WITHOUT the string would be invisible to it. Three prosecution histories were unread. SKYLRK's DOMO (50033965) and the re-filed DOMOLINE (99904255) reach an examiner around 2026-Q4 with LOCKIN registered — the next test of how broadly LOCKIN's goods are read; neither is an X-DOMO formative.

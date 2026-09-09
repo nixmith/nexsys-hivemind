@@ -333,3 +333,7 @@ Prior: 2026-09-07 (v67 beat 2 — BLOCK 4 AUTHORED + HANDED: the Erik go-ahead r
 ## chain segment rotated 2026-09-08 (v67 beat 5) — v67 b3, verbatim
 
 Prior: 2026-09-07 (v67 beat 3 — NAMING-B chartered as ONE FILE, GATED (T1 Erik's negative sight-read · T2 an opinion knockout · never before): the DOMO-entire gate, S2a → S2b /40 pre-registered, Job A the bench re-graded, Job B coinage beyond domus with a cited source, the listener test mandatory, P1–P4, the return ≤14 KB, the hub's ≤2 h after; not dispatched, Mon ~18:4x CT (instrument 2026-09-07T23:43Z). Order: hivemind 5 = 4 M + 1 A.)
+
+## chain segment rotated 2026-09-09 (v67 beat 6) — v67 b4, verbatim
+
+Prior: 2026-09-07 (v67 beat 4 — HONESTY-1 AUTHORED, ISSUE-READY (LASTREPORTED-1 · ORIGIN-1 · TR0-1 · CI-PATHS-1; 12 M + 0 A predicted; four red-at-HEAD tests); the AMD-53 §1.5 correction on the docs tree (1 M, Nick's commit first); the Erik email re-delivered as ONE paste file on Nick's word; TR-1 running, Mon ~18:5x CT (instrument 2026-09-08T00:00Z). Order: hivemind 8 = 6 M + 2 A.)

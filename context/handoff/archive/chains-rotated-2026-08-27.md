@@ -341,3 +341,7 @@ Prior: 2026-09-07 (v67 beat 4 — HONESTY-1 AUTHORED, ISSUE-READY (LASTREPORTED-
 ## chain segment rotated 2026-09-09 (v67 beat 7) — v67 b5, verbatim
 
 Prior: 2026-09-08 (v67 beat 5 — TR-1 RETURNED (12,243 B, ~1 h) and audited ACCEPT: P1/P2 SPLIT, P3 MET; Finding 1 (naive checkpoint ≥ P over-reports; DLQ + atomic special-case) and Finding 2 (in-process census → one frozen token) re-executed; TR1-B2 = DRIVER under DELEGATE; card-gradle owed; TR-1b docketed; the Erik packet delivered as PDF + DOCX attachments with a 250-word body, Mon ~19:3x CT (instrument 2026-09-08T00:31Z). Order: hivemind 10 = 5 M + 5 A.)
+
+## chain segment rotated 2026-09-10 (v68 beat 1) — v67 b6, verbatim
+
+Prior: 2026-09-09 (v67 beat 6 — THE BRAND RE-CUT: the VERDOMO email never sent; Nick let the DOMO family go and ran RS-13 on PALOKI himself (CLEAR-WITH-COST) → audited ACCEPT with three primaries re-read (RDAP; Finnish palo; the TALLOKI office action at the PDF, with the goods caveat); THE RULING: proceed with PALOKI; do NOT skip the comprehensive search; EU-DEFER provisional; NAMING-B overtaken; Nick's act = the ear test; v68's deliverable = the PALOKI packet, Wed ~07:2x CT (instrument 2026-09-09T12:24Z). Order: hivemind 8 = 6 M + 2 A.)

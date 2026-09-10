@@ -353,3 +353,7 @@ Prior: 2026-09-09 (v67 beat 7 — THE v67 CLOSE on context health: 7 beats, ≈1
 ## chain segment rotated 2026-09-10 (v68 beat 3) — v68 b1, verbatim
 
 Prior: 2026-09-10 (v68 beat 1 — THE v68 BOOT + THE PALOKI PACKET AUTHORED: the record over the dispatch line (hivemind 7 unpushed · docs 1 M uncommitted · HONESTY-1 unverified · EAR-PALOKI not given); preflight 12/12 after the C12 flip; Erik's 09-05 quote filed verbatim — nothing new; the packet (PDF 8 pp + DOCX + the one paste) on disk; EXPEDITE = the 09-18 date rule (DELEGATE); Nick's act = the ear test → the send; Act 2 = the close card's steps 1–3, Wed ~19:0x CT (instrument 2026-09-10T00:24Z). Order: hivemind 11 = 6 M + 5 A (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-10 (v68 beat 4) — v68 b2, verbatim
+
+Prior: 2026-09-10 (v68 beat 2 — NICK'S WORDS BANKED: EAR-PALOKI pass; the Erik packet SENT Thu ~12:00 CT (the brand = a wait-state); the hub's honest read banked (agree: execute); the close card STILL NOT RUN at 21:48Z (hivemind 8 ahead · docs 1 M · HONESTY-1 not dispatched) → handed WHOLE as the one act (the lock sweep · push · the docs commit · HONESTY-1's paste inline); THE MOMENTUM MAP filed (context/planning/2026-09-10_v68_MOMENTUM-MAP_…md); 7 beat blocks rotated (v67 b3 → v66 b7), Thu ~16:5x CT (instrument 2026-09-10T21:54Z). Order: hivemind 6 = 4 M + 2 A (computed from porcelain inside the splice).)

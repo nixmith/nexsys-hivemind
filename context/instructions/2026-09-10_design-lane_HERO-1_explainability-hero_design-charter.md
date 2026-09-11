@@ -3,7 +3,7 @@ file: context/instructions/2026-09-10_design-lane_HERO-1_explainability-hero_des
 purpose: The charter for HERO-1, the first design of the explainability hero (why did it fire · why didn't it · did it actually confirm), run as a frontend lane in design mode. It produces a design specification and static mockups under web-ui/dashboard/design/hero-v1/ and touches no source. The build that implements the spec is a later lane (FE-114 after EXPLAIN v1.1.4 lands, or HERO-1b if the spec is ready first).
 audience: the HERO-1 lane (a fresh Cowork conversation booted as the nexsys-frontend skill) · the hub (audits the return) · Nick (rules on the spec in one batch)
 state-type: lane charter
-status: DISPATCH-READY (v69 beat 2, Thu 2026-09-10 evening CT). Nick's word `DESIGN: start` (Thu 2026-09-10) is the ruling the frontend skill §5 requires for the first design of the hero. Baseline: homesynapse-core HEAD `eabdbb1`.
+status: EXECUTED — returned Fri 2026-09-11 15:48 CT, audited ACCEPT (context/audits/2026-09-11_HERO-1_intake_two-layer-audit_v69-b3.md), landed core `1e26912`; flipped at v70 beat 1 (Check 12). Was: DISPATCH-READY (v69 beat 2, Thu 2026-09-10 evening CT). Nick's word `DESIGN: start` (Thu 2026-09-10) is the ruling the frontend skill §5 requires for the first design of the hero. Baseline: homesynapse-core HEAD `eabdbb1`.
 -->
 
 # HERO-1 — the explainability hero, designed from its empty states outward

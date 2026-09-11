@@ -381,3 +381,6 @@ Prior: 2026-09-11 (v69 beat 1 — the v69 boot: intake at the bytes (five HEADs 
 ## chain segment rotated 2026-09-11 (v69 beat 4) — v69 b2, verbatim
 
 Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTECT scoped to core + docs on his word; HERO-1, the hero design lane, chartered (`context/instructions/2026-09-10_design-lane_HERO-1_explainability-hero_design-charter.md`) and handed as the one act; next: b3 the EXPLAIN v1.1.4 instruction, Thu 2026-09-10 ~22:0x CT (instrument 2026-09-11T03:05:28Z). Order: hivemind 5 = 4 M + 1 A (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-11 (v70 beat 1) — v69 b3, verbatim
+2026-09-11 (v69 beat 3 — HERO-1 returned (Fri 15:48 CT, 7,294 B) and audited ACCEPT at the bytes (sizes, md5s, greps, cites, the mockups rendered); the two landing cards + the HERO1 ruling batch (Q1–Q7) + the EXPLAIN word (three | one) handed; four v67 blocks rotated to archive/pm-handoff-beats-v67b4-v67b7-rotated-2026-09-11.md; next: b4 the EXPLAIN-114a instruction; H8-a tonight 19:00 CT, Fri 2026-09-11 ~16:2x CT (instrument 2026-09-11T21:28:56Z). Order: hivemind 8 = 4 M + 4 A (computed from porcelain inside the splice).)

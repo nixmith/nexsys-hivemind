@@ -361,3 +361,7 @@ Prior: 2026-09-10 (v68 beat 2 — NICK'S WORDS BANKED: EAR-PALOKI pass; the Erik
 ## chain segment rotated 2026-09-11 (v68 beat 5) — v68 b3, verbatim
 
 Prior: 2026-09-10 (v68 beat 3 — THE CLOSE CARD BANKED at porcelain (hivemind + docs pushed, ahead 0 ×2; the stale core lock swept); HONESTY-1 RUNNING (launched ~17:5x CT; unverified until RETURNED); Nick available all week → H8-a defaults Fri 19:00 CT; FE-NULL-1 AUTHORED (ISSUE-READY, the second slot under D4) and handed as the one act, Thu ~18:1x CT (instrument 2026-09-10T23:04Z). Order: hivemind 5 = 4 M + 1 A (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-11 (v68 beat 6) — v68 b4, verbatim
+
+Prior: 2026-09-10 (v68 beat 4 — HONESTY-1 RETURNED (9,816 B) and AUDITED ACCEPT at the bytes (13 M verified; red-first on a value; XMLs 165/211/413, 0 failures); R1 APPLIED by guarded splice (EntityState javadoc; core 14 M); O2 → LASTREPORTED-1b instrument-first at R-4c; the landing card handed (14 paths, the msg file on disk); FE-NULL-1 RUNNING (launched ~18:2x CT); Act 12 retires on the push, Thu ~18:4x CT (instrument 2026-09-10T23:39Z). Order: hivemind 7 = 5 M + 2 A (computed from porcelain inside the splice; coder-handoff.md is the lane's write, staged with its audit).)

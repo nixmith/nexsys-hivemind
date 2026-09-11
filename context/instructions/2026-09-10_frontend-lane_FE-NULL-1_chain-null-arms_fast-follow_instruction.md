@@ -3,7 +3,7 @@ file: context/instructions/2026-09-10_frontend-lane_FE-NULL-1_chain-null-arms_fa
 purpose: The FE-NULL-1 frontend-lane instruction — the HERO-0 F2/F4 fast-follow on the v1.1.3 mirror: four causal-chain keys the emitter serves as null are typed `| null`, validated as null-or-typed, carried by the mock on a null arm each, and rendered by the honest sentence HERO-0 wrote; plus the F4 row (cascade depth > 0 with a null parent). No wire change, no version bump. Runs in the web-ui path-domain beside HONESTY-1 (Java) under D4.
 audience: the FE lane (a fresh Cowork conversation booted as nexsys-frontend) · the hub (audits the return) · Nick (the dispatch line §9; the landing card comes from the hub after the audit)
 state-type: coding instruction (frontend lane)
-status: ISSUE-READY (v68 beat 3, Thu 2026-09-10 ~18:0x CT; instrument 2026-09-10T22:55Z). Baseline: core `39c8dd3`; `web-ui/dashboard/` last changed at `d192d17` (FE-113). Source of the F2/F4 rows: context/research/2026-09-06_HERO-0_null-census_v1.1.3_return.md + context/audits/2026-09-06_HERO-0_intake_two-layer-audit_v66-b6.md (F2, F4).
+status: EXECUTED (v69 beat 1 — LANDED core `eabdbb1` Thu 2026-09-10, frontend GREEN; audit filed v68 b5). Was: ISSUE-READY (v68 beat 3, Thu 2026-09-10 ~18:0x CT; instrument 2026-09-10T22:55Z). Baseline: core `39c8dd3`; `web-ui/dashboard/` last changed at `d192d17` (FE-113). Source of the F2/F4 rows: context/research/2026-09-06_HERO-0_null-census_v1.1.3_return.md + context/audits/2026-09-06_HERO-0_intake_two-layer-audit_v66-b6.md (F2, F4).
 -->
 
 # FE-NULL-1 — the causal chain's null arms (a fast-follow on FE-113)

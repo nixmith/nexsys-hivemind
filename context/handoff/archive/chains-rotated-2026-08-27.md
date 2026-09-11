@@ -377,3 +377,7 @@ Prior: 2026-09-11 (v68 beat 6 — THE v68 CLOSE on context health: 6 beats, ≈1
 ## chain segment rotated 2026-09-11 (v69 beat 3) — v69 b1, verbatim
 
 Prior: 2026-09-11 (v69 beat 1 — the v69 boot: intake at the bytes (five HEADs clean, ahead 0; preflight 12/12; two Check-12 flips); the H8-a 18:45 CT send armed (`trig_01AHRS3Q29MtP6q39yT24ogs`); the map re-cut on Nick's three edits; the trailer regression corrected in SKILL.md and the prompt (arc 7; 68 past commits carry trailers, history stays); the hub never commits or pushes — every repo is Nick's hands (his second word; the commit-boundary law re-cut); the deliverable = the EXPLAIN v1.1.4 instruction, Thu 2026-09-10 ~21:0x CT (instrument 2026-09-11T02:04:02Z). Order: hivemind 12 = 11 M + 1 A (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-11 (v69 beat 4) — v69 b2, verbatim
+
+Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTECT scoped to core + docs on his word; HERO-1, the hero design lane, chartered (`context/instructions/2026-09-10_design-lane_HERO-1_explainability-hero_design-charter.md`) and handed as the one act; next: b3 the EXPLAIN v1.1.4 instruction, Thu 2026-09-10 ~22:0x CT (instrument 2026-09-11T03:05:28Z). Order: hivemind 5 = 4 M + 1 A (computed from porcelain inside the splice).)

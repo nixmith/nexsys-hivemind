@@ -86,3 +86,9 @@ _Rotation 2026-08-26 (v57 hub, beat 1 - P6): the ten oldest entries (2026-08-02 
 **Discovery:** Adding a resolver AFTER an existing miss changes the meaning of every pre-existing scenario that scripts that miss. T7 (the once-per-epoch sets clear on reopen) scripted only the 0x0061 miss and expected an unresolved candidate; with the harness's new default air script (SUCCESS — a device asked for its own EUI64 answers) it RESOLVED, and the instruction's "every existing test stays green" was refuted at the instrument (589 run / 1 failed). The P2 survey grepped the retired reason string (`lookup_miss`); T7 asserts the WARN's COUNT, not its reason.
 
 **Impact:** when a WU appends a step to a resolution chain, grep the harness for the PRIOR surface's miss script (here `lookupStatus = 0x01`), not the log token, and script the new surface in each (a status, or silence) — then strengthen the hit test to pin the new surface's once-per-epoch bound too. Detail: `context/audits/2026-09-06_F-R4-1b_return.md` §0 R1 + §3 O6.
+
+## 2026-09-11 | Category: testing / build harness | Source: WU FIX-2a (the soak's K override)
+
+**Discovery:** `-Dprop=value` on the `gradlew` line sets a property on the Gradle client/daemon JVM, never on the forked test worker: this build's `Test` tasks declare no `systemProperty` passthrough, so `-Dhomesynapse.soak.loops=2` ran the default 20 loops, while an environment variable (`HOMESYNAPSE_SOAK_LOOPS=3`) reached the worker (Gradle syncs the client's environment to the daemon; the worker inherits it). An instruction that says "the system property overrides" is a build-script row in disguise.
+
+**Impact:** when a test reads a knob, read the system property AND an env-var fallback, measure the override at the instrument (the `loops=<K>` token, never the command line), and name the one-line passthrough for the hub instead of adding it to the build file uninvited. Detail: `context/audits/2026-09-11_FIX-2a_return.md` §0 R1 + §3 O1.

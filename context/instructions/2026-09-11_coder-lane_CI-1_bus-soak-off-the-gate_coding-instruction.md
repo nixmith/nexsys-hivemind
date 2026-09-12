@@ -3,7 +3,7 @@ file: context/instructions/2026-09-11_coder-lane_CI-1_bus-soak-off-the-gate_codi
 purpose: CI-1 — take the bus-soak amplifier OFF the gate without losing it as a sample source. BusSoakIT and BusPositionCensusIT reproduce the bus class on the two-processor runner on nearly every push (samples #10, #11, #12 all RED at lifecycle), which makes `check` red for every landing while FIX-2b-ii is still being authored. This lane tags the two ITs, excludes the tag from every `check` run unless a property asks for them, and adds a second, non-gating CI job that runs exactly those two ITs on every push and uploads their XML. The hero IT stays in `check` (the class's original signal, now carrying the diagnostic and the dump).
 audience: the Coder (a host-side Claude Code session on homesynapse-core at 6af76f7; the Java slot) · the hub
 state-type: coding instruction
-status: ISSUE-READY (authored v70, after beat 9, Fri 2026-09-11 ~22:3x CT; instrument 2026-09-12T03:35:42Z). Dispatches on Nick's paste (§8). Small: 4 M + 0 A, ≤30 minutes.
+status: EXECUTED — landed `ff1a6e1` (flipped v71 beat 1, Sat 2026-09-12 ~11:2x CT; a status-line edit, the body unchanged). Was: ISSUE-READY (authored v70, after beat 9, Fri 2026-09-11 ~22:3x CT; instrument 2026-09-12T03:35:42Z). Dispatches on Nick's paste (§8). Small: 4 M + 0 A, ≤30 minutes.
 baseline: core `6af76f7` (HERO-1b). Re-verify: `git log -1 --oneline` prints `6af76f7`; `git status --porcelain` empty.
 -->
 

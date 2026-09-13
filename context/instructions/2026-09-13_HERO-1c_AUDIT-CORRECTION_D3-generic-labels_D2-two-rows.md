@@ -3,7 +3,7 @@ file: context/instructions/2026-09-13_HERO-1c_AUDIT-CORRECTION_D3-generic-labels
 purpose: AUDIT CORRECTION for HERO-1c — do not re-run the WU. Two items the intake ruled before the landing: D3 (the state-card labels are hero-scoped on every page) and D2 (two §7 rows the catalog lacks). Applied on top of the uncommitted HERO-1c tree; the census of the landing is re-derived at the intake.
 audience: the HERO-1c correction lane (a fresh Cowork conversation; the nexsys-frontend skill) · the hub · Nick (§3 is his paste)
 state-type: audit correction (small; self-contained)
-status: DISPATCH-READY — authored v73 beat 5 (Sun 2026-09-13 ~17:2x CT; instrument 2026-09-13T22:23:28Z) from the HERO-1c return §3 D2/D3 and the intake `context/audits/2026-09-13_v73-b5_R-5A_and_HERO-1c_intake_two-layer-audit.md` §3.
+status: EXECUTED — applied 2026-09-13 22:27–22:32Z (the HERO-1c return §5; RED 4 → GREEN 76 and RED 4 → GREEN 126; verify exit 0), audited ACCEPT at v73 beat 6, landed core `93390f0` — banked v73 beat 7 (Sun 2026-09-13 ~18:1x CT; instrument 2026-09-13T23:18:34Z).
 -->
 
 # HERO-1c — AUDIT CORRECTION (D3 the generic labels · D2 two rows)

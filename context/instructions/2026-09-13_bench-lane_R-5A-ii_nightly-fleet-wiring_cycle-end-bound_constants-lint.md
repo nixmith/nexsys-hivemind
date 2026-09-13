@@ -3,7 +3,7 @@ file: context/instructions/2026-09-13_bench-lane_R-5A-ii_nightly-fleet-wiring_cy
 purpose: The R-5 Part A follow-up (three small rows the intake ruled): the nightly's fleet wiring (fail-safe), the harness cycle-end bound (SD-A4 extended to `at + off_for`), and the constants lint in `suite --list` (the duplicate-key class the Part A lane hit). Lands on the same bench card as Part A.
 audience: the bench lane (a fresh Cowork conversation) · the hub · Nick (§3 is his paste)
 state-type: lane instruction (small; the Files table governs)
-status: DISPATCH-READY — authored v73 beat 5 (Sun 2026-09-13 ~17:2x CT; instrument 2026-09-13T22:23:28Z) from the R-5A return §0/§3 and the intake `context/audits/2026-09-13_v73-b5_R-5A_and_HERO-1c_intake_two-layer-audit.md` §3; on top of the uncommitted Part A tree at bench `1201368`.
+status: EXECUTED — returned 2026-09-13 (`context/audits/2026-09-13_R-5A-ii_return.md`, 6,045 B; 11 paths with Part A), audited ACCEPT at v73 beat 6, landed bench `f3631cb` — banked v73 beat 7 (Sun 2026-09-13 ~18:1x CT; instrument 2026-09-13T23:18:34Z).
 -->
 
 # R-5A-ii — the nightly's fleet wiring, the cycle-end bound, the constants lint

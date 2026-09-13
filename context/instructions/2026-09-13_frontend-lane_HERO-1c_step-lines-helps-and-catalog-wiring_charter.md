@@ -3,7 +3,7 @@ file: context/instructions/2026-09-13_frontend-lane_HERO-1c_step-lines-helps-and
 purpose: The HERO-1c frontend charter — the action step LINES and helps rendered from the §7 catalog per confirmation mode (D6), `outcomeMeta`'s "We sent it" retired, the catalog keys whose surfaces lie outside HERO-1b's rows wired (D7: the hub page, the four state cards, the never-checked cell), and the hub's SPEC §7 amendment (D2/D3/D5 — four rows) applied verbatim as row C0. Tests first, every row; the wire untouched (v1.1.4 FROZEN).
 audience: the frontend lane (a fresh Cowork conversation; the nexsys-frontend skill) · the hub (the intake; §8) · Nick (§9 is his paste, on `FE: 6af76f7 frontend green`)
 state-type: lane charter (Director mode; the §3 rows govern)
-status: DISPATCH-READY on `FE: 6af76f7 frontend green` — authored v73 beat 3 (Sun 2026-09-13 ~14:2x CT; instrument 2026-09-13T19:25:42Z) from the HERO-1b return (§3 D2–D7) and its audit (§3); every cite read at core `a458a64`, `web-ui/dashboard` porcelain empty. A red `FE:` line makes the red read the first act instead.
+status: EXECUTED — dispatched v73 beat 4 on `FE: 6af76f7 frontend green`; returned 2026-09-13 21:55Z (`context/audits/2026-09-13_HERO-1c_return.md`, 18 M + 3 A; verify exit 0), audited ACCEPT with one correction (D3/D2) at v73 beat 5; corrected 22:32Z (§5; 20 M + 3 A; 441 tests); landed core `93390f0` by Nick's hands, CI all checks green — banked v73 beat 7 (Sun 2026-09-13 ~18:1x CT; instrument 2026-09-13T23:18:34Z). Next on this surface: HERO-1d (D5's keyless set; IR-8's lint), then FE-114.
 -->
 
 # HERO-1c — the step lines, the helps, the catalog wired to its last surfaces

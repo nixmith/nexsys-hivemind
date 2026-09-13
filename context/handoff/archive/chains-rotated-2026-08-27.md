@@ -469,3 +469,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-13 (v73 beat 3) — v73 b1, verbatim
 
 2026-09-13 (v73 beat 1 — THE v73 BOOT AND INTAKE: both v72 cards landed by Nick's hands (bench `1201368` 3 A + 1 M; hivemind `7540662` 6 M + 2 A — the ordered paths exactly); the preflight run 12/12 (Check 9 STALE by one file, Nick's sync; Check 12's one stale status FILED — RS3-WMARKET-2's brief); the window's deliverable named: EXPLAIN-114b LANDED green on the Java domain; the splice library adopted at `context/process/splice_lib_v1.py`; the b1 card handed; hivemind `7540662`, Sun 2026-09-13 ~13:5x CT (instrument 2026-09-13T18:58:21Z). Order: hivemind 7 = 5 M + 2 A by explicit paths (computed from porcelain inside the splice); docs 1 M held.)
+
+## chain segment rotated 2026-09-13 (v73 beat 4) — v73 b2, verbatim
+
+2026-09-13 (v73 beat 2 — hivemind `c6d482c` LANDED by Nick's hands (7 = 5 M + 2 A at diff-tree); EXPLAIN-114b AUTHORED (`context/instructions/2026-09-13_coder-lane_EXPLAIN-114b_maintainability-under-freeze_coding-instruction.md`, 26,432 B; wire byte-identical under the v1.1.4 freeze; 7 = 6 M + 1 A claimed; cap 10 KB) and handed as the one act; the docket split ruled D-v73-1 (DISABLED-2 → the formal path; the v1.1.5 keys → 114c; refutable by `DISABLED2: code-now`); hivemind `c6d482c`, Sun 2026-09-13 ~14:1x CT (instrument 2026-09-13T19:18:10Z). Order: hivemind 6 = 5 M + 1 A by explicit paths (computed from porcelain inside the splice); docs 1 M held.)

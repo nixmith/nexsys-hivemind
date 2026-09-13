@@ -3,7 +3,7 @@ file: context/instructions/2026-09-13_coder-lane_EXPLAIN-114b_maintainability-un
 purpose: The coding instruction for EXPLAIN-114b — the maintainability landing under the FROZEN v1.1.4 read-API: one paging loop replaces five copies of the type-index scan in StandardExplanationService; NonFiringExplanation keeps one constructor and the rest-api tests get a fixture; the two MODULE_CONTEXT phrases the 114a audit left for the hub. Wire byte-identical; no key, verdict, nesting or rendering changes.
 audience: the Coder lane (host-side Claude Code in homesynapse-core, the nexsys-coder skill) · the hub (the intake) · Nick (§14 is his paste)
 state-type: coding instruction (Director mode; the Files table governs)
-status: DISPATCH-READY — authored v73 beat 2 (Sun 2026-09-13 ~14:0x CT; instrument 2026-09-13T19:08:18Z) from the 114a return (`context/audits/2026-09-12_EXPLAIN-114a_return.md` §3 R2, §4, §5) and its audit (`…v71-b5_EXPLAIN-114a_intake_two-layer-audit.md` §4–§5); every line cite re-derived at core `a458a64`. Dispatches on Nick's paste of §14 (the Java domain is free — D4). DISABLED-2 is NOT in this WU (see §11 and the v73 beat-2 ruling).
+status: EXECUTED — returned 2026-09-13 19:53Z (`context/audits/2026-09-13_EXPLAIN-114b_return.md`, 9,978 B; 7 = 6 M + 1 A), audited ACCEPT at v73 beat 3 (`context/audits/2026-09-13_v73-b3_EXPLAIN-114b_intake_two-layer-audit.md`), landed core `fed99e8` by Nick's hands, CI green (all checks; the closure counter 2/20) — banked v73 beat 4 (Sun 2026-09-13 ~15:5x CT; instrument 2026-09-13T20:57:14Z). Findings IR-1..IR-3 in `context/planning/improvement-register.md`; 114c's docket in the audit §5. Was: DISPATCH-READY — authored v73 beat 2.
 -->
 
 # EXPLAIN-114b — the maintainability landing under the v1.1.4 freeze

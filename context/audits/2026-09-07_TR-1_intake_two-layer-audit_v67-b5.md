@@ -39,3 +39,5 @@ status: FILED v67 beat 5 (Mon 2026-09-07 ~19:3x CT; instrument 2026-09-08T00:27Z
 
 ## §6 Rows opened / closed
 Opens: TR-1b (the bench lane's next charter) · the owed line `card-gradle:` · the word `REVERT TR1-B2` (only if refused). Closes: TR-1 (ACCEPT). Touches: OR-BUS-SILENT-DROP gains its closure INSTRUMENT (the verb), not yet its evidence — the Open Risks row is edited to say so at this beat.
+
+**Addendum 2026-09-13 (v72 beat 4, on Nick's ratification note).** The census definition of record since BUS-ORDER-1 (core `a458a64`, AMD-101 §2): DELIVERED is the position at or below the subscriber's read-forward cursor; for a non-atomic subscriber at rest the persisted checkpoint equals it. TR-1b's driver carries this sentence; the checkpoint-lag caveat (FIX-2a's instruction, EXECUTED) was withdrawn at v71 beat 1 and does not apply.

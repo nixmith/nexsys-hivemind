@@ -3,7 +3,7 @@ file: context/instructions/2026-09-12_EXPLAIN-114a_AUDIT-CORRECTION_R3-settledAt
 purpose: The hub's one correction to EXPLAIN-114a before it lands (arc 30 form: a correction paste-block headed "AUDIT CORRECTION — do not re-run the WU"). The lane's R3 named it: a superseded DISPATCHED action renders `settled: true` with `settledAt: null`. On the v1.1.4 wire that pair is a contradiction a client will trip on, and v1.1.4 freezes at the landing, so it is fixed before the freeze, not after. The invariant: `settledAt != null ⇔ settled`. Everything else in the return is ACCEPTED as delivered (the audit: context/audits/2026-09-12_v71-b5_EXPLAIN-114a_intake_two-layer-audit.md).
 audience: the EXPLAIN-114a Coder lane (the same Claude Code session if it still holds; else a fresh one in homesynapse-core on the uncommitted tree) · Nick (§3 is the paste)
 state-type: audit correction (a delta on an unlanded return; never a re-run)
-status: ISSUE-READY (authored v71 beat 5, Sat 2026-09-12 ~17:4x CT; instrument 2026-09-12T22:36:16Z). Dispatches on Nick's paste. The census stays 13 = 13 M + 0 A (the same files); the return gains a §5. Then Nick's core card.
+status: EXECUTED (v71 beat 6 — the correction returned 23:39Z, automation 229, landed in `5f918c7`; flipped at v72 beat 1, 2026-09-13T00:53:13Z, for Check 12). Was: ISSUE-READY (authored v71 beat 5, Sat 2026-09-12 ~17:4x CT; instrument 2026-09-12T22:36:16Z). Dispatches on Nick's paste. The census stays 13 = 13 M + 0 A (the same files); the return gains a §5. Then Nick's core card.
 baseline: homesynapse-core `72efb42` + the lane's 13 uncommitted M (the tree as the return left it; `git status --porcelain | wc -l` = 13).
 -->
 

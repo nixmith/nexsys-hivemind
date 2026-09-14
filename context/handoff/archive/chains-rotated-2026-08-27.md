@@ -521,3 +521,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-14 (v75 beat 1) — v74 b7, verbatim
 
 2026-09-14 (v74 beat 7 — THE AMBITION MAP INTAKEN, ACCEPT with the hub's critique (`context/research/2026-09-14_AMBITION-MAP_return.md`; the source cites re-executed at `6bd8508`, all true; the S31ZB page re-fetched: switch only); IR-15..IR-19 (IR-15 a DEFECT — the IAS zone-type mis-selection, a fence on adoption); D-v74-4 `PLUG:` packaged; the plan §10 (the October rows, gated on R-5B + rehearsal 1); hivemind `fe2d32d` LANDED; the b7 card handed; hivemind `fe2d32d`, Mon 2026-09-14 ~11:5x CT (instrument 2026-09-14T16:54:42Z). Order: hivemind 10 = 8 M + 2 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-14 (v75 beat 2) — v74 b8, verbatim
+
+2026-09-14 (v74 beat 8 — THE v74 CLOSE: hivemind `e5fd594` LANDED; HEADs core `6bd8508` · skills `180375f` · bench `f3631cb` · docs `7221ddc`, all clean, push 0; Check 9 PASS 28/28; the definition of done met on the disk; Nick's close brief verbatim (DR §1); D-v74-4 RULED `PLUG: two` (the two criteria; THE ADOPTION FENCE); the plan §11 = v75's window; the next WU = R-5B's packet through THE PRIOR-LEDGER GATE (v75 b1); v75's dispatch line handed; hivemind `e5fd594`, Mon 2026-09-14 ~13:0x CT (instrument 2026-09-14T18:02:58Z). Order: hivemind 6 = 6 M + 0 A by explicit paths (computed from porcelain inside the splice).)

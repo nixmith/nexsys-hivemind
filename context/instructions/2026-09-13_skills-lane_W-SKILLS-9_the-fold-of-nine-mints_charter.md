@@ -3,7 +3,7 @@ file: context/instructions/2026-09-13_skills-lane_W-SKILLS-9_the-fold-of-nine-mi
 purpose: The W-SKILLS-9 charter — the fold of the nine pm-lessons mints since 2026-09-10 (and the v73 window's structural adds) into the three SOURCE skill trees, in the W-SKILLS-6 token-shaped form: every rule name survives; each mint becomes one operative sentence + its mechanism + its exhibit pointer in the file that the next reader of that rule opens; nothing is re-told. A skills lane (a fresh Cowork conversation); the hub audits at the bytes; Nick's sync clears Check 9.
 audience: the skills lane · the hub (the intake; Check 9) · Nick (§4 is his paste)
 state-type: lane charter (the fold table governs)
-status: DISPATCH-READY — authored v73 beat 7 (Sun 2026-09-13 ~18:1x CT; instrument 2026-09-13T23:18:34Z); dispatches mid-week when a desk slot is free (the plan of record §8 row 5).
+status: EXECUTED — pasted by Nick Sun 2026-09-13 ~19:0x CT (v74 beat 1, pulled forward from the plan §8's b5 on his word); RETURNED 00:2xZ (`context/audits/2026-09-13_W-SKILLS-9_return.md`, 8,853 B; hivemind 10 M + 1 A, skills 4 M — the charter's 9/3 was a typed count, IR-11); audited ACCEPT at v74 beat 2 (`context/audits/2026-09-13_v74-b2_W-SKILLS-9_intake_two-layer-audit.md`); lands with this commit (the b2 hivemind card) and the b2 skills card; Check 9 PASS 28/28 against Nick's sync. Was: DISPATCH-READY — authored v73 beat 7 (Sun 2026-09-13 ~18:1x CT; instrument 2026-09-13T23:18:34Z).
 -->
 
 # W-SKILLS-9 — the fold of nine mints

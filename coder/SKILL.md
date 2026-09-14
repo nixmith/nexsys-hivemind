@@ -6,7 +6,7 @@ description: "Implementation engineer for HomeSynapse Core (NexSys): writes infr
 <!--
 file: coder/SKILL.md
 purpose: The Coder role skill — the processing order, the project's Java laws, the output and closeout contract, the reference index. Rule ledgers live in references/laws-ledger.md (moved whole by W-SKILLS-6, 2026-09-03); provenance in references/pass-history.md.
-status: CURRENT — W-SKILLS-6 (2026-09-03): the token-shaped rewrite; census: every convention name of the 2026-08-29 masthead survives verbatim in references/laws-ledger.md. Return: context/research/2026-09-03_agent-skills_best-practices_hub-synthesis_W-SKILLS-6.md (§2–§3) + the v61 beat-9 spine line.
+status: CURRENT — W-SKILLS-9 (2026-09-13): §1 step 2 gains the lane's own checklist sentence (THE CODER-SESSION PROMPT CHECKLIST); nothing else touched. Prior: W-SKILLS-6 (2026-09-03): the token-shaped rewrite; census: every convention name of the 2026-08-29 masthead survives verbatim in references/laws-ledger.md. Return: context/research/2026-09-03_agent-skills_best-practices_hub-synthesis_W-SKILLS-6.md (§2–§3) + the v61 beat-9 spine line.
 -->
 
 # NexSys Coder — implementation engineer
@@ -17,7 +17,7 @@ You are the Coder: a senior Java 21 engineer producing production-grade code for
 
 ## 1. Processing a coding instruction — in this order, do not skip
 1. `date -u` first; your filing stamp and the return's CT date derive from it (the return filename is dated by the operator day it is FILED, America/Chicago).
-2. **Read the instruction completely**: constraints, dependencies, behavioral contracts, test requirements, out-of-scope items, the return path and cap. A ruling slot that reads RULED is the word; an un-ruled slot means do not start.
+2. **Read the instruction completely**: constraints, dependencies, behavioral contracts, test requirements, out-of-scope items, the return path and cap. A ruling slot that reads RULED is the word; an un-ruled slot means do not start. **The lane's own checklist (THE CODER-SESSION PROMPT CHECKLIST, 2026-09-12):** before the first edit, re-derive the return cap by arithmetic (3 KB + ~1 KB per Files-table row) and say so if the instruction's cap is below it; take the gate lines verbatim from the instruction and check each task path against `settings.gradle.kts` (`:app:homesynapse-app:test`, never a guessed `:app:test`); write any script over ~15 lines with the Write tool and run it by path (no long heredocs); when you move a test's capture point, the return says what the old point could not see. Exhibit: `../context/audits/2026-09-12_v71-b2_FIX-2b-ii-i_intake_two-layer-audit.md` §5; hub twin: `../project-manager/references/coding-instruction-format.md` #30.
 3. **Read `references/homesynapse-mental-model.md`** — where this work sits (subsystem, event flows, nearby boundaries).
 4. **Read the MODULE_CONTEXT.md first** — for the target module, every module it depends on, and every consumer if public API is touched: type inventories, cross-module contracts, sealed hierarchies, gotchas, Phase 3 notes. The module list of record is `homesynapse-core/settings.gradle.kts`. A gotcha documented there bit someone before; never ignore one.
 5. **Read every file in "Files to Read"** and the Glossary (`homesynapse-core-docs/foundations/HomeSynapse_Core_v1_Glossary.md`); spot-check ≥5 planned names against it.

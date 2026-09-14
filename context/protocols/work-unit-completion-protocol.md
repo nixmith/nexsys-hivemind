@@ -5,7 +5,7 @@ audience: PM, Coder
 update-cadence: ad-hoc
 state-type: reference
 status: CURRENT
-last-verified: 2026-08-18 (R-11 lane — DELTA-REBUILT at the same path; the ⚠ PARTIALLY-STALE banner of 2026-08-10 (v50 beat 6, W-COHERE gap row 2) is LIFTED with this rebuild. The phase discipline is UNCHANGED LAW; the drifted steps are corrected: Step-2 template pointer retargeted (the TEMPLATE tree was removed 2026-04-11) · Step 6 re-grounded to the frontmatter-chain/beat-pair snapshot · Step 7 marked RETIRED (weekly plans — Nick's ruling 2026-08-09) · Step 10 carries the ruled THREE mirror pairs (R-2, 2026-08-06) · Step 11 re-pointed off the retired message channels · the copied preflight check-counts removed per pointer-not-copy · the five-repo note added. Worktree only; the hub audits, Nick commits.) Prior: 2026-05-20 against commit 25bc23b
+last-verified: 2026-09-13 (W-SKILLS-9 — the Phase 2 checklist gains one rig-WU line, THE PRIOR-LEDGER GATE; nothing else touched.) Prior: 2026-08-18 (R-11 lane — DELTA-REBUILT at the same path; the ⚠ PARTIALLY-STALE banner of 2026-08-10 (v50 beat 6, W-COHERE gap row 2) is LIFTED with this rebuild. The phase discipline is UNCHANGED LAW; the drifted steps are corrected: Step-2 template pointer retargeted (the TEMPLATE tree was removed 2026-04-11) · Step 6 re-grounded to the frontmatter-chain/beat-pair snapshot · Step 7 marked RETIRED (weekly plans — Nick's ruling 2026-08-09) · Step 10 carries the ruled THREE mirror pairs (R-2, 2026-08-06) · Step 11 re-pointed off the retired message channels · the copied preflight check-counts removed per pointer-not-copy · the five-repo note added. Worktree only; the hub audits, Nick commits.) Prior: 2026-05-20 against commit 25bc23b
 -->
 
 # Work Unit Completion Protocol (WUCP)
@@ -307,6 +307,7 @@ At the bottom of the PM's review response, append:
   - Open Risks current: [yes / no — list gaps]
 - [x/ ] Dual skill-location sync check: PASS (all three diffs empty) / STALE (remote — mirror unverified from here)
 - [x/ ] Open-item sweep: coder-handoff newest entry + pm-handoff Open Risks carry nothing blocking.
+- [x/ ] Rig WUs only — THE PRIOR-LEDGER GATE (2026-09-13): the next packet cut from this record greps its deviations ledger and its findings card's asks for every reused command and witness, the greps listed in the cutting beat's audit (`project-manager/references/coding-instruction-format.md` #31) / N/A
 - Timestamp: YYYY-MM-DD HH:MM UTC
 ```
 

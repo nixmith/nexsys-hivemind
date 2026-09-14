@@ -2,7 +2,7 @@
 file: context/decisions/2026-06-21_dashboard-read-API-contract-freeze.md
 purpose: The FROZEN dashboard read-API contract (v1) — the binding interface the Web-UI lane builds against and the Core lane must not break silently. Pins the EXISTING REST shapes (source-verified at core 1541446) and DEFINES the frozen-but-unbuilt shapes (events, health, the causal-chain hero, the automations list) the frontend mocks against and Core implements TO. The hard prerequisite for launching the frontend-dev lane (V1 record wave step 2).
 audience: the frontend-dev lane (builds against this), the Core lane (implements/preserves it), the hub (adjudicates any change as a cross-lane event), Nick (public-API shape is his call)
-state-type: decision / frozen contract (v1.1 base, byte-stable; amended ADDITIVELY — current stamp **v1.1.3**, ratified 2026-09-03 [docket Row 14 RULED (a) by ADOPT-ALL-RECS: the four additive keys `deviceId` · `lastReported` · `components[].ref` · `triggerRef`, ONE bump], landed core-side 2026-09-06 [CG-123 `f25291b`, CI green; the FE mirror FE-113 in flight; the real-wire read H8-a 2026-09-06 — the inline **[v1.1.3 …]** notes below are its amendment record]; prior stamp **v1.1.2**, ratified 2026-07-22 [Nick ruling 1, the four-constraint law: additive-only · per-endpoint camelCase · emitter-leads · version discipline], landed core-side 2026-07-26 [WU-SKIP-VIS]; the inline **[v1.1.2 …]** notes below are the amendment record, per the v1.1.1 precedent)
+state-type: decision / frozen contract (v1.1 base, byte-stable; amended ADDITIVELY — current stamp **v1.1.4**, ruled on HERO-0 §3 and Nick's `EXPLAIN: three` (the first of the three EXPLAIN bumps — SEVEN additive keys across THREE reads + ONE enum value, in the SKIP-VIS / CG-123 shape), landed core-side 2026-09-12 [EXPLAIN-114a `5f918c7`, its R3 correction before the freeze; CI green] and 2026-09-13 [EXPLAIN-114b `fed99e8` — wire byte-identical; the fixture of record `NonFiringExplanations`; CI green]; the FE mirror HERO-1b `6af76f7` (`EXPECTED_VERSION` → v1.1.4; frontend green) + HERO-1c `93390f0`; the inline **[v1.1.4 …]** notes below are its amendment record, written by the hub at v74 b3 (2026-09-13) from the 114a return and `api/rest-api/MODULE_CONTEXT.md` §EXPLAIN-114a; prior stamp **v1.1.3**, ratified 2026-09-03 [docket Row 14 RULED (a) by ADOPT-ALL-RECS: the four additive keys `deviceId` · `lastReported` · `components[].ref` · `triggerRef`, ONE bump], landed core-side 2026-09-06 [CG-123 `f25291b`, CI green; the FE mirror FE-113 in flight; the real-wire read H8-a 2026-09-06 — the inline **[v1.1.3 …]** notes below are its amendment record]; prior stamp **v1.1.2**, ratified 2026-07-22 [Nick ruling 1, the four-constraint law: additive-only · per-endpoint camelCase · emitter-leads · version discipline], landed core-side 2026-07-26 [WU-SKIP-VIS]; the inline **[v1.1.2 …]** notes below are the amendment record, per the v1.1.1 precedent)
 status: FROZEN v1 2026-06-21 (v3 hub); **v1.1 refinement same day** — pre-launch (no frontend code yet, so zero rework), folding the 2026-06-21 explainability-UX research: the honest `unconfirmed` command-outcome state (B3), the three-way `NonFiringExplanation` for "why didn't it fire?" (B3), and never-silent-blank origin attribution (B1). Source-verified against core 1541446. Changes route through the hub (§6).
 refinement-source: context/assessments/2026-06-21_explainability-UX-competitive-research.md (§3 command reliability; §2 FM-1/FM-5; §4 hero principles)
 anchors: homesynapse-core-docs/design/09-rest-api.md (Locked) · design/13-web-ui-observability-mvp.md (Locked) · design/16-superior-automation.md (RunCausalChain — the hero) · context/decisions/2026-06-20_V1-launch-scope_decision-record.md (device/event/health views + the thin causal-query API; no-WS poll 1–2s)
@@ -124,7 +124,8 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
                         "observedState": [ { "entityId": "...", "attribute": "...", "value": "..." } ] } ],
       "actions": [ { "type": "...", "targetRef": {...}, "command": "...", "params": {...},
                      "outcome": "DISPATCHED|CONFIRMED|UNCONFIRMED|FAILED|SKIPPED", "reason": "<string|null>",
-                     "resultOutcome": "<string|null>", "settled": <bool> } ],
+                     "resultOutcome": "<string|null>", "settled": <bool>,
+                     "settledAt": "<ISO|null>", "confirmedAt": "<ISO|null>" } ],
                      // [v1.1.2 amendment, ratified 2026-07-22 (Nick ruling 1 / GAP-1); landed 2026-07-26 (SKIP-VIS, DP-4 GO)]:
                      // resultOutcome = the raw command_result.outcome (the live TEN-value vocabulary + adapter strings;
                      // null when no command_result exists) — the un-collapsed disposition (superseded no longer renders
@@ -139,9 +140,24 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
                      // resultOutcome null beside CONFIRMED is the happy path — the Zigbee handler publishes command_result only on
                      // FAILURE, so a confirmed action has no result row (confirmation comes from the device's own state report,
                      // the store's state_confirmed). A consumer must not read resultOutcome null as "unknown" when outcome is CONFIRMED.
+                     // [v1.1.4 amendment — HERO-0 §3 / Nick's `EXPLAIN: three`; landed 2026-09-12 (EXPLAIN-114a 5f918c7, R3 corrected before the
+                     // freeze) and 2026-09-13 (EXPLAIN-114b fed99e8, wire byte-identical)]: THREE additive keys on this read, each APPENDED at
+                     // the END of its object, PRESENT in every v1.1.4 payload, JSON null when the log carries no value — never absent, never
+                     // guessed; instants render Instant.toString() (ISO-8601 UTC). actions[].settledAt (9th, after settled) = the instant of
+                     // the CLASSIFYING envelope (state_confirmed / the last classifying command_result / the timeout / a command-less action's
+                     // automation_action_completed); null for a bare or acknowledged DISPATCHED (a superseded action carries the superseding
+                     // result's instant — R3). actions[].confirmedAt (10th) = the state_confirmed's instant; null when none. data.definitionKey
+                     // (9th, after cascade) = the run's automation_triggered.definitionHash (SHA-256 hex); null when the log carries none.
+                     // VALUE note on the EXISTING trigger.firingValue (4th): now POPULATED from the triggering envelope inside the run's
+                     // correlation — state_changed.newValue in the automation module's one string dialect (AttributeValues.asString) or
+                     // state_reported.value as recorded; null when the triggering event is not in the correlation (retention-trimmed) or is
+                     // not a state event (a forDuration run's trigger_duration_expired). The v1.1.3 line above ("render matched, never a
+                     // value") is superseded for v1.1.4 payloads. Key ORDER is test-pinned (RunEndpointsTest.causalChain_v114KeysLastInOrder_
+                     // iso8601OrNull). GET /api/v1/runs (the runs list) is byte-unchanged by v1.1.4 (no per-row correlation read — DP-5).
       "outcome": { "status": "...", "reason": "<string|null>", "durationMs": 0,
                    "actionCount": 0, "commandCount": 0 },
-      "cascade": { "parentRunId": "<ulid|null>", "depth": 0 } },
+      "cascade": { "parentRunId": "<ulid|null>", "depth": 0 },
+      "definitionKey": "<sha256-hex|null>" },
     "meta": { "viewPosition": <long>, "timestamp": "<ISO>" } }
   ```
   This maps 1:1 onto `RunCausalChain`/`ChainLink` + the AMD-92 event rows (trigger=row1, condition-evaluated=row4, action=rows5/6, conflict=row9, completed=row2). **`observedState` is the trigger-time snapshot the M7.2a-2 `RunConditionGate` captures** (the real `stateSnapshotPosition` 2a-2 wires).
@@ -149,13 +165,14 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
 - **`GET /api/v1/automations/{id}/non-firing?expectedSince=<cursor>` → THE OTHER HERO HALF — "why didn't it fire?" (v1.1, research §2 FM-5 / §4 #1 — a CO-EQUAL peer, the single most differentiated read).** Answers the user's "I expected X, it didn't happen — why?" by distinguishing the three non-firing reasons from data the engine already produces:
   ```json
   { "data": { "automationId": "<ulid>", "automationName": "...", "enabled": true,
-      "verdict": "CONDITION_NOT_MET | NEVER_TRIGGERED | ACTED_BUT_UNCONFIRMED | DISABLED",
+      "verdict": "CONDITION_NOT_MET | NEVER_TRIGGERED | ACTED_BUT_UNCONFIRMED | DISABLED | FIRED_CONFIRMED",
       "lastRelevantRunId": "<ulid|null>",
       "explanation": "<plain-language sentence>",
       "triggerSummary": "<what would fire this, in plain words>",
       "lastEvaluation": { "at": "<ISO|null>", "conditionsResult": "<...|null>" },
       "noCommandsIssued": <true|null>,
-      "triggerRef": { "type": "entity", "id": "<ulid>" } },
+      "triggerRef": { "type": "entity", "id": "<ulid>" },
+      "disabledAt": "<ISO|null>", "disabledReason": "<string|null>", "definitionKey": "<sha256-hex|null>" },
       // [v1.1.3 amendment, ratified 2026-09-03 (Row 14 (a)); landed 2026-09-06 (CG-123 f25291b, CG-1 / DP-2)]: triggerRef = the
       // {type:"entity", id} of the ONE entity the definition's FIRST trigger names through a DirectRef selector (State/StateChange/
       // NumericThreshold/Availability triggers; a CalendarTrigger names its calendar entity), or JSON null (Time/Sun/Manual/Event/
@@ -166,6 +183,17 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
       // entity — CG audit R1; DelayAction/WaitFor/Branch/Emit/Scene/Invoke/Parallel → null). The literal type is lowercase "entity".
       // Housekeeping row REFACTOR-1: the convenience-constructor ladder on NonFiringExplanation/ComponentView (10 + two ctors) retires
       // to a test-only factory at the NEXT additive bump — zero wire change.
+      // [v1.1.4 amendment — HERO-0 §3 / Nick's `EXPLAIN: three`; landed 2026-09-12 (EXPLAIN-114a 5f918c7) and 2026-09-13 (EXPLAIN-114b
+      // fed99e8)]: THREE additive keys APPENDED after triggerRef, ALWAYS PRESENT (13 keys; ORDER test-pinned — AutomationEndpointsTest.
+      // nonFiring_v11ShapeTest / nonFiring_v114DisabledKeysOnWire), plus ONE enum value. disabledAt (11th) = the instant of the LATEST
+      // automation_disabled for this automation; null when the log has none, and on any non-DISABLED verdict. disabledReason (12th) =
+      // that event's reason ("repeated_failure"), else "configuration" on a DISABLED verdict with no such event (DP-6); null on any
+      // non-DISABLED verdict. definitionKey (13th) = DefinitionHashes over the registry definition (equals the causal chain's
+      // definitionKey for the same definition — DP-5); never null in production. verdict GAINS FIRED_CONFIRMED (the enum grows LAST):
+      // the clean confirmed-success case (DP-B2) now reports it with a non-null lastRelevantRunId; NEVER_TRIGGERED always carries a
+      // null run id. A consumer on the open-vocabulary path renders an unknown verdict honestly (HERO-1b's row renders this one).
+      // DISABLED-2 (an auto-disabled automation whose YAML still says enabled never reports DISABLED) is NOT changed by v1.1.4 —
+      // it is AMD-102's, by the formal path.
       // [v1.1.2 amendment, ratified 2026-07-22 (Nick ruling 1 / CORE-P2); landed 2026-07-26 (SKIP-VIS DP-2)]:
       // noCommandsIssued = TRUE exactly when the governing COMPLETED run's terminal payload shows
       // actionCount > 0 with commandCount == 0 (the silent-skip class — §3.9 all-skipped runs emit nothing,
@@ -182,7 +210,7 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
     "meta": { "viewPosition": <long>, "timestamp": "<ISO>" } }
   ```
   V1 data sources per verdict: **CONDITION_NOT_MET** = a recent `SKIPPED` run (the causal-chain shows `conditions[].result=false`); **ACTED_BUT_UNCONFIRMED** = a run whose action outcome is `UNCONFIRMED`/`FAILED` (device-didn't-act); **NEVER_TRIGGERED** = no run in the window → report that + `triggerSummary` so the user sees what *would* fire it; **DISABLED** = the automation is off. **Scope guard:** the *deep* "why did the trigger not match" diagnosis (recording every non-matching trigger evaluation) is a **post-V1 depth** — V1 answers from existing run records + absence + config, which already beats every competitor (none distinguishes these three at all).
-- **`GET /api/v1/automations`** → the component-based automation list (supporting surface #1 — present, not built out): `{ "data": [ { "automationId", "name", "enabled", "components": [ {"type","summary","ref": {"type":"entity","id":"<ulid>"}|null} ], "lastRunId": "<ulid|null>" } ], ... }`.
+- **`GET /api/v1/automations`** → the component-based automation list (supporting surface #1 — present, not built out): `{ "data": [ { "automationId", "name", "enabled", "components": [ {"type","summary","ref": {"type":"entity","id":"<ulid>"}|null} ], "lastRunId": "<ulid|null>", "definitionKey": "<sha256-hex|null>" } ], ... }`. *[v1.1.4 amendment; landed 2026-09-12 (EXPLAIN-114a 5f918c7)]: definitionKey (6th, after lastRunId) = DefinitionHashes over each registry definition — no store read (DP-5); never null in production; ORDER test-pinned (automations_v11ShapeTest, automations_definitionKeyOnWire).*
 
 **Scope guard (binds B3):** these **four** reads (run list, causal-chain, non-firing, automation list) are the V1 causal surface. The contract must NOT grow into the full M12 observability/query language — no arbitrary event-graph traversal, no cross-run analytics, no audit projection, no per-non-match trigger recording (post-V1). The two hero questions ("why did it fire?" + "why didn't it?") + the run list + the automation list. That is the whole V1 causal read API.
 

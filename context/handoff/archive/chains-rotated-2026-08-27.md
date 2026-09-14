@@ -513,3 +513,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-14 (v74 beat 7) — v74 b5, verbatim
 
 2026-09-14 (v74 beat 5 — HERO-1d INTAKEN, ACCEPT (17 = 14 M + 3 A under web-ui; `verify` GREEN on the desk, 480 tests; the lint 11 → 0; the hub's re-execution at the bytes; IR-8 RETIRED; IR-12/13/14; the dialect RULED US); the web-ui card (17) handed — frontend CI the gate, a counter sample; the b4 hivemind card OVERTAKEN unrun by one b5 card; hivemind `169e6d3`, Mon 2026-09-14 ~06:5x CT (instrument 2026-09-14T11:53:23Z). Order: core 17 by `git add -A web-ui/dashboard` (Nick's hands; frontend CI the gate); hivemind 9 = 6 M + 3 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-14 (v74 beat 8) — v74 b6, verbatim
+
+2026-09-14 (v74 beat 6 — THE SPINE ROTATED (v73 b1–b7 → `archive/pm-handoff-beats-v73b1-v73b7-rotated-2026-09-14.md`, verbatim, bytes asserted); core `6bd8508` (HERO-1d) LANDED, CI all checks green (the counter 4/20; IR-8 RETIRED at the sha); hivemind `548744f` LANDED; THE AMBITION MAP CHARTERED inside Nick's fences (`context/instructions/2026-09-14_strategy-lane_AMBITION-MAP_expansion-rows-with-instruments_charter.md`) and its paste handed; hivemind `548744f`, Mon 2026-09-14 ~07:0x CT (instrument 2026-09-14T12:07:08Z). Order: hivemind 8 = 6 M + 2 A by explicit paths (computed from porcelain inside the splice).)

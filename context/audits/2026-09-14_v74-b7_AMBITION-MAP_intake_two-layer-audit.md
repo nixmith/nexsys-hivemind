@@ -1,0 +1,50 @@
+<!--
+file: context/audits/2026-09-14_v74-b7_AMBITION-MAP_intake_two-layer-audit.md
+purpose: The hub's two-layer intake of THE AMBITION MAP (`context/research/2026-09-14_AMBITION-MAP_return.md`, 14,313 B; D-v74-3): the claims read critically (§1), the hub's re-execution of the load-bearing source cites at `6bd8508` and of the one secondary page (§2), what was not re-executed (§3), the hub's independent critique and rulings (§4), the register rows and the words packaged (§5).
+audience: the hub (October's Tier-2 / P2-P3-seam charters) · Nick (the words: `PLUG:` now; the October rows after R-5B)
+state-type: intake audit (FILED at v74 beat 7)
+status: FILED — Mon 2026-09-14 ~11:5x CT (instrument 2026-09-14T16:54:42Z); verdict ACCEPT with the hub's critique; the map INFORMS — nothing dispatches from it before R-5B lands and the first rehearsal is on the calendar (Nick's fence 3)
+last-verified: 2026-09-14 (v74 beat 7)
+-->
+
+# THE AMBITION MAP — intake, two layers, and the hub's critique
+
+## §0 Card
+- **The return:** at the named path; last line = its byte count (14,313 ≤ 14 KB); the §0 card 2.3 KB; returned Mon 09-14 ~08:1x CT, one hour after the paste. Census: 9 admitted · 13 rejected with their clause · 2 measured-at-R-5B. P1 confirmed on rank, refuted on instrument; P2–P4 confirmed (P4: the charter's fence (2) was FALSE at HEAD — the plug's read side does not exist).
+- **Verdict: ACCEPT.** Every load-bearing source cite the ranking rests on re-executed at `6bd8508` and true (§2); the one secondary claim (the bench plug exposes a switch only) re-fetched and true; the rejections cite the clauses of record; the H10 rows are in form and respect fence (3). The hub's critique (§4) changes two instruments and one vocabulary, not the ranking.
+- **What it means for the program:** the metering class stays row one but is a PURCHASE plus one Core WU, not a scenario to run tomorrow; `HARNESS-PLUG:` (the S31 at H8-a) promotes a POWER-CYCLE harness only — P-1's proof line is "power applied", never a reading; the 72-hour run's cheapest new datum is link quality (per-frame RSSI/LQI already parsed and dropped); a one-way-door defect exists in the IAS classifier and must land before a water/smoke/vibration device is ever adopted.
+- **Packaged now:** D-v74-4 `PLUG: two|one|hold` (the DR §3). **Gated on R-5B + rehearsal 1 (no word due):** ENERGY-READ · LINK-READ · CORROBORATE · TIER2-FIRST — the plan's §10 addendum carries them.
+
+## §1 The claims, read critically
+The map's spine is three source claims and one secondary one: (i) the adapter registers eight cluster handlers and none for ElectricalMeasurement 0x0B04 or Metering 0x0702, though `ReportingConfigurator` knows both; (ii) the classifier maps a Smart Plug (0x0051) to `SWITCH` + `on_off` only, while the device model already has `PowerMeter`/`EnergyMeter`; (iii) `iasCapability()` selects `motion` for every non-CONTACT zone type while `IasZoneHandler` emits `active` for water-leak/smoke/vibration — a durable mis-adoption because adoption is a one-way door; (iv) the bench plug (`sonoff_s31_lite_zb`) has no metering cluster. Beside them: per-frame LQI/RSSI parsed by `EzspIncomingMessage` and dropped; `topologyScan()` with no consumer; `TelemetryWriter` with no producer; `TuyaDpCodec` an empty interface; `presence_signal` reserved in `EventTypes`. The rejections lean on the plan's "no Matter before P3", the north star (binding = actuation outside the log), the register §0-3 (Wi-Fi sensing), Doc 08 §14's deferrals and the E-4 privacy fence. The lane could not read the three `.docx` strategy files — it did not know they existed (the hub's charter listed only `.md`; §4).
+
+## §2 The hub's re-execution (core `6bd8508`, 2026-09-14T16:54Z)
+1. `ClusterHandlers.java` :36–:54: eight registrations (OnOff, LevelControl, ColorControl, OccupancySensing, PowerConfiguration, TemperatureMeasurement, RelativeHumidity, IasZone); `0x0B04|0x0702|ElectricalMeasurement|Metering` = 0 hits in the file. TRUE.
+2. `ReportingConfigurator.java` :71–:72: `0x0B04 → DefaultRow(0x050B …)` and `0x0702 → DefaultRow(0x0000 …)` present. TRUE (the reporting side knows the clusters the ingestion side lacks).
+3. `EndpointClassifier.java` :99–:101: `DEVICE_TYPE_SMART_PLUG → Classification(EntityType.SWITCH, capabilities(StandardCapabilities.onOff()))` with the comment "Doc 08 §3.5 maps the smart plug to `switch`". TRUE.
+4. `EndpointClassifier.java` :175: `iasCapability` returns `contact()` for CONTACT else `motion()`; `IasZoneHandler.java` :74–:79: `WATER_LEAK, SMOKE, VIBRATION -> "active"`. TRUE — the defect is real; its comment says "adoption is a one-way door at V1, so a wrong selection here is durable".
+5. `Capability.java` :32 `EnergyMeter, PowerMeter`; `EnergyMeter.java` exists. TRUE. `TuyaDpCodec.java` :27 an empty `non-sealed interface`. TRUE. `EventTypes.java` :194 `PRESENCE_SIGNAL`. TRUE.
+6. `TelemetryWriter` referenced only in persistence, configuration, integration-api plumbing and the zigbee config schema — no integration writes it. TRUE. `topologyScan` referenced in `CoordinatorProtocol`, `EzspCoordinatorProtocol` :1408 and its own test — no consumer. TRUE. `EzspIncomingMessage` carries `lastHopLqi`/`lastHopRssi` (:26–:36). TRUE.
+7. `nexsys-bench/scenarios/constants.yaml` :427: the harness block names the S31 Lite ZB as the bench's only commandable plug. TRUE.
+8. The secondary page (zigbee2mqtt `S31ZB`, fetched by the hub): "Zigbee smart plug (US version)"; exposes `switch (state)` only; no power/energy metering. TRUE.
+9. One corpus hit the lane called absent: `context/audits/2026-08-22_R10-IN-P_physics-seed-vs-measured-bench_return.md` mentions 0x0B04 — a design mention, not an S31 interview; the lane's "re-derive at the sitting" stands.
+
+## §3 Not re-executed (disclosed)
+The rejected rows' clause cites (Doc 08 §14, the E-4 fence, the north star's binding sentence) were not re-read line by line; the ±15 % tolerance, the 5 s min-interval, the 0.3–0.7 s confirm window and the "~40 % of Zigbee devices are Tuya/Xiaomi" figure are the lane's numbers without a cited instrument — flagged in §4, not adopted as fact.
+
+## §4 The hub's independent critique (what changes, what stands)
+1. **AM-1's instrument — the reference, not the label.** A lamp's label is nominal; LED lamps draw off their label by more than the map's ±15 %. RULED: the metering scenario's ground truth is a plug-in reference power meter (a Kill-A-Watt-class unit; part of the same purchase), the DUT plug's `power_w` within ±10 % of the REFERENCE, the label the fallback only. The scenario keeps `energy_wh` monotone.
+2. **Vocabulary — `confirmed` is the action leg's word.** The map borrows `confirmed|unconfirmed` for a reading inside a band. RULED: a measurement verdict is `within|outside` (+ the reading and the reference); `CONFIRMED` stays the device-confirmed-action word the register's field-language law protects. The bench's `field_within` assert names it so.
+3. **AM-6's sampling premise is unmeasured.** "Flooding if per-frame" — at R-4c's store rate (≈0.62 rows/min on the held card) per-frame link samples are ≈1/min, not a flood. RULED: LINK-READ's charter measures the incoming-frame rate per device per hour FIRST (one counter, printed once) and chooses the sampling rule from the number (arc 1).
+4. **The IAS defect is not a Tier-2 row; it is a fence.** A water-leak/smoke/vibration device adopted before the fix carries the wrong capability for life. RULED: IR-15 lands as a micro-WU on the Java slot at the first opening after 114c (½ day; the fixture-replay test first), and until it lands, no such device joins any card — the rig packets carry the line.
+5. **The strategy `.docx` files were outside the lane's reach** (`From_Platform_to_Institution…`, `HomeSynapse_MVP_Data_Readiness_Specification`, `NexSys_Data_Value_Engine_Strategy` — three `.docx` under `context/strategy/`). The hub's charter listed only `.md`; a read-only lane cannot open them. IR-19: convert the three to `.md` beside the originals at a hygiene beat; the Tier-2 charter's author reads them.
+6. **What stands unchanged:** the ranking (AM-1 · AM-6 · AM-14 · AM-3 · AM-7); the thirteen rejections and their clauses (the binding rejection on the north star is exactly right — a second path to actuation with no event at the log is the thing the substrate exists to prevent; the Wi-Fi-sensing rejection on the register §0-3 is the language law applied); the two seams (A: the adapter's read side — three handlers, the 0x0051 arm, three IAS zone types; B: the telemetry producer path); the fence — the map informs, nothing dispatches before R-5B and rehearsal 1; the physics seed taken for AM-6/14/13 and declined for the rest.
+7. **The purchase timing.** A purchase is not a dispatch; `PLUG:` is packaged now (D-v74-4) because plugs have lead time and rehearsal 1 is late September. The hub names no model (the criterion names it: P-1 §5 + 0x0B04 AND 0x0702 in the device's dossier); the refutable-by stands (the S31's own interview at the sitting listing 0x0B04/0x0702 would retire the purchase).
+
+## §5 The register rows and the words
+- **IR-15** the IAS zone-type mis-selection (a defect; a one-way door) — the micro-WU after 114c; a fence on adoption until then.
+- **IR-16** link quality dropped at the EZSP layer; `topologyScan()` unconsumed; `TelemetryWriter` unproduced (Seam B) — LINK-READ after R-5B, the frame rate measured first.
+- **IR-17** the metering read side (Seam A: 0x0B04 + 0x0702 handlers, the 0x0051 arm attaching `PowerMeter`/`EnergyMeter`, the unit rows first) — ENERGY-READ when the plugs ship; the bench `field_within` assert with `within|outside`.
+- **IR-18** the illuminance 0x0400 handler absent (Doc 08 §3.5's map realized for 8 of 11) — rides the first Seam-A family.
+- **IR-19** the three `.docx` strategy files unreadable by lanes — convert to `.md` at a hygiene beat.
+- **The words:** `PLUG: two|one|hold` now (D-v74-4; rec two of one metering-capable model + one reference meter); ENERGY-READ · LINK-READ · CORROBORATE · TIER2-FIRST are NOT due — they wait on R-5B and rehearsal 1 (the plan §10).

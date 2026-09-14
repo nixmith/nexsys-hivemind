@@ -509,3 +509,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-14 (v74 beat 6) — v74 b4, verbatim
 
 2026-09-13 (v74 beat 4 — HERO-1d CHARTERED (`context/instructions/2026-09-13_frontend-lane_HERO-1d_keyless-hero-sentences_literal-lint_charter.md`; D0 the literal lint first; D1–D4 the keyless sentences; D5 the §7 amendment; D6 the colour sweep) and its paste handed on the free web-ui slot; `SCOPE: lane` RULED — Nick's sharpenings banked verbatim in the v74 decision record as the ambition-map charter's fences (row one the metering-plug class; nothing dispatches before R-5B lands); `Activate:` the word Tuesday; hivemind `169e6d3` LANDED, Sun 2026-09-13 ~20:4x CT (instrument 2026-09-14T01:49:45Z). Order: hivemind 6 = 5 M + 1 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-14 (v74 beat 7) — v74 b5, verbatim
+
+2026-09-14 (v74 beat 5 — HERO-1d INTAKEN, ACCEPT (17 = 14 M + 3 A under web-ui; `verify` GREEN on the desk, 480 tests; the lint 11 → 0; the hub's re-execution at the bytes; IR-8 RETIRED; IR-12/13/14; the dialect RULED US); the web-ui card (17) handed — frontend CI the gate, a counter sample; the b4 hivemind card OVERTAKEN unrun by one b5 card; hivemind `169e6d3`, Mon 2026-09-14 ~06:5x CT (instrument 2026-09-14T11:53:23Z). Order: core 17 by `git add -A web-ui/dashboard` (Nick's hands; frontend CI the gate); hivemind 9 = 6 M + 3 A by explicit paths (computed from porcelain inside the splice).)

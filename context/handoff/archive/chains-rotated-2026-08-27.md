@@ -517,3 +517,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-14 (v74 beat 8) — v74 b6, verbatim
 
 2026-09-14 (v74 beat 6 — THE SPINE ROTATED (v73 b1–b7 → `archive/pm-handoff-beats-v73b1-v73b7-rotated-2026-09-14.md`, verbatim, bytes asserted); core `6bd8508` (HERO-1d) LANDED, CI all checks green (the counter 4/20; IR-8 RETIRED at the sha); hivemind `548744f` LANDED; THE AMBITION MAP CHARTERED inside Nick's fences (`context/instructions/2026-09-14_strategy-lane_AMBITION-MAP_expansion-rows-with-instruments_charter.md`) and its paste handed; hivemind `548744f`, Mon 2026-09-14 ~07:0x CT (instrument 2026-09-14T12:07:08Z). Order: hivemind 8 = 6 M + 2 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-14 (v75 beat 1) — v74 b7, verbatim
+
+2026-09-14 (v74 beat 7 — THE AMBITION MAP INTAKEN, ACCEPT with the hub's critique (`context/research/2026-09-14_AMBITION-MAP_return.md`; the source cites re-executed at `6bd8508`, all true; the S31ZB page re-fetched: switch only); IR-15..IR-19 (IR-15 a DEFECT — the IAS zone-type mis-selection, a fence on adoption); D-v74-4 `PLUG:` packaged; the plan §10 (the October rows, gated on R-5B + rehearsal 1); hivemind `fe2d32d` LANDED; the b7 card handed; hivemind `fe2d32d`, Mon 2026-09-14 ~11:5x CT (instrument 2026-09-14T16:54:42Z). Order: hivemind 10 = 8 M + 2 A by explicit paths (computed from porcelain inside the splice).)

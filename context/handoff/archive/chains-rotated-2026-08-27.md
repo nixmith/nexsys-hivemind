@@ -533,3 +533,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-15 (v75 beat 4) — v75 b2, verbatim
 
 2026-09-14 (v75 beat 2 — THE TWO DESK LANES: hivemind `cc17ce7` LANDED; IR-1 MEASURED (pages 2/40/100); `FRAME: a` RULED + two sharpenings; 114c and FE-114 AUTHORED (two grounding agents, two-layer); K1/K4 → D-v75-3 / IR-22 (a for_duration expiry initiates no run); R-5B sharpened, no command changed; IR-21/IR-22; D-v75-2..4; the next act = the b2 packet (the card; the two pastes); Mon 2026-09-14 ~15:0x CT (instrument 2026-09-14T20:09:22Z). Order: hivemind 11 = 7 M + 4 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-15 (v75 beat 5) — v75 b3, verbatim
+
+2026-09-14 (v75 beat 3 — THE INTAKES: EXPLAIN-114c and FE-114 RETURNED and ACCEPT two-layer (the patches applied clean to the clone; the instruments re-run; `npm run verify` re-run green in the container); 114c's R1/O1/R2 the hub's corrections, O4 → IR-23; FE-114's STOP-class proceed and D3 copy accepted; the coder-handoff entry; the three-block landing card handed (core 114c → core FE-114 → hivemind), the CI verdicts open; Mon 2026-09-14 ~19:1x CT (instrument 2026-09-15T00:12:08Z). Order: hivemind 12 = 9 M + 3 A by explicit paths (computed from porcelain inside the splice); core 10 = 8 M + 2 A and 25 = 24 M + 1 A by Nick's two cards.)

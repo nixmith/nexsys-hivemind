@@ -525,3 +525,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-14 (v75 beat 2) — v74 b8, verbatim
 
 2026-09-14 (v74 beat 8 — THE v74 CLOSE: hivemind `e5fd594` LANDED; HEADs core `6bd8508` · skills `180375f` · bench `f3631cb` · docs `7221ddc`, all clean, push 0; Check 9 PASS 28/28; the definition of done met on the disk; Nick's close brief verbatim (DR §1); D-v74-4 RULED `PLUG: two` (the two criteria; THE ADOPTION FENCE); the plan §11 = v75's window; the next WU = R-5B's packet through THE PRIOR-LEDGER GATE (v75 b1); v75's dispatch line handed; hivemind `e5fd594`, Mon 2026-09-14 ~13:0x CT (instrument 2026-09-14T18:02:58Z). Order: hivemind 6 = 6 M + 0 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-14 (v75 beat 3) — v75 b1, verbatim
+
+2026-09-14 (v75 beat 1 — THE BOOT: preflight 12/12, Check 9 PASS 28/28, the five HEADs = Nick's line (core `6bd8508` · hivemind `9795c2c` · skills `180375f` · bench `f3631cb` · docs `7221ddc`, clean, push 0); IR-1's instrument authored (the run → Nick's host, the b1 packet); the H8-a packet RE-PINNED to `6bd8508`'s run #56; R-5B's packet CUT through THE PRIOR-LEDGER GATE (the audit §4); IR-20; D-v75-1 (`FRAME: a|b`); the next act = the b1 packet (the card + the IR-1 run); Mon 2026-09-14 ~14:0x CT (instrument 2026-09-14T19:01:21Z). Order: hivemind 9 = 6 M + 3 A by explicit paths (computed from porcelain inside the splice).)

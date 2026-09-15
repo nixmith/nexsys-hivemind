@@ -529,3 +529,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-14 (v75 beat 3) — v75 b1, verbatim
 
 2026-09-14 (v75 beat 1 — THE BOOT: preflight 12/12, Check 9 PASS 28/28, the five HEADs = Nick's line (core `6bd8508` · hivemind `9795c2c` · skills `180375f` · bench `f3631cb` · docs `7221ddc`, clean, push 0); IR-1's instrument authored (the run → Nick's host, the b1 packet); the H8-a packet RE-PINNED to `6bd8508`'s run #56; R-5B's packet CUT through THE PRIOR-LEDGER GATE (the audit §4); IR-20; D-v75-1 (`FRAME: a|b`); the next act = the b1 packet (the card + the IR-1 run); Mon 2026-09-14 ~14:0x CT (instrument 2026-09-14T19:01:21Z). Order: hivemind 9 = 6 M + 3 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-15 (v75 beat 4) — v75 b2, verbatim
+
+2026-09-14 (v75 beat 2 — THE TWO DESK LANES: hivemind `cc17ce7` LANDED; IR-1 MEASURED (pages 2/40/100); `FRAME: a` RULED + two sharpenings; 114c and FE-114 AUTHORED (two grounding agents, two-layer); K1/K4 → D-v75-3 / IR-22 (a for_duration expiry initiates no run); R-5B sharpened, no command changed; IR-21/IR-22; D-v75-2..4; the next act = the b2 packet (the card; the two pastes); Mon 2026-09-14 ~15:0x CT (instrument 2026-09-14T20:09:22Z). Order: hivemind 11 = 7 M + 4 A by explicit paths (computed from porcelain inside the splice).)

@@ -3,7 +3,7 @@ file: context/planning/2026-09-13_v73_PROGRAM-PLAN_after-114b_two-weeks-and-Octo
 purpose: THE PLAN OF RECORD after EXPLAIN-114b landed green (core `fed99e8`, Sun 2026-09-13) — the strategy fold of the v73 window, moved up from beat 6 to beat 4 on Nick's ask ("determine how we should proceed … plan everything out carefully"): the state, the critical path to the 11-25 gate, the ranking by impact per hour of Nick's time, the lanes and their order, the calendar for the next two weeks and October, the decisions packaged in H10 form, what v74 inherits. Supersedes the v72 re-cut's §3–§5 as the plan of record; its §2 table and §4 measurement stand as history. Read by range: §0 at boot; §3 and §5 when a dispatch is chosen; §6 when Nick's word is due.
 audience: Nick (§0, §3, §5, §6 — his words) · the hub (every beat) · the lanes (§4 names their order)
 state-type: plan of record (re-cut at every landing; the map ritual)
-status: LIVE — authored v73 beat 4 (2026-09-13); §8 re-cut at the v73 close, beat 7 (Sun 2026-09-13 ~18:1x CT; instrument 2026-09-13T23:18:34Z) on Nick's brief: the week weighed, D-v74-1 packaged, v74's window shaped.
+status: SUPERSEDED as the plan of record at v75 beat 4 (2026-09-15) by `context/planning/2026-09-15_v75_PROGRAM-PLAN_the-six-weeks-to-the-72-hour-run.md` — the boot reads THAT file's §3; this file's §10 (the ambition map's October rows) and §11 (v75's window) stand as history. Was: LIVE — authored v73 beat 4 (2026-09-13); §8 re-cut at the v73 close, beat 7 (Sun 2026-09-13 ~18:1x CT; instrument 2026-09-13T23:18:34Z) on Nick's brief: the week weighed, D-v74-1 packaged, v74's window shaped.
 -->
 
 # The plan of record after 114b (Sun 2026-09-13 → the 11-25 gate)

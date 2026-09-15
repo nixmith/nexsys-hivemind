@@ -1,0 +1,78 @@
+<!--
+file: context/planning/2026-09-15_v75_PROGRAM-PLAN_the-six-weeks-to-the-72-hour-run.md
+purpose: THE PLAN OF RECORD from v75 beat 4 — the program assessment Nick asked for at the b3 landing: the critical path from the Saturday sitting to the 72-hour run, the instrument beside every row (exists today / built by which WU / missing), the ranking by impact per hour of Nick's time (≈ 7 h/week; the hub carries the rest), where his hours go and must not go, the company side in the same weeks, what we refuse and what we DROP (including things Nick asked for), the words as H10 rows with a recommendation each. Supersedes `2026-09-13_v73_PROGRAM-PLAN_after-114b_two-weeks-and-October.md` §2–§5 and §8; that plan's §10 (the ambition map's October rows) and §11 (v75's window) stand by reference. Written on the state at `e56f555`/`3d40b5f` (114c and FE-114 green), hivemind `553bf5b`, the sitting named `H8: Sat 09-19 10:00`.
+audience: Nick (§0, §3, §4, §8 — the words) · the hub (every beat) · the lanes (their row's instrument line)
+state-type: plan of record
+status: LIVE — v75 beat 4 (Mon 2026-09-14 ~20:xx CT; instrument 2026-09-15T01:45:26Z). Re-cut at the R-5B intake (the sitting's facts) and at every rehearsal's intake.
+-->
+
+# The six weeks to the 72-hour run — the plan of record (v75 b4)
+
+## §0 One screen
+The gate is one number: a 72-hour unattended run on the six-device fleet whose every silence carries a link trace, whose every confirmation is corroborated by a plug's own watts, and whose record a stranger could audit. Six weeks from today puts the run on the weekend of **Oct 30 – Nov 2**. Between here and there the critical path is seven rows and only two of them have their instrument today. Nick's hours go to four rig sittings (≈ 2.5 + 2 + 2 + 1 h), the run's start/stop, and ONE word per row; nothing else. The hub carries every charter, every intake, every card. The company side runs beside it on words alone: the Activate email Tuesday, Silabs Thursday, Erik's opinion when it comes, the knockout on a free slot, PROTECT's six clicks. We drop three things that no longer buy the gate per hour (§7).
+
+## §1 What landed since the v73 plan (all by Nick's hands; CI green on each)
+HERO-1c `93390f0` · HERO-1d `6bd8508` · **EXPLAIN-114c `e56f555`** (the by-id read 100 → 1 pages; `conditions[].definition` on the wire, v1.1.5; FIRED_CONFIRMED on evidence) · **FE-114 `3d40b5f`** (the mirror at v1.1.4; three sentences rendered; the lint's reach) · R-5 Part A + ii `f3631cb` (the `plug:` grammar; the `fleet:` line) · the ambition map ACCEPT (IR-15..IR-19) · both sitting packets through THE PRIOR-LEDGER GATE · IR-1 MEASURED · the closure counter **6/20**. Two defects surfaced by reading: IR-22 (a `for_duration` expiry initiates no run) and IR-23 (the definition hash is per-JVM for a multi-role selector — and, by the b4 grep, for a multi-parameter command action: `Map.copyOf` at `CommandAction.java:51` is the same idiom, so the defect is LIVE, not latent) — both measured first (MEASURE-1, this week), then fixed (DUR-1, HASH-1).
+
+## §2 The critical path to the run — every row with its instrument
+| # | Row | What it proves for the run | The instrument today | Built by | Nick's hours |
+|---|---|---|---|---|---|
+| 1 | **The sitting, Sat 09-19 10:00** — H8-a then R-5B | the v1.1.3 keys on the real wire; the stop-proof; the floor re-baselined on six; the ZDO surface's causal role (P-B2); the null arm; the re-seen/adopted split; the S31's count; O-2 closed | **EXISTS** — the two packets, the navigator (scheduled 09:50), the bench nightly | — | 2.5 h + Sunday's one paste |
+| 2 | **MEASURE-1 → DUR-1 + HASH-1** (the Java slot, this week) | a trigger class that fires; a definition key that is stable — the hero and the corpus stop trusting unstable facts | **EXISTS** — the test harness (`MutableClock`, `RecordingRunManager`, `cleanTest` ×8) | MEASURE-1 (2 h of a coder), then the fixes (½ day each) | words only (`DUR: measure` given; `HASH1:`) |
+| 3 | **ENERGY-READ** (the Java slot, wk 09-21) | the plug's watts on the substrate's state path — the corroboration leg | **PARTIAL** — the dossier (the Gen4: 0x0B04 + 0x0702 standard ZCL, no quirk) EXISTS; the divisor FIXTURE does not (the Gen4's `acPowerDivisor` is predicted 10 from a third-party driver, adjudicated at the first read); IR-15's IAS fix rides first | ENERGY-READ (2 lane-days) | the meter purchase (minutes); a word |
+| 4 | **`HARNESS-PLUG:` → P-1's live leg → rehearsal 1 (kill −9)**, wk 09-28 (a sitting) | the substrate's recovery under a power event; the plug join window if ENERGY-READ is green | **MISSING** — P-1's live leg is REFUSED until `HARNESS-PLUG:` (the S31's label from H8-a promotes a POWER-CYCLE harness only); the rehearsal packet is unwritten | the hub (the packet, b7); Nick's word after H8-a | ≤ 2 h at the rig |
+| 5 | **LINK-READ** (the Java slot, wk 09-28 → 10-05) | every silence in the run carries its last link reading (RSSI/LQI) | **MISSING** — the per-device frame counter (IR-20's `onFrame` counter, the first row); the sampling rule from its number; `link-quality.yaml` (the bench lane owes the skeleton) | LINK-READ (1–2 lane-days) + the bench lane | a word |
+| 6 | **Rehearsal 2** (wk 10-05, a sitting) — the plugs join, LINK-READ's traces read | the metering datum `within|outside` the reference meter (THE MEASUREMENT RECORD's first row); the link traces on silence | **MISSING** until rows 3 and 5 land; the reference meter (a purchase) | the hub (the packet); the bench lane (`metering-known-load.yaml`, `requires: [operator]`) | ≤ 2 h at the rig; two meter readings by eye |
+| 7 | **The soak night → the run** (wk 10-12 the soak; wk 10-19 a dry 24 h; **Oct 30 – Nov 2 the 72 h**) | the three questions and the fourth (did the device that said it turned on draw power) | **PARTIAL** — the nightly + the harness exist after row 4; the 72-hour packet, its digest and the fence rules are unwritten | the hub (rehearsal 3's packet = the run's dry run; the 72-h packet) | start Fri, one glance Sat and Sun, stop Mon: ≈ 1 h total |
+Off the path but load-bearing: **the closure counter** (6/20; passive; every push counts — the B-2/B-3 CODE fence stays until 20); **C-003's ZDO clause** on B2's result (the outward-chain act of the week after the sitting); **FE-115** (`conditions[].definition` rendered; the `v114` mock; the dead-key retirements) — the web-ui slot, no rig time.
+
+## §3 The ranking — impact per hour of Nick's time (the hub carries the rest)
+1. **The sitting (row 1)** — 2.5 h buys rows 1's seven facts and unblocks `HARNESS-PLUG:`; nothing else on the map moves without it. *Packets cut, pinned, gated; the navigator scheduled.*
+2. **The two words that cost minutes and unblock the Java series: `HASH1:` and (given) `DUR: measure`** — MEASURE-1 is one paste; the fixes follow on its numbers; ENERGY-READ dispatches behind them.
+3. **The meter purchase (minutes)** — the only purchase left (the Gen4 units Nick owns ARE the plugs); without the reference meter, rehearsal 2's datum has no band.
+4. **Rehearsal 1 (row 4, ≤ 2 h)** — the first power event on the substrate; the packet is the hub's; Nick's word `HARNESS-PLUG:` after H8-a's label read.
+5. **Rehearsal 2 (row 6, ≤ 2 h)** — the first measurement-record datum and the first link trace.
+6. **The company words (minutes each):** `Activate: hold` Tuesday (the email as one paste); Silabs Thursday (Nick's own hour); `NAME:` silence = ii (the knockout lane on a free slot); `PROTECT: done` (six clicks); `ERIK:` when it comes; `AMD100: ratify`.
+7. **The run itself (row 7, ≈ 1 h of hands over four days).**
+8. **Reads Nick does not owe:** lane transcripts, the hub's checks, the strategy pass's return before the sitting, the dossier.
+
+## §4 Nick's hours — where they go and where they must not
+**Go (≈ 7 h/week):** wk 09-14: the cards (≈ 20 min), the Activate email (10 min), Silabs (his hour), the sitting (2.5 h Sat) + Sunday's paste (2 min). wk 09-21: the cards; `HARNESS-PLUG:`; the meter arrives. wk 09-28: rehearsal 1 (≤ 2 h). wk 10-05: rehearsal 2 (≤ 2 h). wk 10-12: the soak night (start/stop, minutes). wk 10-19: the dry 24 h (minutes). wk 10-26/Oct 30: the run (≈ 1 h across four days). **Must not go:** re-running the hub's checks (the hub re-runs the lanes' gates in its own container); reading transcripts (a `RETURNED` line is the report); the strategy pass (a lane, after R-5B); the dossier (done); anything at the rig outside a packet; a second lane on one path-domain; a re-pin without `REPIN:`.
+
+## §5 The calendar (CT)
+| When | Nick's acts (minutes unless marked) | The hub's beats |
+|---|---|---|
+| **Mon 09-14 (tonight)** | the b4 card; the MEASURE-1 paste; the meter order (one link) | the freeze doc's v1.1.5 stamp; the plan re-cut; the premise gate minted; the navigator scheduled |
+| **Tue 09-15** | `Activate: hold` → the email (one paste); the knockout lane paste when a slot frees | the `/apply` read + the email drafted; the knockout charter; MEASURE-1's intake → DUR-1 + HASH-1 chartered |
+| **Wed–Thu 09-16/17** | the DUR-1/HASH-1 paste; Silabs (Thu); `AMD100: ratify` | the intake; ENERGY-READ authored (IR-15 first; the Gen4's predicted divisors as P-rows); FE-115 authored |
+| **Fri 09-18** | the landing card(s); `ERIK:` if it comes | the packets re-read, not touched; the navigator's send confirmed |
+| **Sat 09-19 10:00 — THE SITTING (≤ 2.5 h)** | H8-a then R-5B | — (the hub asks nothing) |
+| **Sun 09-20** | `R5B-2: <the digest line>` | the two intakes; C-003's ZDO clause drafted; `HARNESS-PLUG:` packaged; the plan re-cut on the facts |
+| wk 09-21 | `HARNESS-PLUG:`; the ENERGY-READ paste; the FE-115 paste; `C003: <word>` | rehearsal 1's packet through the gate; the strategy pass lane (D-v75-2, after-R5B) |
+| wk 09-28 | **rehearsal 1 (kill −9), a sitting**; the LINK-READ paste | the intake; rehearsal 2's packet; the bench lane (`metering-known-load.yaml`, `link-quality.yaml`) |
+| wk 10-05 | **rehearsal 2 (the plugs join; the meter read), a sitting** | the intake; THE MEASUREMENT RECORD's first row banked; the soak packet |
+| wk 10-12 | the soak night (start/stop) | the intake; the 72-h packet drafted; the October re-cut |
+| wk 10-19 | the dry 24 h (start/stop) | the intake; the 72-h packet through the gate |
+| **Fri Oct 30 – Mon Nov 2** | **the 72-hour run** (start; a glance Sat, Sun; stop) | the intake; the register's public form (B-6) after |
+Slip rule: a row that misses its week moves the run by the same week; the run is never shortened and never started on a red floor.
+
+## §6 The company side (the same weeks; words, never hours)
+`Activate:` D-v74-2 — hold Tuesday; the email asks the track and the close date; `apply` only on a yes. Silabs Thu 09-17 — Nick's meeting (the hub owes nothing; a one-line note of what was said goes in the DR). Erik's written opinion (PALOKI) — the wait-state; no public name before it; the `.com` at Nick's own risk. The knockout charter (D-v74-1, silence = ii) — a read-only lane on a free slot; token-parameterized; no name in any tracked file. PROTECT — six clicks, `PROTECT: done`. AMD-100 — `AMD100: ratify`. The counsel wave (the §1(b) application, the LA trade name, the Member consent) — drafted as one paste when the opinion lands; not before. The strategy/market pass (D-v75-2) — after R-5B; it does not buy the gate and is not on Nick's clock.
+
+## §7 What we refuse, and what we DROP now
+**Refuse:** any second protocol; Matter; a research lane without an instrument; a plug adopted before ENERGY-READ is green (THE ADOPTION FENCE); a water/smoke/vibration device before IR-15; B-2/B-3 code before the counter closes; a public name before the opinion; a batched push; a packet cut on the tail of a tired session; a re-pin without `REPIN:`. **Drop (they no longer buy the gate per hour):** (1) **TR-1b at the card** — R-4c answered `card-gradle: absent` (the held card is run-only); the position-census driver is a desk WU after the run, and `card-gradle:` leaves the owed list. (2) **The second plug purchase** — the dossier shows the Shelly Plug US Gen4 Nick owns meets both criteria (0x0B04 + 0x0702 as input clusters on EP1; no quirk; a router; 15 A); the purchase is the reference meter only. (3) **A FRAME-COUNT micro-WU before the sitting** (`FRAME: a` stands; the counter is LINK-READ's first row). Held, not dropped: IR-19 (the three `.docx` → `.md`, an idle beat); the log-level knob (IR-21, after the run's charters); cascade parentage (D-v75-3, November).
+
+## §8 The words — H10 rows, one recommendation each (silence = the recommendation)
+| Word | Options | Rec | Refutable-by |
+|---|---|---|---|
+| `HASH1: a|b` (D-v75-5) | (a) the eight records that store an unordered `Set.copyOf`/`Map.copyOf` (`AreaSelector:47` · `LabelSelector:46` · `TypeSelector:48` · `SemanticTagSelector:57` · `CommandAction:51` · `EmitEventAction:37` · `EventTrigger:43` · `WebhookTrigger:55`) store an ORDERED immutable view instead (`EnumSet`/`TreeSet`/`TreeMap` behind `unmodifiable…` — the same `toString()` format, so every single-element hash is UNCHANGED; multi-element hashes change once and become stable); (b) a canonical serializer inside `DefinitionHashes` (one file; EVERY definition's hash changes once — every pre-fix run reads `definition: null`, every `definitionKey` moves) | **(a)**, after HASH-0's eight hashes prove the salt; the v1.1.5 stamp carries the note either way | HASH-0 returning ONE hash across its eight JVM launches (then IR-23 closes as the hub's misread and FE-115 renders the key as stable) |
+| `HARNESS-PLUG: <entity>` | after H8-a's `S31-LABEL:` and the plug's `rating_w` | given at the sitting's intake, Sunday | a label that cannot be read |
+| `C003: mint|hold` (the ZDO clause) | on P-B2's result Sunday | mint if arm 1 adopts over `tc_join` | a `tc_join` without adoption |
+| `STRATEGY: now|after-R5B|fold` (D-v75-2) | as packaged | **after-R5B** (wk 09-21) | a free slot Wednesday |
+| `CASCADE: engine|bridge|drop` (D-v75-3) | as packaged | **engine, November** | the run's first "why" a parent would answer |
+| `Activate: apply|hold|skip` (D-v74-2) | Tuesday | **hold** — the email | a close date inside two weeks |
+| `NAME: i|ii|iii` (D-v74-1) | the knockout first | **ii** (silence) | — |
+| `REPIN: <sha>` | only if Nick wants Saturday on the newest green | **no re-pin** — the packets are gated against `6bd8508` | — |
+
+## §9 The measurement (v75 at beat 4)
+Four beats · ≈ 250 hub calls · three lanes accepted (114c, FE-114; the dossier micro-lane) · two core landings green (5/20 → 6/20) · four hivemind commits · one skills commit owed (the premise gate folds at W-SKILLS-10) · the brief at 12.1 KB of its 12.3 cap (b5 trims) · live beats 12 of 12 (b5 rotates).

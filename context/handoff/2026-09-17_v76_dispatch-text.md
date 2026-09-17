@@ -3,7 +3,7 @@ file: context/handoff/2026-09-17_v76_dispatch-text.md
 purpose: THE v76 DISPATCH TEXT — written by the v75 hub at its close (beat 8, Thu 2026-09-17) for Nick to paste into a FRESH hub session. The STABLE boot prompt is unchanged (`2026-09-06_PM-mission-control_v67_orchestrator_session_prompt.md`); this file carries the STATE AT DISPATCH and the window's shape, so the v76 hub boots inside the byte budget and reads nothing stale. The record wins over any line here: if this file and the brief/spine/DR/plan disagree, they win.
 audience: Nick (paste the fenced block) · the v76 hub (its first read after the stable prompt's §1 list)
 state-type: dispatch text (one window; superseded by the v77 text at v76's close)
-status: WRITTEN v75 beat 8 (Thu 2026-09-17 ~16:xx CT). Paste when the b8 packet's blocks are done (the CI-2 landing and the hivemind card) — the v76 hub verifies the HEADs at the instrument either way.
+status: EXECUTED v76 beat 1 (Thu 2026-09-17 ~18:1x CT; instrument 2026-09-17T23:16:25Z) — pasted with the two shas filled (core `3af6213`, hivemind `08b8474`); the text as pasted is filed verbatim at context/handoff/2026-09-17_v76_dispatch-text_verbatim.md. Was: WRITTEN v75 beat 8 (Thu 2026-09-17 ~16:xx CT). Paste when the b8 packet's blocks are done (the CI-2 landing and the hivemind card) — the v76 hub verifies the HEADs at the instrument either way.
 -->
 
 # v76 — the dispatch text (paste the block below into a fresh Cowork hub session with `ClaudeFolder` attached)

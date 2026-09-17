@@ -168,16 +168,20 @@ This is the differentiator's read surface. It reads the AMD-91 **`RunCausalChain
                      // gone, or conditionIndex is out of range. Never a guess. ORDER test-pinned at two depths (RunEndpointsTest.
                      // conditionDefinition_v115NestedOrderAndPresentNull); the condition key set pinned (causalChain_v11ShapeTest). Every
                      // other key, order and nesting byte-identical to v1.1.4; GET /api/v1/runs byte-unchanged; the non-firing read's SHAPE
-                     // unchanged (its verdict RULE is corrected — the [v1.1.5 note] under that read). HASH NOTE (IR-23; HASH-0 measures at
-                     // MEASURE-1, HASH-1 fixes): DefinitionHashes hashes the definition's toString() (DefinitionHashes.java:30), and the four
-                     // role-carrying selector records (AreaSelector:47, LabelSelector:46, TypeSelector:48, SemanticTagSelector:57) store
-                     // includedRoles as Set.copyOf, and four more records store the same salted idiom (CommandAction:51 parameters = Map.copyOf;
-                     // EmitEventAction:37 payload; EventTrigger:43 payloadFilters; WebhookTrigger:55 allowedMethods = Set.copyOf) — PREDICTED
-                     // (HASH-0 probes both a two-role selector and a two-parameter command action): a definition whose selector names TWO OR
-                     // MORE roles, or whose command action carries TWO OR MORE parameters, hashes to a per-JVM-launch value, so for such a
-                     // definition definitionKey (this read, 9th; the non-firing read, 13th) differs across restarts and this key's null/value
-                     // arm is not stable until HASH-1 lands; a definition whose every set and map holds at most one element is stable. Logs
-                     // stamped before HASH-1 keep their hashes; HASH-1's ordered views keep every single-element hash unchanged (D-v75-5 (a)).
+                     // unchanged (its verdict RULE is corrected — the [v1.1.5 note] under that read). HASH NOTE (IR-23 — MEASURED at MEASURE-1, 2026-09-15; FIXED at HASH-1, core be4788a,
+                     // 2026-09-17, CI `check` green): DefinitionHashes hashes the definition's toString() (DefinitionHashes.java:30).
+                     // Before be4788a eight records (AreaSelector, LabelSelector, TypeSelector, SemanticTagSelector — includedRoles;
+                     // CommandAction — parameters; EmitEventAction — payload; EventTrigger — payloadFilters; WebhookTrigger —
+                     // allowedMethods) stored Set.copyOf/Map.copyOf, whose iteration order is salted per JVM launch: MEASURED — a
+                     // two-role selector and a two-parameter command action each hashed to TWO values across eight launches, the two
+                     // salts flipping independently. From be4788a the eight records store ORDERED immutable views (EnumSet / TreeSet /
+                     // TreeMap) in the same toString() format: a definition whose sets and maps hold at most one element keeps its
+                     // hash BYTE-IDENTICAL (T4's baseline pins); one with >= 2 elements in any of them hashes to ONE value from
+                     // be4788a on. CONSEQUENCE for logs written before be4788a: such a definition's stamped definitionKey (this read,
+                     // 9th; the non-firing read, 13th) is a per-launch value that may not equal the post-fix key, so its pre-fix runs
+                     // read conditions[].definition null (the vouch guard is honest) and their definitionKey differs from the live
+                     // definition's; single-element definitions (every tracked YAML at the time) are unaffected. Detail:
+                     // context/audits/2026-09-15_MEASURE-1_return.md and 2026-09-15_DUR-1_HASH-1_return.md; the b8 audit §1.
       "outcome": { "status": "...", "reason": "<string|null>", "durationMs": 0,
                    "actionCount": 0, "commandCount": 0 },
       "cascade": { "parentRunId": "<ulid|null>", "depth": 0 },

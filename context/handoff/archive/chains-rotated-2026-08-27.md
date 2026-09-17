@@ -541,3 +541,11 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-16 (v75 beat 6) — v75 b4, verbatim
 
 2026-09-15 (v75 beat 4 — THE VERDICTS AND THE PLAN: core `e56f555` (114c) and `3d40b5f` (FE-114) CI GREEN at the instrument (runs #249/#250; the counter 6/20; six register rows RETIRED at the shas); the freeze doc STAMPED v1.1.5 with its false mirror line corrected; THE PREMISE GATE minted and applied (MEASURE-1 through it, one cite corrected; the plug dossier ACCEPT — the Gen4 units qualify, buy the meter only); HASH-1 a DEFECT, its surface eight records (D-v75-5); the six-week PROGRAM PLAN the plan of record; the three-block card handed, the navigator send scheduled Sat 09:50 CT; Mon 2026-09-14 ~21:3x CT (instrument 2026-09-15T02:31:35Z). Order: hivemind 14 = 10 M + 4 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-17 (v75 beat 7) — v75 b5, verbatim
+
+2026-09-15 (v75 beat 5 — MEASURE-1 RETURNED and ACCEPT two-layer (DUR-0 RED; HASH-0 salted on both sources; the 32 lines re-tallied) — IR-22/IR-23 measured DEFECTS; DUR-1 + HASH-1 and DEVICE-SET chartered through THE PREMISE GATE; the shopping card withdrawn on Nick's word; Activate's `/apply` read (closes Oct 30; `hold` stands), the email drafted; THE SPINE ROTATED (v74 b1–b8 → the archive, bytes asserted); the four-block card handed; Tue 2026-09-15 ~18:0x CT (instrument 2026-09-15T23:09:46Z). Order: hivemind 14 = 9 M + 5 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-17 (v75 beat 8) — v75 b6, verbatim
+
+2026-09-16 (v75 beat 6 — DUR-1 + HASH-1 RETURNED and ACCEPT two-layer (red → green; T4 preserved; the loop re-tallied; R1 accepted) and DEVICE-SET RETURNED and ACCEPT (`DEVICES: core` rec; P3 refuted at the manual; IR-24/IR-25); the Activate plan RE-CUT on Nick's critique (four hub errors named; the corrected email; skip-by-default, Oct 9; the pitch row restored); ZIGBEE-GAPS and FOP-1 chartered through the gate; the five-block card handed (the core landing first); Wed 2026-09-16 ~20:1x CT (instrument 2026-09-17T01:10:31Z). Order: hivemind 16 = 11 M + 5 A by explicit paths (computed from porcelain inside the splice); core 14 = 12 M + 2 A by Nick's card.)

@@ -3,7 +3,7 @@ file: context/planning/2026-09-14_v75_decision-record.md
 purpose: THE v75 DECISION RECORD — Nick's words of the window verbatim (§1), the decisions packaged in H10 form (§3), the rulings folded from his sharpenings (§4). Opened v75 beat 2 (Mon 2026-09-14; instrument 2026-09-14T19:28:03Z) on his beat-1 report. D-v75-1 was packaged in the b1 audit §6 and is RULED here.
 audience: Nick (§3 — one word each) · the hub (§1/§4 bind every charter of the window)
 state-type: decision record
-status: v75 CLOSED at beat 8 (Thu 2026-09-17 ~16:xx CT). §1 carries Nick's b1–b8 words verbatim (one product-name candidate redacted per law 9). RESOLVED: D-v75-1 `FRAME: a`; D-v75-4 `DUR: measure` → RED → DUR-1 at `be4788a`; D-v75-5 `HASH1: a` → HASH-1 at `be4788a`. OPEN on Nick's words (silence = the recs; v76 banks them): D-v75-6 `DEVICES:` (core) · D-v75-7 `GAPS:` (neither) · D-v75-8 `HOTMOBILE:` (skip) · D-v75-2 `STRATEGY:` (after-R5B, the pitch row first) · D-v75-3 `CASCADE:` (engine, Nov). D-v74-2 (Activate) re-cut b6/b7: skip-by-default, the Oct 9 rule, the email v3. The plan of record: `context/planning/2026-09-15_v75_PROGRAM-PLAN_the-six-weeks-to-the-72-hour-run.md` (§13 = v76's window). v76's DR opens at its b1.
+status: v75 CLOSED at beat 8 (Thu 2026-09-17 ~16:xx CT). §1 carries Nick's b1–b8 words verbatim (one product-name candidate redacted per law 9). RESOLVED: D-v75-1 `FRAME: a`; D-v75-4 `DUR: measure` → RED → DUR-1 at `be4788a`; D-v75-5 `HASH1: a` → HASH-1 at `be4788a`. OPEN on Nick's words (silence = the recs; v76 banks them): D-v75-6 `DEVICES:` (core) · D-v75-7 `GAPS:` (neither) · D-v75-8 `HOTMOBILE:` (skip) · D-v75-2 `STRATEGY:` (after-R5B, the pitch row first) · D-v75-3 `CASCADE:` (engine, Nov). D-v74-2 (Activate) re-cut b6/b7: skip-by-default, the Oct 9 rule, the email v3. The plan of record: `context/planning/2026-09-15_v75_PROGRAM-PLAN_the-six-weeks-to-the-72-hour-run.md` (§13 = v76's window). v76's DR opens at its b1. RE-OPENED for the rulings only at v76 b2 (Thu 2026-09-17 ~21:1x CT): D-v75-2/3/6/7/8 RULED on Nick's v76 b2 brief (context/handoff/2026-09-17_v76-b2_nick-brief_hardware-calendar-and-window.md); the attack in context/audits/2026-09-17_v76-b2_nick-brief_hardware-calendar_attack_audit.md.
 -->
 
 # v75 — decision record
@@ -77,7 +77,7 @@ Also, I want to articulate this email slightly differently so it reads less as "
 ## §3 The decisions
 - **D-v75-1 — the frame-count block: `FRAME: a|b`. RULED `FRAME: a` (Nick, §1) with two sharpenings and one register row (§4).** The b1 audit §6 carries the H10. Applied at b2: R-5B's B3 EXPECTED and §H (the bound per frame class; the SNZB 2× multiplier; no command string changed); IR-20 amended (the counter's home is `onFrame`; one periodic INFO summary line); IR-21 added (the runtime log-level knob — an operator instrument; not before Saturday).
 
-- **D-v75-2 — the strategy/market pass ("how we should most optimally use our time for building the smart home core, researching or testing"): `STRATEGY: now|after-R5B|fold`.**
+- **D-v75-2 — the strategy/market pass ("how we should most optimally use our time for building the smart home core, researching or testing"): `STRATEGY: now|after-R5B|fold`. RULED `STRATEGY: after-R5B` (Nick, v76 b2 brief §7) with the brief narrowed to one question — which number does a stranger ask for first, and which weighting makes it honest: the November ranking on retail position rather than corpus share (ZIGBEE-GAPS §3: the head-of-shelf misses are color and buttons, the two fenced rows). Chartered after R-5B's intake.**
 ```
 ESCALATION TO NICK
 Task: the deeper market/IoT strategy pass with the moat curriculum as its research frame (your close brief at v74; your line at v75 b1)
@@ -91,7 +91,7 @@ Refutable-by: a slot standing free by Wednesday with the knockout lane returned 
 Blocking: no. The word: `STRATEGY: now|after-R5B|fold`; silence = (b).
 ```
 
-- **D-v75-3 — cascade parentage (`cascade.parentRunId` is always null at HEAD): `CASCADE: engine|bridge|drop`.**
+- **D-v75-3 — cascade parentage (`cascade.parentRunId` is always null at HEAD): `CASCADE: engine|bridge|drop`. RULED `CASCADE: engine` (Nick, v76 b2 brief §1) — the rec; November, after the run's gate.**
 ```
 ESCALATION TO NICK
 Task: where a run's parent is minted — the v75 b2 audit §3 K1 (every run starts at RunCausalChain.root(); the causal chain breaks at the device's state_reported root; RunCausalChain.extend has no caller)
@@ -131,7 +131,7 @@ Refutable-by: HASH-0 returning ONE hash per definition across eight launches (IR
 Blocking: no. The word: `HASH1: a|b`; silence = (a).
 ```
 
-- **D-v75-6 — the benchmark fleet (DEVICE-SET's return, ACCEPT b6): `DEVICES: core|extended|<edits>`.**
+- **D-v75-6 — the benchmark fleet (DEVICE-SET's return, ACCEPT b6): `DEVICES: core|extended|<edits>`. RULED `DEVICES: extended <edits>` (Nick, v76 b2 brief §1–§3): the order placed 09-17, $202.21 — A = P4460 (the PN2000 and the UT230B-US out of production; the band at the guaranteed 2 %: 3.03 % at 80 W, 1.53 % likely), B = two no-spec generics of different brands, the load 80 W, CHAR in place of XCHK, the reps at one tare; the reference and the load land Wed 09-24. The refutable-by did NOT fire (0.5 % typical is not Class 0.5); the swap stands on stock. The b2 audit §3.**
 ```
 ESCALATION TO NICK
 Task: which devices to order now so ENERGY-READ's measurements and the run's corroboration law can be checked against something that is not the platform (your b5 word: a scientific setup, multiple models, repeatable as devices and plugins grow)
@@ -145,7 +145,7 @@ Refutable-by: a meter under $100 stating Class 0.5 or better on POWER (then it r
 Blocking: no — ENERGY-READ's charter is written on the rows either way; its fixture needs the units in hand by the week of 09-28. The word: `DEVICES: core|extended|<edits>`; silence = (a). THE ADOPTION FENCE stands: nothing pairs before ENERGY-READ is green; update the Gen4 firmware first.
 ```
 
-- **D-v75-7 — the two scope-fenced coverage unlocks (ZIGBEE-GAPS, ACCEPT b7): `GAPS: color|buttons|both|neither`.**
+- **D-v75-7 — the two scope-fenced coverage unlocks (ZIGBEE-GAPS, ACCEPT b7): `GAPS: color|buttons|both|neither`. RULED `GAPS: neither` (Nick, v76 b2 brief §1) — the rec; October's charters unchanged; the November ranking rides D-v75-2's narrowed brief.**
 ```
 ESCALATION TO NICK
 Task: ZIGBEE-GAPS measured HEAD at 29.7 % full coverage of the field's 4,499 definitions (band 27.7–31.0); the two largest unlocks are not code gaps but SCOPE rulings — full color (AMD-96, post-MVP: +14.5 pp, ≈2.5 lane-days; ColorControlHandler:22–23 ignores xy/hs) and buttons (BTN-AMD, post-gate: +6.9 pp, ≈2.5 lane-days; ZclIngestionUnit:577–579 drops the commands)
@@ -160,7 +160,7 @@ Refutable-by: a run-day scenario that needs a color bulb or a button press (then
 Blocking: no. The word: `GAPS: color|buttons|both|neither`; silence = (d).
 ```
 
-- **D-v75-8 — HotMobile 2027 (FOP-1's correction: due Fri Oct 9, 2026, 11:59 pm AoE — not Jan–Mar 2027): `HOTMOBILE: submit|skip`.**
+- **D-v75-8 — HotMobile 2027 (FOP-1's correction: due Fri Oct 9, 2026, 11:59 pm AoE — not Jan–Mar 2027): `HOTMOBILE: submit|skip`. RULED `HOTMOBILE: skip` (Nick, v76 b2 brief §1) — the rec.**
 ```
 ESCALATION TO NICK
 Task: a 6-page workshop paper (HotMobile 2027, Feb 24–25, Tucson) is due in 22 days; the FOP had it four months later

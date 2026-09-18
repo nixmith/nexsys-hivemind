@@ -553,3 +553,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-17 (v76 beat 1) — v75 b7, verbatim
 
 2026-09-17 (v75 beat 7 — THE CI RED READ AT THE INSTRUMENT: run #251 on `be4788a` failed at both jobs' upload steps (the artifact-storage quota), no check annotation — the DUR-1 + HASH-1 verdict OPEN on the `Run check` glance; CI-2 spliced (uploads never gate; retention cut); the cleanup handed (run #56 kept); ZIGBEE-GAPS ACCEPT (29.7 %; `GAPS:`) and FOP-1 ACCEPT (13/34 FALSE; HotMobile Oct 9 → `HOTMOBILE:`); the Activate email v3 on Nick's critique; the six-block card handed; Thu 2026-09-17 ~16:1x CT (instrument 2026-09-17T21:18:53Z). Order: hivemind 13 = 10 M + 3 A by explicit paths (computed from porcelain inside the splice); core CI-2 4 = 4 M by Nick's card.)
+
+## chain segment rotated 2026-09-17 (v76 beat 2) — v75 b8, verbatim
+
+2026-09-17 (v75 beat 8 — THE v75 CLOSE: `be4788a` GREEN at the instrument (run #251's `Run check` step, Nick's screenshot; the desk's `check` ×2) — IR-22/IR-23 RETIRED, the freeze doc's HASH NOTE a fact, FE-115 unblocked; the cleanup re-cut (the GitHub CLI); the v76 dispatch text written; the plan's §13; the deliverable MET and held; the close packet handed; Thu 2026-09-17 ~16:4x CT (instrument 2026-09-17T21:42:02Z). Order: hivemind 16 = 11 M + 5 A by explicit paths — the b7 + b8 working tree in ONE card (computed from porcelain inside the splice); core CI-2 4 = 4 M by Nick's card.)

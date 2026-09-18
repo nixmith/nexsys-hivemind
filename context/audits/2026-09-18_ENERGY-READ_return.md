@@ -1,0 +1,87 @@
+<!--
+file: context/audits/2026-09-18_ENERGY-READ_return.md
+purpose: the Coder's return for ENERGY-READ (metering by clusters; the divisors at adoption; scaled reporting; the rate instrument) - the census, the three instruments as measured values, P1-P8 adjudicated, deviations by tag, the red-first table, the WUCP Phase 1 checklist.
+audience: the hub (intake; the card is cut from §0) - Nick (the landing)
+state-type: coder return
+status: FILED Fri 2026-09-18 CT - core `3af6213`, 22 uncommitted (16 M + 6 A), nothing staged; the gate line green in ONE round.
+-->
+
+# ENERGY-READ - return
+
+## §0 Card
+- **Verdict:** DELIVERED; the gate line green in ONE round. Core HEAD `3af6213`; ZERO commits, nothing staged. Desk `date -u` at boot 18:56:22Z; CT = UTC-5 -> filed Fri 2026-09-18 CT.
+- **Census (porcelain, exact):** core 22 = 16 M + 6 `??` = Files-table rows 1-22. `git diff --stat -- '*/src/main/*'` = 8 M (rows 1, 5-11) + 3 untracked (rows 2-4) = rows 1-11 only. Hivemind: row 23 edited + this return; that tree was ALREADY dirty with the hub's uncommitted b4 beat (7 M + 3 `??`, `measurement-record.md` itself `??`) - none of it touched.
+- **Instrument 1 - the gate line, verbatim, 19:38:59Z-19:39:08Z:** exit 0, `BUILD SUCCESSFUL in 8s`, 105 tasks (5 executed). zigbee `test` EXECUTED: 659 tests, 0 fail, 0 err, 1 skip (MEASURE-2, by design); 80 XMLs mtime 19:39:03Z. app `test` EXECUTED: 30/0/0 incl. `HomeSynapseArchRulesTest`. 21 `spotlessCheck` clean.
+- **Instrument 2 - red-first:** 657 run on inert seams at 19:22:35Z: 50 RED, every one a new test on its behavior assertion (§1); 607 green = the pre-existing suite (T3/T9) + 19 new tests that pass on the stubs by construction (disclosed, §1). `forDevice`: `Expected size: 10 but was: 8`, `Expected size: 9 but was: 8` -> 10/9/8 green. 658/0/0 at 19:31:56Z.
+- **Instrument 3 - MEASURE-2:** `MEASURE2 rate=24031.1 frames=3600 events=3600 dropped=0 store_rows_before=5 store_rows_after=3605 store_bytes_before=0 store_bytes_after=108000 heap_before_mb=9 heap_after_mb=11 wall_s=0.150 n_per_s=20 minutes=3 store=in_memory_recording_publisher store_bytes=payload_utf8_floor`. M2-1..M2-3 filled. Store IN-MEMORY (LTD-17: no SQLite reachable from this module); one 0.150 s JIT-cold run.
+- **P1** CONFIRMED on the table; its arithmetic corrected - the 23 rows are 17 M + 6 A, not "13 M + 10 A". **P2** CONFIRMED (one arm, no handler change). **P3** CONFIRMED; the signature lists 0x0003, so `identify` attaches too (HEAD's SD-3). **P4** CONFIRMED at the wire - one read per cluster before any configure; change 100 = `64 00`, 5,000 = `88 13 00 00 00 00` - only after fixing a HEAD defect (R-4); the 0x0B04 read carries §4 R3's six ids, not P4's two. **P5** CONFIRMED. **P6** CONFIRMED 10/9/8. **P7** CONFIRMED (round-trip; ZERO read frames on re-link). **P8** CONFIRMED; two mis-filed cites: `encodeReadAttributes` is `ZclCodec.java:163-:173`; the drive test's helper is `zclGlobalMessages`.
+- **Deviations:** [REVIEW] R-1 R6's INFO lives in `EndpointClassifier` (the Files table governs), so it has no `device=`. R-2 a VERIFIED metering fact keeps `note == null`. R-3 the MEASURE-2 line verbatim SKIPS (`-D` never reaches the test JVM). R-4 HEAD wire defect fixed: the uint48 change field. R-5 metering-only `SENSOR` vs the model's `ENERGY_METER`. R-6 per-device handler table vs per-endpoint formatting. [INFO] x9 (§4). No [BLOCKING].
+
+## §1 Red-first (law #18) - predicted vs observed
+RED-1 = the 19:22:35Z run on inert seams (new types stubbed, signatures widened, no behavior). Full text: `_scratch/v76/2026-09-18_ENERGY-READ_red-first.txt` (20,557 B).
+| T | Test(s) | Observed red (pasted) |
+|---|---|---|
+| T1 | `EndpointClassifierTest.iasWaterLeakSmokeVibration_classifyToBinaryState` (+ `occupancyArmWithoutOccupancy_smokeLearned_installsBinaryState`) | `[WATER_LEAK] Expecting actual: ["motion", "battery", "identify"] to contain exactly in any order: ["binary_state", "battery", "identify"]` |
+| T2 | `gen4Signature_switchWithMeters` · `gen4Signature_sameWithDeviceType0x0051` · `meteringOnlyEndpoint_sensorWithEnergyMeterOnly` (+ `electricalOnlyEndpoint_…`, `meteringLight_staysLightAndGainsPowerMeter`) | `Expecting actual: ["on_off", "identify"] to contain exactly in any order: ["on_off", "power_meter", "energy_meter", "identify"]`; metering-only: `NoSuchElementException: No value present` (HEAD classifies it EMPTY) |
+| R6 | `classification_logsOneEndpointClassifiedInfo` | `Expecting actual: [] to contain exactly: ["zigbee.endpoint_classified: endpoint=1 dev…` |
+| T4 | `ZigbeeReportingDriveTest.freshAdoption_readsFormattingBeforeConfigure` · `relink_usesCachedFormatting_noRead` (+ `freshAdoption_thenActivePowerReport_publishesScaledPowerW`, `unreadableFormatting_configuresNothing_emitsNothing`) | RED-1: `[the adoption's one read — the rejoin adds none] Expected size: 1 but was: 0`; order `["6:6", "6:8", "702:6", "702:8", "b04:6", "b04:8"]` (no read; raw configures). RED-2 (R1-R6 in, HEAD's encode kept on purpose): `Expecting actual: [0, 0, 0, 37, 5, 0, 16, 14, -120, 19, 0, 0, -120, 19] to contain exactly: [0, 0, 0, 37, 5, 0, 16, 14, -120, 19, 0, 0, 0, 0]` |
+| T5 | `ElectricalMeasurementHandlerTest` (12; 5 red) · `MeteringHandlerTest` (13; 7 red) | `Expected size: 1 but was: 0 in: []`; `Expecting actual: [] to contain exactly: ["power_w", "voltage_v", "current_a"]`. DISCLOSED: the 13 absence/ctor/id tests pass on the inert stub by construction; they bind once the handler emits |
+| T6 | `ReportingConfiguratorTest.meteringChange_scaledByReadFormatting` (+ `_scalesAcrossTheRecordedDivisors`, `_neverBelowOne`, `_honorsTheMultiplier_andTheFieldCeiling`) | actual `["bind:702", "configure:702:5:3600:5", "readback:702", "bind:b04", "configure:b04:5:3600:10", …]` = HEAD's RAW rows, no read |
+| T7 | `ReportingConfiguratorTest.formattingUnreadable_notConfigured` (+ `formattingZero_…`, `formattingUnsupportedAttribute_…`) · `ZclIngestionUnitTest.meteringReportWithoutFormatting_isSilent` | configurator: HEAD binds + configures raw. Ingestion: `Expecting actual: [] to contain exactly: ["zigbee.metering_unscaled: device=0x00124B0…` - HONEST NOTE: HEAD already publishes nothing for 0x0B04; the red is the once-per-(device, cluster) token that replaces `ingestion_unhandled_cluster` |
+| P6 | `ClusterHandlersTest.tableCarriesTen… / Nine… / meteringDispatchesThroughTheTable` | sizes as §0 |
+| P7 | `ZigbeeDeviceCacheTest.learnedMeteringFormatting…` ×3 · `ReportingConfiguratorTest.rejoin_usesCachedFormatting_noRead`, `rejoin_readsOnlyTheClusterTheCacheLacks` | `Expecting actual: {} to contain only following keys: [5149013258294904L, …]`. GREEN-BY-CONSTRUCTION, disclosed: `learnedMeteringFormattingAbsentSectionLoadsClean` |
+| T3 / T9 | every pre-existing test | GREEN at RED-1, RED-2 and the gate; none edited except the re-pin (§2) and `ClusterHandlersTest.setUp`'s 4-arg call. The 19 new tests green on the stubs: 13 (T5, above) + `tableCarriesEightWithNoFormatting` + 4 configurator absence legs + the cache's absent-section leg |
+| T8 | `MeteringRateMeasurementTest` | MEASUREMENT - §0 |
+
+## §2 The re-pin, verbatim, and the moved capture point
+- **Retired:** `iasNonContactLearned_staysMotion` - "DP-6 limitation pin: a learned WATER_LEAK still installs motion this WU" - `containsExactlyInAnyOrder("motion", "battery", "identify")`. **Now:** T1 asserts `"binary_state", "battery", "identify"` for all three zone types and that the instance's schema `containsKey("active")`. What the old pin could not see: it pinned the classifier against itself; it never looked at the key `IasZoneHandler.attributeKey()` emits (`active`), which `motion`'s schema (`detected`) does not admit.
+- **Moved capture point:** the drive test's device-side reporting store went `int[]` -> `long[]`. The `int` store folded bytes 4-5 of a six-byte change field onto bytes 0-1 exactly as production did, so a mis-encoded threshold read back VERIFIED. No assertion in the tree had ever read the uint48 field's bytes.
+
+## §3 Files (the table's 23 rows; all landed, none added)
+| # | File | What landed |
+|---|---|---|
+| 1 | `EndpointClassifier` M | R1 `iasCapability` exhaustive switch; R2 `withMeters` before `withIdentify`; R6 `logClassified` |
+| 2 | `MeteringFormatting` A | the record as specified; per-PAIR presence normalized in the compact ctor; `ofReads`, `filledFrom`, `agreedAcross`, the note renderers |
+| 3 | `ElectricalMeasurementHandler` A | BENCH-VERIFY block; `power_w`/`voltage_v`/`current_a`, each under ITS OWN pair; sentinels + band (F-9) |
+| 4 | `MeteringHandler` A | BENCH-VERIFY block; `energy_wh` = raw × mult × 1000 / div, kWh only; else DEBUG `metering_unit_unsupported` |
+| 5 | `ClusterHandlers` M | 4-arg `forDevice`; 8/9/10 |
+| 6 | `ReportingOps` M | `readAttributes` (abstract) |
+| 7 | `EzspReportingOps` M | `readAttributes` over `zclGlobalExchange`; `READ_ATTRIBUTES_TIMEOUT_MILLIS` = the drive's 5 s; R-4's two `long` widenings |
+| 8 | `ReportingConfigurator` M | `drive()`; `meteringFormatting`; `configureMetering`; `METERING_ROWS` (the two rows LEAVE `DEFAULTS`); the `FormattingStore` seam |
+| 9 | `ZigbeeDeviceCache` M | the `learnedMeteringFormatting` section, record/snapshot/lookup, tolerant load |
+| 10 | `ZclIngestionUnit` M | the 10-arg ctor + seed; `recordLearnedMeteringFormatting` (invalidates); `deviceFormatting`; `metering_unscaled` once |
+| 11 | `ZigbeeIntegrationAdapter` M | the seed, the boot INFO, the store wiring; `driveReporting` byte-untouched |
+| 12 | `MODULE_CONTEXT.md` M | the ENERGY-READ section: §8's two paragraphs (tokens and gotchas folded in) |
+| 13 | `ZigbeeHardwareFreeRig` M | add-only: `GEN4_*`, `announceGen4()`, `reportAttributes(…)`, the fixture's drive answers |
+| 14-21 | the eight test classes M/A | as §1 (row 15-16 A) |
+| 22 | `MeteringRateMeasurementTest` A | T8 |
+| 23 | `measurement-record.md` M | M2-1..M2-3 |
+
+## §4 Deviations (pushback form, compressed)
+- **[REVIEW] R-1 - R6's site.** §4 R6 and §6 put the INFO at `ZigbeeAdoptionSlice.java:377-:378`; the Files table has no row for that file and §0 says the table governs "nothing else" (P1 and §12.1 are computed from it). I followed the table: the line is emitted inside `classify`, which sees the descriptor alone, so it carries NO `device=` (`endpoint= deviceType= inputClusters= entityType= capabilities=` - G4-3's two fields are present; the device is named by the adjacent `zigbee.proposal_accepted: device=` line, same thread). Alternative: a six-line call-site log in the slice (+1 M). Contract impact: log grammar only.
+- **[REVIEW] R-2 - R3's note.** R3 wants every metering fact's `note` to name the read values. `ConfirmationOverrideInstaller.verifiedFact` = `VERIFIED_REPORTS && note == null` (`:203-:206`; MODULE_CONTEXT M9.4-RPT), and `zigbee.reporting_configured` counts with it - a note on the healthy rung renders every healthy meter `degraded`. Implemented: the VERIFIED rung keeps `note == null`; every rung that already has a note is prefixed `formatting read: mult=… div=…; `; the unreadable rung is R3's text verbatim; the read values ride INFO `zigbee.metering_formatting_read` - so **G4-1/G4-2's instrument is that journal line**, not a note. T4 pins `clusters=3 verified=3 degraded=0`.
+- **[REVIEW] R-3 - MEASURE-2's command.** Run verbatim at 19:36:33Z it SKIPPED: tee 0 bytes, XML `skipped="1"`. build-logic says why (`homesynapse.java-conventions.gradle.kts:70-:77`: a `-D` sets the Gradle JVM, never the forked worker; only `homesynapse.soak.loops` is forwarded) and build-logic is outside the write-set. The test reads the property, else `HOMESYNAPSE_MEASURE2` (the BusSoakIT idiom). The reading came from the verbatim line + the env prefix + `--rerun` after the task name (a second identical run is UP-TO-DATE). Suggest the charter line carry both.
+- **[REVIEW] R-4 - a HEAD wire defect, fixed in row 7.** `EzspReportingOps.configureReporting` did `(int) >> (8*i)` for i up to 5; the shift distance is taken mod 32 (JLS §15.19), so bytes 4-5 repeat bytes 0-1. MEASURED at the wire (RED-2): 5,000 went out `88 13 00 00 88 13`. DERIVED, not measured: by the same arithmetic HEAD's own 0x0702 row (change 5) is `05 00 00 00 05 00`. The read-back parse folded identically. Both widen to `long`; a read-back beyond `int` saturates (it can only surface as read-back-differs). The uint48 width has NOT met silicon - the first metering adoption is its leg; `analogChangeWidth`'s javadoc now says so.
+- **[REVIEW] R-5 - the metering-only entity type (§10 invited).** Implemented `SENSOR` as instructed. Evidence for the hub: `EntityType.java:98-:106` defines `ENERGY_METER` (required `EnergyMeter`, optional `PowerMeter`); `SENSOR`'s documented measurement list (`:74-:85`) names `PowerMeasurement`, not `PowerMeter`/`EnergyMeter`; AMD-44 composition validation is deferred (`InMemoryEntityRegistry.java:88-:90`), so nothing rejects either today. Adoption is a one-way door - rule before a metering-only device adopts. No fleet device is one. One-line change in `withMeters`.
+- **[REVIEW] R-6 - per-device table, per-endpoint formatting.** The handler table is keyed by device (`handlersByDevice`); the cache and the seed are per endpoint as specified. `MeteringFormatting.agreedAcross`: a pair is present iff every endpoint holding it holds the SAME values; a disputed pair is absent (silence + the DEBUG), whatever a third endpoint says. Exact for every single-metering-endpoint device (the whole fleet).
+- **[INFO]** (1) `readAttributes` is abstract, not §6's `default` - two implementers; a silent default is a trap. (2) Row 8's "listener" arm: the `FormattingStore` seam; the ingestion hook's own invalidation makes the order safe (the `onAdopted` invalidate runs BEFORE the drive reads). (3) Tokens beyond R6 (ledger 17): INFO `metering_formatting_read`, WARN `metering_formatting_unreadable`, `metering_unit_unsupported`, INFO `learned_metering_formatting_rehydrated`. (4) The MEASURE2 line appends four self-describing fields after the specified ones. (5) M2 rows: Value, Instrument, Date, At filled - the record's own "How a row is filled" assigns all four to the lane; `Decides` untouched. (6) A `configure_reporting`-skip profile gets NO read either (the NO-commands contract). (7) The ActivePower change is capped at the int16 field's 0x7FFF. (8) One extra targeted task, `:lifecycle:lifecycle:compileTestJava` (green): the gate compiles lifecycle MAIN only, and six lifecycle ITs consume the rig. (9) Constants re-derived at an independent corpus - zigpy `dev` `homeautomation.py` / `smartenergy.py`: every id and type agrees (`Kwh_and_Kwh_binary = 0x00`; `instantaneous_demand` int24). NOT verified at source: the 07-5123 PDF itself, and the uint48 all-ones sentinel (no in-tree precedent; benign if wrong). A first herdsman fetch came back truncated before both clusters and verified nothing.
+
+## §5 Commands and tails (desk UTC)
+- Baseline 18:56Z: `git log -1 --format=%h` = `3af6213`; porcelain empty. Duplicate-dispatch check: no ENERGY-READ return existed.
+- RED-1 19:22:35Z `./gradlew :integration:integration-zigbee:test --offline --continue` -> 657 / 50 fail / 0 err. RED-2 -> 658 / 2 fail. GREEN 19:31:56Z -> 658/0/0, XML mtimes 19:32:00Z.
+- The gate line, verbatim, once: §0. `:lifecycle:lifecycle:compileJava` was UP-TO-DATE (fingerprint-matched to the current zigbee classes); both `test` tasks EXECUTED.
+- MEASURE-2: verbatim 19:36:33Z -> SKIPPED; + env 19:36:44Z -> UP-TO-DATE, no run; + env + `--rerun` 19:36:57Z -> the line (283 B in the tee file).
+
+## §6 Sweep, limits
+- LTD-17 (`Locked_Decisions.md:669`): no new `requires`; `module-info.java` absent from the porcelain. LTD-15 (`:546`): SLF4J, `zigbee.` tokens, each pinned verbatim. LTD-11: no `synchronized`; the cache's existing `ReentrantLock` only. LTD-04: no new identity. `NO_DIRECT_TIME_ACCESS`: ArchRules green over production; tests run on `TestClock`; `System.nanoTime()` only in MEASURE-2's two timing lines. INV-SA-03 at source reads "Explanation Is a Pure Projection of the Log" - the instruction cites its spirit; R4's mechanism is Doc 02 §3.7's raw slots. No conflict. No event type, wire, device-model, rest-api, web-ui, bench or build-file change.
+- **Instrument limits.** MEASURE-2: one run, 0.150 s wall, JIT-cold, frames back-to-back under a TestClock - a ceiling for the adapter path alone, no SQLite, no bus, no radio; `store_bytes` is a payload floor. Deferred Build Gate: **`./gradlew check` on `3af6213` + this tree was NOT run - owed to CI on Nick's landing.** No silicon: every BENCH-VERIFY constant and the uint48 width wait for the first metering adoption (G4-1..G4-3).
+
+## §7 WUCP Phase 1 / definition of done
+- [x] Tests first, red for the right reason, then green; the gate exactly as allow-listed, `-Werror` clean, freshness proven by executed-state lines and mtimes.
+- [x] `integration-zigbee/MODULE_CONTEXT.md` updated; every new token documented.
+- [x] The porcelain census exact; nothing committed, nothing staged.
+- [x] Deviations by honest severity; pushback with evidence.
+- [x] The return on disk at the named path. coder-handoff NOT written - the hub files it (§13). coder-lessons not appended (outside §0's write-set); the pattern worth one, for the hub: *a harness that mirrors production's arithmetic cannot see production's arithmetic bug - assert the wire bytes.*
+- **Next WU:** LINK-READ (hub-authored). The lane is BLOCKED on the hub's intake.
+
+RETURNED nexsys-hivemind/context/audits/2026-09-18_ENERGY-READ_return.md 17555

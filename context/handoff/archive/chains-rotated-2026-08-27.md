@@ -565,3 +565,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-18 (v76 beat 4) — v76 b2, verbatim
 
 2026-09-17 (v76 beat 2 — NICK'S BRIEF ATTACKED AT THE BYTES: `5bbbd14` verified; the words banked, D-v75-2/3/6/7/8 RULED; the calendar = the window's shape (Wed 09-24 operative); the P4460 band at the guaranteed figure (3.03 %); CHAR accepted, three meters for CHAR only; the reporting-volume row — arithmetic holds, three mechanisms corrected at `3af6213`, both folds in (IR-25 sized; IR-28), OR-METERING-VOLUME; the Monday read REFUSED → `GEN4-READ: rehearsal-2`; the b2 card handed; Thu 2026-09-17 ~21:1x CT (instrument 2026-09-18T02:15:55Z). Order: hivemind 9 = 7 M + 2 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-18 (v76 beat 5) — v76 b3, verbatim
+
+2026-09-18 (v76 beat 3 — EXT-REVIEW-1 ADJUDICATED AGAINST THE RECORD: `c0158a1` verified; the 95-row packet read whole; at `3af6213` E-1 exists, E-2 answered, E-5's gap measured; X-6 verified at the HA docs; the seven rows ruled (the November pilot; the run as THE SOAK + THE RECORD'S HONESTY; the source-cited why-not; the vocabulary defined whole; the spoken clause; `HOTMOBILE: skip` stands); 09-24 a Thursday; the v76 DR opened; IR-29/30/31; the window planned to the run; the b3 card handed; Fri 2026-09-18 ~13:0x CT (instrument 2026-09-18T18:02:05Z). Order: hivemind 10 = 7 M + 3 A by explicit paths (computed from porcelain inside the splice).)

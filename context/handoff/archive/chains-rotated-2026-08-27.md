@@ -561,3 +561,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-18 (v76 beat 3) — v76 b1, verbatim
 
 2026-09-17 (v76 beat 1 — THE BOOT AT THE INSTRUMENT: the five HEADs = the dispatch line; the preflight 12/12 (Check 9 28/28); CI #252 on `3af6213` GREEN with every upload through (CI-2's never-gate clause unexercised — by construction), the bus soak ✓ → the counter 7/20; run #56's artifacts through the weekend; the dispatch text filed verbatim; the deliverable named (Sunday's two intakes + ENERGY-READ DISPATCH-READY through the gate); ENERGY-READ moved to b2; the b1 card handed; Thu 2026-09-17 ~18:1x CT (instrument 2026-09-17T23:16:25Z). Order: hivemind 7 = 5 M + 2 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-18 (v76 beat 4) — v76 b2, verbatim
+
+2026-09-17 (v76 beat 2 — NICK'S BRIEF ATTACKED AT THE BYTES: `5bbbd14` verified; the words banked, D-v75-2/3/6/7/8 RULED; the calendar = the window's shape (Wed 09-24 operative); the P4460 band at the guaranteed figure (3.03 %); CHAR accepted, three meters for CHAR only; the reporting-volume row — arithmetic holds, three mechanisms corrected at `3af6213`, both folds in (IR-25 sized; IR-28), OR-METERING-VOLUME; the Monday read REFUSED → `GEN4-READ: rehearsal-2`; the b2 card handed; Thu 2026-09-17 ~21:1x CT (instrument 2026-09-18T02:15:55Z). Order: hivemind 9 = 7 M + 2 A by explicit paths (computed from porcelain inside the splice).)

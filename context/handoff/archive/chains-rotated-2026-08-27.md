@@ -557,3 +557,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-17 (v76 beat 2) — v75 b8, verbatim
 
 2026-09-17 (v75 beat 8 — THE v75 CLOSE: `be4788a` GREEN at the instrument (run #251's `Run check` step, Nick's screenshot; the desk's `check` ×2) — IR-22/IR-23 RETIRED, the freeze doc's HASH NOTE a fact, FE-115 unblocked; the cleanup re-cut (the GitHub CLI); the v76 dispatch text written; the plan's §13; the deliverable MET and held; the close packet handed; Thu 2026-09-17 ~16:4x CT (instrument 2026-09-17T21:42:02Z). Order: hivemind 16 = 11 M + 5 A by explicit paths — the b7 + b8 working tree in ONE card (computed from porcelain inside the splice); core CI-2 4 = 4 M by Nick's card.)
+
+## chain segment rotated 2026-09-18 (v76 beat 3) — v76 b1, verbatim
+
+2026-09-17 (v76 beat 1 — THE BOOT AT THE INSTRUMENT: the five HEADs = the dispatch line; the preflight 12/12 (Check 9 28/28); CI #252 on `3af6213` GREEN with every upload through (CI-2's never-gate clause unexercised — by construction), the bus soak ✓ → the counter 7/20; run #56's artifacts through the weekend; the dispatch text filed verbatim; the deliverable named (Sunday's two intakes + ENERGY-READ DISPATCH-READY through the gate); ENERGY-READ moved to b2; the b1 card handed; Thu 2026-09-17 ~18:1x CT (instrument 2026-09-17T23:16:25Z). Order: hivemind 7 = 5 M + 2 A by explicit paths (computed from porcelain inside the splice).)

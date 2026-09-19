@@ -569,3 +569,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-18 (v76 beat 5) — v76 b3, verbatim
 
 2026-09-18 (v76 beat 3 — EXT-REVIEW-1 ADJUDICATED AGAINST THE RECORD: `c0158a1` verified; the 95-row packet read whole; at `3af6213` E-1 exists, E-2 answered, E-5's gap measured; X-6 verified at the HA docs; the seven rows ruled (the November pilot; the run as THE SOAK + THE RECORD'S HONESTY; the source-cited why-not; the vocabulary defined whole; the spoken clause; `HOTMOBILE: skip` stands); 09-24 a Thursday; the v76 DR opened; IR-29/30/31; the window planned to the run; the b3 card handed; Fri 2026-09-18 ~13:0x CT (instrument 2026-09-18T18:02:05Z). Order: hivemind 10 = 7 M + 3 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-18 (v76 beat 6) — v76 b4, verbatim
+
+2026-09-18 (v76 beat 4 — ENERGY-READ THROUGH THE PREMISE GATE, DISPATCH-READY: `7605dfc` verified; the charter (IR-15; IR-24 by clusters; the formatting READ at adoption, never predicted; IR-25 SIZED 1 W / 5 Wh; MEASURE-2), twenty-two premise rows grepped at `3af6213`; THE MEASUREMENT RECORD minted; Nick's eight additions dated (the plan §16 — the watts go/no-go Sun 10-11 20:00 CT; VERIFY-72H's gates); `PILOT: after`; `EXPORT: letters`; the packet handed; Fri 2026-09-18 ~13:2x CT (instrument 2026-09-18T18:28:07Z). Order: hivemind 10 = 7 M + 3 A by explicit paths (computed from porcelain inside the splice).)

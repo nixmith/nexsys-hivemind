@@ -577,3 +577,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-18 (v76 beat 7) — v76 b5, verbatim
 
 2026-09-18 (v76 beat 5 — ENERGY-READ RETURNED AND INTAKEN TWO-LAYER, ACCEPT: the tree = the table (22 = 16 M + 6 A); the XMLs summed (659 · 1 · 0 · 0); every diff read; a HEAD wire defect (the uint48 change field) verified by emulation and fixed in the lane; MEASURE-2 ≈ 24,000 events/s; six deviations ruled; five charter misses owned; `PROTECT: done`; the letters filed; the spine rotated (v75 b1–b4); the core card cut; Fri 2026-09-18 ~15:5x CT (instrument 2026-09-18T20:54:29Z). Order: core 22 = 16 M + 6 A by Nick's card; hivemind 13 = 9 M + 4 A by explicit paths (computed from porcelain inside the splice; the rotation's bytes asserted).)
+
+## chain segment rotated 2026-09-19 (v76 beat 8) — v76 b6, verbatim
+
+2026-09-18 (v76 beat 6 — THE v76 CLOSE: ENERGY-READ LANDED `d1c2cbc`, CI #253 GREEN at the instrument (every step ✓ → the counter 8/20; install-smoke #61 ✓) — THE ADOPTION FENCE LIFTS; Phase 2 done; Nick's re-cut adopted with one edit (MEASURE-2b a read-path measurement on a real store with the shared boot fixture; LINK-READ the second session; the retention fact 7/90/365); BENCH-METER-1 chartered, DISPATCH-READY; the v77 dispatch text written; the deliverable's second half EXCEEDED, Sunday's intakes handed to v77; the close packet handed; Fri 2026-09-18 ~16:2x CT (instrument 2026-09-18T21:22:09Z). Order: hivemind 11 = 8 M + 3 A by explicit paths (computed from porcelain inside the splice).)

@@ -573,3 +573,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-18 (v76 beat 6) — v76 b4, verbatim
 
 2026-09-18 (v76 beat 4 — ENERGY-READ THROUGH THE PREMISE GATE, DISPATCH-READY: `7605dfc` verified; the charter (IR-15; IR-24 by clusters; the formatting READ at adoption, never predicted; IR-25 SIZED 1 W / 5 Wh; MEASURE-2), twenty-two premise rows grepped at `3af6213`; THE MEASUREMENT RECORD minted; Nick's eight additions dated (the plan §16 — the watts go/no-go Sun 10-11 20:00 CT; VERIFY-72H's gates); `PILOT: after`; `EXPORT: letters`; the packet handed; Fri 2026-09-18 ~13:2x CT (instrument 2026-09-18T18:28:07Z). Order: hivemind 10 = 7 M + 3 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-18 (v76 beat 7) — v76 b5, verbatim
+
+2026-09-18 (v76 beat 5 — ENERGY-READ RETURNED AND INTAKEN TWO-LAYER, ACCEPT: the tree = the table (22 = 16 M + 6 A); the XMLs summed (659 · 1 · 0 · 0); every diff read; a HEAD wire defect (the uint48 change field) verified by emulation and fixed in the lane; MEASURE-2 ≈ 24,000 events/s; six deviations ruled; five charter misses owned; `PROTECT: done`; the letters filed; the spine rotated (v75 b1–b4); the core card cut; Fri 2026-09-18 ~15:5x CT (instrument 2026-09-18T20:54:29Z). Order: core 22 = 16 M + 6 A by Nick's card; hivemind 13 = 9 M + 4 A by explicit paths (computed from porcelain inside the splice; the rotation's bytes asserted).)

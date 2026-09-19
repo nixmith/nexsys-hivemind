@@ -4,7 +4,7 @@ purpose: BENCH-METER-1 — the bench lane's three owed files before Thu 2026-09-
 audience: the bench lane (a fresh Cowork conversation with ClaudeFolder; nexsys-bench) · the hub (intake) · Nick (the dispatch line §9; Thu 09-24's operator blocks)
 state-type: lane charter (bench)
 baseline: bench `f3631cb` (porcelain 0); core `d1c2cbc` (ENERGY-READ landed, CI #253 green) for the wire fields
-status: DISPATCH-READY v76 beat 6 (Fri 2026-09-18) — dispatched on Nick's paste of §9. Returns to `context/audits/<CT-date>_BENCH-METER-1_return.md`.
+status: EXECUTED — LANDED bench `764e537` (Nick's card, Fri 09-18), ACCEPT at v76 b7 (`context/audits/2026-09-18_v76-b7_BENCH-METER-1_intake_two-layer-audit_and-the-re-close.md`; the rulings re-cut at b7c); marked at v77 b1 (Check 12). Was: DISPATCH-READY v76 beat 6 (Fri 2026-09-18) — dispatched on Nick's paste of §9. Returns to `context/audits/<CT-date>_BENCH-METER-1_return.md`.
 -->
 
 # BENCH-METER-1 — `metering-known-load.yaml`, `field_within`, the `link-quality.yaml` skeleton

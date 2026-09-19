@@ -4,7 +4,7 @@ purpose: BENCH-METER-1b — the metering scenario made TRUE to THE MEASUREMENT R
 audience: the bench lane (a fresh Cowork conversation with ClaudeFolder) · the hub (intake)
 state-type: lane charter (bench)
 baseline: bench at BENCH-METER-1's landing sha (Nick's `BENCH: BM1 <sha>`; `git log -1 --oneline` names `bench: BENCH-METER-1`); porcelain empty
-status: DISPATCH-READY v76 beat 7, RE-CHARTERED WHOLESALE at b7c (Fri 2026-09-18 evening) on Nick's critique of the first cut (the b7 audit §0). Returns to `context/audits/<CT-date>_BENCH-METER-1b_return.md`.
+status: EXECUTED — LANDED bench `fa01cad` (Nick's card, Sat 09-19), ACCEPT at v76 b8 (`context/audits/2026-09-19_v76-b8_BENCH-METER-1b_intake_two-layer-audit_and-the-weekend-dispatch.md`); marked at v77 b1 (Check 12). Was: DISPATCH-READY v76 beat 7, RE-CHARTERED WHOLESALE at b7c (Fri 2026-09-18 evening) on Nick's critique of the first cut (the b7 audit §0). Returns to `context/audits/<CT-date>_BENCH-METER-1b_return.md`.
 -->
 
 # BENCH-METER-1b — the two subtractions, `on_outside`, VOID, the load step; the scenario true to the record

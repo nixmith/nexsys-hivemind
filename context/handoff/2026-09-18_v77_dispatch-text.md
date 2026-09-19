@@ -3,7 +3,7 @@ file: context/handoff/2026-09-18_v77_dispatch-text.md
 purpose: THE v77 DISPATCH TEXT — the one paste that opens the next hub session (the stable prompt's §3 line with the state and the order of work). Written at the v76 close (beat 6, Fri 2026-09-18); re-cut at b7 and b7c; RE-CUT AGAIN at v76 beat 8 (Sat 2026-09-19 morning) for a SATURDAY START: BENCH-METER-1b intaken and landing, THE WEEKEND ORDER (the sitting untouched; MEASURE-2b before it; the knockout lane Saturday night; Sunday the intakes, the Pi pull, LINK-READ, FE-115, the strategy pass; Monday–Tuesday the Thursday packet) and PELTON-READY. Nick pastes it into a FRESH Cowork conversation with ClaudeFolder connected right after the b8 cards land, before the sitting. Every sha is verified at the instrument by the v77 hub either way.
 audience: Nick (the paste) · the v77 hub
 state-type: dispatch text
-status: RE-CUT v76 beat 8 (Sat 2026-09-19 ~07:5x CT). Paste Saturday morning; the `R5B-2:` line is pasted to the same v77 session on Sunday as a message, not into this text.
+status: PASTED — the dispatch of record; pasted by Nick into the v77 session Sat 2026-09-19 ~08:0x CT and diffed identical at v77 b1 (the heading and the fence aside; the as-received copy `_scratch/v77/2026-09-19_v77_dispatch-paste_as-received.md`, 11,598 B); the two placeholders as the instrument read them: `<the b8 sha>` = `ad273c2`, `<the BM1B sha>` = `fa01cad`. The `R5B-2:` line is pasted to the same v77 session on Sunday as a message, not into this text. Was: RE-CUT v76 beat 8 (Sat 2026-09-19 ~07:5x CT).
 -->
 
 # v77 — the dispatch text (paste whole; fill the two shas from the b8 cards)

@@ -4,7 +4,7 @@ purpose: ENERGY-READ in ONE coder session on the Java slot — the corroboration
 audience: the Coder (host-side Claude Code, nexsys-coder) · the hub (intake) · Nick (the dispatch line §14; the landing card)
 state-type: coding instruction
 baseline: core `3af6213` (CI #252 green at the instrument; porcelain 0) — re-verify at issue
-status: DISPATCH-READY v76 beat 4 (Fri 2026-09-18) — through THE PREMISE GATE; dispatched on Nick's paste of §14. THE ADOPTION FENCE stands until this lane is green: no metering plug joins any network before then.
+status: EXECUTED — LANDED core `d1c2cbc` (Nick's card, Fri 09-18; CI #253 green), ACCEPT at v76 b5 (`context/audits/2026-09-18_v76-b5_ENERGY-READ_intake_two-layer-audit.md`); THE ADOPTION FENCE lifted at CI green; marked at v77 b1 (Check 12). Was: DISPATCH-READY v76 beat 4 (Fri 2026-09-18) — through THE PREMISE GATE; dispatched on Nick's paste of §14. THE ADOPTION FENCE stands until this lane is green: no metering plug joins any network before then.
 -->
 
 # ENERGY-READ — metering by clusters; the divisors at adoption; scaled reporting; the rate instrument

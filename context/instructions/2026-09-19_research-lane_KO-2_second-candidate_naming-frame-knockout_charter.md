@@ -1,0 +1,44 @@
+<!--
+file: context/instructions/2026-09-19_research-lane_KO-2_second-candidate_naming-frame-knockout_charter.md
+purpose: KO-2 — the second product-name candidate through the naming frame's KNOCKOUT (D-v74-1, `NAME:` silence = ii; the plan of record §8 row 2): STEP 0 of the RS-13 protocol run on one candidate, read-only, no hardware, a fresh Cowork conversation; the return is the candidate table with an instrument beside every cell. NO NAME IS GRADED IN CHAT (law 9): the candidate enters through the paste's slot and is written ONLY in the return under `context/research/`.
+audience: the research lane (a fresh Cowork conversation with ClaudeFolder connected; web instruments only) · the hub (the intake) · Nick (§7 only)
+state-type: research charter (through THE PREMISE GATE — the method and the instruments are RS-13's, at their paths; nothing here is new method)
+status: DISPATCH-READY v77 beat 2 (Sat 2026-09-19 ~14:4x CT; instrument 2026-09-19T19:4xZ) — dispatched on Nick's paste of §7 with the slot filled. Returns to `context/research/<CT-date>_KO-2_<CANDIDATE>_knockout_return.md`.
+-->
+
+# KO-2 — the second candidate through the naming frame's knockout
+
+## §0 The lane contract (read first; every line binds)
+- `date -u` FIRST; CT = UTC−5; every stamp from that reading. **Read-only. No hardware. No account creation, no watchlists, no "check availability" purchase flows, no query that leaves a footprint beyond a search** (RS-7 §3, unchanged). The candidate name appears in NO chat message of yours — it appears in the return file and in your queries only. Your messages to Nick say "the candidate".
+- **The record you stand on (read first, in this order, by range):** `context/audits/2026-09-09_RS-13_PALOKI_intake_two-layer-audit_and_RULING_v67-b6.md` §1 (the frame S1–S7 as applied) · `context/research/2026-09-08_RS13_PALOKI_comprehensive-clearance-screen_return.md` §0A (the canaries — RUN THEM AGAIN before any count is trusted; the tmsearch endpoint note: `https://tmsearch.uspto.gov/prod-stage-v1-0-0/tmsearch`, base published at `/configuration.json` → `serviceUrlSearchElastic`, response `hits.totalValue` / `hits.hits[].source`) and §1 (STEP 0 — the fast kills, the shape you reproduce) · `context/strategy/brand-program/2026-09-02_RS7_WISCOR-ZINDOMO_clearance-screen_research-charter.md` §0 (the Pelton method's six points — do not re-litigate) and §3 (the law of the lane) · `context/strategy/2026-07-05_naming-and-domain-strategy.md` §3 (why the exact `.com`) · `context/strategy/claim-register.md` (no outward sentence — this lane writes none).
+- **Return:** `nexsys-hivemind/context/research/<CT-date>_KO-2_<CANDIDATE>_knockout_return.md`, ONE file, **≤ 24 KB** (a CEILING, not a target; §0 ≤ 3 KB is what the hub reads first), the last line `RETURNED <path> <bytes>`, printed too. Nick pastes `KO: RETURNED <path> <bytes>` to the hub.
+- **Predictions, pre-registered; adjudicate them first in your §0:** P1 — every canary of RS-13 §0A returns its required value again (the instruments still work); a canary that fails makes its axis a NAMED GAP, never a zero. P2 — the candidate's exact string is 0 live / 0 dead at `WM:<candidate>` and 0 at WIPO GBD, OR it is not — the number, with the query verbatim. P3 — the embedded-string test (0.1) names every whole English/Latin word of ≥3 letters the candidate contains, each screened standalone in cl. 9/11/35/42/45 live. P4 — the ASR forced-choice rig reproduces RS-13's controls within ±4/36 (VERDOMO ≈ 10/36, VERDOMU ≈ 30/36) before the candidate is scored; if it does not, S4 is a NAMED GAP. State each MET / MISSED.
+
+## §1 The candidate
+The name is the paste's slot `{{CANDIDATE}}`, as Nick spells it. Spelling variants you screen are the ones the ear produces (§3 S4's confusions) and the one-letter neighbours (RS-13 §1 0.4 "minimal pairs"); you do not invent a family. The prior candidate's record (PALOKI, RS-13) is the BASELINE ROW of your table — carried from the audit §1, not re-researched.
+
+## §2 STEP 0 — the fast kills, one line each (RS-13 §1's shape; every cell with its instrument, query verbatim, access stamp)
+- **0.1 Embedded strings** — every whole word the candidate contains; live cl. 9/42 owners of the bare string; the nearest by goods; the most enforcement-capable owner (TTABVUE: proceedings as plaintiff, last five years). STOP-WORK only on a live, enforcement-active owner of the WHOLE candidate or of a string that IS the candidate's dominant sound.
+- **0.2 The register** — `WM:<candidate>` live/dead; `WM:*<candidate>*`; phonetic equivalents (the forced-choice confusions from S4, each as its own query); WIPO Global Brand Database exact + embedded (the record count printed as the canary does); EUIPO if reachable (else a NAMED GAP).
+- **0.3 Language** — the RS-13 rows: Spanish, French, German, Portuguese, Italian, Finnish, Japanese, Mandarin (pinyin), Hindi, Arabic, Indonesian — a meaning, a vulgar reading, a descriptive reading in a home/fire/alarm/lock sense (the Finnish `palo` class). One line per language with the source (a dictionary URL).
+- **0.4 Minimal pairs** — the one-letter neighbours the ear produces, each at `WM:` live cl. 9/42.
+- **0.5 The ear** — the forced-choice rig RS-13 built (espeak-ng IPA; the candidate against its S4 confusions and against the two controls; 36 trials; the winning spelling and the loss modes). Report the rig's own controls FIRST (P4).
+- **0.6 Channel** — HA brands (`core_integrations/<x>`, `custom_integrations/<x>`), HACS, ioBroker, Z-Wave JS, Z2M vendors, openHAB, CSA/Matter, both app stores, npm / PyPI / crates / Maven / Docker Hub / Homebrew, GitHub orgs — exact and near; each with its canary.
+- **0.7 Domain + handles** — the exact `.com` (registered? marketplace price? RDAP), `.io/.app/.dev/.co/.casa/.net/.org`; the handles @<candidate> on X / Instagram / TikTok / YouTube / GitHub — held or free (a page read; NEVER a registration attempt).
+
+## §3 The candidate table (§0 of your return — the centerpiece)
+Rows: the candidate · PALOKI (baseline, carried). Columns: S1 channel (the count, the instrument) · S2 register (exact/near, live/dead; the crowded fields; the enforcement-active owner) · S3 morpheme (coined/arbitrary/suggestive; the story it can carry) · S4 spoken form (the rig's score /36; the loss mode) · S5 domain (the `.com` status and price) · S6 linguistics (the worst finding, one line) · the single worst fact · the single best fact · the falsifier that kills it · **the verdict: KILL · CLEAR-TO-COUNSEL · CLEAR-WITH-COST** — each verdict word DEFINED in one sentence in your §0 before it is used. Then the lane's LEAN, tagged [INFERRED], with its refutable-by line. The decision is Nick's; S7 (his own ear) is his.
+
+## §4 The law of the lane
+Instrument limits disclosed in full; a search that could not be run is a NAMED GAP, never an absence of hits · ★ every load-bearing primary for hub re-fetch (URL + access stamp + the verbatim sentence) · the two axes graded separately (RS-7 §0.1) · no ID-scope draft, no counsel packet, no DuPont walk — this is the knockout, not the comprehensive screen; the comprehensive screen is counsel's on the name that clears · the return is the only write; no commit, no stage, no push.
+
+## §5 The return shape (in this order)
+§0 the candidate table + the lean + the census + the instrument limits + the ★ list (≤ 3 KB) → §0A the canaries as re-run → §1 STEP 0 evidence (0.1–0.7, each with its queries verbatim) → §2 what the hub should re-fetch first (three items, ranked) → §3 fence attestation (what did NOT happen: no account, no purchase flow, no name in chat) → the `RETURNED` line.
+
+## §6 Out of scope
+Any second candidate; any name generation; the swap program; counsel's packet; a grade of PALOKI beyond the carried row; any outward sentence.
+
+## §7 The dispatch line (Nick pastes into a FRESH Cowork conversation with `ClaudeFolder` connected; fill the ONE slot before pasting)
+```
+date -u first. You are the KO-2 research lane for NexSys / HomeSynapse — the second product-name candidate through the naming frame's KNOCKOUT, read-only, web instruments only, no hardware, no accounts, no purchase flows. The candidate, as I spell it: {{CANDIDATE}}. Never write it in a chat message — only in your queries and in the return file. Read nexsys-hivemind/context/instructions/2026-09-19_research-lane_KO-2_second-candidate_naming-frame-knockout_charter.md WHOLE, then its §0 read set by range. Re-run RS-13's canaries before any count; STEP 0 in RS-13's shape; the candidate table with PALOKI as the carried baseline; the verdict words defined before use; every cell with its instrument, query verbatim and access stamp; a search you could not run is a NAMED GAP. Return to nexsys-hivemind/context/research/<CT-date>_KO-2_<CANDIDATE>_knockout_return.md, ≤ 24 KB, §0 first, the last line `RETURNED <path> <bytes>` printed too. Commit nothing.
+```

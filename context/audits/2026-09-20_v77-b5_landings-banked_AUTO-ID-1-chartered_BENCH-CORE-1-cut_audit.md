@@ -1,0 +1,21 @@
+<!--
+file: context/audits/2026-09-20_v77-b5_landings-banked_AUTO-ID-1-chartered_BENCH-CORE-1-cut_audit.md
+purpose: v77 beat 5 — the two core landings and the b4 hivemind landing banked at the instrument (the counter 10/20 on Nick's line); AUTO-ID-1 chartered through the gate (D-v77-5); BENCH-CORE-1 cut through the prior-ledger gate — and the premise the b2/b4 texts carried corrected: the bench card's Core is an `installDist` tree run by `~/bench.sh`, not a .deb; Sunday's order.
+audience: the hub · Nick (§0)
+state-type: beat audit
+status: FILED Sun 2026-09-20 ~07:1x CT (instrument 2026-09-20T12:13:10Z)
+-->
+
+# v77 beat 5 — the landings banked; AUTO-ID-1 chartered; BENCH-CORE-1 cut
+
+## §0 One screen
+- **At the instrument (12:00Z):** core `c819a02` (FE-115) on `a6b56d6` (MEASURE-2b) on `d1c2cbc`; hivemind `99d4187`; bench `fa01cad`; porcelain 0 ×3; ahead 0 ×3. Nick's line "all checks in GitHub passed green for both" banks as `CI: a6b56d6 green` and `CI: c819a02 green` (the runs not re-read from here — no token; the precedent of `CI: 93390f0 all checks green`); **the closure counter 10/20** (two more `bus-soak` samples on Nick's word; the XMLs unread). The v77 deliverable's second half (MEASURE-2b and FE-115 GREEN at CI) is MET; the first half (the intakes CLOSED) waits on `R5B-2:`.
+- **AUTO-ID-1 chartered through the gate** (`context/instructions/2026-09-20_coder-lane_AUTO-ID-1_…coding-instruction.md`, 20,939 B): Doc 07 §4.1's companion file realized as `FileAutomationIdentityStore` (snakeyaml-engine, the same module name `config/configuration` declares at `module-info.java:23`), atomic write, 30-day retention, fail-closed on a malformed file, wired at `HomeSynapseCore.java:677–:678`; T1 on `RealCoreFixture` reproduces F-1 red (`restart()` → `NEVER_TRIGGERED`) and green; `MeasureReadPathIT`'s `hero_id_stable` flips as the second instrument. Every cite grepped at `c819a02`. The design choice (a file, per the Locked text, not a SQLite table — which would need an AMD) is stated in §1 of the charter; `AUTOID-STORE:` is not a word — the Locked design decides.
+- **BENCH-CORE-1 cut** (`context/instructions/2026-09-20_bench-card_BENCH-CORE-1_core-to-c819a02_installDist_operator-card.md`, 9,084 B) — **with a premise of mine corrected first:** the b2 audit §4 and the plan §19/§20 said "an H8-a-shaped card … `d1c2cbc`'s arm64 .deb (install-smoke #61)". At the bytes the bench card's Core is NOT a .deb: `nexsys-bench/tools/bench.sh:6–:7` runs `$HOME/homesynapse-core/app/homesynapse-app/build/install/homesynapse-app/bin/homesynapse-app` with `HOMESYNAPSE_HOME=$HOME/hs-bench` — the Pi's own clone built by `installDist` (the 07-26 deploy return; R9's `:214` "the bench runs from installDist"). So the card is a pull to `c819a02` + `installDist` on the Pi (node + npm needed for the dashboard jar, `web-ui/dashboard/build.gradle.kts:34–:35` — block 0 reads them first) + `~/bench.sh restart` + `boot-health 6/6`, with a `.backup` of the store and a copy of the old install tree before anything changes. The visible proof of the upgrade: `deviceId` on the registry rows reads a ULID where the old Core printed `None`. The reused strings grepped in the R-5B/H8-a ledgers (§G of the card). The sha is `c819a02`, not `d1c2cbc`: the newest green carries the row-0 classification line Thursday's G4-3 reads and the dashboard mirror; nothing in it changes the fleet.
+- **Sunday's order:** `R5B-2:` (the read is one ssh line — block 1) → the intakes CLOSED (b6) → BENCH-CORE-1 (Nick's hands, ~20 min + the build) → AUTO-ID-1 running on the Java slot meanwhile → the strategy pass, VERDICT-VOCAB-1 and PELTON-READY (hub) → the close with v78's text. AUTO-ID-1's build goes to the bench card Wednesday (the second deploy, the same card re-cut) so Thursday's adoption and the run start on durable ids.
+
+## §1 The words banked
+`CORE: M2B a6b56d6` · `CI: a6b56d6 green` · `CORE: FE115 c819a02` · `CI: c819a02 green` · `HIVE: LANDED 99d4187`. **Open:** `R5B-2:` · `AID: RETURNED` · `BENCH-CORE: deployed …` · `HIVE: LANDED` (b5) · the seven H10 words (silence = the recs).
+
+## §2 Not re-executed (disclosed)
+The two CI runs and their bus-soak XMLs; the Pi's clone sha and toolchain (block 0 reads them).

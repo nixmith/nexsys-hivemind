@@ -1,0 +1,104 @@
+<!--
+file: context/instructions/2026-09-20_coder-lane_AUTO-ID-1_durable-automation-identity_companion-file_coding-instruction.md
+purpose: AUTO-ID-1 — the automation identity made DURABLE across restarts: Doc 07 §4.1's engine-managed companion file (`automations.ids.yaml`, AMD-93 §2.3) as a `FileAutomationIdentityStore` wired at the composition root in place of the in-memory store; the restart test on `RealCoreFixture` that reproduces MEASURE-2b's F-1 (IR-39) red and turns it green. D-v77-5 (`JAVA-NEXT: autoid`).
+audience: the Coder (a host-side Claude Code session in homesynapse-core; the Java slot) · the hub (the intake) · Nick (§14 only)
+state-type: coding instruction (through THE PREMISE GATE — every source claim cited at core `c819a02`, Sun 2026-09-20)
+status: DISPATCH-READY v77 beat 5 (Sun 2026-09-20 ~07:1x CT; instrument 2026-09-20T12:0xZ) — dispatched on Nick's paste of §14. Returns to `context/audits/<CT-date>_AUTO-ID-1_return.md`. The Java slot is EXCLUSIVE to this lane until `AID: RETURNED`; LINK-READ follows it.
+baseline: core `c819a02` (FE-115 on MEASURE-2b on ENERGY-READ; CI green on each). Re-verify at issue: `git --no-optional-locks log -1 --oneline` reads `c819a02`; porcelain EMPTY.
+-->
+
+# AUTO-ID-1 — durable automation identity: the companion file, wired at the root; the restart test
+
+## §0 The lane contract (read first; every line binds)
+- **Baseline:** core `c819a02`; `git --no-optional-locks status --porcelain` EMPTY; anything else → stop and report. `date -u` FIRST; CT = UTC−5; every stamp from that reading.
+- **Return path:** `nexsys-hivemind/context/audits/<CT-date>_AUTO-ID-1_return.md`, one file, **≤ 13 KB** (3 KB + ~1 KB per Files-table row, 10 rows, rounded up — a CEILING, not a target). §0 card first (≤ 3 KB): the census (COMPUTED from the table's A/M column) · the red-first table · P1–P6 adjudicated · the deviations by tag · `RETURNED <path> <bytes>` as the LAST line, printed too. Nick pastes `AID: RETURNED <path> <bytes>`.
+- **Write-set (the Files table §3 governs; nothing else):** `core/automation` main + test + its `module-info.java` + `build.gradle.kts` + `MODULE_CONTEXT.md`; `lifecycle/lifecycle/src/main/java/com/homesynapse/lifecycle/HomeSynapseCore.java` (ONE wiring site, `:677–:678`); `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/` (one new IT; `RealCoreFixture.java` only if row 7 needs an accessor); `lifecycle/lifecycle/MODULE_CONTEXT.md`. NO event-model, persistence, state-store, config, rest-api or web-ui change; NO wire change; NO schema/AMD change (Doc 07 §4.1 is realized, not amended).
+- **Build discipline — the gate line, verbatim, green in ONE round before the return:** `./gradlew :core:automation:test :lifecycle:lifecycle:test :app:homesynapse-app:test spotlessCheck --offline` (the app task carries `HomeSynapseArchRules`; `-Werror` is on — a module-info `requires` that `-Xlint:exports` trips is a red, see §4 R6). Scripts over ~15 lines are written with the Write tool and run by path.
+- **Tests first, honestly sorted (format law #18):** RED at the baseline and GREEN after — T1 (the restart IT: the id by slug survives `restart()` and `explainNonFiring` still says `FIRED_CONFIRMED` — MEASURE-2b's F-1, reproduced), T2 (a second store over the same file returns the same ids), T3 (an unknown slug mints; a known slug keeps; the write is atomic — no temp file remains), T4 (retention: an entry unseen for > 30 days is dropped at load, one at 29 days kept — the clock injected), T5 (a malformed companion fails CLOSED with the path in the message; a missing one is the first boot), T6 (generated trigger ids durable across instances). GREEN-BY-CONSTRUCTION, disclosed — T7 (`DefinitionLoadFailClosedTest`, `TriggerIdAssignmentTest` on the in-memory store, unchanged), T8 (`HeroLoopHardwareFreeIT`, `BusSoakIT` on the fixture; `MeasureReadPathIT`'s 2,000-row smoke — its line now reads `hero_id_stable=true`, which is T1's second instrument).
+- **Predictions, pre-registered; adjudicate them first in your §0:** P1 — the census is the Files table exactly (10 = 6 M + 4 A). P2 — T1 is RED at `c819a02` with `q2 → NEVER_TRIGGERED` after the restart (the F-1 shape) and GREEN after; `MeasureReadPathIT`'s smoke line flips `hero_id_stable=false → true`. P3 — the companion file is written ONCE per load that minted or dropped anything, and NOT rewritten by a load that changed nothing (assert by mtime or by a write counter on the store). P4 — `HomeSynapseCore.java` changes at exactly the two lines `:677–:678` plus the import (grep `InMemoryAutomationIdentityStore` in `lifecycle/lifecycle/src/main` = 0 after). P5 — `core/automation`'s module-info gains exactly ONE `requires org.snakeyaml.engine.v2;` and `build.gradle.kts` exactly ONE `implementation(libs.snakeyaml.engine)`; the app test task stays green (no `-Xlint:exports` red: no snakeyaml type reaches an exported signature). P6 — the companion parses as YAML by the library itself (T2 reads it back through snakeyaml) AND its bytes are stable across two loads that change nothing (P3).
+- **The cap sentence:** ≤ 13 KB is a CEILING, not a target.
+
+## §1 What this implements
+MEASURE-2b's F-1 (`context/audits/2026-09-19_MEASURE-2b_return.md` §4; IR-39): `HomeSynapseCore.java:677–:678` wires `new InMemoryAutomationIdentityStore(clock)`, so every boot mints a NEW `AutomationId` per slug (`InMemoryAutomationIdentityStore.java:44–:49`, `UlidFactory.generate(clock)`); after a restart `explainNonFiring` reads the log under the new id, finds no runs, and answers `NEVER_TRIGGERED` of an automation with confirmed runs on record — every `MEASURE2B` line reads `q2_verdict=FIRED_CONFIRMED/NEVER_TRIGGERED hero_id_stable=false`. Rehearsal 1 (kill −9, wk 09-28) is a restart; the 72-hour run's honesty invariant (THE RECORD'S HONESTY, D-v76-3) cannot carry a false verdict. The Locked design already states the mechanism — Doc 07 §4.1 (`homesynapse-core-docs/design/07-automation-engine.md:622`): "the mapping from automation name to ULID is stored in a companion file (`automations.ids.yaml`) managed by the automation engine, not edited by users … matched by name … a new ULID if not found … retained for 30 days (configurable)" — and AMD-93 §2.3 places it beside the definition file (the `automation:` section lives in `homesynapse.yaml`, so the companion sits in the config directory `HomeSynapseCore` is given, `HomeSynapseCore.java:214/:322`). This lane realizes it: `FileAutomationIdentityStore` in `core/automation`, wired at the root; the in-memory store stays as the test double.
+
+## §2 Files to read before starting (the minimum read set — mandatory)
+`core/automation/MODULE_CONTEXT.md` (whole: the loader's contract; §Gotchas) · `lifecycle/lifecycle/MODULE_CONTEXT.md` (§Gotchas; the MEASURE-2b paragraph) · `core/automation/src/main/java/com/homesynapse/automation/AutomationIdentityStore.java` (44 lines; the two methods) · `InMemoryAutomationIdentityStore.java` (70 lines; the locking and the minting you mirror) · `AutomationDefinitionLoader.java:55–:90, :133, :221` (the two call sites) · `lifecycle/.../HomeSynapseCore.java:200–:230` (`configDir`), `:670–:700` (the wiring; the section-not-document note; `surfaceAutomationLoadFailures`), `:1457–` · `core/state-store/.../AtomicCheckpointSink.java` (the atomic-write idiom you reuse: temp file + `Files.move(…, ATOMIC_MOVE, REPLACE_EXISTING)`) · `config/configuration/src/main/java/module-info.java:23` and `config/configuration/build.gradle.kts:10` (the snakeyaml-engine declaration you copy — `requires org.snakeyaml.engine.v2;` / `implementation(libs.snakeyaml.engine)`; `gradle/libs.versions.toml:18/:55`) · one snakeyaml-engine use in `config/configuration` (the `Load`/`Dump` settings idiom — grep `LoadSettings`) · `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/RealCoreFixture.java` (`boot :126`, `core() :151`, `pulseMotion :324`, `restart :347`, `tempDir :171`) · `HeroLoopHardwareFreeIT.java:515` (`core.automationRegistry().getBySlug(slug)`) · `MeasureReadPathIT.java` (how `q2_verdict` and `hero_id_stable` are computed — T1 reproduces that read) · `homesynapse-core-docs/design/07-automation-engine.md:622–:623` · `design/amendments/AMD-93_Automation_Definition_Schema_Posture.md:43–:47`.
+
+## §3 Files to create or modify (the Files table governs; every write site is a row)
+| # | File | A/M | What |
+|---|---|---|---|
+| 1 | `core/automation/src/main/java/com/homesynapse/automation/FileAutomationIdentityStore.java` | A | `public final class FileAutomationIdentityStore implements AutomationIdentityStore` — `FileAutomationIdentityStore(Path companionFile, Clock clock)`; `automationIdFor(slug)` and `generatedTriggerIdFor(slug, index)` as the interface states, minting with `UlidFactory.generate(clock)` for an unknown key, returning the stored id for a known one; every mint marks the store dirty; **`void beginLoad()` / `void endLoad()`** (or one `LoadSession` object — say which): `beginLoad` reads the file (absent → empty; malformed or unreadable → `IllegalStateException` with the path, FAIL-CLOSED — never re-mint over a file that exists and cannot be read), `endLoad` stamps `last_seen` on every slug the load touched, DROPS entries whose `last_seen` is older than `RETENTION` (30 days, a named constant, from the clock), and WRITES the file atomically ONLY if anything changed (P3). The format (§4 R2). Thread-safety as the in-memory store's (`ReentrantLock`). |
+| 2 | `core/automation/src/test/java/com/homesynapse/automation/FileAutomationIdentityStoreTest.java` | A | T2 · T3 · T4 · T5 · T6 (+ P3's write-once assert; P6's read-back through the library) on a `@TempDir`. |
+| 3 | `core/automation/src/main/java/module-info.java` | M | `+ requires org.snakeyaml.engine.v2;` (one line; §4 R6). |
+| 4 | `core/automation/build.gradle.kts` | M | `+ implementation(libs.snakeyaml.engine)` (one line, with a one-line comment naming AUTO-ID-1 and the companion). |
+| 5 | `core/automation/MODULE_CONTEXT.md` | M | one paragraph: the companion file's contract (the path, the format, fail-closed, the retention, the write-once rule); a gotcha: `beginLoad`/`endLoad` bracket every `AutomationDefinitionLoader.load` — a load without the bracket persists nothing. |
+| 6 | `lifecycle/lifecycle/src/main/java/com/homesynapse/lifecycle/HomeSynapseCore.java` | M | `:677–:678` → `FileAutomationIdentityStore identityStore = new FileAutomationIdentityStore(configDir.resolve("automations.ids.yaml"), clock);` and the bracket around the load (`beginLoad()` before `loader.load(...)`, `endLoad()` after `surfaceAutomationLoadFailures`); the import; nothing else. A `beginLoad` failure is a subsystem INIT failure (Doc 12 §4 — Automation is FATAL): it propagates like the configuration subsystem's failure at `:528` (read that site; mirror its form). |
+| 7 | `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/AutomationIdentityRestartIT.java` | A | T1 on `RealCoreFixture`: boot with the hero config (`HeroLoopHardwareFreeIT`'s yaml — reuse its helper or copy the string, say which), read the hero's id via `core().automationRegistry().getBySlug(...)`, `pulseMotion()` to one CONFIRMED run, read `explainNonFiring(id, 0L)` → `FIRED_CONFIRMED`; `restart(System::nanoTime)`; the id by slug EQUAL; `explainNonFiring` on that id → `FIRED_CONFIRMED` again; and the companion file exists under `tempDir()/config/automations.ids.yaml` with the slug and that id. RED at HEAD: the second `explainNonFiring` reads `NEVER_TRIGGERED` (and the ids differ). |
+| 8 | `lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/RealCoreFixture.java` | M | ONLY if row 7 needs it: a `configDir()` accessor (`tempDir().resolve("config")`); otherwise no row — say which in §0 (P1 then reads 9 = 5 M + 4 A). |
+| 9 | `lifecycle/lifecycle/MODULE_CONTEXT.md` | M | one line under the M4.0a/MEASURE-2b notes: the identity store is file-backed at the root; the restart IT; `hero_id_stable=true`. |
+| 10 | `nexsys-hivemind/context/audits/<CT-date>_AUTO-ID-1_return.md` | A | the return. |
+
+## §4 Technical specification
+- **R1 (the contract is the interface's).** No change to `AutomationIdentityStore`'s two methods or to `AutomationDefinitionLoader`. The bracket (`beginLoad`/`endLoad`) is on the FILE store only; the root calls it. If you find the loader is called from a second production site (the hot-reload listener — grep `AutomationDefinitionLoader` and `.load(` in `lifecycle` and `core/automation` main), that site gets the same bracket and a row — report it.
+- **R2 (the format — YAML written and read by snakeyaml-engine, never by hand):**
+  ```yaml
+  # automations.ids.yaml — engine-managed (Doc 07 §4.1; AMD-93 §2.3). Do not edit.
+  schema_version: 1
+  automations:
+    hero-light:
+      id: 01M1PRQN03X8H4MNEZQ62F76F1
+      last_seen: 2026-09-20T12:00:00Z
+      triggers:
+        "0": 01M1PRQN03X8H4MNEZQ62F76F2
+  ```
+  Keys sorted; `last_seen` ISO-8601 Z from the clock; the header comment written verbatim (the `Dump` settings must not drop it — if the library cannot emit a comment, write the comment line before the dumped body and skip it on read; say which). `schema_version` ≠ 1 → fail closed. Unknown keys → fail closed (the file is engine-managed; drift means a hand edit).
+- **R3 (atomic write).** Write `automations.ids.yaml.tmp` in the same directory, `Files.move(tmp, file, ATOMIC_MOVE, REPLACE_EXISTING)`; on any failure leave the old file untouched and throw (the load's ids are still valid in memory for THIS boot; the exception is logged at ERROR `automation.identity_write_failed: path= cause=` and the boot continues — a write failure must not brick a boot; the NEXT boot re-mints only what was never persisted; say this trade in the MODULE_CONTEXT paragraph).
+- **R4 (retention).** `RETENTION = Duration.ofDays(30)` (Doc 07 §4.1's "configurable" is NOT wired in this lane — a constant, named in the MODULE_CONTEXT as the future knob). Dropped entries are logged at INFO `automation.identity_retired: slug= id= last_seen=`.
+- **R5 (first boot on the deployed cards).** The cards run the in-memory store today; the first boot on this build mints ids and writes the companion — a ONE-TIME change of every automation's id (the run history before that boot is orphaned exactly as every restart orphaned it until now). The return states this in one sentence for the deploy card.
+- **R6 (module-info).** `config/configuration` already declares `requires org.snakeyaml.engine.v2;` (`module-info.java:23`) — the same module name here. No snakeyaml type appears in any exported signature (`FileAutomationIdentityStore`'s public API is `Path`, `Clock`, the interface) → a plain `requires`, never `transitive`; `implementation(...)`, never `api(...)`. Verify `./gradlew :core:automation:compileJava --offline` clean before the tests.
+- **R7 (the loader's exception path).** `beginLoad`'s `IllegalStateException` at the root → the automation subsystem's INIT fails (mirror `:528`'s form for the configuration subsystem); a unit test at the store level (T5) proves the message carries the path; the root's propagation is asserted by a lifecycle test ONLY if one exists for the config FATAL path — grep `HomeSynapseCoreTest` for the pattern; if none, say so and leave it to the store test (law #13: no test invented for a home that has none).
+
+## §5 Locked decisions and invariants that apply
+Doc 07 §4.1 (realized, not changed); AMD-93 §2.3; AMD-71 §2.1 (the config directory); Doc 12 §4 (Automation = FATAL on INIT failure); INV-GA-02 (identifiers never reused — a dropped entry's ULID is never re-minted; a new mint is a new ULID); `NO_DIRECT_TIME_ACCESS` (the clock is injected; §9); THE PREMISE GATE (every cite above at `c819a02`).
+
+## §6 P2 consumer/pin survey
+- Implementers of `AutomationIdentityStore`: `InMemoryAutomationIdentityStore` (stays; the test double) + row 1. Production wiring: `HomeSynapseCore.java:677–:678` ONLY (`git grep -n 'new InMemoryAutomationIdentityStore' -- '*.java'` = the two tests + the root).
+- `AutomationDefinitionLoader.load` callers in main code: grep — the root (`:687`) and, if present, the hot-reload listener (R1).
+- Tests that boot the core with a config dir and assert its file list: `grep -rn 'configDir' lifecycle/lifecycle/src/test` (`BusPositionCensusIT:661–:669`, `HomeSynapseCoreSchemaAdmissionTest:434`, the fixture) — a companion file now appears there; an assertion on the directory's contents would flip (name it; none is expected).
+- ARCH-RULE-REACH: `core/automation` gains a third-party module dependency; `HomeSynapseArchRules` — grep for a rule constraining automation's dependencies (none expected; say the grep).
+- The miss-script sweep: `automationIdFor` for an UNKNOWN slug still mints (the same behavior as today); the ONLY new behavior is persistence; a definition removed and re-added within 30 days keeps its id (Doc 07 §4.1's stated case) — T4's positive arm.
+
+## §7 Test requirements (sorted per format law #18)
+RED→GREEN: T1–T6. GREEN-BY-CONSTRUCTION (disclosed): T7, T8. T1's assertions are on VALUES the wire carries (`AutomationId` equality; the verdict enum) — never on log text.
+
+## §8 MODULE_CONTEXT.md — rows 5 and 9. Nothing else.
+
+## §9 What to watch out for
+- **Tests must inject `Clock`.** Do NOT use `Clock.systemUTC()`, `Instant.now()`, `System.nanoTime()`, or `System.currentTimeMillis()` in this module's test code. Use `Clock.fixed(Instant.parse("2026-01-01T00:00:00Z"), ZoneOffset.UTC)` injected via constructor/`@BeforeEach`. **Enforcement reach:** `NO_DIRECT_TIME_ACCESS` runs from `com.homesynapse.app`'s test classpath, so it mechanically catches PRODUCTION code in every non-whitelisted module (plus app's own tests) — it does **not** scan this module's test source set. Clock-injection here is a self-enforced project convention that PM review, not `./gradlew check`, enforces. (T1's `restart(System::nanoTime)` is the fixture's stopwatch parameter, MEASURE-2b's carve-out; the domain clock is the fixture's `TestClock`.)
+- T4 needs the clock to MOVE 31 days between loads — a `TestClock` or a mutable `Clock` in the store test; the fixture's `TestClock` for the IT.
+- The `Dump` of snakeyaml-engine sorts nothing by itself — sort the map keys before dumping (P6's byte stability).
+- The companion is written by the SERVICE user on the cards (`/var/lib/homesynapse/config` is the service's; a future FHS `/etc/homesynapse` may not be writable — R3's ERROR path covers it; the design row is the hub's, not this lane's).
+- `MeasureReadPathIT`'s smoke (2,000 rows) runs in the gate; its `hero_id_stable` field is computed from the id before/after `restart()` — read how before claiming P2's flip.
+
+## §10 Coder pushback welcome
+The hot-reload site (R1) if it exists; a snakeyaml comment-emission limit (R2); a lifecycle test asserting the config directory's contents; an `-Xlint:exports` red (then the type leaks — fix the signature, never widen to `transitive`).
+
+## §11 Out of scope
+The retention knob in configuration; a SQLite-backed store; the hot-reload feature itself; any change to `explainNonFiring`; LINK-READ; the read-path defect IR-40.
+
+## §12 Success criterion (binary)
+| Row | Value | Artifact · field |
+|---|---|---|
+| the gate line green in one round | y/n | the gradle summary |
+| T1 RED at HEAD (the verdict after restart) then GREEN | the two verdict strings | the JUnit XML `<failure>` then the pass |
+| `hero_id_stable=` in the smoke line | `false` at HEAD → `true` | `MeasureReadPathIT`'s `<system-out>` |
+| P3 write-once; P6 byte-stable | y/n | the store test |
+| P4 the grep = 0; P5 the two one-line diffs | counts | `git diff -U0` |
+
+## §13 Work unit completion (WUCP Phase 1)
+The return; the two MODULE_CONTEXT paragraphs; the `coder-handoff.md` entry text in your return §12 (the hub files it — the write-set excludes that file, as MEASURE-2b's R-h found). Commit NOTHING; your last act is the `RETURNED` line.
+
+## §14 The dispatch line (Nick pastes into a host-side Claude Code session in `~/Desktop/Code/ClaudeFolder/homesynapse-core`)
+```
+date -u first. You are the Coder for AUTO-ID-1 (the nexsys-coder skill governs). Read ../nexsys-hivemind/context/instructions/2026-09-20_coder-lane_AUTO-ID-1_durable-automation-identity_companion-file_coding-instruction.md WHOLE, then its §2 read set. Baseline c819a02, porcelain empty, or stop. Tests first, sorted as §0 says — T1 on RealCoreFixture reproduces MEASURE-2b's F-1 red before anything else is written; the gate line verbatim, green in one round; commit nothing. Return to ../nexsys-hivemind/context/audits/<CT-date>_AUTO-ID-1_return.md, ≤ 13 KB, §0 card first, P1–P6 adjudicated, the last line `RETURNED <path> <bytes>` printed too.
+```

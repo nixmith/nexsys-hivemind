@@ -597,3 +597,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-19 (v77 beat 4) — v77 b2, verbatim
 
 2026-09-19 (v77 beat 2 — THE SITTING READ AT THE BYTES; MEASURE-2b AND KO-2 CHARTERED: H8-a + R-5B RETURNED, zero STOPs; K1–K4 re-asserted by the hub; one lane claim refuted (the usb-reenumeration FAIL = the sshd PATH; no install; Sunday's line pre-registered); `PI: pulled fa01cad` banked from R-5B B6-1 (step 0 DONE; the b8 relocation owned); step 0b added (the bench card's Core → `d1c2cbc`; `BENCH-CORE:` rec sun); MEASURE-2b dispatched 14:2x CT; KO-2 on the packet; IR-33/34; the plan §19; the close waits on `R5B-2:`; Sat 2026-09-19 ~14:2x CT (instrument 2026-09-19T19:29:22Z). Order: hivemind 20 files = 8 M + 12 A by explicit paths (porcelain rows 14; computed inside the splice).)
+
+## chain segment rotated 2026-09-20 (v77 beat 5) — v77 b3, verbatim
+
+2026-09-19 (v77 beat 3 — KO-2 INTAKEN TWO-LAYER, ACCEPT; the verdict KILL adopted as the recommendation (`NAME2:` silence = accept; ★1 RDAP and ★4 TTAB re-fetched by the hub; one word corrected); PELTON-READY's fallback → NAMING-B re-armed; MEASURE-2b NOT STARTED at the instrument → re-handed as block 0; FE-115 chartered through the gate on the H8-a real-wire bodies; the v77 DR opened (D-v77-1..4); IR-35; Sat 2026-09-19 ~17:5x CT (instrument 2026-09-19T22:51:57Z). Order: hivemind 9 = 5 M + 4 A by explicit paths (computed from porcelain inside the splice).)

@@ -3,7 +3,7 @@ file: context/instructions/2026-09-20_bench-card_BENCH-CORE-1_core-to-c819a02_in
 purpose: BENCH-CORE-1 — THE THURSDAY ORDER step 0b: the BENCH card's Core (hs-dev-1, run by `~/bench.sh` from the Pi's own `installDist` tree — NOT a .deb) moved from its pre-CG-123 build to `c819a02` (ENERGY-READ + MEASURE-2b + FE-115; CI green on each), so the metering scenario reads `power_w` from a Core that has the metering path, and Monday's and Tuesday's nightlies run on the full stack. D-v77-1 (`BENCH-CORE: sun`). Cut through THE PRIOR-LEDGER GATE (§G).
 audience: Nick (the four blocks, Git Bash → `ssh pi`) · the hub (the intake on the outputs file)
 state-type: operator card (one sitting at the desk, ~20 min + the build; no navigator; every block's output tee'd to ONE file the hub reads)
-status: LIVE v77 beat 5 (Sun 2026-09-20 ~07:1x CT; instrument 2026-09-20T12:0xZ) — Nick's hands, any time today after `R5B-2:` is pasted. The report-back is ONE line: `BENCH-CORE: deployed <sha> · boot-health <n>/6 · rows <before>→<after>` (or `BENCH-CORE: STOP <block> <line>`).
+status: EXECUTED — DONE twice Sun 2026-09-20 (`c819a02` at 15:04Z, `13d439f` at 15:52Z; boot-health 6/6 ×2; the outputs file in `_scratch/v77/`) (v78 beat 1 hygiene, Check 12; Mon 2026-09-21 ~07:5x CT; instrument 2026-09-21T12:51:15Z). Was: LIVE v77 beat 5 (Sun 2026-09-20 ~07:1x CT; instrument 2026-09-20T12:0xZ) — Nick's hands, any time today after `R5B-2:` is pasted. The report-back is ONE line: `BENCH-CORE: deployed <sha> · boot-health <n>/6 · rows <before>→<after>` (or `BENCH-CORE: STOP <block> <line>`).
 -->
 
 # BENCH-CORE-1 — the bench card's Core to `c819a02`

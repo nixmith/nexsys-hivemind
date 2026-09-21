@@ -609,3 +609,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-20 (v77 beat 7) — v77 b5, verbatim
 
 2026-09-20 (v77 beat 5 — THE LANDINGS BANKED, AUTO-ID-1 CHARTERED, BENCH-CORE-1 CUT: core `c819a02` on `a6b56d6` (`CI: green` ×2 on Nick's line; the counter 10/20), hivemind `99d4187`; AUTO-ID-1 through the gate (the companion file, D-v77-5); BENCH-CORE-1 through the prior-ledger gate — the hub's .deb premise corrected: the bench card runs an `installDist` tree by `~/bench.sh`; the deliverable's CI half MET; Sun 2026-09-20 ~07:1x CT (instrument 2026-09-20T12:13:10Z). Order: hivemind 8 = 4 M + 4 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-21 (v78 beat 1) — v77 b6, verbatim
+
+2026-09-20 (v77 beat 6 — H8-a AND R-5B CLOSED on Sunday's line (`7/9 · FAIL command-confirm-s31 · fleet: 6/6`; the pre-registration CONFIRMED — usb-reenumeration passed on the timer with nothing installed; the S31 class on the first night with the vacuum on the S31 → the vacuum off, Monday pre-registered `8/9`); FE-113 VERIFIED, O-2 CLOSED, OR-FAILCHAN re-scoped (IR-33); AUTO-ID-1 ACCEPT (core 8 M + 6 A; `hero_id_stable=true`); BENCH-CORE-1 DONE (`e845cd9` → `c819a02`; boot-health 6/6; deviceId ULIDs); the second deploy today (D-v77-8); IR-44; THE DELIVERABLE MET; Sun 2026-09-20 ~10:1x CT (instrument 2026-09-20T15:15:24Z). Order: core A 14 = 8 M + 6 A by Nick's card; hivemind 10 = 8 M + 2 A by explicit paths (computed from porcelain inside the splice).)

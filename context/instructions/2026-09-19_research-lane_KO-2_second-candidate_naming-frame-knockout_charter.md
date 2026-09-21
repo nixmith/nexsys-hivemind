@@ -3,7 +3,7 @@ file: context/instructions/2026-09-19_research-lane_KO-2_second-candidate_naming
 purpose: KO-2 — the second product-name candidate through the naming frame's KNOCKOUT (D-v74-1, `NAME:` silence = ii; the plan of record §8 row 2): STEP 0 of the RS-13 protocol run on one candidate, read-only, no hardware, a fresh Cowork conversation; the return is the candidate table with an instrument beside every cell. NO NAME IS GRADED IN CHAT (law 9): the candidate enters through the paste's slot and is written ONLY in the return under `context/research/`.
 audience: the research lane (a fresh Cowork conversation with ClaudeFolder connected; web instruments only) · the hub (the intake) · Nick (§7 only)
 state-type: research charter (through THE PREMISE GATE — the method and the instruments are RS-13's, at their paths; nothing here is new method)
-status: DISPATCH-READY v77 beat 2 (Sat 2026-09-19 ~14:4x CT; instrument 2026-09-19T19:4xZ) — dispatched on Nick's paste of §7 with the slot filled. Returns to `context/research/<CT-date>_KO-2_<CANDIDATE>_knockout_return.md`.
+status: EXECUTED — ACCEPT v77 b3 (KILL; NAMING-B re-armed; D-v77-4 `accept` by silence) (v78 beat 1 hygiene, Check 12; Mon 2026-09-21 ~07:5x CT; instrument 2026-09-21T12:51:15Z). Was: DISPATCH-READY v77 beat 2 (Sat 2026-09-19 ~14:4x CT; instrument 2026-09-19T19:4xZ) — dispatched on Nick's paste of §7 with the slot filled. Returns to `context/research/<CT-date>_KO-2_<CANDIDATE>_knockout_return.md`.
 -->
 
 # KO-2 — the second candidate through the naming frame's knockout

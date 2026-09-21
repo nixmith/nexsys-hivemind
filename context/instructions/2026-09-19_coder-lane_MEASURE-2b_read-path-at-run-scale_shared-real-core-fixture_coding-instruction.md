@@ -3,7 +3,7 @@ file: context/instructions/2026-09-19_coder-lane_MEASURE-2b_read-path-at-run-sca
 purpose: MEASURE-2b — the READ PATH at run-scale row counts on a REAL SQLite store, with the `BusSoakIT`/`HeroLoopHardwareFreeIT` boot shape extracted into ONE shared fixture; ENERGY-READ-b's two rows as row 0; the rig-blindness sweep as a § of the return. D-v76-10; the plan §17 (2)–(5); THE MEASUREMENT RECORD rows M2-2b + M2b-1..M2b-6.
 audience: the Coder (a host-side Claude Code session in homesynapse-core; the Java slot) · the hub (the intake) · Nick (§14 only)
 state-type: coding instruction (through THE PREMISE GATE — every source claim carries its instrument, grepped at `d1c2cbc` on Sat 2026-09-19)
-status: DISPATCH-READY v77 beat 2 (Sat 2026-09-19 ~14:2x CT; instrument 2026-09-19T19:16Z) — dispatched on Nick's paste of §14. Returns to `context/audits/<CT-date>_MEASURE-2b_return.md`. The Java slot is EXCLUSIVE to this lane until `M2B: RETURNED`; LINK-READ is chartered against the fixture at HEAD after this lands (D-v76-10).
+status: EXECUTED — ACCEPT v77 b4; LANDED `a6b56d6` GREEN (v77 b5) (v78 beat 1 hygiene, Check 12; Mon 2026-09-21 ~07:5x CT; instrument 2026-09-21T12:51:15Z). Was: DISPATCH-READY v77 beat 2 (Sat 2026-09-19 ~14:2x CT; instrument 2026-09-19T19:16Z) — dispatched on Nick's paste of §14. Returns to `context/audits/<CT-date>_MEASURE-2b_return.md`. The Java slot is EXCLUSIVE to this lane until `M2B: RETURNED`; LINK-READ is chartered against the fixture at HEAD after this lands (D-v76-10).
 baseline: core `d1c2cbc` (ENERGY-READ; CI #253 green). Re-verify at issue: `git --no-optional-locks log -1 --oneline` reads `d1c2cbc`; porcelain EMPTY.
 -->
 

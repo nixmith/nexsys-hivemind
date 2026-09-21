@@ -3,7 +3,7 @@ file: context/handoff/2026-09-20_v78_dispatch-text.md
 purpose: THE v78 DISPATCH TEXT — the paste that opens the next hub window (Monday 2026-09-21), cut at the v77 close (beat 7). The stable prompt is unchanged; this text carries the state and the week's order. Fill nothing: every sha below is at the instrument.
 audience: Nick (pastes the fenced block whole into a FRESH Cowork conversation with ClaudeFolder connected, Monday morning after `R5B-3:` is read) · the v78 hub
 state-type: dispatch text (verbatim at v78 beat 1)
-status: LIVE — cut v77 beat 7 (Sun 2026-09-20 ~11:1x CT; instrument 2026-09-20T16:14:54Z). Paste Monday morning; the `R5B-3:` line and the ids.yaml read go into the v78 session as its first message after the paste.
+status: EXECUTED — pasted v78 beat 1 (Mon 2026-09-21 ~07:5x CT; instrument 2026-09-21T12:51:15Z); the paste byte-identical to lines 11–27 (md5 42bce6b2f3acef9c328985578e7649f9, 8,327 B; the b1 audit §4). Was: LIVE — cut v77 beat 7 (Sun 2026-09-20 ~11:1x CT; instrument 2026-09-20T16:14:54Z). Paste Monday morning; the `R5B-3:` line and the ids.yaml read go into the v78 session as its first message after the paste.
 -->
 
 # v78 — the dispatch text (paste whole)

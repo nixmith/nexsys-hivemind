@@ -3,7 +3,7 @@ file: context/instructions/2026-09-20_coder-lane_AUTO-ID-1_durable-automation-id
 purpose: AUTO-ID-1 — the automation identity made DURABLE across restarts: Doc 07 §4.1's engine-managed companion file (`automations.ids.yaml`, AMD-93 §2.3) as a `FileAutomationIdentityStore` wired at the composition root in place of the in-memory store; the restart test on `RealCoreFixture` that reproduces MEASURE-2b's F-1 (IR-39) red and turns it green. D-v77-5 (`JAVA-NEXT: autoid`).
 audience: the Coder (a host-side Claude Code session in homesynapse-core; the Java slot) · the hub (the intake) · Nick (§14 only)
 state-type: coding instruction (through THE PREMISE GATE — every source claim cited at core `c819a02`, Sun 2026-09-20)
-status: DISPATCH-READY v77 beat 5 (Sun 2026-09-20 ~07:1x CT; instrument 2026-09-20T12:0xZ) — dispatched on Nick's paste of §14. Returns to `context/audits/<CT-date>_AUTO-ID-1_return.md`. The Java slot is EXCLUSIVE to this lane until `AID: RETURNED`; LINK-READ follows it.
+status: EXECUTED — ACCEPT v77 b6; LANDED `13d439f` GREEN (v77 b7); `automations.ids.yaml` VERIFIED durable on the bench card at v78 b1 (v78 beat 1 hygiene, Check 12; Mon 2026-09-21 ~07:5x CT; instrument 2026-09-21T12:51:15Z). Was: DISPATCH-READY v77 beat 5 (Sun 2026-09-20 ~07:1x CT; instrument 2026-09-20T12:0xZ) — dispatched on Nick's paste of §14. Returns to `context/audits/<CT-date>_AUTO-ID-1_return.md`. The Java slot is EXCLUSIVE to this lane until `AID: RETURNED`; LINK-READ follows it.
 baseline: core `c819a02` (FE-115 on MEASURE-2b on ENERGY-READ; CI green on each). Re-verify at issue: `git --no-optional-locks log -1 --oneline` reads `c819a02`; porcelain EMPTY.
 -->
 

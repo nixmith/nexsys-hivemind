@@ -605,3 +605,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-20 (v77 beat 6) — v77 b4, verbatim
 
 2026-09-19 (v77 beat 4 — MEASURE-2b AND FE-115 INTAKEN TWO-LAYER, BOTH ACCEPT: the read path measured at run-scale (q1 O(N), IR-40; the rest < 5 ms; restart 1.6 s; 503 B/row); F-1 the automation identity re-minted per boot (IR-39) → AUTO-ID-1 (AMD-93 §2.3) ahead of LINK-READ; the shipped artifact's real bodies pass the frozen validators (FE-113 VERIFIED on the wire); IR-36..43; the plan §20 (the box's order; B1's facts); D-v77-5..7; two core cards + the hivemind card; Sat 2026-09-19 ~20:5x CT (instrument 2026-09-20T01:50:14Z). Order: core A 10 = 8 M + 2 A and core B 22 = 18 M + 4 A by Nick's cards (separable bytes); hivemind 12 = 9 M + 3 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-20 (v77 beat 7) — v77 b5, verbatim
+
+2026-09-20 (v77 beat 5 — THE LANDINGS BANKED, AUTO-ID-1 CHARTERED, BENCH-CORE-1 CUT: core `c819a02` on `a6b56d6` (`CI: green` ×2 on Nick's line; the counter 10/20), hivemind `99d4187`; AUTO-ID-1 through the gate (the companion file, D-v77-5); BENCH-CORE-1 through the prior-ledger gate — the hub's .deb premise corrected: the bench card runs an `installDist` tree by `~/bench.sh`; the deliverable's CI half MET; Sun 2026-09-20 ~07:1x CT (instrument 2026-09-20T12:13:10Z). Order: hivemind 8 = 4 M + 4 A by explicit paths (computed from porcelain inside the splice).)

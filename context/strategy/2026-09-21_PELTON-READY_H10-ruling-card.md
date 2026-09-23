@@ -3,7 +3,7 @@ file: context/strategy/2026-09-21_PELTON-READY_H10-ruling-card.md
 purpose: PELTON-READY — the H10 ruling card armed BEFORE counsel's written opinion on the candidate name arrives (expected any day from Mon 2026-09-21): the three classes the opinion falls into, the test that assigns the class from the letter's own words, the acts each class unlocks and the day each runs, the results-consult questions, and the fallback (NAMING-B re-armed). Token-parameterized: the candidate is {{NAME}} here and in every tracked file (no name in any tracked file; arc 17). Supersedes the 2026-08-28 same-day card's branch map (A/B/C) for THIS opinion; that card's call agenda (§3) stands and is cited.
 audience: Nick (reads the class off the letter; says back one word) · the hub (rules on the class; re-cuts BRAND-G2-EXEC)
 state-type: ruling card (armed; consumed the day the opinion arrives)
-status: ARMED v78 beat 2 (Mon 2026-09-21; instrument 2026-09-21T17:00:25Z). The fence stands until the ruling: no public use of {{NAME}}, no name graded in chat, no outward sentence.
+status: CONSUMED v79 beat 1 (Wed 2026-09-23 ~00:5x CT; instrument 2026-09-23T05:55:41Z): the letter arrived Tue 09-22; RULED CLEAR — `context/strategy/2026-09-23_PELTON-RULING_{{NAME}}_CLEAR.md` (D-v79-1). The fence stands until the filing receipt (the ruling §3). Was: ARMED v78 beat 2 (Mon 2026-09-21; instrument 2026-09-21T17:00:25Z).
 -->
 
 # PELTON-READY — the ruling card (H10)

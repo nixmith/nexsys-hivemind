@@ -3,7 +3,7 @@ file: context/handoff/2026-09-23_v79_dispatch-text.md
 purpose: THE v79 DISPATCH TEXT — the paste that opens the next hub window (Wednesday 2026-09-23 morning), cut at the v78 close (beat 5). The stable prompt is unchanged; this text carries the state, the first message and the order. v79's ONE deliverable: THE THURSDAY PACKET DISPATCH-READY on Wednesday, for Thursday.
 audience: Nick (pastes the fenced block whole into a FRESH Cowork conversation with ClaudeFolder connected, Wednesday morning after the two digest lines are read) · the v79 hub
 state-type: dispatch text (verbatim at v79 beat 1)
-status: LIVE — cut v78 beat 5 (Wed 2026-09-23 ~00:2x CT; instrument 2026-09-23T05:20:53Z). Paste Wednesday morning; the first message carries the lines named below.
+status: EXECUTED — PASTED Wed 2026-09-23 ~00:3x CT; the paste = this file's block (lines 11–23) at 11 anchors (v79 b1, 2026-09-23T05:55:41Z). Was: LIVE — cut v78 beat 5 (Wed 2026-09-23 ~00:2x CT; instrument 2026-09-23T05:20:53Z).
 -->
 
 # v79 — the dispatch text (paste whole)

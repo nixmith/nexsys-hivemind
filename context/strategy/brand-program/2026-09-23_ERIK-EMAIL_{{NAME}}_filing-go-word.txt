@@ -28,3 +28,28 @@ Best,
 Nick
 
 ------------------------------------------------------------
+
+=== AS SENT — Nick, Wed 2026-09-23 (reported ~06:45 CT); verbatim from his message. The draft above stays as drafted. ===
+
+Hi Erik,
+
+Thank you for the search and the opinion. Third time's the charm, as they say. Yes, please go ahead and prepare the application for PALOKI.
+
+The application as we would like it:
+
+- Mark: PALOKI, in standard characters.
+- Applicant: NEXSYS LLC, a Louisiana limited liability company (charter no. 46564936K).
+- Basis: Section 1(b), intent to use.
+- Classes: 9 and 42, using identifications in Appendix A2 of the packet I sent on September 10 as a start. Please correct any bad wording; I would like to keep the two exclusions at the end of each unless you think it hurts me.
+
+Your search also covered Classes 11 and 45. My plans are concrete for filing 9 and 42, for now. If you see a reason to add either of the others, please let me know.
+
+Before filing, I have just a couple questions, for clarification:
+
+1. The strings in section 2 of the packet: OKI (OKI Electric and its record against letter-plus-OKI marks), LOKI (Grafana's registrations in Classes 9 and 42, which our exclusions are written around) and PALO. The search strings covered PALOKI and its variants but not these strings on their own. Are any of these problematic? I'm thinking back to ZENDOMO and how the -DOMO was conflicting.
+2. Two pending filings in the report that the summary does not discuss: PLOKI (an international application designating the U.S., filed by Thie Trading GmbH and still at WIPO formalities examination; Class 9 game software) and PALIKEA (Serial No. 50045263, filed August 11, 2026; Class 9 software for financial transactions). Does either one impact our Class 9 identification?
+
+Please send the application to review and sign when ready, with your fee, USPTO fees for the classes, and the date you could file. Would like to knock it out this week if your schedule permits.
+
+Best regards,
+Nick

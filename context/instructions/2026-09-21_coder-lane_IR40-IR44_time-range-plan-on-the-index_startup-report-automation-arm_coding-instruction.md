@@ -4,7 +4,7 @@ purpose: IR-40 + IR-44 on the Java slot (D-v78-1 — Nick's JAVA-QUEUE, ACCEPT):
 audience: the Coder lane (a host-side Claude Code session in homesynapse-core; the nexsys-coder skill) · the hub (the intake) · Nick (§14)
 state-type: coding instruction (the Java slot; one session; one return)
 baseline: core `d2cddb1` (LINK-READ) — re-verify at issue with `git log -1 --oneline`
-status: DISPATCH-READY v78 beat 4 (2026-09-21T19:01:04Z) — dispatched on Nick's paste of §14. Returns to `context/audits/<filing-date>_IR40-IR44_return.md`.
+status: RETURNED + ACCEPT v78 beat 5 (Wed 2026-09-23 ~00:2x CT; instrument 2026-09-23T05:20:53Z) — the return `context/audits/2026-09-21_IR40-IR44_return.md` (11,998 B); the core card cut (6 = 5 M + 1 A); EXECUTED when CI is green on the landing sha. Was: DISPATCH-READY v78 beat 4 (2026-09-21T19:01:04Z) — dispatched on Nick's paste of §14. Returns to `context/audits/<filing-date>_IR40-IR44_return.md`.
 -->
 
 # IR-40 + IR-44 — the time-range read on its index; the startup report's automation arm

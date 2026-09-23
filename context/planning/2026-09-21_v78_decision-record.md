@@ -3,7 +3,7 @@ file: context/planning/2026-09-21_v78_decision-record.md
 purpose: The v78 decision record — Nick's words of Mon 2026-09-21 (verbatim in §1), the facts he gave, and the decisions the hub put on his desk in the H10 form during v78 (Mon → Wed). Silence on a REC is the recommendation; `REVERT <D-n>` is his word.
 audience: Nick (§3) · the hub · the v79 hub
 state-type: decision record (LIVE through v78's close)
-status: LIVE — opened v78 beat 2; edited v78 beat 4 (Mon 2026-09-21 ~14:0x CT; instrument 2026-09-21T19:05:44Z). RULED: UPLOAD-2 (COMPLETE) · LAUNCH · K15 · RESEARCHER-SKILL · D-v78-5 split. D-v78-1 EXECUTED as chartered (b4). OPEN: D-v78-3 (B7 — REC ratify) · D-v78-4 (the class, on the letter). By silence: D-v78-2.
+status: CLOSED at v78 beat 5 (Wed 2026-09-23 ~00:2x CT; instrument 2026-09-23T05:20:53Z). D-v78-1 EXECUTED and DELIVERED (the core card); -2 `verify72h` by silence (carried to v79's VERIFY-72H beat); -3 `B7: ratify` REC on the desk (carried); -4 the class on the letter (the opinion arrived Tue 09-22 — ruled at v79 on `ERIK: RETURNED` + the word); -5 `split` RULED. Every open row carries into v79's DR by reference.
 -->
 
 # v78 — the decision record

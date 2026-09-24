@@ -4,11 +4,13 @@ purpose: 258-day execution roadmap for HomeSynapse V1 (March 13 – November 25,
 audience: All
 update-cadence: ad-hoc
 state-type: future
-status: CURRENT
+status: STALE BASELINE — bannered v79 b5 (2026-09-23); the plan of record outranks this file (see the banner under the title)
 last-verified: 2026-05-22 against commit 76288af
 -->
 
 # HomeSynapse V1 — Master Release Plan
+
+> **STALE BASELINE — bannered v79 b5 (Wed 2026-09-23).** Verified 05-22 and not maintained since: its P4–P7 calendar predates the plan of record. The plan of record is `context/planning/2026-09-15_v75_PROGRAM-PLAN_the-six-weeks-to-the-72-hour-run.md` (§25 = the state; the 72-hour run Oct 30 – Nov 2 on the six-device bench fleet). This file's P6 (Distribution & Website — the install flow end-to-end) and P7 (Launch Prep → Nov 25) are the rows THE HORIZON RE-CUT (v80, the v79 DR D-v79-11) re-dates; until then read them as intent, not schedule.
 
 **258-Day Execution Roadmap | March 13 – November 25, 2026**
 

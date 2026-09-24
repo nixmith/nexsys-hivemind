@@ -637,3 +637,15 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-23 (v79 beat 2) — v78 b5, verbatim
 
 2026-09-23 (v78 beat 5 — THE v78 CLOSE: IR-40 + IR-44 RETURNED (11,998 B) and ACCEPT (`INDEXED BY` at `:237`; the plan flips on the bound `LIMIT ?` value at 500 = `SCAN_BATCH`; the `automation` arm `:1648`; q1 flat in N); the core card 6 = 5 M + 1 A → 13/20 at CI; IR-48/49/50; `coder-handoff.md` ROTATED 119 KB → lane-sized (verbatim archive; bytes asserted); the two mints + the coder-lessons entry; the plan §23 STATE OF THE SYSTEM; the v79 text filed; THE THURSDAY PACKET NOT cut in v78 (no Tuesday beat) → v79's ONE deliverable, Wednesday; the opinion arrived Tue (the class word opens v79); v78 CLOSED at five; Wed 2026-09-23 ~00:2x CT (instrument 2026-09-23T05:20:53Z). Order: hivemind 15 = 11 M + 4 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-23 (v79 beat 3) — v79 b1, verbatim
+
+2026-09-23 (v79 beat 1 — THE BOOT, THE INTAKE, THE PELTON RULING: `CORE: IR40 d22a8a4` + `CI: d22a8a4 green` → the counter 13/20; `HIVE: LANDED 1c81051`; the preflight 12/12; `R5B-4:` 7/9 FAIL on the unloaded S31 (the fourth since 09-12) → OR-S31-INTERMITTENT; counsel's letter → CLEAR on its own sentence (D-v79-1), the filing scope 9 + 42 (D-v79-2 REC), three silences asked in the go-word email; the letter filed verbatim; the v79 DR opened; v77 b1–b4 rotated; Wed 2026-09-23 ~00:5x CT (instrument 2026-09-23T05:55:41Z). Order: hivemind 12 = 6 M + 6 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-23 (v79 beat 4) — v79 b2, verbatim
+
+2026-09-23 (v79 beat 2 — THE INTAKE, THE STEERS, THE S31 READ: `ERIK: SENT` (item 3 removed as sent; the hub reads the register on the draft day); `HIVE: LANDED e989681`; `R5B-5:` 8/9 CONFIRMED; the 59 S31 bundles read — 22 FAIL of 59 since 07-30, all timed out at on_off's 5 s window; OR-S31-INTERMITTENT corrected; IR-51/52/53; the four steers ruled (D-v79-3..6); the ruling's acts 2–4 amended; the plan dated; Wed 2026-09-23 ~07:0x CT (instrument 2026-09-23T12:04:18Z). Order: hivemind 10 = 8 M + 2 A by explicit paths (computed from porcelain inside the splice).)
+
+## chain segment rotated 2026-09-23 (v79 beat 5) — v79 b3, verbatim
+
+2026-09-23 (v79 beat 3 — THE THURSDAY PACKET CUT (the window's ONE deliverable): `HIVE: LANDED ae3f2a1`; `CARRIER: READ-END · settle 60`; the packet DISPATCH-READY — Half 1 T-A → T3 whole (four scripts, self-tested on a mock rig), Half 2 at the re-mint beat; the order corrected at the bytes (the adoption edits `integrations/zigbee.yaml`; no variant or live-basis regeneration; tmux absent → T-A; the Gen4 firmware + Zigbee at T-A); the b2 settle claim withdrawn (the park runs LAST; IR-51 re-cut); the plan §24; Wed 2026-09-23 ~07:2x CT (instrument 2026-09-23T12:21:57Z). Order: hivemind 14 = 7 M + 7 A by explicit paths (computed from porcelain inside the splice).)

@@ -4,11 +4,13 @@ purpose: Research agenda for Claude Project — structured briefs for M3.7 throu
 audience: PM, Nick
 update-cadence: ad-hoc
 state-type: planning
-status: CURRENT
+status: STALE BASELINE — bannered v79 b5 (2026-09-23); the plan of record outranks this file (see the banner under the title)
 last-verified: 2026-05-22
 -->
 
 # HomeSynapse Core — Research Agenda
+
+> **STALE BASELINE — bannered v79 b5 (Wed 2026-09-23).** Written 05-22, last touched 06-15, not maintained since. The research layer of record is the plan of record §22 (v78 b3) and the research lanes' ledger in `context/handoff/OPERATOR-BRIEF_for-Nick.md` §HELD; read this queue as history.
 
 *Produced 2026-05-22 by PM (Cowork). Companion to Research 2 (Smart Home Entity Modeling). Defines what the Claude Project should investigate, in what order, in what format, and how findings feed into architectural decisions.*
 

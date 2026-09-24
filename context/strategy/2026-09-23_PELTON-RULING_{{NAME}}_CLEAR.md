@@ -3,7 +3,7 @@ file: context/strategy/2026-09-23_PELTON-RULING_{{NAME}}_CLEAR.md
 purpose: The hub's ruling on counsel's written opinion (PELTON-READY §0–§2): the class assigned by the letter's own sentence, the test walked clause by clause, the hub's layer-2 read of the enclosure (the rows, not the summary), the acts of the CLEAR branch with their days, the filing scope, and what would refute the ruling. The letter is filed verbatim at `context/research/2026-09-23_PELTON-OPINION_{{NAME}}_letter-verbatim.md`.
 audience: Nick (§0, then the one act in §3) · the hub (the draft read; BRAND-G2-EXEC's re-cut) · the brand record
 state-type: ruling (H10; D-v79-1 and D-v79-2 of the v79 decision record)
-status: RULED v79 beat 1 (Wed 2026-09-23; instrument 2026-09-23T05:31:58Z) on Nick's ask of ~00:3x CT ("very carefully analyze these results, then make a decision, so that I can act/execute on it"). REVERT is his. AMENDED v79 beat 2 (Wed 2026-09-23 ~07:0x CT; instrument 2026-09-23T12:04:18Z): acts 2–4 per Nick's STEER 1 and STEER 4 and the email as sent (its item 3 removed).
+status: RULED v79 beat 1 (Wed 2026-09-23; instrument 2026-09-23T05:31:58Z) on Nick's ask of ~00:3x CT ("very carefully analyze these results, then make a decision, so that I can act/execute on it"). REVERT is his. AMENDED v79 beat 2 (Wed 2026-09-23 ~07:0x CT; instrument 2026-09-23T12:04:18Z): acts 2–4 per Nick's STEER 1 and STEER 4 and the email as sent (its item 3 removed). AMENDED v79 beat 4 (Wed 2026-09-23 ~11:0x CT; instrument 2026-09-23T16:05:37Z): §7 counsel's answers (the refutable-by not triggered); §8 the draft read, pre-registered.
 -->
 
 # The PELTON ruling — CLEAR
@@ -54,3 +54,22 @@ Why two classes and not the four searched: (a) Nick's own sent words of 09-09: "
 
 ## §6 What this ruling does not do
 It grades no name; the letter does, and the ruling quotes it. It lifts no fence. It is not legal advice: the silences are questions for counsel, and the hub's reads in §2 are screens, not clearance.
+
+## §7 Counsel's written answers (Wed 2026-09-23; verbatim in the email thread file)
+- **OKI and PALO:** "unlikely to present any significant risk"; "any potential claim by either would be unlikely to go anywhere."
+- **PLOKI:** "game software; different enough product (plus differences in name)." **PALIKEA:** "same, different enough subject matter and name."
+- **LOKI:** not addressed ("We can't search every possible variant."). The program's mitigation is the identification's exclusion; the draft read checks it survives (§8 item 5).
+- **The refutable-by (§5): NOT triggered** — no risk named in a class, no change recommended. **D-v79-1 stands: CLEAR.**
+- **The fee agreement (the Legal Services Agreement):** read by the hub before signing (the v79 b4 audit §4) — $2,800 flat per application, Office actions included, appeals excluded, the Office's fees separate; two corrections asked before signing (the prepayment line; the Client line). After signing, the next event is counsel's draft.
+
+## §8 The draft read, pre-registered (the hub reads counsel's draft against this list the day it arrives; Nick signs after)
+1. **Applicant:** NEXSYS LLC — the exact name on the Articles — a Louisiana limited liability company; its address (the agreement's Client line ran "Nicholas Smith NEXSYS LLC" together; the application names the company).
+2. **Mark:** the name in standard characters; no design, no color claim.
+3. **Basis:** §1(b), intent to use, in both classes.
+4. **Classes:** 9 and 42, no others (D-v79-2).
+5. **Identifications:** the substance of the packet's A2 in counsel's wording, with both exclusions — (i) log aggregation and machine-generated-data analytics (the LOKI mitigation; counsel's reply did not reach LOKI, so this is the check that answers it) and (ii) fire, smoke and alarm goods. If (i) is gone: one line back to counsel before signing.
+6. **Fees:** $2,800 flat (the agreement) + the Office's $350 per class × 2 = $700, prepaid; if the identifications stay custom text (our exclusions make them so) the Office adds $200 per class, +$400 — ask counsel whether the exclusions are worth it or ID-Manual entries serve as well; the agreement lets counsel debit approved Office fees automatically.
+7. **The declaration:** signed by Nicholas D. Smith for NEXSYS LLC with the title the Operating Agreement gives him (member-managed, sole member); the bona fide intent statement.
+8. **Correspondence:** counsel as attorney of record; the owner's email.
+9. **Any meaning, translation or disclaimer statement:** the whole word has no meaning in English or in another language (RS-13: the Finnish `palo` is a fragment, not the word).
+10. **The same day, the register knockout** (the email as sent removed its item 3): the exact name and the report's variant patterns, filings after 09-16 — through the built-in browser, a read with no contact.

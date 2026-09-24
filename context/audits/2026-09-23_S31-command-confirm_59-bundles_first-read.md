@@ -89,3 +89,6 @@ status: FILED v79 beat 2 (Wed 2026-09-23 ~07:0x CT; instrument 2026-09-23T12:04:
 | 20260921T083116Z | PASS | CONFIRMED | 0.155 | — | ABSENT |
 | 20260922T083122Z | FAIL | CONFIRMATION_TIMED_OUT | 5.101 | on=false · AVAILABLE · 179 | ABSENT |
 | 20260923T083118Z | PASS | CONFIRMED | 0.084 | — | ABSENT |
+
+## §4 CORRECTION (v79 beat 3) — the settle leg is the park, and it runs after
+The suite runs `command-s31-settle` LAST, as the park (`scenarios/constants.yaml:345–:346`), after `command-confirm-s31`; the confirm leg's comment ("suite-ordered immediately before") is stale since the 08-04 suite-position ruling. The 60 settle bundles (copied home v79 b2) read 53 CONFIRMED · 7 CONFIRMATION_TIMED_OUT (07-30, 07-31 ×2, 08-04, 08-14, 08-15, 08-20). On the three relay-already-ON nights the park's turn_off CONFIRMED (08-27 0.365 s · 09-05 0.927 s · 09-18 0.359 s), and the parks of the nights before had CONFIRMED (08-26 · 09-04 · 09-17): the relay went ON between nights, outside the suite. §0's "the settle leg's claim refuted, not the confirm leg's" is withdrawn; the three nights show the confirm leg sending its turn_on without establishing OFF first (IR-51, re-cut). Beside it, a datum: on 09-22 the park's turn_off CONFIRMED in 0.133 s, six seconds after the lost turn_on, with A-9 reading OFF in between.

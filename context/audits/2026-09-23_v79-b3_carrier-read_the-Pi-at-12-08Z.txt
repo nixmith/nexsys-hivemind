@@ -1,0 +1,120 @@
+== host hs-dev-1 · 2026-09-23T12:08:46Z
+== carrier 1208 B · md5 a239bd60b40a
+     1	integrations:
+     2	  zigbee: !include integrations/zigbee.yaml
+     3	
+     4	automation:
+     5	  automations:
+     6	    - name: bench-hero
+     7	      triggers:
+     8	        - type: state_change
+     9	          entity_ref: 01KX1PB9AAB4VB3E10BD477TV3
+    10	          attribute: occupied
+    11	          to: "true"
+    12	      actions:
+    13	        - type: command
+    14	          target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+    15	          command: turn_on
+    16	        - type: delay
+    17	          duration: PT6S
+    18	        - type: command
+    19	          target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+    20	          command: set_brightness
+    21	          parameters: { level: 50 }
+    22	        - type: delay
+    23	          duration: PT6S
+    24	        - type: command
+    25	          target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+    26	          command: set_color_temperature
+    27	          parameters: { kelvin: 4550 }
+    28	        - type: delay
+    29	          duration: PT2S
+    30	        - type: command
+    31	          target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+    32	          command: set_color_temperature
+    33	          parameters: { kelvin: 4525 }
+    34	        - type: delay
+    35	          duration: PT20S
+    36	        - type: command
+    37	          target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+    38	          command: identify
+    39	          parameters: { duration_s: 5 }
+== diff carrier -> hero-less variant:
+5,39c5
+<   automations:
+<     - name: bench-hero
+<       triggers:
+<         - type: state_change
+<           entity_ref: 01KX1PB9AAB4VB3E10BD477TV3
+<           attribute: occupied
+<           to: "true"
+<       actions:
+<         - type: command
+<           target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+<           command: turn_on
+<         - type: delay
+<           duration: PT6S
+<         - type: command
+<           target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+<           command: set_brightness
+<           parameters: { level: 50 }
+<         - type: delay
+<           duration: PT6S
+<         - type: command
+<           target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+<           command: set_color_temperature
+<           parameters: { kelvin: 4550 }
+<         - type: delay
+<           duration: PT2S
+<         - type: command
+<           target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+<           command: set_color_temperature
+<           parameters: { kelvin: 4525 }
+<         - type: delay
+<           duration: PT20S
+<         - type: command
+<           target: { entity_ref: 01KX1PA4HSJ581GASYB7DHE40F }
+<           command: identify
+<           parameters: { duration_s: 5 }
+---
+>   automations: []
+diff-exit=1
+== live-basis vs carrier: IDENTICAL
+/home/homesynapse/hs-bench/config/:
+total 56
+drwxrwxr-x 4 homesynapse homesynapse  4096 Sep 23 04:31 .
+drwxrwxr-x 8 homesynapse homesynapse 20480 Sep 23 04:31 ..
+-rw------- 1 homesynapse homesynapse   300 Aug 23 13:12 api_tokens
+-rw-rw-r-- 1 homesynapse homesynapse   132 Jul  6 08:41 api_tokens.rotated-2026-08-20
+-rw-rw-r-- 1 homesynapse homesynapse   253 Sep 23 04:31 automations.ids.yaml
+-rw-rw-r-- 1 homesynapse homesynapse    26 Jul  6 08:41 home_id
+-rw-rw-r-- 1 homesynapse homesynapse  1208 Jul  9 22:26 homesynapse.yaml
+-rw------- 1 homesynapse homesynapse    44 Aug 23 13:12 initial_api_token
+drwxrwxr-x 2 homesynapse homesynapse  4096 Jul 21 07:33 integrations
+drwxrwxr-x 2 homesynapse homesynapse  4096 Jul  6 08:41 schemas
+
+/home/homesynapse/hs-bench/quiesce-hold:
+total 36
+drwxrwxr-x 2 homesynapse homesynapse  4096 Sep 23 04:31 .
+drwxrwxr-x 8 homesynapse homesynapse 20480 Sep 23 04:31 ..
+-rw-rw-r-- 1 homesynapse homesynapse    89 Jul 31 21:02 homesynapse.heroless.yaml
+-rw-rw-r-- 1 homesynapse homesynapse  1208 Jul 31 20:55 homesynapse.live-basis.yaml
+-rw-rw-r-- 1 homesynapse homesynapse  1208 Jul 31 20:55 live-basis-source-check.yaml
+== ~/bench.sh -> /home/homesynapse/nexsys-bench/tools/bench.sh
+== bench clone: fa01cad bench: BENCH-METER-1b — the record's two subtractions with the side in · porcelain 0
+== core tree: 13d439f feat(automation,lifecycle): AUTO-ID-1 — the automation identity made d
+== current log: /home/homesynapse/hs-bench/bench-2026-09-23-043126.log (63 lines)
+04:31:31.722 [hs-sub-registry_projection] INFO  c.h.l.RegistryProjectionSubscriber -- registry.projection_live: devices=6 entities=6 position=25065
+04:31:32.179 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.adoption_maps_rehydrated: devices=6
+04:31:39.774 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.port_identity_captured: stableId=/dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Plus_MG24_0ae2dd7cecf8ef11b80168135c2a50c9-if00-port0 vendorId=10c4 productId=e
+04:31:39.889 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.network_resumed: channel=20 panId=0x774c
+== tools: tmux=ABSENT · python3=/usr/bin/python3 · pyyaml=6.0.2
+== entities now (entityId deviceId availability lastReported):
+rows 6 devices 6
+01KX1PA4HSJ581GASYB7DHE40F 01KX1PA4GRZHY2GD37B5CFVQHY UNAVAILABLE 2026-07-19T00:49:15.787079Z
+01KX1PB9AAB4VB3E10BD477TV3 01KX1PB9A5931A8G0F0X03QXT2 UNAVAILABLE 2026-08-30T11:35:34.891729Z
+01KXW0157SP56CCSGJCNDCSQNG 01KXW0156Z1GJ3WCV2G516AKWS AVAILABLE 2026-09-23T11:55:03.746150Z
+01KXW13WF0D6TYGN13WXHTG87K 01KXW13WEGRCT5C0XSQT8WZBG9 AVAILABLE 2026-09-23T06:54:14.777402Z
+01KXW1W1SBJZERC9MBAMV2DWKE 01KXW1W1RR66GV98D9QDPB4VXY AVAILABLE 2026-09-23T12:08:17.890986Z
+01KY12MQW954E4XYNKH0Y5H8VX 01KY12MQVQ204M1VP39F1ZDM33 AVAILABLE 2026-09-23T09:09:21.075568Z
+READ-END

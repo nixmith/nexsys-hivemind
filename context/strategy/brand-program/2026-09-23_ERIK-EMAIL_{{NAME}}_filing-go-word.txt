@@ -53,3 +53,16 @@ Please send the application to review and sign when ready, with your fee, USPTO 
 
 Best regards,
 Nick
+
+=== COUNSEL'S REPLY — Erik M. Pelton, received Wed 2026-09-23; verbatim from Nick's paste (Erik answers inline under Nick's two questions) ===
+
+   The strings in section 2 of the packet: OKI (OKI Electric and its record against letter-plus-OKI marks), LOKI (Grafana's registrations in Classes 9 and 42, which our exclusions are written around) and PALO. The search strings covered PALOKI and its variants but not these strings on their own. Are any of these problematic? I'm thinking back to ZENDOMO and how the -DOMO was conflicting.
+
+    We can’t search every possible variant. Regarding OKI and PALO, I believe they are both for different products and with different names, and unlikely to present any significant risk. There are many other names containing “oki” and “palo” so we believe any potential claim by either would be unlikely to go anywhere.
+
+2. Two pending filings in the report that the summary does not discuss: PLOKI (an international application designating the U.S., filed by Thie Trading GmbH and still at WIPO formalities examination; Class 9 game software) and PALIKEA (Serial No. 50045263, filed August 11, 2026; Class 9 software for financial transactions). Does either one impact our Class 9 identification?
+PLOKI – game software; different enough product (plus differences in name). PALIKEA – same, different enough subject matter and name.
+
+I’m sending over the application fee agreement.
+
+=== Nick (same day): "He did send over the fee agreement, and I was able to sign and submit it." ===

@@ -176,11 +176,13 @@ Nick's word on the b4 shopping card (the DR §1, b5): nothing ordered; the setup
 **The window to Monday — v80, Thu 09-24 → Mon 09-28; THE ONE DELIVERABLE: rehearsal 1's packet DISPATCH-READY on the metered fleet (D-v79-13).**
 | Day | The path (software) | The company | Research |
 |---|---|---|---|
-| **Wed (tonight)** | the close card; `SHAKE` (the P4460 on B1 + B2) | FIN-1's page; `PREPAY:` | 7a pasted |
+| **Wed (tonight)** | the close card; `SHAKE` (B1 + B2 only — the P4460 stays boxed until Thursday's CHAR as reference A; corrected v80 b1, D-v80-2) | FIN-1's page; `PREPAY:` | 7a pasted |
 | **Thu 09-24** | THE THURSDAY ORDER: Half 1 T-A → T3 (Nick at the rig) → v80's re-mint beat → Half 2 T4 → T8 | — (the rig day: no outward text) | — |
 | **Fri 09-25** | the digest → BENCH-CORE-3 (`d22a8a4` + LINK-READ onto the card); VERIFY-72H's charter + the bench CODE lane (≤ one lane-day) | the strategy pass cut and gated | `7A:` intaken |
-| **Sat 09-26** | **rehearsal 1's packet through the gates**; the Java slot's next (LINK-READ-2 = IR-45, or MC-ROTATE-1) | **THE HORIZON RE-CUT** (desk-only) | the K-refresh (R-1..R-8) |
-| **Sun 09-27** | the S31 on two LINK-READ nights (IR-51 · IR-52) → `HARNESS-PLUG:` → the packet final | the B-1 charter re-cut; the business-attorney search draft | — |
+| **Sat 09-26** | **rehearsal 1's packet through the gates**; the Java slot's next (LINK-READ-2 = IR-45, or MC-ROTATE-1) | **THE HORIZON RE-CUT** (desk-only) | — |
+| **Sun 09-27** | the S31 on two LINK-READ nights (IR-51 · IR-52) → `HARNESS-PLUG:` → the packet final | the B-1 charter re-cut; the business-attorney search draft | the K-refresh (R-1..R-8) (moved from Sat: D-v80-5) |
 | **Mon 09-28** | rehearsal 1's week opens (the sitting on Nick's day, ≤ 2 h) | `OUTREACH:` (Nick's calls, on the gated script) | C-S0-1 opens |
+
+**Corrections v80 b1 (Wed 2026-09-23 ~23:2x CT; D-v80-2, D-v80-5; the b1 audit §6):** the Wed row's SHAKE cell on Nick's word; the K-refresh moved from Saturday to Sunday (the v80 dispatch (4); Saturday's desk holds the packet, the Java unit and THE HORIZON RE-CUT). §16's dates for (3) VERIFY-72H's charter (Thu 09-24 → Fri 09-25, D-v79-13) and (7) the strategy pass and the outreach (Thu/Fri → Fri/Mon, D-v79-7) are superseded by pointer; §16's invariants are untouched. The window's premises pre-registered: Sunday's two LINK-READ nights need BENCH-CORE-3 on the card Friday before Saturday's 03:30 CT nightly (D-v80-7); T0 stops on any nightly line but its two forms (the packet :40). THE HORIZON RE-CUT's eight questions and the three postures: the v80 DR D-v80-8.
 
 Counsel's draft, any day: the read the same day, before any other company act. Nick's hours: ≈ ½ h Wed · ≈ 2–3 h Thu · minutes Fri–Sun (cards, words) · Mon the calls; the sitting on the day he names. Refused as §7, plus a pilot before the run and any written or public use of the name before its protocol row.

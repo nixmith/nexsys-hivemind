@@ -1,0 +1,1 @@
+CARD1: tmux killed · pi f1c2f9a · G4-1 AVAILABLE on=False W=0.0 · TR3 AVAILABLE on=False W=0.0 · G4-2 AVAILABLE on=False W=0.0

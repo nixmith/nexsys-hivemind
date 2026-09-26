@@ -1,0 +1,105 @@
+homesynapse@hs-dev-1:~ $ ~/nexsys-bench/tools/bench.sh scenario metering-known-load
+runner BENCH-METER-1b-2026-09-19-subtract-record @ f1c2f9a
+  [--] provenance: 1 declared ULID(s) present in the card's own /api/v1/entities (minted-by hs-dev-1)
+  [--] 22 operator entries deferred to ENTER — typed in let: order, each when a line first needs it: tare_watts_g4_1, plug_offset_w_g4_1, a_volts_g4_1_1, a_volts_g4_1_2, a_watts_g4_1_r1, a_w
+atts_g4_1_r2, a_watts_g4_1_r3, tare_watts_tr3, plug_offset_w_tr3, a_volts_tr3_1, a_volts_tr3_2, a_watts_tr3_r1, a_watts_tr3_r2, a_watts_tr3_r3, tare_watts_g4_2, plug_offset_w_g4_2, a_volts_g
+4_2_1, a_volts_g4_2_2, a_watts_g4_2_r1, a_watts_g4_2_r2, a_watts_g4_2_r3, char_after_readings
+  ------------------------------------------------------------------
+  OPERATOR ACT (metering-known-load)
+  GOAL: CHAR-BEFORE — characterise B1 and B2 against A (THE MEASUREMENT RECORD rows CHAR-1..3)
+  DONE-WHEN: api:/api/v1/entities/01M3DPGF6Y4YXNXDHBW38ZEX2G/state then api:/api/v1/entities/01M3DPGF6Y4YXNXDHBW38ZEX2G/state then api:/api/v1/entities/01M3DPGF6Y4YXNXDHBW38ZEX2G/state then
+api:/api/v1/entities/01M3DM74SGEY7RXVDYSM4PK2XA/state then api:/api/v1/entities/01M3DM74SGEY7RXVDYSM4PK2XA/state then api:/api/v1/entities/01M3DM74SGEY7RXVDYSM4PK2XA/state then api:/api/v1/e
+ntities/01M3DPKN9WD9B88Q4SVDMSBJVS/state then api:/api/v1/entities/01M3DPKN9WD9B88Q4SVDMSBJVS/state then api:/api/v1/entities/01M3DPKN9WD9B88Q4SVDMSBJVS/state
+  THE ONE ACT: Pass 1: chain wall → A → cord → B1 → LAMP (A and B1 in series; no plug). Tares: LAMP out of B1 for 30 s, then write A and B1 on the CHAR sheet. LAMP in; two minutes; then thre
+e simultaneous readings of A and B1, written as pairs. Pass 2: the same chain with B2 in B1's place — the tares, two minutes, three A/B2 pairs. Re-chain wall → A → cord → LAMP (no meter, no
+plug) and press ENTER.
+  NOTE: CHAR-1 = B1's OFFSET from A and its SPREAD; CHAR-2 = B2's; CHAR-3 = whether B1's and B2's offsets are the SAME number (the shared-OEM tell). B's dispute threshold = |offset| + k × sp
+read, k = 2. The load is 40 W (one 40 W lamp). Offsets are recorded and NEVER corrected for.
+  (press ENTER when ready — the evidence window opens at ENTER)
+  ------------------------------------------------------------------
+
+  ------------------------------------------------------------------
+  OPERATOR ENTRY (metering-known-load) — let tare_watts_g4_1, a number (min 0)
+  GOAL: T1 for G4-1 — the TARE: G4-1's own draw as A sees it, by difference (the record's A_W − TARE; reference_subtract)
+  DONE-WHEN: a number is typed and ENTER pressed (echoed back; bound as ${let.tare_watts_g4_1}; recorded in the bundle)
+  THE ONE ACT: Chain wall → A → cord → LAMP (no plug). After 30 s read A's watts → W1, on the sheet. Move G4-1 from its wall socket into the cord's end and the LAMP into G4-1: wall → A → cor
+d → G4-1 → LAMP. Read G4-1's relay at the api in the meter-reader window; if OFF, press its button and read again until `on: true`. Wait 30 s, read A → W2. Type W2 − W1 (G4-1's own draw as A
+ sees it; if negative, type 0 and note the pair on the sheet).
+  NOTE: Rep sheet: W1, W2 and TARE for G4-1. B1 and B2 stay OUT of the chain from here; nothing above A switches.
+  ------------------------------------------------------------------
+  tare_watts_g4_1 = 1.4
+  [--] let tare_watts_g4_1 = 1.4 (typed '1.4' at 2026-09-26T19:24:14.947+00:00) — echoed back; recorded in the bundle
+  ------------------------------------------------------------------
+  OPERATOR ENTRY (metering-known-load) — let plug_offset_w_g4_1, a number (min 0)
+  GOAL: OFFSET for G4-1 — the plug's own meter with no load (DEVICE-SET's OFFSET; the record's power_w − OFFSET; field_subtract)
+  DONE-WHEN: a number is typed and ENTER pressed (echoed back; bound as ${let.plug_offset_w_g4_1}; recorded in the bundle)
+  THE ONE ACT: LAMP out of G4-1, relay ON (as read at the api). Wait until `power_w` for G4-1 settles in the meter-reader window (the TR3 up to a minute); type it (DEVICE-SET's OFFSET — expe
+ct 0.0). Then LAMP back into G4-1.
+  NOTE: Rep sheet: OFFSET for G4-1. B's CHAR offsets are a third thing — never subtracted.
+  ------------------------------------------------------------------
+  plug_offset_w_g4_1 = 0.0
+  [--] let plug_offset_w_g4_1 = 0.0 (typed '0.0' at 2026-09-26T19:34:09.366+00:00) — echoed back; recorded in the bundle
+  ------------------------------------------------------------------
+  OPERATOR ENTRY (metering-known-load) — let a_volts_g4_1_1, a number
+  GOAL: A's volts for G4-1, first reading — the band's ΔV term (recorded, never the verdict's)
+  DONE-WHEN: a number is typed and ENTER pressed (echoed back; bound as ${let.a_volts_g4_1_1}; recorded in the bundle)
+  THE ONE ACT: A's volts now
+  NOTE: Recorded in the bundle; 1.6 × ΔV/A_V is computed on the sheet.
+  ------------------------------------------------------------------
+  a_volts_g4_1_1 = 122.7
+  [--] let a_volts_g4_1_1 = 122.7 (typed '122.7' at 2026-09-26T19:46:18.130+00:00) — echoed back; recorded in the bundle
+  ------------------------------------------------------------------
+  OPERATOR ENTRY (metering-known-load) — let a_volts_g4_1_2, a number
+  GOAL: A's volts for G4-1, second reading — the band's ΔV term (recorded, never the verdict's)
+  DONE-WHEN: a number is typed and ENTER pressed (echoed back; bound as ${let.a_volts_g4_1_2}; recorded in the bundle)
+  THE ONE ACT: A's volts again, 10 s later
+  NOTE: Recorded in the bundle; ΔV = |the two readings' difference|.
+  ------------------------------------------------------------------
+  a_volts_g4_1_2 = 122.7
+  [--] let a_volts_g4_1_2 = 122.7 (typed '122.7' at 2026-09-26T19:46:40.495+00:00) — echoed back; recorded in the bundle
+  ------------------------------------------------------------------
+  OPERATOR ENTRY (metering-known-load) — let a_watts_g4_1_r1, a number
+  GOAL: REP 1/3 on G4-1 — the datum: A and the platform's power_w on a FRESH report (REP-1's row; the Gen4 states no accuracy — band 3.65 %)
+  DONE-WHEN: a number is typed and ENTER pressed (echoed back; bound as ${let.a_watts_g4_1_r1}; recorded in the bundle)
+  THE ONE ACT: THE LOAD STEP: LAMP out of G4-1 for at least 15 s, then back in. WAIT until `power_w` for G4-1 in the meter-reader window shows the lit value again (the TR3 up to a minute), t
+hen 5 s more. Read A's watts, type, ENTER — the platform's read follows within 10 s.
+  NOTE: REP 1/3 on G4-1 — the datum. WITHIN/OUTSIDE/VOID prints at once; an OUTSIDE or VOID rep is recorded and the run continues — attribute with B after CHAR-AFTER. Rep sheet: A_W and the
+meter-reader window's power_w.
+  ------------------------------------------------------------------
+  a_watts_g4_1_r1 = 42.5
+  [--] let a_watts_g4_1_r1 = 42.5 (typed '42.5' at 2026-09-26T19:53:50.118+00:00) — echoed back; recorded in the bundle
+  REP a_watts_g4_1_r1 — power_w=42.0 − 0.0 = 42.0 vs A=42.5 − 1.4 = 41.1 → r=1.021898 |r−1|=2.190 % vs 3.65 % → WITHIN
+  ------------------------------------------------------------------
+  OPERATOR ENTRY (metering-known-load) — let a_watts_g4_1_r2, a number
+  GOAL: REP 2/3 on G4-1 — the datum: A and the platform's power_w on a FRESH report (REP-1's row; the Gen4 states no accuracy — band 3.65 %)
+  DONE-WHEN: a number is typed and ENTER pressed (echoed back; bound as ${let.a_watts_g4_1_r2}; recorded in the bundle)
+  THE ONE ACT: THE LOAD STEP: LAMP out of G4-1 for at least 15 s, then back in. WAIT until `power_w` for G4-1 in the meter-reader window shows the lit value again (the TR3 up to a minute), t
+hen 5 s more. Read A's watts, type, ENTER — the platform's read follows within 10 s.
+  NOTE: REP 2/3 on G4-1 — the datum. WITHIN/OUTSIDE/VOID prints at once; an OUTSIDE or VOID rep is recorded and the run continues — attribute with B after CHAR-AFTER. Rep sheet: A_W and the
+meter-reader window's power_w.
+  ------------------------------------------------------------------
+  a_watts_g4_1_r2 = 42.4
+  [--] let a_watts_g4_1_r2 = 42.4 (typed '42.4' at 2026-09-26T20:02:00.378+00:00) — echoed back; recorded in the bundle
+  REP a_watts_g4_1_r2 — power_w=43.0 − 0.0 = 43.0 vs A=42.4 − 1.4 = 41.0 → r=1.048780 |r−1|=4.878 % vs 3.65 % → OUTSIDE
+  ------------------------------------------------------------------
+  OPERATOR ENTRY (metering-known-load) — let a_watts_g4_1_r3, a number
+  GOAL: REP 3/3 on G4-1 — the datum: A and the platform's power_w on a FRESH report (REP-1's row; the Gen4 states no accuracy — band 3.65 %)
+  DONE-WHEN: a number is typed and ENTER pressed (echoed back; bound as ${let.a_watts_g4_1_r3}; recorded in the bundle)
+  THE ONE ACT: THE LOAD STEP: LAMP out of G4-1 for at least 15 s, then back in. WAIT until `power_w` for G4-1 in the meter-reader window shows the lit value again (the TR3 up to a minute), t
+hen 5 s more. Read A's watts, type, ENTER — the platform's read follows within 10 s.
+  NOTE: REP 3/3 on G4-1 — the datum. WITHIN/OUTSIDE/VOID prints at once; an OUTSIDE or VOID rep is recorded and the run continues — attribute with B after CHAR-AFTER. Rep sheet: A_W and the
+meter-reader window's power_w.
+  ------------------------------------------------------------------
+  a_watts_g4_1_r3 = 42.4
+  [--] let a_watts_g4_1_r3 = 42.4 (typed '42.4' at 2026-09-26T20:07:15.661+00:00) — echoed back; recorded in the bundle
+  REP a_watts_g4_1_r3 — power_w=42.0 − 0.0 = 42.0 vs A=42.4 − 1.4 = 41.0 → r=1.024390 |r−1|=2.439 % vs 3.65 % → WITHIN
+  ------------------------------------------------------------------
+  OPERATOR ENTRY (metering-known-load) — let tare_watts_tr3, a number (min 0)
+  GOAL: T1 for TR3 — the TARE: TR3's own draw as A sees it, by difference (the record's A_W − TARE; reference_subtract)
+  DONE-WHEN: a number is typed and ENTER pressed (echoed back; bound as ${let.tare_watts_tr3}; recorded in the bundle)
+  THE ONE ACT: Chain wall → A → cord → LAMP (no plug). After 30 s read A's watts → W1, on the sheet. Move TR3 from its wall socket into the cord's end and the LAMP into TR3: wall → A → cord
+→ TR3 → LAMP. Read TR3's relay at the api in the meter-reader window; if OFF, press its button and read again until `on: true`. Wait 30 s, read A → W2. Type W2 − W1 (TR3's own draw as A sees
+ it; if negative, type 0 and note the pair on the sheet).
+  NOTE: Rep sheet: W1, W2 and TARE for TR3. B1 and B2 stay OUT of the chain from here; nothing above A switches.
+  ------------------------------------------------------------------
+  tare_watts_tr3 =

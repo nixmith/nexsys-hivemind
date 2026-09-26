@@ -1,0 +1,403 @@
+[
+  {
+    "when": "2026-09-26T19:24:14.947+00:00",
+    "what": "operator entry let tare_watts_g4_1 (typed at ENTER)",
+    "name": "tare_watts_g4_1",
+    "value": 1.4,
+    "typed": "1.4",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T19:34:09.366+00:00",
+    "what": "operator entry let plug_offset_w_g4_1 (typed at ENTER)",
+    "name": "plug_offset_w_g4_1",
+    "value": 0.0,
+    "typed": "0.0",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T19:46:18.130+00:00",
+    "what": "operator entry let a_volts_g4_1_1 (typed at ENTER)",
+    "name": "a_volts_g4_1_1",
+    "value": 122.7,
+    "typed": "122.7",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T19:46:40.495+00:00",
+    "what": "operator entry let a_volts_g4_1_2 (typed at ENTER)",
+    "name": "a_volts_g4_1_2",
+    "value": 122.7,
+    "typed": "122.7",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T19:53:50.118+00:00",
+    "what": "operator entry let a_watts_g4_1_r1 (typed at ENTER)",
+    "name": "a_watts_g4_1_r1",
+    "value": 42.5,
+    "typed": "42.5",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T19:53:50+00:00",
+    "what": "assert GET /api/v1/entities/01M3DPGF6Y4YXNXDHBW38ZEX2G/state",
+    "status": 200,
+    "body": "{\"data\":{\"entityId\":{\"value\":{\"msb\":117334831055906747,\"lsb\":6824690529921889360}},\"attributes\":{\"power_w\":{\"value\":42.0},\"current_a\":{\"value\":0.34},\"on\":{\"value\":true},\"voltage_v\":{\"value\":124.01},\"energy_wh\":{\"value\":25.005}},\"availability\":\"AVAILABLE\",\"stateVersion\":35558,\"lastChanged\":1790452428.434962000,\"lastUpdated\":1790452428.435897000,\"lastReported\":1790452428.435897000,\"staleAfter\":null,\"stale\":false},\"meta\":{\"viewPosition\":272926,\"timestamp\":\"2026-09-26T19:53:50.122320388Z\"}}",
+    "field_within": {
+      "value": 42.0,
+      "reference": 42.5,
+      "tolerance_pct": 3.65,
+      "reference_subtract": 1.4,
+      "field_subtract": 0.0,
+      "reference_effective": "41.1",
+      "value_effective": "42.0",
+      "ratio": "1.021898",
+      "deviation_pct": "2.190",
+      "field": "data.attributes.power_w.value",
+      "reference_from": "${let.a_watts_g4_1_r1}",
+      "on_outside": "record",
+      "verdict": "WITHIN",
+      "read_at": "2026-09-26T19:53:50.132+00:00",
+      "witness_key": "data.lastReported",
+      "witness": 1790452428.435897,
+      "evidence": "field_within data.attributes.power_w.value = 42.0 \u2212 0.0 = 42.0 vs reference 42.5 \u2212 1.4 = 41.1 (${let.a_watts_g4_1_r1}): ratio 1.021898, |r-1| 2.190 % <= tolerance 3.65 % \u2014 WITHIN"
+    }
+  },
+  {
+    "when": "2026-09-26T20:02:00.378+00:00",
+    "what": "operator entry let a_watts_g4_1_r2 (typed at ENTER)",
+    "name": "a_watts_g4_1_r2",
+    "value": 42.4,
+    "typed": "42.4",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T20:02:00+00:00",
+    "what": "assert GET /api/v1/entities/01M3DPGF6Y4YXNXDHBW38ZEX2G/state",
+    "status": 200,
+    "body": "{\"data\":{\"entityId\":{\"value\":{\"msb\":117334831055906747,\"lsb\":6824690529921889360}},\"attributes\":{\"power_w\":{\"value\":43.0},\"current_a\":{\"value\":0.341},\"on\":{\"value\":true},\"voltage_v\":{\"value\":124.21},\"energy_wh\":{\"value\":30.007}},\"availability\":\"AVAILABLE\",\"stateVersion\":35956,\"lastChanged\":1790452918.316218000,\"lastUpdated\":1790452918.316218000,\"lastReported\":1790452918.316218000,\"staleAfter\":null,\"stale\":false},\"meta\":{\"viewPosition\":273639,\"timestamp\":\"2026-09-26T20:02:00.381663544Z\"}}",
+    "field_within": {
+      "value": 43.0,
+      "reference": 42.4,
+      "tolerance_pct": 3.65,
+      "reference_subtract": 1.4,
+      "field_subtract": 0.0,
+      "reference_effective": "41.0",
+      "value_effective": "43.0",
+      "ratio": "1.048780",
+      "deviation_pct": "4.878",
+      "field": "data.attributes.power_w.value",
+      "reference_from": "${let.a_watts_g4_1_r2}",
+      "on_outside": "record",
+      "verdict": "OUTSIDE",
+      "read_at": "2026-09-26T20:02:00.383+00:00",
+      "witness_key": "data.lastReported",
+      "witness": 1790452918.316218,
+      "evidence": "field_within data.attributes.power_w.value = 43.0 \u2212 0.0 = 43.0 vs reference 42.4 \u2212 1.4 = 41.0 (${let.a_watts_g4_1_r2}): ratio 1.048780, |r-1| 4.878 % > tolerance 3.65 % \u2014 OUTSIDE (the first numeric read is the datum \u2014 never re-drawn)"
+    }
+  },
+  {
+    "when": "2026-09-26T20:07:15.661+00:00",
+    "what": "operator entry let a_watts_g4_1_r3 (typed at ENTER)",
+    "name": "a_watts_g4_1_r3",
+    "value": 42.4,
+    "typed": "42.4",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T20:07:15+00:00",
+    "what": "assert GET /api/v1/entities/01M3DPGF6Y4YXNXDHBW38ZEX2G/state",
+    "status": 200,
+    "body": "{\"data\":{\"entityId\":{\"value\":{\"msb\":117334831055906747,\"lsb\":6824690529921889360}},\"attributes\":{\"power_w\":{\"value\":42.0},\"current_a\":{\"value\":0.341},\"on\":{\"value\":true},\"voltage_v\":{\"value\":124.15},\"energy_wh\":{\"value\":35.009}},\"availability\":\"AVAILABLE\",\"stateVersion\":36184,\"lastChanged\":1790453235.454920000,\"lastUpdated\":1790453235.454920000,\"lastReported\":1790453235.454920000,\"staleAfter\":null,\"stale\":false},\"meta\":{\"viewPosition\":274026,\"timestamp\":\"2026-09-26T20:07:15.664454113Z\"}}",
+    "field_within": {
+      "value": 42.0,
+      "reference": 42.4,
+      "tolerance_pct": 3.65,
+      "reference_subtract": 1.4,
+      "field_subtract": 0.0,
+      "reference_effective": "41.0",
+      "value_effective": "42.0",
+      "ratio": "1.024390",
+      "deviation_pct": "2.439",
+      "field": "data.attributes.power_w.value",
+      "reference_from": "${let.a_watts_g4_1_r3}",
+      "on_outside": "record",
+      "verdict": "WITHIN",
+      "read_at": "2026-09-26T20:07:15.665+00:00",
+      "witness_key": "data.lastReported",
+      "witness": 1790453235.45492,
+      "evidence": "field_within data.attributes.power_w.value = 42.0 \u2212 0.0 = 42.0 vs reference 42.4 \u2212 1.4 = 41.0 (${let.a_watts_g4_1_r3}): ratio 1.024390, |r-1| 2.439 % <= tolerance 3.65 % \u2014 WITHIN"
+    }
+  },
+  {
+    "when": "2026-09-26T21:39:38.589+00:00",
+    "what": "operator entry let tare_watts_tr3 (typed at ENTER)",
+    "name": "tare_watts_tr3",
+    "value": 1.2,
+    "typed": "1.2",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T21:45:02.922+00:00",
+    "what": "operator entry let plug_offset_w_tr3 (typed at ENTER)",
+    "name": "plug_offset_w_tr3",
+    "value": 0.0,
+    "typed": "0.0",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T21:48:03.625+00:00",
+    "what": "operator entry let a_volts_tr3_1 (typed at ENTER)",
+    "name": "a_volts_tr3_1",
+    "value": 122.5,
+    "typed": "122.5",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T21:50:08.711+00:00",
+    "what": "operator entry let a_volts_tr3_2 (typed at ENTER)",
+    "name": "a_volts_tr3_2",
+    "value": 122.4,
+    "typed": "122.4",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T21:58:07.290+00:00",
+    "what": "operator entry let a_watts_tr3_r1 (typed at ENTER)",
+    "name": "a_watts_tr3_r1",
+    "value": 42.0,
+    "typed": "42.0",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T21:58:07+00:00",
+    "what": "assert GET /api/v1/entities/01M3DM74SGEY7RXVDYSM4PK2XA/state",
+    "status": 200,
+    "body": "{\"data\":{\"entityId\":{\"value\":{\"msb\":117334673590351759,\"lsb\":-8147646363007874134}},\"attributes\":{\"power_w\":{\"value\":43.7},\"current_a\":{\"value\":0.347},\"on\":{\"value\":true},\"voltage_v\":{\"value\":125.9},\"energy_wh\":{\"value\":10.0}},\"availability\":\"AVAILABLE\",\"stateVersion\":362,\"lastChanged\":1790459722.792666000,\"lastUpdated\":1790459722.807187000,\"lastReported\":1790459722.807187000,\"staleAfter\":null,\"stale\":false},\"meta\":{\"viewPosition\":282082,\"timestamp\":\"2026-09-26T21:58:07.294014370Z\"}}",
+    "field_within": {
+      "value": 43.7,
+      "reference": 42.0,
+      "tolerance_pct": 3.53,
+      "reference_subtract": 1.2,
+      "field_subtract": 0.0,
+      "reference_effective": "40.8",
+      "value_effective": "43.7",
+      "ratio": "1.071078",
+      "deviation_pct": "7.108",
+      "field": "data.attributes.power_w.value",
+      "reference_from": "${let.a_watts_tr3_r1}",
+      "on_outside": "record",
+      "verdict": "OUTSIDE",
+      "read_at": "2026-09-26T21:58:07.295+00:00",
+      "witness_key": "data.lastReported",
+      "witness": 1790459722.807187,
+      "evidence": "field_within data.attributes.power_w.value = 43.7 \u2212 0.0 = 43.7 vs reference 42.0 \u2212 1.2 = 40.8 (${let.a_watts_tr3_r1}): ratio 1.071078, |r-1| 7.108 % > tolerance 3.53 % \u2014 OUTSIDE (the first numeric read is the datum \u2014 never re-drawn)"
+    }
+  },
+  {
+    "when": "2026-09-26T22:02:28.423+00:00",
+    "what": "operator entry let a_watts_tr3_r2 (typed at ENTER)",
+    "name": "a_watts_tr3_r2",
+    "value": 42.1,
+    "typed": "42.1",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T22:02:28+00:00",
+    "what": "assert GET /api/v1/entities/01M3DM74SGEY7RXVDYSM4PK2XA/state",
+    "status": 200,
+    "body": "{\"data\":{\"entityId\":{\"value\":{\"msb\":117334673590351759,\"lsb\":-8147646363007874134}},\"attributes\":{\"power_w\":{\"value\":44.1},\"current_a\":{\"value\":0.348},\"on\":{\"value\":true},\"voltage_v\":{\"value\":125.9},\"energy_wh\":{\"value\":15.0}},\"availability\":\"AVAILABLE\",\"stateVersion\":376,\"lastChanged\":1790460061.325913000,\"lastUpdated\":1790460061.325913000,\"lastReported\":1790460061.325913000,\"staleAfter\":null,\"stale\":false},\"meta\":{\"viewPosition\":282391,\"timestamp\":\"2026-09-26T22:02:28.427158434Z\"}}",
+    "field_within": {
+      "value": 44.1,
+      "reference": 42.1,
+      "tolerance_pct": 3.53,
+      "reference_subtract": 1.2,
+      "field_subtract": 0.0,
+      "reference_effective": "40.9",
+      "value_effective": "44.1",
+      "ratio": "1.078240",
+      "deviation_pct": "7.824",
+      "field": "data.attributes.power_w.value",
+      "reference_from": "${let.a_watts_tr3_r2}",
+      "on_outside": "record",
+      "verdict": "OUTSIDE",
+      "read_at": "2026-09-26T22:02:28.428+00:00",
+      "witness_key": "data.lastReported",
+      "witness": 1790460061.325913,
+      "evidence": "field_within data.attributes.power_w.value = 44.1 \u2212 0.0 = 44.1 vs reference 42.1 \u2212 1.2 = 40.9 (${let.a_watts_tr3_r2}): ratio 1.078240, |r-1| 7.824 % > tolerance 3.53 % \u2014 OUTSIDE (the first numeric read is the datum \u2014 never re-drawn)"
+    }
+  },
+  {
+    "when": "2026-09-26T22:09:50.590+00:00",
+    "what": "operator entry let a_watts_tr3_r3 (typed at ENTER)",
+    "name": "a_watts_tr3_r3",
+    "value": 41.8,
+    "typed": "41.8",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T22:09:50+00:00",
+    "what": "assert GET /api/v1/entities/01M3DM74SGEY7RXVDYSM4PK2XA/state",
+    "status": 200,
+    "body": "{\"data\":{\"entityId\":{\"value\":{\"msb\":117334673590351759,\"lsb\":-8147646363007874134}},\"attributes\":{\"power_w\":{\"value\":44.2},\"current_a\":{\"value\":0.349},\"on\":{\"value\":true},\"voltage_v\":{\"value\":126.0},\"energy_wh\":{\"value\":20.0}},\"availability\":\"AVAILABLE\",\"stateVersion\":393,\"lastChanged\":1790460485.328185000,\"lastUpdated\":1790460485.328185000,\"lastReported\":1790460485.328185000,\"staleAfter\":null,\"stale\":false},\"meta\":{\"viewPosition\":282926,\"timestamp\":\"2026-09-26T22:09:50.593562616Z\"}}",
+    "field_within": {
+      "value": 44.2,
+      "reference": 41.8,
+      "tolerance_pct": 3.53,
+      "reference_subtract": 1.2,
+      "field_subtract": 0.0,
+      "reference_effective": "40.6",
+      "value_effective": "44.2",
+      "ratio": "1.088670",
+      "deviation_pct": "8.867",
+      "field": "data.attributes.power_w.value",
+      "reference_from": "${let.a_watts_tr3_r3}",
+      "on_outside": "record",
+      "verdict": "OUTSIDE",
+      "read_at": "2026-09-26T22:09:50.595+00:00",
+      "witness_key": "data.lastReported",
+      "witness": 1790460485.328185,
+      "evidence": "field_within data.attributes.power_w.value = 44.2 \u2212 0.0 = 44.2 vs reference 41.8 \u2212 1.2 = 40.6 (${let.a_watts_tr3_r3}): ratio 1.088670, |r-1| 8.867 % > tolerance 3.53 % \u2014 OUTSIDE (the first numeric read is the datum \u2014 never re-drawn)"
+    }
+  },
+  {
+    "when": "2026-09-26T22:21:46.195+00:00",
+    "what": "operator entry let tare_watts_g4_2 (typed at ENTER)",
+    "name": "tare_watts_g4_2",
+    "value": 1.5,
+    "typed": "1.5",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T22:25:22.847+00:00",
+    "what": "operator entry let plug_offset_w_g4_2 (typed at ENTER)",
+    "name": "plug_offset_w_g4_2",
+    "value": 0.0,
+    "typed": "0.0",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T22:29:08.780+00:00",
+    "what": "operator entry let a_volts_g4_2_1 (typed at ENTER)",
+    "name": "a_volts_g4_2_1",
+    "value": 123.6,
+    "typed": "123.6",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T22:32:43.919+00:00",
+    "what": "operator entry let a_volts_g4_2_2 (typed at ENTER)",
+    "name": "a_volts_g4_2_2",
+    "value": 123.2,
+    "typed": "123.2",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T22:37:03.880+00:00",
+    "what": "operator entry let a_watts_g4_2_r1 (typed at ENTER)",
+    "name": "a_watts_g4_2_r1",
+    "value": 42.3,
+    "typed": "42.3",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T22:37:03+00:00",
+    "what": "assert GET /api/v1/entities/01M3DPKN9WD9B88Q4SVDMSBJVS/state",
+    "status": 200,
+    "body": "{\"data\":{\"entityId\":{\"value\":{\"msb\":117334837907188310,\"lsb\":-8909076795197371527}},\"attributes\":{\"power_w\":{\"value\":42.0},\"current_a\":{\"value\":0.336},\"on\":{\"value\":true},\"voltage_v\":{\"value\":123.58},\"energy_wh\":{\"value\":5.001}},\"availability\":\"AVAILABLE\",\"stateVersion\":39518,\"lastChanged\":1790462071.323467000,\"lastUpdated\":1790462071.324271000,\"lastReported\":1790462071.324271000,\"staleAfter\":null,\"stale\":false},\"meta\":{\"viewPosition\":284893,\"timestamp\":\"2026-09-26T22:37:03.883683347Z\"}}",
+    "field_within": {
+      "value": 42.0,
+      "reference": 42.3,
+      "tolerance_pct": 3.65,
+      "reference_subtract": 1.5,
+      "field_subtract": 0.0,
+      "reference_effective": "40.8",
+      "value_effective": "42.0",
+      "ratio": "1.029412",
+      "deviation_pct": "2.941",
+      "field": "data.attributes.power_w.value",
+      "reference_from": "${let.a_watts_g4_2_r1}",
+      "on_outside": "record",
+      "verdict": "WITHIN",
+      "read_at": "2026-09-26T22:37:03.885+00:00",
+      "witness_key": "data.lastReported",
+      "witness": 1790462071.324271,
+      "evidence": "field_within data.attributes.power_w.value = 42.0 \u2212 0.0 = 42.0 vs reference 42.3 \u2212 1.5 = 40.8 (${let.a_watts_g4_2_r1}): ratio 1.029412, |r-1| 2.941 % <= tolerance 3.65 % \u2014 WITHIN"
+    }
+  },
+  {
+    "when": "2026-09-26T22:40:46.929+00:00",
+    "what": "operator entry let a_watts_g4_2_r2 (typed at ENTER)",
+    "name": "a_watts_g4_2_r2",
+    "value": 42.9,
+    "typed": "42.9",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T22:40:46+00:00",
+    "what": "assert GET /api/v1/entities/01M3DPKN9WD9B88Q4SVDMSBJVS/state",
+    "status": 200,
+    "body": "{\"data\":{\"entityId\":{\"value\":{\"msb\":117334837907188310,\"lsb\":-8909076795197371527}},\"attributes\":{\"power_w\":{\"value\":42.0},\"current_a\":{\"value\":0.336},\"on\":{\"value\":true},\"voltage_v\":{\"value\":123.58},\"energy_wh\":{\"value\":5.001}},\"availability\":\"AVAILABLE\",\"stateVersion\":39518,\"lastChanged\":1790462071.323467000,\"lastUpdated\":1790462071.324271000,\"lastReported\":1790462071.324271000,\"staleAfter\":null,\"stale\":false},\"meta\":{\"viewPosition\":285003,\"timestamp\":\"2026-09-26T22:40:46.932996961Z\"}}",
+    "field_within": {
+      "value": 42.0,
+      "reference": 42.9,
+      "tolerance_pct": 3.65,
+      "reference_subtract": 1.5,
+      "field_subtract": 0.0,
+      "reference_effective": "41.4",
+      "value_effective": "42.0",
+      "ratio": "1.014493",
+      "deviation_pct": "1.449",
+      "field": "data.attributes.power_w.value",
+      "reference_from": "${let.a_watts_g4_2_r2}",
+      "on_outside": "record",
+      "verdict": "WITHIN",
+      "read_at": "2026-09-26T22:40:46.934+00:00",
+      "witness_key": "data.lastReported",
+      "witness": 1790462071.324271,
+      "evidence": "field_within data.attributes.power_w.value = 42.0 \u2212 0.0 = 42.0 vs reference 42.9 \u2212 1.5 = 41.4 (${let.a_watts_g4_2_r2}): ratio 1.014493, |r-1| 1.449 % <= tolerance 3.65 % \u2014 WITHIN"
+    }
+  },
+  {
+    "when": "2026-09-26T22:44:30.018+00:00",
+    "what": "operator entry let a_watts_g4_2_r3 (typed at ENTER)",
+    "name": "a_watts_g4_2_r3",
+    "value": 42.5,
+    "typed": "42.5",
+    "refused": []
+  },
+  {
+    "when": "2026-09-26T22:44:30+00:00",
+    "what": "assert GET /api/v1/entities/01M3DPKN9WD9B88Q4SVDMSBJVS/state",
+    "status": 200,
+    "body": "{\"data\":{\"entityId\":{\"value\":{\"msb\":117334837907188310,\"lsb\":-8909076795197371527}},\"attributes\":{\"power_w\":{\"value\":42.0},\"current_a\":{\"value\":0.336},\"on\":{\"value\":true},\"voltage_v\":{\"value\":123.58},\"energy_wh\":{\"value\":5.001}},\"availability\":\"AVAILABLE\",\"stateVersion\":39518,\"lastChanged\":1790462071.323467000,\"lastUpdated\":1790462071.324271000,\"lastReported\":1790462071.324271000,\"staleAfter\":null,\"stale\":false},\"meta\":{\"viewPosition\":285131,\"timestamp\":\"2026-09-26T22:44:30.022460077Z\"}}",
+    "field_within": {
+      "value": 42.0,
+      "reference": 42.5,
+      "tolerance_pct": 3.65,
+      "reference_subtract": 1.5,
+      "field_subtract": 0.0,
+      "reference_effective": "41.0",
+      "value_effective": "42.0",
+      "ratio": "1.024390",
+      "deviation_pct": "2.439",
+      "field": "data.attributes.power_w.value",
+      "reference_from": "${let.a_watts_g4_2_r3}",
+      "on_outside": "record",
+      "verdict": "WITHIN",
+      "read_at": "2026-09-26T22:44:30.023+00:00",
+      "witness_key": "data.lastReported",
+      "witness": 1790462071.324271,
+      "evidence": "field_within data.attributes.power_w.value = 42.0 \u2212 0.0 = 42.0 vs reference 42.5 \u2212 1.5 = 41.0 (${let.a_watts_g4_2_r3}): ratio 1.024390, |r-1| 2.439 % <= tolerance 3.65 % \u2014 WITHIN"
+    }
+  },
+  {
+    "when": "2026-09-26T22:55:52.674+00:00",
+    "what": "operator entry let char_after_readings (typed at ENTER)",
+    "name": "char_after_readings",
+    "value": 6.0,
+    "typed": "6",
+    "refused": []
+  }
+]

@@ -1,0 +1,9 @@
+bundle: metering-known-load-20260926T225552Z
+written: 2026-09-26T22:55:52+00:00
+
+scenario.yaml — the scenario file as run
+resolved.json — constants + let bindings + run-window markers + extracted values (e.g. the boot position — the aged-replay stake, recorded per DP-8 row 1)
+app-log-slice.log — /home/homesynapse/hs-bench/bench-2026-09-26-043135.log, window-scoped (162 lines)
+journal-slice.txt DROPPED (B3.1 A-6): two nights of noise-only exhibits (night-1 D-6; night-2 tailscaled x2) — app-log-slice + api-captures are the targeted evidence
+api-captures.json — 31 captured API exchange(s)
+verdict.txt — the one-page verdict summary

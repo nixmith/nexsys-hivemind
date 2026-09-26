@@ -1,0 +1,193 @@
+{
+  "constants": {
+    "fleet": {
+      "devices": 9,
+      "entities": 9
+    },
+    "remembered-ulids": [
+      "01KX1PA4HSJ581GASYB7DHE40F",
+      "01KX1PB9AAB4VB3E10BD477TV3",
+      "01KXW0157SP56CCSGJCNDCSQNG",
+      "01KXW13WF0D6TYGN13WXHTG87K",
+      "01KXW1W1SBJZERC9MBAMV2DWKE",
+      "01KY12MQW954E4XYNKH0Y5H8VX",
+      "01M3DPGF6Y4YXNXDHBW38ZEX2G",
+      "01M3DM74SGEY7RXVDYSM4PK2XA",
+      "01M3DPKN9WD9B88Q4SVDMSBJVS"
+    ],
+    "watermark": 25065,
+    "network": {
+      "channel": 20,
+      "panId": "0x774c"
+    },
+    "serial-port-alias": "/dev/zigbee",
+    "api": {
+      "base": "http://127.0.0.1:7070",
+      "token-file": "~/hs-bench/config/initial_api_token"
+    },
+    "command": {
+      "entity": "01KX1PA4HSJ581GASYB7DHE40F",
+      "levels": [
+        20,
+        50
+      ],
+      "s31-entity": "01KXW1W1SBJZERC9MBAMV2DWKE",
+      "s31-ieee": "0x00124B002FA8D1C5"
+    },
+    "metering": {
+      "plug-entity": {
+        "g4-1": "01M3DPGF6Y4YXNXDHBW38ZEX2G",
+        "tr3": "01M3DM74SGEY7RXVDYSM4PK2XA",
+        "g4-2": "01M3DPKN9WD9B88Q4SVDMSBJVS"
+      },
+      "band_pct": 3.65,
+      "band_pct_tr3": 3.53,
+      "load_w": 40,
+      "k_spread": 2
+    },
+    "capabilities": {
+      "command-api": {
+        "available": true,
+        "reason": "CMD-API landed 5b4797e; deployed on the Pi in c09c61c 2026-07-27"
+      },
+      "hue-online": {
+        "available": false,
+        "reason": "HUE-RESET pending \u2014 the Hue is unpowered: its lamp rode the S31 relay (measured 2026-07-29); the lamp is now unplugged from the S31, so the Hue is deterministically off-network"
+      },
+      "usb-power": {
+        "available": true,
+        "reason": "uhubctl 2.6.0-1 installed; hub 3-2.4 port 2 minted from the 2026-07-29 read; unprivileged access proven via 52-usb-uhubctl.rules"
+      },
+      "plug": {
+        "available": false,
+        "reason": "the Shelly plugs are not provisioned"
+      },
+      "harness-plug": {
+        "available": false,
+        "reason": "the bench's only commandable plug is the S31, which is also the CONFIRMED-class leg's own target (B2 \u00a75.2) \u2014 it cannot be both instrument and measured thing; role stays harness-candidate until HARNESS-PLUG: promotes a dedicated second plug (P-1 design \u00a75)"
+      },
+      "metering-plug": {
+        "available": true,
+        "reason": "the three metering plugs adopted at THE THURSDAY ORDER (Fri 2026-09-25; T3b: devices=9 entities=9); metering.plug-entity minted from that capture (v80 b3, T4)"
+      },
+      "link-read": {
+        "available": false,
+        "reason": "LINK-READ has not landed \u2014 no per-device link-quality field on the read surface yet; link-quality.yaml is a skeleton whose keys LINK-READ's charter names"
+      }
+    },
+    "auto-suite": [
+      "boot-health",
+      "command-confirm",
+      "command-timeout-absent",
+      "command-supersession",
+      "command-identify-honest",
+      "usb-reenumeration",
+      "timeout-honesty-no-change",
+      "command-confirm-s31",
+      "command-s31-settle"
+    ],
+    "quiesce": {
+      "branch": "B",
+      "carrier": "~/hs-bench/config/homesynapse.yaml",
+      "hold-dir": "~/hs-bench/quiesce-hold",
+      "heroless-variant": "~/hs-bench/quiesce-hold/homesynapse.heroless.yaml",
+      "live-basis": "~/hs-bench/quiesce-hold/homesynapse.live-basis.yaml",
+      "automations-route": "/api/v1/automations",
+      "hero-name-token": "\"bench-hero\""
+    },
+    "nightly": {
+      "suite-timeout": "45m",
+      "logs-dir": "~/hs-bench/nightly-logs",
+      "digests-dir": "~/hs-bench/digests"
+    },
+    "usb": {
+      "hub-location": "3-2.4",
+      "port": 2
+    },
+    "plugs": {
+      "hue-wall": {
+        "ip": "PLACEHOLDER"
+      }
+    },
+    "command-lifecycle": {
+      "phases": [
+        "ACCEPTED",
+        "DISPATCHED",
+        "ACKNOWLEDGED",
+        "CONFIRMED",
+        "CONFIRMATION_TIMED_OUT"
+      ],
+      "confirmed-class": "CONFIRMED",
+      "timed-out-class": "CONFIRMATION_TIMED_OUT",
+      "terminal-field": "data.terminal",
+      "phase-field": "data.currentPhase"
+    },
+    "runs-outcomes": [
+      "DISPATCHED",
+      "CONFIRMED",
+      "UNCONFIRMED",
+      "FAILED",
+      "SKIPPED"
+    ],
+    "harness": {
+      "plugs": [
+        {
+          "entity": "01KXW1W1SBJZERC9MBAMV2DWKE",
+          "role": "harness-candidate",
+          "rating_w": 1800,
+          "maxCyclesPerWindow": 2,
+          "minSecondsBetweenCycles": 60,
+          "windowSeconds": 300
+        }
+      ],
+      "dut_profiles": [
+        {
+          "profile": "philips_hue_white_color_a19",
+          "powerCycleHazard": "factory-reset",
+          "resetCycles": 6
+        }
+      ]
+    },
+    "provenance": {
+      "card": "hs-dev-1",
+      "ulids": [
+        {
+          "path": "command.s31-entity",
+          "ulid": "01KXW1W1SBJZERC9MBAMV2DWKE"
+        }
+      ]
+    }
+  },
+  "let": {
+    "tare_watts_g4_1": 1.4,
+    "plug_offset_w_g4_1": 0.0,
+    "a_volts_g4_1_1": 122.7,
+    "a_volts_g4_1_2": 122.7,
+    "a_watts_g4_1_r1": 42.5,
+    "a_watts_g4_1_r2": 42.4,
+    "a_watts_g4_1_r3": 42.4,
+    "tare_watts_tr3": 1.2,
+    "plug_offset_w_tr3": 0.0,
+    "a_volts_tr3_1": 122.5,
+    "a_volts_tr3_2": 122.4,
+    "a_watts_tr3_r1": 42.0,
+    "a_watts_tr3_r2": 42.1,
+    "a_watts_tr3_r3": 41.8,
+    "tare_watts_g4_2": 1.5,
+    "plug_offset_w_g4_2": 0.0,
+    "a_volts_g4_2_1": 123.6,
+    "a_volts_g4_2_2": 123.2,
+    "a_watts_g4_2_r1": 42.3,
+    "a_watts_g4_2_r2": 42.9,
+    "a_watts_g4_2_r3": 42.5,
+    "char_after_readings": 6.0
+  },
+  "markers": [
+    {
+      "at": "2026-09-26T19:00:54+00:00",
+      "note": "operator act",
+      "log_offset": 25120
+    }
+  ],
+  "extracted": {}
+}

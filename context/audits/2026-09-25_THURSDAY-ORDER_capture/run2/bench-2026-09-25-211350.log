@@ -1,0 +1,58 @@
+21:13:50.749 [main] INFO  c.h.lifecycle.HomeSynapseCore -- lifecycle.integration_schema_registered: type=zigbee stage=pre-load
+21:13:50.891 [main] INFO  c.h.c.StandardConfigurationService -- Configuration loaded: schema=1.0 sections=5 issues=0
+21:13:50.905 [main] WARN  c.h.p.SqlitePersistenceLifecycle -- Database is on removable storage (/dev/mmcblk0p2). SD card storage is not recommended for production use — database corruption and performance degradation are common. See https://homesynapse.com/docs/storage for recommended configurations.
+21:13:50.907 [main] INFO  c.h.persistence.DatabaseExecutor -- Starting DatabaseExecutor: path=/home/homesynapse/hs-bench/data/homesynapse-events.db readThreads=2
+21:13:51.065 [main] INFO  c.h.persistence.DatabaseExecutor -- Existing database detected — skipping creation-time PRAGMAs
+21:13:51.073 [main] INFO  c.h.persistence.MigrationRunner -- Migration run starting: path=db/migration/events files=5
+21:13:51.088 [main] WARN  c.h.persistence.MigrationRunner -- Skipping already-applied migration: version=1 description='initial event store schema'
+21:13:51.088 [main] WARN  c.h.persistence.MigrationRunner -- Skipping already-applied migration: version=2 description='subscriber dead letter queue'
+21:13:51.088 [main] WARN  c.h.persistence.MigrationRunner -- Skipping already-applied migration: version=3 description='add snapshots and drop redundant index'
+21:13:51.088 [main] WARN  c.h.persistence.MigrationRunner -- Skipping already-applied migration: version=4 description='dlq operational indices'
+21:13:51.088 [main] WARN  c.h.persistence.MigrationRunner -- Skipping already-applied migration: version=5 description='at rest payload encryption columns'
+21:13:51.088 [main] INFO  c.h.persistence.MigrationRunner -- Migration run complete: applied=0 skipped=5 duration=15ms
+21:13:51.093 [main] INFO  c.h.persistence.DatabaseExecutor -- DatabaseExecutor started: path=/home/homesynapse/hs-bench/data/homesynapse-events.db
+21:13:51.098 [main] INFO  c.h.persistence.EventTypeRegistry -- EventTypeRegistry initialized with 55 event types
+21:13:51.746 [main] INFO  c.h.persistence.JacksonWarmup -- JacksonWarmup pre-populated 55 event type(s)
+21:13:51.803 [main] INFO  c.h.persistence.SqliteStateStore -- Loaded 7 entities from checkpoint for view state_projection at position 201020; projectionVersion=5
+21:13:51.804 [main] INFO  c.h.p.SqlitePersistenceLifecycle -- Persistence layer started: database=/home/homesynapse/hs-bench/data/homesynapse-events.db, profile=HOME, readThreads=2
+21:13:51.863 [hs-sub-state_projection] INFO  c.homesynapse.state.StateProjection -- StateProjection state_projection caught up at position 201021; projection.replay.duration_ms=4 events_replayed=1
+21:13:54.935 [hs-sub-registry_projection] INFO  c.h.l.RegistryProjectionSubscriber -- registry.projection_live: devices=7 entities=7 position=200974
+21:13:54.954 [main] INFO  c.h.a.CompanionAutomationIdentityStore -- automation.identity_loaded: path=/home/homesynapse/hs-bench/config/automations.ids.yaml automations=1 triggers=1 first_boot=false
+21:13:54.999 [main] INFO  c.h.a.CompanionAutomationIdentityStore -- automation.identity_load_ended: path=/home/homesynapse/hs-bench/config/automations.ids.yaml automations=1 touched=1 minted=0 triggers_minted=0 retired=0 written=true
+21:13:55.236 [main] INFO  io.javalin.Javalin -- Starting Javalin ...
+21:13:55.238 [main] INFO  org.eclipse.jetty.server.Server -- jetty-11.0.25; built: 2025-03-13T00:15:57.301Z; git: a2e9fae3ad8320f2a713d4fa29bba356a99d1295; jvm 21.0.11+10-LTS
+21:13:55.287 [main] INFO  o.e.j.s.s.DefaultSessionIdManager -- Session workerName=node0
+21:13:55.300 [main] INFO  o.e.j.server.handler.ContextHandler -- Started o.e.j.s.ServletContextHandler@1416cf9f{/,null,AVAILABLE}
+21:13:55.306 [main] INFO  o.e.jetty.server.AbstractConnector -- Started ServerConnector@55e3d6c3{HTTP/1.1, (http/1.1)}{127.0.0.1:7070}
+21:13:55.315 [main] INFO  org.eclipse.jetty.server.Server -- Started Server@2ff15f8c{STARTING}[11.0.25,sto=0] @5247ms
+21:13:55.316 [main] INFO  io.javalin.Javalin -- Javalin started in 153ms \o/
+21:13:55.333 [main] INFO  io.javalin.Javalin -- Static file handler added: StaticFileConfig(hostedPath=/dashboard, directory=/dashboard, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}, roles=[]). File system location: 'jar:file:/home/homesynapse/homesynapse-core/app/homesynapse-app/build/install/homesynapse-app/lib/dashboard-0.1.0-SNAPSHOT.jar!/dashboard'
+21:13:55.338 [main] INFO  io.javalin.Javalin -- Listening on http://127.0.0.1:7070/
+21:13:55.349 [main] INFO  io.javalin.Javalin -- You are running Javalin 6.7.0 (released June 22, 2025. Your Javalin version is 460 days old. Consider checking for a newer version.).
+21:13:55.349 [main] INFO  c.h.lifecycle.HomeSynapseCore -- HTTP surface exposed on 127.0.0.1:7070 behind bearer-token auth (AB-1, C1 closed); loopback-default bindHost=127.0.0.1
+21:13:55.391 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeDeviceCache -- zigbee.device_cache_loaded: 9 devices from /home/homesynapse/hs-bench/data/zigbee/zigbee-devices.json
+21:13:55.396 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFED2A201 deviceId=01KXW0156Z1GJ3WCV2G516AKWS — re-pairing, no new adoption
+21:13:55.397 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x00124B002FA8D1C5 deviceId=01KXW1W1RR66GV98D9QDPB4VXY — re-pairing, no new adoption
+21:13:55.398 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x4CE175B4C0700000 deviceId=01M3DM74RKEQ9H05PAATBMW2MW — re-pairing, no new adoption
+21:13:55.398 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x00178801101A09BB deviceId=01KX1PA4GRZHY2GD37B5CFVQHY — re-pairing, no new adoption
+21:13:55.399 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFE9C78D7 deviceId=01KX1PB9A5931A8G0F0X03QXT2 — re-pairing, no new adoption
+21:13:55.399 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFE1C1E8E deviceId=01KXW13WEGRCT5C0XSQT8WZBG9 — re-pairing, no new adoption
+21:13:55.399 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x449FDAFFFE688F57 deviceId=01KY12MQVQ204M1VP39F1ZDM33 — re-pairing, no new adoption
+21:13:55.400 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.adoption_maps_rehydrated: devices=7
+21:13:55.411 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.availability_seeded: devices=9 from_sidecar=9 unknown=0
+21:13:55.415 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.learned_zonetypes_rehydrated: count=2
+21:13:55.416 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.learned_metering_formatting_rehydrated: count=1
+21:13:55.421 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.initialized: integration_id=6V1CMGY2HKF4H1FGZ4H7F257FS data_dir=/home/homesynapse/hs-bench/data/zigbee mode=production
+21:13:55.422 [integration-supervisor-start] INFO  c.h.i.r.StandardIntegrationSupervisor -- integration.launched: integration_id=6V1CMGY2HKF4H1FGZ4H7F257FS integration_type=zigbee io_type=SERIAL
+21:13:55.520 [main] INFO  c.h.lifecycle.HomeSynapseCore -- HomeSynapseCore RUNNING: db=/home/homesynapse/hs-bench/data/homesynapse-events.db, configDir=/home/homesynapse/hs-bench/config, homeId=01KWVQ4XMC5803M3ZQYR87VMHW, automations=1; HTTP exposed behind bearer-token auth on 127.0.0.1:7070 (AB-1), cipher inert=false
+HomeSynapse Core is RUNNING (phase=RUNNING); HTTP surface exposed behind bearer-token auth, loopback-bound (AB-1). Send SIGTERM to stop.
+21:14:01.542 [integration-zigbee-0] INFO  c.h.i.zigbee.TransportProbe -- zigbee.transport_detected: kind=EZSP port=/dev/zigbee
+21:14:03.131 [integration-zigbee-0] INFO  c.h.integration.zigbee.AshSession -- ASH session connected: ashVersion=2 resetCode=0xb
+21:14:03.135 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.port_identity_captured: stableId=/dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Plus_MG24_0ae2dd7cecf8ef11b80168135c2a50c9-if00-port0 vendorId=10c4 productId=ea60 pinnedOnly=false
+21:14:03.143 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- EZSP session negotiated: protocolVersion=13 stackType=2 stackVersion=0x7450
+21:14:03.200 [integration-zigbee-0] WARN  c.h.i.zigbee.EzspCoordinatorProtocol -- zigbee.ncp_config_skipped: id=0x1 status=0x37
+21:14:03.206 [integration-zigbee-0] WARN  c.h.i.zigbee.EzspCoordinatorProtocol -- zigbee.ncp_config_skipped: id=0x6 status=0x35
+21:14:03.224 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- zigbee.ncp_configured: zdo_flags=0x3 stack_profile=2 security_level=5
+21:14:03.250 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.network_resumed: channel=20 panId=0x774c
+21:14:03.251 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- zigbee.network_up: stackStatusHandler reported EMBER_NETWORK_UP (buffered)
+21:14:03.251 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.production_session_started: port=/dev/zigbee protocolVersion=13

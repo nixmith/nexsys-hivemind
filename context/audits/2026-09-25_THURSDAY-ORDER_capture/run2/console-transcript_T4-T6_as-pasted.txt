@@ -1,0 +1,42 @@
+# Nick's console transcripts for T4 · T5 · T6 and T4b, as pasted into the v80 hub chat (Fri 2026-09-25 evening, CT); filed verbatim by the hub at v80 beat 4. The Pi's log stamps are its wall-clock (America/New_York, UTC−4); the API's meta.timestamp is UTC.
+$ cd ~/Desktop/Code/ClaudeFolder/nexsys-bench && git --no-optional-locks status --porcelain | wc -l && ls .git/*.lock 2>/dev/null; git add -- scenarios/constants.yaml && echo "staged: $(git diff --cached --name-status | wc -l) (expect 1)" && grep -c 'Co-Authored\|Claude-Session' ../_scratch/v80/2026-09-25_bench_T4-remint_commit-msg.txt; git commit -F ../_scratch/v80/2026-09-25_bench_T4-remint_commit-msg.txt && git push && git log -1 --oneline
+1
+staged: 1 (expect 1)
+0
+[main a45686f] bench: THE THURSDAY ORDER T4 — the constants re-mint from T3b's capture (fleet 9/9; the three plug entities; metering-plug live)
+ 1 file changed, 18 insertions(+), 7 deletions(-)
+   fa01cad..a45686f  main -> main
+a45686f (HEAD -> main, origin/main) bench: THE THURSDAY ORDER T4 — the constants re-mint from T3b's capture (fleet 9/9; the three plug entities; metering-plug live)
+
+$ ssh pi 'cd ~/nexsys-bench && git pull --ff-only 2>&1 | tail -2; git log -1 --oneline; md5sum scenarios/constants.yaml | cut -c1-12'
+ scenarios/constants.yaml | 25 ++++++++++++++++++-------
+ 1 file changed, 18 insertions(+), 7 deletions(-)
+a45686f bench: THE THURSDAY ORDER T4 — the constants re-mint from T3b's capture (fleet 9/9; the three plug entities; metering-plug live)
+d9eb0efd5f96
+
+$ ssh pi '~/bench.sh suite boot-health 2>&1 | tail -6; cmp -s ~/hs-bench/config/homesynapse.yaml ~/hs-bench/quiesce-hold/homesynapse.live-basis.yaml && echo CMP-IDENTICAL || echo CMP-DIFFERS; echo "== state TR3:"; ~/bench.sh state 01M3DM74SGEY7RXVDYSM4PK2XA | head -c 700; echo' > $D/T6.txt 2>&1; cat $D/T6.txt
+22:06:56.114 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.network_resumed: channel=20 panId=0x774c
+22:06:56.115 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- zigbee.network_up: stackStatusHandler reported EMBER_NETWORK_UP (buffered)
+--- failure tokens ---
+[PASS] boot-health — 6/6 positive · 0 forbidden
+  [--] bundle: /home/homesynapse/hs-bench/bundles/boot-health-20260926T020656Z
+ran 1/1
+CMP-IDENTICAL
+== state TR3:
+{"data":{"entityId":{"value":{"msb":117334673590351759,"lsb":-8147646363007874134}},"attributes":{"current_a":{"value":0.0},"energy_wh":{"value":0.0},"power_w":{"value":0.0},"voltage_v":{"value":128.3},"on":{"value":false}},"availability":"AVAILABLE","stateVersion":32,"lastChanged":1790386891.586825000,"lastUpdated":1790388105.720974000,"lastReported":1790388105.720974000,"staleAfter":null,"stale":false},"meta":{"viewPosition":202142,"timestamp":"2026-09-26T02:06:56.846466538Z"}}
+
+# T4b (the load re-mint), as pasted:
+[main df4a2d7] bench: THE THURSDAY ORDER T4b — the CHAR's load re-minted to one 40 W lamp for the 2026-09-25 sitting; the bands re-derived at 40 W with the divisors read at adoption
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+   a45686f..df4a2d7  main -> main
+$ ssh pi 'cd ~/nexsys-bench && git pull --ff-only 2>&1 | tail -1; git log -1 --oneline; md5sum scenarios/constants.yaml | cut -c1-12'
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+df4a2d7 bench: THE THURSDAY ORDER T4b — the CHAR's load re-minted to one 40 W lamp for the 2026-09-25 sitting; the bands re-derived at 40 W with the divisors read at adoption
+185460d1c9e1
+
+# The aborted run (tmux, window 0), as pasted: the runner at `tare_watts_g4_1 =` refused '', 'quir', 'quit', ':q', 'exit' and arrow keys ("is not a number — REFUSED (never coerced, never a silent zero); type it again"); Ctrl-c → KeyboardInterrupt in print_operator_block (engine.py :1309) at 22:43 EDT.
+# The state reads at 22:59 EDT, as pasted:
+$ ssh pi '~/bench.sh state 01M3DPGF6Y4YXNXDHBW38ZEX2G | head -c 240'; echo
+{"data":{"entityId":{"value":{"msb":117334831055906747,"lsb":6824690529921889360}},"attributes":{"on":{"value":false},"current_a":{"value":0.0},"power_w":{"value":0.0},"energy_wh":{"value":0.0},"voltage_v":{"value":126.34}},"availability":"
+$ ssh pi '~/bench.sh state 01M3DPKN9WD9B88Q4SVDMSBJVS | head -c 240'; echo
+{"data":{"entityId":{"value":{"msb":117334837907188310,"lsb":-8909076795197371527}},"attributes":{"current_a":{"value":0.0},"voltage_v":{"value":124.87},"power_w":{"value":0.0},"energy_wh":{"value":0.0}},"availability":"UNAVAILABLE","stateV

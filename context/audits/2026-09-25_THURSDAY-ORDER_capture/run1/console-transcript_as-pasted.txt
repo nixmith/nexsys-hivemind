@@ -1,0 +1,91 @@
+# Nick's console transcript, as pasted into the v80 hub chat (Fri 2026-09-25); filed verbatim by the hub at v80 beat 2. Git Bash on the desktop; every rig command through `ssh pi`.
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/homesynapse-core (main)
+$ D=~/Desktop/Code/ClaudeFolder/_scratch/thu0924; S=~/Desktop/Code/ClaudeFolder/nexsys-hivemind/context/instructions/2026-09-24_THURSDAY-ORDER_scripts; mkdir -p $D
+
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/homesynapse-core (main)
+$ ssh -t pi 'sudo apt-get install -y tmux && tmux -V'
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  alacarte gir1.2-gmenu-3.0 gnome-menus gtk-nop libgnome-menu-3-0 linux-headers-6.12.47+rpt-common-rpi linux-headers-6.12.47+rpt-rpi-2712 linux-headers-6.12.47+rpt-rpi-v8
+  linux-image-6.12.47+rpt-rpi-2712 linux-image-6.12.47+rpt-rpi-v8 linux-kbuild-6.12.47+rpt python3-asgiref python3-dotenv python3-flask python3-gi-cairo python3-itsdangerous
+  python3-pyasyncore python3-pyinotify python3-werkzeug retry
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libjemalloc2
+The following NEW packages will be installed:
+  libjemalloc2 tmux
+0 upgraded, 2 newly installed, 0 to remove and 337 not upgraded.
+Need to get 671 kB of archives.
+After this operation, 1,914 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian trixie/main arm64 libjemalloc2 arm64 5.3.0-3 [216 kB]
+Get:2 http://deb.debian.org/debian trixie/main arm64 tmux arm64 3.5a-3 [455 kB]
+Fetched 671 kB in 0s (2,046 kB/s)
+Selecting previously unselected package libjemalloc2:arm64.
+(Reading database ... 170244 files and directories currently installed.)
+Preparing to unpack .../libjemalloc2_5.3.0-3_arm64.deb ...
+Unpacking libjemalloc2:arm64 (5.3.0-3) ...
+Selecting previously unselected package tmux.
+Preparing to unpack .../archives/tmux_3.5a-3_arm64.deb ...
+Unpacking tmux (3.5a-3) ...
+Setting up libjemalloc2:arm64 (5.3.0-3) ...
+Setting up tmux (3.5a-3) ...
+Processing triggers for man-db (2.13.1-1) ...
+Processing triggers for debianutils (5.23.2) ...
+Processing triggers for libc-bin (2.41-12+rpt1+deb13u3) ...
+tmux 3.5a
+Connection to hs-dev-1 closed.
+
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/homesynapse-core (main)
+$ ssh pi 'bash -s' < $S/T0.sh > $D/T0.txt 2>&1; tail -4 $D/T0.txt
+== carrier md5 a239bd60b40a (a239bd60b40a on 09-23) · live-basis IDENTICAL
+== tmux: /usr/bin/tmux
+entities rows 6 devices 6
+T0-END
+
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/homesynapse-core (main)
+$ grep -E '== nightly|BACKUP|backup|adopt_devices|carrier|== tmux' $D/T0.txt
+     3  adopt_devices:
+BACKUP WRITTEN: /home/homesynapse/hs-bench/config/integrations/zigbee.yaml.pre-adopt-2026-09-24
+backup == live
+keys: ['adopt_devices', 'channel', 'serial_port'] · adopt_devices: 6 · permit_join_duration: None
+== nightly: 2026-09-25 quiesced AUTO floor: 8/9 PASS · 1 SKIP(hue-online) · fleet: 6/6 · re-seen 6 · bench-hero RESTORED ✓ · ON-latency 0.11s
+== carrier md5 a239bd60b40a (a239bd60b40a on 09-23) · live-basis IDENTICAL
+== tmux: /usr/bin/tmux
+
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/homesynapse-core (main)
+$ ssh pi 'bash -s' < $S/T1.sh > $D/T1.txt 2>&1; tail -3 $D/T1.txt; grep -q T1-END $D/T1.txt && ssh pi 'timeout 240 tail -n +1 -F ~/hs-bench/current.log | grep --line-buffered -E "permit_join_opened|device_proposed|interview_"'
+--- failure tokens ---
+== 21:00:39.701 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.permit_join_opened: duration=254s
+T1-END
+21:00:39.701 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.permit_join_opened: duration=254s
+21:01:01.051 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0xACEBE6FFFEF733DC manufacturer=Shelly model=Plug US profile=null status=COMPLETE source=announce
+21:02:21.220 [integration-zigbee-0] WARN  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.interview_failed: device=0x4CE175B4C0700000: Interview for device 0x4CE175B4C0700000 gathered no endpoint metadata (failed step: ACTIVE_ENDPOINTS); retry and sleepy resume are the pending-interview queue's
+21:02:21.610 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0x4CE175B4C0700000 manufacturer=Third Reality, Inc model=3RSP02064Z profile=null status=COMPLETE source=announce
+21:02:44.967 [integration-zigbee-0] WARN  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.interview_failed: device=0x4CE175B4C0700000: Interview for device 0x4CE175B4C0700000 gathered no endpoint metadata (failed step: ACTIVE_ENDPOINTS); retry and sleepy resume are the pending-interview queue's
+21:02:45.359 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0x4CE175B4C0700000 manufacturer=Third Reality, Inc model=3RSP02064Z profile=null status=COMPLETE source=announce
+21:03:14.196 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0xACEBE6FFFEF25A2C manufacturer=Shelly model=Plug US profile=null status=COMPLETE source=announce
+
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/homesynapse-core (main)
+$ ssh pi 'bash -s' < $S/T2.sh > $D/T2.txt 2>&1; grep -E 'PROPOSED|NOTE|ADOPT|STOP|Error|T2-END' $D/T2.txt; grep -q T2-END $D/T2.txt && ssh pi 'timeout 240 tail -n +1 -F ~/hs-bench/current.log | grep --line-buffered -E "proposal_accepted|device_adopted|proposal_incomplete|interview_|metering_formatting_read|reporting_configured"'
+PROPOSED 0xACEBE6FFFEF733DC | manufacturer= Shelly | model= Plug US | status= COMPLETE
+PROPOSED 0x4CE175B4C0700000 | manufacturer= Third Reality, Inc | model= 3RSP02064Z | status= COMPLETE
+PROPOSED 0xACEBE6FFFEF25A2C | manufacturer= Shelly | model= Plug US | status= COMPLETE
+ADOPT LIST WRITTEN: 6 + 3
+T2-END
+21:10:33.609 [integration-zigbee-0] WARN  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.interview_failed: device=0x4CE175B4C0700000: Interview for device 0x4CE175B4C0700000 gathered no endpoint metadata (failed step: ACTIVE_ENDPOINTS); retry and sleepy resume are the pending-interview queue's
+21:10:34.002 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.proposal_accepted: device=0x4CE175B4C0700000 source=config
+21:10:34.083 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0x4CE175B4C0700000 deviceId=01M3DM74RKEQ9H05PAATBMW2MW entities=1
+21:10:34.237 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0x4CE175B4C0700000 endpoint=1 cluster=0xb04 source=device mult=1 div=10 voltage=1/10 current=1/1000
+21:10:34.238 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0x4CE175B4C0700000 endpoint=1 cluster=0x702 source=device mult=1 div=1000 unit=0x0
+21:10:35.302 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.reporting_configured: device=0x4CE175B4C0700000 clusters=3 verified=3 degraded=0
+
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/homesynapse-core (main)
+$ ssh pi 'bash -s' < $S/T3.sh > $D/T3.txt 2>&1; scp -rq pi:thu0924 $D/pi-capture; tail -5 $D/T3.txt; ls $D/pi-capture | wc -l
+--- failure tokens ---
+== adopted lines: 1 · devices=7 entities=7 · proposals at the closed boot: 0
+entities rows 7 devices 7
+== Bearer in the capture: 0
+T3-END
+9

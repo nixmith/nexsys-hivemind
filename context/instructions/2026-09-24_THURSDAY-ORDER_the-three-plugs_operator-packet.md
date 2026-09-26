@@ -3,7 +3,7 @@ file: context/instructions/2026-09-24_THURSDAY-ORDER_the-three-plugs_operator-pa
 purpose: THE THURSDAY ORDER (the v76 b7 audit §0) cut as one-command cards through THE PRIOR-LEDGER GATE, at the bytes of the Pi as read 2026-09-23T12:08:46Z. Half 1 (T-A → T3: the Gen4s into Zigbee, the pre-read, the pairing window, the adoption, the capture) is cut here, whole; Half 2 (T4 → T8: the constants re-mint, the pull, boot-health, the scenario in tmux, the capture) is cut by the hub at the re-mint beat from T3's capture, because its values are read after the adoption, never predicted.
 audience: Nick (at the rig; §1 then the cards in order) · the hub (the re-mint beat reads §3 and the capture)
 state-type: operator packet (hardware session — exclusive; one card at a time)
-status: DISPATCH-READY v79 beat 3 (Wed 2026-09-23 ~07:2x CT; instrument 2026-09-23T12:21:57Z). The scripts: `context/instructions/2026-09-24_THURSDAY-ORDER_scripts/T0.sh · T1.sh · T2.sh · T3.sh` (each self-tested against a mock rig before filing: the write paths, the STOP paths, both list styles).
+status: EXECUTED — Half 1 run Fri 2026-09-25 (20:00–20:15 CT; 1 of 3 adopted) + T2b (both Gen4 adopted by "Start pairing"); Half 2 T4–T6 EXECUTED (bench `a45686f` · `df4a2d7`); T7–T8 SUPERSEDED by v81's METER-2 re-cut (v80 b4, 2026-09-26T03:40:57Z). Was: DISPATCH-READY v79 beat 3 (Wed 2026-09-23 ~07:2x CT; instrument 2026-09-23T12:21:57Z).
 -->
 
 # THE THURSDAY ORDER — the three plugs (Thu 2026-09-24)

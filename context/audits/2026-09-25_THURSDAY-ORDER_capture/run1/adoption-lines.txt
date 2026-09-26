@@ -1,0 +1,8 @@
+21:10:33.609 [integration-zigbee-0] WARN  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.interview_failed: device=0x4CE175B4C0700000: Interview for device 0x4CE175B4C0700000 gathered no endpoint metadata (failed step: ACTIVE_ENDPOINTS); retry and sleepy resume are the pending-interview queue's
+21:10:34.002 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.proposal_accepted: device=0x4CE175B4C0700000 source=config
+21:10:34.031 [integration-zigbee-0] INFO  c.h.i.zigbee.EndpointClassifier -- zigbee.endpoint_classified: endpoint=1 deviceType=0x51 inputClusters=[0x0, 0x3, 0x4, 0x5, 0x6, 0x702, 0xb04, 0xff03] entityType=SWITCH capabilities=[on_off, power_meter, energy_meter, identify]
+21:10:34.032 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.endpoint_classified: device=0x4CE175B4C0700000 endpoint=1 entityType=SWITCH capabilities=[on_off, power_meter, energy_meter, identify]
+21:10:34.083 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0x4CE175B4C0700000 deviceId=01M3DM74RKEQ9H05PAATBMW2MW entities=1
+21:10:34.237 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0x4CE175B4C0700000 endpoint=1 cluster=0xb04 source=device mult=1 div=10 voltage=1/10 current=1/1000
+21:10:34.238 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0x4CE175B4C0700000 endpoint=1 cluster=0x702 source=device mult=1 div=1000 unit=0x0
+21:10:35.302 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.reporting_configured: device=0x4CE175B4C0700000 clusters=3 verified=3 degraded=0

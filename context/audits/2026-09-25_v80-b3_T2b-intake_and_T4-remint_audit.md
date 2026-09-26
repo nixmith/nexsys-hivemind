@@ -1,0 +1,24 @@
+<!--
+file: context/audits/2026-09-25_v80-b3_T2b-intake_and_T4-remint_audit.md
+purpose: THE RE-MINT BEAT — T2b intaken at the bytes of `pi-capture-2` (the two Shelly Gen4 adopted by "Start pairing" from their own web pages; the fleet 9/9; the window closed; Bearer 0), the mechanism corrected (a lost membership — the Gen4's UI read "steering" — not a silent resume), and T4 the constants re-mint written to the bench working tree from the capture's own reads; Half 2 (T4 → T8) cut. The capture filed at `context/audits/2026-09-25_THURSDAY-ORDER_capture/run2/` with Nick's console transcript.
+audience: the v80 hub (T6's wire pin; T8's intake) · Nick (§0) · the Coder (IR-56's corrected mechanism) · the v81 hub
+state-type: audit (two-layer; a rig session's intake + a re-mint)
+status: FILED v80 beat 3 (Fri 2026-09-25 ~21:0x CT; instrument 2026-09-26T02:04:19Z).
+-->
+
+# T2b intaken; T4 re-minted (two-layer audit)
+
+## §0 Card
+**Verdict.** T2b landed on the second window (opened 21:50:24 on the Pi's wall-clock — EDT, = 01:50:24Z Sat 09-26; every stamp below is that clock): G4-1 joined 21:50:35 (`UNSECURED_JOIN` → announce → proposed COMPLETE → `proposal_accepted source=config` → `device_adopted deviceId=01M3DPGF69FPJ6DVZCBJQMMYEA entities=1` → formatting 0x0B04 div=1 · 0x0702 div=1000000 → `reporting_configured 3/3` → `key_established`); G4-2 the same chain from 21:52:17 (`01M3DPKN9SX4K6D7D1PKDP17S3`). T3b: `WINDOW KEY REMOVED · adopt_devices 9` · `adopted lines: 2 · devices=9 entities=9 · proposals 0` · `entities rows 9 devices 9` · `Bearer 0` · 12 files. **The mechanism, corrected:** the Gen4's own Zigbee page read `Connection status: steering` before the act — the plug was NOT on the network after the T2 restart; "Start pairing" is a fresh network steering (the join the adoption path needs). The b2 phrase "silent resume" is retired; IR-56's instrument stands (a cached, listed, un-adopted device is re-proposed only on a join/announce). Nick's own observation: the UI flips joined → steering → joined, and the log lines land at the flip back. **T4:** the re-mint written by `_scratch/v80/v80b3_constants_remint_a.py` (dry-run, then --write): fleet 6 → 9 · remembered-ulids + 3 · `metering.plug-entity` g4-1 `01M3DPGF6Y4YXNXDHBW38ZEX2G` · tr3 `01M3DM74SGEY7RXVDYSM4PK2XA` · g4-2 `01M3DPKN9WD9B88Q4SVDMSBJVS` · `metering-plug: true` · provenance untouched (the b7 audit F-4); constants.yaml 33,973 → 34,974 B, md5 `d9eb0efd5f96`; every other key asserted equal before and after. **Half 2 cut:** `context/instructions/2026-09-25_THURSDAY-ORDER_Half-2_T4-T8_operator-card.md`.
+
+## §1 Layer 2 — the hub at the bytes
+Re-executed: `pi-capture-2/adoption-lines.txt` and the six boot logs grepped for `device_adopted` → three devices, one deviceId each (asserted inside the re-mint splice); `entities-post.json` 9 rows / 9 devices, the deviceId → entityId map (the three plug entities as minted); `labels.txt` = the three IEEEs by label; the old `remembered-ulids` (six) = the other six entities' ULIDs exactly; the divisors read from the `metering_formatting_read` lines (Gen4 0x0B04 div 1 — the band's assumed widest step; TR3 div 10). Not re-executed: the Gen4's web-page states (Nick's word + his screenshots of the Zigbee page: `Connection status: steering`, the buttons "Start pairing" · "Clear config", the "Reset Zigbee Network?" dialog, the device-level "Factory reset" — not pressed).
+
+## §2 What T6 must pin before T7
+The scenario's field `data.attributes.power_w.value` is marked WIRE PIN PENDING (`metering-known-load.yaml` :247); T6's `bench.sh state <tr3>` read is the pin — the hub reads the JSON and says `T6: pinned`, or edits the scenario's nine field lines and hands a one-line bench card first (A FROZEN LOG TOKEN IS A PIN; no edit at the rig).
+
+## §3 Carried
+- **Erratum (b4):** the bench's constants comments stamp the adoptions `2026-09-25T21:50:36Z` / `T21:10:34Z` / `T21:52:21Z` — those are the Pi's wall-clock (EDT) readings, not UTC (= 2026-09-26T01:50:36Z / 2026-09-26T01:10:34Z / 2026-09-26T01:52:21Z); corrected at the provenance re-mint (one bench commit, after the CHAR). The app log is local time-only (`bundles.py` :26); the API's `meta.timestamp` is UTC — the pair at T6 (`22:06:56` beside `02:06:56Z`) is the instrument.
+- The provenance block does not declare the three plug entities (F-4 kept it untouched); a later re-mint adds the three `metering.plug-entity.*` paths under `provenance.ulids` with `card: hs-dev-1` (SD-A6) — one row, after the CHAR.
+- The DEVICE-SET row for the TR3 ("divisors unknown") and the Gen4 ("∈ {1, 100}") are now measured: TR3 10 / 1000; Gen4 1 / 1000000 — the DEVICE-SET return's P-rows updated at the K-refresh.
+- Saturday's nightly: with T4 + T5 landed tonight it reads 9/9 (`re-seen 9`); without them, RED on boot-health as pre-registered (D-v80-11).

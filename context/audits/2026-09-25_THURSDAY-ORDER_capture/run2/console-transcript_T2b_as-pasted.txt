@@ -1,0 +1,34 @@
+# Nick's console transcript for T2b + T3b, as pasted into the v80 hub chat (Fri 2026-09-25); filed verbatim by the hub at v80 beat 3. His words with it: "When I clicked "Start pairing" button for each device in the browser the `Connection status: joined` changed to `Connection status: steering` while searching. Immediately upon going back to `Connection status: joined` the command line results would update." (An earlier first window, 21:30:43Z, showed only the SNZB-02P's SECURED_REJOIN; the screenshots he sent: the Zigbee page "Connection status: steering" with "Start pairing" · "Clear config"; the Settings page; the "Factory Reset" dialog (not pressed); the "Reset Zigbee Network?" dialog (not pressed).)
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/homesynapse-core (main)
+$ ssh pi 'bash -s' < $S/T1b.sh > $D/T1b.txt 2>&1; tail -3 $D/T1b.txt; grep -q T1b-END $D/T1b.txt && ssh pi 'timeout 240 tail -n +1 -F ~/hs-bench/current.log | grep --line-buffered -E "permit_join_opened|device_join|device_announce|device_proposed|proposal_accepted|proposal_incomplete|device_adopted|interview_|key_establish|metering_formatting_read|reporting_configured"'
+--- failure tokens ---
+== 21:50:24.465 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.permit_join_opened: duration=254s
+T1b-END
+21:50:24.465 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.permit_join_opened: duration=254s
+21:50:35.484 [integration-zigbee-0] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.device_join: device=0xACEBE6FFFEF733DC nwk=0xb8c4 status=UNSECURED_JOIN decision=USE_PRECONFIGURED_KEY
+21:50:36.112 [integration-zigbee-0] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.device_announce: device=0xACEBE6FFFEF733DC nwk=0xb8c4
+21:50:36.743 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0xACEBE6FFFEF733DC manufacturer=Shelly model=Plug US profile=null status=COMPLETE source=announce
+21:50:36.744 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.proposal_accepted: device=0xACEBE6FFFEF733DC source=config
+21:50:36.821 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0xACEBE6FFFEF733DC deviceId=01M3DPGF69FPJ6DVZCBJQMMYEA entities=1
+21:50:36.959 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0xACEBE6FFFEF733DC endpoint=1 cluster=0xb04 source=device mult=1 div=1 voltage=1/100 current=1/1000
+21:50:36.959 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0xACEBE6FFFEF733DC endpoint=1 cluster=0x702 source=device mult=1 div=1000000 unit=0x0
+21:50:38.069 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.reporting_configured: device=0xACEBE6FFFEF733DC clusters=3 verified=3 degraded=0
+21:50:38.175 [integration-zigbee-0] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.key_established: device=0xACEBE6FFFEF733DC status=TC_REQUESTER_VERIFY_KEY_SUCCESS
+21:52:17.794 [integration-zigbee-0] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.device_join: device=0xACEBE6FFFEF25A2C nwk=0x362f status=UNSECURED_JOIN decision=USE_PRECONFIGURED_KEY
+21:52:18.435 [integration-zigbee-0] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.device_announce: device=0xACEBE6FFFEF25A2C nwk=0x362f
+21:52:21.304 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_proposed: device=0xACEBE6FFFEF25A2C manufacturer=Shelly model=Plug US profile=null status=COMPLETE source=announce
+21:52:21.305 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.proposal_accepted: device=0xACEBE6FFFEF25A2C source=config
+21:52:21.391 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0xACEBE6FFFEF25A2C deviceId=01M3DPKN9SX4K6D7D1PKDP17S3 entities=1
+21:52:21.930 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0xACEBE6FFFEF25A2C endpoint=1 cluster=0xb04 source=device mult=1 div=1 voltage=1/100 current=1/1000
+21:52:21.930 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0xACEBE6FFFEF25A2C endpoint=1 cluster=0x702 source=device mult=1 div=1000000 unit=0x0
+21:52:25.715 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.reporting_configured: device=0xACEBE6FFFEF25A2C clusters=3 verified=3 degraded=0
+21:52:25.760 [integration-zigbee-0] INFO  c.h.i.zigbee.ZclIngestionUnit -- zigbee.key_established: device=0xACEBE6FFFEF25A2C status=TC_REQUESTER_VERIFY_KEY_SUCCESS
+
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/homesynapse-core (main)
+$ ssh pi 'bash -s' < $S/T3.sh > $D/T3b.txt 2>&1; scp -rq pi:thu0924 $D/pi-capture-2; tail -5 $D/T3b.txt; ls $D/pi-capture-2 | wc -l
+--- failure tokens ---
+== adopted lines: 2 · devices=9 entities=9 · proposals at the closed boot: 0
+entities rows 9 devices 9
+== Bearer in the capture: 0
+T3-END
+12

@@ -1,0 +1,44 @@
+<!--
+file: context/audits/2026-09-25_v80-b2_laneC_C-S0-7a_intake_digest.md
+purpose: Lane C's return, VERBATIM — the two-layer intake of the C-S0-7a research return (`context/research/2026-09-23_C-S0-7a_return.md`) by a read-only in-conversation lane (D12): the charter's demands vs the return, the tag census counted by grep, the in-repo premises re-executed at source, the word's basis, the "what changes" line, the instrument limit. The hub's layer-2 re-executions and the ruling are in `context/audits/2026-09-25_v80-b2_C-S0-7a_intake_audit.md`; nothing here is a ruling.
+audience: the v80 hub · the research layer's next opener (C-S0-1) · the v81 hub
+state-type: lane digest (evidence; read-only lane)
+status: FILED v80 beat 2 (Fri 2026-09-25 ~20:2x CT; instrument 2026-09-26T01:29:59Z). Lane: in-conversation, read-only, ≈83K tokens, 10 tool calls.
+-->
+
+# Lane C — the C-S0-7a intake (verbatim return)
+
+C-S0-7a RETURN — two-layer intake (read-only). R = nexsys-hivemind/context/research/2026-09-23_C-S0-7a_return.md (71 lines, 10,239 B, git status `??` untracked, mode -rwx------). O = _scratch/v79/2026-09-23_C-S0-7a_OPENER_paste_re-derived.md. H = …/2026-09-21_RESEARCH-PROJECT_FINAL-HANDOVER_return.md. S = homesynapse-core/core/persistence/src/main/java/com/homesynapse/persistence/SqliteEventStore.java (core HEAD d22a8a4 = opener state).
+
+1. SHAPE. Charter (O:L86): "return cap 10 KB; K-12 shape, §0 card first, two lines per source, every dated fact with its URL and access date, every finding with its refutable-by, the census by tier"; Must-output (1)–(7) at O:L96; no identity string (O:L7, O:L90); "chain-ready, never hash-chained, and this return uses those words" (O:L5). H:L17 confirms `ANCHOR: yes` executes only after 7a returns and ANCHOR-ID is ruled; H:L59 Research OFF for 7a.
+- Cap: 10,239 B (wc; R:L71 self-reports 10239). = 10 KiB − 1 B. MEETS (binary KB); over by 239 B if 10 KB means 10,000.
+- §0-first: R:L12 `## §0 Card` directly after title R:L10. MEETS.
+- Instrument-limit line: R:L13 (state line, "no repo access", 17 pages fetched, could-not-read list). MEETS.
+- Tag vocabulary: used only in §0 (R:L15–16) and once in body (R:L21 [INFERRED]); NOTE at R:L24, R:L68. Census not derivable — GAP (see 2).
+- Two lines per source: §7 table R:L54–61 = 6 source rows × (crosswalk | refutable-by), vs "17 primary pages/files" (R:L13) and ~17 items in §9 R:L67. PARTIAL — sources are grouped ("TUF targets + live checkpoint", "cosign v3.1.3 docs/CHANGELOG").
+- URL + access date per dated fact: only 3 literal URLs (R:L32, L34, L51); §9 gives bare hosts/paths and a blanket "fetched 2026-09-24 UTC" (R:L66–67); dated facts (2026-06-28 R:L16; 2025-10-10 R:L56; 2026-09-19 R:L61) carry a source name, not a URL. PARTIAL.
+- Refutable-by: per-source column R:L54–61; rec R:L42; §6 "Flip:" R:L51. Top findings R:L16 carry none inline. MEETS via §7.
+- Must-output (1)–(7): §1 R:L21 · §2 R:L24–37 (tool versions R:L24) · §3 R:L40–42 · §4 R:L45 · §5 R:L48 · §6 R:L51 (URL + date) · §7/census R:L53–61, L15. MEETS.
+- Identity string: none (grep `@`/OIDC → R:L32 `@anchor.tsq`, R:L41 "OIDC identity (email or CI path)" as a kind). MEETS.
+- "chain-ready"/"hash-chained": neither word appears in R (grep). R:L14 says "Chain = zero vector at HEAD". Minor GAP against O:L5; no over-claim.
+- Crosswalk: §7 R:L53–61 + §8 R:L63–64. MEETS.
+
+2. INTERNAL CONSISTENCY. Census R:L15: "17 [VERIFIED] · 0 [REPORTED] · 1 [VERIFIED-by-absence] · 4 [INFERRED] · 1 NOTE". Grep, whole file: [VERIFIED] 4 (L15 census + 3 in L16), [VERIFIED-by-absence] 2 (L15 + L16), [INFERRED] 2 (L15 + L21), [REPORTED] 1 (L15 only), "[VERIFIED docs; offline-after-freeze INFERRED]" 1 (L16), NOTE 3 (L15, L24, L68 — L24/L68 are one item, openssl ts syntax). Body only (L20–71): [VERIFIED] 0 · [REPORTED] 0 · [VERIFIED-by-absence] 0 · [INFERRED] 1 · NOTE 2 (1 distinct). MISMATCH: 17 [VERIFIED] is not reproducible; "17" equals the fetched-page count at R:L13, i.e. a source census, not a claim-tag census; [INFERRED] 4 vs 2 findable.
+Top findings (R:L16) → body → §9: (1) v2 in prod at log2025-1 / witnesses / v1 default: §2 R:L34,L36, §6 R:L51, §8 R:L64; §9 R:L67 (rekor-evolution, checkpoint). "three" cosignatures appears only in §0. (2) no 2026 shard: §6 R:L51; §9 R:L69 absence searches. (3) integrated_time 0 / RFC3161 / TSA to 2035-04-06: §2 R:L36–37, §7 R:L56; §9 R:L67 CLIENTS.md, docs/timestamps. (4) cosign v3.1.3 file trust root: §2 R:L29,L37(3), §7 R:L60; §9 R:L67. (5) DigiCert second operator: §2 R:L32–33,L37, §7 R:L61; §9 R:L67 INFO4231. All five anchored. MEETS.
+
+3. IN-REPO PREMISES. S:L146–148: "chain-coverage tamper-evidence stays inert until chain activation ({@code chain_hash} is the 32-byte ZERO vector today, Doc 15 §2.3)"; S:L153–156 javadoc "32-byte zero vector for the {@code chain_hash} column (AMD-37) … deferred to the crypto milestone"; S:L157 `private static final byte[] ZERO_HASH = new byte[32];`; S:L507 `ps.setBytes(24, ZERO_HASH); // chain_hash (AMD-37)`. → "Chain = zero vector at HEAD" CONFIRMED at source. "HASH-1 ≠ the chain": `HASH-1|DefinitionHashes|definitionKey` → 0 hits in S. That half is sourced by the companion from context/instructions/2026-09-15_coder-lane_DUR-1_and_HASH-1_…coding-instruction.md L3 ("(HASH-1) the eight definition records … DefinitionHashes"; O:L79–82); file exists in hivemind. MISMATCH (cite only): R:L14 attributes both halves to SqliteEventStore; premise holds.
+`rev-parse --show-object-format`: homesynapse-core sha1 (d22a8a4) · homesynapse-core-docs sha1 (7221ddc) · nexsys-hivemind sha1 (HEAD now 6f9416b — moved from opener's 7025ec0, "v80 beat 1") · nexsys-skills sha1 (180375f) · nexsys-bench sha1 (fa01cad). CONFIRMED.
+
+4. THE WORD. R:L40: "**key** — a company-held key (`cosign generate-key-pair`, or a hardware token via `--sk`). Cost: one secret; a lost key ends the series, never a past anchor. Buys: the entry carries a bare public key — "a public key is not a name" (K-13 S0) — and existence-at-T never depends on who signed." R:L41: "**keyless** — a Fulcio certificate bound to an OIDC identity … Cost: an identity string published forever, touching the no-public-name fence; verification adds CA-chain and CT-key windows. Buys: no key custody." R:L42: "**Rec: key.** Refutable-by: step (3) failing offline with the persisted trusted root — the ruling then reopens." Premise: the no-public-name fence is the charter's own (O:L7, O:L88), untagged; the executability premise is finding 4 (R:L16) "[VERIFIED docs; offline-after-freeze INFERRED]" — the rec's refutable-by rests on the INFERRED half.
+
+5. WHAT CHANGES (R:L17). §7 R:L53–61 = 6 rows; §8 R:L63–64 = 1 line; 6+1 = 7. MEETS on that count. Paper: R names no file for P-06/P-09 (grep `K-05` in R → 0). Hivemind: `git grep P-06` → 3 files (audits/2026-09-21_v78-b4…L33; research/2026-09-21_RD-PROGRAM-AUDIT_return.md L33,45,49,53); `git grep P-09` → 2 files (RD-PROGRAM-AUDIT L33,49,63,100,166) — references only. The paper is K-05_problem-register_2026-09-20.md (named H:L185, knowledge-check-Q1 L76), a Project knowledge file: NOT FOUND in repo (two grep forms: `git ls-files | grep -i 'K-05\|K05\|paper'` → 0; `git grep -l K-05` → 8 referencing files, none the file). GAP: edit target is outside the repo and unnamed. `context/anchor/` (R:L45) does not exist yet — expected, no act performed.
+
+6. INSTRUMENT LIMIT. R:L13: "Could not read: the shard-freeze playbook (redirect target 404s); git-archive stability." R:L68: "UNVERIFIED: the sharding playbook; `openssl ts` syntax (NOTE); git-archive byte stability." Body claims resting on unread sources: (a) R:L21 git-archive byte instability — tagged [INFERRED], fine. (b) R:L37 step (3) offline verification after freeze and R:L48 "Shard rotation: no re-anchoring; persist a fresh trusted_root.json so the frozen shard's key and end window are in the folder" — rests on freeze behaviour (playbook unread); tagged INFERRED only inside §0 finding 4, untagged in §2/§5. FLAG. (c) R:L31,L33 `openssl ts` lines — NOTE'd at R:L24. (d) R:L51 "frozen shortly after a new one" — from the GA post (read). OK.
+
+HUB VERDICT INPUTS
+- Body tags (L20–71): [VERIFIED] 0 · [REPORTED] 0 · [VERIFIED-by-absence] 0 · [INFERRED] 1 · NOTE 1 distinct; §0 L16 adds 3 [VERIFIED], 1 by-absence, 1 mixed. Census L15 claims 17/0/1/4/1 — not derivable; 17 = pages fetched (L13).
+- R:L14 cite misattributed: SqliteEventStore :147–157/:507 prove the zero-vector chain only; "HASH-1 ≠ the chain" lives in the DUR-1+HASH-1 instruction L3.
+- sha1 on all five repos re-executed: CONFIRMED; hivemind HEAD is 6f9416b, not the opener's 7025ec0.
+- 10,239 B = 10 KiB − 1; self-reported size matches; file is untracked (`??`).
+- "paper: P-06/P-09" names no file; K-05_problem-register_2026-09-20.md is not in any repo.
+- Rec `key` refutable-by rests on finding 4's INFERRED half (offline-after-freeze); playbook unread; §5 L48 rotation rule untagged.

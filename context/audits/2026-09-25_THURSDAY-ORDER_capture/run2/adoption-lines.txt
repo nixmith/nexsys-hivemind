@@ -1,0 +1,16 @@
+21:50:36.744 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.proposal_accepted: device=0xACEBE6FFFEF733DC source=config
+21:50:36.765 [integration-zigbee-0] INFO  c.h.i.zigbee.EndpointClassifier -- zigbee.endpoint_classified: endpoint=1 deviceType=0x10a inputClusters=[0x0, 0x3, 0x4, 0x5, 0x6, 0xb04, 0x702, 0xfc21] entityType=SWITCH capabilities=[on_off, power_meter, energy_meter, identify]
+21:50:36.766 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.endpoint_classified: device=0xACEBE6FFFEF733DC endpoint=1 entityType=SWITCH capabilities=[on_off, power_meter, energy_meter, identify]
+21:50:36.806 [integration-zigbee-0] INFO  c.h.i.zigbee.EndpointClassifier -- zigbee.endpoint_classified: endpoint=239 deviceType=0x2001 inputClusters=[0xfc01, 0xfc02] entityType=none capabilities=[]
+21:50:36.821 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0xACEBE6FFFEF733DC deviceId=01M3DPGF69FPJ6DVZCBJQMMYEA entities=1
+21:50:36.959 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0xACEBE6FFFEF733DC endpoint=1 cluster=0xb04 source=device mult=1 div=1 voltage=1/100 current=1/1000
+21:50:36.959 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0xACEBE6FFFEF733DC endpoint=1 cluster=0x702 source=device mult=1 div=1000000 unit=0x0
+21:50:38.069 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.reporting_configured: device=0xACEBE6FFFEF733DC clusters=3 verified=3 degraded=0
+21:52:21.305 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.proposal_accepted: device=0xACEBE6FFFEF25A2C source=config
+21:52:21.308 [integration-zigbee-0] INFO  c.h.i.zigbee.EndpointClassifier -- zigbee.endpoint_classified: endpoint=1 deviceType=0x10a inputClusters=[0x0, 0x3, 0x4, 0x5, 0x6, 0xb04, 0x702, 0xfc21] entityType=SWITCH capabilities=[on_off, power_meter, energy_meter, identify]
+21:52:21.308 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.endpoint_classified: device=0xACEBE6FFFEF25A2C endpoint=1 entityType=SWITCH capabilities=[on_off, power_meter, energy_meter, identify]
+21:52:21.387 [integration-zigbee-0] INFO  c.h.i.zigbee.EndpointClassifier -- zigbee.endpoint_classified: endpoint=239 deviceType=0x2001 inputClusters=[0xfc01, 0xfc02] entityType=none capabilities=[]
+21:52:21.391 [integration-zigbee-0] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_adopted: device=0xACEBE6FFFEF25A2C deviceId=01M3DPKN9SX4K6D7D1PKDP17S3 entities=1
+21:52:21.930 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0xACEBE6FFFEF25A2C endpoint=1 cluster=0xb04 source=device mult=1 div=1 voltage=1/100 current=1/1000
+21:52:21.930 [integration-zigbee-0] INFO  c.h.i.zigbee.ReportingConfigurator -- zigbee.metering_formatting_read: device=0xACEBE6FFFEF25A2C endpoint=1 cluster=0x702 source=device mult=1 div=1000000 unit=0x0
+21:52:25.715 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.reporting_configured: device=0xACEBE6FFFEF25A2C clusters=3 verified=3 degraded=0

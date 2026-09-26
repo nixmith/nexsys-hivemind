@@ -1,0 +1,25 @@
+<!--
+file: context/audits/2026-09-25_v80-b2_C-S0-7a_intake_audit.md
+purpose: THE C-S0-7a INTAKE (two-layer): the research return `context/research/2026-09-23_C-S0-7a_return.md` (anchoring the digest manifest in a public transparency log — Sigstore Rekor; the word `ANCHOR-ID: key | keyless`) audited by Lane C (read-only; its digest filed beside this audit) and re-executed by the hub at the bytes; the ruling; the register rows minted; the word placed on the desk.
+audience: the v80 hub · Nick (§0 and §3) · the research layer (C-S0-1's opener reads §2) · the v81 hub
+state-type: audit (two-layer; a lane return's intake)
+status: FILED v80 beat 2 (Fri 2026-09-25 ~20:2x CT; instrument 2026-09-26T01:29:59Z). The return staged on this beat's card (its audit is this file).
+-->
+
+# C-S0-7a — the intake (two-layer audit)
+
+## §0 Card
+**Ruling: ACCEPT-WITH-NOTES.** The return meets its charter's shape (§0 first; the seven must-outputs; the crosswalk; no identity string; 10,239 B = 10 KiB − 1) and its five top findings are each anchored in the body and sourced in §9. Three notes, none blocking: (1) the §0 census ("17 [VERIFIED] · 0 · 1 · 4 · 1") is not derivable from the body's tags — the body carries one [INFERRED] and one NOTE; "17" is the count of pages fetched (R:L13), a source census written where a claim census belongs; (2) the cite at R:L14 attributes both halves of "Chain = zero vector at HEAD; HASH-1 ≠ the chain" to `SqliteEventStore` :147–157/:507 — those lines prove the zero-vector chain only (`ZERO_HASH`, `chain_hash (AMD-37)`); the HASH-1 half lives in the DUR-1 + HASH-1 instruction; the premise holds, the cite is half-wrong; (3) the "paper: P-06 · P-09" edits name a Project knowledge file (K-05) that lives outside every repo — an act for the K-refresh (Sunday), not for the record. **What changes:** none in the bench, none in the claim register (the return's own line). **The word:** `ANCHOR-ID: key | keyless` — REC `key` (the return's §3; the hub agrees on the fence: a keyless entry publishes an identity string forever, which touches the no-public-name fence; a key publishes a bare public key). Not gating any act this window: `ANCHOR: yes` executes only after the word (the handover :17). On the desk.
+**Two register rows minted:** IR-54 (a research return's census is counted from its body's tags by grep, never written from the source count) · IR-55 (a compound premise's cite names the file that holds each half).
+
+## §1 Layer 1 — Lane C (the digest beside this audit; 6 items)
+Shape MEETS on 8 of 10 demands, PARTIAL on two (two lines per source — the sources grouped; URL + access date — three literal URLs, the rest as hosts with a blanket fetch date). Consistency: the census MISMATCH; the five findings anchored. In-repo premises: the zero-vector chain CONFIRMED at source; the HASH-1 half sourced from the instruction, not the class; sha1 on all five repos CONFIRMED. The word's basis quoted (R:L40–42); its refutable-by rests on finding 4's INFERRED half (offline verification after a shard freeze — the freeze playbook unread). "What changes" MEETS on the 6 + 1 crosswalk count; the paper file outside the repo. Instrument limit disclosed (R:L13, R:L68); one untagged body claim resting on the unread playbook (R:L48, the rotation rule) — FLAGGED.
+
+## §2 Layer 2 — the hub at the bytes
+Re-executed: R:L14–15 read (the premise line and the census line as quoted); the tag counts by grep — whole file [VERIFIED] 4 · by-absence 2 · [INFERRED] 2 · [REPORTED] 1; body L20–71 [VERIFIED] 0 · [INFERRED] 1 — the lane's counts hold; `SqliteEventStore.java` :157 `private static final byte[] ZERO_HASH = new byte[32];` and :507 `ps.setBytes(24, ZERO_HASH); // chain_hash (AMD-37)` — the zero-vector half holds at source; `HASH-1|DefinitionHashes` 0 hits in the class — the cite's second half is misattributed; R:L42 the rec and its refutable-by as quoted. Not re-executed: the 17 fetched pages (outside the repo; the lane did not fetch either — the return's own [VERIFIED] tags are the lane's word, taken at the shape); the opener's L86/L96 demands (the lane's read); the five repos' object format (the lane ran it; the hub's boot saw sha1 short hashes on all five).
+
+## §3 The ruling and what follows
+- ACCEPT-WITH-NOTES; the return staged as filed (no edit to a lane's return). The three notes ride with it: the census note and the cite note are the two register rows; the paper note goes to the K-refresh (Sunday, D-v80-5) as one of its edits.
+- `ANCHOR-ID: key|keyless` — REC `key`; on the desk; asked when `ANCHOR: yes` is next to execute (after the window; the research layer's order — the plan §23.5).
+- The flagged untagged claim (R:L48) is carried as the first item C-S0-1's opener re-reads if the anchor act is ever cut from it: the freeze behaviour is INFERRED until the playbook is read.
+- The lane's shape findings (grouped sources; hosts without full URLs) become one sentence in the next research opener's demands: "every §9 entry is a full URL; one row per fetched page".

@@ -1,0 +1,9 @@
+=== BP1 2026-09-27T17:42:45Z
+hs-dev-1
+before: f1c2f9a bench: METER-2 — the CHAR scenario's prompts re-cu
+porcelain=0
+Updating f1c2f9a..58b5b45
+Fast-forward
+after: 58b5b45 bench: METER-3 — the freshness VOID (fresh_within_
+bh2=3 fresh=1
+selftest: 38 check(s), 0 failure(s)

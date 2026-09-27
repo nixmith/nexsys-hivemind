@@ -3,7 +3,7 @@ file: context/handoff/2026-09-26_v81_dispatch-text.md
 purpose: THE v81 DISPATCH TEXT — the paste that opens the next hub window (Saturday 2026-09-26 → Monday 2026-09-28), cut at the v80 close (beat 4) on Nick's word of Friday night ("we need to come up with a better way of doing this — too many steps, too much that can go wrong"): THE SIMPLER WAY is written into this text as law, and v81's first act is the CHAR re-cut to the rig as it is.
 audience: Nick (pastes the fenced block whole into a FRESH Cowork conversation with ClaudeFolder connected — Saturday, before anything at the rig) · the v81 hub
 state-type: dispatch text
-status: LIVE — cut v80 beat 4 (Fri 2026-09-25 ~22:4x CT; instrument 2026-09-26T03:40:57Z).
+status: EXECUTED — the v81 window ran Sat 2026-09-26 08:36 → Sun 2026-09-27 (six beats; CLOSED Sun 2026-09-27 ~07:5x CT; instrument 2026-09-27T12:53:24Z); superseded by `context/handoff/2026-09-27_v82_dispatch-text.md`. Was: LIVE — cut v80 beat 4 (Fri 2026-09-25 ~22:4x CT; instrument 2026-09-26T03:40:57Z).
 -->
 
 # v81 — the dispatch text (paste whole)

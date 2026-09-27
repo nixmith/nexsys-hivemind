@@ -3,7 +3,7 @@ file: context/handoff/2026-09-27_v82_dispatch-text.md
 purpose: THE v82 DISPATCH TEXT — the paste that opens the next hub window (Sunday 2026-09-27 afternoon → Tuesday 2026-09-29), cut at the v81 close (beat 6, the context rule). v81 left the record with a metered fleet whose properties are measured, a strategy line (the bench attests its own posture), three lanes cut and not yet run (IR-18's coding instruction; METER-3's charter; REHEARSAL 1's packet — THE ONE DELIVERABLE, DISPATCH-READY), and BENCH-CORE-3 running or landed. v82's job is to LAND them: the returns intaken at the bytes, the cards to Nick's hands, the rehearsal sat on the day he names, and the company's Monday acts.
 audience: Nick (pastes the fenced block whole into a FRESH Cowork conversation with ClaudeFolder connected) · the v82 hub
 state-type: dispatch text
-status: LIVE — cut v81 beat 6 (Sun 2026-09-27 ~07:5x CT; instrument 2026-09-27T12:53:24Z).
+status: EXECUTED — the v82 window ran Sun 2026-09-27 09:50 → ~15:0x CT (four beats; CLOSED on the context rule); superseded by `context/handoff/2026-09-27_v83_dispatch-text.md`. Was: LIVE — cut v81 beat 6 (Sun 2026-09-27 ~07:5x CT; instrument 2026-09-27T12:53:24Z).
 -->
 
 # v82 — the dispatch text (paste whole)

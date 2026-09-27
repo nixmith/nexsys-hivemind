@@ -709,3 +709,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-27 (v82 beat 4b) — v82 b3, verbatim
 
 2026-09-27 (v82 beat 3 — METER-3 INTAKEN ACCEPT at the bytes (the hub's own selftest 38/0; the lint 13; the five files; the VOID path and the bias hook read; the witness epoch-seconds at the captures); the bench card run → `58b5b45` (12:42 CT); BENCH-PULL-1 cut and run — the Pi's bench clone at `58b5b45`, `bh2=3 fresh=1`, its selftest 38/0 (IR-76 the standing rule); `BIAS:` asked, rec tolerate via METER-3b (IR-75); v80 b1–b4 ROTATED (live 12 → 9); BENCH-CORE-4 pending tonight; Sun 2026-09-27 ~12:4x CT (instrument 2026-09-27T17:46:47Z). Order: ONE card, b3 (hivemind 11 = 6 M + 5 A by explicit paths, computed at -uall inside the splice)))
+
+## chain segment rotated 2026-09-27 (v83 beat 1) — v82 b4, verbatim
+
+2026-09-27 (v82 beat 4 — THE v82 CLOSE at four (the context rule): BENCH-CORE-4 INTAKEN ACCEPT at its lines (`deployed=e96dce8`; 6/6; relinked 9; plugs A/A/A; the serving JVM from the new tree; IR-18's class in the jar; P4 sample 2 AVAILABLE; IR-77); IR-61's pre-verification (15 signatures at `e96dce8`) and instruction CUT on the rec, DISPATCH-READY on `IR61:`; VERIFY-72H's charter → v83 (D-v82-23); the DR CLOSED (D-v82-1..24); the plan §30; v83's text (`context/handoff/2026-09-27_v83_dispatch-text.md`); Sun 2026-09-27 ~15:0x CT (instrument 2026-09-27T20:06:23Z). Order: ONE card, b4 (hivemind 18 = 12 M + 6 A by explicit paths, computed at -uall inside the splice)))

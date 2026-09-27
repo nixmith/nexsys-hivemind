@@ -1,0 +1,183 @@
+=== B0 2026-09-27T13:09:06Z
+hs-dev-1
+13:09:07Z
+clone: 13d439f feat(automation,lifecycle): AUTO-ID-1 — the automation identity made d
+porcelain=0
+behind=2 ahead=0
+node=v22.23.1 npm=10.9.8
+openjdk version "21.0.11" 2026-04-21 LTS
+/dev/mmcblk0p2  117G   14G   98G  13% /
+  [OK] running (pid 28123)
+--- health tokens (current boot: /home/homesynapse/hs-bench/bench-2026-09-27-043129.log) ---
+04:31:35.801 [hs-sub-registry_projection] INFO  c.h.l.RegistryProjectionSubscriber -- registry.projection_live: devices=9 entities=9 position=201201
+DB=/home/homesynapse/hs-bench/data/homesynapse-events.db
+343493
+ok
+NEXT                        LEFT LAST                              PASSED UNIT                       ACTIVATES
+Mon 2026-09-28 04:30:00 EDT  19h Sun 2026-09-27 04:30:00 EDT 4h 39min ago nexsys-bench-nightly.timer nexsys-bench-nightly.service
+
+=== B0b 2026-09-27T13:11:57Z
+zigbee.yaml: 571 B sha256 513b2c0171b84d50 key-lines=0
+bench-2026-09-27-043007.log: permit_join_opened=0 device_join=0 device_announce=0
+bench-2026-09-27-043029.log: permit_join_opened=0 device_join=0 device_announce=0
+bench-2026-09-27-043129.log: permit_join_opened=0 device_join=0 device_announce=0
+nightly: 2026-09-27 quiesced AUTO floor: 8/9 PASS · 1 SKIP(hue-online) · fleet: 9/9 · re-seen 9 · bench-hero RESTORED ✓ · ON-latency 0.35s
+== G4-2 events 22:33:00-22:35:30Z (the REP-1 question):
+284683|state_reported|2026-09-26 22:33:02|39453|{"attribute_key":"voltage_v","value":"123.47","unit":"V","raw_protocol_value":"12347","raw_protocol_unit":"mult=1 div=100"}
+284684|state_reported|2026-09-26 22:33:02|39454|{"attribute_key":"current_a","value":"0.335","unit":"A","raw_protocol_value":"335","raw_protocol_unit":"mult=1 div=1000"}
+284685|state_changed|2026-09-26 22:33:02|39455|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.5},"new_value":{"t":"FLOAT","v":123.47},"triggered_by":"01M3FXKDH603DE3ZF67K7R266C"}
+284689|state_reported|2026-09-26 22:33:07|39456|{"attribute_key":"voltage_v","value":"123.35","unit":"V","raw_protocol_value":"12335","raw_protocol_unit":"mult=1 div=100"}
+284690|state_reported|2026-09-26 22:33:07|39457|{"attribute_key":"current_a","value":"0.335","unit":"A","raw_protocol_value":"335","raw_protocol_unit":"mult=1 div=1000"}
+284691|state_changed|2026-09-26 22:33:07|39458|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.47},"new_value":{"t":"FLOAT","v":123.35},"triggered_by":"01M3FXKJE2NH17WDH11BVRKGV8"}
+284692|state_reported|2026-09-26 22:33:12|39459|{"attribute_key":"voltage_v","value":"123.34","unit":"V","raw_protocol_value":"12334","raw_protocol_unit":"mult=1 div=100"}
+284693|state_reported|2026-09-26 22:33:12|39460|{"attribute_key":"current_a","value":"0.335","unit":"A","raw_protocol_value":"335","raw_protocol_unit":"mult=1 div=1000"}
+284694|state_changed|2026-09-26 22:33:12|39461|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.35},"new_value":{"t":"FLOAT","v":123.34},"triggered_by":"01M3FXKQB2GR29DEF7ZJCFRXVV"}
+284698|state_reported|2026-09-26 22:33:12|39462|{"attribute_key":"power_w","value":"41.0","unit":"W","raw_protocol_value":"41","raw_protocol_unit":"mult=1 div=1"}
+284699|state_changed|2026-09-26 22:33:12|39463|{"attribute_key":"power_w","old_value":{"t":"FLOAT","v":42.0},"new_value":{"t":"FLOAT","v":41.0},"triggered_by":"01M3FXKQKSR50VV40Q5RB7M5RC"}
+284704|state_reported|2026-09-26 22:33:17|39464|{"attribute_key":"voltage_v","value":"123.46","unit":"V","raw_protocol_value":"12346","raw_protocol_unit":"mult=1 div=100"}
+284705|state_reported|2026-09-26 22:33:17|39465|{"attribute_key":"current_a","value":"0.335","unit":"A","raw_protocol_value":"335","raw_protocol_unit":"mult=1 div=1000"}
+284706|state_changed|2026-09-26 22:33:17|39466|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.34},"new_value":{"t":"FLOAT","v":123.46},"triggered_by":"01M3FXKW83NJNH4ZEQCEWGN4BN"}
+284707|state_reported|2026-09-26 22:33:17|39467|{"attribute_key":"power_w","value":"42.0","unit":"W","raw_protocol_value":"42","raw_protocol_unit":"mult=1 div=1"}
+284708|state_changed|2026-09-26 22:33:17|39468|{"attribute_key":"power_w","old_value":{"t":"FLOAT","v":41.0},"new_value":{"t":"FLOAT","v":42.0},"triggered_by":"01M3FXKWGT26ERFYVXMYMAFJQZ"}
+284712|state_reported|2026-09-26 22:33:22|39469|{"attribute_key":"voltage_v","value":"123.43","unit":"V","raw_protocol_value":"12343","raw_protocol_unit":"mult=1 div=100"}
+284713|state_reported|2026-09-26 22:33:22|39470|{"attribute_key":"current_a","value":"0.336","unit":"A","raw_protocol_value":"336","raw_protocol_unit":"mult=1 div=1000"}
+284714|state_changed|2026-09-26 22:33:22|39471|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.46},"new_value":{"t":"FLOAT","v":123.43},"triggered_by":"01M3FXM175NH2NWPW9TZKHPWT8"}
+284715|state_changed|2026-09-26 22:33:22|39472|{"attribute_key":"current_a","old_value":{"t":"FLOAT","v":0.335},"new_value":{"t":"FLOAT","v":0.336},"triggered_by":"01M3FXM176AHDPV4WZE9ET42YP"}
+284719|state_reported|2026-09-26 22:33:27|39473|{"attribute_key":"voltage_v","value":"123.45","unit":"V","raw_protocol_value":"12345","raw_protocol_unit":"mult=1 div=100"}
+284720|state_reported|2026-09-26 22:33:27|39474|{"attribute_key":"current_a","value":"0.335","unit":"A","raw_protocol_value":"335","raw_protocol_unit":"mult=1 div=1000"}
+284721|state_changed|2026-09-26 22:33:27|39475|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.43},"new_value":{"t":"FLOAT","v":123.45},"triggered_by":"01M3FXM641HFYPTTQK3GZXBMZX"}
+284722|state_changed|2026-09-26 22:33:27|39476|{"attribute_key":"current_a","old_value":{"t":"FLOAT","v":0.336},"new_value":{"t":"FLOAT","v":0.335},"triggered_by":"01M3FXM641HFYPTTQK3GZXBMZY"}
+284736|state_reported|2026-09-26 22:33:46|39477|{"attribute_key":"voltage_v","value":"123.4","unit":"V","raw_protocol_value":"12340","raw_protocol_unit":"mult=1 div=100"}
+284737|state_reported|2026-09-26 22:33:46|39478|{"attribute_key":"current_a","value":"0.335","unit":"A","raw_protocol_value":"335","raw_protocol_unit":"mult=1 div=1000"}
+284738|state_changed|2026-09-26 22:33:46|39479|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.45},"new_value":{"t":"FLOAT","v":123.4},"triggered_by":"01M3FXMRAXFH30C0SRPS5DK18X"}
+284742|state_reported|2026-09-26 22:33:51|39480|{"attribute_key":"voltage_v","value":"123.65","unit":"V","raw_protocol_value":"12365","raw_protocol_unit":"mult=1 div=100"}
+284743|state_reported|2026-09-26 22:33:51|39481|{"attribute_key":"current_a","value":"0.336","unit":"A","raw_protocol_value":"336","raw_protocol_unit":"mult=1 div=1000"}
+284744|state_changed|2026-09-26 22:33:51|39482|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.4},"new_value":{"t":"FLOAT","v":123.65},"triggered_by":"01M3FXMX80WJP9PMC489W6EQ9Z"}
+284745|state_changed|2026-09-26 22:33:51|39483|{"attribute_key":"current_a","old_value":{"t":"FLOAT","v":0.335},"new_value":{"t":"FLOAT","v":0.336},"triggered_by":"01M3FXMX81Y9HFB7CF71EVRCMX"}
+284746|state_reported|2026-09-26 22:33:56|39484|{"attribute_key":"voltage_v","value":"123.48","unit":"V","raw_protocol_value":"12348","raw_protocol_unit":"mult=1 div=100"}
+284747|state_reported|2026-09-26 22:33:56|39485|{"attribute_key":"current_a","value":"0.336","unit":"A","raw_protocol_value":"336","raw_protocol_unit":"mult=1 div=1000"}
+284748|state_changed|2026-09-26 22:33:56|39486|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.65},"new_value":{"t":"FLOAT","v":123.48},"triggered_by":"01M3FXN24W89R0H2HBC36G6DD6"}
+284752|state_reported|2026-09-26 22:34:01|39487|{"attribute_key":"voltage_v","value":"123.44","unit":"V","raw_protocol_value":"12344","raw_protocol_unit":"mult=1 div=100"}
+284753|state_reported|2026-09-26 22:34:01|39488|{"attribute_key":"current_a","value":"0.336","unit":"A","raw_protocol_value":"336","raw_protocol_unit":"mult=1 div=1000"}
+284754|state_changed|2026-09-26 22:34:01|39489|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.48},"new_value":{"t":"FLOAT","v":123.44},"triggered_by":"01M3FXN71RHNW80D2YR7CSZ5J3"}
+284758|state_reported|2026-09-26 22:34:06|39490|{"attribute_key":"voltage_v","value":"123.31","unit":"V","raw_protocol_value":"12331","raw_protocol_unit":"mult=1 div=100"}
+284759|state_reported|2026-09-26 22:34:06|39491|{"attribute_key":"current_a","value":"0.335","unit":"A","raw_protocol_value":"335","raw_protocol_unit":"mult=1 div=1000"}
+284760|state_changed|2026-09-26 22:34:06|39492|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.44},"new_value":{"t":"FLOAT","v":123.31},"triggered_by":"01M3FXNC0F4MR8BH1CE6GGZSAR"}
+284761|state_changed|2026-09-26 22:34:06|39493|{"attribute_key":"current_a","old_value":{"t":"FLOAT","v":0.336},"new_value":{"t":"FLOAT","v":0.335},"triggered_by":"01M3FXNC0GZMW9C4WHJ8ZASCAM"}
+284762|state_reported|2026-09-26 22:34:08|39494|{"attribute_key":"power_w","value":"41.0","unit":"W","raw_protocol_value":"41","raw_protocol_unit":"mult=1 div=1"}
+284763|state_changed|2026-09-26 22:34:08|39495|{"attribute_key":"power_w","old_value":{"t":"FLOAT","v":42.0},"new_value":{"t":"FLOAT","v":41.0},"triggered_by":"01M3FXNDXY6NH4B1R44Z9FJW2S"}
+284764|state_reported|2026-09-26 22:34:11|39496|{"attribute_key":"voltage_v","value":"123.46","unit":"V","raw_protocol_value":"12346","raw_protocol_unit":"mult=1 div=100"}
+284765|state_reported|2026-09-26 22:34:11|39497|{"attribute_key":"current_a","value":"0.336","unit":"A","raw_protocol_value":"336","raw_protocol_unit":"mult=1 div=1000"}
+284766|state_changed|2026-09-26 22:34:11|39498|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.31},"new_value":{"t":"FLOAT","v":123.46},"triggered_by":"01M3FXNGXCG8WHTRGGMTZ6RNV8"}
+284767|state_changed|2026-09-26 22:34:11|39499|{"attribute_key":"current_a","old_value":{"t":"FLOAT","v":0.335},"new_value":{"t":"FLOAT","v":0.336},"triggered_by":"01M3FXNGXCG8WHTRGGMTZ6RNV9"}
+284773|state_reported|2026-09-26 22:34:13|39500|{"attribute_key":"power_w","value":"13.0","unit":"W","raw_protocol_value":"13","raw_protocol_unit":"mult=1 div=1"}
+284774|state_changed|2026-09-26 22:34:13|39501|{"attribute_key":"power_w","old_value":{"t":"FLOAT","v":41.0},"new_value":{"t":"FLOAT","v":13.0},"triggered_by":"01M3FXNJTWJQ7NZPHVRQMMWAW1"}
+284775|state_reported|2026-09-26 22:34:16|39502|{"attribute_key":"voltage_v","value":"123.59","unit":"V","raw_protocol_value":"12359","raw_protocol_unit":"mult=1 div=100"}
+284776|state_reported|2026-09-26 22:34:16|39503|{"attribute_key":"current_a","value":"0.0","unit":"A","raw_protocol_value":"0","raw_protocol_unit":"mult=1 div=1000"}
+284777|state_changed|2026-09-26 22:34:16|39504|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.46},"new_value":{"t":"FLOAT","v":123.59},"triggered_by":"01M3FXNNT83RF2WWFZ3HAH5E4N"}
+284778|state_changed|2026-09-26 22:34:16|39505|{"attribute_key":"current_a","old_value":{"t":"FLOAT","v":0.336},"new_value":{"t":"FLOAT","v":0.0},"triggered_by":"01M3FXNNT83RF2WWFZ3HAH5E4P"}
+284782|state_reported|2026-09-26 22:34:18|39506|{"attribute_key":"power_w","value":"0.0","unit":"W","raw_protocol_value":"0","raw_protocol_unit":"mult=1 div=1"}
+284783|state_changed|2026-09-26 22:34:18|39507|{"attribute_key":"power_w","old_value":{"t":"FLOAT","v":13.0},"new_value":{"t":"FLOAT","v":0.0},"triggered_by":"01M3FXNQQR6GJHA8AKQA88CZR0"}
+284784|state_reported|2026-09-26 22:34:21|39508|{"attribute_key":"voltage_v","value":"123.65","unit":"V","raw_protocol_value":"12365","raw_protocol_unit":"mult=1 div=100"}
+284785|state_reported|2026-09-26 22:34:21|39509|{"attribute_key":"current_a","value":"0.0","unit":"A","raw_protocol_value":"0","raw_protocol_unit":"mult=1 div=1000"}
+284786|state_changed|2026-09-26 22:34:21|39510|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.59},"new_value":{"t":"FLOAT","v":123.65},"triggered_by":"01M3FXNTQ3YGJZY4GH67H7C8ZB"}
+284790|state_reported|2026-09-26 22:34:24|39511|{"attribute_key":"power_w","value":"42.0","unit":"W","raw_protocol_value":"42","raw_protocol_unit":"mult=1 div=1"}
+284791|state_changed|2026-09-26 22:34:24|39512|{"attribute_key":"power_w","old_value":{"t":"FLOAT","v":0.0},"new_value":{"t":"FLOAT","v":42.0},"triggered_by":"01M3FXNY0XCVQGEKTKXW45MJQP"}
+284792|state_reported|2026-09-26 22:34:26|39513|{"attribute_key":"voltage_v","value":"123.65","unit":"V","raw_protocol_value":"12365","raw_protocol_unit":"mult=1 div=100"}
+284793|state_reported|2026-09-26 22:34:26|39514|{"attribute_key":"current_a","value":"0.336","unit":"A","raw_protocol_value":"336","raw_protocol_unit":"mult=1 div=1000"}
+284794|state_changed|2026-09-26 22:34:26|39515|{"attribute_key":"current_a","old_value":{"t":"FLOAT","v":0.0},"new_value":{"t":"FLOAT","v":0.336},"triggered_by":"01M3FXNZM0ZK34K584E2VVHXVM"}
+284800|state_reported|2026-09-26 22:34:31|39516|{"attribute_key":"voltage_v","value":"123.58","unit":"V","raw_protocol_value":"12358","raw_protocol_unit":"mult=1 div=100"}
+284801|state_reported|2026-09-26 22:34:31|39517|{"attribute_key":"current_a","value":"0.336","unit":"A","raw_protocol_value":"336","raw_protocol_unit":"mult=1 div=1000"}
+284802|state_changed|2026-09-26 22:34:31|39518|{"attribute_key":"voltage_v","old_value":{"t":"FLOAT","v":123.65},"new_value":{"t":"FLOAT","v":123.58},"triggered_by":"01M3FXP4GV26FX19472GBBD5WB"}
+== G4-2 events per minute 22:30-23:10Z (the silence; the resume):
+22:30|34
+22:31|16
+22:32|48
+22:33|34
+22:34|32
+22:47|31
+22:48|36
+22:49|30
+22:50|33
+22:51|36
+22:52|30
+22:53|21
+22:54|36
+22:55|33
+22:56|36
+22:57|34
+22:58|36
+22:59|33
+23:00|36
+23:01|36
+23:02|33
+23:03|36
+23:04|36
+23:05|36
+23:06|30
+23:07|34
+23:08|33
+23:09|27
+== rows for the G4-2 entity in the store, and the subject types seen for it:
+66722|2026-09-26 01:52:21|2026-09-27 13:11:55
+=== B1 2026-09-27T13:13:59Z
+hs-dev-1
+BACKUP=/home/homesynapse/hs-backup/20260927T131359Z
+total 164512
+drwxrwxr-x 4 homesynapse homesynapse      4096 Sep 27 04:31 config
+-rw-r--r-- 1 homesynapse homesynapse 168452096 Sep 27 09:13 homesynapse-events.db
+drwxrwxr-x 4 homesynapse homesynapse      4096 Jul  6 08:32 install-tree-old
+343827
+=== B2 2026-09-27T13:15:38Z
+hs-dev-1
+BUILD pid=28900 log=~/hs-bench/build-.log
+ create mode 100644 integration/integration-zigbee/src/test/java/com/homesynapse/integration/zigbee/EzspIncomingMessageTest.java
+ create mode 100644 lifecycle/lifecycle/src/test/java/com/homesynapse/lifecycle/LinkReadIT.java
+clone: d22a8a4 fix(persistence,lifecycle): IR-40 + IR-44 — the time-range read planne
+=== B2-poll 2026-09-27T13:17:25Z
+/home/homesynapse/hs-bench/build-20260927T131539Z.log
+> Task :app:homesynapse-app:installDist
+
+BUILD SUCCESSFUL in 28s
+60 actionable tasks: 12 executed, 48 up-to-date
+-rwxr-xr-x 1 homesynapse homesynapse 11008 09:16:06 /home/homesynapse/homesynapse-core/app/homesynapse-app/build/install/homesynapse-app/bin/homesynapse-app
+=== B3 2026-09-27T13:18:16Z
+hs-dev-1
+13:18:16Z
+  [OK] stopped
+  [OK] launched pid 29118 -> /home/homesynapse/hs-bench/bench-2026-09-27-091824.log
+  [--] waiting for a decisive radio state (up to 90 s)...
+  [OK] RADIO UP after 15s
+--- health tokens (current boot: /home/homesynapse/hs-bench/bench-2026-09-27-091824.log) ---
+09:18:30.630 [hs-sub-registry_projection] INFO  c.h.l.RegistryProjectionSubscriber -- registry.projection_live: devices=9 entities=9 position=201201
+09:18:31.151 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x00178801101A09BB deviceId=01KX1PA4GRZHY2GD37B5CFVQHY — re-pairing, no new adoption
+09:18:31.152 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x00124B002FA8D1C5 deviceId=01KXW1W1RR66GV98D9QDPB4VXY — re-pairing, no new adoption
+09:18:31.153 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xACEBE6FFFEF25A2C deviceId=01M3DPKN9SX4K6D7D1PKDP17S3 — re-pairing, no new adoption
+09:18:31.154 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xACEBE6FFFEF733DC deviceId=01M3DPGF69FPJ6DVZCBJQMMYEA — re-pairing, no new adoption
+09:18:31.154 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x449FDAFFFE688F57 deviceId=01KY12MQVQ204M1VP39F1ZDM33 — re-pairing, no new adoption
+09:18:31.155 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFE1C1E8E deviceId=01KXW13WEGRCT5C0XSQT8WZBG9 — re-pairing, no new adoption
+09:18:31.155 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x4CE175B4C0700000 deviceId=01M3DM74RKEQ9H05PAATBMW2MW — re-pairing, no new adoption
+09:18:31.156 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFE9C78D7 deviceId=01KX1PB9A5931A8G0F0X03QXT2 — re-pairing, no new adoption
+09:18:31.156 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFED2A201 deviceId=01KXW0156Z1GJ3WCV2G516AKWS — re-pairing, no new adoption
+09:18:31.156 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.adoption_maps_rehydrated: devices=9
+09:18:38.977 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.network_resumed: channel=20 panId=0x774c
+09:18:38.978 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- zigbee.network_up: stackStatusHandler reported EMBER_NETWORK_UP (buffered)
+--- failure tokens ---
+    [ok] api /api/v1/entities {"rows": 9, "ulids": ["01KX1PA4HSJ581GASYB7DHE40F", "01KX1PB9AAB4VB3E10BD477TV3", "01KXW0157SP56CCSGJCNDCSQNG", "01KXW13WF0D6TYGN13WXHTG87K", "01KXW1W1SBJZERC9MBAMV2DWKE", "01KY12MQW954E4XYNKH0Y5H8VX", "01M3DPGF6Y4YXNXDHBW38ZEX2G", "01M3DM74SGEY7RXVDYSM4PK2XA", "01M3DPKN9WD9B88Q4SVDMSBJVS"]} — all asserts satisfied (within 90s)
+[PASS] boot-health — 6/6 positive · 0 forbidden
+  [--] bundle: /home/homesynapse/hs-bench/bundles/boot-health-20260927T131921Z
+09:19:20.846 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.port_identity_captured: stableId=/dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Plus_MG24_0ae2dd7cecf8ef11b80168135c2a50c9-if00-port0 vendorId=10c4 productId=e
+09:19:20.962 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.network_resumed: channel=20 panId=0x774c
+formed=0 resumed=1 relinked=9 adopted=0 config_issue=0 cache_loaded=device_cache_loaded: 9
+344143
+ok
+registry rows=9
+deployed=d22a8a4
+automation-lines=3
+=== B4 2026-09-27T13:21:25Z
+PLUGS · G4-1 AVAILABLE on=False W=0.0 · TR3 AVAILABLE on=True W=0.0 · G4-2 AVAILABLE on=False W=0.0
+09:19:13.274 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x4CE175B4C0700000 deviceId=01M3DM74RKEQ9H05PAATBMW2MW — re-pairing, no new adopt
+09:19:13.274 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFE1C1E8E deviceId=01KXW13WEGRCT5C0XSQT8WZBG9 — re-pairing, no new adopt
+09:19:13.275 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x449FDAFFFE688F57 deviceId=01KY12MQVQ204M1VP39F1ZDM33 — re-pairing, no new adopt
+09:19:13.275 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xACEBE6FFFEF733DC deviceId=01M3DPGF69FPJ6DVZCBJQMMYEA — re-pairing, no new adopt
+09:19:13.275 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xACEBE6FFFEF25A2C deviceId=01M3DPKN9SX4K6D7D1PKDP17S3 — re-pairing, no new adopt

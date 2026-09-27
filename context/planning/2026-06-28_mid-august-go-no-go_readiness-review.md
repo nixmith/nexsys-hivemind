@@ -3,7 +3,7 @@ file: context/planning/2026-06-28_mid-august-go-no-go_readiness-review.md
 purpose: A candid, evidence-based mid-August go/no-go readiness review — the honest critical-path read (not a status recap) the v11 hub produced during the M7.5b coding wait. Assesses the four go/no-go gates, the real dependency chain + thin slack, the ~7-week absorption question, the two pacing risks + contingencies, and concludes on the critical path.
 audience: Nick (the go/no-go owner + the strategic call); the v11 PM hub (carries the conclusions into orchestration); the bench/frontend/M9 lanes.
 state-type: planning / readiness review (decision-support).
-status: AUTHORED 2026-06-28 by the v11 hub (M7.5b in the Coder's hands). Evidence-based against the committed fleet (core 9ec5949 / docs 75d0345 / hivemind 9f12f80 / bench 2c0a33c). A living read — refresh at the next beat that moves a gate.
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED 2026-06-28 by the v11 hub (M7.5b in the Coder's hands). Evidence-based against the committed fleet (core 9ec5949 / docs 75d0345 / hivemind 9f12f80 / bench 2c0a33c). A living read — refresh at the next beat that moves a gate.
 horizon: ~Aug 16 go/no-go = 49 days (~7.0 weeks) out; Nov 25 launch = 150 days out.
 -->
 

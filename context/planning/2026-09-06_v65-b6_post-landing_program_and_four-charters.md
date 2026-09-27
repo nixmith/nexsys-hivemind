@@ -3,7 +3,7 @@ file: context/planning/2026-09-06_v65-b6_post-landing_program_and_four-charters.
 purpose: The hub's ruling on Nick's Sunday brief (v65 beat 6, post-close): the CG landing banked · Dependabot #12 triaged at source and ruled · Nick's "what next" plan adjudicated item by item (agree / edit / refute, each with the fact) · his partial words on THE BEYOND recorded · the three horizons deepened · FOUR read-only lanes chartered in the deep-work protocol's five-part shape with one-paste dispatch lines (RS-12-F the fanciful-domus sprint · TR-0 the chokepoint census · TR-1 the position census · HERO-0 the null census) so three windows stay busy while the core slot waits for F-R4-1b · the calendar chain to the runway with its fulcrum named.
 audience: Nick (§0 the commands · §4 the words · §5 the dispatch lines) · the v66 hub (§1–§3 the rulings of record; §6 what v66 authors next)
 state-type: program (rulings + charters; every ruling REVERT-able by Nick's word; the spine outranks it)
-status: AUTHORED v65 beat 6 (Sun 2026-09-06 ~09:41 CT; instrument 2026-09-06T14:41Z). The go-ahead for VERDOMO on Tuesday is NOT held by anything in this file.
+status: SUPERSEDED — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED v65 beat 6 (Sun 2026-09-06 ~09:41 CT; instrument 2026-09-06T14:41Z). The go-ahead for VERDOMO on Tuesday is NOT held by anything in this file.
 -->
 
 # The post-landing program — Sunday 09-06

@@ -3,7 +3,7 @@ file: context/strategy/brand-program/2026-08-29_G2-brief_S2-scaffold-conform_add
 purpose: Conform the 2026-08-20 G-2 readiness brief's §2 reply scaffolds to the state of record: the entity ruling (v57 b3 — NexSys LLC EXISTS, LA charter 46564936K, verified In Good Standing 2026-08-28), the two verified counsel drafts (v57 b8), and the same-day card (08-28). ONLY §2's three scaffolds are superseded here; the brief's §1 branch logic and §3–§6 stand untouched. ON THE WORD: PASTE FROM THIS FILE.
 audience: Nick (the reply, the day the word lands) · the hub
 state-type: execution conform (supersedes the brief's §2 scaffolds only)
-status: ARMED (v58 beat 2, 2026-08-29). CONFORMED v58 beat 9 (2026-08-30): the A-scaffold gains the OA-succession item — the NFCU return §E.6 rider (the counsel wave is FIVE items).
+status: EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: ARMED (v58 beat 2, 2026-08-29). CONFORMED v58 beat 9 (2026-08-30): the A-scaffold gains the OA-succession item — the NFCU return §E.6 rider (the counsel wave is FIVE items).
 -->
 
 # G-2 brief §2 — the conformed reply scaffolds (paste-ready; polish at send; nothing beyond the ruled branch is disclosed)

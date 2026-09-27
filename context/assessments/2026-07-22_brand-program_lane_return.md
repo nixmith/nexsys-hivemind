@@ -4,6 +4,7 @@ purpose: Return contract of the brand-program lane (G-2 readiness; dispatched 20
 audience: the PM hub; Nick.
 state-type: lane return (write-isolated: context/strategy/brand-program/* + this file ONLY — verified below).
 not-a-lawyer: the standing caveat rides every deliverable — zero trademark-risk conclusions were produced; "crowded field" appears only as design observation; G-2 remains the only graduation.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # Brand-Program Lane Return — 2026-07-22 charge (executed 2026-07-23)

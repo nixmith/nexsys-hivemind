@@ -4,6 +4,7 @@ purpose: The hub's two-layer audit record for the R-6/R-8 TOKEN-OPS coder return
 audience: Nick (the commit + the rulings); the hub (the chain of custody); the next lane (the E3 instruction's inputs).
 posture: hypercritical by instruction (Nick, 2026-08-22 06:30 CT: "instead of just confirming everything … think hypercritically and proactively").
 verified-at: 2026-08-22 ~06:35–07:20 CT, v55 hub beat 5; core HEAD 33861ad; hivemind HEAD 8f2cb08.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # R-6/R-8 TOKEN-OPS — intake audit (v55 beat 5, 2026-08-22)

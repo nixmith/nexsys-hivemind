@@ -1,3 +1,4 @@
+<!-- status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->
 # Prior-Art Architecture Study for HomeSynapse: Lessons from 15 Years of Smart-Home / IoT Platforms
 
 ## 1. Executive Summary

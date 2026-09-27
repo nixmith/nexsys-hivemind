@@ -1,6 +1,7 @@
 <!--
 file: context/audits/2026-09-19_BENCH-METER-1b_return.md
 purpose: BENCH-METER-1b return — the two subtractions, on_outside/VOID, min:, the witness, the real file walked live-path; 4 M + 0 A on 764e537.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 # BENCH-METER-1b — return (bench lane, Sat 2026-09-19 CT)
 

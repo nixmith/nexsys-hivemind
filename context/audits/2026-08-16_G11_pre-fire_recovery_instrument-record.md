@@ -6,6 +6,7 @@ state-type: instrument record / evidence bank. Layer-1 evidence + the hub's adju
 filed: 2026-08-16 ~01:45 CT, the v53 hub (beat 1). Staged in the beat-1 order.
 authority: G-11 pre-ruled SANCTIONED RIG RECOVERY (v52 beat 7 / PROJECT_SNAPSHOT): "bench.sh restart + one boot-health = SANCTIONED RIG RECOVERY (not a freeze exception — the freeze froze code and evidence claims, not peripheral recovery)." The timing variation (fire BEFORE the 03:30 nightly rather than after a 3/9) = DX-A, ruled FIRE-NOW by Nick with hub concurrence on the record; grounds: the measured 8.5-hour non-acquisition (the complete record §0) — a system that did not hotplug-acquire in 8.5 h will not in the next 2.5.
 L3: no token material appears anywhere in this file.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # G-11 — Pre-Fire Sanctioned Rig Recovery (instrument record)

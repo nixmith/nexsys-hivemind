@@ -6,6 +6,7 @@ lane: FE (`/nexsys-frontend`). Nothing committed; no branch, no stash.
 baseline: homesynapse-core HEAD `dec35be` (two commits past the census's `89a912e`; `git diff --stat 89a912e -- web-ui/dashboard/` EMPTY — the FE corpus is unchanged since the census). Porcelain EMPTY at open.
 fences honored: no candidate name anywhere (the pin asserts the WORKING name — that is its point); `i18n.ts`, `index.html`, `README.md`, `tokens.css` untouched on the host (`git diff --quiet` on all four: clean); the D-1 DO-NOT-SAY sentences untouched (not in the FE corpus — census §1b).
 filed: 2026-08-27.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # FE-SWAP-GATE — the brand-token pin + the false-green fix (2 files; return)

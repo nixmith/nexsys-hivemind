@@ -7,6 +7,7 @@ fences held (each checkable — see §6.3): nothing public · no candidate name 
 not-a-lawyer: research by a non-lawyer (+AI). Every register/field observation is a DESIGN or LINGUISTIC observation about distinctiveness and reading, never a conflict or clearance conclusion. §2.5 stops at what the filing needs; the legal answer is counsel's.
 honesty-frame: n=6 individual native speakers, one per market — anecdotal field data, not market research. It prices linguistic risk and register fit, never demand. Weighted accordingly throughout.
 filed: 2026-08-22 (filing-day convention).
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # BRAND-SPRINT-1 — the build-out board, researched before the word

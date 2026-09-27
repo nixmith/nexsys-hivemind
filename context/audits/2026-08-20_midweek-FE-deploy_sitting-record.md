@@ -4,6 +4,7 @@ purpose: THE H8 TIER-2 RECORD OF RECORD for the NEW-2/NEW-3 surfaces — the mid
 audience: the hub (H8 accounting; the FE doctrine); the FE lane (F-S2/F-S3 knowledge); Nick.
 state-type: audit / instrument record.
 filed: 2026-08-20 (v54 hub, beat 5 — filing-day convention).
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # Midweek FE-Deploy Sitting — Record + the H8 Flip (Thu 2026-08-20 evening)

@@ -3,6 +3,7 @@ file: context/pre-verifications/WU-R6R8.md
 purpose: Pre-verification artifact for the R-6/R-8 TOKEN-OPS coding instruction (the M3.6d class — ≥3 prerequisite source-state assumptions). Each row: the assumed source element → what the hub observed at authoring (2026-08-21, core HEAD 7c9e4fa, git-object reads) → what the CODER re-verifies at execution before implementing. The Coder reads this FIRST and STOPs on any mismatch (evidence over instruction).
 audience: the R-6/R-8 Coder lane (host-CC); the hub (audit).
 verified-at: 2026-08-21 evening, by the v55 hub, against core 7c9e4fa (git show HEAD:<path> + git grep; line numbers are 7c9e4fa's).
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # WU-R6R8 — Pre-Verification (verified 2026-08-21 @ 7c9e4fa)

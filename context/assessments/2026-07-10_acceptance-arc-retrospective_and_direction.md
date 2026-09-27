@@ -3,7 +3,7 @@ file: context/assessments/2026-07-10_acceptance-arc-retrospective_and_direction.
 purpose: The hub's deep retrospective of the 2026-07-09/10 acceptance-run arc (the M9.5-DURb landing through soak entry) — everything accomplished, everything that failed, and everything discovered, analyzed along three lenses (human-software interface · codebase-vs-real-world accuracy · direction), with a recommended post-soak priority stack for Nick's ruling. Written by the v26 hub at beat 3 FROM THE LIVE SESSION CONTEXT (the conversation's detail exists nowhere else); the bench record's acceptance-run block (bench `a81d678`) is the evidence layer — this is the analysis layer.
 audience: Nick (ruling); the v27 hub (required read); future WU authoring.
 state-type: assessment (point-in-time; findings feed rows, not standing state).
-status: CURRENT at authoring — the soak is RUNNING (entered 2026-07-10 07:50:35 Pi-local, core 04f5f70, ends >= 2026-07-13 ~07:50).
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT at authoring — the soak is RUNNING (entered 2026-07-10 07:50:35 Pi-local, core 04f5f70, ends >= 2026-07-13 ~07:50).
 -->
 
 # The Acceptance-Arc Retrospective — What We Proved, What Broke, and Where That Points

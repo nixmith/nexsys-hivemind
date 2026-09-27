@@ -3,6 +3,7 @@ file: context/pre-verifications/WU-R7.md
 purpose: Pre-verification artifact for the R-7 / W2-1 arm64-artifact-channel instruction (≥3 prerequisite source-state assumptions). Each row: the assumption → what the hub observed at authoring (2026-08-22 early, core HEAD 33861ad; git-object reads + the Block-0 build log + the CI run pages) → what the CODER re-verifies at execution before implementing. STOP on any mismatch.
 audience: the R-7 Coder lane (host-CC); the hub (audit).
 verified-at: 2026-08-22 ~04:00 CDT, by the v55 hub, against core 33861ad (the distribution files are byte-identical to 7c9e4fa — 33861ad touched only web-ui/dashboard/).
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # WU-R7 — Pre-Verification (verified 2026-08-22 @ 33861ad)

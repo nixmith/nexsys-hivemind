@@ -6,6 +6,7 @@ lane: FE (`/nexsys-frontend`), read-only.
 census commit of record: homesynapse-core `89a912e`; porcelain EMPTY at open AND at close.
 fences honored: no edits under `web-ui/`; no branch, no stash, no commit, no build in the lane; no candidate name anywhere ({{NAME}} / ZZ-PLACEHOLDER only); the working name stays on every surface; the D-1 DO-NOT-SAY items quoted ONLY to mark them OUT.
 filed: 2026-08-22.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # FE-SWAP-CENSUS — the brand-token reach census (read-only; before the word)

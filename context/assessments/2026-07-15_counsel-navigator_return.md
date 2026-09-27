@@ -4,6 +4,7 @@ purpose: Return contract of the counsel-navigator lane (2026-07-15 session promp
 audience: the v31+ hub; Nick.
 state-type: lane return (write-isolated: this file + context/strategy/counsel-package/* only; the instruction file untouched — §6 entries handed to Nick as paste-blocks).
 not-a-lawyer: standing caveat repeated — nothing this lane produced is legal advice or clearance; screens are screens; G-2 is the only graduation.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # Counsel-Navigator Lane Return — 2026-07-15

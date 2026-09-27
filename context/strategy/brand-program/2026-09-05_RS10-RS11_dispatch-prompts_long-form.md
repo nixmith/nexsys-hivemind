@@ -3,7 +3,7 @@ file: context/strategy/brand-program/2026-09-05_RS10-RS11_dispatch-prompts_long-
 purpose: THE LONG-FORM LANE PROMPTS for the pre-spend program — the text Nick pastes as the first message into each fresh Cowork research window. Authored at v64 beat 10 on his ask ("prompts for the research sessions … to get the best, most optimal results that we need in order to make the best decisions possible for next week"). Each prompt gives the lane the situation once, its posture (adversarial · instrument-first · source-first · falsifiable · tagged · nothing from memory), the charter as its law, the order of rows that pays, the return shape, the fences, and how to work under a clock. The CHARTER remains the law of the lane (`2026-09-05_RS10-RS11_pre-spend-program_DOMO-family-verdict_and_domus-root-sprint_research-charter.md`); these prompts add conviction and method, never scope. The short one-paste lines in the charter §4 say the same thing in fewer words and stay valid.
 audience: Nick (paste; RS-10 first if one window at a time) · the two lanes · the v65 hub (both returns report to it)
 state-type: operator paste ×2 (hub-authored)
-status: AUTHORED v64 beat 10 (Sat ~21:12 CT; instrument 2026-09-06T02:12Z).
+status: EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED v64 beat 10 (Sat ~21:12 CT; instrument 2026-09-06T02:12Z).
 -->
 
 # The two research prompts — paste whole, one per fresh Cowork window (`ClaudeFolder` connected)

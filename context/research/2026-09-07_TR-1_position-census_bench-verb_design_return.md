@@ -1,3 +1,4 @@
+<!-- status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->
 # TR-1 — the position census as a bench verb (design return)
 
 Read-only design lane, 2026-09-07 CT. No edit, build or run; nothing staged or committed. **HEADs:** `homesynapse-core` `39c8dd3da2c3e1f804810c2db8bf725689f0c35f` (clean) · `nexsys-bench` `4539f137f7f3fb5629b18e4ef90a2cd227c601da`. Paths are relative to `homesynapse-core/` or `nexsys-bench/`; `V00n` = the events migrations.

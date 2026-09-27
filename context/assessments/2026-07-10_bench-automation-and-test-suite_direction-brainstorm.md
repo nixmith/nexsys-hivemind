@@ -3,7 +3,7 @@ file: context/assessments/2026-07-10_bench-automation-and-test-suite_direction-b
 purpose: The hub's structured brainstorm of Nick's 2026-07-10 direction charge — automating bench/test execution on the Pi as logging/catch/troubleshoot/fix confidence matures; building a smart-home test-suite library; and the runway that library creates for the platform's automation/AI/ML ambitions. Analysis layer; feeds a charter + rows on Nick's ruling, not standing state.
 audience: Nick (ruling); the hub (charter authoring); future WU authoring.
 state-type: assessment (point-in-time brainstorm; supersedable by the ruled charter).
-status: CURRENT at authoring — written by the v27 hub at beat 1, soak day 1 (nothing here lands on the Pi mid-soak; the design work is deliberately desk-only).
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT at authoring — written by the v27 hub at beat 1, soak day 1 (nothing here lands on the Pi mid-soak; the design work is deliberately desk-only).
 -->
 
 # Bench Automation & the Test-Suite Library — Direction Brainstorm

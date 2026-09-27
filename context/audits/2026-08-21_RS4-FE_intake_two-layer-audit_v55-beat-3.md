@@ -4,6 +4,7 @@ purpose: THE TWO-LAYER INTAKE AUDIT of the two lane returns that landed on 2026-
 audience: the hub (the verdicts of record); Nick (the rulings + the strategic findings); the next FE touch + the R-6/R-8 lane (the folded rows).
 state-type: audit record.
 filed: 2026-08-21 (v55 hub, beat 3 — filing-day convention, America/Chicago).
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # RS-4 + FE intake — the two-layer audit (v55 beat 3)

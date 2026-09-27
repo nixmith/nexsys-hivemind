@@ -4,7 +4,7 @@ purpose: Decision-SUPPORT companion to 2026-06-06_core-language-replatform-asses
 audience: Nick (decision-maker). PM authored as senior systems architect / decision-support.
 update-cadence: one-shot (frozen on delivery)
 state-type: assessment (decision-support — NOT a decision, NOT a milestone)
-status: CURRENT
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT
 last-verified: 2026-06-06. Internal state per HEAD `8ef9e9f` (M4 COMPLETE; 536 prod .java / ~43.8K LOC). External claims cited inline; Sources at end.
 -->
 

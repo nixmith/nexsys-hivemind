@@ -2,6 +2,7 @@
 file: context/audits/2026-09-21_LINK-READ_return.md
 purpose: the Coder lane's return for LINK-READ (the instruction of the same date, its §15 AUDIT CORRECTION 1 and §16 AUDIT CORRECTION 2 included)
 baseline: core 13d439f · filed Mon 2026-09-21 ~13:2x CT (date -u first: Mon Sep 21 17:20:16 UTC 2026; census stamp 18:17:57Z) · this file: 13,678 B
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 # LINK-READ — return
 

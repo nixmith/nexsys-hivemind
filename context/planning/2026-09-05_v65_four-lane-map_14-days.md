@@ -3,7 +3,7 @@ file: context/planning/2026-09-05_v65_four-lane-map_14-days.md
 purpose: THE FOUR-LANE MAP (v65 ritual 1) — fourteen days (09-05 → 09-19) across BACKEND · FRONTEND · RESEARCH · DESIGN in parallel: per lane its next three units, what each unblocks, the ONE operator act, where it waits. Hub-originated; re-cut when a lane lands, never more often than a beat.
 audience: Nick (§0; one act per lane) · the hub (the rulings) · any lane (its row)
 state-type: plan (a hypothesis; REVERT-able; the spine outranks it)
-status: AUTHORED v65 beat 2 (Sat 2026-09-05 ~21:52 CT; instrument 2026-09-06T02:52Z). ≤12 KB (the cap).
+status: SUPERSEDED — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED v65 beat 2 (Sat 2026-09-05 ~21:52 CT; instrument 2026-09-06T02:52Z). ≤12 KB (the cap).
 -->
 
 # The four-lane map — fourteen days, four windows

@@ -3,7 +3,7 @@ file: context/assessments/2026-06-05_Research_12_PM_Assessment.md
 purpose: PM assessment of Research 12 (Zigbee adapter de-risk, M14). First research for the highest-risk milestone.
 audience: Nick, PM
 state-type: assessment
-status: v1 — PM-reviewed 2026-06-05. Identifier discipline verified (no module-info proposals, EntityRole/matrix vocabulary correct, §7 LIGHT honored). Nick decision PENDING on the dual-coordinator spike scheduling.
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 — PM-reviewed 2026-06-05. Identifier discipline verified (no module-info proposals, EntityRole/matrix vocabulary correct, §7 LIGHT honored). Nick decision PENDING on the dual-coordinator spike scheduling.
 -->
 
 # Research 12 — PM Assessment

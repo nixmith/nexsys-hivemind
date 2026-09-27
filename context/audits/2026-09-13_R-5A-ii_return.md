@@ -5,6 +5,7 @@ audience: the hub (audits) · Nick (lands the card)
 state-type: lane return.
 instruction: context/instructions/2026-09-13_bench-lane_R-5A-ii_nightly-fleet-wiring_cycle-end-bound_constants-lint.md
 baseline: nexsys-bench 1201368, Part A uncommitted (nine paths; index empty). HEAD unchanged at exit; index empty at exit.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # R-5A-ii — bench lane return (Sun 2026-09-13 CT · UTC−5)

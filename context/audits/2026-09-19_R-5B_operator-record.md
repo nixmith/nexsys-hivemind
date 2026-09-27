@@ -1,4 +1,5 @@
 <!-- file: context/audits/2026-09-19_R-5B_operator-record.md · purpose: the R-5 Part B operator record — every ⏺ verbatim, one section per block, the verdict surface first · audience: the hub (intake) · state-type: operator record · status: CLOSED — hub-audited v77 beat 6 (Sun 2026-09-20 ~10:1x CT); §10. Was: CLOSED-PENDING-HUB-AUDIT (navigator close-out 2026-09-19T19:00:15Z; Sunday's R5B-2: line is appended by the hub) · created by the H8-a/R-5B navigator 2026-09-19T17:43:51Z from the packet's §R skeleton; H8-a's record (context/audits/2026-09-06_H8a_real-wire_operator-record.md) carries §0→B5 of the same sitting -->
+<!-- status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->
 # R-5 Part B — operator record (Sat 2026-09-19; artifact 0.1.0+git20260914.115803.g6bd8508; held card hs-fresh; bench card hs-dev-1)
 
 ## §0 VERDICT SURFACE (written last, read first): the gates R5B-0..R5B-5 as counts · P-B1..P-B6 with the evidence line each will be graded on · O-2's two readings · the S31 count · the frame table (with the bound) · the deviations ledger (D-n) · ASKS OF THE HUB

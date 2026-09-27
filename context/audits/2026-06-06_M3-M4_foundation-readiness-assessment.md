@@ -4,7 +4,7 @@ purpose: Forward-looking, artifact-level readiness assessment of the M3→M4 fou
 audience: PM, Nick
 update-cadence: frozen
 state-type: history
-status: CURRENT
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT
 last-verified: 2026-06-06 against homesynapse-core HEAD 8ef9e9f (M4 COMPLETE; watermark AMD-64; projectionVersion 5) and homesynapse-core-docs HEAD.
 -->
 

@@ -1,0 +1,341 @@
+kind	path_or_old	new_path_or_new_status	old_status
+status	context/assessments/2026-05-22_Research_6_PM_Assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 (PM-verified against M	v1 (PM-verified against MODULE_CONTEXT.md + module-info.java + source; N
+status	context/assessments/2026-05-22_Research_7_PM_Assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 (PM-verified against M	v1 (PM-verified against MODULE_CONTEXT.md + module-info.java + libs.vers
+status	context/assessments/2026-05-22_Research_8_PM_Assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT	CURRENT
+status	context/assessments/2026-05-30_Research_10_PM_Assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 — §1–§6 strategi	v1 — §1–§6 strategically ACCEPTED; §7 code baseline source-correc
+status	context/assessments/2026-05-31_Research_11_PM_Assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT — issued 2026-0	CURRENT — issued 2026-05-31
+status	context/assessments/2026-06-05_Research_12_PM_Assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 — PM-reviewed 2026-0	v1 — PM-reviewed 2026-06-05. Identifier discipline verified (no module
+status	context/assessments/2026-06-05_Research_7_v2_PM_Assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 — PM-verified agains	v1 — PM-verified against source at HEAD `e73e199` (module-infos, state
+status	context/assessments/2026-06-06_core-language-replatform-assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT	CURRENT
+status	context/assessments/2026-06-06_rust-velocity-compounding-analysis.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT	CURRENT
+status	context/assessments/2026-06-10_Research_13_PM_Assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT — issued 2026-0	CURRENT — issued 2026-06-10 (return self-dated 2026-06-11; assessed th
+status	context/assessments/2026-06-21_explainability-UX-competitive-research.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->	<none>
+status	context/assessments/2026-06-23_smart-home-architecture-prior-art_research-return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->	<none>
+status	context/assessments/2026-07-10_acceptance-arc-retrospective_and_direction.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT at authoring — 	CURRENT at authoring — the soak is RUNNING (entered 2026-07-10 07:50:3
+status	context/assessments/2026-07-10_bench-automation-and-test-suite_direction-brainstorm.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT at authoring — 	CURRENT at authoring — written by the v27 hub at beat 1, soak day 1 (n
+status	context/assessments/2026-07-15_counsel-navigator_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/assessments/2026-07-22_brand-program_lane_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/assessments/2026-07-23_fusion-strategy_lane_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/assessments/2026-08-13_S10_decision-skeleton_v52-beat-1.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/assessments/2026-08-14_S10_close_ranked-program.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/assessments/oq-15-2-harness/README.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED 2026-06-12 — P	AUTHORED 2026-06-12 — Pi-evidence session (R2/R3 defaults per session 
+status	context/audits/2026-06-05_M4-retrospective.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT	CURRENT
+status	context/audits/2026-06-06_M3-M4_foundation-readiness-assessment.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT	CURRENT
+status	context/audits/2026-06-26_frontend-dev-lane_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-15_G1-runbook_desk-adjudication_and_exhibit-readiness.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-15_LE-LF_late-returns_two-layer-audit_v52-beat-5.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-16_G11_pre-fire_recovery_instrument-record.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-16_G1_rehearsal_complete-record_and_gate-day-brief.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-16_THE-READ_gate-record_and_verdict.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-20_midweek-FE-deploy_sitting-record.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-21_RS4-FE_intake_two-layer-audit_v55-beat-3.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-22_BRAND-SPRINT-1_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-22_FE-SWAP-CENSUS_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-22_R10-IN-L_liveness-and-notify-transport_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-22_R6R8_intake_two-layer-audit_v55-beat-5.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-27_FE-SWAP-GATE_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-08-30_PKG-SEC-1_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-02_F-R4-1_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-03_PKG-SEC-2_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-03_s31-nightly-0902_evidence-read_raw-outputs.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-03_s31-nightly-0902_evidence-read_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-05_FIX-1_loops/SUMMARY.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->	<none>
+status	context/audits/2026-09-13_P-1_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-13_R-5A-ii_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-13_R-5A_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-18_BENCH-METER-1_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-19_BENCH-METER-1b_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/audits/2026-09-19_R-5B_operator-record.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->	<none>
+status	context/audits/2026-09-21_LINK-READ_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/decisions/2026-06-12_website-brand-deliberation_draft-rulings.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: DRAFT RULINGS — answere	DRAFT RULINGS — answered directly by Nick 2026-06-12; treat as binding
+status	context/handoff/archive/one-off/2026-08-28_pelton-results_same-day-execution-card.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: ARMED 2026-08-28 (beat 9). 	ARMED 2026-08-28 (beat 9). Counsel's reply on record: results early next
+status	context/handoff/archive/one-off/2026-09-06_BLOCK6_docs-correction_operator-card.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: READY — the working tree 	READY — the working tree carries the edits at 2026-09-06T16:08Z (porce
+status	context/handoff/archive/one-off/2026-09-13_R-4c_hub-intake_adversarial-audit_prompt.md	FILED — HIVE-CLEAN-2 (2026-09-26). Was: LIVE — authored 2026-09-13 a	LIVE — authored 2026-09-13 at R-4c close-out. The return it audits: co
+status	context/instructions/archive/2026-09-12_coder-lane_FIX-2b-ii_run-handoff-instrument-and-fix_coding-instruction.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: part (i) EXECUTED — retur	part (i) EXECUTED — returned 2026-09-12 18:34Z, audited ACCEPT at v71 
+status	context/instructions/archive/2026-09-13_R-5_fleet-floor-rebaseline_P-1-fold_and-the-four-open-measurements_charter.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: PART A EXECUTED — returne	PART A EXECUTED — returned 2026-09-13 (`context/audits/2026-09-13_R-5A
+status	context/planning/2026-06-21_device-acquisition-and-test-strategy_brief.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED 2026-06-21 (v3 h	AUTHORED 2026-06-21 (v3 hub). Zigbee spec hub-verified vs Locked Doc 08 
+status	context/planning/2026-06-22_hardware-bench-bringup-and-device-characterization_brief.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED 2026-06-22 (v4 h	AUTHORED 2026-06-22 (v4 hub). Ruled by Nick: Call-1 = Option 1 (full ben
+status	context/planning/2026-06-28_mid-august-go-no-go_readiness-review.md	HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED 2026-06-28 by th	AUTHORED 2026-06-28 by the v11 hub (M7.5b in the Coder's hands). Evidenc
+status	context/planning/2026-09-05_v65_four-lane-map_14-days.md	SUPERSEDED — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED v65 beat 2 (Sat 	AUTHORED v65 beat 2 (Sat 2026-09-05 ~21:52 CT; instrument 2026-09-06T02:
+status	context/planning/2026-09-06_v65-b6_post-landing_program_and_four-charters.md	SUPERSEDED — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED v65 beat 6 (Sun 	AUTHORED v65 beat 6 (Sun 2026-09-06 ~09:41 CT; instrument 2026-09-06T14:
+status	context/planning/2026-09-10_v68_MOMENTUM-MAP_two-weeks_critical-path-and-Nicks-hours.md	SUPERSEDED — HIVE-CLEAN-2 (2026-09-26). Was: LIVE v69 beat 1 — RE-CU	LIVE v69 beat 1 — RE-CUT on Nick's three edits (R-4c MEASUREMENT-ONLY 
+status	context/planning/archive/decision-records/2026-09-13_v74_decision-record.md	CLOSED — HIVE-CLEAN-2 (2026-09-26). Was: LIVE — v74 CLOSED at beat 8	LIVE — v74 CLOSED at beat 8 (Mon 2026-09-14 ~13:0x CT; instrument 2026
+status	context/pre-verifications/WU-R1R2.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/pre-verifications/WU-R6R8.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/pre-verifications/WU-R7.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/pre-verifications/WU-R9.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/programs/matter-design/dispatches/2026-07-19_A1_stack-survey_lane_prompt.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: PAUSED 2026-09-07 — no be	PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter ho
+status	context/programs/matter-design/dispatches/2026-07-19_A2_transport-and-hardware_lane_prompt.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: PAUSED 2026-09-07 — no be	PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter ho
+status	context/programs/matter-design/dispatches/2026-07-19_A3_architecture-fit_lane_prompt.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: PAUSED 2026-09-07 — no be	PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter ho
+status	context/programs/matter-design/dispatches/2026-07-19_A4_moat-translation_lane_prompt.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: PAUSED 2026-09-07 — no be	PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter ho
+status	context/programs/matter-design/dispatches/2026-07-19_A5_integration-2-and-certification_lane_prompt.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: PAUSED 2026-09-07 — no be	PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter ho
+status	context/programs/matter-design/returns/A1_stack-survey_return.md	FILED — HIVE-CLEAN-2 (2026-09-26). Was: PAUSED 2026-09-07 — no beat 	PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter ho
+status	context/programs/matter-design/returns/A2_transport-and-hardware_return.md	FILED — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED 2026-07-19 by lane A2	AUTHORED 2026-07-19 by lane A2 (write-isolated; this file is the lane's 
+status	context/programs/matter-design/returns/A5_integration-2-and-certification_return.md	FILED — HIVE-CLEAN-2 (2026-09-26). Was: PAUSED 2026-09-07 — no beat 	PAUSED 2026-09-07 — no beat since 2026-07-19; resumes at the Matter ho
+status	context/research/2026-08-02_skills-context-engineering_deep-research_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->	<none>
+status	context/research/2026-09-07_TR-1_position-census_bench-verb_design_return.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->	<none>
+status	context/status/READ-ME-FIRST.md	REFERENCE — (HIVE-CLEAN-2, 2026-09-26)	<none>
+status	context/strategy/2026-08-30_RS5_plugin-ecosystem_community-wedge_strategy-charter.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: CHARTERED — NOT DISPATCHE	CHARTERED — NOT DISPATCHED. Return: context/research/<CT-filing-date>_
+status	context/strategy/2026-09-02_v61-b2_strategy-beat_card_convergence-flip-arc.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED AHEAD — dispatch	AUTHORED AHEAD — dispatch-ready for the sitting. Nothing here is adopt
+status	context/strategy/brand-program/2026-08-29_G2-brief_S2-scaffold-conform_addendum.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: ARMED (v58 beat 2, 2026-08-	ARMED (v58 beat 2, 2026-08-29). CONFORMED v58 beat 9 (2026-08-30): the A
+status	context/strategy/brand-program/2026-08-31_RS6_zendomo-filing-decision_research-charter.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: CHARTERED v59 beat 9. Input	CHARTERED v59 beat 9. Inputs on disk: the B-MIXED assessment (brand-prog
+status	context/strategy/brand-program/2026-09-02_RS7_WISCOR-ZINDOMO_clearance-screen_research-charter.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: CHARTERED v60 beat 1 (Wed 2	CHARTERED v60 beat 1 (Wed 2026-09-02). READ-SET (all on the mount, read 
+status	context/strategy/brand-program/2026-09-02_RS8_successor-name_coinage-sprint_research-charter.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: CHARTERED v60 beat 2 (Wed 2	CHARTERED v60 beat 2 (Wed 2026-09-02). READ-SET, in this order and nothi
+status	context/strategy/brand-program/2026-09-02_RS9_VERDOMO_deep-dive_pre-opinion-dossier_research-charter.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: CHARTERED v60 CLOSE (Wed 20	CHARTERED v60 CLOSE (Wed 2026-09-02 evening CT). READ-SET, in this order
+status	context/strategy/brand-program/2026-09-05_RS10-RS11_dispatch-prompts_long-form.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED v64 beat 10 (Sat ~	AUTHORED v64 beat 10 (Sat ~21:12 CT; instrument 2026-09-06T02:12Z).
+status	context/strategy/brand-program/2026-09-05_RS10-RS11_pre-spend-program_DOMO-family-verdict_and_domus-root-sprint_research-charter.md	EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: CHARTERED v64 beat 9 (Sat ~	CHARTERED v64 beat 9 (Sat ~20:33 CT; instrument 2026-09-06T01:33Z). Repo
+status	context/strategy/brand-program/PALOKI_Search_Packet_2026-09-09.md	FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->	<none>
+status	context/strategy/counsel-package/2026-08-10_pelton-status-email_draft.md	SUPERSEDED — HIVE-CLEAN-2 (2026-09-26). Was: DRAFT — awaiting Nick's	DRAFT — awaiting Nick's send
+move	context/handoff/2026-09-06_v66_dispatch-text_verbatim.md	context/handoff/archive/dispatch-texts/2026-09-06_v66_dispatch-text_verbatim.md	
+move	context/handoff/2026-09-07_v67_dispatch-text_verbatim.md	context/handoff/archive/dispatch-texts/2026-09-07_v67_dispatch-text_verbatim.md	
+move	context/handoff/2026-09-12_v71_dispatch-text_verbatim.md	context/handoff/archive/dispatch-texts/2026-09-12_v71_dispatch-text_verbatim.md	
+move	context/handoff/2026-09-14_v75_dispatch-text_verbatim.md	context/handoff/archive/dispatch-texts/2026-09-14_v75_dispatch-text_verbatim.md	
+move	context/handoff/2026-09-17_v76_dispatch-text.md	context/handoff/archive/dispatch-texts/2026-09-17_v76_dispatch-text.md	
+move	context/handoff/2026-09-17_v76_dispatch-text_verbatim.md	context/handoff/archive/dispatch-texts/2026-09-17_v76_dispatch-text_verbatim.md	
+move	context/handoff/2026-09-18_v77_dispatch-text.md	context/handoff/archive/dispatch-texts/2026-09-18_v77_dispatch-text.md	
+move	context/handoff/2026-09-20_v78_dispatch-text.md	context/handoff/archive/dispatch-texts/2026-09-20_v78_dispatch-text.md	
+move	context/handoff/2026-09-23_v79_dispatch-text.md	context/handoff/archive/dispatch-texts/2026-09-23_v79_dispatch-text.md	
+move	context/handoff/2026-09-23_v80_dispatch-text.md	context/handoff/archive/dispatch-texts/2026-09-23_v80_dispatch-text.md	
+move	context/handoff/2026-07-19_matter-design-program_hub_session_prompt.md	context/handoff/archive/one-off/2026-07-19_matter-design-program_hub_session_prompt.md	
+move	context/handoff/2026-07-21_04p-adoption_bench-session-report_for-hub-adjudication.md	context/handoff/archive/one-off/2026-07-21_04p-adoption_bench-session-report_for-hub-adjudication.md	
+move	context/handoff/2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/handoff/archive/one-off/2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	
+move	context/handoff/2026-08-28_NFCU_application_return.md	context/handoff/archive/one-off/2026-08-28_NFCU_application_return.md	
+move	context/handoff/2026-08-28_pelton-results_same-day-execution-card.md	context/handoff/archive/one-off/2026-08-28_pelton-results_same-day-execution-card.md	
+move	context/handoff/2026-09-06_BLOCK6_docs-correction_operator-card.md	context/handoff/archive/one-off/2026-09-06_BLOCK6_docs-correction_operator-card.md	
+move	context/handoff/2026-09-13_R-4c_hub-intake_adversarial-audit_prompt.md	context/handoff/archive/one-off/2026-09-13_R-4c_hub-intake_adversarial-audit_prompt.md	
+move	context/handoff/2026-09-17_v76-b2_nick-brief_hardware-calendar-and-window.md	context/handoff/archive/one-off/2026-09-17_v76-b2_nick-brief_hardware-calendar-and-window.md	
+move	context/instructions/2026-08-22_research-lane_RS3-WMARKET-2_market-currency-refresh_brief.md	context/instructions/archive/2026-08-22_research-lane_RS3-WMARKET-2_market-currency-refresh_brief.md	
+move	context/instructions/2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md	context/instructions/archive/2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md	
+move	context/instructions/2026-09-06_H8a_real-wire_v113-keys_and_failchan-proof_navigator-packet.md	context/instructions/archive/2026-09-06_H8a_real-wire_v113-keys_and_failchan-proof_navigator-packet.md	
+move	context/instructions/2026-09-07_HIVE-CLEAN-1_hygiene-lane_dispatch.md	context/instructions/archive/2026-09-07_HIVE-CLEAN-1_hygiene-lane_dispatch.md	
+move	context/instructions/2026-09-07_W-SKILLS-8_skills-pass_lane-dispatch.md	context/instructions/archive/2026-09-07_W-SKILLS-8_skills-pass_lane-dispatch.md	
+move	context/instructions/2026-09-07_coder-lane_HONESTY-1_lastreported-origin-commandeventid-cipaths_coding-instruction.md	context/instructions/archive/2026-09-07_coder-lane_HONESTY-1_lastreported-origin-commandeventid-cipaths_coding-instruction.md	
+move	context/instructions/2026-09-10_design-lane_HERO-1_explainability-hero_design-charter.md	context/instructions/archive/2026-09-10_design-lane_HERO-1_explainability-hero_design-charter.md	
+move	context/instructions/2026-09-10_frontend-lane_FE-NULL-1_chain-null-arms_fast-follow_instruction.md	context/instructions/archive/2026-09-10_frontend-lane_FE-NULL-1_chain-null-arms_fast-follow_instruction.md	
+move	context/instructions/2026-09-11_R-4c_measurement-only_zdo-surface-C-003_navigator-packet.md	context/instructions/archive/2026-09-11_R-4c_measurement-only_zdo-surface-C-003_navigator-packet.md	
+move	context/instructions/2026-09-11_bench-lane_P-1_power-harness-primitive_charter.md	context/instructions/archive/2026-09-11_bench-lane_P-1_power-harness-primitive_charter.md	
+move	context/instructions/2026-09-11_coder-lane_CI-1_bus-soak-off-the-gate_coding-instruction.md	context/instructions/archive/2026-09-11_coder-lane_CI-1_bus-soak-off-the-gate_coding-instruction.md	
+move	context/instructions/2026-09-11_coder-lane_EXPLAIN-114a_read-API-v1.1.4-additive_coding-instruction.md	context/instructions/archive/2026-09-11_coder-lane_EXPLAIN-114a_read-API-v1.1.4-additive_coding-instruction.md	
+move	context/instructions/2026-09-11_coder-lane_FIX-2a_bus-silent-drop_instrument-first_coding-instruction.md	context/instructions/archive/2026-09-11_coder-lane_FIX-2a_bus-silent-drop_instrument-first_coding-instruction.md	
+move	context/instructions/2026-09-11_coder-lane_FIX-2b-i_bus-stall_pending-depth-and-thread-dump_coding-instruction.md	context/instructions/archive/2026-09-11_coder-lane_FIX-2b-i_bus-stall_pending-depth-and-thread-dump_coding-instruction.md	
+move	context/instructions/2026-09-11_frontend-lane_HERO-1b_hero-build_B1-B7_charter.md	context/instructions/archive/2026-09-11_frontend-lane_HERO-1b_hero-build_B1-B7_charter.md	
+move	context/instructions/2026-09-12_EXPLAIN-114a_AUDIT-CORRECTION_R3-settledAt.md	context/instructions/archive/2026-09-12_EXPLAIN-114a_AUDIT-CORRECTION_R3-settledAt.md	
+move	context/instructions/2026-09-12_coder-lane_BUS-ORDER-1_read-forward-live-delivery_coding-instruction.md	context/instructions/archive/2026-09-12_coder-lane_BUS-ORDER-1_read-forward-live-delivery_coding-instruction.md	
+move	context/instructions/2026-09-12_coder-lane_FIX-2b-ii-B_notify-order_census-truth_coding-instruction.md	context/instructions/archive/2026-09-12_coder-lane_FIX-2b-ii-B_notify-order_census-truth_coding-instruction.md	
+move	context/instructions/2026-09-12_coder-lane_FIX-2b-ii_run-handoff-instrument-and-fix_coding-instruction.md	context/instructions/archive/2026-09-12_coder-lane_FIX-2b-ii_run-handoff-instrument-and-fix_coding-instruction.md	
+move	context/instructions/2026-09-13_HERO-1c_AUDIT-CORRECTION_D3-generic-labels_D2-two-rows.md	context/instructions/archive/2026-09-13_HERO-1c_AUDIT-CORRECTION_D3-generic-labels_D2-two-rows.md	
+move	context/instructions/2026-09-13_R-5_fleet-floor-rebaseline_P-1-fold_and-the-four-open-measurements_charter.md	context/instructions/archive/2026-09-13_R-5_fleet-floor-rebaseline_P-1-fold_and-the-four-open-measurements_charter.md	
+move	context/instructions/2026-09-13_bench-lane_R-5A-ii_nightly-fleet-wiring_cycle-end-bound_constants-lint.md	context/instructions/archive/2026-09-13_bench-lane_R-5A-ii_nightly-fleet-wiring_cycle-end-bound_constants-lint.md	
+move	context/instructions/2026-09-13_coder-lane_EXPLAIN-114b_maintainability-under-freeze_coding-instruction.md	context/instructions/archive/2026-09-13_coder-lane_EXPLAIN-114b_maintainability-under-freeze_coding-instruction.md	
+move	context/instructions/2026-09-13_frontend-lane_HERO-1c_step-lines-helps-and-catalog-wiring_charter.md	context/instructions/archive/2026-09-13_frontend-lane_HERO-1c_step-lines-helps-and-catalog-wiring_charter.md	
+move	context/instructions/2026-09-13_frontend-lane_HERO-1d_keyless-hero-sentences_literal-lint_charter.md	context/instructions/archive/2026-09-13_frontend-lane_HERO-1d_keyless-hero-sentences_literal-lint_charter.md	
+move	context/instructions/2026-09-13_skills-lane_W-SKILLS-9_the-fold-of-nine-mints_charter.md	context/instructions/archive/2026-09-13_skills-lane_W-SKILLS-9_the-fold-of-nine-mints_charter.md	
+move	context/instructions/2026-09-14_R-5B_fleet-floor-rebaseline_and-the-four-measurements_navigator-packet.md	context/instructions/archive/2026-09-14_R-5B_fleet-floor-rebaseline_and-the-four-measurements_navigator-packet.md	
+move	context/instructions/2026-09-14_coder-lane_EXPLAIN-114c_by-id-read_condition-definition_DP-B2_coding-instruction.md	context/instructions/archive/2026-09-14_coder-lane_EXPLAIN-114c_by-id-read_condition-definition_DP-B2_coding-instruction.md	
+move	context/instructions/2026-09-14_frontend-lane_FE-114_v114-keys_lint-reach_dialect_terminal-rows_charter.md	context/instructions/archive/2026-09-14_frontend-lane_FE-114_v114-keys_lint-reach_dialect_terminal-rows_charter.md	
+move	context/instructions/2026-09-14_strategy-lane_AMBITION-MAP_expansion-rows-with-instruments_charter.md	context/instructions/archive/2026-09-14_strategy-lane_AMBITION-MAP_expansion-rows-with-instruments_charter.md	
+move	context/instructions/2026-09-15_coder-lane_DUR-1_and_HASH-1_the-run-on-expiry_and-the-ordered-views_coding-instruction.md	context/instructions/archive/2026-09-15_coder-lane_DUR-1_and_HASH-1_the-run-on-expiry_and-the-ordered-views_coding-instruction.md	
+move	context/instructions/2026-09-15_coder-lane_MEASURE-1_DUR-0_and_HASH-0_two-red-probes_coding-instruction.md	context/instructions/archive/2026-09-15_coder-lane_MEASURE-1_DUR-0_and_HASH-0_two-red-probes_coding-instruction.md	
+move	context/instructions/2026-09-15_research-lane_DEVICE-SET_the-benchmark-fleet_charter.md	context/instructions/archive/2026-09-15_research-lane_DEVICE-SET_the-benchmark-fleet_charter.md	
+move	context/instructions/2026-09-17_research-lane_FOP-1_company-facts-against-live-sources_charter.md	context/instructions/archive/2026-09-17_research-lane_FOP-1_company-facts-against-live-sources_charter.md	
+move	context/instructions/2026-09-17_research-lane_ZIGBEE-GAPS_coverage-against-the-field_charter.md	context/instructions/archive/2026-09-17_research-lane_ZIGBEE-GAPS_coverage-against-the-field_charter.md	
+move	context/instructions/2026-09-18_bench-lane_BENCH-METER-1_metering-known-load_field-within_link-quality-skeleton_charter.md	context/instructions/archive/2026-09-18_bench-lane_BENCH-METER-1_metering-known-load_field-within_link-quality-skeleton_charter.md	
+move	context/instructions/2026-09-18_bench-lane_BENCH-METER-1b_subtract_on-outside_charter.md	context/instructions/archive/2026-09-18_bench-lane_BENCH-METER-1b_subtract_on-outside_charter.md	
+move	context/instructions/2026-09-18_coder-lane_ENERGY-READ_metering-by-clusters_divisors-at-adoption_scaled-reporting_coding-instruction.md	context/instructions/archive/2026-09-18_coder-lane_ENERGY-READ_metering-by-clusters_divisors-at-adoption_scaled-reporting_coding-instruction.md	
+move	context/instructions/2026-09-19_coder-lane_MEASURE-2b_read-path-at-run-scale_shared-real-core-fixture_coding-instruction.md	context/instructions/archive/2026-09-19_coder-lane_MEASURE-2b_read-path-at-run-scale_shared-real-core-fixture_coding-instruction.md	
+move	context/instructions/2026-09-19_frontend-lane_FE-115_v115-mirror_definition-sentences_real-wire-fixtures_dead-keys_charter.md	context/instructions/archive/2026-09-19_frontend-lane_FE-115_v115-mirror_definition-sentences_real-wire-fixtures_dead-keys_charter.md	
+move	context/instructions/2026-09-19_research-lane_KO-2_second-candidate_naming-frame-knockout_charter.md	context/instructions/archive/2026-09-19_research-lane_KO-2_second-candidate_naming-frame-knockout_charter.md	
+move	context/instructions/2026-09-20_bench-card_BENCH-CORE-1_core-to-c819a02_installDist_operator-card.md	context/instructions/archive/2026-09-20_bench-card_BENCH-CORE-1_core-to-c819a02_installDist_operator-card.md	
+move	context/instructions/2026-09-20_coder-lane_AUTO-ID-1_durable-automation-identity_companion-file_coding-instruction.md	context/instructions/archive/2026-09-20_coder-lane_AUTO-ID-1_durable-automation-identity_companion-file_coding-instruction.md	
+move	context/instructions/2026-09-21_coder-lane_IR40-IR44_time-range-plan-on-the-index_startup-report-automation-arm_coding-instruction.md	context/instructions/archive/2026-09-21_coder-lane_IR40-IR44_time-range-plan-on-the-index_startup-report-automation-arm_coding-instruction.md	
+move	context/instructions/2026-09-21_coder-lane_LINK-READ_per-device-frame-counter_link-reading-on-silence_coding-instruction.md	context/instructions/archive/2026-09-21_coder-lane_LINK-READ_per-device-frame-counter_link-reading-on-silence_coding-instruction.md	
+move	context/planning/2026-09-13_v74_decision-record.md	context/planning/archive/decision-records/2026-09-13_v74_decision-record.md	
+move	context/planning/2026-09-14_v75_decision-record.md	context/planning/archive/decision-records/2026-09-14_v75_decision-record.md	
+move	context/planning/2026-09-18_v76_decision-record.md	context/planning/archive/decision-records/2026-09-18_v76_decision-record.md	
+move	context/planning/2026-09-19_v77_decision-record.md	context/planning/archive/decision-records/2026-09-19_v77_decision-record.md	
+move	context/planning/2026-09-21_v78_decision-record.md	context/planning/archive/decision-records/2026-09-21_v78_decision-record.md	
+move	context/planning/2026-09-23_v79_decision-record.md	context/planning/archive/decision-records/2026-09-23_v79_decision-record.md	
+move	context/planning/2026-09-23_v80_decision-record.md	context/planning/archive/decision-records/2026-09-23_v80_decision-record.md	
+move-outside-git	ClaudeFolder/2026-08-31 ZENDOMO Search Summary.pdf	ClaudeFolder/legal/NexSys-LLC/trademark/2026-08-31 ZENDOMO Search Summary.pdf	
+move-outside-git	ClaudeFolder/PALOKI search opinion 20260922.pdf	ClaudeFolder/legal/NexSys-LLC/trademark/PALOKI search opinion 20260922.pdf	
+move-outside-git	ClaudeFolder/TAMORO_Trademark_Strategy_Memo.docx	ClaudeFolder/legal/NexSys-LLC/trademark/TAMORO_Trademark_Strategy_Memo.docx	
+move-outside-git	ClaudeFolder/TM Search_PALOKI_(Word Search)_20260918.docx	ClaudeFolder/legal/NexSys-LLC/trademark/TM Search_PALOKI_(Word Search)_20260918.docx	
+move-outside-git	ClaudeFolder/TM Search_ZENDOMO_(Word Search)_20260821.docx	ClaudeFolder/legal/NexSys-LLC/trademark/TM Search_ZENDOMO_(Word Search)_20260821.docx	
+move-outside-git	ClaudeFolder/TM Search_ZENDOMO_(Word Search)_20260821.xlsx	ClaudeFolder/legal/NexSys-LLC/trademark/TM Search_ZENDOMO_(Word Search)_20260821.xlsx	
+move-outside-git	ClaudeFolder/Founder_Operating_Plan_v1.md	ClaudeFolder/_archive/root-plans/Founder_Operating_Plan_v1.md	
+move-outside-git	ClaudeFolder/Technical_Roadmap_v1.md	ClaudeFolder/_archive/root-plans/Technical_Roadmap_v1.md	
+move-outside-git	ClaudeFolder/Claude outputs/	ClaudeFolder/_archive/Claude outputs/	
+move-outside-git	ClaudeFolder/_scratch/h3/	ClaudeFolder/_archive/scratch/h3/	
+move-outside-git	ClaudeFolder/_scratch/_transfer/	ClaudeFolder/_archive/scratch/_transfer/	
+move-outside-git	ClaudeFolder/_scratch/v66/	ClaudeFolder/_archive/scratch/v66/	
+move-outside-git	ClaudeFolder/_scratch/v70/	ClaudeFolder/_archive/scratch/v70/	
+move-outside-git	ClaudeFolder/_scratch/v71/	ClaudeFolder/_archive/scratch/v71/	
+move-outside-git	ClaudeFolder/_scratch/fe-null-1_nm.tgz	ClaudeFolder/_archive/scratch/fe-null-1_nm.tgz	
+status-outside-git	ClaudeFolder/START_HERE.md	REFERENCE — HIVE-CLEAN-2 (2026-09-26). THE WAY IN: … (one HTML-comment line prepended)	<none>
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/assessments/2026-07-11_go-no-go-criteria_draft.md	
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/assessments/2026-07-25_state-of-the-company_PM-executive-read.md	
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/audits/2026-07-26_FE-VERDICT-2_lane_return.md	
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/audits/2026-08-09_H3-clean-image_fresh-install_operator-return.md	
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/audits/2026-08-15_bench-evening_pre-READ_operator-return.md	
+cite	2026-07-21_04p-adoption_bench-session-report_for-hub-adjudication.md	context/audits/2026-08-22_R10-IN-P_physics-seed-vs-measured-bench_return.md	
+cite	2026-08-28_NFCU_application_return.md	context/audits/2026-08-30_R3a-NFCU_intake_two-layer-audit_v58-beat-6.md	
+cite	2026-08-28_NFCU_application_return.md	context/audits/2026-09-03_v62-b1_boot-grounding_docs-and-strategy_validation.md	
+cite	2026-09-06_H8a_real-wire_v113-keys_and_failchan-proof_navigator-packet.md	context/audits/2026-09-06_H8a_real-wire_operator-record.md	
+cite	2026-09-07_HIVE-CLEAN-1_hygiene-lane_dispatch.md	context/audits/2026-09-07_HIVE-CLEAN-1_intake_two-layer-audit_v66-b10.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/audits/2026-09-07_HIVE-CLEAN-1_return.md	
+cite	2026-08-28_NFCU_application_return.md	context/audits/2026-09-07_HIVE-CLEAN-1_return.md	
+cite	2026-08-28_pelton-results_same-day-execution-card.md	context/audits/2026-09-07_HIVE-CLEAN-1_return.md	
+cite	2026-09-07_HIVE-CLEAN-1_hygiene-lane_dispatch.md	context/audits/2026-09-07_HIVE-CLEAN-1_return.md	
+cite	2026-09-07_W-SKILLS-8_skills-pass_lane-dispatch.md	context/audits/2026-09-07_W-SKILLS-8_intake_two-layer-audit_v66-b10.md	
+cite	2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md	context/audits/2026-09-07_W-SKILLS-8_return.md	
+cite	2026-09-07_W-SKILLS-8_skills-pass_lane-dispatch.md	context/audits/2026-09-07_W-SKILLS-8_return.md	
+cite	2026-09-07_coder-lane_HONESTY-1_lastreported-origin-commandeventid-cipaths_coding-instruction.md	context/audits/2026-09-10_HONESTY-1_return.md	
+cite	2026-09-07_HIVE-CLEAN-1_hygiene-lane_dispatch.md	context/audits/2026-09-10_v68_beat-1_intake_dispatch-verbatim_HEADs_preflight_and_EXPEDITE-ruling.md	
+cite	2026-09-07_W-SKILLS-8_skills-pass_lane-dispatch.md	context/audits/2026-09-10_v68_beat-1_intake_dispatch-verbatim_HEADs_preflight_and_EXPEDITE-ruling.md	
+cite	2026-09-11_coder-lane_FIX-2a_bus-silent-drop_instrument-first_coding-instruction.md	context/audits/2026-09-11_FIX-2a_return.md	
+cite	2026-09-11_coder-lane_FIX-2b-i_bus-stall_pending-depth-and-thread-dump_coding-instruction.md	context/audits/2026-09-11_FIX-2b-i_return.md	
+cite	2026-09-11_R-4c_measurement-only_zdo-surface-C-003_navigator-packet.md	context/audits/2026-09-12_R-4c_measurement-only_operator-record.md	
+cite	2026-09-12_EXPLAIN-114a_AUDIT-CORRECTION_R3-settledAt.md	context/audits/2026-09-12_v71-b5_EXPLAIN-114a_intake_two-layer-audit.md	
+cite	2026-09-13_frontend-lane_HERO-1d_keyless-hero-sentences_literal-lint_charter.md	context/audits/2026-09-13_HERO-1d_return.md	
+cite	2026-09-11_bench-lane_P-1_power-harness-primitive_charter.md	context/audits/2026-09-13_P-1_return.md	
+cite	2026-09-11_R-4c_measurement-only_zdo-surface-C-003_navigator-packet.md	context/audits/2026-09-13_R-4c_preflight_source-audit.md	
+cite	2026-09-13_bench-lane_R-5A-ii_nightly-fleet-wiring_cycle-end-bound_constants-lint.md	context/audits/2026-09-13_R-5A-ii_return.md	
+cite	2026-09-13_R-5_fleet-floor-rebaseline_P-1-fold_and-the-four-open-measurements_charter.md	context/audits/2026-09-13_R-5A_return.md	
+cite	2026-08-22_research-lane_RS3-WMARKET-2_market-currency-refresh_brief.md	context/audits/2026-09-13_v73-b1_boot-and-intake_audit.md	
+cite	2026-09-13_HERO-1c_AUDIT-CORRECTION_D3-generic-labels_D2-two-rows.md	context/audits/2026-09-13_v73-b5_R-5A_and_HERO-1c_intake_two-layer-audit.md	
+cite	2026-09-13_bench-lane_R-5A-ii_nightly-fleet-wiring_cycle-end-bound_constants-lint.md	context/audits/2026-09-13_v73-b5_R-5A_and_HERO-1c_intake_two-layer-audit.md	
+cite	2026-09-06_H8a_real-wire_v113-keys_and_failchan-proof_navigator-packet.md	context/audits/2026-09-13_v74-b1_boot-intake_and_H8a_prior-ledger-gate.md	
+cite	2026-09-14_frontend-lane_FE-114_v114-keys_lint-reach_dialect_terminal-rows_charter.md	context/audits/2026-09-14_FE-114_return.md	
+cite	2026-09-14_R-5B_fleet-floor-rebaseline_and-the-four-measurements_navigator-packet.md	context/audits/2026-09-14_v75-b1_boot-intake_IR-1_H8a-repin_and_R-5B_prior-ledger-gate.md	
+cite	2026-09-14_v75_dispatch-text_verbatim.md	context/audits/2026-09-14_v75-b1_boot-intake_IR-1_H8a-repin_and_R-5B_prior-ledger-gate.md	
+cite	2026-09-14_coder-lane_EXPLAIN-114c_by-id-read_condition-definition_DP-B2_coding-instruction.md	context/audits/2026-09-14_v75-b2_114c-and-FE-114_grounding_two-layer-audit.md	
+cite	2026-09-14_frontend-lane_FE-114_v114-keys_lint-reach_dialect_terminal-rows_charter.md	context/audits/2026-09-14_v75-b2_114c-and-FE-114_grounding_two-layer-audit.md	
+cite	2026-09-15_coder-lane_MEASURE-1_DUR-0_and_HASH-0_two-red-probes_coding-instruction.md	context/audits/2026-09-15_v75-b4_CI-verdicts_freeze-v115_premise-gate_MEASURE-1_plug-dossier_audit.md	
+cite	2026-09-15_coder-lane_DUR-1_and_HASH-1_the-run-on-expiry_and-the-ordered-views_coding-instruction.md	context/audits/2026-09-15_v75-b5_MEASURE-1_intake_DUR1-HASH1_DEVICE-SET_activate_audit.md	
+cite	2026-09-15_research-lane_DEVICE-SET_the-benchmark-fleet_charter.md	context/audits/2026-09-15_v75-b5_MEASURE-1_intake_DUR1-HASH1_DEVICE-SET_activate_audit.md	
+cite	2026-09-17_research-lane_FOP-1_company-facts-against-live-sources_charter.md	context/audits/2026-09-17_v75-b6_DUR1-HASH1_DEVICE-SET_intakes_activate-recut_audit.md	
+cite	2026-09-17_research-lane_ZIGBEE-GAPS_coverage-against-the-field_charter.md	context/audits/2026-09-17_v75-b6_DUR1-HASH1_DEVICE-SET_intakes_activate-recut_audit.md	
+cite	2026-09-17_v76_dispatch-text.md	context/audits/2026-09-17_v75-b8_close_verdict-at-the-instrument_audit.md	
+cite	2026-09-17_v76_dispatch-text.md	context/audits/2026-09-17_v76-b1_boot-and-intake_audit.md	
+cite	2026-09-17_v76_dispatch-text_verbatim.md	context/audits/2026-09-17_v76-b1_boot-and-intake_audit.md	
+cite	2026-09-18_bench-lane_BENCH-METER-1_metering-known-load_field-within_link-quality-skeleton_charter.md	context/audits/2026-09-18_BENCH-METER-1_return.md	
+cite	2026-09-18_coder-lane_ENERGY-READ_metering-by-clusters_divisors-at-adoption_scaled-reporting_coding-instruction.md	context/audits/2026-09-18_v76-b4_ENERGY-READ_charter_premise-gate_audit.md	
+cite	2026-09-18_bench-lane_BENCH-METER-1_metering-known-load_field-within_link-quality-skeleton_charter.md	context/audits/2026-09-18_v76-b6_close_ENERGY-READ-green_bench-charter_audit.md	
+cite	2026-09-18_v77_dispatch-text.md	context/audits/2026-09-18_v76-b6_close_ENERGY-READ-green_bench-charter_audit.md	
+cite	2026-09-18_bench-lane_BENCH-METER-1b_subtract_on-outside_charter.md	context/audits/2026-09-18_v76-b7_BENCH-METER-1_intake_two-layer-audit_and-the-re-close.md	
+cite	2026-09-19_frontend-lane_FE-115_v115-mirror_definition-sentences_real-wire-fixtures_dead-keys_charter.md	context/audits/2026-09-19_FE-115_return.md	
+cite	2026-09-18_v77_dispatch-text.md	context/audits/2026-09-19_v76-b8_BENCH-METER-1b_intake_two-layer-audit_and-the-weekend-dispatch.md	
+cite	2026-09-18_v77_dispatch-text.md	context/audits/2026-09-19_v77-b1_boot-and-intake_audit.md	
+cite	2026-09-20_bench-card_BENCH-CORE-1_core-to-c819a02_installDist_operator-card.md	context/audits/2026-09-20_v77-b5_landings-banked_AUTO-ID-1-chartered_BENCH-CORE-1-cut_audit.md	
+cite	2026-09-20_v78_dispatch-text.md	context/audits/2026-09-20_v77-b7_close_audit.md	
+cite	2026-09-20_v78_dispatch-text.md	context/audits/2026-09-21_v78-b1_boot-and-intake_audit.md	
+cite	2026-09-21_coder-lane_LINK-READ_per-device-frame-counter_link-reading-on-silence_coding-instruction.md	context/audits/2026-09-21_v78-b2_pelton-ready_link-read-charter_audit.md	
+cite	2026-09-21_coder-lane_IR40-IR44_time-range-plan-on-the-index_startup-report-automation-arm_coding-instruction.md	context/audits/2026-09-21_v78-b4_landings-banked_ir40-ir44-charter_audit.md	
+cite	2026-09-23_v79_dispatch-text.md	context/audits/2026-09-23_v78-b5_close_ir40-ir44-intake_coder-handoff-rotation_audit.md	
+cite	2026-09-23_v79_dispatch-text.md	context/audits/2026-09-23_v79-b1_boot_intake_PELTON-ruling_audit.md	
+cite	2026-09-23_v80_dispatch-text.md	context/audits/2026-09-23_v80-b1_boot-and-intake_audit.md	
+cite	2026-09-14_v75_decision-record.md	context/audits/2026-09-23_v80-b1_laneA_window-table-validation_digest.md	
+cite	2026-09-19_v77_decision-record.md	context/audits/2026-09-23_v80-b1_laneA_window-table-validation_digest.md	
+cite	2026-09-20_bench-card_BENCH-CORE-1_core-to-c819a02_installDist_operator-card.md	context/audits/2026-09-23_v80-b1_laneA_window-table-validation_digest.md	
+cite	2026-09-20_v78_dispatch-text.md	context/audits/2026-09-23_v80-b1_laneA_window-table-validation_digest.md	
+cite	2026-09-21_v78_decision-record.md	context/audits/2026-09-23_v80-b1_laneA_window-table-validation_digest.md	
+cite	2026-09-23_v79_decision-record.md	context/audits/2026-09-23_v80-b1_laneA_window-table-validation_digest.md	
+cite	2026-09-23_v80_dispatch-text.md	context/audits/2026-09-23_v80-b1_laneA_window-table-validation_digest.md	
+cite	2026-09-23_v79_decision-record.md	context/audits/2026-09-23_v80-b1_laneB_horizon-recut-inputs_digest.md	
+cite	2026-09-11_bench-lane_P-1_power-harness-primitive_charter.md	context/audits/2026-09-25_v80-b2_laneD_VERIFY-72H_charter-inputs_digest.md	
+cite	2026-09-13_bench-lane_R-5A-ii_nightly-fleet-wiring_cycle-end-bound_constants-lint.md	context/audits/2026-09-25_v80-b2_laneD_VERIFY-72H_charter-inputs_digest.md	
+cite	2026-09-18_bench-lane_BENCH-METER-1b_subtract_on-outside_charter.md	context/audits/2026-09-25_v80-b2_laneD_VERIFY-72H_charter-inputs_digest.md	
+cite	2026-09-21_v78_decision-record.md	context/audits/2026-09-25_v80-b2_laneD_VERIFY-72H_charter-inputs_digest.md	
+cite	2026-09-19_v77_decision-record.md	context/audits/2026-09-25_v80-b4_laneE_rehearsal-1_packet-inputs_digest.md	
+cite	2026-09-23_v80_dispatch-text.md	context/audits/2026-09-25_v80-b4_laneE_rehearsal-1_packet-inputs_digest.md	
+cite	2026-09-23_v80_decision-record.md	context/handoff/2026-09-26_v81_dispatch-text.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/handoff/archive/2026-07-23_fusion-strategy_deliberation_session_prompt.md	
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/handoff/archive/2026-07-26_FE-VERDICT-2_lane_session_prompt.md	
+cite	2026-08-28_NFCU_application_return.md	context/handoff/archive/2026-08/2026-08-28_NFCU-business-account_navigator-packet.md	
+cite	2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md	context/handoff/archive/2026-09/2026-09-05_v65_OPERATOR-BRIEF_for-Nick.md	
+cite	2026-09-10_design-lane_HERO-1_explainability-hero_design-charter.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-11_R-4c_measurement-only_zdo-surface-C-003_navigator-packet.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-11_bench-lane_P-1_power-harness-primitive_charter.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-11_coder-lane_EXPLAIN-114a_read-API-v1.1.4-additive_coding-instruction.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-11_coder-lane_FIX-2a_bus-silent-drop_instrument-first_coding-instruction.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-11_frontend-lane_HERO-1b_hero-build_B1-B7_charter.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-13_R-5_fleet-floor-rebaseline_P-1-fold_and-the-four-open-measurements_charter.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-13_coder-lane_EXPLAIN-114b_maintainability-under-freeze_coding-instruction.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-13_frontend-lane_HERO-1d_keyless-hero-sentences_literal-lint_charter.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-13_skills-lane_W-SKILLS-9_the-fold-of-nine-mints_charter.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-14_strategy-lane_AMBITION-MAP_expansion-rows-with-instruments_charter.md	context/handoff/archive/chains-rotated-2026-08-27.md	
+cite	2026-09-15_coder-lane_DUR-1_and_HASH-1_the-run-on-expiry_and-the-ordered-views_coding-instruction.md	context/handoff/archive/coder-handoff-entries-rotated-2026-09-23.md	
+cite	2026-09-15_coder-lane_MEASURE-1_DUR-0_and_HASH-0_two-red-probes_coding-instruction.md	context/handoff/archive/coder-handoff-entries-rotated-2026-09-23.md	
+cite	2026-09-21_coder-lane_LINK-READ_per-device-frame-counter_link-reading-on-silence_coding-instruction.md	context/handoff/archive/coder-handoff-entries-rotated-2026-09-23.md	
+cite	2026-09-11_coder-lane_FIX-2a_bus-silent-drop_instrument-first_coding-instruction.md	context/handoff/archive/open-risks-status-history-rotated-2026-09-23.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/handoff/archive/pm-handoff-beats-rotated-2026-07-19.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/handoff/archive/pm-handoff-beats-v32-v37-rotated-2026-07-26.md	
+cite	2026-07-21_04p-adoption_bench-session-report_for-hub-adjudication.md	context/handoff/archive/pm-handoff-beats-v32-v37-rotated-2026-07-26.md	
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/handoff/archive/pm-handoff-beats-v32-v37-rotated-2026-07-26.md	
+cite	2026-08-22_research-lane_RS3-WMARKET-2_market-currency-refresh_brief.md	context/handoff/archive/pm-handoff-beats-v54b8-v65b5-rotated-2026-09-07.md	
+cite	2026-08-28_NFCU_application_return.md	context/handoff/archive/pm-handoff-beats-v54b8-v65b5-rotated-2026-09-07.md	
+cite	2026-08-28_pelton-results_same-day-execution-card.md	context/handoff/archive/pm-handoff-beats-v54b8-v65b5-rotated-2026-09-07.md	
+cite	2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md	context/handoff/archive/pm-handoff-beats-v54b8-v65b5-rotated-2026-09-07.md	
+cite	2026-09-06_BLOCK6_docs-correction_operator-card.md	context/handoff/archive/pm-handoff-beats-v65b6-v66b6-rotated-2026-09-07.md	
+cite	2026-09-06_H8a_real-wire_v113-keys_and_failchan-proof_navigator-packet.md	context/handoff/archive/pm-handoff-beats-v65b6-v66b6-rotated-2026-09-07.md	
+cite	2026-09-06_v66_dispatch-text_verbatim.md	context/handoff/archive/pm-handoff-beats-v65b6-v66b6-rotated-2026-09-07.md	
+cite	2026-09-07_HIVE-CLEAN-1_hygiene-lane_dispatch.md	context/handoff/archive/pm-handoff-beats-v66b7-v67b3-rotated-2026-09-10.md	
+cite	2026-09-07_W-SKILLS-8_skills-pass_lane-dispatch.md	context/handoff/archive/pm-handoff-beats-v66b7-v67b3-rotated-2026-09-10.md	
+cite	2026-09-07_v67_dispatch-text_verbatim.md	context/handoff/archive/pm-handoff-beats-v66b7-v67b3-rotated-2026-09-10.md	
+cite	2026-09-07_coder-lane_HONESTY-1_lastreported-origin-commandeventid-cipaths_coding-instruction.md	context/handoff/archive/pm-handoff-beats-v67b4-v67b7-rotated-2026-09-11.md	
+cite	2026-09-10_frontend-lane_FE-NULL-1_chain-null-arms_fast-follow_instruction.md	context/handoff/archive/pm-handoff-beats-v68b1-v68b6-rotated-2026-09-11.md	
+cite	2026-09-10_design-lane_HERO-1_explainability-hero_design-charter.md	context/handoff/archive/pm-handoff-beats-v69b1-v69b4-rotated-2026-09-11.md	
+cite	2026-09-11_R-4c_measurement-only_zdo-surface-C-003_navigator-packet.md	context/handoff/archive/pm-handoff-beats-v70b3-rotated-2026-09-12.md	
+cite	2026-09-11_coder-lane_FIX-2a_bus-silent-drop_instrument-first_coding-instruction.md	context/handoff/archive/pm-handoff-beats-v70b4-rotated-2026-09-12.md	
+cite	2026-09-11_bench-lane_P-1_power-harness-primitive_charter.md	context/handoff/archive/pm-handoff-beats-v70b5-v70b9-rotated-2026-09-12.md	
+cite	2026-09-11_frontend-lane_HERO-1b_hero-build_B1-B7_charter.md	context/handoff/archive/pm-handoff-beats-v70b5-v70b9-rotated-2026-09-12.md	
+cite	2026-09-13_HERO-1c_AUDIT-CORRECTION_D3-generic-labels_D2-two-rows.md	context/handoff/archive/pm-handoff-beats-v73b1-v73b7-rotated-2026-09-14.md	
+cite	2026-09-13_R-5_fleet-floor-rebaseline_P-1-fold_and-the-four-open-measurements_charter.md	context/handoff/archive/pm-handoff-beats-v73b1-v73b7-rotated-2026-09-14.md	
+cite	2026-09-13_bench-lane_R-5A-ii_nightly-fleet-wiring_cycle-end-bound_constants-lint.md	context/handoff/archive/pm-handoff-beats-v73b1-v73b7-rotated-2026-09-14.md	
+cite	2026-09-13_coder-lane_EXPLAIN-114b_maintainability-under-freeze_coding-instruction.md	context/handoff/archive/pm-handoff-beats-v73b1-v73b7-rotated-2026-09-14.md	
+cite	2026-09-13_frontend-lane_HERO-1c_step-lines-helps-and-catalog-wiring_charter.md	context/handoff/archive/pm-handoff-beats-v73b1-v73b7-rotated-2026-09-14.md	
+cite	2026-09-13_skills-lane_W-SKILLS-9_the-fold-of-nine-mints_charter.md	context/handoff/archive/pm-handoff-beats-v73b1-v73b7-rotated-2026-09-14.md	
+cite	2026-09-13_frontend-lane_HERO-1d_keyless-hero-sentences_literal-lint_charter.md	context/handoff/archive/pm-handoff-beats-v74b1-v74b8-rotated-2026-09-15.md	
+cite	2026-09-13_v74_decision-record.md	context/handoff/archive/pm-handoff-beats-v74b1-v74b8-rotated-2026-09-15.md	
+cite	2026-09-14_strategy-lane_AMBITION-MAP_expansion-rows-with-instruments_charter.md	context/handoff/archive/pm-handoff-beats-v74b1-v74b8-rotated-2026-09-15.md	
+cite	2026-09-17_v76-b2_nick-brief_hardware-calendar-and-window.md	context/handoff/archive/pm-handoff-beats-v76b1-v76b4-rotated-2026-09-20.md	
+cite	2026-09-17_v76_dispatch-text_verbatim.md	context/handoff/archive/pm-handoff-beats-v76b1-v76b4-rotated-2026-09-20.md	
+cite	2026-09-18_v76_decision-record.md	context/handoff/archive/pm-handoff-beats-v76b1-v76b4-rotated-2026-09-20.md	
+cite	2026-09-18_v77_dispatch-text.md	context/handoff/archive/pm-handoff-beats-v76b5-v76b8-rotated-2026-09-21.md	
+cite	2026-09-20_v78_dispatch-text.md	context/handoff/archive/pm-handoff-beats-v77b5-v77b7-rotated-2026-09-23.md	
+cite	2026-09-20_v78_dispatch-text.md	context/handoff/archive/pm-handoff-beats-v78b1-v78b4-rotated-2026-09-25.md	
+cite	2026-09-23_v80_dispatch-text.md	context/handoff/archive/pm-handoff-beats-v78b5-v79b5-rotated-2026-09-26.md	
+cite	2026-08-28_NFCU_application_return.md	context/handoff/archive/prompts/2026-08-28_PM-mission-control_v58_orchestrator_session_prompt.md	
+cite	2026-08-28_pelton-results_same-day-execution-card.md	context/handoff/archive/prompts/2026-08-28_PM-mission-control_v58_orchestrator_session_prompt.md	
+cite	2026-08-28_NFCU_application_return.md	context/handoff/archive/prompts/2026-08-30_PM-mission-control_v59_orchestrator_session_prompt.md	
+cite	2026-08-28_pelton-results_same-day-execution-card.md	context/handoff/archive/prompts/2026-08-30_PM-mission-control_v59_orchestrator_session_prompt.md	
+cite	2026-08-28_NFCU_application_return.md	context/handoff/archive/prompts/2026-08-31_PM-mission-control_v60_orchestrator_session_prompt.md	
+cite	2026-09-06_H8a_real-wire_v113-keys_and_failchan-proof_navigator-packet.md	context/handoff/archive/prompts/2026-09-05_PM-mission-control_v66_orchestrator_session_prompt.md	
+cite	2026-09-21_coder-lane_IR40-IR44_time-range-plan-on-the-index_startup-report-automation-arm_coding-instruction.md	context/handoff/coder-handoff.md	
+cite	2026-09-23_v80_decision-record.md	context/handoff/pm-handoff.md	
+cite	2026-09-07_HIVE-CLEAN-1_hygiene-lane_dispatch.md	context/instructions/2026-09-26_HIVE-CLEAN-2_hygiene-lane_charter.md	
+cite	2026-09-23_v80_decision-record.md	context/instructions/2026-09-26_HIVE-CLEAN-2_hygiene-lane_charter.md	
+cite	2026-09-20_bench-card_BENCH-CORE-1_core-to-c819a02_installDist_operator-card.md	context/instructions/2026-09-26_bench-card_BENCH-CORE-3_core-to-d22a8a4_installDist_operator-session-prompt.md	
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/instructions/archive/2026-07-26_SKIP-VIS_explanation-honesty_coding-instruction.md	
+cite	2026-09-12_EXPLAIN-114a_AUDIT-CORRECTION_R3-settledAt.md	context/lessons/pm-lessons.md	
+cite	2026-09-05_W-SKILLS-7_skills-pass_lane-dispatch.md	context/planning/2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment_trajectory_and_hygiene-program.md	
+cite	2026-09-12_coder-lane_FIX-2b-ii-B_notify-order_census-truth_coding-instruction.md	context/planning/2026-09-12_v71_BUSFIX-b_ruling-of-record.md	
+cite	2026-09-13_skills-lane_W-SKILLS-9_the-fold-of-nine-mints_charter.md	context/planning/2026-09-13_v73_PROGRAM-PLAN_after-114b_two-weeks-and-October.md	
+cite	2026-09-15_research-lane_DEVICE-SET_the-benchmark-fleet_charter.md	context/planning/2026-09-15_v75_PROGRAM-PLAN_the-six-weeks-to-the-72-hour-run.md	
+cite	2026-09-18_coder-lane_ENERGY-READ_metering-by-clusters_divisors-at-adoption_scaled-reporting_coding-instruction.md	context/planning/2026-09-15_v75_PROGRAM-PLAN_the-six-weeks-to-the-72-hour-run.md	
+cite	2026-09-15_coder-lane_DUR-1_and_HASH-1_the-run-on-expiry_and-the-ordered-views_coding-instruction.md	context/planning/improvement-register.md	
+cite	2026-09-15_coder-lane_MEASURE-1_DUR-0_and_HASH-0_two-red-probes_coding-instruction.md	context/planning/improvement-register.md	
+cite	2026-07-21_04p-adoption_bench-session-report_for-hub-adjudication.md	context/planning/phase-3-milestone-backlog.md	
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/planning/phase-3-milestone-backlog.md	
+cite	2026-07-25_rosonway-topology-move_I3b_bench-session-report.md	context/process/bench-troubleshooting-playbook.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/programs/matter-design/00_PROGRAM_STATUS.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/programs/matter-design/dispatches/2026-07-19_A1_stack-survey_lane_prompt.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/programs/matter-design/dispatches/2026-07-19_A2_transport-and-hardware_lane_prompt.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/programs/matter-design/dispatches/2026-07-19_A3_architecture-fit_lane_prompt.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/programs/matter-design/dispatches/2026-07-19_A4_moat-translation_lane_prompt.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/programs/matter-design/dispatches/2026-07-19_A5_integration-2-and-certification_lane_prompt.md	
+cite	2026-08-22_research-lane_RS3-WMARKET-2_market-currency-refresh_brief.md	context/research/2026-08-28_WMARKET2_market-currency_return.md	
+cite	2026-09-18_v76_decision-record.md	context/research/2026-09-18_EXT-REVIEW-1_diagnostic-wedge-reader-study_intake-packet.md	
+cite	2026-09-19_research-lane_KO-2_second-candidate_naming-frame-knockout_charter.md	context/research/2026-09-19_KO-2_INNOVVIO_knockout_return.md	
+cite	2026-07-19_matter-design-program_hub_session_prompt.md	context/status/archive/PROJECT_SNAPSHOT-beats-v22-v31-rotated-2026-07-19.md	
+move-outside-git	nexsys-hivemind/.git/index.lock (0 B, stale — left by the card's `git add --dry-run` rehearsal; unlink is refused on this mount)	ClaudeFolder/_scratch/_to_delete/2026-09-27_hivemind_index.lock_stale-from-HIVE-CLEAN-2-dry-run	

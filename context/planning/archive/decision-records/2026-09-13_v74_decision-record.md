@@ -3,7 +3,7 @@ file: context/planning/2026-09-13_v74_decision-record.md
 purpose: The v74 decision record — the decisions packaged for Nick in H10 form during the v74 window, one word each; silence = the recommendation stands; `REVERT <D-n>` flips any one. D-v74-1 lives in the plan of record §8 (row 2) and is pointed at, not copied. The boot reads §3 only.
 audience: Nick (the words) · the hub (the ruling forms; the acts each word unlocks)
 state-type: decision record (v74)
-status: LIVE — v74 CLOSED at beat 8 (Mon 2026-09-14 ~13:0x CT; instrument 2026-09-14T18:02:58Z): D-v74-3 RULED and RETURNED; D-v74-4 RULED `PLUG: two` with the criteria and THE ADOPTION FENCE; D-v74-2 the word Tuesday; D-v74-1 open (silence = ii); Nick's close brief verbatim in §1; v75's window in the plan §11
+status: CLOSED — HIVE-CLEAN-2 (2026-09-26). Was: LIVE — v74 CLOSED at beat 8 (Mon 2026-09-14 ~13:0x CT; instrument 2026-09-14T18:02:58Z): D-v74-3 RULED and RETURNED; D-v74-4 RULED `PLUG: two` with the criteria and THE ADOPTION FENCE; D-v74-2 the word Tuesday; D-v74-1 open (silence = ii); Nick's close brief verbatim in §1; v75's window in the plan §11
 last-verified: 2026-09-13 (v74 beat 3)
 -->
 

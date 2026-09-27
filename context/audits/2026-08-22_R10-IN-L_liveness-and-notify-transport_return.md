@@ -6,6 +6,7 @@ lane: research, read-only, parallel. NOTHING was written to any repo except this
 read at: nexsys-hivemind `c974b52` · homesynapse-core `89a912e` · homesynapse-core-docs `a53f474` — all three worktrees PORCELAIN-CLEAN at read time (`git status --porcelain` empty), so every worktree cite equals its HEAD object.
 primaries fetched: 2026-08-22 (America/Chicago). One primary was unreachable and is disclosed in §7.
 brief: context/instructions/2026-08-22_research-lane_R10-IN-L_liveness-contract-and-notify-transport_brief.md
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # R10-IN-L — the liveness contract + the notify transport

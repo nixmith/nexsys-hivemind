@@ -3,7 +3,7 @@ file: context/assessments/2026-05-31_Research_11_PM_Assessment.md
 purpose: PM 6-step A–F assessment of Research 11 (typed event payload persistence — polymorphic serialization, schema versioning, replay-deterministic upcasting). Informs the AMD-52 go/no-go gate (G1 serializer, G2 replay determinism).
 audience: PM, Nick
 state-type: current
-status: CURRENT — issued 2026-05-31
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT — issued 2026-05-31
 ground-truth: HEAD `98f705b` (M4.0b-3 / AMD-51 shipped); projectionVersion 3; watermark AMD-51; Workstream A COMPLETE
 companion: homesynapse-core-docs/design/2026-05-31_AMD-52_Typed_Payload_Serializer_Replay_Design_Beat.md
 brief: context/instructions/Research_11_Typed_Event_Payload_Persistence_Brief.md

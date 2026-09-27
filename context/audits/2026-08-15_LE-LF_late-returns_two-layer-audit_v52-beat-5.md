@@ -4,6 +4,7 @@ purpose: The two-layer intake audit of the LATE L-E + L-F returns (both delivere
 audience: Nick (rules I-1..I-8); the hub; the post-gate charter session (R-10) — this file is its primary intake.
 state-type: intake audit + integration analysis (the amendment rows fold into the S-10 close on Nick's word).
 verification-basis: uploads md5-verified byte-identical to the on-disk returns (LE 2e2e7eb1… · LF ae909167…, 2026-08-15) · L-F layer 2 at the git objects (d26777c) · L-E layer 2 at hub re-fetches of falsifier-class primaries (2026-08-15) · hivemind HEAD 9d91f91 · core HEAD d26777c (the freeze held — nothing landed).
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # L-E + L-F Late Returns — Two-Layer Audit + Integration (v52 beat 5)

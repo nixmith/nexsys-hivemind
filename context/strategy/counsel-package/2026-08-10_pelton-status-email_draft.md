@@ -3,7 +3,7 @@ file: context/strategy/counsel-package/2026-08-10_pelton-status-email_draft.md
 purpose: The recorded Pelton contingency executed — ONE status email, ruled Monday Aug-10 if counsel silent (the v46-era ruling, re-affirmed in the v51 road). Paste-ready; Nick sends from his own account.
 audience: Nick
 state-type: record (send-and-log; the Pelton intake fires on counsel's reply-paste)
-status: DRAFT — awaiting Nick's send
+status: SUPERSEDED — HIVE-CLEAN-2 (2026-09-26). Was: DRAFT — awaiting Nick's send
 not-a-lawyer: correspondence draft only; nothing here is legal advice.
 context: Engagement of record (tracker 2026-07-21 + the v37 close-out): $1,200 flat-fee comprehensive trademark search + report + written analysis; SIGNED + PAID late July; delivery estimated ~10 business days (~Aug-5). Silent as of Mon Aug-10 (Nick's word at the v51 launch). Ruling scope: ONE email, one ask, professional tone, nothing disclosed beyond the engagement itself — no urgency, no new questions, no scope changes.
 -->

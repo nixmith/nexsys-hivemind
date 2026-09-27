@@ -1,3 +1,4 @@
+<!-- status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->
 # PALOKI — comprehensive search and written opinion
 
 **Packet for Erik M. Pelton & Associates · prepared by NexSys LLC · September 9, 2026**

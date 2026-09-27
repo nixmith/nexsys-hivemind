@@ -3,6 +3,7 @@ file: context/audits/2026-09-03_PKG-SEC-2_return.md
 purpose: Coder-lane return for PKG-SEC-2 — the zigbee schema admission at Phase-1 validation (R-4 C-1); Row 13 RULED (a′). 8 M + 2 A.
 instruction: context/instructions/2026-09-02_coder-lane_PKG-SEC-2_zigbee-schema-admission_coding-instruction_RULING-SLOTTED.md
 lane: host-side Claude Code Coder, Windows desk (Git Bash; JDK 21.0.4; Gradle 8.8 --offline), 2026-09-03 06:45–07:30 CDT.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # PKG-SEC-2 return — the zigbee schema admission at Phase-1 validation

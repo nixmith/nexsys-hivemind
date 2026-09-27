@@ -2,7 +2,7 @@
 file: context/strategy/2026-08-30_RS5_plugin-ecosystem_community-wedge_strategy-charter.md
 purpose: RS-5 CHARTER — Nick's strategic input (2026-08-30, post-R-4): "considering us pivoting more towards the idea of the plugins" as the community/public wedge once public; the standing directive to keep driving the ecosystem forward rather than waiting on external gates. This charter routes that input the LAWFUL way: an evidence lane → a strategy beat → Nick's word. NOTHING here is adopted strategy.
 audience: a fresh research lane (unattended-friendly; dispatch at will) · the strategy beat that adjudicates · Nick (the word)
-status: CHARTERED — NOT DISPATCHED. Return: context/research/<CT-filing-date>_RS5_plugin-ecosystem_return.md — ≤80 KB, FALSIFIERS-FIRST §0 the hub can act on alone; instrument-limit disclosure + CT-rederivation lines required; pin anthropic==0.21.3 + httpx<0.28 if scripting.
+status: EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: CHARTERED — NOT DISPATCHED. Return: context/research/<CT-filing-date>_RS5_plugin-ecosystem_return.md — ≤80 KB, FALSIFIERS-FIRST §0 the hub can act on alone; instrument-limit disclosure + CT-rederivation lines required; pin anthropic==0.21.3 + httpx<0.28 if scripting.
 -->
 
 # RS-5 — plugins as the community wedge: evidence before adoption

@@ -3,7 +3,7 @@ file: context/decisions/2026-06-12_website-brand-deliberation_draft-rulings.md
 purpose: Draft rulings W-1..W-7 from the 2026-06-12 brand/website deliberation session (Nick, via structured Q&A) + brand reference-class thesis + the site-teardown research protocol. Pending formal ratification; future website/brand sessions load this BEFORE proposing direction.
 audience: Nick, PM, future brand/web sessions
 state-type: decision record
-status: DRAFT RULINGS — answered directly by Nick 2026-06-12; treat as binding-unless-Nick-reverses; fold/ratify at converge
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: DRAFT RULINGS — answered directly by Nick 2026-06-12; treat as binding-unless-Nick-reverses; fold/ratify at converge
 -->
 
 # Website & Brand Deliberation — Draft Rulings (2026-06-12)

@@ -2,6 +2,7 @@
 file: context/audits/2026-09-03_s31-nightly-0902_evidence-read_raw-outputs.md
 purpose: Companion exhibit to 2026-09-03_s31-nightly-0902_evidence-read_return.md — the eight ssh command lines and their COMPLETE outputs, verbatim as pasted by Nick (Git Bash, `ssh pi`), 2026-09-03 ~06:30–06:50 CT. This is the primary paste record (chat-is-not-a-storage-tier); the return pins the load-bearing extracts.
 state-type: raw evidence exhibit (point-in-time) · read-only session — nothing on the card was touched
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # Raw outputs — 09-02 s31 evidence read (8 commands)

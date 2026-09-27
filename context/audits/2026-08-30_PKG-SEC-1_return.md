@@ -3,6 +3,7 @@ file: context/audits/2026-08-30_PKG-SEC-1_return.md
 purpose: Coder-lane return for PKG-SEC-1 (run-smoke token-mode check + version symmetry + the LTD comment; 3 M, shell-only).
 instruction: context/instructions/2026-08-28_PKG-SEC-1_run-smoke-token-mode_and_version-symmetry_coding-instruction.md
 lane: host-side Claude Code Coder, Windows desk (Git Bash + WSL), 2026-08-30 evening CT.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # PKG-SEC-1 return — token-mode check + version symmetry + LTD comment

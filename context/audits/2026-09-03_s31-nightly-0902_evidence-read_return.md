@@ -3,6 +3,7 @@ file: context/audits/2026-09-03_s31-nightly-0902_evidence-read_return.md
 purpose: Evidence read of record — the 2026-09-02 nightly command-confirm-s31 FAIL; adjudicates H-A…H-E per the 2026-09-03 session prompt.
 instrument: Nick's desk over `ssh pi` (Git Bash) — the Cowork sandbox cannot reach the card, so Nick ran every command and pasted outputs. Full raw pastes: 2026-09-03_s31-nightly-0902_evidence-read_raw-outputs.md.
 filed: 2026-09-03 ~06:48 CT (Pi date -u at read: Thu 3 Sep 11:48:10 UTC 2026) · status: FILED — awaiting hub adjudication
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # Evidence read — 09-02 nightly `command-confirm-s31` FAIL

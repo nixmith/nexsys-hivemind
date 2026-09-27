@@ -1,6 +1,7 @@
 <!--
 file: context/status/READ-ME-FIRST.md
 purpose: the ≤1 KB launch pointer (W-HIVE-1 P4). A fresh session reads THREE things and nothing else by default.
+status: REFERENCE — (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # Read me first

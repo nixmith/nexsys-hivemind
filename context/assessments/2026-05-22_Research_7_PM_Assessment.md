@@ -3,7 +3,7 @@ file: context/assessments/2026-05-22_Research_7_PM_Assessment.md
 purpose: PM assessment of Research 7 (REST and WebSocket API Design for Event-Sourced Smart Home Systems) — dispositions, modifications, source-verified §7 fabrications, decision questions for Nick.
 audience: PM, Nick
 state-type: current
-status: v1 (PM-verified against MODULE_CONTEXT.md + module-info.java + libs.versions.toml + source grep; Nick verification PENDING for NQ-1..7)
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 (PM-verified against MODULE_CONTEXT.md + module-info.java + libs.versions.toml + source grep; Nick verification PENDING for NQ-1..7)
 last-verified: 2026-05-22
 -->
 

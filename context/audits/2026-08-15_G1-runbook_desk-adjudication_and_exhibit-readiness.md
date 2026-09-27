@@ -6,6 +6,7 @@ state-type: desk return / audit INPUT. Layer-1 desk evidence, NOT a gate. Refuta
 filed: 2026-08-15 ~20:45 CT, remote Cowork session under /nexsys-project-manager. Uncommitted; the hub's next order stages it.
 laws honored: freeze GOVERNS (zero writes to any repo but this file; no build, deploy, pull, config edit, scenario, retune) · L3 (no token material was requested, received, or appears here) · findings-never-fixes · arc-discipline 1 (never author on an unmeasured hop — every capability claim below cites the instrument that measured it) · arc-discipline 13 (deploy-state re-derived at the instrument, never inferred) · arc-discipline 34 (chat is not a storage tier — this is filed, not banked in a transcript).
 scope declaration: this session did NOT run the demo, did NOT touch the Pi, and has NO bench access. Every act-readiness claim below is derived from FE/core SOURCE at the working tree, and is explicitly labelled DEPLOY-UNVERIFIED wherever the deployed Pi build is the thing that actually matters.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # G1 Runbook — Desk Adjudication + Exhibit Readiness

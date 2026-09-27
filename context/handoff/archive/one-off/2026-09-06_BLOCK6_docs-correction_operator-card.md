@@ -3,7 +3,7 @@ file: context/handoff/2026-09-06_BLOCK6_docs-correction_operator-card.md
 purpose: THE BLOCK 6 CARD — Nick's ONE docs touch in homesynapse-core-docs (his hands: review the diff, commit, push). The edits are ALREADY APPLIED to the working tree by the v66 hub's guarded splice (`_scratch/v66/block6_docs.py`: 13 anchors asserted before the first byte; 5 files; nothing staged) so the operator's act is a commit, not a hand-edit (THE OPERATOR-LOAD LAW; the playbook §8 rule against interactive editors). `BLOCK6: pull` (Nick, 09-06). Handed AFTER H8-a, never during.
 audience: Nick (one act) · the hub (banks the sha)
 state-type: operator card
-status: READY — the working tree carries the edits at 2026-09-06T16:08Z (porcelain 5 M; staged 0). If refused: `git checkout -- .` in the docs repo restores HEAD a53f474 byte-exact.
+status: EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: READY — the working tree carries the edits at 2026-09-06T16:08Z (porcelain 5 M; staged 0). If refused: `git checkout -- .` in the docs repo restores HEAD a53f474 byte-exact.
 -->
 
 # BLOCK 6 — the docs correction touch (one act; ≈3 min)

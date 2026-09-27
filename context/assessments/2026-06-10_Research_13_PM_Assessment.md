@@ -3,7 +3,7 @@ file: context/assessments/2026-06-10_Research_13_PM_Assessment.md
 purpose: PM 6-step A–F assessment of Research 13 (Config System Market Superiority — UX failure modes + runtime robustness). Folds the disposition table into the M6.4/M6.2 coding instructions; queues the FUTURE-AMD rows; parks the UI/cloud rows.
 audience: PM, Nick
 state-type: current
-status: CURRENT — issued 2026-06-10 (return self-dated 2026-06-11; assessed the same evening)
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT — issued 2026-06-10 (return self-dated 2026-06-11; assessed the same evening)
 ground-truth: homesynapse-core HEAD `7e0bce8` (docs-only on `9035110` — M6.1 COMPLETE whole); docs watermark AMD-87; projectionVersion 5
 brief: context/instructions/Research_13_Config_System_Market_Superiority_Brief.md
 return (archived per research-agenda §2 Step 0): homesynapse-core-docs/research/returns/2026-06-11_Research_13_Config_System_Market_Superiority.md

@@ -3,7 +3,7 @@ file: context/programs/matter-design/returns/A2_transport-and-hardware_return.md
 purpose: Lane A2 return — the transport question (WiFi/Ethernet-first vs Thread), commissioning-flow reality, the PRICED DUT shortlist (§4 lifts verbatim into memo B3 for Nick's purchase ruling), and lab-network isolation for a future Matter bench.
 audience: the Matter design-program hub (two-layer audit per 00_PROGRAM_STATUS audit protocol), then Phase-B memo authoring (B3 consumes §4; B2 consumes §3; the design phase consumes §5–§6).
 state-type: research return (evidence dossier; rows and options — the purchase ruling is Nick's at B3, the isolation ruling is design-phase work).
-status: AUTHORED 2026-07-19 by lane A2 (write-isolated; this file is the lane's ONLY repo write). All web evidence fetched 2026-07-19 unless marked. Every price carries retailer + date. Volatile prices/stock re-verify at order time.
+status: FILED — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED 2026-07-19 by lane A2 (write-isolated; this file is the lane's ONLY repo write). All web evidence fetched 2026-07-19 unless marked. Every price carries retailer + date. Volatile prices/stock re-verify at order time.
 evidence discipline: [VERIFIED-current: URL, fetched date] = primary source fetched by this lane's research pass · [community-reported: URL] = forum/blog/secondary · [inference — reasoning stated] · [banked: repo-path §]. Labels are claims; quotes are evidence; honest gaps outrank confident guesses (§8).
 -->
 

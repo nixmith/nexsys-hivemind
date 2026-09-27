@@ -3,7 +3,7 @@ file: context/assessments/2026-05-22_Research_6_PM_Assessment.md
 purpose: PM assessment of Research 6 (Integration Runtime — Supervisor Patterns for Protocol Adapters) — dispositions, modifications, source-verified fabrications, decision questions for Nick.
 audience: PM, Nick
 state-type: current
-status: v1 (PM-verified against MODULE_CONTEXT.md + module-info.java + source; Nick verification PENDING for NQ-1..6). 2026-05-31: AMD-RENUMBER NOTICE added (AMD-53..63 are stale placeholders — see banner; integration block re-bases to 54+ per P2).
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 (PM-verified against MODULE_CONTEXT.md + module-info.java + source; Nick verification PENDING for NQ-1..6). 2026-05-31: AMD-RENUMBER NOTICE added (AMD-53..63 are stale placeholders — see banner; integration block re-bases to 54+ per P2).
 last-verified: 2026-05-22 (content); 2026-05-31 (AMD-renumber annotation)
 -->
 

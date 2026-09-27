@@ -3,7 +3,7 @@ file: context/handoff/2026-09-13_R-4c_hub-intake_adversarial-audit_prompt.md
 purpose: THE HUB INTAKE PROMPT for the R-4c return — written by the R-4c navigator at close-out, for the hub/orchestration session that will audit it. Its posture is ADVERSARIAL BY DESIGN: the hub is asked to try to BREAK each claim before banking it, and §5 hands over the navigator's own list of where it may be wrong. Scope: the R-4c measurements AND the systemic packet-authoring finding.
 audience: the hub (reads and executes) · Nick (pastes the pointer) · the R-4c navigator (author)
 state-type: intake prompt (adversarial audit brief)
-status: LIVE — authored 2026-09-13 at R-4c close-out. The return it audits: context/audits/2026-09-12_R-4c_measurement-only_operator-record.md (CLOSED-PENDING-HUB-AUDIT) + context/audits/2026-09-13_R-4c_preflight_source-audit.md.
+status: FILED — HIVE-CLEAN-2 (2026-09-26). Was: LIVE — authored 2026-09-13 at R-4c close-out. The return it audits: context/audits/2026-09-12_R-4c_measurement-only_operator-record.md (CLOSED-PENDING-HUB-AUDIT) + context/audits/2026-09-13_R-4c_preflight_source-audit.md.
 -->
 
 # R-4c — HUB INTAKE: an adversarial audit brief

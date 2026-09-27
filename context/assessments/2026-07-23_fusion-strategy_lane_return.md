@@ -4,6 +4,7 @@ purpose: Return contract of the fusion-strategy deliberation session (chartered 
 audience: the PM hub; Nick.
 state-type: lane return (write-isolated: context/strategy/fusion-program/* [new tree] + this file ONLY — verified below).
 not-a-lawyer: the standing caveat rides every deliverable; all patent/FTO/publication/entity/instrument items are framed as counsel questions.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # Fusion-Strategy Deliberation Return — 2026-07-23 charge (executed 2026-07-24)

@@ -3,6 +3,7 @@ file: context/pre-verifications/WU-R9.md
 purpose: Pre-verification artifact for the R-9 / E3-HEALTH instruction (≥3 prerequisite source-state assumptions). Each row: the assumption → what the hub observed at authoring (git-object reads at core HEAD 62dbca3 via `git show HEAD:<path>` — never the worktree; the R-7 delivery was on the worktree uncommitted at authoring and touches NONE of these files except `distribution/common.sh` at a non-overlapping hunk) → what the CODER re-verifies at execution before implementing. STOP on any mismatch.
 audience: the R-9 Coder lane (host-CC); the hub (audit).
 verified-at: 2026-08-22 ~09:30 CDT, by the v55 hub (beat 6), against core 62dbca3 objects.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # WU-R9 — Pre-Verification (verified 2026-08-22 @ 62dbca3)

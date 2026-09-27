@@ -4,7 +4,7 @@ purpose: Decision-SUPPORT assessment for Nick — an honest, evenhanded evaluati
 audience: Nick (decision-maker). PM authored as senior systems architect / decision-support.
 update-cadence: one-shot (frozen on delivery; supersede if the energy-determinism strategic bet changes)
 state-type: assessment (decision-support — NOT a decision, NOT a milestone)
-status: CURRENT
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT
 last-verified: 2026-06-06 against homesynapse-core HEAD `8ef9e9f` (M4 COMPLETE; watermark AMD-64; projectionVersion 5; 536 production .java / ~43.8K LOC). Internal claims re-verified at HEAD; external claims cited inline (§4).
 -->
 

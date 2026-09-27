@@ -7,6 +7,7 @@ sources: pointer-not-copy throughout — each row names its source artifact; not
 close-fold: 2026-08-14 AM — S-10 CLOSED: B-1's ranking executed at context/assessments/2026-08-14_S10_close_ranked-program.md (the semester program, A-14-sized); L-E/L-F ABSENT AT THE FINAL STAMP → DROPPED by construction (dispositions folded there §2); the Fri products on disk (G1 runbook · the freeze-day operator block · the S-10 close); I2/E3 discharge on Nick's freeze-day paste. Record: pm-handoff v52 beat 4.
 ruling-fold: 2026-08-13 PM — Nick's batch word ("aligned with everything you said" + technicals same-page) folds below: §A/§B/§C per REC; §D per the nuanced reading (Q-C modified to deliberation-first — the naming-program-v2 package is the instrument; P-1 deferred to the shortlist ruling); §E gains the dispatch claim. Open at S-10 close: B-1's RANKING + the L-E/L-F intakes + the §G Friday products. Record of record: pm-handoff v52 beat 2.
 how-to-rule: reply in chat with row IDs + words (e.g. "D-1 position-1, D-2 yes, …"); partial batches are fine; anything unruled by S-10 close Friday is carried or defaulted as marked.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # THE SKELETON — S-10 Decision Agenda (v52 beat 1, 2026-08-13)

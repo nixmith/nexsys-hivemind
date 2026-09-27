@@ -5,6 +5,7 @@ audience: the hub (intake; the card is cut from §0) · Nick (Thu 09-24)
 state-type: lane return
 charter: context/instructions/2026-09-18_bench-lane_BENCH-METER-1_metering-known-load_field-within_link-quality-skeleton_charter.md
 baseline: nexsys-bench f3631cb, porcelain empty at entry; HEAD unchanged at exit; nothing staged.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # BENCH-METER-1 — bench lane return (Fri 2026-09-18 CT · UTC−5)

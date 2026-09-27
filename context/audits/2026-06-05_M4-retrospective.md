@@ -4,7 +4,7 @@ purpose: Constructive retrospective on Milestone M4 (device-model expansion + pr
 audience: PM, Nick
 update-cadence: frozen
 state-type: history
-status: CURRENT
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT
 last-verified: 2026-06-05 against homesynapse-core HEAD 8ef9e9f (watermark AMD-64, projectionVersion 5, M4 COMPLETE)
 -->
 

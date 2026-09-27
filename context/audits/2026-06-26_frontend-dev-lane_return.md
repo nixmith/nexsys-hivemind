@@ -5,6 +5,7 @@ audience: the hub (v6), Nick
 state-type: lane return (frontend-dev)
 writes-this-session: homesynapse-core/web-ui/dashboard/** (the SPA) + this return. NOTHING else (no core Java, no design docs, no other lane's tree).
 anchors: design/13-web-ui-observability-mvp.md (Locked) · context/decisions/2026-06-21_dashboard-read-API-contract-freeze.md (FROZEN v1.1) · context/assessments/2026-06-21_explainability-UX-competitive-research.md · the dispatch 2026-06-21_frontend-dev-lane_session_prompt.md
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # Frontend-Dev Lane — Return (first beat, 2026-06-26)

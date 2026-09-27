@@ -3,7 +3,7 @@ file: context/handoff/2026-08-28_pelton-results_same-day-execution-card.md
 purpose: The no-hesitation card for THE PELTON WORD (comprehensive-search results on ZENDOMO, expected early week of Aug 31 — "probably Monday"). Binds: the reply that books the call BEFORE results arrive · the call agenda · pointers to the pre-staged A/B/C same-day chains. Nothing here is new strategy; it is choreography so the word → same-day execution with zero serial dependency.
 audience: Nick (the reply + the call) · the hub (the word → the branch)
 state-type: execution card (consumed the day the word arrives)
-status: ARMED 2026-08-28 (beat 9). Counsel's reply on record: results early next week; call offered; "make sure we get your filing set for early September."
+status: EXECUTED — HIVE-CLEAN-2 (2026-09-26). Was: ARMED 2026-08-28 (beat 9). Counsel's reply on record: results early next week; call offered; "make sure we get your filing set for early September."
 -->
 
 # THE PELTON WORD — same-day execution card

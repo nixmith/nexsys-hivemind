@@ -3,7 +3,7 @@ file: context/assessments/2026-05-30_Research_10_PM_Assessment.md
 purpose: PM assessment of Research 10 (Typed Attribute Change-Detection Semantics) — dispositions, source corrections, NQ-10-* framing for Nick. SOURCE-VERIFIED against HEAD 60b4185 (git object store, not the working-tree mount).
 audience: PM, Nick
 state-type: current
-status: v1 — §1–§6 strategically ACCEPTED; §7 code baseline source-corrected (CONFIRMED, not "cannot verify"); NQ-10-1..6 framed for Nick's adjudication.
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 — §1–§6 strategically ACCEPTED; §7 code baseline source-corrected (CONFIRMED, not "cannot verify"); NQ-10-1..6 framed for Nick's adjudication.
 last-verified: 2026-05-30 against HEAD `60b4185` (device-model, state-store, event-model source + module-info.java, all read via `git show HEAD:`)
 -->
 

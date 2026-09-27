@@ -3,7 +3,7 @@ file: context/assessments/2026-05-22_Research_8_PM_Assessment.md
 purpose: PM assessment of Research 8 (Device Model Implementation) — dispositions, modifications, follow-up questions, Nick-verified corrections.
 audience: PM, Nick
 state-type: current
-status: CURRENT
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: CURRENT
 last-verified: 2026-05-22 (post Nick source-verification)
 -->
 

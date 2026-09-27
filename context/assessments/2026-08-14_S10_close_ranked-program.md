@@ -4,6 +4,7 @@ purpose: THE S-10 CLOSE — the B-1 ranking executed (the ruled queue seed + the
 audience: Nick (one word confirms the ranking — or re-orders any row before EOD; unre-worded rows stand as the program of record); the hub (dispatches from this ranking post-READ); the confirmation-soundness charter session (rows R-10/R-14 are its intake).
 state-type: assessment / program of record (post-gate execution gated on the Sun READ's verdict; NOTHING here moves pre-freeze — the HOLD stands to the last hour).
 sizing-basis: A-14 (context/research/2026-08-02_A14_attended-hours_charter-input.md) — FLOOR 15 h/wk weekend-anchored (all commitments size to the floor); normal weeks 30+ (disclosed, never promised); SHAPE: bench-adjacent work concentrates on weekends, weekday hours are laptop/automated — so fresh-lane research/audit WUs run WEEKDAY-PARALLEL to weekend bench WUs by construction.
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # S-10 Close — The Ranked Post-Gate Program (the semester, A-14-sized)

@@ -1,3 +1,4 @@
+<!-- status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26) -->
 # Competitive Research — Automation Explainability UX
 
 *How Home Assistant, Hubitat, SmartThings, openHAB, and Node-RED let users understand **why an automation did or didn't fire** — and where they fail. For: the HomeSynapse explainability hero-view design, the M7.2b retry-vs-confirmation decision (D2/REC-162), and the user interviews. Authored 2026-06-21.*

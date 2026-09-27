@@ -3,7 +3,7 @@ file: context/planning/2026-09-10_v68_MOMENTUM-MAP_two-weeks_critical-path-and-N
 purpose: The map re-cut at the brand landing (ritual 1): the next two weeks of development, research and testing as ONE critical path with two lanes beside it, what each landing compounds into, and Nick's hours — written so Nick can follow it without remembering anything. It re-cuts the plan of record (2026-09-06_v66_STATE-OF-THE-PROGRAM_assessment §3, adopted D4 `PLAN: adopt`); it does not replace it.
 audience: Nick (§1, §4, §5) · the hub (§2, §3 — the dispatch order)
 state-type: execution map (re-cut at every landing; the brief's §HELD carries the live state)
-status: LIVE v69 beat 1 — RE-CUT on Nick's three edits (R-4c MEASUREMENT-ONLY on the core tree · P-1 chartered directly after R-4c · H8-a Fri 09-11 19:00 CT with the fallback) and the Thursday landings (HONESTY-1 `94ae99d` · FE-NULL-1 `eabdbb1`) (Thu 2026-09-10 ~20:1x CT; instrument 2026-09-11T01:12:55Z). Prior: LIVE v68 beat 2 (2026-09-10T21:48:18Z).
+status: SUPERSEDED — HIVE-CLEAN-2 (2026-09-26). Was: LIVE v69 beat 1 — RE-CUT on Nick's three edits (R-4c MEASUREMENT-ONLY on the core tree · P-1 chartered directly after R-4c · H8-a Fri 09-11 19:00 CT with the fallback) and the Thursday landings (HONESTY-1 `94ae99d` · FE-NULL-1 `eabdbb1`) (Thu 2026-09-10 ~20:1x CT; instrument 2026-09-11T01:12:55Z). Prior: LIVE v68 beat 2 (2026-09-10T21:48:18Z).
 -->
 
 # The momentum map — Thu 09-10 → Thu 09-24

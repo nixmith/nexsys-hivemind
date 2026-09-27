@@ -3,6 +3,7 @@ file: context/pre-verifications/WU-R1R2.md
 purpose: Pre-verification artifact for the R-1/R-2 coding instruction (the M3.6d class — ≥3 prerequisite source-state assumptions). Each row: the assumed source element → what the hub observed at authoring (2026-08-20, HEAD c091f7c) → what the CODER must re-verify at execution before implementing. The Coder reads this FIRST and STOPs on any mismatch (evidence over instruction).
 audience: the R-1/R-2 Coder lane (host-CC); the hub (audit).
 verified-at: 2026-08-20 evening, by the v54 hub, against core c091f7c (git objects + staged whole-file reads; instrument notes inline).
+status: FILED — historical record (HIVE-CLEAN-2, 2026-09-26)
 -->
 
 # WU-R1R2 — Pre-Verification (verified 2026-08-20 @ c091f7c)

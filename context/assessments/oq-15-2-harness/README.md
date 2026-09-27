@@ -2,7 +2,7 @@
 file: context/assessments/oq-15-2-harness/README.md
 purpose: OQ-15-2 microbench harness — archival source + exact run protocol. The harness is SPIKE-class: it runs on the Pi / desktop working tree only and NEVER enters the production repo. This dir is the reviewable source of record.
 audience: Nick (runs), PM (authored 2026-06-12), reviewer
-status: AUTHORED 2026-06-12 — Pi-evidence session (R2/R3 defaults per session record)
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: AUTHORED 2026-06-12 — Pi-evidence session (R2/R3 defaults per session record)
 -->
 
 # OQ-15-2 Microbench Harness (spike — archival copy)

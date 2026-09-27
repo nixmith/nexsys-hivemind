@@ -3,7 +3,7 @@ file: context/assessments/2026-06-05_Research_7_v2_PM_Assessment.md
 purpose: PM assessment of Research 7 v2 (REST/WS verification + re-anchor). Supersedes the v1 assessment's §7 fabrication catalogue; v1 dispositions remain canonical except where noted.
 audience: Nick, PM
 state-type: assessment
-status: v1 — PM-verified against source at HEAD `e73e199` (module-infos, state-store transitive graph, WsCloseCode/type facts vs the brief embeds). **NQ-1..7 RATIFIED by Nick 2026-06-05 exactly as recommended below (six leans + the NQ-3 https override). The M10/M11 API surface is decision-locked; AMD integers assign at milestone.** Dual-coordinator spike (R12) separately approved → backlog SPIKE-DC.
+status: HISTORICAL — HIVE-CLEAN-2 (2026-09-26). Was: v1 — PM-verified against source at HEAD `e73e199` (module-infos, state-store transitive graph, WsCloseCode/type facts vs the brief embeds). **NQ-1..7 RATIFIED by Nick 2026-06-05 exactly as recommended below (six leans + the NQ-3 https override). The M10/M11 API surface is decision-locked; AMD integers assign at milestone.** Dual-coordinator spike (R12) separately approved → backlog SPIKE-DC.
 -->
 
 # Research 7 v2 — PM Assessment

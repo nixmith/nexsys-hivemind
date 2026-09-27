@@ -717,3 +717,11 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-27 (v83 beat 2) — v82 b4b, verbatim
 
 2026-09-27 (v82 beat 4b — the addendum after the close: THE IR-61 INDEPENDENT REVIEW INTAKEN ACCEPT at the bytes (`METERING_ROWS` 5–600 s / 5–3600 s; `MeasureReadPathIT`; the replay order; `CustomCapability`); the instruction RE-CUT before dispatch — THE DERIVATION RULE (2 × the configured maximum, never an observed cadence: `power_meter` 1200 s, `energy_meter` 7200 s), T6 on `MeasureReadPathIT`, the replay-order property + T2b, row 13, the resolver indexes the catalog; WU-IR61 rows 16–18; IR-78..81 (the AMD source 2b Tuesday); D-v82-10's second exhibit; Sun 2026-09-27 ~15:4x CT (instrument 2026-09-27T20:41:12Z). Order: ONE card, b4b (hivemind 10 = 8 M + 2 A by explicit paths, computed at -uall inside the splice)))
+
+## chain segment rotated 2026-09-27 (v83 beat 4) — v83 b1, verbatim
+
+2026-09-27 (v83 beat 1 — THE BOOT AND THE INTAKE: v83 opened Sun 15:4x CT on Nick's word; the read-set 42,614 B; the HEADs = the record; the preflight 12/12; IR-61 RUNNING since 15:46 CT (the return owed at `context/audits/2026-09-27_IR61_return.md`); THE ONE DELIVERABLE REHEARSAL 1 Mon 09:00 CT (D-v83-1); the night re-shaped — the desk queue, then IR-61's intake → the core card → CI → BENCH-CORE-5 only on GREEN by 19:30 CT (D-v83-2); `BIAS: tolerate` GIVEN; the v83 DR OPEN (D-v83-1..8); Sun 2026-09-27 ~16:0x CT (instrument 2026-09-27T21:05:28Z). Order: ONE card, b1 (hivemind 7 = 5 M + 2 A by explicit paths, computed at -uall inside the splice)))
+
+## chain segment rotated 2026-09-27 (v83 beat 4) — v83 b2, verbatim
+
+2026-09-27 (v83 beat 2 — IR-61 INTAKEN ACCEPT at the bytes and taken apart; IR-83 (the boot replay race) REGISTERED with its instrument on BC5's and the rehearsal's boots; the core card cut (18 = 13 M + 5 A; CI the gate); the desk queue CUT (VERIFY-72H-A · KREFRESH-1 · OUTREACH-1 · WU-PJ2 · WU-IR56; IR-56's instruction held to P4 sample 3); `PJ2:` and `TM:` asked; v81 b1–b4 rotated; Sun 2026-09-27 ~16:4x CT (instrument 2026-09-27T21:43:35Z). Order: TWO cards — the core card (18), then hivemind b2 (16 = 8 M + 8 A by explicit paths, computed at -uall inside the splice)))

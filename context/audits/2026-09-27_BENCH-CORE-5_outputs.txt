@@ -1,0 +1,97 @@
+=== B0 2026-09-27T22:54:08Z
+hs-dev-1
+22:54:08Z
+clone: e96dce8 feat(zigbee): IR-18 — the Illuminance Measurement (0x0400) handler; me
+porcelain=0
+behind=1 ahead=0
+node=v22.23.1 npm=10.9.8
+openjdk version "21.0.11" 2026-04-21 LTS
+/dev/mmcblk0p2  117G   15G   98G  13% /
+  [OK] running (pid 30550)
+--- health tokens (current boot: /home/homesynapse/hs-bench/bench-2026-09-27-154505.log) ---
+15:45:12.333 [hs-sub-registry_projection] INFO  c.h.l.RegistryProjectionSubscriber -- registry.projection_live: devices=9 entities=9 position=201201
+DB=/home/homesynapse/hs-bench/data/homesynapse-events.db
+383977
+ok
+NEXT                        LEFT LAST                         PASSED UNIT                       ACTIVATES
+Mon 2026-09-28 04:30:00 EDT   9h Sun 2026-09-27 04:30:00 EDT 14h ago nexsys-bench-nightly.timer nexsys-bench-nightly.service
+
+=== B0b 2026-09-27T22:56:18Z
+zigbee.yaml: 571 B sha256 513b2c0171b84d50 key-lines=0
+bench-2026-09-27-043007.log: permit_join_opened=0 device_join=0 device_announce=0
+bench-2026-09-27-043029.log: permit_join_opened=0 device_join=0 device_announce=0
+bench-2026-09-27-043129.log: permit_join_opened=0 device_join=0 device_announce=0
+bench-2026-09-27-091824.log: permit_join_opened=0 device_join=0 device_announce=0
+bench-2026-09-27-091906.log: permit_join_opened=0 device_join=0 device_announce=0
+bench-2026-09-27-154422.log: permit_join_opened=0 device_join=0 device_announce=0
+bench-2026-09-27-154505.log: permit_join_opened=0 device_join=0 device_announce=0
+nightly: 2026-09-27 quiesced AUTO floor: 8/9 PASS · 1 SKIP(hue-online) · fleet: 9/9 · re-seen 9 · bench-hero RESTORED ✓ · ON-latency 0.35s
+probe: 384123 rows, ciphered=0
+command_result|blob|208|{"target_entity_ref":"01KXW1W1SBJZERC9MBAMV2DWKE","command_t
+command_result|blob|230|{"target_entity_ref":"01KX1PA4HSJ581GASYB7DHE40F","command_t
+=== B1 2026-09-27T22:57:33Z
+hs-dev-1
+BACKUP=/home/homesynapse/hs-backup/20260927T225733Z
+total 184336
+drwxrwxr-x 4 homesynapse homesynapse      4096 Sep 27 15:45 config
+-rw-r--r-- 1 homesynapse homesynapse 188751872 Sep 27 18:57 homesynapse-events.db
+drwxrwxr-x 4 homesynapse homesynapse      4096 Jul  6 08:32 install-tree-old
+384198
+=== B2 2026-09-27T22:59:43Z
+hs-dev-1
+Updating e96dce8..1f1d1e0
+Fast-forward
+clone: 1f1d1e0 feat(state-store): IR-61 — staleAfter from Doc 03 §3.8's threshold ch
+BUILD pid=31140 log=~/hs-bench/build-20260927T225943Z.log
+=== B2-poll 2026-09-27T23:00:28Z
+/home/homesynapse/hs-bench/build-20260927T225943Z.log
+> Task :app:homesynapse-app:installDist
+
+BUILD SUCCESSFUL in 26s
+60 actionable tasks: 18 executed, 42 up-to-date
+-rwxr-xr-x 1 homesynapse homesynapse 11008 19:00:09 /home/homesynapse/homesynapse-core/app/homesynapse-app/build/install/homesynapse-app/bin/homesynapse-app
+=== B3 2026-09-27T23:02:01Z
+hs-dev-1
+23:02:01Z
+  [OK] stopped
+  [OK] launched pid 31334 -> /home/homesynapse/hs-bench/bench-2026-09-27-190208.log
+  [--] waiting for a decisive radio state (up to 90 s)...
+  [OK] RADIO UP after 16s
+--- health tokens (current boot: /home/homesynapse/hs-bench/bench-2026-09-27-190208.log) ---
+19:02:15.419 [hs-sub-registry_projection] INFO  c.h.l.RegistryProjectionSubscriber -- registry.projection_live: devices=9 entities=9 position=201201
+19:02:16.010 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x4CE175B4C0700000 deviceId=01M3DM74RKEQ9H05PAATBMW2MW — re-pairing, no new adoption
+19:02:16.012 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFE1C1E8E deviceId=01KXW13WEGRCT5C0XSQT8WZBG9 — re-pairing, no new adoption
+19:02:16.015 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x449FDAFFFE688F57 deviceId=01KY12MQVQ204M1VP39F1ZDM33 — re-pairing, no new adoption
+19:02:16.018 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xACEBE6FFFEF733DC deviceId=01M3DPGF69FPJ6DVZCBJQMMYEA — re-pairing, no new adoption
+19:02:16.019 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xACEBE6FFFEF25A2C deviceId=01M3DPKN9SX4K6D7D1PKDP17S3 — re-pairing, no new adoption
+19:02:16.020 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x00124B002FA8D1C5 deviceId=01KXW1W1RR66GV98D9QDPB4VXY — re-pairing, no new adoption
+19:02:16.022 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x00178801101A09BB deviceId=01KX1PA4GRZHY2GD37B5CFVQHY — re-pairing, no new adoption
+19:02:16.023 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFED2A201 deviceId=01KXW0156Z1GJ3WCV2G516AKWS — re-pairing, no new adoption
+19:02:16.024 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFE9C78D7 deviceId=01KX1PB9A5931A8G0F0X03QXT2 — re-pairing, no new adoption
+19:02:16.024 [integration-supervisor-start] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.adoption_maps_rehydrated: devices=9
+19:02:23.877 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.network_resumed: channel=20 panId=0x774c
+19:02:23.878 [integration-zigbee-0] INFO  c.h.i.zigbee.EzspCoordinatorProtocol -- zigbee.network_up: stackStatusHandler reported EMBER_NETWORK_UP (buffered)
+--- failure tokens ---
+    [ok] api /api/v1/entities {"rows": 9, "ulids": ["01KX1PA4HSJ581GASYB7DHE40F", "01KX1PB9AAB4VB3E10BD477TV3", "01KXW0157SP56CCSGJCNDCSQNG", "01KXW13WF0D6TYGN13WXHTG87K", "01KXW1W1SBJZERC9MBAMV2DWKE", "01KY12MQW954E4XYNKH0Y5H8VX", "01M3DPGF6Y4YXNXDHBW38ZEX2G", "01M3DM74SGEY7RXVDYSM4PK2XA", "01M3DPKN9WD9B88Q4SVDMSBJVS"]} — all asserts satisfied (within 90s)
+[PASS] boot-health — 6/6 positive · 0 forbidden
+  [--] bundle: /home/homesynapse/hs-bench/bundles/boot-health-20260927T230307Z
+19:03:07.022 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.port_identity_captured: stableId=/dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Plus_MG24_0ae2dd7cecf8ef11b80168135c2a50c9-if00-port0 vendorId=10c4 productId=e
+19:03:07.137 [integration-zigbee-0] INFO  c.h.i.z.ZigbeeIntegrationAdapter -- zigbee.network_resumed: channel=20 panId=0x774c
+formed=0 resumed=1 relinked=9 adopted=0 config_issue=0 cache_loaded=device_cache_loaded: 9
+384512
+ok
+registry rows=9
+deployed=1f1d1e0
+jvm pid=31470 start=Sun Sep 27 19:02:52 2026
+ir61-class-in-tree=1 jar=state-store-0.1.0-SNAPSHOT.jar
+live-order:
+19:19:02:58.838 [hs-sub-registry_projection] INFO  c.h.l.RegistryProjectionSubscriber -- registry.projection_live: devices=9 entities=9 position=201201
+TR3-immediate: avail=AVAILABLE stale=False staleAfter=None lastReported=1790549598.535246
+=== B4 2026-09-27T23:05:20Z
+PLUGS@23:06:19Z · G4-1 AVAILABLE on=False W=0.0 stale=False staleAfter=1790551576.145864 · TR3 AVAILABLE on=True W=0.0 stale=False staleAfter=1790551398.544941 · G4-2 AVAILABLE on=False W=0.0 stale=False staleAfter=1790551575.345846
+PLUGS@23:08:19Z · G4-1 AVAILABLE on=False W=0.0 stale=False staleAfter=1790551698.129377 · TR3 AVAILABLE on=True W=0.0 stale=False staleAfter=1790551398.544941 · G4-2 AVAILABLE on=False W=0.0 stale=False staleAfter=1790551695.98159
+19:02:59.303 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x4CE175B4C0700000 deviceId=01M3DM74RKEQ9H05PAATBMW2MW — re-pairing, no new adopt
+19:02:59.304 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFE9C78D7 deviceId=01KX1PB9A5931A8G0F0X03QXT2 — re-pairing, no new adopt
+19:02:59.304 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0xF044D3FFFED2A201 deviceId=01KXW0156Z1GJ3WCV2G516AKWS — re-pairing, no new adopt
+19:02:59.304 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x00178801101A09BB deviceId=01KX1PA4GRZHY2GD37B5CFVQHY — re-pairing, no new adopt
+19:02:59.305 [integration-supervisor-start] INFO  c.h.i.zigbee.ZigbeeAdoptionSlice -- zigbee.device_relinked: device=0x00124B002FA8D1C5 deviceId=01KXW1W1RR66GV98D9QDPB4VXY — re-pairing, no new adopt

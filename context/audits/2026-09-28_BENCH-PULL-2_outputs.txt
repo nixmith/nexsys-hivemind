@@ -1,0 +1,10 @@
+=== BP2 2026-09-28T10:59:11Z
+hs-dev-1
+before: 58b5b45 bench: METER-3 — the freshness VOID (fresh_within_
+porcelain=0
+Updating 58b5b45..9fa2382
+Fast-forward
+after: 9fa2382 bench: VERIFY-72H-A — the export verb, the offline
+bh2=3 fresh=1 v72h=1
+selftest: 41 check(s), 0 failure(s)
+verify72h selftest: 25 check(s), 0 failure(s)

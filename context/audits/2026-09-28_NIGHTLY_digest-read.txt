@@ -1,0 +1,9 @@
+=== NIGHTLY-READ 2026-09-28T10:56:41Z
+hs-dev-1
+2026-09-28T10:56:42Z
+digest-lines=60
+--- last 3 digest lines:
+2026-09-26 quiesced AUTO floor: 7/9 · FAIL command-confirm-s31 · bundle /home/homesynapse/hs-bench/bundles/command-confirm-s31-20260926T083122Z · 1 SKIP(hue-online) · fleet: 9/9 · re-seen 6 · bench-hero RESTORED ✓ · ON-latency n/a(FAIL)
+2026-09-27 quiesced AUTO floor: 8/9 PASS · 1 SKIP(hue-online) · fleet: 9/9 · re-seen 9 · bench-hero RESTORED ✓ · ON-latency 0.35s
+2026-09-28 quiesced AUTO floor: 8/9 PASS · 1 SKIP(hue-online) · fleet: 9/9 · re-seen 9 · bench-hero RESTORED ✓ · ON-latency 0.37s
+--- bench on the Pi: 58b5b45 bench: METER-3 — the freshness porcelain=0

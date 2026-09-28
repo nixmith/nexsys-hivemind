@@ -1,0 +1,13 @@
+=== PP2 2026-09-28T10:59:33Z
+hs-dev-1
+-rw-r--r-- 1 homesynapse homesynapse 188751872 Sep 27 18:57 /home/homesynapse/hs-backup/20
+view_checkpoint ('state_projection', 384196, 1790549849934851)
+subscriber_checkpoint ('automation_engine', 384198)
+subscriber_checkpoint ('command_dispatch_service', 370844)
+subscriber_checkpoint ('integration_supervisor', 370844)
+subscriber_checkpoint ('pending_command_ledger', 384197)
+subscriber_checkpoint ('registry_projection', 370844)
+subscriber_checkpoint ('state_projection', 384196)
+head (384198, 384198)
+tr3_last_state_reported (383919, 1790549598535246, 1790549598535330)
+VERDICT CONFOUND (report at or below the checkpoint) ckpt=384196 tr3_last=383919

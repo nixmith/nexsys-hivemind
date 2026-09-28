@@ -3,7 +3,7 @@ file: context/instructions/2026-09-27_PI-PROBE-2_boot-replay-race_checkpoint-vs-
 purpose: PI-PROBE-2 (D-v83-25; IR-83) — ONE read-only block on the B1 backup of the event store (`~/hs-backup/20260927T225733Z/homesynapse-events.db`, taken before BC5's restart): the state projection's `view_checkpoints` position against the position of TR3's last `state_reported` before that restart. Decides whether BC5's immediate null `staleAfter` for TR3 (8 s before its first post-boot report) was the boot replay RACE (the report replayed by the new core with IR-61's resolver, the registry not yet caught up) or the CONFOUND (the report already inside `e96dce8`'s checkpoint, null by construction, never replayed). No write; no token; nothing on the live store; the Pi's live core untouched.
 audience: Nick (one block in Git Bash; one line back) · the hub (the reading → D-v84-15's row; IR-83's status)
 state-type: operator card (read-only probe)
-status: DISPATCH-READY — cut v84 beat 3 (Sun 2026-09-27 evening). Runs Monday 2026-09-28 after BENCH-PULL-2 and before the rehearsal (the Pi in series). EXECUTED when the one line is said.
+status: EXECUTED — run Mon 2026-09-28 10:59:33Z (05:59 CT) by Nick; `VERDICT CONFOUND (report at or below the checkpoint) ckpt=384196 tr3_last=383919`; the outputs `context/audits/2026-09-28_PI-PROBE-2_outputs.txt` (694 B); intaken v84 beat 4 (`context/audits/2026-09-28_v84-b4_Monday-morning_nightly_BENCH-PULL-2_PI-PROBE-2_intake_audit.md`). Was: DISPATCH-READY — cut v84 beat 3 (Sun 2026-09-27 evening). Runs Monday 2026-09-28 after BENCH-PULL-2 and before the rehearsal (the Pi in series). EXECUTED when the one line is said.
 -->
 
 # PI-PROBE-2 — the checkpoint against TR3's last report (read-only; the B1 backup)

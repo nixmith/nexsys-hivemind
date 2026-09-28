@@ -737,3 +737,11 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-27 (v84 beat 3) — v84 b1, verbatim
 
 2026-09-27 (v84 beat 1 — THE BOOT AND THE INTAKE: v84 opened Sun 19:44 CT on Nick's paste (the text said Monday morning); the read-set 39,672 B; the HEADs = the record (hivemind `db5e0bc` the close card; bench porcelain 9 = VERIFY-72H-A's tree); the preflight 12/12; VERIFY-72H-A RETURNED (8,172 B; the intake b2); the nightly not yet; the four naming words at their recs (D-v84-4); `REH1:` defaulted 12:00 (rec 09:00); the v84 DR OPEN (D-v84-1..9); Sun 2026-09-27 ~20:0x CT (instrument 2026-09-28T01:01:01Z). Order: no card yet — ONE hivemind card for the night's beats at b3)
+
+## chain segment rotated 2026-09-28 (v84 beat 4) — v84 b2, verbatim
+
+2026-09-27 (v84 beat 2 — VERIFY-72H-A INTAKEN ACCEPT at the re-run (41/0 · 25/0 · porcelain 9); IR-89 — the grader's payload keys camelCase against the SNAKE_CASE store (BLOCKING for any grade; A2 the fix, Monday's bench slot); the bench card cut in two parts (commit + push tonight; BENCH-PULL-2 Monday after the nightly's line); a stale bench index.lock swept by RENAME; IR-61b + LOCK-1 one Java lane in series (D-v84-12); v81 b5 → v82 b2 rotated; D-v84-10..12; Sun 2026-09-27 ~20:1x CT (instrument 2026-09-28T01:11:03Z). Order: the bench card part 1 now; the hivemind card for b1 + b2 + b3 at b3)
+
+## chain segment rotated 2026-09-28 (v84 beat 5) — v84 b3, verbatim
+
+2026-09-27 (v84 beat 3 — THE NIGHT'S DESK: `BENCH: LANDED 9fa2382` at the porcelain; IR-61b + LOCK-1 cut as ONE Java lane in series; IR-61b REVIEWED in-conversation (E1–E10 applied; the state projection already logs its catch-up — D-v83-25 corrected, D-v84-14); PI-PROBE-2's card and VERIFY-72H-A2's charter cut; Monday's order of acts ONE packet; D-v84-13..17; Sun 2026-09-27 ~21:1x CT (instrument 2026-09-28T02:12:16Z). Order: ONE card, b1 + b2 + b3 (hivemind 18 = 7 M + 11 A, computed at -uall inside the splice))

@@ -749,3 +749,19 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-28 (v84 beat 6) — v84 b4, verbatim
 
 2026-09-28 (v84 beat 4 — MONDAY MORNING: `HIVE: LANDED 84ecb17`; the nightly MATCHES (`8/9 PASS · fleet: 9/9 · re-seen 9`, the first on `1f1d1e0`, on bench `58b5b45`) — D-v84-18; BENCH-PULL-2 the Pi → `9fa2382` (41/0 · 25/0; IR-76); PI-PROBE-2 CONFOUND (ckpt 384196 > tr3_last 383919; D-v83-25 confirmed; IR-83 unobserved) — D-v84-19; the Java lane and VERIFY-72H-A2 handed 06:0x CT; W-SKILLS-10 pulled forward and cut (D-v84-20); Mon 2026-09-28 ~06:0x CT (instrument 2026-09-28T11:07:07Z). Order: the card b4 (hivemind 11 = 6 M + 5 A) after the two pastes)
+
+## chain segment rotated 2026-09-28 (v85 beat 1) — v84 b5, verbatim
+
+2026-09-28 (v84 beat 5 — LOCK-1 + IR-61b INTAKEN ACCEPT at the tree (the code read whole; every prediction as stated; T3/T3b green before the gate — no desk instrument, F2 → PI-PROBE-3, IR-91); ONE prose correction before the landing (four sites contradicting the tree); TWO core cards handed (4 = 2 M + 2 A; 9 = 4 M + 5 A), CI pending on each; IR-90 (a type-wrong key dropped at load); W-SKILLS-10 Wednesday by Nick's word; D-v84-21..24; Mon 2026-09-28 ~07:4x CT (instrument 2026-09-28T12:48:37Z). Order: the packet's Parts A, B, C, then the card b5 (hivemind 18 = 10 M + 8 A))
+
+## chain segment rotated 2026-09-28 (v85 beat 2) — v84 b6, verbatim
+
+2026-09-28 (v84 beat 6 — THE CLOSE at six (the context rule): core `a5b9e33` + `40412f9` at the porcelain, `CI: 40412f9 green` (16; `a5b9e33`'s line → 17); hivemind `eb1d822`; VERIFY-72H-A2 INTAKEN ACCEPT (26/0 · 42/0 at the re-run; the bench card 5 M in two parts; IR-89 closes at the landing); IR-92; EXPORT-1 and BC6 to v85 (D-v84-27); v85's text cut; THE DELIVERABLE (the rehearsal at noon + its intake) CARRIES to v85 with a fresh context (D-v84-28); the DR CLOSED (D-v84-1..28); v82 b3 → v83 b1 rotated; Mon 2026-09-28 ~08:3x CT (instrument 2026-09-28T13:31:59Z). Order: the bench card A2 part 1, then ONE close card b6 (hivemind 11 = 7 M + 4 A), then v85's text at ~11:45 CT)
+
+## chain segment rotated 2026-09-28 (v85 beat 3) — v85 b1, verbatim
+
+2026-09-28 (v85 beat 1 — THE BOOT AND THE INTAKE; REHEARSAL 1 HANDED AT NOON: v85 opened Mon 11:47 CT on Nick's paste of v85's text ("consider this noon"); the read-set 41,600 B; the HEADs = the record (hivemind `8a062da` the close card; bench `352296d` = A2 — VERIFY-72H-A2 EXECUTED, IR-89 CLOSED); the preflight 12/12; `CI: a5b9e33` · `TM:` · `HOURS:` unsaid; the rehearsal's packet handed at 11:5x CT (the return `_scratch/v81/mon0928/REHEARSAL-1_return.md`); PJ-2 authored + reviewed → DISPATCH-READY; `REH1B: thu` by rule; the v85 DR OPEN (D-v85-1..10); Mon 2026-09-28 ~12:0x CT (instrument 2026-09-28T17:07:29Z). Order: no card yet — ONE hivemind card for b1 + b2 after the intake)
+
+## chain segment rotated 2026-09-28 (v85 beat 4) — v85 b2, verbatim
+
+2026-09-28 (v85 beat 2 — THE DELIVERABLE MET: REHEARSAL 1 RETURNED 13:51 CT and INTAKEN two-layer — P1/P3/P6 HELD, P2 on substance (its `position` clause mis-specified), P5 on the trigger (the command clause → EXPORT-1, IR-94), P4 refuted on the inverse arm with the 90-s point unsampled → sample 4 CLEAN → IR-56 the instrument row (D-v85-12); REH1-1..7; IR-93 + one lesson (the harvest dry-run); the packet EXECUTED; EXPORT-1 cut (17:15–18:50Z); the evening ordered on `HOURS: 17:00–21:00` (A BP3 → B EXPORT-1 → C the card 15 = 9 M + 6 A → D PJ-2's line → E BC6 by 19:00); the v85 DR OPEN (D-v85-1..17); Mon 2026-09-28 ~14:1x CT (instrument 2026-09-28T19:14:47Z). Order: the evening packet's Parts A–D, one at a time)

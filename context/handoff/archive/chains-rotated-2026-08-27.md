@@ -745,3 +745,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-28 (v84 beat 5) — v84 b3, verbatim
 
 2026-09-27 (v84 beat 3 — THE NIGHT'S DESK: `BENCH: LANDED 9fa2382` at the porcelain; IR-61b + LOCK-1 cut as ONE Java lane in series; IR-61b REVIEWED in-conversation (E1–E10 applied; the state projection already logs its catch-up — D-v83-25 corrected, D-v84-14); PI-PROBE-2's card and VERIFY-72H-A2's charter cut; Monday's order of acts ONE packet; D-v84-13..17; Sun 2026-09-27 ~21:1x CT (instrument 2026-09-28T02:12:16Z). Order: ONE card, b1 + b2 + b3 (hivemind 18 = 7 M + 11 A, computed at -uall inside the splice))
+
+## chain segment rotated 2026-09-28 (v84 beat 6) — v84 b4, verbatim
+
+2026-09-28 (v84 beat 4 — MONDAY MORNING: `HIVE: LANDED 84ecb17`; the nightly MATCHES (`8/9 PASS · fleet: 9/9 · re-seen 9`, the first on `1f1d1e0`, on bench `58b5b45`) — D-v84-18; BENCH-PULL-2 the Pi → `9fa2382` (41/0 · 25/0; IR-76); PI-PROBE-2 CONFOUND (ckpt 384196 > tr3_last 383919; D-v83-25 confirmed; IR-83 unobserved) — D-v84-19; the Java lane and VERIFY-72H-A2 handed 06:0x CT; W-SKILLS-10 pulled forward and cut (D-v84-20); Mon 2026-09-28 ~06:0x CT (instrument 2026-09-28T11:07:07Z). Order: the card b4 (hivemind 11 = 6 M + 5 A) after the two pastes)

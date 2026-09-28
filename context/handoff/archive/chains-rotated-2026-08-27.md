@@ -725,3 +725,15 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-27 (v83 beat 4) — v83 b2, verbatim
 
 2026-09-27 (v83 beat 2 — IR-61 INTAKEN ACCEPT at the bytes and taken apart; IR-83 (the boot replay race) REGISTERED with its instrument on BC5's and the rehearsal's boots; the core card cut (18 = 13 M + 5 A; CI the gate); the desk queue CUT (VERIFY-72H-A · KREFRESH-1 · OUTREACH-1 · WU-PJ2 · WU-IR56; IR-56's instruction held to P4 sample 3); `PJ2:` and `TM:` asked; v81 b1–b4 rotated; Sun 2026-09-27 ~16:4x CT (instrument 2026-09-27T21:43:35Z). Order: TWO cards — the core card (18), then hivemind b2 (16 = 8 M + 8 A by explicit paths, computed at -uall inside the splice)))
+
+## chain segment rotated 2026-09-27 (v84 beat 1) — v83 b3, verbatim
+
+2026-09-27 (v83 beat 3 — the landings verified (core `1f1d1e0` CI green, 15/20; hivemind `ba313ad`); BENCH-CORE-5 cut from BC4 through the prior-ledger gate (IR-61's proof; IR-83's two probes; the sqlite probe) and handed; VERIFY-72H-A's line handed; `PJ2: endpoint` GIVEN; `TM:` and `REH1:` asked; the naming input filed verbatim and the hub-read written; the Java queue re-cut on Nick's word (IR-61b → PJ-2 → Tuesday's choice; IR-56 on sample 4); IR-86..88; W-SKILLS-10 Wed; D-v83-15..23; Sun 2026-09-27 ~18:2x CT (instrument 2026-09-27T23:24:29Z)))
+
+## chain segment rotated 2026-09-27 (v84 beat 2) — v83 b4, verbatim
+
+2026-09-27 (v83 beat 4 — THE CLOSE at four (D-v83-21): BENCH-CORE-5 INTAKEN ACCEPT at its outputs (`deployed=1f1d1e0`; 6/6; 383977→384512; relinked 9; A/A/A; IR-61's class in the jar; six `staleAfter` = last report + 1200.000 s — the second attestation live); IR-83's immediate probe the PATTERN, CONFOUNDED → PI-PROBE-2 Monday; the nightly re-registered on `1f1d1e0`; P4 sample 3 A/A/A; v84's text; the DR CLOSED (D-v83-1..27); Sun 2026-09-27 ~18:2x CT (instrument 2026-09-27T23:24:29Z). Order: ONE card, b3 + b4 (hivemind 16 = 8 M + 8 A by explicit paths, computed at -uall inside the splice)))
+
+## chain segment rotated 2026-09-27 (v84 beat 3) — v84 b1, verbatim
+
+2026-09-27 (v84 beat 1 — THE BOOT AND THE INTAKE: v84 opened Sun 19:44 CT on Nick's paste (the text said Monday morning); the read-set 39,672 B; the HEADs = the record (hivemind `db5e0bc` the close card; bench porcelain 9 = VERIFY-72H-A's tree); the preflight 12/12; VERIFY-72H-A RETURNED (8,172 B; the intake b2); the nightly not yet; the four naming words at their recs (D-v84-4); `REH1:` defaulted 12:00 (rec 09:00); the v84 DR OPEN (D-v84-1..9); Sun 2026-09-27 ~20:0x CT (instrument 2026-09-28T01:01:01Z). Order: no card yet — ONE hivemind card for the night's beats at b3)

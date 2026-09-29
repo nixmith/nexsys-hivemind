@@ -805,3 +805,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-29 (v87 beat 6) — v87 b4, verbatim
 
 2026-09-29 (v87 beat 4 — THE STRATEGY PASS FILED, THE DELIVERABLE MET: THE WEEKS AHEAD re-cut in place (§1–§4, §6–§8 where the week moved them; §7 rows 8–18 ruled at the recs by silence — `JAVA-NEXT: both`, `CONFIG-ERROR: fatal`, B-1 split, HEADERS-1 Nov, DOCS-1 Thu; §9 THE CLOUD CREDITS: eight lanes dated, the cloud form with its exit, the settings by their documented names); IR-67's instruction = v88's first desk act with its pre-verification; the four oldest live blocks (v84 b6 → v85 b3) rotated; Tue 2026-09-29 ~17:3x CT (instrument 2026-09-29T22:31:57Z). Order: BC6b's line → the close (v88's text; one gated card))
+
+## chain segment rotated 2026-09-29 (v87 beat 7) — v87 b5, verbatim
+
+2026-09-29 (v87 beat 5 — THE CLOSE AT FIVE ON THE DELIVERABLE: THE STRATEGY PASS filed (b4); the intakes banked (PJ-2 `146468c`+`8deef4b`, IR-101; CORPUS-1 `d093a95`; Phase 2 — IR-102/103); BC6b at the rig (its line owed); v88's text cut (`context/handoff/2026-09-30_v88_dispatch-text.md`: Wed — BH-3 + IR-67 dispatched in the cloud); the DR CLOSED (D-v87-1..24); ONE gated card b1–b5 (22); Tue 2026-09-29 ~17:3x CT (instrument 2026-09-29T22:38:58Z). Order: BC6b's line → `HIVE: LANDED` (the card) → KREFRESH-1 if the hour allows → Wed: v88's paste + W-SKILLS-10)

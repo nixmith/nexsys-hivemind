@@ -1,0 +1,33 @@
+<!--
+file: context/audits/2026-09-28_v86-b2_PJ2-cloud-run_and_source-reads_audit.md
+purpose: v86 beat 2 — PJ-2's first cloud run read at Layer 1 only (the lane's transcript; the return is on the VM), the strand and its recovery, and the hub's source reads for IR-95 and IR-97 at `40412f9`.
+audience: the hub · Nick (§0) · the v87 hub (the intake at the branch's bytes starts from §1)
+state-type: audit (filed once)
+status: FILED — v86 beat 2 (Mon 2026-09-28 ~19:4x CT; instrument 2026-09-29T00:46:22Z). Layer 2 for PJ-2 is DEFERRED to the pushed branch; the source reads are the hub's own.
+-->
+
+# v86 beat 2 — PJ-2's cloud run (Layer 1) · the strand · IR-95/IR-97 at the source (Mon 2026-09-28 ~19:4x CT)
+
+## §0 The verdict
+**PJ-2: DELIVERED ON THE VM, UNVERIFIED, STRANDED.** The cloud session (`https://claude.ai/code/session_012e87a8pSCX5AWGCKfNPqtk`) started 2026-09-28T23:08Z (18:08 CT) on the packet's local-form §14 line and ended 23:54Z with 33 files uncommitted (22 M + 11 new), `./gradlew check` green, and the return filed at the hivemind path on the VM (31,409 B). The lane refused the harness's stop-hook commit, citing the line. Nothing was pushed. The return file does not exist on Nick's PC (`ls nexsys-hivemind/context/audits/2026-09-28_PJ2_return.md` → none). The recovery is one follow-up message to the same session (`context/instructions/2026-09-28_coder-lane_PJ2_CLOUD-FOLLOWUP_push-the-branch.md`); `PJ2: PUSHED` or `PJ2: LOST` decides beat 3. The lesson is the hub's (pm-lessons 2026-09-28, the second entry).
+**IR-95 and IR-97: BOTH BY DESIGN** (§3) — the findings turn into docs questions and a 1b re-cut H10 (the DR D-v86-10).
+
+## §1 Layer 1 — the lane's claims (its transcript, `_scratch/v86/2026-09-28_v86_PJ2-cloud-session_transcript_as-pasted.txt`, 14,337 B; NOT the return)
+- Baseline `40412f9`, porcelain 0 at 23:08Z; the instruction (49.7 KB) read in sections; the review read; the §6 greps re-run (counts in the return).
+- Red-first in three stamped stages: a compile red at HEAD (119 missing-symbol errors across the four touched modules); a behaviour red with the seams declared inert (16 files); the full behaviour — exactly the eight predicted `published().isEmpty()` pins in `ZigbeePermitJoinTest`'s module went red and were re-cut to a type filter; the zigbee module then 697 run · 0 failed · 1 skipped.
+- The seven gate lines fresh and green (the app line on a retry after a proxy 429); `check`: `BUILD SUCCESSFUL in 51s`, `156 actionable tasks: 70 executed, 86 up-to-date`. `git diff -- '**/module-info.java'` empty. T7 green by construction + a throwaway round-trip instrument (run, then deleted) — it found the store's keys snake_case (`closes_at`), the A2 return's finding on the wire again.
+- What landed (the lane's words): `POST /api/v1/integrations/{integrationId}/permit-join` (`PermitJoinEndpoint`, `PairingWindowPort` + nested `PairingWindowView`, `PAIRING_WINDOW_UNSUPPORTED` 409, `RestFilters.installPermitJoinEndpoint`), wired in `HomeSynapseCore` behind auth and the readiness gate; `IntegrationSupervisor.openPairingWindow` on the adapter's own command executor; integration-api: `PairingWindowRequest`, `PairingWindow`, `PairingWindowControl`, the sealed `PairingWindowEvent`, `PermitJoinOpened`, `PermitJoinClosed`, both on the lifecycle manifest; `EventTypes` + 2; `ZigbeeIntegrationAdapter`: the boot-time window removed, a key at boot → one `zigbee.permit_join_key_ignored` WARN and no window, three CAS closers → exactly one `permit_join_closed` per window, the F-R4-1 epoch clearing moved to the top of the cycle; six MODULE_CONTEXT files; the schema description re-cut.
+- Deviations (the lane's §3): (1) three count pins +2 (event-model 73→75; persistence 55→57 ×2); (2) §1.6 over row 14 — an adapter throw is 503, never 500; (3) `EventCategoryMapping` not extended → the `[SYSTEM]` fallback; (4) a fourth WARN token `zigbee.permit_join_close_failed`.
+- Environment: the VM's Maven route rate-limited (HTTP 429); a warm-up loop of five attempts preceded the first red; "no result depends on it". The coder-lessons file over the rotation threshold after its append. The coder-handoff entry prepended (on the VM).
+- The last line: `RETURNED nexsys-hivemind/context/audits/2026-09-28_PJ2_return.md 31409` — true on the VM, false on the desk.
+
+## §2 Layer 2 — what the hub could and could not re-execute
+Re-executed: the return's absence at its path on Nick's PC; the session's start stamp (23:08Z) against Nick's 18:26 CT word; the packet's Part D text (the local form) as the line pasted. NOT re-executed — everything else: the tree, the tests, the gate lines, the diff, the return's bytes. **The intake happens at the fetched branch** (the follow-up's commit 1 = the 33 entries; commit 2 = the return): the hub reads `git diff --stat 40412f9..origin/pj2/pairing-window-endpoint`, the return's §0 against the instruction's §0 contract, the review's E1–E14, the four deviations at their lines, then copies the return into `context/audits/` in that beat's card.
+
+## §3 The source reads (the hub's desk, `40412f9`)
+- **IR-95 — `StandardActionExecutor.java`** :241–:262 `issueCommands`: for each resolved target, `availabilityOf(target) == UNAVAILABLE` (:246; `availabilityOf` :355–:358 reads `stateQuery.getState(target).map(EntityState::availability)`) → `switch (action.onUnavailable())`: `SKIP → continue` (:248–:249, "skip only this target (§3.9)"), `ERROR → throw`, `WARN → emit anyway`; then `emitCommandIssued` + `issued++`. `CommandAction.java` :20: the default policy is `SKIP`. The action's completion: :204 `publishCompleted(... "success" ...)`; `"skipped"` (:197) is only the interrupted path; `"error"` (:201) the runtime-exception path. So a CommandAction whose every target was UNAVAILABLE issues nothing and reads `success` — the design of record, with no per-target record.
+- **IR-97 — the same file** :280 (`emitCommandIssued`: `triggeringEvent.eventTime()`), :390 and :397 (`publishCompleted` / the `EventDraft`: `triggeringEvent.eventTime()`): every row a run emits carries the trigger's `event_time`, including a `command_issued` emitted after DelayActions. `ingest_time` is the only per-row instant.
+- **Consequence for 1b:** with SKIP the bench-hero can never show `command_dispatched` → `command_confirmation_timed_out` while the Hue is off-network; the DR D-v86-10 puts the three options to Tuesday (rec: `onUnavailable: WARN` on the definition for 1b).
+
+## §4 Not re-executed (disclosed)
+The lane's tree and tests (on the VM); the automation definition loader's acceptance of `onUnavailable` from the bench card's YAML (the 1b rec's premise — grepped before the H10 is handed); the Pi.

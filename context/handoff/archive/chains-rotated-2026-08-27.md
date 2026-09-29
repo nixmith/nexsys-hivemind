@@ -765,3 +765,19 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-28 (v85 beat 4) — v85 b2, verbatim
 
 2026-09-28 (v85 beat 2 — THE DELIVERABLE MET: REHEARSAL 1 RETURNED 13:51 CT and INTAKEN two-layer — P1/P3/P6 HELD, P2 on substance (its `position` clause mis-specified), P5 on the trigger (the command clause → EXPORT-1, IR-94), P4 refuted on the inverse arm with the 90-s point unsampled → sample 4 CLEAN → IR-56 the instrument row (D-v85-12); REH1-1..7; IR-93 + one lesson (the harvest dry-run); the packet EXECUTED; EXPORT-1 cut (17:15–18:50Z); the evening ordered on `HOURS: 17:00–21:00` (A BP3 → B EXPORT-1 → C the card 15 = 9 M + 6 A → D PJ-2's line → E BC6 by 19:00); the v85 DR OPEN (D-v85-1..17); Mon 2026-09-28 ~14:1x CT (instrument 2026-09-28T19:14:47Z). Order: the evening packet's Parts A–D, one at a time)
+
+## chain segment rotated 2026-09-28 (v86 beat 1) — v85 b3, verbatim
+
+2026-09-28 (v85 beat 3 — BENCH-CORE-6 CUT through the prior-ledger gate (PI-PROBE-3 a/b pre-registered: registry-first; `staleAfter` SET before the first report; P4 sample 5 timed from the JVM at +90 s; BC5 obs. 7 answered, obs. 16 closed) — the evening packet's Part E (D-v85-18); ONE card for b1–b3, 17 = 9 M + 8 A (D-v85-19); the v85 DR OPEN (D-v85-1..19); Mon 2026-09-28 ~14:2x CT (instrument 2026-09-28T19:24:17Z). Order: the evening packet's Parts A–E from 17:00 CT, one at a time)
+
+## chain segment rotated 2026-09-28 (v86 beat 2) — v85 b4, verbatim
+
+2026-09-28 (v85 beat 4 — THE CLOSE AT FOUR ON THE CONTEXT RULE: THE DELIVERABLE MET (b2); the desk clear (EXPORT-1, BC6, PJ-2 cut; one packet of five parts); v86's text cut for a FRESH hub at 17:00 CT (Part 0, before Part A); the strategy pass → v87 Tuesday (D-v85-20); v83 b2 → v84 b1 rotated (4 blocks); ONE card b1–b4 (19 = 9 M + 10 A); the DR CLOSED (D-v85-1..20); Mon 2026-09-28 ~14:3x CT (instrument 2026-09-28T19:32:08Z). Order: Part 0 (v86's paste) at 17:00, then the evening packet's Parts A–E, one at a time, each line to v86)
+
+## chain segment rotated 2026-09-28 (v86 beat 3) — v86 b1, verbatim
+
+2026-09-28 (v86 beat 1 — THE DELIVERABLE MET AT ONE: EXPORT-1 graded VERIFY-72H PASS (6,953 rows; opaque 0; the instrument proven) and INTAKEN two-layer — the bench-hero's CommandActions issued NO command in 4/4 runs (IR-95; IR-94 NOT-DISPATCHED), the grader's action-effect gap (IR-96), run rows on the trigger's event_time (IR-97); BENCH-PULL-3 and HIVE `b4025b6` banked; PJ-2 re-cut to the CLOUD form (D-v86-6); CORPUS-1 cut; the v86 DR OPEN (D-v86-1..9); Mon 2026-09-28 ~18:4x CT (instrument 2026-09-28T23:42:00Z). Order: `PJ2: dispatched` → Part E BC6 (≤ 20:15) → CORPUS-1 if the hour allows)
+
+## chain segment rotated 2026-09-28 (v86 beat 4) — v86 b2, verbatim
+
+2026-09-28 (v86 beat 2 — PJ-2 RAN IN THE CLOUD ON THE LOCAL FORM'S LINE (18:08–18:54 CT): DELIVERED on the VM, `check` green, 33 files + the return STRANDED uncommitted (D-v86-11) — the follow-up orders the branch push; the intake at the fetched branch's bytes; the lesson minted (a cloud lane's dispatch carries its exit); IR-95 and IR-97 read at the source — both by design (§3.9 SKIP; the trigger's event_time), the 1b H10 for Tuesday (D-v86-10); the order re-cut on the clock (D-v86-12); Mon 2026-09-28 ~19:4x CT (instrument 2026-09-29T00:46:22Z). Order: the follow-up paste → BC6 (≤ 20:15) → CORPUS-1 if the hour allows)

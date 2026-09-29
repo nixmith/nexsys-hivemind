@@ -3,7 +3,7 @@ file: context/instructions/2026-09-28_core-card_PJ2-LANDING_squash-to-main_opera
 purpose: PJ-2's landing on `main` by Nick's hands — a local squash of the lane's branch (pj2/pairing-window-endpoint, ed26a4c) under his identity, the lane's return dropped from the tree, the hub's message file, one push; CI on the push is the gate of record. One block, one line back.
 audience: Nick (runs it) · the hub (banks `CORE: LANDED <sha>` and the CI line)
 state-type: operator card (one block)
-status: DISPATCH-READY — cut v86 beat 3 (Mon 2026-09-28 ~20:0x CT; instrument 2026-09-29T01:07:59Z) at PJ-2's intake (ACCEPT-WITH-NOTES, `context/audits/2026-09-28_v86-b3_PJ2_intake_audit.md`). Flips to EXECUTED at `CORE: LANDED`.
+status: EXECUTED Mon 2026-09-28 ~20:4x CT → `146468c` (34 files: the `git rm` guard refused a squash-staged path and the card's `;` ran the commit — IR-101) + the gated fix `8deef4b` (~20:56 CT; the return removed); CI green on both (Nick, 21:07 CT); banked v87 beat 1 (Tue 2026-09-29 ~13:4x CT); was: DISPATCH-READY — cut v86 beat 3 (Mon 2026-09-28 ~20:0x CT; instrument 2026-09-29T01:07:59Z) at PJ-2's intake (ACCEPT-WITH-NOTES, `context/audits/2026-09-28_v86-b3_PJ2_intake_audit.md`). Flips to EXECUTED at `CORE: LANDED`.
 -->
 
 # PJ-2 LANDING — the squash to `main` (one block). Say back `CORE: LANDED <sha>`; later `CI: <sha> green|red` from the Actions page.

@@ -1,0 +1,9 @@
+=== BP4 2026-09-29T22:01:04Z
+hs-dev-1
+before: 352296d bench: VERIFY-72H-A2 — the grader reads the store'
+porcelain=0
+Updating 352296d..d093a95
+Fast-forward
+after: d093a95 bench(corpus): CORPUS-1 — the run index's first en
+selftest: 42 check(s), 0 failure(s)
+verify72h selftest: 26 check(s), 0 failure(s)

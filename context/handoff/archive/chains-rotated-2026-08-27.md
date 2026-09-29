@@ -781,3 +781,27 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-28 (v86 beat 4) — v86 b2, verbatim
 
 2026-09-28 (v86 beat 2 — PJ-2 RAN IN THE CLOUD ON THE LOCAL FORM'S LINE (18:08–18:54 CT): DELIVERED on the VM, `check` green, 33 files + the return STRANDED uncommitted (D-v86-11) — the follow-up orders the branch push; the intake at the fetched branch's bytes; the lesson minted (a cloud lane's dispatch carries its exit); IR-95 and IR-97 read at the source — both by design (§3.9 SKIP; the trigger's event_time), the 1b H10 for Tuesday (D-v86-10); the order re-cut on the clock (D-v86-12); Mon 2026-09-28 ~19:4x CT (instrument 2026-09-29T00:46:22Z). Order: the follow-up paste → BC6 (≤ 20:15) → CORPUS-1 if the hour allows)
+
+## chain segment rotated 2026-09-29 (v87 beat 1) — v86 b3, verbatim
+
+2026-09-28 (v86 beat 3 — PJ-2 PUSHED (`cf86802`, PR #7) and INTAKEN at the branch's bytes: ACCEPT-WITH-NOTES — the 33 files = §3 + three count pins; the boot-time window gone, the key WARN, the CAS closers re-executed; D1/D2/D4 accepted, D3 held (IR-98..100); the return filed verbatim; the coder-handoff entry; the LANDING CARD cut (a squash under Nick's identity; the return dropped; `CORE: LANDED` → `CI:` the 18th line); Mon 2026-09-28 ~20:0x CT (instrument 2026-09-29T01:07:59Z). Order: BC6's line → the landing card → CORPUS-1 if the hour allows)
+
+## chain segment rotated 2026-09-29 (v87 beat 2) — v86 b4, verbatim
+
+2026-09-28 (v86 beat 4 — THE CLOSE AT FOUR: `BENCH-CORE-6: STOP` (20:18 CT, the card's 20:15 rule; Tuesday 16:00 first; the nightly's pair (`1f1d1e0`, `352296d`)); the PJ-2 landing card handed (a local squash under Nick's identity; the button refused — a VM-authored branch squashed by GitHub carries a Co-authored-by trailer); v87's text cut for Tuesday 16:00 (the intakes owed, Phase 2, the 1b re-cut, THE STRATEGY PASS); the four oldest live blocks (v84 b2 → b5) rotated; ONE card b1–b4; the DR CLOSED (D-v86-1..18); Mon 2026-09-28 ~20:3x CT (instrument 2026-09-29T01:30:46Z). Order: `CORE: LANDED` → `CI:` → close PR #7 → `HIVE: LANDED` (the v86 card) → Tuesday: v87's paste at 16:00 + BC6)
+
+## chain segment rotated 2026-09-29 (v87 beat 3) — v87 b1, verbatim
+
+2026-09-29 (v87 beat 1 — THE BOOT AND THE INTAKE: the read-set 43.1 KB; 12/12; PJ-2 LANDED `146468c` + FIX `8deef4b` (the return rode the squash — IR-101, a lesson: a card's commit is gated on its census); CI green on both (the counter 18/20); `HIVE: LANDED df106bc`; BC6 CANNOT RUN AS CUT (its pull would land PJ-2's core on the Pi — the fence) → BC6b at beat 2, the clone pinned at `40412f9`; CORPUS-1 handed; the deliverable THE STRATEGY PASS; Tue 2026-09-29 ~13:4x CT (instrument 2026-09-29T18:40:47Z). Order: CORPUS-1's three lines → BC6b → Phase 2 → the 1b H10 → the strategy pass)
+
+## chain segment rotated 2026-09-29 (v87 beat 4) — v87 b2, verbatim
+
+2026-09-29 (v87 beat 2 — CORPUS-1 INTAKEN at the bytes (bench `d093a95`; the Pi by BENCH-PULL-4, 42/0 · 26/0; the run index's first entry); BENCH-CORE-6b CUT as the pinned transform of BC6 (`checkout --detach 40412f9`; the gate: 8 new strings 0 hits; 14 harvest filters non-zero on BC5's outputs) and HANDED (≤ 20:15 CT start); BC6 SUPERSEDED; Tue 2026-09-29 ~17:1x CT (instrument 2026-09-29T22:11:49Z). Order: BC6b's one line → Phase 2 → the 1b H10 → the strategy pass → the close)
+
+## chain segment rotated 2026-09-29 (v87 beat 5) — v87 b3, verbatim
+
+2026-09-29 (v87 beat 3 — WUCP PHASE 2 FOR PJ-2 CLOSED (six MODULE_CONTEXT rows at source; no gate; I1–I12 + F1–F7 dispositioned; IR-102 the unobserved conflict WARN/CAS; IR-103 rest-api's count 40 vs 53 — copied forward; OR-BENCH-FENCE-PJ2 opened); the 1b H10 RULED at the rec (`onUnavailable: WARN`; the packet + its corpus dry-run Wednesday); BC6b at the rig; Tue 2026-09-29 ~17:1x CT (instrument 2026-09-29T22:18:59Z). Order: THE STRATEGY PASS (the rotation first) → BC6b's line → the close)
+
+## chain segment rotated 2026-09-29 (v87 beat 6) — v87 b4, verbatim
+
+2026-09-29 (v87 beat 4 — THE STRATEGY PASS FILED, THE DELIVERABLE MET: THE WEEKS AHEAD re-cut in place (§1–§4, §6–§8 where the week moved them; §7 rows 8–18 ruled at the recs by silence — `JAVA-NEXT: both`, `CONFIG-ERROR: fatal`, B-1 split, HEADERS-1 Nov, DOCS-1 Thu; §9 THE CLOUD CREDITS: eight lanes dated, the cloud form with its exit, the settings by their documented names); IR-67's instruction = v88's first desk act with its pre-verification; the four oldest live blocks (v84 b6 → v85 b3) rotated; Tue 2026-09-29 ~17:3x CT (instrument 2026-09-29T22:31:57Z). Order: BC6b's line → the close (v88's text; one gated card))

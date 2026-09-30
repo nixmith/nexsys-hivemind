@@ -817,3 +817,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-30 (v88 beat 1) — v87 b7, verbatim
 
 2026-09-29 (v87 beat 7 — `HIVE: LANDED 52ff1bb` (24; the gated card's first run); BC6b's second layer: the guide's line and notes (28,186 B) consistent; three carries — the TR3's unrecorded 8.4 W load (`TR3:` asked), the nightly line's missing `forbidden` field (IR-105; v88's pair text), the card's stale header (the transform rule for W-SKILLS-10); the 1200-s thresholds the design of record — THE WEEKS AHEAD row 2 corrected; a second gated card (12); Tue 2026-09-29 ~18:0x CT (instrument 2026-09-29T23:00:23Z). Order: `HIVE: LANDED` (b7) → `TR3:` → KREFRESH-1 optional → Wed: v88 + W-SKILLS-10)
+
+## chain segment rotated 2026-09-30 (v88 beat 2) — v87 b8, verbatim
+
+2026-09-29 (v87 beat 8 — THE LAST BEAT: `HIVE: LANDED 1a5d0c3` (the b7 card); v88 OPENS TONIGHT on Nick's word (18:35 CT) — its deliverable BH-3 + IR-67 dispatched in the cloud; the lane cap orders W-SKILLS-10 beside the hub, BH-3 first in the cloud, IR-67 after a return; the four oldest live blocks (v85 b4 → v86 b3) rotated; ONE gated card (b8); the DR CLOSED (D-v87-1..32); Tue 2026-09-29 ~18:3x CT (instrument 2026-09-29T23:39:22Z). Order: `HIVE: LANDED` (b8) → v88's paste NOW with `TIME:` · `HOURS:` · `HIVE: LANDED 1a5d0c3` · `TR3:`)

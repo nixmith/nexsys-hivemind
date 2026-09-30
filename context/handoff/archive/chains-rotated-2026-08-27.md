@@ -813,3 +813,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-29 (v87 beat 8) — v87 b6, verbatim
 
 2026-09-29 (v87 beat 6 — BENCH-CORE-6b INTAKEN at its outputs file: the Pi on core `40412f9` PINNED + bench `d093a95`; the pinned reads exact; boot-health 6/6 · 0 forbidden; PI-PROBE-3 (a)/(b) PREDICTED (IR-61b's gate observed; BC5 obs. 9 closed); P4 sample 5 the INVERSE arm (IR-56's unit not queued; a power-cycle sample next); `NIGHTLY:` Tuesday MATCHED; Wed's pair (`40412f9`, `d093a95`); the guide's line + notes owed; ONE gated card b1–b6 (24); Tue 2026-09-29 ~17:4x CT (instrument 2026-09-29T22:46:26Z). Order: `HIVE: LANDED` (the card) → KREFRESH-1 if the hour allows → Wed: v88's paste + W-SKILLS-10)
+
+## chain segment rotated 2026-09-30 (v88 beat 1) — v87 b7, verbatim
+
+2026-09-29 (v87 beat 7 — `HIVE: LANDED 52ff1bb` (24; the gated card's first run); BC6b's second layer: the guide's line and notes (28,186 B) consistent; three carries — the TR3's unrecorded 8.4 W load (`TR3:` asked), the nightly line's missing `forbidden` field (IR-105; v88's pair text), the card's stale header (the transform rule for W-SKILLS-10); the 1200-s thresholds the design of record — THE WEEKS AHEAD row 2 corrected; a second gated card (12); Tue 2026-09-29 ~18:0x CT (instrument 2026-09-29T23:00:23Z). Order: `HIVE: LANDED` (b7) → `TR3:` → KREFRESH-1 optional → Wed: v88 + W-SKILLS-10)

@@ -5,7 +5,7 @@ audience: the skills lane (W-SKILLS-N) + the hub at a skills audit beat. NOT a l
 update-cadence: per skills pass — SKILL.md `last-verified:` keeps ONLY the newest pass's ≤ 400 B census verdict + return pointer; the demoted verdict line moves here whole, newest first, under §1.
 state-type: history (provenance)
 status: CURRENT
-last-verified: 2026-09-07 (W-SKILLS-8 — §1 gains the pass's Moved/Added entry; SKILL.md byte-unchanged, nothing demoted. Return: `../../context/audits/2026-09-07_W-SKILLS-8_return.md`.) Prior: 2026-09-03 (W-SKILLS-6 — the W-SKILLS-5 verdict line demoted here WHOLE under §1; the four lists moved to `references/laws-ledger.md`; the census is now taken across SKILL.md ∪ laws-ledger.md.) Prior: 2026-08-29 (W-SKILLS-5 — created; both lines below are byte-identical to SKILL.md :13–:14 as they stood at this pass's launch baseline (2026-08-26 → 2026-08-29), `cmp`-verified in the return §2: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.)
+last-verified: 2026-09-30 (W-SKILLS-10 — §1 gains the pass's Added entry; SKILL.md byte-unchanged, nothing demoted. Return: `../../context/audits/2026-09-30_W-SKILLS-10_return.md`.) Prior: 2026-09-07 (W-SKILLS-8 — §1 gains the pass's Moved/Added entry; SKILL.md byte-unchanged, nothing demoted. Return: `../../context/audits/2026-09-07_W-SKILLS-8_return.md`.) Prior: 2026-09-03 (W-SKILLS-6 — the W-SKILLS-5 verdict line demoted here WHOLE under §1; the four lists moved to `references/laws-ledger.md`; the census is now taken across SKILL.md ∪ laws-ledger.md.) Prior: 2026-08-29 (W-SKILLS-5 — created; both lines below are byte-identical to SKILL.md :13–:14 as they stood at this pass's launch baseline (2026-08-26 → 2026-08-29), `cmp`-verified in the return §2: `../../context/audits/2026-08-29_W-SKILLS-5_return.md`.)
 -->
 
 # Coder skill — pass history (provenance)
@@ -13,6 +13,10 @@ last-verified: 2026-09-07 (W-SKILLS-8 — §1 gains the pass's Moved/Added entry
 Every line in this file is a RECORD of a past skills pass, kept whole so that no rule name a census ever counted goes unlocatable. The rules themselves live in `references/laws-ledger.md`'s four lists (moved there whole from the SKILL.md masthead 2026-09-03 by W-SKILLS-6; SKILL.md §2 keeps the operative one-liners) (arc-conventions · durable-build-disciplines · strategy-layer · state-pointer) or at the sibling carriers the index in §2 names. Paths inside the moved lines are as written at `SKILL.md` — relative to `coder/`, not to this directory. Nothing here is loaded at a coder launch.
 
 ## §1 Demoted `last-verified:` verdict lines (newest first; each moved VERBATIM from the SKILL.md masthead)
+
+### Added 2026-09-30 by W-SKILLS-10 (SKILL.md BYTE-UNCHANGED — the codebase claims the charter anticipated in this tree (`staleAfter`, "not yet wired", the projection's LIVE line) are absent at the grep; the pointer to the pass lives HERE. Return: `../../context/audits/2026-09-30_W-SKILLS-10_return.md`)
+
+Sections touched by this pass (ONE addition; no ruled line edited): `references/testing-standards.md` §15 the wire-shape fixture (IR-89 — a fixture is derived from a real payload or the codec's naming strategy, its source `file:line` beside it; one test parses real payload text; the hub twin is `review-and-quality.md` §3 Test Quality). `references/laws-ledger.md` untouched.
 
 ### Moved/Added 2026-09-07 by W-SKILLS-8 (the skills pass W-SKILLS-7 never ran; SKILL.md BYTE-UNCHANGED — Nick's guard 2; the pointer to the pass lives HERE. Return: `../../context/audits/2026-09-07_W-SKILLS-8_return.md`)
 

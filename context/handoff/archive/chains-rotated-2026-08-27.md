@@ -809,3 +809,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-29 (v87 beat 7) — v87 b5, verbatim
 
 2026-09-29 (v87 beat 5 — THE CLOSE AT FIVE ON THE DELIVERABLE: THE STRATEGY PASS filed (b4); the intakes banked (PJ-2 `146468c`+`8deef4b`, IR-101; CORPUS-1 `d093a95`; Phase 2 — IR-102/103); BC6b at the rig (its line owed); v88's text cut (`context/handoff/2026-09-30_v88_dispatch-text.md`: Wed — BH-3 + IR-67 dispatched in the cloud); the DR CLOSED (D-v87-1..24); ONE gated card b1–b5 (22); Tue 2026-09-29 ~17:3x CT (instrument 2026-09-29T22:38:58Z). Order: BC6b's line → `HIVE: LANDED` (the card) → KREFRESH-1 if the hour allows → Wed: v88's paste + W-SKILLS-10)
+
+## chain segment rotated 2026-09-29 (v87 beat 8) — v87 b6, verbatim
+
+2026-09-29 (v87 beat 6 — BENCH-CORE-6b INTAKEN at its outputs file: the Pi on core `40412f9` PINNED + bench `d093a95`; the pinned reads exact; boot-health 6/6 · 0 forbidden; PI-PROBE-3 (a)/(b) PREDICTED (IR-61b's gate observed; BC5 obs. 9 closed); P4 sample 5 the INVERSE arm (IR-56's unit not queued; a power-cycle sample next); `NIGHTLY:` Tuesday MATCHED; Wed's pair (`40412f9`, `d093a95`); the guide's line + notes owed; ONE gated card b1–b6 (24); Tue 2026-09-29 ~17:4x CT (instrument 2026-09-29T22:46:26Z). Order: `HIVE: LANDED` (the card) → KREFRESH-1 if the hour allows → Wed: v88's paste + W-SKILLS-10)

@@ -837,3 +837,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-01 (v89 beat 3) — v89 b1, verbatim
 
 2026-09-30 (v89 beat 1 — THE BOOT, THE EVENING WINDOW: 12/12 after Check 12's reconcile (W-SKILLS-10's charter → EXECUTED; D-v89-3); the two cards at the bytes — `BENCH: LANDED ede32c9 (BH-3)` · `HIVE: LANDED 235b28f` (D-v89-2); `SKILLS: SYNCED` at Check 9; the paste filed; THE DELIVERABLE IR-67 dispatched in the cloud with its exit (D-v89-1; the order D-v89-5); four blocks rotated; Wed 2026-09-30 ~19:0x CT (instrument 2026-10-01T00:02:18Z). Order: `HIVE: LANDED` (b1) → the first-message lines → the instruction (b2) → the review (b3) → the first message (b4))
+
+## chain segment rotated 2026-10-01 (v89 beat 4) — v89 b2, verbatim
+
+2026-09-30 (v89 beat 2 — IR-67 CUT, REVIEWED (RE-CUT, E1–E12, all applied) AND HANDED: the instruction on five modules, the pass in the slice at the end of `initialize()`, the forks as ruled (D-v89-7/8); the cloud first message with THE GRANT FIRST (D-v89-9); the lesson minted; IR-108/109 (D-v89-10); the deliverable met at `IR67: LAUNCHED` (D-v89-11); Wed 2026-09-30 ~20:2x CT (instrument 2026-10-01T01:28:00Z). Order: `HIVE: LANDED` (b2) → the paste → `IR67: LAUNCHED` → the lines owed → the close (b3))

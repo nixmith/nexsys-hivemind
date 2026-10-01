@@ -825,3 +825,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-30 (v88 beat 3) — v88 b1, verbatim
 
 2026-09-30 (v88 beat 1 — THE BOOT: 12/12 PASS at ≈ 46.6 KB read; the five HEADs = the record; `HIVE: LANDED 92f7fb6` (the b8 card, 7; trailers 0); `TR3:` CLOSED — a Belkin phone charger through BC3–BC6b (D-v88-2; IR-106); the paste filed byte-identical; THE DELIVERABLE BH-3 + IR-67 dispatched in the cloud (D-v88-1; `HOURS: 3`); the order under the cap: the b1 card → W-SKILLS-10's line → BH-3 → IR-67 after a return (D-v88-3); Wed 2026-09-30 ~07:1x CT (instrument 2026-09-30T12:14:37Z). Order: `HIVE: LANDED` (b1) → W-SKILLS-10's §5 line in a FRESH conversation → `W-SKILLS-10: LAUNCHED` → BH-3 (beat 2))
+
+## chain segment rotated 2026-09-30 (v89 beat 1) — v88 b2, verbatim
+
+2026-09-30 (v88 beat 2 — THE FORTNIGHT RULED (the read filed; THE WEEKS AHEAD §0 + §10; `CAP: three` · `RUN: oct30-two-dry` · `JAVA-ROUTE: split` · `RESEARCH-LH: now` · `OUTREACH: this-week` · `LOADS: declared`; the rig ≤ 4 h by 21:30 CT; the windows 07:00/13:00/21:30; D-v88-7..14); BH-3 CUT + its cloud first message (the ULID route — the premise fix; D-v88-15); IR-107; W-SKILLS-10 DELIVERED + INTAKEN ACCEPT-WITH-NOTES (D-v88-17); `HIVE: LANDED 5351870`; Wed 2026-09-30 ~08:2x CT (instrument 2026-09-30T13:28:39Z). Order: `HIVE: LANDED` (b2, two shas) → `SKILLS: LANDED` → BH-3's paste → `BH3: dispatched` → `BASELINE:` → `NIGHTLY:` → IR-67 (b3–4))

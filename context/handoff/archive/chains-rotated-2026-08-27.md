@@ -833,3 +833,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-09-30 (v89 beat 2) — v88 b3, verbatim
 
 2026-09-30 (v88 beat 3 — THE CLOSE: BH-3 RETURNED + INTAKEN (PR #1; the gate re-run 27/0 · 42/0 · 26/0; the landing card + BENCH-PULL-5 cut; D-v88-18); WU-IR67 PRE-VERIFIED (18 rows; the forks at the recs; D-v88-19); v88 closes at b3 — IR-67's dispatch to v89, the 13:00 window (D-v88-20); v89's text cut; Wed 2026-09-30 ~12:0x CT (instrument 2026-09-30T17:09:08Z). Order: the bench landing → `BENCH: LANDED (BH-3)` → BENCH-PULL-5 → the b3 card → `HIVE: LANDED` → v89's paste)
+
+## chain segment rotated 2026-10-01 (v89 beat 3) — v89 b1, verbatim
+
+2026-09-30 (v89 beat 1 — THE BOOT, THE EVENING WINDOW: 12/12 after Check 12's reconcile (W-SKILLS-10's charter → EXECUTED; D-v89-3); the two cards at the bytes — `BENCH: LANDED ede32c9 (BH-3)` · `HIVE: LANDED 235b28f` (D-v89-2); `SKILLS: SYNCED` at Check 9; the paste filed; THE DELIVERABLE IR-67 dispatched in the cloud with its exit (D-v89-1; the order D-v89-5); four blocks rotated; Wed 2026-09-30 ~19:0x CT (instrument 2026-10-01T00:02:18Z). Order: `HIVE: LANDED` (b1) → the first-message lines → the instruction (b2) → the review (b3) → the first message (b4))

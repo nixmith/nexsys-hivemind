@@ -841,3 +841,19 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-01 (v89 beat 4) — v89 b2, verbatim
 
 2026-09-30 (v89 beat 2 — IR-67 CUT, REVIEWED (RE-CUT, E1–E12, all applied) AND HANDED: the instruction on five modules, the pass in the slice at the end of `initialize()`, the forks as ruled (D-v89-7/8); the cloud first message with THE GRANT FIRST (D-v89-9); the lesson minted; IR-108/109 (D-v89-10); the deliverable met at `IR67: LAUNCHED` (D-v89-11); Wed 2026-09-30 ~20:2x CT (instrument 2026-10-01T01:28:00Z). Order: `HIVE: LANDED` (b2) → the paste → `IR67: LAUNCHED` → the lines owed → the close (b3))
+
+## chain segment rotated 2026-10-01 (v90 beat 1) — v89 b3, verbatim
+
+2026-10-01 (v89 beat 3 — THE CLOSE: IR-67 RETURNED + INTAKEN ACCEPT-WITH-NOTES (`a8918f4` + `8ee1883`; PR #8; the return filed; IR-110/111; the gate not re-run here — CI the gate; D-v89-12/13); the landing card cut (20, gated); the coder-handoff entry; v90's text (the 1b packet re-cut); v89 closes at b3, the deliverable MET (D-v89-14); Thu 2026-10-01 ~06:4x CT (instrument 2026-10-01T11:47:47Z). Order: `CORE: LANDED` (IR-67) → `PR8: closed` → `HIVE: LANDED` (b3) → `CI:` → v90's paste)
+
+## chain segment rotated 2026-10-01 (v90 beat 2) — v89 b4, verbatim
+
+2026-10-01 (v89 beat 4 — THE WORDS BANKED after the close: `CORE: LANDED 5b0e20c (IR-67)` at the bytes · `CI: 5b0e20c green` (the counter 19/20) · `HIVE: LANDED a84dfb3`; v90's text re-cut on the shas; Phase 2 is v90's b1 (D-v89-15); Thu 2026-10-01 ~06:5x CT (instrument 2026-10-01T11:58:31Z). Order: `HIVE: LANDED` (b4) → `PR8: closed` → v90's paste)
+
+## chain segment rotated 2026-10-01 (v90 beat 3) — v90 b1, verbatim
+
+2026-10-01 (v90 beat 1 — THE BOOT of the midday window (12:33 → 17:00 CT): 12/12 at the first run; core `5b0e20c` re-verified and `HIVE: LANDED 0f0f2be` at the bytes; `PR8: closed` · `CREDITS: $409` banked; the paste filed; WUCP Phase 2 for IR-67 CLOSED (D-v90-3; the register row retired; the docs rows → DOCS-1); THE DELIVERABLE the 1b packet re-cut + corpus dry-run by 17:00 CT (D-v90-1); five blocks rotated; Thu 2026-10-01 ~12:5x CT (instrument 2026-10-01T17:52:24Z). Order: `HIVE: LANDED` (b1) → the packet (b2) → DOCS-1's card + the attorney draft (b3) → v91's text)
+
+## chain segment rotated 2026-10-01 (v90 beat 4) — v90 b2, verbatim
+
+2026-10-01 (v90 beat 2 — THE DELIVERABLE MET: the REHEARSAL 1b packet cut on the four IR-93 fixes and THE THURSDAY ORDER's guarded join edits, dry-run on the corpus and handed (D-v90-7; the sitting 17:30 → 21:30 CT at most); Friday's nightly pre-registered as a known red, the re-mint on BC7's card (D-v90-8); DOCS-1 and the attorney draft → v91 (D-v90-9); Thu 2026-10-01 ~13:1x CT (instrument 2026-10-01T18:19:57Z). Order: `HIVE: LANDED` → the packet pasted by 17:30 → `REH1B: STARTED` → the return to v92)

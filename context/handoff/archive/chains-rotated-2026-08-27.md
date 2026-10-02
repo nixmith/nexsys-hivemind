@@ -885,3 +885,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-02 (v92 beat 5) — v92 b3, verbatim
 
 2026-10-02 (v92 beat 3 — THE DELIVERABLE MET: BC7's card cut (Parts A–F; one hardware act; the STATE line gates on `BENCH: LANDED`), dry-run on the 1b capture (two defects caught), prior-ledger gated, in Nick's hands by Fri 2026-10-02 ~08:5x CT; four blocks rotated; D-v92-10..12; Fri 2026-10-02 ~08:5x CT (instrument 2026-10-02T13:50:01Z). Order: the bench card → the hivemind card → BC7's card tonight (≤ 19:30 start, done by 21:30) → the close (b4) → v93 Sat)
+
+## chain segment rotated 2026-10-02 (v92 beat 6) — v92 b4, verbatim
+
+2026-10-02 (v92 beat 4 — THE CLOSE: the four H10 words RULED by silence at the recs (`PJCAT: system-health` · `SKIPVOC: count` · `ACTTIME: ingest` · `CONFIG-ERROR: fatal`; the register rows); `ACCOUNT-2: sat` · `V72B: cloud-2` ruled and ACCOUNT-2's card cut (five acts; the grant checked by a push); v93's text LIVE (Sat: BC7's intake first, then rehearsal 2's packet); the DR CLOSED (D-v92-13..16); Fri 2026-10-02 ~09:0x CT (instrument 2026-10-02T14:00:49Z). Order: the bench card → the hivemind card (b1–b4 as one) → BC7 tonight → v93 Sat)

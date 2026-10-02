@@ -3,7 +3,7 @@ file: context/instructions/2026-10-03_ACCOUNT-2-SETUP_second-account_cloud-lanes
 purpose: ACCOUNT-2-SETUP — the second Claude account (`$250` of cloud credits; this hub's account has `$16`) made ready to run the cloud lanes (VERIFY-72H-B · HERO-1 · later cloud Java lanes) in ≈ 45 min of Nick's hands: the GitHub connection to the five `nexsys-io` repositories checked by a READ and by a scratch-branch PUSH before any lane's paste (THE GRANT IS CHECKED BEFORE THE PASTE, 2026-09-30 — BH-3's push waited ~3 h on a read-only grant); the three role skills uploaded from their SOURCE trees (Check 9's mirror of record for that account); what is NOT a dependency (memory; the hub's own session). One file, five acts, one line back (D-v92-4, D-v92-14).
 audience: Nick (runs it Saturday morning before v93 dispatches V72B) · the v93 hub (reads the one line)
 state-type: operator card (account setup; no repo write except one scratch branch pushed and deleted)
-status: DISPATCH-READY — cut v92 beat 4 (Fri 2026-10-02 ~09:0x CT; instrument 2026-10-02T14:00:49Z); flips to EXECUTED on `ACCOUNT-2: ready · GRANT: push-ok · SKILLS-2: 3`.
+status: HELD — Nick's word, Fri 2026-10-02 15:52 CT (the second account is not now; he will prompt and steer it); DISPATCH-READY again on his word. Was: DISPATCH-READY — cut v92 beat 4 (Fri 2026-10-02 ~09:0x CT; instrument 2026-10-02T14:00:49Z); flips to EXECUTED on `ACCOUNT-2: ready · GRANT: push-ok · SKILLS-2: 3`.
 -->
 
 # ACCOUNT-2-SETUP — the second account carries the cloud lanes

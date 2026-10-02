@@ -865,3 +865,19 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-02 (v90 beat 6) — v90 b4, verbatim
 
 2026-10-01 (v90 beat 4 — THE CLOSE: v91's text cut (the afternoon's hours before 17:30, else Friday 07:00; LINK-READ-2's pre-verification its deliverable); the v90 DR CLOSED, D-v90-1..13, THE DELIVERABLE MET at b2; one card for the window; Thu 2026-10-01 ~13:4x CT (instrument 2026-10-01T18:40:28Z). Order: `HIVE: LANDED` → `DOCS1: LAUNCHED · CREDITS:` → `ATTORNEY-DRAFT: sent` → v91's paste or the packet by 17:30 → the return to v92)
+
+## chain segment rotated 2026-10-02 (v92 beat 1) — v90 b5, verbatim
+
+2026-10-01 (v90 beat 5 — AFTER THE CLOSE: `HIVE: LANDED 124cf4c` at the bytes (one card, 15) · `DOCS1: LAUNCHED 18:12 · CREDITS: $145` (D-v90-14); the packet's start line re-cut to the envelope's arithmetic — by 19:45 for a 90-min sitting (D-v90-15); the credits delta noted (D-v90-16); Thu 2026-10-01 ~18:2x CT (instrument 2026-10-01T23:20:16Z). Order: the packet NOW → the sitting → the return + the b5 card → v92's paste)
+
+## chain segment rotated 2026-10-02 (v92 beat 2) — v90 b6, verbatim
+
+2026-10-02 (v90 beat 6 — THE TWO INTAKES AT THE BYTES: REHEARSAL 1b ACCEPT-WITH-NOTES (the SNZB-06P24 ADOPTED, the fleet 10; lux the log-scale arm; REARM under WARN exercised; IR-93 CLOSED; IR-112..115; the Hue JOINED-but-silent → OR-HUE-REPORTING-DEAD) · DOCS-1 ACCEPT-WITH-NOTES (`f7e8e72` + `d2dcfeb`; the landing card handed); three lessons; v92's text (BC7 tonight with the re-mint); Fri 2026-10-02 ~07:2x CT (instrument 2026-10-02T12:23:26Z). Order: the b6 card → the docs landing → v92's paste)
+
+## chain segment rotated 2026-10-02 (v92 beat 3) — v92 b1, verbatim
+
+2026-10-02 (v92 beat 1 — THE BOOT 12/12 (40.6 KB; Check 9 28/28); `HIVE: LANDED 6a69bed` · `DOCS1: LANDED 055832c` at the bytes; DOCS-1's Phase 2 banked; the register's IR-95/97/100 rows REPAIRED from `124cf4c` (b6's literal `\1 \2`) · `splice_lib_v2.py`; the paste filed, v92's text PASTED; `CREDITS: $16` here / `$250` on a second account → ACCOUNT-2's setup at the close (D-v92-1..6); Fri 2026-10-02 ~08:0x CT (instrument 2026-10-02T13:08:39Z). Order: the b1 card → the re-mint (b2) → BC7's card by 17:30 (b3) → the sitting → the close (b4))
+
+## chain segment rotated 2026-10-02 (v92 beat 4) — v92 b2, verbatim
+
+2026-10-02 (v92 beat 2 — THE RE-MINT 9 → 10 CUT on the desk (`constants.yaml` md5 `9b0af47b3376`; the SNZB-06P24's ULID the tenth); the corpus dry-run on the 1b closed boot FAIL (at 9) → PASS (at 10); the four gates green; the two-block bench card handed (`BENCH: LANDED` · `BENCH-PULL-6`); a clock-law correction (the join 06:10 CT, not 07:10) (D-v92-7..9); Fri 2026-10-02 ~08:2x CT (instrument 2026-10-02T13:27:03Z). Order: the bench card (two blocks) → BC7's card by 17:30 (b3) → the sitting → the close (b4))

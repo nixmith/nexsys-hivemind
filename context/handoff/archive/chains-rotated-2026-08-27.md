@@ -857,3 +857,11 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-01 (v90 beat 4) — v90 b2, verbatim
 
 2026-10-01 (v90 beat 2 — THE DELIVERABLE MET: the REHEARSAL 1b packet cut on the four IR-93 fixes and THE THURSDAY ORDER's guarded join edits, dry-run on the corpus and handed (D-v90-7; the sitting 17:30 → 21:30 CT at most); Friday's nightly pre-registered as a known red, the re-mint on BC7's card (D-v90-8); DOCS-1 and the attorney draft → v91 (D-v90-9); Thu 2026-10-01 ~13:1x CT (instrument 2026-10-01T18:19:57Z). Order: `HIVE: LANDED` → the packet pasted by 17:30 → `REH1B: STARTED` → the return to v92)
+
+## chain segment rotated 2026-10-01 (v90 beat 5) — v90 b3, verbatim
+
+2026-10-01 (v90 beat 3 — THE HOUR ALLOWED: DOCS-1's card cut in the cloud form with its exit (thirteen rows; D-v90-11) and the attorney-search draft cut (§3.2's question verbatim; D-v90-12); D-v90-9 refined (D-v90-10); three typed CTs corrected from the instrument; Thu 2026-10-01 ~13:3x CT (instrument 2026-10-01T18:33:53Z). Order: `HIVE: LANDED` → `DOCS1: LAUNCHED · CREDITS:` → `ATTORNEY-DRAFT: sent` → the packet by 17:30 → the return to v92)
+
+## chain segment rotated 2026-10-02 (v90 beat 6) — v90 b4, verbatim
+
+2026-10-01 (v90 beat 4 — THE CLOSE: v91's text cut (the afternoon's hours before 17:30, else Friday 07:00; LINK-READ-2's pre-verification its deliverable); the v90 DR CLOSED, D-v90-1..13, THE DELIVERABLE MET at b2; one card for the window; Thu 2026-10-01 ~13:4x CT (instrument 2026-10-01T18:40:28Z). Order: `HIVE: LANDED` → `DOCS1: LAUNCHED · CREDITS:` → `ATTORNEY-DRAFT: sent` → v91's paste or the packet by 17:30 → the return to v92)

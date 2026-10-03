@@ -3,7 +3,7 @@ file: context/instructions/2026-10-03_research-lane_PAIRING-UX-1_field-onboardin
 purpose: THE HORIZON W3's research row (`WIZARD: defer` — Nick, Fri 2026-10-02 20:01 CT: "more research and/or deliberation on what would work best for the long-term, what market or data shows"): how the field onboards and RECOVERS Zigbee devices — Home Assistant/ZHA, Zigbee2MQTT, SmartThings, the Hue bridge — read against the seam note's four design targets and its invariant ("never a silent blank"), against what our own device did this week (IR-114, IR-117), and against what the cohort's first installs must observe; the return re-asks `WIZARD:` at the mid-point pass (Nov 2–9) in H10 form and gives W18 (`REMOTE:`) its field reading. A Cowork RESEARCH lane on Nick's free hands (web search on; no API credits; no git; nothing public).
 audience: the PAIRING-UX-1 lane (a fresh Cowork conversation; §3 is its whole paste) · the hub (the intake at the bytes) · Nick (one paste; one line back)
 state-type: research-lane charter (one lane; one return)
-status: DISPATCH-READY — cut v94 beat 3 (Sat 2026-10-03 ~08:2x CT; instrument 2026-10-03T13:20:09Z); D-v94-19; flips to EXECUTED at the intake.
+status: EXECUTED — pasted by Nick Sat 2026-10-03 ≈07:5x CT; RETURNED 08:24 CT (`context/research/2026-10-03_PAIRING-UX-1_return.md`, 11,967 B + the appendix); intaken v94 beat 4 ACCEPT (`context/audits/2026-10-03_v94-b4_PAIRING-UX-1_intake_audit.md`; D-v94-20) Sat 2026-10-03 ~09:0x CT. Was: DISPATCH-READY — cut v94 beat 3 (Sat 2026-10-03 ~08:2x CT; instrument 2026-10-03T13:20:09Z); D-v94-19; flips to EXECUTED at the intake.
 -->
 
 # PAIRING-UX-1 — how the field onboards and recovers devices (the research behind `WIZARD:`)

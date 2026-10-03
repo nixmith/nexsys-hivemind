@@ -889,3 +889,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-02 (v92 beat 6) — v92 b4, verbatim
 
 2026-10-02 (v92 beat 4 — THE CLOSE: the four H10 words RULED by silence at the recs (`PJCAT: system-health` · `SKIPVOC: count` · `ACTTIME: ingest` · `CONFIG-ERROR: fatal`; the register rows); `ACCOUNT-2: sat` · `V72B: cloud-2` ruled and ACCOUNT-2's card cut (five acts; the grant checked by a push); v93's text LIVE (Sat: BC7's intake first, then rehearsal 2's packet); the DR CLOSED (D-v92-13..16); Fri 2026-10-02 ~09:0x CT (instrument 2026-10-02T14:00:49Z). Order: the bench card → the hivemind card (b1–b4 as one) → BC7 tonight → v93 Sat)
+
+## chain segment rotated 2026-10-02 (v93 beat 1) — v92 b5, verbatim
+
+2026-10-02 (v92 beat 5 — AFTER THE CLOSE: BC7 INTAKEN ACCEPT-PARTIAL (the Pi on `main` at `5b0e20c`; boot-health 6/6 at 10/10; IR-67 attested `added=0`; Part D STOPPED on the hub's U+2014 reason string; E/F not run); Friday's nightly red REPRODUCED (BH-2's forbidden under the 1b key); BC7b cut for this afternoon; OR-BENCH-FENCE-PJ2 CLOSED; IR-115 re-cut; IR-116; one lesson (the validator at the cut); v93 RE-CUT for Friday evening (V72B on the second account overnight) (D-v92-17..22); Fri 2026-10-02 ~12:1x CT (instrument 2026-10-02T17:18:50Z). Order: BC7b now → the b5 card → ACCOUNT-2's card → v93's paste tonight)

@@ -917,3 +917,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-03 (v94 beat 1) — v93 b5, verbatim
 
 2026-10-02 (v93 beat 5 — THE DELIVERABLE MET: THE HORIZON LIVE (54 rows; Nov 25 the ceiling; the cohort — three households named; `HOURS-WEEKLY: 30`; `WIZARD: defer` → the PAIRING-UX research; MATRIX/PACE/KIT ruled by delegation) after an independent second check (33 edits applied); OR-HORIZON-UNPLANNED CLOSED; the sensor's read: `REJOIN: none` — the class returns in pairing mode after a power loss (IR-117), and the API never ages a silent device (IR-121) → Part 2 on the rig; one lesson; the b3+b4 card retired into one card for b3–b5 (D-v93-15..18); Fri 2026-10-02 ~20:1x CT (instrument 2026-10-03T01:14:30Z). Order: Part 2's `REJOIN:` → the b3–b5 card → `SPIKE: STARTED` → b6 v94's text)
+
+## chain segment rotated 2026-10-03 (v94 beat 2) — v93 b6, verbatim
+
+2026-10-02 (v93 beat 6 — THE CLOSE: v94's text cut (Saturday — the two intakes on the desk, V72B's charter, the PAIRING-UX charter; rehearsal 2's packet by 17:30 under the byte-mark watch); v93's text EXECUTED; ONE card for beats 3–6 (13 files; the three earlier cards retired, none run); the sensor's Part 2 and the spike run as this closes — v94's first two intakes (D-v93-19); Fri 2026-10-02 ~20:2x CT (instrument 2026-10-03T01:20:51Z). Order: the b3–b6 card → `REJOIN:` · `SPIKE:` → v94's paste Saturday morning)

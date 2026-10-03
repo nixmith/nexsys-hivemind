@@ -893,3 +893,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-02 (v93 beat 1) — v92 b5, verbatim
 
 2026-10-02 (v92 beat 5 — AFTER THE CLOSE: BC7 INTAKEN ACCEPT-PARTIAL (the Pi on `main` at `5b0e20c`; boot-health 6/6 at 10/10; IR-67 attested `added=0`; Part D STOPPED on the hub's U+2014 reason string; E/F not run); Friday's nightly red REPRODUCED (BH-2's forbidden under the 1b key); BC7b cut for this afternoon; OR-BENCH-FENCE-PJ2 CLOSED; IR-115 re-cut; IR-116; one lesson (the validator at the cut); v93 RE-CUT for Friday evening (V72B on the second account overnight) (D-v92-17..22); Fri 2026-10-02 ~12:1x CT (instrument 2026-10-02T17:18:50Z). Order: BC7b now → the b5 card → ACCOUNT-2's card → v93's paste tonight)
+
+## chain segment rotated 2026-10-02 (v93 beat 2) — v92 b6, verbatim
+
+2026-10-02 (v92 beat 6 — AFTER THE CLOSE: BC7b INTAKEN ACCEPT (IR-102 a CLOSED; IR-112 deepest form — zero frames, no rejoin; IR-115 re-read at the copied log, the b5 re-cut withdrawn); THE FLEET 8 ON THE AIR, 10 IN THE REGISTRY (the sensor's five Leaves 11:19 CT — IR-117; the digest blind to the air — IR-118; IR-119/120); on Nick's words of 15:52 the weekend re-planned: ACCOUNT-2 HELD, v93 tonight = THE HORIZON with him + the JOIN-SECURITY SPIKE on his desk, Sat rehearsal 2 (the sensor first), Sun LINK-READ-2; the session design ruled (one instrument per card; the card gate as a tool) (D-v92-23..28); Fri 2026-10-02 ~16:0x CT (instrument 2026-10-02T21:05:25Z). Order: the b6 card → v93's paste tonight)

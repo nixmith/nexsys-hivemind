@@ -1,0 +1,53 @@
+<!--
+file: context/audits/2026-10-03_VERIFY-72H-B_independent-review.md
+purpose: THE INDEPENDENT REVIEW of VERIFY-72H-B's charter (the one-way-door review's form, applied to a bench charter before its dispatch line) — written by an in-conversation agent that had not seen the authoring, from the charter, the four `tools/verify72h/` sources at nexsys-bench `0232c69` and three core excerpts at `5b0e20c`; its verdict HOLD on three premises the hub had wrong at the bytes (the `final_status` literal; the permit_join STORE events absent from (iv)'s whitelist; the `last_link_at` form); its twelve edits were applied to the charter (the b3 audit §2) and the three premises re-read by the hub before the dispatch line was handed. VERBATIM as returned.
+audience: the hub · the VERIFY-72H-B lane · the v96 boot
+state-type: review (verbatim; never edited)
+status: FILED v95 beat 3 (Sat 2026-10-03 ~13:0x CT; instrument 2026-10-03T18:02:45Z); the edits APPLIED; the charter DISPATCH-READY on the corrected premises
+-->
+
+# Review — charter_v72b (VERIFY-72H-B) · bench 0232c69 · core 5b0e20c
+
+## §0 Verdict — HOLD
+Three premises the (viii)/A1b rules stand on are not in the bytes: the `final_status` literal (`"success"` — the bench fixture pins `SUCCEEDED`, test:646/:1477; the core passes `terminal.name()`, SRM:702), the `last_link_at` form (charter says ISO; the only in-bench pin is an epoch float, test:345), and `EventTypes.PERMIT_JOIN_OPENED` published at Adapter:961 — a store event absent from (iv)'s whitelist (grader:128–:165, 0 hits), which CANNOT-GRADEs exactly the declared rehearsal A1b is built to PASS.
+
+## §1 Premise rows
+| # | status | lines | note |
+|---|---|---|---|
+| 1 | HOLDS | ACE =:54–:62; README:57–:61; test:1354–:1361 | `action_count`/`command_count` already in REAL_PAYLOAD_KEYS and the fixture (:649–:650, :1478) |
+| 2 | UNCHECKABLE | SRM:481–:482 init 0; :491–:492 `= result.actionCount()` | semantics live in `result`'s producer, not in the grep; `head -8` drops :702 (`terminal.name()`) |
+| 3 | HOLDS | grader:383–:407; :518–:525 | no run link in the command partition today (2a) |
+| 4 | HOLDS/UNCHECKABLE | Adapter:654–:657 | shape holds; period, Tracker:79, "J1 does not touch it", and `link.at()`'s FORM not in the excerpt |
+| 5 | HOLDS; note WRONG | Adapter:921, :964; grader:193 | "stale by one line" — 922→964 is 42. MISSED: Adapter:961 `publishWindowEvent(EventTypes.PERMIT_JOIN_OPENED,…)` — a store event at 5b0e20c; README:72 "NOT an event type" is stale |
+| 6 | HOLDS | grader:750–:757; README:72 | `count = lines + join_events` (:756) — the split must place `join_events` (:753) |
+| 7 | HOLDS | grader:664–:720; :925–:933 | — |
+| 8 | HOLDS | export:381–:396; :432–:447; :353–:356 | additive (3) |
+| 9 | HOLDS | README:34; grader:76–:78, :85–:96 | key order is a hard list at :617; `viii` must be appended or is dropped before the fold (:618) |
+| 10 | WRONG instrument | test:7; `@check_fn` :57–:61 | `grep -c 'def test_'` → **0**; 25 `^@check_fn(` checks named `t1a_…`; pytest collects nothing — §0's test command is wrong |
+| 11 | UNCHECKABLE | desk | — |
+
+## §2 Findings
+**2(a)** No attribution today. `Command` keeps id/subject/correlation/issued_us/command_type/timeout (grader:247–:264); real `command_issued` keys (test:1326–:1331) carry no `run_id`. The one candidate is the envelope `correlation_id` — "a correlation is the RUN's and spans every command the run issues" (grader:28–:29; README:49); the trigger event is kept whole (:388) so `c.correlation == trig["correlation_id"]` is computable. Whether the core sets it so is UNCHECKABLE here; the fixture's `issued()` defaults `corr=n` (:587, :597) — unlinked.
+**2(b)** :620–:629 folds CANNOT-GRADE > FAIL > FLAGGED > PASS over every invariant and attestation; FLAGGED IS a layer verdict (:626–:627) → exit 2 (:78). A FLAGGED (viii), rest PASS → overall FLAGGED. But `verdict["invariants"]` is rebuilt from `order=["i"…"vii"]` (:617–:618) before the fold reads it (:620): an unlisted `viii` vanishes from JSON and fold. `report_md`'s `detail` dict (:892–:907) KeyErrors at :910 without a `viii` lambda; "The seven invariants" :890 and docstring :3 go stale.
+**2(c)** export converts each stamp once (`LogClock.to_utc` :219–:223; `--log-utc-offset` :393–:395/:413–:417) and writes `ts` in UTC (:260–:262); the grader buckets by `parse_iso(line["ts"])` :691–:692 only. §7 is right; rows carry `file/line/text` (:751–:752). Default clock is host-local (:214–:216), EDT only if the Pi's zone is.
+**2(d)** Read at :421–:424 — `from_us`/`to_us` via `.get`, no strict keys. MANIFEST hashes every file (:353–:356); T3a :482–:483 asserts presence only; T8c :1174–:1176 re-verifies after grading (window.json untouched). The fixture window.json (test:688–:695) lacks the new keys → the defaults are load-bearing. Additive: yes.
+**2(e)** `A1`: T9a :1194–:1195, full-dict equality :1199–:1201; T9b :1224; T9c :1264 — five sites move under fork (a); fork (b) breaks :1194–:1201 anyway. No exhaustive key list pinned (T4a :828 names five). Headers: `"| hour (UTC) |"` :1132 (prefix-safe), `"FLAGGED"` :977, `"opaque"` :1151. Words: :1068–:1069, :1078–:1079 pin the lists exactly; AST walk :1081–:1091 reads literal `say()` args; `len(sites) >= 12` :1088. `words_checked` is not asserted today.
+**3** Flags additive (:381–:396). Validation today raises `ExportError` before `out_dir.mkdir` (:401–:417 vs :422) → exit 2 "export refused: …" (:463–:465); T2b :427–:430 asserts the message AND no directory. An argparse `type=int` would `SystemExit`, escaping the in-process harness (test:214) — validate in `run()` like `--log-utc-offset` (:413–:417).
+**4** (i) `final_status == "success"`: the core publishes `terminal.name()` (SRM:702), an enum name; the fixture pins `SUCCEEDED` (test:646, :1477, :1535) — as written (viii) never fires on real data. (ii) `action_count ≥ 1`: UNCHECKABLE — :491 reads `result.actionCount()`; the producer decides declared/completed and whether non-command actions count (a notify action would FLAG legitimately). (iii) `issued != cc` FAIL: implementable only if 2(a)'s link is confirmed; `issued=None` makes V3 unwritable — V2/V3 presuppose a link while row 3 allows "NOT linkable". :491–:492 sit one block deeper than :481–:482: a path skipping them leaves `commandCount` 0 beside issued commands → false FAIL on non-success runs. A carried-in run (`triggered None`, :405–:406) undercounts `issued` by construction.
+
+## §3 EDITS
+1. **[BLOCKING] §4.1 + §0b row 12.** `final_status == "success"` → `final_status == <the terminal enum's success constant, pinned by row 12>`; row 12: `grep -n 'enum\|terminal' …/StandardRunManager.java | head -6; grep -rn 'SUCCEEDED' core/automation/src/main/java | head -3`; V1–V4 use that literal verbatim; the plan quotes it.
+2. **[BLOCKING] §0b row 13 + §4.3.** Row 13: `grep -n 'PERMIT_JOIN' …/event/EventTypes.java`. §4.3 after "A1b's fields:" add: "`observed` counts app-log lines only; store events with `permit_join` in the type are reported under `events` beside, never added to `observed`; their type strings join `AMBIENT_WHITELIST` as a named [REVIEW] deviation from the e96dce8 pin (README:43) — without it (iv) CANNOT-GRADEs every declared window (grader:553–:563); A1-3 asserts the layer PASSes with the store event present."
+3. **[BLOCKING] §4.2.** "(an ISO instant on the line; `-` = never → `null` …)" → "(the form `LinkFields.at()` prints — the plan cites the formatter at 5b0e20c; the parser accepts an ISO instant AND epoch seconds as the availability_link fixture carries (`1790000000.0`, test:345); `-`/empty → `null`, the row says never)".
+4. **[SHOULD] §0 line 15 + row 10.** "`python3 -m pytest … -q` (or the file's own runner …)" → "`python3 -B tools/verify72h/test_verify72h.py` (test:7; README:14; closing line `verify72h selftest: N check(s), M failure(s)`)"; row 10's `grep -c 'def test_'` → `grep -c '^@check_fn('` (25).
+5. **[SHOULD] §4.1 + §5.** After "None when not linkable" add: "the candidate key is the envelope `correlation_id` (grader:28–:29): `c.correlation == runs[rid]["triggered"]["correlation_id"]` — the plan cites the core line that sets a command's correlation to the run's, or declares NOT linkable; `triggered is None` → `issued = None`." FAIL branch success-only: "`final_status == <success> and issued is not None and issued != cc`". §5: "V2/V3 only if the plan finds the link; else V2′: `issued` null, the row says `not linkable`."
+6. **[SHOULD] §1.3 vs §4.3.** "a count above the declaration → FAIL" contradicts "PASS if `observed == declared` else FAIL". §1.3 → "a count that differs from the declaration → FAIL"; add A1-6: declared 2, one line → FAIL.
+7. **[SHOULD] §4.4 vs §3 row 2.** "validated for the four keys" vs "a missing `plug`/`device`/`kind`" → "every row carries exactly `plug`, `device`, `kind`, `watts`; `watts` a number or null; validation runs in `run()` before the directory is created (export:422) and raises `ExportError`, so X2 asserts `export refused` and no directory (T2b :427–:430); `--declared-windows` parsed as text, validated int ≥ 0 the `--log-utc-offset` way (:413–:417)".
+8. **[SHOULD] §1.4.** Name the keys: "`verdict["loads"]` after `verdict["export"]`; `declared_windows` under `attestations.A1b.declared`; the report block after `- graded at` (:881–:883), before the invariants table."
+9. **[SHOULD] §6.** Add: "copy the export directory first; the grader overwrites `verdict.json`/`report.md` in place (:970–:972) — the archived report must survive; diff two copies."
+10. **[SHOULD] row 2.** `head -8` → `head -12`; add `grep -rn 'actionCount()' …/core/automation/src/main/java --include=*.java | grep -v StandardRunManager | head -6`.
+11. **[NIT]** row 5 "stale by one line" → "by 42 lines"; §4.3 "fold at :613–:620" → ":620–:629"; §1.3 "**PASS-DECLARED**" → "PASS (declared)" (reads as a verdict word); §3 row 3 "extended with …" → "already pinned (test:1358–:1359, :1478)".
+12. **[NIT] §3 row 1.** Add "append `viii` to `order` (:617); a `detail["viii"]` lambda (:892–:907); `seven` → `eight` at :890 and :3; input is the `runs` dict (:462, raw terminals), not `run_rows` (:518–:525, no payload)". §5: "`words_checked`" → "T7b asserts `inv["vi"]["words_checked"] == len(words_at(v)) - 1` (vi's own word lands after the walk, :613–:616)".
+
+## §4 Not checked
+SRM beyond the 9 grep lines (the terminal enum, `result`'s producer, where a command's correlation is set); `LinkFields.at()`; `EventTypes.java` at 5b0e20c (PERMIT_JOIN strings and any other constants added since e96dce8 — a wider (iv) risk the charter does not name); Tracker:79; `tools/test_bench_sh.py`, `bench.sh`; IR-96/107/118 texts; the desk's `_scratch` exports; J1's return.

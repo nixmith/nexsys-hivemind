@@ -3,7 +3,7 @@ file: context/instructions/2026-09-27_desk-lane_KREFRESH-1_K-set-folds_charter.m
 purpose: KREFRESH-1 — the first K-refresh beat (`KREFRESH: mon`, D-v81-21 by silence; THE WEEKS AHEAD §6 "this week"): the folds the record owes the K-set — R-1..R-8 (the v78 b3 audit §4), the 7a paper edits (the C-S0-7a intake audit §3 + the Lane C digest), and THE MEASUREMENT RECORD's filled rows (the divisors and accuracies as MEASURED, with their instruments) — applied to the sixteen K files, one field each, so that the research Project (`NexSys Research — the evidence floor`) reads the record as it stands, and C-S0-1 opens on a current K-set.
 audience: the KREFRESH-1 lane (a FRESH Cowork conversation with ClaudeFolder connected; desk work, no repo write) · the hub (the intake) · Nick (UPLOAD-3 — his hands; the Project's knowledge files replaced)
 state-type: lane charter (desk / research-surface; ≤ 2 h)
-status: DISPATCH-READY — cut v83 beat 2 (Sun 2026-09-27 ~16:4x CT). Dispatch Monday after the rehearsal's intake (the cap: two lanes + hands; IR-61 will have landed). The return: `context/audits/<CT-date>_KREFRESH-1_return.md`.
+status: EXECUTED — dispatched by Nick on free hands, RETURNED Sat 2026-10-03 10:47 CT (`context/audits/2026-10-03_KREFRESH-1_return.md`, 5,987 B); intaken ACCEPT v95 beat 1 (D-v95-6; UPLOAD-3 his hands). Was: DISPATCH-READY — cut v83 beat 2 (Sun 2026-09-27 ~16:4x CT). Dispatch Monday after the rehearsal's intake (the cap: two lanes + hands; IR-61 will have landed). The return: `context/audits/<CT-date>_KREFRESH-1_return.md`.
 -->
 
 # KREFRESH-1 — the K-set folds (desk lane charter)

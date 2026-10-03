@@ -953,3 +953,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-03 (v95 beat 5) — v95 b3, verbatim
 
 2026-10-03 (v95 beat 3 — VERIFY-72H-B CHARTERED for Sunday's desk after J1 (D-v92-29; IR-96; IR-107): (viii) action-effect · the link_summary column + per-device table · A1 split (the store events vs `declared_windows`; the whitelist row) · declared loads; the independent review HOLD → twelve edits applied, three premises corrected at the bytes (`final_status` = the enum's name; permit_join is a store event outside (iv)'s whitelist; `last_link_at` ISO); U2a and HERO-1 to v96; D-v95-15..18; Sat 2026-10-03 ~13:0x CT (instrument 2026-10-03T18:02:45Z). Order: the b3 card → J1's paste → PLAN-RETURNED → GO → 17:25 the packet → v96 ≈ 21:00)
+
+## chain segment rotated 2026-10-03 (v95 beat 6) — v95 b4, verbatim
+
+2026-10-03 (v95 beat 4 — THE CLOSE (the deliverable met at b2: J1 handed): v96's text cut for ≈ 21:00 (rehearsal 2's intake first with the pre-registrations in order; J1's plan → `GO`; Sunday's text); v95's text EXECUTED; this DR CLOSED (D-v95-1..20); four premises of the record corrected at the bytes this window; Sat 2026-10-03 ~15:1x CT (instrument 2026-10-03T20:16:09Z). Order: the b4 card (b3's three files + the close, 10) → J1's paste → PLAN-RETURNED → GO → UPLOAD-3 → 17:25 the packet → ≈ 21:00 v96's paste)

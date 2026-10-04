@@ -3,7 +3,7 @@ file: context/instructions/2026-09-25_THURSDAY-ORDER_Half-2_T4-T8_operator-card.
 purpose: THE THURSDAY ORDER — Half 2 (T4 → T8) cut at the re-mint beat (v80 b3) from T3b's capture (`_scratch/thu0924/pi-capture-2/`; devices=9 entities=9): T4 the constants re-mint (already written to the desktop working tree by the hub's guarded splice — Nick commits and pushes), T5 the Pi's pull, T6 boot-health on the new counts + the drift cmp + the state read that pins the `power_w` wire path, T7 the CHAR scenario in tmux (the P4460 as reference A; B1 + B2; the three plugs; the 80 W lamp pair), T8 the capture home. Every value read, none predicted.
 audience: Nick (T4 at the desk; T5–T8 at the rig) · the hub (the intake on T8's capture)
 state-type: operator card (hardware session — exclusive; one card at a time)
-status: PARTIAL — T4 · T5 · T6 EXECUTED Fri 2026-09-25 (`a45686f`; the pull; boot-health PASS 9/9; the wire pin CONFIRMED); T4b `df4a2d7` (the load at one 40 W lamp); T7 aborted at its first prompt; T7–T8 SUPERSEDED by v81's METER-2 (THE SIMPLER WAY) (v80 b4, 2026-09-26T03:40:57Z). Was: DISPATCH-READY v80 beat 3 (Fri 2026-09-25 ~21:1x CT).
+status: EXECUTED — every part terminal (T4–T6 ran; T4b; T7 aborted, T7–T8 SUPERSEDED); C-44, v97 b1. Was: PARTIAL — T4 · T5 · T6 EXECUTED Fri 2026-09-25 (`a45686f`; the pull; boot-health PASS 9/9; the wire pin CONFIRMED); T4b `df4a2d7` (the load at one 40 W lamp); T7 aborted at its first prompt; T7–T8 SUPERSEDED by v81's METER-2 (THE SIMPLER WAY) (v80 b4, 2026-09-26T03:40:57Z). Was: DISPATCH-READY v80 beat 3 (Fri 2026-09-25 ~21:1x CT).
 -->
 
 # THE THURSDAY ORDER — Half 2 (T4 → T8)

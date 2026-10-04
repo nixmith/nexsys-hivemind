@@ -3,7 +3,7 @@ file: context/instructions/2026-09-30_bench-lane_BH3_CLOUD-DISPATCH_first-messag
 purpose: BH-3's first message for a Claude Code CLOUD session on nixmith/nexsys-bench — the dispatch mechanics in the form of record (D-v86-6: where the repos are, how the work leaves the VM, where the return lives) over the charter, which binds unchanged. The four session settings by their documented names (D-v87-17). The cloud's first bench lane.
 audience: Nick (opens the cloud session on nixmith/nexsys-bench, sets the four settings where the build offers them, pastes the block WHOLE as the first message) · the BH-3 lane · the hub (the intake reads the branch at the bytes)
 state-type: dispatch text (one lane run)
-status: PASTED 08:4x CT (the lane ran; its push waited on the repo grant until ~11:55 CT — the branch and PR #1 are up). Was: DISPATCH-READY — cut v88 beat 2 (Wed 2026-09-30 ~08:2x CT; instrument 2026-09-30T13:28:39Z). Flips to PASTED on `BH3: dispatched`.
+status: EXECUTED — BH-3's charter EXECUTED; C-47, v97 b1. Was: PASTED 08:4x CT (the lane ran; its push waited on the repo grant until ~11:55 CT — the branch and PR #1 are up). Was: DISPATCH-READY — cut v88 beat 2 (Wed 2026-09-30 ~08:2x CT; instrument 2026-09-30T13:28:39Z). Flips to PASTED on `BH3: dispatched`.
 -->
 
 # BH-3 — the cloud first message

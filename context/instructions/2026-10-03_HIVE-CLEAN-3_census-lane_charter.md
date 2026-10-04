@@ -3,7 +3,7 @@ file: context/instructions/2026-10-03_HIVE-CLEAN-3_census-lane_charter.md
 purpose: HIVE-CLEAN-3 — the READ-ONLY CENSUS of stale or overtaken lines across `nexsys-hivemind` (and the two `_scratch/` surfaces named), chartered on Nick's hygiene word of Sat 2026-10-03 19:51 CT (D-v95-29, where the record called it "HIVE-CLEAN-2" — an id already spent on 2026-09-26; corrected here, D-v96-7). The lane reads, measures and lists; it edits nothing. The hub applies the fixes by id in ONE card at v97 under THE EDITED-ROW LAW.
 audience: the census lane (a fresh Cowork conversation with `ClaudeFolder` connected; the desk tonight if Nick's hands allow, else Sunday morning) · the v97 hub (its intake and the fixes card) · Nick (§7 is his paste)
 state-type: lane charter (one lane; read-only)
-status: DISPATCH-READY — cut v96 beat 2 (Sat 2026-10-03 ~20:4x CT; instrument 2026-10-04T01:48:24Z); the tree at hivemind `309be17` + the b1/b2 working set; bench `ba846c2` on `main`; core `df2bc62`. Flips to EXECUTING at the paste, EXECUTED at the v97 intake.
+status: EXECUTED — RETURNED Sun 2026-10-04 06:5x CT (8,191 B + the TSV 22,444 B); intaken v97 beat 1 (Sun 2026-10-04 ~09:3x CT; instrument 2026-10-04T14:32:15Z; context/audits/2026-10-04_v97-b1_boot-and-HIVE-CLEAN-3-intake_audit.md). Was: DISPATCH-READY — cut v96 beat 2 (Sat 2026-10-03 ~20:4x CT; instrument 2026-10-04T01:48:24Z); the tree at hivemind `309be17` + the b1/b2 working set; bench `ba846c2` on `main`; core `df2bc62`. Flips to EXECUTING at the paste, EXECUTED at the v97 intake.
 -->
 
 # HIVE-CLEAN-3 — the read-only census of stale lines

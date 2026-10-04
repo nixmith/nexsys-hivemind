@@ -3,7 +3,7 @@ file: context/handoff/2026-09-27_v83_dispatch-text.md
 purpose: THE v83 DISPATCH TEXT — the paste that opens the next hub window (Monday 2026-09-28 morning → Tuesday 2026-09-29 evening), cut at the v82 close (beat 4, the context rule). v82 landed IR-18 (core `e96dce8`, CI green, 14/20), METER-3 (bench `58b5b45`, on the Pi too), BENCH-CORE-3 and -4 (the bench card on `e96dce8`), intaken every return two-layer, cut IR-61's instruction on the ruling, wrote THE WEEKS AHEAD (the plan §29), and closed before the rehearsal. v83's job: REHEARSAL 1 EXECUTED and intaken (THE ONE DELIVERABLE, carried), IR-61's return intaken and landed, VERIFY-72H's charter cut, the company's Monday acts, v84's text Tuesday.
 audience: Nick (pastes the fenced block whole into a FRESH Cowork conversation with ClaudeFolder connected) · the v83 hub
 state-type: dispatch text
-status: PASTED — Nick pasted it Sun 2026-09-27 15:47 CT to open v83 (the v83 DR §1; D-v83-8); cut v82 beat 4 (Sun 2026-09-27 ~15:0x CT; instrument 2026-09-27T20:06:23Z).
+status: EXECUTED — v83 closed at beat 4 (its decision record); C-31, v97 b1. Was: PASTED — Nick pasted it Sun 2026-09-27 15:47 CT to open v83 (the v83 DR §1; D-v83-8); cut v82 beat 4 (Sun 2026-09-27 ~15:0x CT; instrument 2026-09-27T20:06:23Z).
 -->
 
 # v83 — the dispatch text (paste whole)

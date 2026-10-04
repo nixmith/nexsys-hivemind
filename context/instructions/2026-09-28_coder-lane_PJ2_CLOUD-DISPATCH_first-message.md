@@ -2,7 +2,7 @@
 file: _scratch/v86/2026-09-28_PJ2_CLOUD-DISPATCH_first-message.md
 purpose: PJ-2's dispatch re-cut for a Claude Code CLOUD session (Nick's word, 18:26 CT: the lane runs on Anthropic's infrastructure, not on his PC). The instruction file is NOT edited (DISPATCH-READY, reviewed E1–E14); this message overlays ONLY the dispatch mechanics — where the repos are, how the work leaves the VM, where the return lives — and says so. Everything else in the instruction binds unchanged. Filed as D-v86-6.
 audience: Nick (pastes the block below, WHOLE, as the cloud session's first message; the session is opened on nixmith/homesynapse-core) · the Coder lane · the hub (the intake reads the branch at the bytes)
-status: NOT PASTED FOR THIS RUN — the lane had started 18:08 CT on the packet's local-form Part D (D-v86-11); STANDS as the form for every cloud dispatch after it (D-v86-6); cut v86 beat 1 (Mon 2026-09-28 ~18:2x CT; instrument 2026-09-28T23:28Z)
+status: SUPERSEDED as a dispatch (PJ-2 EXECUTED in the local form; core 146468c) — STANDS as the form for every cloud dispatch after it (D-v86-6); C-46, v97 b1. Was: NOT PASTED FOR THIS RUN — the lane had started 18:08 CT on the packet's local-form Part D (D-v86-11); STANDS as the form for every cloud dispatch after it (D-v86-6); cut v86 beat 1 (Mon 2026-09-28 ~18:2x CT; instrument 2026-09-28T23:28Z)
 -->
 
 # Part D (cloud form) — paste everything inside the fence as the FIRST message of a Claude Code cloud session opened on `nixmith/homesynapse-core`

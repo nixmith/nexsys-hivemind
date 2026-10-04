@@ -993,3 +993,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-04 (v97 beat 2) — v96 b5, verbatim
 
 2026-10-04 (v96 beat 5, Sunday morning — THE REMAINDER: the b3 card ran after beat 4's write → `c5166bc` carries beat 4's spine under the b3 message (7 paths); the pre-verification + the register land here (D-v96-15); HIVE-CLEAN-3 RETURNED 08:2x (8,191 B + the TSV) — UNSTAGED, v97 b1's intake; live beats 12 of 12 → v97 b1 ROTATES first; Sun 2026-10-04 ~08:3x CT (instrument 2026-10-04T13:35:32Z). Order: the b5 card → `HIVE: LANDED` → v97's paste NOW (with `HIVE-CLEAN-3: RETURNED … 8191` · `J2-PREVERIFY: filed`) → 17:25 the packet → v98)
+
+## chain segment rotated 2026-10-04 (v97 beat 3) — v97 b1, verbatim
+
+2026-10-04 (v97 beat 1 — THE BOOT (pasted 09:00 CT; the paste = the file, md5 both sides); `HIVE: LANDED b9c60f8`; HIVE-CLEAN-3 INTAKEN ACCEPT — 102 rows, 93 applied by id, 9 declined/carried with the reason (the b1 audit); THE FIXES CARD = the b1 card (33); six blocks rotated (v95 b2–b7); IR-124; the preflight 12/12, Check 9 28/28; Sun 2026-10-04 ~09:3x CT (instrument 2026-10-04T14:32:15Z). Order: the b1 card → `HIVE: LANDED` → b2 J2's pre-verification re-run at df2bc62 → b3 the instruction + the one-way-door review → the dispatch line (the desk) → b4 the packet re-stamped + the dry-run → b5 U2a · HERO-1 · SOAK-NIGHT-1 → the close ≤ 17:00 → 17:25 the packet → v98)

@@ -957,3 +957,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-03 (v95 beat 6) — v95 b4, verbatim
 
 2026-10-03 (v95 beat 4 — THE CLOSE (the deliverable met at b2: J1 handed): v96's text cut for ≈ 21:00 (rehearsal 2's intake first with the pre-registrations in order; J1's plan → `GO`; Sunday's text); v95's text EXECUTED; this DR CLOSED (D-v95-1..20); four premises of the record corrected at the bytes this window; Sat 2026-10-03 ~15:1x CT (instrument 2026-10-03T20:16:09Z). Order: the b4 card (b3's three files + the close, 10) → J1's paste → PLAN-RETURNED → GO → UPLOAD-3 → 17:25 the packet → ≈ 21:00 v96's paste)
+
+## chain segment rotated 2026-10-03 (v95 beat 7) — v95 b5, verbatim
+
+2026-10-03 (v95 beat 5, AFTER THE CLOSE — J1 RETURNED 16:2x (28,642 B; 42 files STAGED on `j1/link-read-2-ir-121`, the commit denied by the desk's rule) and INTAKEN ACCEPT at the bytes (the census, the constants, the record, the keys, the frozen line, two modules' XMLs re-executed); `J1: COMMITTED df2bc62 PR #9` (16:30); `CI: green` 4/4 (16:33); the ff-merge card handed; IR-122/IR-123 filed; the coder-handoff entry spliced; D-v95-21/22; Sat 2026-10-03 ~16:3x CT (instrument 2026-10-03T21:37:30Z). Order: the ff-merge card → `CORE: LANDED df2bc62` → the b5 hivemind card → 17:25 the packet → ≈ 21:00 v96)

@@ -973,3 +973,11 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-03 (v96 beat 2) — v95 b8, verbatim
 
 2026-10-03 (v95 beat 8, the last — V72B RETURNED (19:5x; `ba846c2` on its branch, two commits, no trailer) and INTAKEN ACCEPT: the selftest 44/0 RE-RUN by the hub; EXPORT-1 re-graded PASS → FLAGGED (4 runs) as pre-registered; the push + PR card handed; the lane's self-commit accepted, a lock lesson named (D-v95-28); HIVE-CLEAN-2 chartered in principle on Nick's hygiene word — v96 cuts it; THE EXECUTIVE DIGEST adopted (D-v95-29); six blocks rotated; Sat 2026-10-03 ~20:0x CT (instrument 2026-10-04T01:00:05Z). Order: the b8 card → the V72B push card → v96's paste (now or ≈ 21:30) → Sunday v97 08:00 → 17:25 the packet → v98)
+
+## chain segment rotated 2026-10-03 (v96 beat 3) — v96 b1, verbatim
+
+2026-10-03 (v96 beat 1 — THE BOOT of the late window (pasted ≈ 20:07 CT): 12/12 (Check 9 28/28; 44.3 KB read); `HIVE: LANDED 309be17` and `V72B: PUSHED PR 2` at the bytes; THE PREMISE CORRECTED — the bench has NO CI workflow, the record's `CI: green` wait could never bank; the gate = the b8 intake + Nick's card → the ff-merge card handed (D-v96-1); BENCH-PULL-7 cut, HELD for BC8 (D-v96-3); IR-112/IR-118 exhibits from V72B §5 (D-v96-4); THE LANE STOPS AT A LOCK minted (D-v96-5); J1's and V72B's texts EXECUTED, v96's PASTED byte-identical; D-v96-1..6; Sat 2026-10-03 ~20:3x CT (instrument 2026-10-04T01:31:29Z). Order: the landing card → `BENCH: LANDED ba846c2` → the b1 card → b2 HIVE-CLEAN-2's charter → b3 Sunday's text → b4 the close)
+
+## chain segment rotated 2026-10-03 (v96 beat 4) — v96 b2, verbatim
+
+2026-10-03 (v96 beat 2 — `BENCH: LANDED ba846c2` (20:34 CT; `main` = `origin/main`; the ff kept both commits) — V72B LANDED, IR-96/IR-107 CLOSED (D-v96-8); THE ID CORRECTED — the record's "HIVE-CLEAN-2" was spent 2026-09-26, the lane is HIVE-CLEAN-3 (D-v96-7); HIVE-CLEAN-3 CHARTERED, read-only, ten surfaces, eight predictions, the return ≤ 8 KB + a TSV, DISPATCH-READY on free hands (D-v96-9); THE EXECUTIVE DIGEST at the brief's head, three rows compressed (D-v96-10); Sat 2026-10-03 ~20:4x CT (instrument 2026-10-04T01:48:24Z). Order: the b1b2 card → `HIVE: LANDED` → HIVE-CLEAN-3's paste (tonight or Sunday a.m.) → b3 Sunday's text → b4 the close)

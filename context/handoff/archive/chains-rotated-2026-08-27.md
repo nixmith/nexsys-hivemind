@@ -989,3 +989,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-04 (v97 beat 1) — v96 b4, verbatim
 
 2026-10-03 (v96 beat 4, after the close — J2 PRE-VERIFIED at `df2bc62` (`context/pre-verifications/WU-J2_scoped-recovery-window_IR-114.md`; 14 signatures; the two gsdk cites READ AT THE SOURCE — a named partner admits only that device (`network-creator-security.h:94–107`); the 0x0010 bit makes the TC DENY an un-keyed joiner (`ezsp-enum.h:423–439`); the explicit close is new NCP behavior (0x006B · 0x0002 · `permitJoin(0)`); J2a's site `A:392`; six forks; P1–P4; D-v96-14); IR-114/IR-115 by id; Sat 2026-10-03 ~21:2x CT (instrument 2026-10-04T02:21:51Z). Order: the b3b4 card → `HIVE: LANDED` → HIVE-CLEAN-3's paste → Sun 08:00 v97 (J2's instruction on this file) → 17:25 the packet → v98)
+
+## chain segment rotated 2026-10-04 (v97 beat 2) — v96 b5, verbatim
+
+2026-10-04 (v96 beat 5, Sunday morning — THE REMAINDER: the b3 card ran after beat 4's write → `c5166bc` carries beat 4's spine under the b3 message (7 paths); the pre-verification + the register land here (D-v96-15); HIVE-CLEAN-3 RETURNED 08:2x (8,191 B + the TSV) — UNSTAGED, v97 b1's intake; live beats 12 of 12 → v97 b1 ROTATES first; Sun 2026-10-04 ~08:3x CT (instrument 2026-10-04T13:35:32Z). Order: the b5 card → `HIVE: LANDED` → v97's paste NOW (with `HIVE-CLEAN-3: RETURNED … 8191` · `J2-PREVERIFY: filed`) → 17:25 the packet → v98)

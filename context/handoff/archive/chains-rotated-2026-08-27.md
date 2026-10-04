@@ -965,3 +965,11 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-03 (v95 beat 8) — v95 b6, verbatim
 
 2026-10-03 (v95 beat 6, after the close — J1 LANDED: `CORE: LANDED df2bc62` on `main`, CI green (the gate of record); IR-45 CLOSED, IR-121 closes at the soak; THE HORIZON J1 LANDED twelve days early; V72B DISPATCHED tonight plan-first beside the sitting (D-v95-24); BC8 = the Pi to `df2bc62` + F-6, Sunday/Monday; D-v95-23/24; Sat 2026-10-03 ~16:4x CT (instrument 2026-10-03T21:47:33Z). Order: V72B's paste → UPLOAD-3 → the b6 card → 17:25 the packet → ≈ 21:00 v96 (rehearsal 2's intake; V72B's plan → GO; Sunday's text))
+
+## chain segment rotated 2026-10-03 (v96 beat 1) — v95 b7, verbatim
+
+2026-10-03 (v95 beat 7, after the close — REHEARSAL 2 MOVED to Sunday 17:25 (not pasted at 17:30; the envelope bars a 19:1x start; the packet unedited, the Pi untouched; D-v95-25); V72B's PLAN intaken (13/13; `COMPLETED` is the success terminal — the fixture's `SUCCEEDED` never on the wire; EXPORT-1 FULL found under `_archive/runs/`) and `GO with:` cut (D-v95-26); v96's text RE-CUT — V72B's intake first, Sunday's text (D-v95-27); Sat 2026-10-03 ~19:1x CT (instrument 2026-10-04T00:10:11Z). Order: the b7 card → V72B codes → `RETURNED` → ≈ 21:30 v96 → Sunday v97 08:00 → 17:25 the packet → v98)
+
+## chain segment rotated 2026-10-03 (v96 beat 2) — v95 b8, verbatim
+
+2026-10-03 (v95 beat 8, the last — V72B RETURNED (19:5x; `ba846c2` on its branch, two commits, no trailer) and INTAKEN ACCEPT: the selftest 44/0 RE-RUN by the hub; EXPORT-1 re-graded PASS → FLAGGED (4 runs) as pre-registered; the push + PR card handed; the lane's self-commit accepted, a lock lesson named (D-v95-28); HIVE-CLEAN-2 chartered in principle on Nick's hygiene word — v96 cuts it; THE EXECUTIVE DIGEST adopted (D-v95-29); six blocks rotated; Sat 2026-10-03 ~20:0x CT (instrument 2026-10-04T01:00:05Z). Order: the b8 card → the V72B push card → v96's paste (now or ≈ 21:30) → Sunday v97 08:00 → 17:25 the packet → v98)

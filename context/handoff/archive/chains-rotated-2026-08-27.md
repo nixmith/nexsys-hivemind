@@ -997,3 +997,11 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-04 (v97 beat 3) — v97 b1, verbatim
 
 2026-10-04 (v97 beat 1 — THE BOOT (pasted 09:00 CT; the paste = the file, md5 both sides); `HIVE: LANDED b9c60f8`; HIVE-CLEAN-3 INTAKEN ACCEPT — 102 rows, 93 applied by id, 9 declined/carried with the reason (the b1 audit); THE FIXES CARD = the b1 card (33); six blocks rotated (v95 b2–b7); IR-124; the preflight 12/12, Check 9 28/28; Sun 2026-10-04 ~09:3x CT (instrument 2026-10-04T14:32:15Z). Order: the b1 card → `HIVE: LANDED` → b2 J2's pre-verification re-run at df2bc62 → b3 the instruction + the one-way-door review → the dispatch line (the desk) → b4 the packet re-stamped + the dry-run → b5 U2a · HERO-1 · SOAK-NIGHT-1 → the close ≤ 17:00 → 17:25 the packet → v98)
+
+## chain segment rotated 2026-10-04 (v97 beat 4) — v97 b2, verbatim
+
+2026-10-04 (v97 beat 2 — `HIVE: LANDED 921d371` (33); J2's pre-verification RE-RUN at df2bc62 — rows 1 · 6 · 8 · 12 · 13 + the two gsdk cites at the source, every reading holds (D-v97-5); THE STRATEGY PASS filed on Nick's 09:36 ask (D-v97-6): the Java slot two weeks ahead; the critical path = gate (i)'s instrument (the Pi runs the tree; the first fresh-card install is pilot zero); three words `FRESH-CARD:` · `J3:` · `RESEARCH-LH:`; Sun 2026-10-04 ~09:5x CT (instrument 2026-10-04T14:50:23Z). Order: the b2 card → `HIVE: LANDED` → b3 J2's instruction + the one-way-door review → the dispatch line → b4 the packet re-stamped → 17:25)
+
+## chain segment rotated 2026-10-04 (v97 beat 5) — v97 b3, verbatim
+
+2026-10-04 (v97 beat 3 — `HIVE: LANDED a0d0809`; Nick's three words with fences (D-v97-7: `FRESH-CARD: oct8-11` · `J3: left` gated · `RESEARCH-LH: quiet-week`; his capacity Wed → Columbus Day HIGH → b6); J2's LOCAL instruction CUT on the pre-verification, the module-boundary correction (the scope a String — D-v97-9), REVIEWED by an unseen agent (24 edits + 17 cuts applied, 8 BLOCKING at the bytes) → DISPATCH-READY, the line in the brief (D-v97-8); IR-125; Sun 2026-10-04 ~11:1x CT (instrument 2026-10-04T16:13:00Z). Order: the b3 card → `HIVE: LANDED` → the dispatch line (the desk plans, STOPS at PLAN-RETURNED) → b4 the packet re-stamped + the dry-run → b5 U2a · HERO-1 · SOAK-NIGHT-1 → b6 the week → the close ≤ 17:00 → 17:25)

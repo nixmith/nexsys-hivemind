@@ -961,3 +961,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-03 (v95 beat 7) — v95 b5, verbatim
 
 2026-10-03 (v95 beat 5, AFTER THE CLOSE — J1 RETURNED 16:2x (28,642 B; 42 files STAGED on `j1/link-read-2-ir-121`, the commit denied by the desk's rule) and INTAKEN ACCEPT at the bytes (the census, the constants, the record, the keys, the frozen line, two modules' XMLs re-executed); `J1: COMMITTED df2bc62 PR #9` (16:30); `CI: green` 4/4 (16:33); the ff-merge card handed; IR-122/IR-123 filed; the coder-handoff entry spliced; D-v95-21/22; Sat 2026-10-03 ~16:3x CT (instrument 2026-10-03T21:37:30Z). Order: the ff-merge card → `CORE: LANDED df2bc62` → the b5 hivemind card → 17:25 the packet → ≈ 21:00 v96)
+
+## chain segment rotated 2026-10-03 (v95 beat 8) — v95 b6, verbatim
+
+2026-10-03 (v95 beat 6, after the close — J1 LANDED: `CORE: LANDED df2bc62` on `main`, CI green (the gate of record); IR-45 CLOSED, IR-121 closes at the soak; THE HORIZON J1 LANDED twelve days early; V72B DISPATCHED tonight plan-first beside the sitting (D-v95-24); BC8 = the Pi to `df2bc62` + F-6, Sunday/Monday; D-v95-23/24; Sat 2026-10-03 ~16:4x CT (instrument 2026-10-03T21:47:33Z). Order: V72B's paste → UPLOAD-3 → the b6 card → 17:25 the packet → ≈ 21:00 v96 (rehearsal 2's intake; V72B's plan → GO; Sunday's text))

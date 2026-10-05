@@ -3,7 +3,7 @@ file: context/instructions/2026-10-04_coder-lane_J2_scoped-recovery-window_IR-11
 purpose: THE CODING INSTRUCTION for J2 = J2a (IR-114: a cached, unadopted, LISTED device re-proposed at boot) + J2b (the DEVICE-SCOPED recovery window: the transient key's partner = the named IEEE; TC policy 0x0013; an explicit NCP close; `join_rejected`) + IR-115's reclassification + IR-123's rider — LOCAL form, plan-first (W9), on Nick's desk (THE HORIZON §2 J2; `WIZARD: b′`, D-v94-24). A ONE-WAY DOOR: the review ran before the dispatch line (`context/audits/2026-10-04_J2_independent-review.md`).
 audience: the J2 Coder lane (Claude Code on Nick's desk) · the hub (the intake) · the reviewer
 state-type: coding instruction (LOCAL form; plan-first)
-status: DISPATCH-READY — cut v97 beat 3 (Sun 2026-10-04 ~11:1x CT; instrument 2026-10-04T16:13:00Z); baseline `df2bc62` (re-verified at the paste); the pre-verification `context/pre-verifications/WU-J2_scoped-recovery-window_IR-114.md` (fourteen rows, re-run v97 b2, D-v97-5); the review applied.
+status: EXECUTED — coded on the desk Sun 2026-10-04 (two staged trees), INTAKEN ACCEPT v97 b5 (D-v97-13), COMMITTED `5b0f717` + `49455fc` (PR #10), LANDED `main` → `49455fc` 16:34 CT (D-v97-19), CI green on `main` v98 b1 (D-v98-4; instrument 2026-10-05T00:43:04Z). Was: DISPATCH-READY — cut v97 beat 3 (Sun 2026-10-04 ~11:1x CT; instrument 2026-10-04T16:13:00Z); baseline `df2bc62` (re-verified at the paste); the pre-verification `context/pre-verifications/WU-J2_scoped-recovery-window_IR-114.md` (fourteen rows, re-run v97 b2, D-v97-5); the review applied.
 baseline: homesynapse-core `df2bc62` (`main`; porcelain 0)
 -->
 

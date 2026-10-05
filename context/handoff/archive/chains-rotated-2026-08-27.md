@@ -1009,3 +1009,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-04 (v97 beat 6) — v97 b4, verbatim
 
 2026-10-04 (v97 beat 4 — REHEARSAL 2's packet RE-STAMPED on its date-bound lines only (the day; P1's span ≈ 54 h with D-v95-13 beside it; P8 = Monday's nightly; the output dir ×12; v98 intakes; `5b0e20c` unchanged — D-v97-10); the FRESH DRY-RUN on the corpus COMPLETE, see the audit (D-v97-11); the pre-registrations IN ORDER — D-v95-13's sensor row FIRST (D-v97-12); Sun 2026-10-04 ~15:5x CT (instrument 2026-10-04T20:58:22Z). Order: the b4 card → `HIVE: LANDED` → (J2's dispatch line if not yet) → b5 U2a · HERO-1 · SOAK-NIGHT-1 → b6 the week + Wed → Columbus Day → the close ≤ 17:00 → 17:25 the packet WHOLE → 17:30 the sitting → ≤ 21:00 → v98)
+
+## chain segment rotated 2026-10-04 (v98 beat 1) — v97 b5, verbatim
+
+2026-10-04 (v97 beat 5 — J2 DELIVERED (two staged trees sha₁ 630c265 · sha₂ f586883; 39 paths; check green, 8 gates re-run) and INTAKEN ACCEPT at the bytes (D-v97-13); the landing card = two commits via commit-tree, J2a first → the PR → CI → the ff-merge at v98 (D-v97-14); the J3 gate pre-read `as-dated` — IR-119/120 not run-bearing (D-v97-15); IR-126/127; the lesson A NEW FRAME NEEDS AN ARM IN EVERY HARNESS (D-v97-16); Sun 2026-10-04 ~16:1x CT (instrument 2026-10-04T21:17:39Z). Order: the b5 card (b4 + b5, 13) → `HIVE: LANDED` → the J2 commit card → `J2: COMMITTED <sha> PR <n>` → 17:25 the packet WHOLE → the sitting → ≤ 21:00 → v98 (rehearsal 2's intake FIRST; `CI:` → the ff-merge card))

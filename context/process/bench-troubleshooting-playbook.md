@@ -114,6 +114,7 @@ Every operator mistake in the M9.4 arc traced to a handoff that assumed context 
 
 - **(11) Operator blocks are ZERO-PLACEHOLDER self-contained (v51 H1).** A placeholder bash can eat is a defect — the block ships with every value filled, or the ONE unavoidable fill-in carries its own explicit fill-in-before-running warning line (arc-discipline 5's floor; H1 is the stricter bar: zero is the target, the warned fill-in is the exception that must argue for itself).
 - **(12) The Pi/host environment facts (v52, verified):** `journalctl --user` is DEAD on the bench Pi — use `systemctl --user status`; `gh` is ABSENT on the host (GitHub acts go by browser click-path); the nightly fires ~03:30 CT (~08:32Z — see the §1 PI-TZ addendum before adjudicating any timing against it). Never author a block that names a dead or absent instrument.
+- **(13) THE PHYSICAL-FIRST LINE (v98 b2, 2026-10-04; IR-130 retired here).** A device dark > 24 h gets ONE look at its power, its cable and its LED — recorded as one operator word (`CABLE: ok|chewed|loose`, `LED: <what it does>`) — BEFORE any radio hypothesis is pre-registered or any rejoin gesture is written into a card; the rig card's first row for such a device IS that look. Exhibit: the SNZB-06P24's 54-h dark span (Fri 2026-10-02 11:19 → Sun 17:18 CT) was a cat-chewed USB-C; the record pre-registered the 25-h arm, the re-announce gesture and "always leaves" for it across v93–v97 (`context/audits/2026-10-04_v98-b1_boot-and-REHEARSAL-2-intake_audit.md` §3.3).
 
 ## 9. Environment discipline (pointers)
 

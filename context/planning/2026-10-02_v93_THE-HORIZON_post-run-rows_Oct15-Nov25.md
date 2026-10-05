@@ -109,7 +109,7 @@ What THE WEEKS AHEAD §10 hands over if it lands as cut: the core on `main` past
 ## §9 §10 EXTENDED — the board, Oct 15 → Nov 25 and after (THE WEEKS AHEAD §10's form; dates are targets, the record wins)
 | Window | The rig | The Java slot | The bench | The web-ui | The company | The hub |
 |---|---|---|---|---|---|---|
-| Thu 10-15 – Sun 10-18 | — (J1 landed Oct 3, J2 landed Oct 4 `49455fc`; BC8 Oct 5, BC9 Oct 9, REHEARSAL 3 Oct 10 — v97 b6, D-v97-17) | J3 as-dated → Oct 19–21 (D-v97-15); the slot FREE Oct 15–18 | — (B2 landed Oct 3) | HERO-1 landing | C1: the attorney; `TM:`; the three conversations; the kit lists | THE WEEKS AHEAD's close pass → this board LIVE; 30 h/wk (W1) |
+| Thu 10-15 – Sun 10-18 | — (J1 landed Oct 3, J2 landed Oct 4 `49455fc`; BC8 Oct 5, BC9 + REHEARSAL 3 Oct 9 (folded — D-v98-10, Nick's delegation 19:50; Oct 10 the reserve) — v97 b6, D-v97-17) | J3 as-dated → Oct 19–21 (D-v97-15); the slot FREE Oct 15–18 | — (B2 landed Oct 3) | HERO-1 landing | C1: the attorney; `TM:`; the three conversations; the kit lists | THE WEEKS AHEAD's close pass → this board LIVE; 30 h/wk (W1) |
 | Mon 10-19 – Sun 10-25 | J3's card; R4 dry 24 h #2 (Oct 22–23) → THE FREEZE | J3, then nothing | B3 the run's packet dry-run before R4 | — | C2: W2; the consent + the IP assignment drafted; the filing chain | the run's packet; the freeze list |
 | Mon 10-26 – Thu 10-29 | quiet (the restore before any gap) | red fixes only | the grader pre-registered | — | W2 content; `DRAFT:` | the run's pre-registration; PAIRING-UX research dispatched |
 | Fri 10-30 – Mon 11-02 | R5 THE RUN | — | VERIFY-72H | — | — | the run's intake; the go / no-go (C3) |

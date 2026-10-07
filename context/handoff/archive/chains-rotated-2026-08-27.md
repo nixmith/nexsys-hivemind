@@ -1025,3 +1025,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-04 (v98 beat 4) — v98 b2, verbatim
 
 2026-10-04 (v98 beat 2 — BC8's card CUT for Mon 10-05 (the Pi's core → `df2bc62` BY SHA on Nick's word; BENCH-PULL-7 folded; F-6 on G4-2; boot-health) and DRY-RUN on the corpus COMPLETE (D-v98-12); `HIVE: LANDED 5931cda`; Nick's words `BC8: df2bc62` · `RENDERER: tue` (D-v98-9); REHEARSAL 3 FOLDED into BC9 Fri, Sat the reserve (D-v98-10); Tue = BEAT-RENDERER-1 first (D-v98-11); the playbook §8 (13); IR-130 RETIRED; Sun 2026-10-04 ~20:1x CT (instrument 2026-10-05T01:12:42Z). Order: the b2 card → `HIVE: LANDED` → b3 SOAK-NIGHT-1's packet → b4 the bench charter → the close ≤ 23:00 → Mon ≈ 18:30 the BC8 card WHOLE into a FRESH conversation · v99 ≈ 19:00)
+
+## chain segment rotated 2026-10-04 (v98 beat 5) — v98 b3, verbatim
+
+2026-10-04 (v98 beat 3 — SOAK-NIGHT-1's packet CUT for Wed 21:00 → Thu 07:00 on `df2bc62` and DRY-RUN on the corpus COMPLETE (D-v98-13; the flap CEILING 2 derived, #34; F-6's second sample on G4-1; the sensor's row — IR-121 closes on it; the Hue's two arms; IR-118's digest line); BC8's card CORRECTED on the Hue under the probe (D-v98-14); `HIVE: LANDED f4146b2`; Sun 2026-10-04 ~20:3x CT (instrument 2026-10-05T01:32:41Z). Order: the b3 card → `HIVE: LANDED` → b4 the bench charter AVAIL-LINE-1 → the close ≤ 23:00 (v99's text) → Mon 18:30 BC8 · v99 ≈ 19:00)

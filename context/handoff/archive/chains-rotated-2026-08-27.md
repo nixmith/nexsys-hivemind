@@ -1029,3 +1029,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-04 (v98 beat 5) — v98 b3, verbatim
 
 2026-10-04 (v98 beat 3 — SOAK-NIGHT-1's packet CUT for Wed 21:00 → Thu 07:00 on `df2bc62` and DRY-RUN on the corpus COMPLETE (D-v98-13; the flap CEILING 2 derived, #34; F-6's second sample on G4-1; the sensor's row — IR-121 closes on it; the Hue's two arms; IR-118's digest line); BC8's card CORRECTED on the Hue under the probe (D-v98-14); `HIVE: LANDED f4146b2`; Sun 2026-10-04 ~20:3x CT (instrument 2026-10-05T01:32:41Z). Order: the b3 card → `HIVE: LANDED` → b4 the bench charter AVAIL-LINE-1 → the close ≤ 23:00 (v99's text) → Mon 18:30 BC8 · v99 ≈ 19:00)
+
+## chain segment rotated 2026-10-07 (v99 beat 1) — v98 b4, verbatim
+
+2026-10-04 (v98 beat 4 — the bench charter AVAIL-LINE-1 CUT for Tue 10-06's free hands (IR-118's `avail:` field on the digest's fleet line from the body the nightly already reads; `join_rejected` in the grader's AMBIENT whitelist as J2's named deviation; two units, four files, STAGE never COMMIT, no plan stop — D-v98-15); the nine premise rows re-run by the hub at `ba846c2`/`49455fc`; `HIVE: LANDED c5a4afe`; U2a's charter and HERO-1's re-cut → v99's first block (the hour); Sun 2026-10-04 ~20:4x CT (instrument 2026-10-05T01:43:44Z). Order: the b4 card → `HIVE: LANDED` → b5 THE CLOSE (v99's text; Nick's 'how we proceed' answered) ≤ 23:00 → Mon 18:30 BC8 · v99 ≈ 19:00)

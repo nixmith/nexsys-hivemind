@@ -3,7 +3,7 @@ file: context/pre-verifications/WU-IR61.md
 purpose: The pre-verification for IR-61 (`staleAfter` — Doc 03 §3.8's threshold resolution wired): every source signature the instruction assumes, read at core `e96dce8` with the command beside it (law #27). Written v82 beat 4 (Sun 2026-09-27 ~15:0x CT) before the instruction; rows 16–18 added at the beat-4b re-cut on the independent review.
 audience: the hub (the instruction's ground) · the Coder lane (re-run each command before writing)
 state-type: pre-verification
-status: FILED — v82 beat 4
+status: EXECUTED — HIVE-CLEAN-4 (2026-10-07). Was: FILED — v82 beat 4
 -->
 
 # WU-IR61 — the signatures at `e96dce8`

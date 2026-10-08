@@ -3,7 +3,7 @@ file: context/planning/2026-09-26_v81_HORIZON-RE-CUT_P6-P7-and-the-launch-postur
 purpose: THE HORIZON RE-CUT (D-v79-11; pre-registered D-v80-8) — the eight questions Lane B's digest closed on, each answered as a hub recommendation with its instrument and its refutable-by; the three launch postures graded; the P6 / P7 rows dated off the run (Oct 30 – Nov 2) under the recommended posture; the three stale baselines dispositioned. Cut from the inputs whole (`context/audits/2026-09-23_v80-b1_laneB_horizon-recut-inputs_digest.md`, its cites reused by item number) so that Nick rules and does not discover. The word is his: `POSTURE: install-first|pilot-first|evidence-dated`; silence past Sunday = the rec. Everything here is token-parameterized ({{NAME}}); no research number in any sentence.
 audience: Nick (one word) · the v81 hub (the rows enter the plan of record on the word) · the 10-01 quarterly (reads this file — SoR :59; PLAN :172)
 state-type: planning (a re-cut; the rows become the plan's on Nick's word)
-status: REC-ON-THE-DESK — cut v81 beat 3 (Sat 2026-09-26 ~09:3x CT; instrument 2026-09-26T14:2xZ). The rec: `pilot-first`.
+status: FILED — HIVE-CLEAN-4 (2026-10-07). Was: REC-ON-THE-DESK — cut v81 beat 3 (Sat 2026-09-26 ~09:3x CT; instrument 2026-09-26T14:2xZ). The rec: `pilot-first`.
 -->
 
 # THE HORIZON RE-CUT — P6, P7 and the launch posture

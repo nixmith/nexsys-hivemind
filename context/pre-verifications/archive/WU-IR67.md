@@ -3,7 +3,7 @@ file: context/pre-verifications/WU-IR67.md
 purpose: The pre-verification for IR-67 (AMD-59's post-adoption capability path — typed and empty since `d22a8a4`): every source signature the instruction will assume, read at core `8deef4b` in the hub's own container (a public shallow clone; D-v88-6) with the command beside it (law #27; the coder re-runs each before writing), PLUS the design forks the instruction cannot settle alone (§2 — H10 rows; the recs stand by silence; `IR67:` is the word). Written v88 beat 3 (Wed 2026-09-30 ~12:1x CT) — the instruction is v89's (the 13:00 window), then the independent review (E1–E14), then the cloud first message (the D-v86-6 form).
 audience: the hub (the instruction's ground) · the Coder lane (re-run each command before writing) · the independent reviewer
 state-type: pre-verification + design forks
-status: FILED — v88 beat 3; the forks OPEN (`IR67: seam=runtime|adapter · reporting=relink|boot · removal=none`; the recs by silence past Wed 2026-09-30 13:00 CT)
+status: EXECUTED — HIVE-CLEAN-4 (2026-10-07). Was: FILED — v88 beat 3; the forks OPEN (`IR67: seam=runtime|adapter · reporting=relink|boot · removal=none`; the recs by silence past Wed 2026-09-30 13:00 CT)
 -->
 
 # WU-IR67 — the signatures at `8deef4b`, and the forks

@@ -3,7 +3,7 @@ file: context/pre-verifications/WU-J1_LINK-READ-2_IR-121.md
 purpose: The pre-verification for J1 (LINK-READ-2 + IR-121 — "a dark device named at the read surface, with its link, in ≤ 90 s for mains") at homesynapse-core `5b0e20c`: every source signature the instruction assumes, read at the instrument by the hub before the instruction was authored (the skill §2 step 2: ≥ 3 assumed signatures → this file first). Nine signatures read; three premises of the record corrected; two forks named for the plan; one prediction pre-registered for tonight's P1.
 audience: the hub (the instruction's §0b premise table is cut from §1 here) · the J1 lane (re-runs every row before its first write) · the independent reviewer
 state-type: pre-verification (filed before the instruction; never edited after the instruction's dispatch)
-status: FILED v95 beat 2 (Sat 2026-10-03 ~12:4x CT; instrument 2026-10-03T17:41:46Z); baseline `5b0e20c` (core porcelain 0; `main`)
+status: EXECUTED — HIVE-CLEAN-4 (2026-10-07). Was: FILED v95 beat 2 (Sat 2026-10-03 ~12:4x CT; instrument 2026-10-03T17:41:46Z); baseline `5b0e20c` (core porcelain 0; `main`)
 -->
 
 # WU-J1 — LINK-READ-2 + IR-121 — the pre-verification at `5b0e20c`

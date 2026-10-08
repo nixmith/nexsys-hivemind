@@ -3,7 +3,7 @@ file: context/pre-verifications/WU-PJ2.md
 purpose: The pre-verification for PJ-2 (IR-63 — the pairing window as a declared, time-boxed, logged act; the config key retired): every source signature the instruction will assume, read at core `e96dce8` with the command beside it (law #27), PLUS the design fork the instruction cannot settle alone (§2 — H10 rows; the rec stands by silence past Mon 2026-09-28). Written v83 beat 2 (Sun 2026-09-27 ~16:3x CT) ahead of need: the instruction is cut on the word, dispatches after IR-61 lands (D4: one Java lane) and after its independent review (D-v82-10 — the window gates adoption).
 audience: the hub (the instruction's ground; the H10 to Nick) · the Coder lane (re-run each command before writing) · the independent reviewer
 state-type: pre-verification + design fork
-status: FILED — v83 beat 2; the fork OPEN (`PJ2: endpoint|admin-verb|hold`; rec endpoint; silence past Monday = the rec)
+status: EXECUTED — HIVE-CLEAN-4 (2026-10-07). Was: FILED — v83 beat 2; the fork OPEN (`PJ2: endpoint|admin-verb|hold`; rec endpoint; silence past Monday = the rec)
 -->
 
 # WU-PJ2 — the signatures at `e96dce8`, and the fork

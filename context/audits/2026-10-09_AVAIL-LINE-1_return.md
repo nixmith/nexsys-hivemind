@@ -58,4 +58,22 @@ AVAIL-LINE-1 (2026-10-09, desk lane, `avail-line-1/ir118-join-rejected` over `ba
 ## §6 Instrument limits
 cp1252 console: the verify72h suite needs `PYTHONIOENCODING=utf-8` here (the digest's `_utf8_stdout` covers its own); `bash` → the WSL launcher (T3b/T3c, the bench.sh suite); CT = UTC−5 by hand; bytes below = the on-disk CRLF size.
 
-RETURNED ../nexsys-hivemind/context/audits/2026-10-09_AVAIL-LINE-1_return.md 8130 avail-line-1/ir118-join-rejected staged=4
+## §7 AVAIL-LINE-1b (resumed 2026-10-09 12:54 CT; date -u 17:54:27Z) — the hub's D1 ruling: nightly.sh gains the three avail flag pairs
+- STOP at a lock, 17:54:27Z (§0): `.git/index.lock` present in nexsys-bench — 0 B, mtime 2026-10-09 09:21:34 CT (~3.5 h old), no `git.exe` in tasklist, VS Code open; `git write-tree` refused (`Unable to create … index.lock: File exists`). Never a sweep: no write to the bench tree, nothing staged or unstaged (the four files stay staged, 0 commits); the 1b acts (nightly.sh:308–:311, the static check) NOT started. Resumes when Nick clears the lock.
+
+- Lock cleared by Nick (`rm .git/index.lock` in his shell); resumed 17:57:42Z; no lock met after; the four stayed staged, 0 commits.
+- (1)(2) `tools/nightly.sh` :308–:313 — `fleet_args` gains `--fleet-avail $NB_FLEET_AVAIL`, `--fleet-rows $NB_FLEET_ROWS`, `--fleet-stale $NB_FLEET_STALE` after the three pairs, one per line in the file's own continuation form; :314 the `[--] fleet:` echo gains ` · avail: $NB_FLEET_AVAIL/$NB_FLEET_ROWS` before `(registry read: …)`. `bash -n tools/nightly.sh` (Git Bash): syntax ok.
+- (3) No selftest reads nightly.sh (grep: only docstrings in nightly_digest.py), so the static check is section 15 of `nightly_digest.py --selftest` (:1003–:1021): `wrapper: nightly.sh fleet_args passes the three avail flags with their NB_ values` — reads `tools/nightly.sh` beside its own path, takes the `fleet_args="--fleet…"` assignment (:299's empty `local` excluded by the `--fleet` anchor), whitespace-normalized, and wants the three `--flag $NB_VAR` pairs. RED first: `want: ['--fleet-avail $NB_FLEET_AVAIL', '--fleet-rows $NB_FLEET_ROWS', '--fleet-stale $NB_FLEET_STALE'] / got : []` → `selftest: 54 check(s), 1 failure(s)`; after the wrapper edit `[ok]`.
+- (4) Closing lines (desk, `PYTHONIOENCODING=utf-8`): `selftest: 54 check(s), 0 failure(s)` · `verify72h selftest: 46 check(s), 2 failure(s)` (T3b/T3c, desk; Pi 46/0) · `selftest: 42 check(s), 0 failure(s)` · `bench.sh selftest: 27 check(s), 24 failure(s)` (desk, unchanged; Pi 27/0). md5 `9b0af47b3376` unchanged.
+- (5) Staged, 0 commits, porcelain = the five; staged tree `f50d45b29ad296cb9e454ce6a6b5d258e66023ca`:
+```
+ tools/nightly.sh                  |   7 +-
+ tools/runner/README.md            |   6 +-
+ tools/runner/nightly_digest.py    | 248 ++++++++++++++++++++++++++++++++------
+ tools/verify72h/grader.py         |   6 +
+ tools/verify72h/test_verify72h.py |  59 +++++++++
+ 5 files changed, 287 insertions(+), 39 deletions(-)
+```
+- D6 [INFO] — nightly.sh's two comments still say three (:295 `prints three assignments`, :324 `either empty or three`); untouched per "nothing else" — a two-word follow-on. D7 [INFO] — this append carries the file past §0's 8,192-B ceiling; the 1b instruction governs the append.
+
+RETURNED ../nexsys-hivemind/context/audits/2026-10-09_AVAIL-LINE-1_return.md 10976 avail-line-1/ir118-join-rejected staged=5

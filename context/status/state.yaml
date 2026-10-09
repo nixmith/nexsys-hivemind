@@ -1,0 +1,86 @@
+# context/status/state.yaml — THE BEAT STATE: the volatile facts behind the two rendered regions —
+#   context/status/PROJECT_SNAPSHOT.md  `## The digest` → end of file
+#   context/handoff/OPERATOR-BRIEF_for-Nick.md  `## §DIGEST` → the line before `## §NEXT`
+# Rendered by context/process/render_state.py through context/process/templates/snapshot_digest.tpl.md and brief_digest.tpl.md:
+#   python3 -B context/process/render_state.py --check   renders this file; MATCH|DIFF per region against the live files; exit 1 on DIFF or a cap breach
+#   python3 -B context/process/render_state.py --write   writes both regions by anchor AFTER every cap passes (the hub's beat runs it)
+# THE RULE: edit here, then render — never edit the rendered regions by hand.
+# Form (the hub edits this by hand and reads it back by eye): every string double-quoted (an inner " written \"); no anchors,
+# no flow style, no multi-line scalars. A scalar fills the slot `@@key@@` (nested keys joined by `.`). A list renders by ONE
+# str.join into the slot of its key — the separator per key is the SEPS table in render_state.py. `lanes` is the one list of
+# rows: a row renders as `name` + ` (next)` when next is non-empty; the rows are joined by state into `lanes.running` and
+# `lanes.ready` ("none" when empty). `notes` = the snapshot digest's narrative sentences, new each beat, belonging to no field;
+# `brief.*` = the brief's own voice where its §DIGEST diverges from the snapshot (at 513d1c0 the brief stood at v100 b1, the
+# snapshot at v100 b3). A value never carries `@@`.
+beat:
+  label: "v100 b3"
+  headline: "THE CLOSE: AVAIL-SHAPE DELIVERED; the landing in Nick's hands; PKG-FRESH-1 → Sunday"
+shas:
+  core: "37f05a9"
+  core_note: "AVAIL-SHAPE LANDED, PR #11, CI green"
+  bench: "ba846c2"
+  docs: "055832c"
+  skills: "e9a77a8"
+  hivemind: "7638b9b"
+pi:
+  running: "df2bc62"
+  carries: "J2"
+  target_by: "BC9 Sat"
+  target: "AVAIL-SHAPE's sha"
+counter: "19/20"
+fleet:
+  registry: "10"
+  on_air: "9"
+  note: "the Hue dark under J1's own rule; the sensor back"
+lanes:
+  - name: "BEAT-RENDERER-1"
+    state: "DISPATCH-READY"
+    next: ""
+  - name: "AVAIL-LINE-1"
+    state: "DISPATCH-READY"
+    next: ""
+  - name: "PKG-FRESH-1"
+    state: "DISPATCH-READY"
+    next: "Sun"
+lanes_note: "Fri AM three (D-v100-17)"
+words:
+  given: "b-metered"
+  open: ""
+week_ruling: "D-v100-15"
+week:
+  - "Fri the landing; BC9a + SOAK-NIGHT-2"
+  - "Sat the harvest; BC9 + REHEARSAL 3"
+  - "Sun the FE slot; PKG-FRESH-1"
+  - "Mon dry #1"
+dates:
+  - "Oct 22–23 dry #2 → THE FREEZE"
+  - "Oct 30 the run"
+  - "Nov 18 the gates"
+  - "Nov 25 the ceiling"
+next_acts:
+  - "the b3 card"
+  - "v101 Fri AM"
+open_risks: "ten — OR-HUE-REPORTING-DEAD · OR-S31-INTERMITTENT · OR-NIGHTLY-0902-S31 · FAILCHAN · BUS-SILENT-DROP · ADOPT-AWAKE · METERING-VOLUME · three standing — + IR-29..136 + one fence. Standing: D4 · no batched pushes · the rig exclusive · FENCE-BUS · the S31 hands-off · no B-2/B-3 CODE before 20 · no public name before its protocol row · the hub never commits or pushes · no PR merged by the button · every card gated · the restore before any gap · no ungrepped premise · `--no-optional-locks` · every edited row by its id · the store read where the store has the event · a dark device's power is looked at first."
+notes:
+  - "**THURSDAY (D-v100-1..15):** SOAK-NIGHT-1 intaken — **five unprovoked flaps in 10 h** (every dark +65.1 s, every recovery the next frame at 69–73 s; IR-137/138): J1 does not ship as it is; **AVAIL-SHAPE** authored, reviewed, dispatched and **DELIVERED** the same evening (D-v100-8..14; `b-metered`; tree `a12087ce…` over `49455fc`, `check` green) — LANDED `37f05a9` (D-v100-16)."
+  - "PKG-FRESH-1 NOT sat (its 20:30 gate) → Sun 10-11 (D-v100-12)."
+brief:
+  beat: "v100 b1"
+  ct: "Thu 2026-10-08 ~18:2x CT"
+  notes:
+    - "The soak answered: **J1 does not ship as it is.**"
+    - "Five unprovoked flaps in ten hours on two plugs — every one the probe's 5-s deadline lapsing at 65 s of silence, every one undone by the plug's own next report 69–73 s after the last; the plugs were never gone."
+    - "Two readings explain it (IR-137/138): the probe's outcome has never been printed (its log line is DEBUG), and the 60-s silence limit sits under the plugs' own reporting contract (a report within 600 s)."
+    - "**AVAIL-SHAPE** — the probe at INFO · the silence limit from the device's contract · a second look before dark · a 70-s fixture test — was coded and delivered on your desk TONIGHT (`AVAIL-LIMIT: b-metered`, your word; one staged tree, `check` green) — its landing is your two cards (§NEXT 2)."
+  core_note: "AVAIL-SHAPE LANDED at 21:35, CI green"
+  fleet_note: "the sensor back at 17:10; the Hue dark by J1's own rule"
+  after_state: "The hivemind is clean after HIVE-CLEAN-4 (`0f3bf33`)."
+  tonight: "**Tonight (v100):** PKG-FRESH-1 did not sit — you reached its card at 21:12 and its own 20:30 gate stops it; it moves to **Sunday ≈ 19:00** (the rig's one free evening; Part 0 done; the critical path keeps its week)."
+  week:
+    - "Fri AM (full days Fri–Tue, your word — D-v100-17) three lanes beside the hub: AVAIL-LINE-1 (bench) · the renderer (hivemind) · CONFIG-ERROR-1 (Java, after its review); Fri night **BC9a** (the new sha to the Pi + SOAK-NIGHT-2's S0, S1 if ≤ 21:30); Sat 07:00 the harvest at the hour → **BC9 + REHEARSAL 3** on it (J2 to the Pi)"
+    - "Sun daytime the FE slot (HERO-1/U2a); CONFIG-ERROR-1 if hours; **Sun ≈ 19:00 PKG-FRESH-1**"
+    - "Mon 10-12 dry #1 + BACKUP-1"
+  yours:
+    - "a second Pi"
+    - "counsel"
+    - "two hub windows a day at most"

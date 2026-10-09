@@ -1,0 +1,54 @@
+<!--
+file: context/audits/2026-10-08_AVAIL-SHAPE_return.md
+purpose: THE RETURN of AVAIL-SHAPE — IR-137 (the probe at INFO, one cycle after the drain) + IR-138 (the mains limit = the metering contract's maximum + the 60-s floor; `AVAIL-LIMIT: b-metered`) + K = 2 + the fixtures. Nick's desk; the LOCAL self-gated instruction; one staged tree, zero commits.
+audience: the hub (the intake, v101) · Nick (the landing card) · the reviewer
+state-type: coder return (one WU)
+status: DELIVERED — Thu 2026-10-08 ~20:5x CT (the instrument stamps in §0; CT = UTC−5). Branch `avail-shape/ir-137-138` over `49455fc`.
+-->
+
+# AVAIL-SHAPE — return (LOCAL; one staged tree)
+
+## §0 The card
+**DELIVERED** (D1: the [REVIEW] row W-4 words as BLOCKING). Branch `avail-shape/ir-137-138` over `main` `49455fc`; `git log 49455fc..HEAD` = **0 commits**; `git --no-optional-locks status --porcelain` = **8 M, all STAGED**, nothing else; **tree `a12087ceef5bab892aa54aa0562add6d085f5c51`**; `diff --cached --stat` = **8 files, +937/−81**. `b-metered` → `MAINS_CONTRACT_METERING_ONLY = true` (A:205).
+**The gate** `./gradlew check :integration:integration-zigbee:test --rerun :lifecycle:lifecycle:test --rerun :app:homesynapse-app:test --rerun --offline` (01:54:59Z): `BUILD SUCCESSFUL in 37s` · `156 actionable tasks: 10 executed, 146 up-to-date`; the three gate `:test` tasks executed (no UP-TO-DATE); `spotlessCheck` executed; 0 `warning:`. XML files/tests/fail/err/skip: **zigbee 85/747/0/0/1** (01:55:11Z; the skip pre-existing) · **lifecycle 27/104/0/0/0** (01:55:37Z) · **app 7/30/0/0/0** (01:55:06Z).
+**The reds.** Stage 1 (the tests on `49455fc`, 01:44:52Z): `compileTestJava` **15 errors** — `contractMaxIntervalFor` ×13, the 6-arg `StandardAvailabilityTracker` ctor (ZT:109), `PROBE_MISSES_TO_DARK` (:465). Stage 2 (seams declared, hooks inert; 01:48:11Z): **106 run / 18 failed** = tracker 7 + configurator 4 + wiring 7; the IT and powerSource routing green as predicted. Stage 3 (01:51:38Z): 106 / **1 failed — DP-5(b) `:646`** (D1); its pin moved → wiring 32/0 (01:53:42Z). Pre-touch baseline (01:30:16Z): wiring 29/0 · tracker 29/0 · configurator 35/0 · IT 2/0.
+**§0b at `49455fc` — every row HELD:** 1 `:71`, `:409` under `:407` · 2 `:431–:439` · 3 `:779–:788`, `:462` · 4 `:79–:87`, `:106–:112`, `:68` · 5 `:296–:310` · 6 `:758` · 7 `:814–:826`, `:186` · 8 `:284` · 9 `:665`/`:660`, `:171` · 10 `:389` · 11 `:368/:1090/:1125`; the ping line `:370–:375`, `:607–:608` only · 12 `:433`; `:321/:482/:697/:781`; `:947` answers its probe (D2); `L:101/:143` · 13 `:1285`; `:339`/`:299`; `:137` · 14 `:1154–:1161`, `:1192` · 15 `:57–:69`; `ZT:216`; `L:155` · 16 `:1395/:1409`; 0; 0/10 · 17–18 as stated · 19 → SOAK-NIGHT-2.
+**§4.5 as measured:** floor class → **71 s on the fixtures** (61 + 5 + 5; the IT `:155` ≤ 90 holds; 70.05 derived) · ActivePower class → **0 unicasts at 660 s, 1 at 661, dark at 671** (W-3) · plain `b` OnOff-only 3,600 under `meteringOnly=false` (C-2) · a 30-s contract → not at 90 s, at 91 (U-2) · non-mains unchanged (J1 T11 untouched).
+
+## §1 What changed (spans on the staged tree)
+- `StandardAvailabilityTracker.java`: `MAINS_PING_SILENCE` javadoc re-cut :59–:93; **`PROBE_MISSES_TO_DARK = 2`** :96–:110; `DeviceState.probeMisses` :218–:222; the sixth ctor arg `mainsContractLookup` :228/:247–:273; `recordCommandResult` counts under the lock, transitions at K :363–:379; the mains compare :485; `silenceLimitFor`/`mainsSilenceLimitFor`/`limitThrough` :502–:535; the reset in `transition` :594–:598. No new token.
+- `ZigbeeIntegrationAdapter.java`: **`MAINS_CONTRACT_METERING_ONLY`** :189–:205; `this::mainsContractFor` :482; `evaluateAvailabilityTimeouts` :769–:796; **`logDrainedProbes`** :818–:838 — `zigbee.availability_ping: device={} nwk={} ep={} outcome={} rttMs={} seen_during_probe={}` INFO; `Probe`+`unreachable()`, `PendingProbe`, `probesAwaitingDrain` :840–:870; **`mainsContractFor`** :893–:915; `pingBasic` → `Probe` :937–:953.
+- `ReportingConfigurator.java`: **`contractMaxIntervalFor`** :214–:281; `drive`/`configureMetering`/`effectiveRow` byte-unchanged.
+- Tests: `StandardAvailabilityTrackerTest` :97–:131, :454–:478, :493–:681 · `ReportingConfiguratorTest` :818–:917 · `ZigbeeAvailabilityWiringTest` :127–:133 (`frameDuringProbe`), :339–:406, :540–:547, :644–:653, :737–:775, **:824–:968 (W-1/W-1b/W-3)**, :1001–:1010, :1382–:1396, :1699–:1704 · `AvailabilityBootTruthIT` :111–:119, :128–:164.
+- `integration-zigbee/MODULE_CONTEXT.md`: the J-row :3; the rows :337, :339, :512 (IR-139), :734, :744.
+
+## §2 The tests (name · the stage-2 red, verbatim · green)
+- U-1 `mainsContract_600s_notACandidateAt70s_candidateAt661s` · `Expecting empty but was: [0x0017880109AB12CD]`. U-2 `mainsContract_floorIsAdded_30sContractNamesAt91s` · `… but some elements were not expected: [0x0017880109AB12CD]`. U-2b `throwingMainsContractLookup_fallsToTheFloor_andWarns` · `Expected size: 2 but was: 0`. U-3 `failedPingMarksUnavailable`, U-4 `probeMiss_thenFrame_thenMiss_staysAvailable`, U-5 `seededStaleMains_firstMissDoesNotTransition` · `Expecting value to be true but was false`. U-4b `probeMiss_thenSuccess_resetsTheCount` · `expected: FIRST_CONTACT but was: PING_SUCCESS`. All green.
+- C-1 `contractWalk_plug_600sUnderBothFlags` · `Expecting Optional to contain: 10M but was empty` · C-2 `…onOffOnly_3600sOrEmptyByFlag` · `… 1H …` · C-3 `…skipProfile_override_andReportingOffRows` · `… 5M …` · C-3b `…defaultOverride_noRowClusters_smallestAcrossEndpoints` · `… 2M …`. All green; each asserts `ops.calls` empty.
+- W-1 `probeLine_atInfo_oneCycleAfterTheDrain_silentDevice` · `Expected size: 1 but was: 0`; the line: `zigbee.availability_ping: device=0x00178801101A09BB nwk=0x22FE ep=11 outcome=timeout rttMs=5000 seen_during_probe=false`. W-1b `probeLine_seenDuringProbe_frameParkedDuringTheExchange` · `Expected size: 1 but was: 2`; `… seen_during_probe=true`; `pingUnicasts` 1 → 1 → 2 → 3, dark at the third. W-3 `meteringPlug_contractLimit_660s_twoMissesNameDark` · `expected: 0L but was: 1L`. W-2: T-1, T-4 · `Expecting empty but was: [EventEnvelope[… CRITICAL …]]`; mains ping-timeout, J1 T4 · `Expected size: 1 but was: 2`. All green.
+- W-4: both green pre-touch; mains ping-success unchanged; DP-5(b) RED at stage 3 on its same-cycle line pin (`:646` `Expected size: 1 but was: 0`) → moved one cycle (D1) → green; its limit assertions byte-unchanged. I-1/I-2 at two cycles: no observable red (K = 1 names dark at the first); green; ≤ 90 s holds at 71 s.
+
+## §3 Deviations (honest severity)
+- **[REVIEW] D1 DP-5(b)'s line pin moved one cycle** (`:644–:653`). W-4: "stay green UNCHANGED … a red there is a [BLOCKING] row". Green pre-touch; its LIMIT assertions byte-unchanged; the red is `:607–:608`'s same-cycle `singleElement()`, which §4.1 (the review F2's deferral) moves for EVERY probe. REVIEW, not BLOCKING: the cause is the instruction's own settled change; revert = one assertion back.
+- **[REVIEW] D2** W-2 names FIVE one-timeout scenarios; the bytes show FOUR — powerSource routing `:947–:989` answers its probe (`pingSilent` never set). Unchanged, green under K = 2.
+- **[REVIEW] D3** U-4's "a success → AVAILABLE `PING_SUCCESS`": a non-edge success does not move `lastReason` (`transition` `:496–:504`, pre-existing; the v2 event mirrors the transition's reason). U-4b pins AVAILABLE + the reset + `FIRST_CONTACT`. Not changed.
+- **[REVIEW] D4** (§4.2 i) an unreadable-formatting plug takes 660 s, not the floor. **[REVIEW] D5** (§9) a SLEEPY/NONE-posture device takes the contract-derived limit — benign.
+- [INFO] D6 one `limitThrough(lookup, device, added, fallback, fallbackName)` for both arms (the non-mains WARN byte-identical; the mains arm says "the 60-s floor"). D7 the sixth ctor arg after `expectedSilenceLookup`. D8 `Probe`+`unreachable()`, `PendingProbe` as §4.1, `LinkedHashMap`, `nwk` as `0x%04X`, `-` on ERROR. D9 `mainsContractFor` guards `reporting == null`. D10 the walk mirrors the skip test + the metering override max (3 + 3 lines), shares `effectiveRow`. D11 T-1's third cycle collects the second deferred line. D12 U-2b, C-3b beyond §7. D13 MC `:734` beside `:744`. D14 I-1/I-2: no red. D15 hivemind writes: this return only (handoff/lessons = the hub's splice from §6). D16 F-1.
+
+## §4 The §6 survey as re-run at `49455fc`
+= the hub's counts: `recordCommandResult` ONE main caller A:765, unmoved · `MAINS_PING_SILENCE` the tracker + `ZT:202` · `availability_ping` A:758, `ZT:370/:607`, MC `:732/:742`, bench 1 (a comment) · `new StandardAvailabilityTracker(` A:459 + `ZT:94` — arity 5 → 6 at exactly those two · `new ReportingConfigurator(` untouched · FROZEN rows = §4.4's two tokens.
+
+## §5 Findings (surface · seen · the measurement · cost)
+- F-1 the ≤ 90-s word under K = 2 with N floor-class devices silent at once · sequential probes: 60 + 10·N + 0.05 s — N = 3 names the last at 90.05 s · the javadoc says N ≤ 2 (the run's floor class: the S31, the Hue) · nothing for Friday.
+- F-2 `seen_during_probe` on an `ok` line reads the reply itself (`true` whenever rtt ≥ 1 ms; `false` with `rttMs=0` on the TestClock) · W-1's XML · the digest reads it on `timeout` lines only.
+- F-3 lines owed at `close()` are not printed — a restart between a probe and the next sweep drops one · by construction · ≈ 3 lines to flush.
+- F-4 the IT names at 71 s, not 70.05 (the fake channel spends each full deadline; no cycle gap) · the IT XML · the silicon number is SOAK-NIGHT-2's.
+- F-5 `zigbee-profiles.json`: six profiles, NO `reportingOverrides`, no Shelly/TR3 profile → their contract is the row's 600 s (660) at the bytes · the bundle at `49455fc` · an override would move it by one line (C-3 pins 300 → 360).
+
+## §6 The coder-handoff entry (for the hub to splice)
+**AVAIL-SHAPE — IR-137 + IR-138 (`b-metered`, K = 2, the probe at INFO one cycle after the drain) — DELIVERED Thu 2026-10-08 ~20:5x CT** (the desk lane; branch `avail-shape/ir-137-138` over `49455fc`; ONE staged tree, ZERO commits; `./gradlew check` green with the three gate tasks re-executed; XML zigbee 747/0 · lifecycle 104/0 · app 30/0). Tree `a12087ceef5bab892aa54aa0562add6d085f5c51`. The return: `context/audits/2026-10-08_AVAIL-SHAPE_return.md`. D1–D5 [REVIEW], D6–D16 [INFO]; F-1..F-5. **Deferred Build Gate:** none — `check` ran in-lane on the staged tree; CI on Nick's push is the gate of record. **Next:** the hub's intake (v101); Nick's gated squash onto `main`; BC9a deploys that sha Friday night.
+
+## §7 Instrument limits
+The TestClock: no real rtt, no cycle gap (71 vs 70.05 s). The harness scripts the NCP, not the air — the reply matching is unmeasured until SOAK-NIGHT-2. `NO_DIRECT_TIME_ACCESS` scanned production + app's tests; the non-app test clock discipline is the grep (0 hits). §1's lines are the staged tree's.
+
+RETURNED ../nexsys-hivemind/context/audits/2026-10-08_AVAIL-SHAPE_return.md 11234 tree=a12087ceef5bab892aa54aa0562add6d085f5c51

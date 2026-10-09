@@ -1,9 +1,9 @@
 <!--
 file: context/instructions/2026-10-05_bench-lane_AVAIL-LINE-1_IR-118_join-rejected-whitelist_charter.md
 purpose: AVAIL-LINE-1 — one bench lane (Claude Code on Nick's desk, in `nexsys-bench` on `main` at `ba846c2`), two small units: (1) IR-118's `avail:` field on the nightly digest's fleet line — `fleet: 10/10 · re-seen 10 · avail: 9/10` — read from the SAME `/api/v1/entities` body the fleet field already reads at the nightly's own boot (`re-seen` catches a device that LEFT; `avail:` catches a device that is SILENT; the Sunday 10-04 exhibit: `fleet: 10/10 · re-seen 10` would have read green over a sensor dark 18 min and a Hue dark since July); (2) the run grader's AMBIENT whitelist gains `join_rejected` (J2 @ core `49455fc`, `EventTypes.java:320`; the lane's own D9 [INFO]) as a NAMED DEVIATION from the e96dce8 pin, in PJ-2's form. Tests first; the lane STAGES, never commits; the landing is Nick's card after the hub's intake; BENCH-PULL-8 is cut at the landing. Cut v98 beat 4 (D-v98-15).
-audience: the AVAIL-LINE-1 lane (reads WHOLE; executes §0 exactly) · Nick (dispatches §11 on free hands Tue 10-06; lands by card) · the hub that intakes (two layers at the bytes)
+audience: the AVAIL-LINE-1 lane (reads WHOLE; executes §0 exactly) · Nick (dispatched §7 Fri 10-09 ~08:5x CT; lands by card) · the hub that intakes (two layers at the bytes)
 state-type: lane charter (bench; LOCAL desk; two units)
-status: DISPATCH-READY — cut v98 beat 4 (Sun 2026-10-04 ~20:5x CT; instrument 2026-10-05T01:43:44Z); baseline bench `ba846c2` (re-verified by the lane's row 1); dispatch Tue 10-06 on Nick's free hands (D-v97-17; D-v98-11 — after or beside BEAT-RENDERER-1; a different repo, so both may run); flips to EXECUTED at the hub's intake.
+status: DISPATCHED — v101 beat 1 (Fri 2026-10-09 ~09:0x CT; instrument 2026-10-09T14:06:35Z): the §7 line handed to Nick 08:5x CT Fri 10-09 (D-v101-5); baseline bench `ba846c2` = the bench HEAD at the hand-off; flips to EXECUTED at the hub's intake. Was: DISPATCH-READY — cut v98 beat 4 (Sun 2026-10-04 ~20:5x CT; instrument 2026-10-05T01:43:44Z); baseline bench `ba846c2` (re-verified by the lane's row 1); dispatch Tue 10-06 on Nick's free hands (D-v97-17; D-v98-11 — after or beside BEAT-RENDERER-1; a different repo, so both may run); flips to EXECUTED at the hub's intake.
 -->
 
 # AVAIL-LINE-1 — the digest's `avail:` field (IR-118) + `join_rejected` in the grader's whitelist (J2's D9)
@@ -61,7 +61,7 @@ The `avail:` field in boot-health's api assert (IR-118's second half — a later
 ## §6 Success criterion (binary)
 Both selftests GREEN after an observed RED on every new check (`nightly_digest.py --selftest` ≥ 48/0; `test_verify72h.py` ≥ 45/0); `test_engine.py` 42/0 and `test_bench_sh.py` 27/0 untouched; `constants.yaml` md5 `9b0af47b3376` unchanged; the README row current; four files staged, zero commits; the return under its cap with the nine rows re-run and the red texts quoted; `RETURNED … staged=4` its last line.
 
-## §7 The dispatch (Nick pastes into Claude Code in `~/Desktop/Code/ClaudeFolder/nexsys-bench`, Tuesday 10-06 on free hands)
+## §7 The dispatch (Nick pastes into Claude Code in `~/Desktop/Code/ClaudeFolder/nexsys-bench`; handed Fri 10-09 ~08:5x CT — was: Tuesday 10-06 on free hands)
 ```
 You are the AVAIL-LINE-1 bench lane on my desk. Read ../nexsys-hivemind/context/instructions/2026-10-05_bench-lane_AVAIL-LINE-1_IR-118_join-rejected-whitelist_charter.md WHOLE, then its §2 set by range. Execute §0 exactly: date -u first; porcelain empty; the branch; the nine §0b rows re-run and pasted at the top of the return (a failed row = BLOCKED, no write); tests red first; STAGE, never commit; the return at its path with RETURNED as its last line.
 ```

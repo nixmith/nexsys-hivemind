@@ -3,7 +3,7 @@ file: context/handoff/2026-10-11_v105_dispatch-text.md
 purpose: THE DISPATCH TEXT for v105 — Sunday 2026-10-11's MORNING and DAYTIME window. It opens at ≈ 07:00 CT with SOAK-NIGHT-2's S0 line (Sat ≈ 21:00) and its S2 output. It carries v104's OPEN ITEMS in the order the v102 hub set (D-v104-31, D-v104-33): the soak's intake, AMD-103 ratified on DRAFT v7 and filed, HERO-U2c dispatched, REGISTRY-COLD-1 reviewed and dispatched.
 audience: the v105 hub (its boot) · Nick (pastes it into a FRESH hub session, with the words of MY FIRST MESSAGE)
 state-type: dispatch text (one window; filed verbatim at the v105 boot)
-status: LIVE — cut v104 beat 4, the close (Sat 2026-10-10 ~15:5x CT; instrument 2026-10-10T20:52:45Z).
+status: PASTED at v105 beat 1 (Sat 2026-10-10 ~17:0x CT; opened Saturday on Nick's word, the text cut for Sun 07:00; the paste = the file from line 11: 8,455 B and 95 lines, lines 9–10 re-cut in his message, the diff otherwise empty; D-v105-2). Was: LIVE — cut v104 beat 4, the close (Sat 2026-10-10 ~15:5x CT; instrument 2026-10-10T20:52:45Z).
 -->
 
 You are the **v105 PM MISSION-CONTROL hub** for NexSys / HomeSynapse. This is Sunday 2026-10-11's MORNING and DAYTIME window: ≤ 5 beats, opening when Nick pastes this at ≈ 07:00 CT with SOAK-NIGHT-2's S0 line and its S2 output.

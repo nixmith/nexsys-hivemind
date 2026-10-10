@@ -3,7 +3,7 @@ file: context/planning/2026-10-10_v103_decision-record.md
 purpose: The v103 hub's decision record for Saturday 2026-10-10. Opened at 06:31 CT; at 06:35 Nick said BC9a had not run Friday and that "we have all day to work". It holds Nick's words verbatim, the facts at the instrument, the decisions by id (D-v103-n) and the Carried row. THE ONE DELIVERABLE (D-v103-2): the Pi on `37f05a9` by sha with SOAK-NIGHT-2 launched tonight on its re-stamped packet, and HERO-U2b landed green with its rider. The stretch: AVAIL-API-1 cut and reviewed (dispatch-ready), on a `CARRIER:` word read against the burn-in's own probe lines.
 audience: the v103 hub (edited every beat) · the v104 boot (the newest §3 section + the Carried row) · Nick (the ids he can REVERT)
 state-type: decision record (one window)
-status: LIVE — beat 2 (Sat 2026-10-10 ~08:1x CT; instrument 2026-10-10T13:10:57Z; D-v103-10..17). Opened v103 beat 1 (Sat 2026-10-10 ~07:1x CT; instrument 2026-10-10T12:14:20Z; D-v103-1..9).
+status: CLOSED at beat 3, the close (Sat 2026-10-10 ~09:0x CT; instrument 2026-10-10T14:07:49Z; D-v103-18..28; v104's text cut). Was: LIVE — beat 2 (Sat 2026-10-10 ~08:1x CT; instrument 2026-10-10T13:10:57Z; D-v103-10..17). Opened v103 beat 1 (Sat 2026-10-10 ~07:1x CT; instrument 2026-10-10T12:14:20Z; D-v103-1..9).
 -->
 
 # v103 — decision record (Sat 2026-10-10)
@@ -163,3 +163,133 @@ status: LIVE — beat 2 (Sat 2026-10-10 ~08:1x CT; instrument 2026-10-10T13:10:5
     - LIVE-RENDER-1 cut (the card on the real wire at `37f05a9`: read-only, Nick's desk, through an ssh tunnel to the Pi's loopback API);
     - the dry-run #1 packet's cut, with IR-56's row.
   - **The rotation:** this beat leaves 12 live beats, so beat 3 rotates before it inserts.
+
+## §3c Beat 3 — THE CLOSE (Sat 2026-10-10 ~09:0x CT; instrument 2026-10-10T14:07:49Z): BURNIN-1 read; `CARRIER: f` ruled by Nick; PKG-FRESH-1 pulled to this morning and launched; the deliberation filed as the plan forward; the soak re-aimed; the rotation; v104's text
+### Nick's words, verbatim
+**08:31 (the message, with the b2 card's output):** "Provide me the prompt to kick off the PKG-FRESH-1 session — and while I run that, I need you to very carefully deliberate and decide on how we proceed from here."
+
+**08:31 (the attachment, filed whole; md5 `eb744628e3ec`, 5,924 B):**
+
+> Verdict: (f) is the right family — say CARRIER: f — but not as written. Three amendments and one correction before AMD-103 is drafted.
+>
+> Why the other four fall, on first principles. Event sourcing stores facts the domain needs to re-derive its sentences; it does not store every sample a sensor loop took. (a) stores samples — and the number that kills it is not today’s 36K/day but the one-way door: a Pi replaying a year of 100-device probe answers at boot, which is the exact cost D-v102-21 told us to put a number on. (b) is the inverse mistake — it buys freshness by breaking “the store read where the store has the event” and the household-sentence test in the same move, and it adds a module edge the architecture refuses. (c) keeps today’s blind spot: a healthy quiet device has no evidence of life in the record. (d) was a hypothesis about the floor class and the data refuted it; good — that is what the refutable-by was for.
+>
+> What is actually going on. The 1,190/day is not a property of the event model. It is the probe schedule — asking a device that has answered for hours again every ~72 s. The carrier question only decides what fraction of those observations to record; (f) decouples the two, which is right, because the fast schedule is what buys 2–3 minute dark detection, and that part already works and is already recorded (the transition). From what I know of the incumbents — the comparator lane must confirm these, I am recalling, not citing — Z2M pings active devices on a 10-minute default, ZHA considers a mains device unavailable only after ~2 hours of silence, and none of them records probe outcomes at all; availability is a boolean in memory. So the market’s bar is coarse detection and no record. Minute-scale detection plus an hourly recorded proof of life clears that bar on both axes without per-probe recording. (f) is sufficient; (a) was never necessary.
+>
+> Amendment 1 — put counters on the hourly event (costs zero events, closes a real hole). The recorded answer carries answeredSinceLastRecord, missedSinceLastRecord, windowStart. Today a device that misses every other probe never reaches PROBE_MISSES_TO_DARK = 2, resets on each answer, and leaves nothing in the record — OR-S31-INTERMITTENT and the Hue are invisible under today’s model and under (f) as written. With the counters the record says “checked 49 times this hour, answered 49” or “answered 37 of 49” — the flaky-mesh sentence the card needs later, and the evidence those two open risks have been missing. Carry the link {lqi, rssiDbm} reading from the answered probe too if J1’s shape allows it; one hourly link sample per quiet device is the mesh-health history for free. Keep the bound strict: no extra emission on a single miss-then-answer flicker; the counters carry it.
+>
+> Amendment 2 — the policy goes in the record, and the window is monotonic. The boot/interview contract event carries the class, report interval, silence limit and the record interval (3600 s). Otherwise “checked hourly” is a sentence written from the source code, not the files. And the “hour” must be a rolling window on the monotonic clock — emit when ≥ 3600 s have elapsed since this device’s last recorded answer — not a wall-clock bucket. We put timedatectl in every packet precisely because the Pi’s clock steps; a wall-clock bucket double-records across a forward step and skips one across a backward step. The event’s at stays wall-clock for the record.
+>
+> Amendment 3 — the projection needs a stale-record arm, or (f) lies by omission. Under (f) the card infers “still answering” from “answered at 7:02 and no dark transition since”. That inference is only valid while the tracker is alive. If the thread dies or the stick is pulled, the record goes silent for every device at once — no transitions, no answers — and the card would show “answered at 7:02” forever. The contract event makes this detectable: no record for a quiet device in more than one record interval plus slack means “no check recorded since 7:02”, a sixth honest cell beside the fifth state. AVAIL-API-1’s instruction must say this; the SPEC’s table today has no such arm.
+>
+> Amendment 4 — derive the constant, don’t feel it. One hour is a reasonable default (10 devices 240/day; 100 devices 2,400/day, ~3% of today’s rate), but the correct derivation is the replay budget: events/day × retention × filed replay rate ≤ boot budget. Make it a class constant in config with 3600 as the default, recorded by Amendment 2, and revisit from the dry-run #1 packet’s numbers rather than now.
+>
+> The correction — the refutable-by tests the wrong thing. (f)’s bound is independent of the probe rate by construction; whether the S31 runs at 50/h or 25/h changes (a) and (d), not (f). The soak read that actually bears on (f) is whether the S31 shows single-miss flickers at any meaningful rate — which decides how much Amendment 1 matters, and whether an hour is too coarse to localize them for that one class. Re-aim it there.
+>
+> AMD-103’s shape, then. Two event types under Doc 01 §4.3, the principle quoted: probe_answered (a fact — that probe at at was answered — sampled under a recorded policy, with the counters) and the per-device availability contract at interview/boot. The existing projection ignores both, so no bump for it; the recovery-card projection is new at version 1, and its replay from the store’s beginning touches only the AvailabilityChanged events that exist today — the number the review must state, and it will be small. Codec roster pins move in lockstep as AMD-99 R-E requires. Do not add the port; do not change the probe cadence in this unit — that is a separate product question (how fast must a dead plug be noticed) that the comparator lane’s data should inform later, and it would also change what “asked twice” means.
+
+**08:46:** "PKG-FRESH-1 has been launched. This hub/orchestration conversation is beginning to get long in both length and context window/tokenization. We should carefully close out and take care to plan out our full next session (and prepare the next hub session so it can receive the results of PKG-FRESH-1 when ready)."
+
+**08:57 (Nick: "Also, from the PKG-FRESH-1 session:" — the guide's text, filed whole):**
+
+> PKG-FRESH-1 PRE-A (the guide, ~08:55 CT; before A1 — the held card in and running, nothing on the rig touched). A read-only desk pre-check (teed as `=== PRE-A` at the top of _scratch/v99/fresh1/2026-10-10_PKG-FRESH-1_outputs.txt) found two premise gaps; each would STOP the sitting with the held card out.
+> 1. KNOWN_HOSTS COLLISION AT A3 — the desk's ~/.ssh/known_hosts line 13 = `192.168.1.80 ED25519 SHA256:rzZUoqAKvw5gQ0rjGheaKMY0VxaDCoNTPRfM56UrCJQ`: the OLD hs-fresh card's key (R-4b's "Permanently added '192.168.1.80'" 09-04; the same print at H8a's operator record :256). The board takes .80 whichever card is in (E-P3; R-4b "no DHCP reassignment"); hs-fresh-1 has new keys, so A3's accept-new refuses a CHANGED key. `ssh -G pi`: hostname hs-dev-1 · checkhostip no — pi's trust is its own entry; no option below touches it. RULE ONE: (a) `ssh-keygen -R 192.168.1.80` once on the desk before A1 (the one stale entry out; ssh keeps known_hosts.old; every card command verbatim) · (b) the guide adds `-o UserKnownHostsFile=~/.ssh/known_hosts_fresh1` to the fresh-card ssh/scp in A3 B1 B2 B3 C2 D1 (nothing removed) · (c) as written — A3 STOPs, Part D restores.
+> 2. THE ARTIFACT IS NOT AT THE CARD'S PATH — ~/fresh1-artifact does not exist on the desk, and Thursday's 0a output is in no file under _scratch (no 2026-10-08_ outputs file). Part 0's own rule (re-run when the artifact is missing) applies: the guide is re-running 0a now; the 49455fc artifact is inside its 7-day retention (≈ Sun 10-11 16:3x CT). Say if you want otherwise.
+> The guide shows A1 only after your ruling on 1 and a green 0a, and before 10:00 CT.
+
+**08:59 (Nick: "Another thing from the PKG FRESH which you must carefully consider:" — the guide's text, filed whole):**
+
+> PKG-FRESH-1 0a: STOP (~08:58 CT; desk only; the rig untouched — RULE WITH PRE-A item 1). 0a's block re-run verbatim → `debs=1`, but the .deb is `./deb/build/homesynapse_0.1.0+git20260903.124041.gef02d13_arm64.deb`, sha256 `48a33b0dc614a7f74fd0e0a279480e3c2f1f8e1e952f3195f0ffdbad1c626003` — byte-identical to R-4b's record (:14 :65 :67): ~/Downloads/distribution-artifacts-arm64.zip is the Sep 3 ef02d13 zip, not 49455fc's. 0a's EXPECTED (the name carries g49455fc) fails. Thursday's Part 0 "debs=1" is not corroborated: no ~/fresh1-artifact existed before today's run and no 0a record exists anywhere. ~/fresh1-artifact now holds the stale ef02d13 .deb (B1 would have shipped it; its Version line would have caught it with the held card out).
+> PROPOSED (nothing deleted; 0a and B1 stay verbatim) — RULE: (1) `mv ~/fresh1-artifact ~/fresh1-artifact.ef02d13-stale` · (2) `mv ~/Downloads/distribution-artifacts-arm64.zip ~/Downloads/distribution-artifacts-arm64.ef02d13-sep03.zip` · (3) 0a's browser leg as written: the 49455fc push run (Sun 10-04 ≈ 16:3x CT) → its conclusion → the arm64 job → the "Version-grammar echo" line → Summary → Artifacts → distribution-artifacts-arm64 (it saves under the freed name; retention ≈ Sun 10-11 16:3x CT) · (4) 0a's bash block verbatim → EXPECTED debs=1 · g49455fc · sha256 = the echo line. Or workflow_dispatch / another sha by your word.
+
+### The decisions
+- **D-v103-18 — BURNIN-1 READ at the bytes, and P-v103-2 ADJUDICATED PARTIAL.**
+  - **The read:** `_scratch/v103/burnin/BURNIN-1.txt`; pi-clock 13:14:42Z (08:14 CT); LOG `bench-2026-10-10-081747.log`; `deployed=37f05a9` · `bench=cddac94`; ash 6 · handoffs 1.
+  - **The S31:** 46 probes, all `ok`, first 08:18:20.703 → last 09:13:56.099 Pi-local (55.6 min; 49.6/h ≈ 1,190/day). 11 gaps over 90 s. Its own frames: `2 2 2 2 2` per 10-min window.
+  - **The adjudication:**
+    - "all `ok`" HELD.
+    - "pings ≈ the minutes (± 10 %)" MISSED: 46 against 55.6, −17 %.
+    - "gaps > 90 s ≤ 5" MISSED: 11.
+    - One reason for both misses: each own frame restarts the 60-s silence, and the prediction ignored the S31's own reports.
+    - The window was 56 min, not ≥ 3 h; the card ran early, and the soak night carries the long read (P11′).
+  - **What it was for still holds:** for the floor class, (d)'s "one per silence episode" is one per probe, i.e. (a). So the H10 was refined to (f), and Nick ruled it (D-v103-20).
+- **D-v103-19 — `HIVE: LANDED 9b6f5df`** (the b2 card; 10 files). It is HEAD at this beat's instrument.
+- **D-v103-20 — `CARRIER: f`, RULED BY NICK at 08:31 with four amendments and a correction** (verbatim above).
+  - **A1:** the counters on the hourly record (+ `link`).
+  - **A2:** the policy in the record; the window is monotonic.
+  - **A3:** the stale-record arm.
+  - **A4:** the constant is derived — a class constant, default 3600, revisited from dry-run #1's numbers.
+  - **The correction:** the soak's read is re-aimed at the S31's single-miss flickers.
+  - **AMD-103's shape as he gave it:**
+    - two types under Doc 01 §4.3, the principle quoted;
+    - no bump of the existing projection;
+    - the recovery-card projection new at v1, its replay number stated;
+    - R-E's pins in lockstep;
+    - no port; no cadence change.
+  - **PROBE-ANSWERED-1** (the freeze list) is absorbed into AMD-103 + AVAIL-API-1.
+- **D-v103-21 — PKG-FRESH-1 PULLED TO SATURDAY MORNING on Nick's word; re-stamped and LAUNCHED 08:46.**
+  - **The re-stamp:** 08:33; md5 `cb324631eade` → `8761c1c1b5c7`; 27,226 → 28,021 B. The dry-run (`_scratch/v103/b3/fresh1_dry-run_v103.txt`) is COMPLETE with no FAIL.
+  - **The `SUNDAY:` H10 (D-v103-17) is OVERTAKEN.** Sunday now holds S2 and BC9 + REHEARSAL 3.
+  - **The soak:** its LOG0 is D2's boot, still `37f05a9`.
+  - **The line:** `PKG-FRESH-1: <line>` is v104's first bank.
+- **D-v103-22 — THE DELIBERATION'S THREE FINDINGS** (the plan §2):
+  - **F1 — the replay path.** The bus replays the whole log through `readFrom` (`ReplayDriver.java:28`, `:64`, `:111`). `readByType` over `idx_events_type` exists and is unused here. `/health` is keyed to the state projection.
+    - So "touches only the AvailabilityChanged events" holds for a type-scoped catch-up only.
+    - AMD-103's review states the path and its number.
+    - The rec is (a), with the instrument first. The word is `AMD-103-PATH:`.
+  - **F2 — D2 is a long-gap resume, and the first read of P3′'s question.** → P12′.
+  - **F3 — the tracker's silence is the wall clock** (`StandardAvailabilityTracker.java:462`, `:479`). → **IR-147 minted (post-run).**
+- **D-v103-23 — THE SOAK RE-AIMED (Nick's correction).** SOAK-NIGHT-2:
+  - **P11′** (the S31's flickers; arms 0 · 1–9 · ≥ 10) and **P12′** (the long-gap resume) added to §P′;
+  - two read lines: S0 prints LOG0's first availability lines; S2 prints each S31 timeout with its next probe;
+  - two slots added to the one line;
+  - the status line amended.
+  - **Dry-run on the corpus:** BOOT0, BC8's BOOT0, and a labelled synthetic fixture for the timeout read. The audit is `_scratch/v103/b3/soak2_amend_dry-run.txt`.
+- **D-v103-24 — THE PLAN FORWARD FILED:** `context/planning/2026-10-10_v103_THE-ROAD-FROM-CARRIER-F_plan-forward.md`. It holds:
+  - AMD-103's drafting brief (§3);
+  - HERO-U2c, the FE note (§4);
+  - AVAIL-API-1: cut Mon; the lane Tue–Thu; landed Fri Oct 16 as the target, Oct 20 the last day (§5);
+  - the rig to the freeze, BC10 included (§6);
+  - the comparator pre-read (§7);
+  - the order (§8);
+  - five words (§9).
+- **D-v103-25 — THE COMPARATOR PRE-READ** (the hub's agent; primary sources fetched today). Nick's three recollections, each CONFIRMED with qualifiers:
+  - **Z2M:** a 10-min silence timer, and opt-in.
+  - **ZHA:** 7,200 s, and it asks first (a Basic read; two misses).
+  - **The record:** no structured per-probe history in Z2M or ZHA; NOT FOUND for SmartThings, deCONZ and Hubitat.
+
+  This is a pre-read, not the lane. The lane needs `RESEARCH-LH: comparator`.
+- **D-v103-26 — BEAT-RENDERER-2's charter FILED DISPATCH-READY** (`context/instructions/2026-10-10_hivemind-lane_BEAT-RENDERER-2_ledger-state_caps_probe_card-v2_charter.md`).
+  - **Premises re-read at this beat:** v2 `99e87f2dbafa` · v3 `fc79eee9d1af` · `render_state.py` `72372aa8bfb3` · `test_render_state.py` `9774347342bc` · `state.yaml` `0812b89782f3`.
+  - **Dispatch:** on `RENDERER-2: today`.
+- **D-v103-27 — THE CLOSE, on Nick's 08:46 word.**
+  - v104's text is cut: `context/handoff/2026-10-10_v104_dispatch-text.md`. It covers Saturday afternoon and evening, with PKG-FRESH-1's line as the first bank. THE ONE DELIVERABLE: the intake, plus AMD-103 drafted and reviewed.
+  - THE ROTATION: 12 live → the oldest six VERBATIM to `archive/pm-handoff-beats-v101b4-v102b1-rotated-2026-10-10.md`, leaving 7 live after this block.
+  - The v103 text is EXECUTED, and this DR is CLOSED.
+  - LIVE-RENDER-1's card (`_scratch/v103/b2/card_live_render1.txt`) is carried to v104 unhanded, because the Pi is mid-swap.
+- **D-v103-28 — PKG-FRESH-1's PRE-A and 0a STOP, RULED (08:5x; both before A1; the rig untouched, the held card in).**
+  - **(1) The known-hosts collision at A3: (a).** The desk's `~/.ssh/known_hosts` line 13 holds the OLD hs-fresh card's key for `192.168.1.80`.
+    - The fix: `ssh-keygen -R 192.168.1.80` once, gated. Exactly one line, not naming `hs-dev-1`.
+    - The guard: `ssh -o BatchMode=yes pi true` before and after. `pi` resolves to hs-dev-1 with `checkhostip no`, so its trust is its own entry.
+    - The undo: `known_hosts.old` restores it.
+    - Every card command stays verbatim. PKG-FRESH-2's card carries a per-card `UserKnownHostsFile` from its cut.
+  - **(2) The artifact: the guide's (1)–(4) ADOPTED as proposed.** 0a's verbatim re-run found `debs=1`, but the `.deb` was `…git20260903.124041.gef02d13_arm64.deb`, sha256 `48a33b0d…6003`: the Sep 3 zip in `~/Downloads`, byte-identical to R-4b's record.
+    - 0a's EXPECTED (`g49455fc`) failed, as it should, with the held card still in.
+    - The renames, nothing deleted: `~/fresh1-artifact` → `.ef02d13-stale`; the Sep 3 zip → `…ef02d13-sep03.zip`.
+    - Then 0a's browser leg as written: the `49455fc` push run's `distribution-artifacts-arm64`, inside its retention to ≈ Sun 16:3x CT.
+    - Then 0a's bash block verbatim. EXPECTED: `debs=1` · `g49455fc` · the sha256 equal to the run page's echo line.
+    - STOP before A1 on any miss. P7's `workflow_dispatch` re-mint is the fallback, by the hub's word.
+  - **BOTH ARE THE HUB'S MISSES:**
+    - The re-stamp carried "Part 0 DONE Thu: `debs=1`" and the STATE line pre-filled "the artifact on the desk: yes" from Thursday's record line. No outputs file corroborates it; no `~/fresh1-artifact` existed before today.
+    - The dry-run ran on the corpus, never on the desk's ssh trust.
+  - **The lesson for v104** (a pm-lessons row):
+    - A re-stamp re-reads every DONE it carries at an outputs file's bytes, or marks it UNVERIFIED.
+    - A card's desk-state premises (known_hosts, artifact paths) are read in a PRE-A block before any hands act. This guide did that on its own.
+  - **P7's adjudication** (v104) records Thursday's uncorroborated Part 0 as a finding.
+- **Carried into v104:**
+  - **OPEN words:**
+    - `HIVE: LANDED <sha>` (this close card) · `PKG-FRESH-1: <line>`;
+    - `AMD-103-PATH: a|b` · `BC10: oct17|oct18|no` · `RESEARCH-LH: comparator|quiet-week` · `RENDERER-2: today|later` · `AMD-103: ratify|edits`;
+    - `SOAK-NIGHT-2:` (Sun) · `CAPACITY: Sun rig <h>` · `FOREIGN:`;
+    - the standing words (`REMOTE:` · `FINALS:` · `DISCOVERY:` · `ATTORNEY-DRAFT:` · `TAILSCALE:` · `OUTREACH:`).
+  - **v104's blocks** are its text's, in order.

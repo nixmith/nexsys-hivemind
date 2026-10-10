@@ -3,7 +3,7 @@ file: context/planning/2026-10-10_v103_decision-record.md
 purpose: The v103 hub's decision record for Saturday 2026-10-10. Opened at 06:31 CT; at 06:35 Nick said BC9a had not run Friday and that "we have all day to work". It holds Nick's words verbatim, the facts at the instrument, the decisions by id (D-v103-n) and the Carried row. THE ONE DELIVERABLE (D-v103-2): the Pi on `37f05a9` by sha with SOAK-NIGHT-2 launched tonight on its re-stamped packet, and HERO-U2b landed green with its rider. The stretch: AVAIL-API-1 cut and reviewed (dispatch-ready), on a `CARRIER:` word read against the burn-in's own probe lines.
 audience: the v103 hub (edited every beat) · the v104 boot (the newest §3 section + the Carried row) · Nick (the ids he can REVERT)
 state-type: decision record (one window)
-status: LIVE — opened v103 beat 1 (Sat 2026-10-10 ~07:1x CT; instrument 2026-10-10T12:14:20Z; D-v103-1..9).
+status: LIVE — beat 2 (Sat 2026-10-10 ~08:1x CT; instrument 2026-10-10T13:10:57Z; D-v103-10..17). Opened v103 beat 1 (Sat 2026-10-10 ~07:1x CT; instrument 2026-10-10T12:14:20Z; D-v103-1..9).
 -->
 
 # v103 — decision record (Sat 2026-10-10)
@@ -106,3 +106,60 @@ status: LIVE — opened v103 beat 1 (Sat 2026-10-10 ~07:1x CT; instrument 2026-1
     - the horizon rows by id;
     - PKG-FRESH-1's card read for a Saturday slot;
     - the burn-in's read card cut.
+
+## §3b Beat 2 (Sat 2026-10-10 ~08:2x CT): BC9a intaken; the bench, the hivemind and the core landed (`409547c`, CI green); TRIAGE executed; the horizon rows written; the burn-in read cut
+- **D-v103-10 — BC9a RETURNED (Nick 07:56) and INTAKEN ACCEPT.** The audit is `context/audits/2026-10-10_v103-b2_BC9a_bench-landing_r1_intake_audit.md` (§1–§3).
+  - **The Pi runs `37f05a9` BY SHA since 07:17 CT** (BOOT0 `bench-2026-10-10-081747.log`, Pi-local 08:17:47 EDT). Boot-health is PASS 6/6 at 10/10; `formed=0 resumed=1 relinked=10`.
+  - **P1 and P2 HELD.** P1 was read against C2's re-stamped EXPECTED; its own sentence stands as cut.
+  - **P3–P5 and P7 RECORDED.** The S31 was probed 4.652 s after `network_resumed`, then every ≈ 60 s, all `ok`. So the "`pings=0` right after a boot" premise is refuted for the floor class across a restart.
+  - **P6 arm (a). P-v103-1 HOLDS:** the Hue reads `UNAVAILABLE · None · None · None` on `37f05a9`.
+  - **The guide's two judgment calls are right.** The card's `p > 849602` was the hub's wording: the registry subscriber logs the last registration event's position.
+  - **Layer 2:** the kept log's greps and the subscriber's source.
+  - BC9a's card → EXECUTED.
+- **D-v103-11 — `BENCH: LANDED 32bac40`** (the card's paste, 07:56).
+  - The commit, fast-forward and push ran: 5 files, `cddac94..32bac40`.
+  - The card's last read crashed on the Windows console's cp1252, on a "→" in a test name. The hub re-ran it at `32bac40` on the device: `verify72h selftest: 48 check(s), 0 failure(s)`, engine 42/0.
+  - **IR-146 minted:** a card's `python3` on the desk runs under `PYTHONIOENCODING=utf-8`.
+  - IR-142 is LANDED; it closes on the Pi at BENCH-PULL-9, in BC9's card, whose STATE line names `32bac40`.
+- **D-v103-12 — `HIVE: LANDED 9cef3e7`** (the b1 card: 12 files; the census held 12 = 12).
+  - The b1 card was the library's un-gated form: `card()` puts a `;` before `git commit`. This is IR-101's defect, OPEN since v87; every card since kept it.
+  - **From b2, every hub card is gated by test,** written by the beat script: `[ N -eq expected ] && [ trailers -eq 0 ] && git commit … && git push`, never a `;` before a commit or a push.
+  - IR-101 stays OPEN until a library ships the gated card. v3 adds `beat()` only.
+- **D-v103-13 — HERO-U2b-r1 RETURNED (07:57; 2,989 B) and INTAKEN ACCEPT.**
+  - Three files only, with md5s equal to the return's. `src/` is byte-identical to the U2b snapshot.
+  - The hub's `npm run verify` in a clean container exits 0: contract-check ✓ 11 endpoints at v1.1.6-2026-10-09.
+  - **The core landing card was handed ≈ 08:0x:** `_scratch/v103/b2/card_core_hero_u2b_land.txt`. It is gated (HEAD `2b4be09` · `main` · no lock · trailers 0 · staged 28 = 21 M + 7 A · nothing outside `web-ui/dashboard/`) and was dry-run in a throwaway repo (28 commit, 29 refuse).
+  - **It ran at 08:06: `CORE: LANDED 409547c`** (28 files, 1,798+/61−; `2b4be09..409547c`). **`CI: green`** — Nick: "All CI and checks have passed green in GitHub for this core commit." `CI:` for `2b4be09` is superseded: `409547c` is its child on the same paths and was not read separately.
+  - **THE WEB-UI DOMAIN IS FREE.** The card on the real wire (the Hue as the fifth state) is the domain's next act, cut at beat 3 (LIVE-RENDER-1).
+- **D-v103-14 — `TRIAGE: adopt` EXECUTED** (Nick's word of v101 b6; D-v101-27's reasons, row by row).
+  - **RETIRED:** IR-45 · 60 · 63 · 76 · 83 · 96 · 102 · 107 · 114 · 120.
+  - **IR-56 stays OPEN until its condition row is written into dry-run #1's packet at the cut.** The condition row is the 90-s post-restart read at the class's naming time. BC9a sharpens it: across a restart the floor class's silence clock carries over from the sidecar seed, so a silent plug can be named within ≈ 2 min of `network_resumed`.
+  - `REVERT IR-n` is honored per row.
+- **D-v103-15 — The horizon rows by id (D-v102-24, Nick's F and G).** Written into `context/planning/2026-10-02_v93_THE-HORIZON_post-run-rows_Oct15-Nov25.md` as §13:
+  - **C11:** three outreach asks, by Oct 17.
+  - **C12:** `TAILSCALE: expiry-off` and `REMOTE:` before PI-2 lands Oct 20.
+  - **C13:** the second coordinator stick, a FIN row, by Nov 10, before pilot zero's install.
+  - **C14:** `TM:` and `ATTORNEY-DRAFT:`, each dated back from the December narrative with its lead time beside it.
+  - **J10 annotated:** `STARTER: a` re-shaped the starters. Presence, Sun and Time are EMPTY Tier-2 records at `37f05a9` (`AutomationDefinitionLoader.java:448–:450`).
+  - **J11 minted:** TimeTrigger + SchedulerService, after the freeze. It is a composition-root change and takes the one-way-door review.
+- **D-v103-16 — THE BURN-IN READ (BURNIN-1) cut:** `_scratch/v103/b2/card_burnin1.txt`.
+  - Read-only, the desk, one paste, at ≈ 10:30 CT or later (≥ 3 h after BOOT0).
+  - **Dry-run on the corpus:** BOOT0 (the S31 row: 5 · ok 5 · gaps 0) and BC8's BOOT0 (G4-2 dark 1 / up 1, its link lines whole); `_scratch/v103/b2/burnin1_dry-run.txt`.
+  - **Pre-registered (P-v103-2):** the S31 answers every floor probe for ≥ 3 h — pings ≈ the minutes since its first probe (± 10 %), all `ok`, gaps > 90 s ≤ 5. If it HOLDS, the carrier's (d) is (a) for the floor class, and the H10 returns refined before `CARRIER:` is asked. If it does not, (d) stands as written.
+- **D-v103-17 — THE SUNDAY SHAPE, an H10 for Nick (`SUNDAY: rec | PKG-FRESH-1: sat`, with `CAPACITY: Sun rig <h>`).**
+  - **Options:**
+    - (a) PKG-FRESH-1 this afternoon, re-stamped: the Pi powered down and the dongle out for ≈ 1.5 h, five hours before the soak's window, on its first-ever card swap.
+    - (b) Sunday: S2 at 07:00 → v104 → BC9 + REHEARSAL 3 ≈ 13:00–17:00 (re-stamped at v104 with P2′'s premise and BP9 `32bac40`) → PKG-FRESH-1 ≈ 19:00 as already dated.
+  - **PM recommendation: (b).** The Pi stays untouched from BC9a to the harvest, so the soak's first night under AVAIL-SHAPE carries no coordinator outage, and the sensor's row (P6′) is not confounded.
+  - **Refutable-by:** `CAPACITY: Sun rig < 6 h` → BC9 Sunday evening, PKG-FRESH-1 Monday daytime before dry #1.
+  - **Blocking:** nothing today.
+- **Carried into v103 b3:**
+  - **Open words:** `HIVE: LANDED <sha>` (the b2 card) · `BURNIN-1: done` (≈ 10:30+) → the H10 refined → `CARRIER:` · `SUNDAY:` / `CAPACITY:` · `RESEARCH-LH: comparator | quiet-week`.
+  - **Beat 3's blocks:**
+    - BURNIN-1's read at the bytes, with P-v103-2 adjudicated first;
+    - the carrier's H10 refined;
+    - AMD-103 drafted on `CARRIER:`;
+    - BEAT-RENDERER-2's charter cut from IR-140;
+    - LIVE-RENDER-1 cut (the card on the real wire at `37f05a9`: read-only, Nick's desk, through an ssh tunnel to the Pi's loopback API);
+    - the dry-run #1 packet's cut, with IR-56's row.
+  - **The rotation:** this beat leaves 12 live beats, so beat 3 rotates before it inserts.

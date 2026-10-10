@@ -1,0 +1,1 @@
+status: LIVE — edited at v104 beat 1 (Sat 2026-10-10 ~12:1x CT; instrument 2026-10-10T17:18:49Z): the restore ruled before the boot; PKG-FRESH-1 intaken (STOPPED at A3; the breach; the cold start, IR-148); the H10 `COLD-BOOT:`; §NEXT holds the acts in order.

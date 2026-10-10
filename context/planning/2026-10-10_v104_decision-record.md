@@ -3,7 +3,7 @@ file: context/planning/2026-10-10_v104_decision-record.md
 purpose: The v104 hub's decision record for Saturday 2026-10-10's afternoon and evening window, opened at 11:07 CT on Nick's paste with PKG-FRESH-1's STOP line. It holds Nick's words verbatim, the facts at the instrument, the decisions by id (D-v104-n) and the Carried row. THE ONE DELIVERABLE (D-v104-1): PKG-FRESH-1 intaken two-layer, and AMD-103 drafted and reviewed by an agent that has not seen the drafting, in Nick's hands for `AMD-103:` before the soak.
 audience: the v104 hub (edited every beat) · the v105 boot (the newest §3 section + the Carried row) · Nick (the ids he can REVERT)
 state-type: decision record (one window)
-status: LIVE — beat 1 (Sat 2026-10-10 ~12:1x CT; instrument 2026-10-10T17:18:49Z; D-v104-1..14).
+status: LIVE — beat 2 (Sat 2026-10-10 ~14:4x CT; instrument 2026-10-10T19:46:19Z; D-v104-15..21). Beat 1 (Sat 2026-10-10 ~12:1x CT; instrument 2026-10-10T17:18:49Z; D-v104-1..14).
 -->
 
 # v104 — decision record (Sat 2026-10-10, afternoon and evening)
@@ -76,3 +76,95 @@ status: LIVE — beat 1 (Sat 2026-10-10 ~12:1x CT; instrument 2026-10-10T17:18:4
   - **Blocking: no.** Tonight's soak runs warm; AMD-103's review continues.
 - **D-v104-14 — THE WINDOW AFTER b1.** LIVE-RENDER-1 next (the Pi on `37f05a9`; the tailnet up, per R3). AMD-103 is drafted (v1, 20,899 B, md5 `67719f88…`) and has been under the independent review since 11:3x CT. Its edits, and D-v104-10's fact, are applied before Nick reads it. HERO-U2c's charter is cut after the review, because it reads the payloads.
 - **Carried (to b2 and on):** `HIVE: LANDED` (the b1 card) · `LIVE-RENDER-1: up` → the hub reads the page · the review's return → AMD-103 v2 → `AMD-103: ratify | edits` · `COLD-BOOT:` · `AMD-103-PATH:` · `BC10:` · `RESEARCH-LH:` · `RENDERER-2:` · ≈ 21:00 SOAK-NIGHT-2 from disk · `CAPACITY:` · `FOREIGN:` · the standing words.
+
+## §3b Beat 2 (Sat 2026-10-10 ~14:4x CT): `HIVE: LANDED 8ab4789`; LIVE-RENDER-1 PASS; the review stopped and relaunched; Nick's five words and four rows; the correction
+### Nick's words, verbatim
+- **12:21 CT, the b1 card's output (key lines):** `head=ba7923d branch=main porcelain=12 locks=0 trailers=0` · `staged: 12 (expect 12)` · `[main 8ab4789] hivemind: v104 beat 1 — the restore ruled before the boot; PKG-FRESH-1 intaken (STOPPED at A3; the fence-1 breach; the cold-start failure IR-148)` · `ba7923d..8ab4789  main -> main`. Then: "Determine how we proceed from here."
+- **14:16 CT, LIVE-RENDER-1's windows (key lines):** `head=409547c` · nine `npm warn EBADENGINE` blocks (eslint 10 packages: `required: { node: '^20.19.0 || ^22.13.0 || >=24' }`, `current: { node: 'v22.6.0', npm: '10.8.2' }`) · `added 330 packages in 12s` · `tunnel: 200` · `token copied to the clipboard (not printed)` · `VITE v6.4.3  ready in 5747 ms` · `Local:   http://localhost:5173/dashboard/`. Then: "I pasted the token into the browser I have open."
+- **14:17 CT:** "I pasted the token to your browser pane for you."
+- **14:24 CT:** "LIVE-RENDER-1: closed" · "REVIEW: relaunch"
+- **14:25 CT:** "As for the words you need (COLD BOOT, etc.), explain briefly what exactly your intentions are for these plans."
+- **14:39 CT, the attachment (filed whole; 7,196 B on disk with CRLF line ends, md5 `0ae229e5f59f05e8c1fefae03bab355f`; quoted here with LF):**
+
+> My recommendations:
+>
+> - **`COLD-BOOT: a`:** yes, but with a safer design and two corrections to how v104 framed it.
+> - **`AMD-103-PATH: b`:** this is where I disagree with v104.
+> - **`BC10: oct17`:** yes, with changes.
+> - **`RESEARCH-LH: comparator`:** yes, but launched Monday, with no charter tonight.
+> - **`RENDERER-2: today`:** yes.
+>
+> Everything below comes from reading the code and v104's record. I wrote and changed nothing.
+>
+> **What this morning's failure is**
+>
+> This is the most important thing we've learned this week. It matters more to the pilot than anything else on the list.
+>
+> The device registry deliberately starts empty at every boot and rebuilds by replaying the event log from the beginning. The code resets its checkpoint (its saved place in the log) to 0 (`HomeSynapseCore.java:623`). The bus does that replay by reading every row and keeping only the registry's 4 event types, so boot time grows with the size of the whole log.
+>
+> - With the log already in memory from a recent start, it fit inside the 30-second limit. Starting cold off the SD card, it took 38–45 s, so the Core quit.
+> - The same thing happens in a household after a power cut, and it gets worse every day the log grows.
+> - It's the only subscriber built this way: there's exactly one checkpoint-reset-to-0 in production code.
+> - The packaged service waits up to 90 s for `/health` (the "I'm up" check), and the state projection only starts after the registry finishes. So the slow registry eventually breaks the packaged install's startup check too.
+>
+> So the fix has to make boot cost depend on the registry's few hundred events, not the 1.65 M in the log. Only raising or relaxing the 30-s limit just moves the problem later.
+>
+> **COLD-BOOT (a), in a safer shape**
+>
+> v104's type-scoped read is the right idea. The question is where it goes. Building it into the bus's replay path changes the most delicate code in the system (the replay-to-live hand-off that AMD-42 and AMD-101 protect) a week before the freeze. There's a shape that leaves the bus untouched:
+> 1. Note the log's current last position, H.
+> 2. Rebuild the registry from its 4 event types only, up to H, using the database's existing index. That takes milliseconds, and the events go through the registry's normal single apply path.
+> 3. Set the registry's checkpoint to H instead of 0.
+> 4. Subscribe it to the bus as today. The bus only replays what arrived after H.
+>
+> That's the same mechanism the code uses now, with a different starting value. I'd ask REGISTRY-COLD-1's design read to weigh this shape first. Alongside it:
+> - **A progress-based timeout,** as a separate commit: fail only if the replay stops moving, not after a fixed 30 s.
+> - **A comparison test:** the registry rebuilt the new way must equal the registry rebuilt by the full replay, on a copy of the real 1.65 M-event store.
+> - **A CI guard on rows read,** not time, so it's deterministic.
+> - **A repeatable cold-start test on the Pi:** clear Linux's file cache (`sync; echo 3 | sudo tee /proc/sys/vm/drop_caches`) before launching. That reproduces a cold start with no power pull and no card handling, and it can go in every future packet. Today's failure was found by accident; this makes it findable on purpose.
+>
+> **Two corrections to v104's framing**
+>
+> 1. **"The run survives a power cut" is overstated.** The bench Core does not start at boot; only the 03:30 nightly or you relaunch it (v104's own audit §2). The fix makes a relaunch succeed, but nothing relaunches it. We need a decision before dry-run #2: either run the 72-hour test under the packaged systemd service, which restarts automatically, or give the bench Core a start-at-boot launch.
+> 2. **Make Fri Oct 16 a hard go/no-go for AVAIL-API-1, not a target with slack to Oct 20.** It adds new event types to the permanent log. Landing it Oct 19–20 with no rig night first is exactly the risk BC10 exists to avoid. If it isn't green by the 16th, it moves after the run and the current recovery card ships. It's the most feature-like and least robustness-related item on the list, so it's the first thing to move if the schedule slips.
+>
+> **AMD-103-PATH: (b), not (a)**
+>
+> v104 recommends (a): one full log pass at the new projection's first boot. That is the same kind of pass that failed this morning. It sits outside the 30-s limit, but on a cold boot it would compete for the SD card with everything else starting up. It would also run on every household's first boot after that upgrade.
+>
+> If REGISTRY-COLD-1 builds the shape above, the recovery-card projection uses the same mechanism at its first boot. That gives one mechanism, verified against the registry, and no full pass anywhere. It also removes a serial dependency: AVAIL-API-1's cut no longer waits for Monday's timed scan. That scan is still worth taking, for A4 and upgrade planning, but it comes off the critical path.
+>
+> The fallback is (a) plus the measurement, if the review rejects the type-scoped shape.
+>
+> **BC10, the comparator, RENDERER-2**
+>
+> - **BC10, Oct 17:** make it "the first deploy of `main` since `37f05a9`", whatever has landed by then. REGISTRY-COLD-1 plus CONFIG-ERROR-1 alone are worth the night. The card should include:
+>   - a backup first;
+>   - one real cold start;
+>   - AMD-102's `issues=0` read;
+>   - if AVAIL-API-1 is in, the first `probe_answered` and contract rows read from the store.
+> - **Comparator:** its value rose today. The metering plugs answered 3 of 3 probes at the long-gap resume, which triggers AVAIL-SHAPE's own refutable-by condition (a class that answers goes back to the fast schedule). So the question of how often to probe is live. That decision still belongs after the run. v105 cuts the charter, and you launch it Monday while dry-run #1 runs on its own. Tonight's hub time should go to REGISTRY-COLD-1.
+> - **RENDERER-2 today:** one paste, runs unattended, and the payoff compounds on the hub's cost. Have its check-in happen at v105 or during dry-run #1, not alongside REGISTRY-COLD-1's review.
+>
+> **What the plan is missing**
+>
+> - **hs-fresh is a hazard to the network.** Its packaged Core starts at boot and has already joined the network's coordinator once today; it only listened. Before it boots again for anything, including UPGRADE-1, disable its service with the dongle out.
+> - **Store growth is the other half of scaling.** The store holds 1.65 M events from 10 devices, far above Doc 01's budget of about 4,000 a day for 50 devices, whatever the mix of bench traffic. Treat dry-run #1's `du` and retention row as a pilot gate, not a curiosity.
+>
+> **To paste to v104:**
+> `COLD-BOOT: a` (the "record H, rebuild from the index, start from H" shape first; the progress timeout as its own commit; the comparison test, the rows-read guard and the cleared-cache test) · `AMD-103-PATH: b` (via REGISTRY-COLD-1's mechanism; fallback a) · `BC10: oct17` (decoupled from AVAIL-API-1; backup and a cold start in the card) · `RESEARCH-LH: comparator` (charter by v105; launch Mon) · `RENDERER-2: today`. Plus three rows: the run's restart-after-power-cut decision before dry-run #2, Oct 16 as AVAIL-API-1's go/no-go, and hs-fresh's service disabled before its next boot.
+
+### The decisions
+- **D-v104-15 — `HIVE: LANDED 8ab4789`**, verified at porcelain (HEAD `8ab4789`, porcelain 0, ahead 0; 12 files).
+- **D-v104-16 — LIVE-RENDER-1: PASS. P-v103-3 HOLDS on the real wire** (`context/audits/2026-10-10_v104-b2_LIVE-RENDER-1_audit.md`): the Hue reads "Not heard from since startup (not asked)"; nine rows read "Reporting"; no shape error with validation ON; every `/api/v1/entities` poll 200. Recorded: every row's label is the entity ULID (no `name` is set), and `…HTG87K` reads "Reporting" with a 9-hour-old last report (the S2 form).
+- **D-v104-17 — THE REVIEW, STOPPED AND RELAUNCHED.** The 11:3x reviewer was stopped at 11:52 with the interrupted tool call and never wrote its verdict; the tool refuses a new agent without Nick's word. On `REVIEW: relaunch` (14:24): AMD-103 **v2**, the hub's own revision before the review (R-F gains the Pi's bound on a whole-log pass from IR-148; the evidence base gains IR-137's answered row; 22,434 B, md5 `6b0ea845…`); the brief v2 (seven questions; the reviewer writes as it goes; 8,663 B, md5 `ad6db8a1…`); the reviewer launched ≈ 14:25 CT and handed Nick's PATH-b ruling at ≈ 14:4x (its R-F edits implement his shape).
+- **D-v104-18 — NICK'S FIVE WORDS (14:39; verbatim above), banked as given.** Verified at the bytes before filing: one checkpoint reset to 0 in production code (`HomeSynapseCore.java:623`); the registry's 4 types (`RegistryProjectionSubscriber.subscriptionFilter()`); the packaged 90-s readiness probe (`distribution/smoke/health-probe.sh`; hs-fresh's journal).
+  - **`COLD-BOOT: a`** in his shape: note the log's last position H; rebuild the registry from its 4 types up to H through the index; checkpoint H; subscribe as today. The progress-based gate is its own commit. A comparison test (the new rebuild equals the full replay), a rows-read guard in CI, and the cleared-cache cold start (`sync; echo 3 | sudo tee /proc/sys/vm/drop_caches`) in every future packet.
+  - **`AMD-103-PATH: b`**, through REGISTRY-COLD-1's mechanism; the fallback is (a) plus the measurement. AVAIL-API-1's cut comes off Monday's timed scan, which stays for A4 and upgrade planning.
+  - **`BC10: oct17`**, decoupled from AVAIL-API-1: the first deploy of `main` since `37f05a9`, whatever has landed. The card: a backup first; one real cold start; AMD-102's `issues=0`; if AVAIL-API-1 is in, the first `probe_answered` and contract rows read from the store.
+  - **`RESEARCH-LH: comparator`**: the charter by v105; launched Monday while dry-run #1 runs. Its value rose: the metering class answered (D-v104-11), which meets AVAIL-SHAPE's own refutable-by, so the probe-cadence question is live (decided after the run).
+  - **`RENDERER-2: today`**: handed at ≈ 14:4x CT at `8ab4789` with one named deviation (the fixture named `v104b1_…`); its check-in at v105 or during dry-run #1, never beside REGISTRY-COLD-1's review.
+- **D-v104-19 — AUDIT CORRECTION to D-v104-13 (do not re-run the WU).** "Buys: the run survives a power cut" was overstated: the bench Core does not start at boot (the card's D2 EXPECTED; the b1 audit §2); only the 03:30 nightly or Nick relaunches it. REGISTRY-COLD-1 makes a relaunch succeed; it does not cause one. What relaunches the Core in the 72-h run is a decision due before dry-run #2 (D-v104-20 R1).
+- **D-v104-20 — FOUR ROWS (Nick's):** **R1** the run's restart after a power cut, decided before dry-run #2: the 72-h run under the packaged systemd service (it restarts by itself) or a start-at-boot launch for the bench Core (`RESTART: packaged | bench-boot`, due before Oct 22). **R2** Fri Oct 16 is AVAIL-API-1's hard go/no-go: not green by the 16th, it moves after the run and the current recovery card ships. **R3** hs-fresh's service disabled, the dongle out, before its next boot for anything (UPGRADE-1 included). **R4** store growth is a pilot gate: 1.65 M events from 10 devices against Doc 01's ≈ 4,000/day for 50; dry-run #1's `du` and retention row decide it.
+- **D-v104-21 — THE WINDOW, RE-ORDERED BY THE WORDS.** Tonight's hub time goes to REGISTRY-COLD-1: the design read weighs Nick's shape first, then the instruction, its one-way-door review (the composition root), its edits applied; dispatch Sunday. AMD-103 v3 follows the review (PATH b), then `AMD-103: ratify | edits` with HERO-U2c's charter. The comparator's charter is v105's. The close cuts v105's text.
+- **Carried:** the review's return → AMD-103 v3 → `AMD-103:` · REGISTRY-COLD-1 (tonight) · HERO-U2c's charter · `BEAT-RENDERER-2: RETURNED` (its check-in at v105) · `RESTART:` (before Oct 22) · ≈ 21:00 SOAK-NIGHT-2 · `CAPACITY:` · `FOREIGN:` · the standing words.

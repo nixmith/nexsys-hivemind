@@ -1125,3 +1125,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-10 (v104 beat 1) — v103 b2, verbatim
 
 2026-10-10 (v103 beat 2 — BC9a INTAKEN: the Pi on `37f05a9` BY SHA since 07:17 CT, boot-health 6/6 at 10/10, P-v103-1 HELD — the Hue UNAVAILABLE · None × 3 (D-v103-10); `BENCH: LANDED 32bac40` — the selftest re-run 48/0; IR-146 (D-v103-11); `HIVE: LANDED 9cef3e7` — every card gated from here (D-v103-12); HERO-U2b-r1 INTAKEN → `CORE: LANDED 409547c`, `CI: green` (D-v103-13); TRIAGE executed (D-v103-14); the horizon rows (D-v103-15); BURNIN-1 cut (D-v103-16); the Sunday H10 (D-v103-17); 12 live beats; the chain 276; Sat 2026-10-10 ~08:1x CT (instrument 2026-10-10T13:10:57Z). Order: the b2 card → BURNIN-1 ≈ 10:30 → `CARRIER:` → AMD-103 → LIVE-RENDER-1 → ≈ 21:00 the soak)
+
+## chain segment rotated 2026-10-10 (v104 beat 2) — v103 b3, verbatim
+
+2026-10-10 (v103 beat 3, THE CLOSE — `CARRIER: f` RULED BY NICK 08:31 with A1–A4 and the correction (D-v103-20); BURNIN-1: P-v103-2 PARTIAL (D-v103-18); `HIVE: LANDED 9b6f5df`; PKG-FRESH-1 pulled to this morning, LAUNCHED 08:46, PRE-A and the 0a STOP ruled (D-v103-21/28); three findings — F1 the replay path · F2 P12′ · F3 IR-147 (D-v103-22); the soak re-aimed (P11′ · P12′); THE PLAN FORWARD filed; the comparator pre-read; v104's text; the rotation 12 → 7; Sat 2026-10-10 ~09:0x CT (instrument 2026-10-10T14:07:49Z). Order: the close card → `PKG-FRESH-1:` → v104 (the intake · LIVE-RENDER-1 · AMD-103 + its review) → ≈ 21:00 the soak)

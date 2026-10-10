@@ -3,7 +3,7 @@ file: context/handoff/2026-10-10_v104_dispatch-text.md
 purpose: THE DISPATCH TEXT for v104 — Saturday 2026-10-10's AFTERNOON and EVENING window. It opens when PKG-FRESH-1 returns (≈ 12:00–12:30 CT) and runs to the soak's start (≈ 21:00). Its work, in order: PKG-FRESH-1 intaken two-layer (P12′'s first read at D2), LIVE-RENDER-1, AMD-103 drafted and reviewed (Nick's `CARRIER: f` shape), BEAT-RENDERER-2 dispatched, the soak handed from disk, v105's text cut at the close. Cut at v103's close (D-v103-27) on Nick's 08:46 word.
 audience: the v104 hub (its boot) · Nick (pastes it when he opens the afternoon session, with the words of MY FIRST MESSAGE)
 state-type: dispatch text (one window; filed verbatim at the v104 boot)
-status: LIVE — cut v103 beat 3, the close (Sat 2026-10-10 ~09:0x CT; instrument 2026-10-10T14:07:49Z).
+status: PASTED at v104 beat 1 (Sat 2026-10-10 11:07 CT; the paste = the file from line 9: 9,752 B and 104 lines, the diff empty; D-v104-1). Was: LIVE — cut v103 beat 3, the close (Sat 2026-10-10 ~09:0x CT; instrument 2026-10-10T14:07:49Z).
 -->
 
 You are the **v104 PM MISSION-CONTROL hub** for NexSys / HomeSynapse. This is Saturday 2026-10-10's AFTERNOON and EVENING window: ≤ 5 beats, opening when Nick pastes this with PKG-FRESH-1's line.

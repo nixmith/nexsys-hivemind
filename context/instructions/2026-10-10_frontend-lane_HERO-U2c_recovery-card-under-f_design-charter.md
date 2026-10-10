@@ -3,7 +3,7 @@ file: context/instructions/2026-10-10_frontend-lane_HERO-U2c_recovery-card-under
 purpose: The charter for HERO-U2c — the recovery card's design RE-CUT UNDER `CARRIER: f` (AMD-103): FIELDS §3's per-probe live keys give way to the record's keys; SPEC §3's S3 column re-read against the record; the sixth cell ("No check recorded since {t}", AMD-103 R-G) designed beside the fifth state; SPEC §7's copy rows; states.html. Run as a frontend lane in DESIGN MODE; `design/recovery-card-v1/` only. (The plan forward §4, D-v103-24.)
 audience: the HERO-U2c lane (a fresh Cowork conversation booted as the nexsys-frontend skill) · the hub (audits the return; AVAIL-API-1's cut waits on this landing, AMD-103 §4) · Nick (rules on the open questions in one batch)
 state-type: lane charter (frontend; design mode)
-status: DISPATCH-READY on `AMD-103: ratify` — FILED v104 beat 3 (Sat 2026-10-10 ~15:4x CT) from AMD-103 DRAFT v6 (md5 664e25b2…, the text for the word), inheriting Nick's NE4 (15:32: the null state while the card's projection is not LIVE; precedence) and NE3 (the class derived from the tracker's arms). DISPATCH-READY on `AMD-103: ratify` (a later edit to R-B, R-C, R-G or §3 re-cuts §2 first). Sunday daytime; ≤ 1.5 h.
+status: DISPATCH-READY on `AMD-103: ratify` — FILED v104 beat 3 (Sat 2026-10-10 ~15:4x CT) from AMD-103 DRAFT v6 (md5 664e25b2…); RE-POINTED at the v104 close (D-v104-33) to DRAFT v7 (md5 371cd241…), the text for v105's word, inheriting Nick's NE4 (15:32: the null state while the card's projection is not LIVE; precedence) and NE3 (the class derived from the tracker's arms). DISPATCH-READY on `AMD-103: ratify` (a later edit to R-B, R-C, R-G or §3 re-cuts §2 first). Sunday daytime; ≤ 1.5 h.
 -->
 
 # HERO-U2c — the recovery card under `CARRIER: f`: the record's keys, the sixth cell, the S3 column re-read
@@ -33,7 +33,7 @@ status: DISPATCH-READY on `AMD-103: ratify` — FILED v104 beat 3 (Sat 2026-10-1
   - **P5:** the fifth state's derivation (FIELDS §3: `lastProbeAt` null ∧ UNAVAILABLE) loses its key under (f). Re-derive it from what (f) records, or name it "not sayable at S3" with the reason — never keep `lastProbeAt` silently.
 
 ## §1 The read-set, in order (nothing older)
-1. **AMD-103 as ratified:** `homesynapse-core-docs/design/amendments/AMD-103_…md` if the docs card has landed, else the text Nick ratified, `_scratch/v104/b3/AMD-103_DRAFT_v6.md` (md5 664e25b2…, unless the hub's card names a later one; your §0 card names which). Read R-B, R-C, R-G, §3, §4 whole.
+1. **AMD-103 as ratified:** `homesynapse-core-docs/design/amendments/AMD-103_…md` if the docs card has landed, else the text Nick ratified, `_scratch/v104/b3/AMD-103_DRAFT_v7.md` (md5 371cd241…, unless the hub's card names a later one; your §0 card names which). Read R-B, R-C, R-G, §3, §4 whole.
 2. **The four files** under `design/recovery-card-v1/`: FIELDS.md whole; SPEC.md §3, §4, §7, §11, §12; states.html; README.md.
 3. **The two returns:** `nexsys-hivemind/context/audits/2026-10-09_HERO-U2a_return.md` and HERO-U2b's return (the v1.1.6 mirror keys `availabilityReason` · `lastSeenAt` · `link`).
 4. **The contract freeze:** `nexsys-hivemind/context/decisions/2026-06-21_dashboard-read-API-contract-freeze.md` `:1`–`:60`, `:255`–`:265` (the additive rule; keys beside `availability`, never under it).
@@ -43,7 +43,7 @@ status: DISPATCH-READY on `AMD-103: ratify` — FILED v104 beat 3 (Sat 2026-10-1
   - `at` is the reply instant. `windowStart` is derived so that `at − windowStart` is the true window unless the wall clock stepped. The two counters cover the window.
   - `lqi` · `rssiDbm` · `linkAt` are the LAST link reading the tracker kept, with its own instant. A probe reply carries no reading, so signal copy cites `linkAt`, never `at`.
   - The window is never persisted: its counts are lost at every stop, so the card never sums across a restart.
-- **`availability_contract_declared` (R-C):** the five fields; declared at every boot and interview, and refreshed every 30 days. `availabilityClass` NAMES the tracker's arm (no class is computed in the code today): `passive` when the PowerSource is not a mains class; `mains-metered` when a reporting contract yields a maximum (the silence limit = maximum + 60 s); `mains-floor` when none does (the 60-s floor alone). SPEC §4's contract sentence per class reads from these fields.
+- **`availability_contract_declared` (R-C):** the five fields; declared at every boot and interview, on any change of the derived contract (R-C; such a record restarts R-G's bound), and refreshed every 30 days. `availabilityClass` NAMES the tracker's arm (no class is computed in the code today): `passive` when the PowerSource is not a mains class; `mains-metered` when a reporting contract yields a maximum (the silence limit = maximum + 60 s); `mains-floor` when none does (the 60-s floor alone). SPEC §4's contract sentence per class reads from these fields.
 - **The null state and precedence (§3, NE4):** null keys until the card's projection is LIVE; the v1.1.7 bump carries that projection's position in `meta` beside `viewPosition` (a household sentence is pinned to a position); `availability` governs, the records decorate.
 - **The sixth cell (R-G):**
   - The evidence per device is the newest of: `lastReported`, `probe_answered.at`, `availability_changed`, and the contract record.

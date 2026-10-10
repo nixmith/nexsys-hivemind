@@ -1133,3 +1133,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-10 (v104 beat 3) — v104 b1, verbatim
 
 2026-10-10 (v104 beat 1 — THE RESTORE BEFORE THE BOOT: `PKG-FRESH-1:` STOP before D2 (fence 1 breached, no form) → the restore ruled (11:17; R2 by name 11:33) → R3 `via=tailnet hs-dev-1` → D2 FAIL, the cold start (IR-148) → W1 + D2b PASS 6/6, the fleet's Core back 12:00:49 CT; PKG-FRESH-1 INTAKEN (STOPPED at A3; P1–P5 not measured; P6 PASS; P7 two surfaces); the metering class ANSWERED 3/3 (IR-137); IR-147 observed; three lessons; the H10 `COLD-BOOT:`; AMD-103 drafted v1, under review; `HIVE: LANDED ba7923d`; Sat 2026-10-10 ~12:1x CT (instrument 2026-10-10T17:18:49Z). Order: the b1 card → LIVE-RENDER-1 → AMD-103's edits → `AMD-103:` → ≈ 21:00 the soak)
+
+## chain segment rotated 2026-10-10 (v104 beat 4) — v104 b2, verbatim
+
+2026-10-10 (v104 beat 2 — `HIVE: LANDED 8ab4789`; LIVE-RENDER-1 PASS (P-v103-3 HOLDS); the review stopped at 11:52 and relaunched on `REVIEW: relaunch` against AMD-103 v2; NICK'S FIVE WORDS (14:39): `COLD-BOOT: a` (the H-shape) · `AMD-103-PATH: b` · `BC10: oct17` · `RESEARCH-LH: comparator` (Mon) · `RENDERER-2: today` (handed) + four rows (`RESTART:` before Oct 22; Oct 16 AVAIL-API-1's go/no-go; hs-fresh's service off; store growth a gate); the correction to D-v104-13; Sat 2026-10-10 ~14:4x CT (instrument 2026-10-10T19:46:19Z). Order: the b2 card → the review → AMD-103 v3 → `AMD-103:` → REGISTRY-COLD-1 tonight → ≈ 21:00 the soak)

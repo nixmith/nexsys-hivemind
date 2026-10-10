@@ -1141,3 +1141,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-10 (v105 beat 1) — v104 b3, verbatim
 
 2026-10-10 (v104 beat 3 — `HIVE: LANDED 883fdff`; AMD-103's review intaken two-layer (READY-WITH-EDITS; every citation held at the bytes; 24 edits by script) → v4 (handed 15:20); NICK'S VERDICT (15:32): ratify in substance, R-A `device_health` and R-H a constant accepted, six edits → v5 → the second re-read (three exact) → **v6 for `AMD-103: ratify`** (`664e25b2…`); HERO-U2c's charter filed (P1–P6); `SOAK-S1: run`; S2's IR-148 line; RENDERER-2 ruled twice (the hub's misses); the 15:00 re-check; REGISTRY-COLD-1 drafted, its review on `REVIEW-RC1: launch`; Sat 2026-10-10 ~15:4x CT (instrument 2026-10-10T20:42:02Z). Order: the b3 card → `AMD-103: ratify` → the docs card → `REVIEW-RC1:` → ≈ 21:00 the soak)
+
+## chain segment rotated 2026-10-10 (v105 beat 2) — v104 b4, verbatim
+
+2026-10-10 (v104 beat 4, THE CLOSE — `HIVE: LANDED e1a96d4` (b3); the v102 hub's message (15:44 via Nick) accepted: v104 closes, the ratification is v105's (D-v102-27); AMD-103 DRAFT v7 (`371cd241…`; §4 cites S0; R-C's on-change trigger; R-G restarts on it) NOT ratified; v105's text cut (the open items (vi), then (i)–(v)); HERO-U2c re-pointed to v7; the rotation (v102 b2–b3); Sat 2026-10-10 ~15:5x CT (instrument 2026-10-10T20:52:45Z). Next: the close card → ≈ 21:00 SOAK-NIGHT-2 → Sun 07:00 v105 boots fresh)

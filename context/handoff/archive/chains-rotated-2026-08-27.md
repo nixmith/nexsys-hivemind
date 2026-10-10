@@ -1145,3 +1145,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-10 (v105 beat 2) — v104 b4, verbatim
 
 2026-10-10 (v104 beat 4, THE CLOSE — `HIVE: LANDED e1a96d4` (b3); the v102 hub's message (15:44 via Nick) accepted: v104 closes, the ratification is v105's (D-v102-27); AMD-103 DRAFT v7 (`371cd241…`; §4 cites S0; R-C's on-change trigger; R-G restarts on it) NOT ratified; v105's text cut (the open items (vi), then (i)–(v)); HERO-U2c re-pointed to v7; the rotation (v102 b2–b3); Sat 2026-10-10 ~15:5x CT (instrument 2026-10-10T20:52:45Z). Next: the close card → ≈ 21:00 SOAK-NIGHT-2 → Sun 07:00 v105 boots fresh)
+
+## chain segment rotated 2026-10-10 (v105 beat 3) — v105 b1, verbatim
+
+2026-10-10 (v105 beat 1 — THE BOOT, Sat ≈ 16:4x CT on Nick's word (the text was cut for Sun 07:00); `HIVE: LANDED 61202fc` (the v104 close); the preflight PASS 12/12; the soak's S0 (≈ 21:00) and S2 (Sun 07:00) not yet run → the open items re-ordered by id: `REVIEW-RC1: launch` → `AMD-103: ratify` on v7 (`371cd241…`; §4 cites S0's LINE) → the docs card → HERO-U2c → the review's intake → REGISTRY-COLD-1's dispatch → S0 banked → BEAT-RENDERER-2's intake (RETURNED 15:55, staged=17, zero commits); REC: v105 closes tonight, v106 opens Sun 07:00 with S2 (D-v105-1..7); Sat 2026-10-10 ~17:0x CT (instrument 2026-10-10T22:02:44Z). Next: `REVIEW-RC1: launch` → the agent runs while Nick reads v7)

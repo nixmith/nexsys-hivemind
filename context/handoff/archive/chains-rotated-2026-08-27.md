@@ -1129,3 +1129,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-10 (v104 beat 2) — v103 b3, verbatim
 
 2026-10-10 (v103 beat 3, THE CLOSE — `CARRIER: f` RULED BY NICK 08:31 with A1–A4 and the correction (D-v103-20); BURNIN-1: P-v103-2 PARTIAL (D-v103-18); `HIVE: LANDED 9b6f5df`; PKG-FRESH-1 pulled to this morning, LAUNCHED 08:46, PRE-A and the 0a STOP ruled (D-v103-21/28); three findings — F1 the replay path · F2 P12′ · F3 IR-147 (D-v103-22); the soak re-aimed (P11′ · P12′); THE PLAN FORWARD filed; the comparator pre-read; v104's text; the rotation 12 → 7; Sat 2026-10-10 ~09:0x CT (instrument 2026-10-10T14:07:49Z). Order: the close card → `PKG-FRESH-1:` → v104 (the intake · LIVE-RENDER-1 · AMD-103 + its review) → ≈ 21:00 the soak)
+
+## chain segment rotated 2026-10-10 (v104 beat 3) — v104 b1, verbatim
+
+2026-10-10 (v104 beat 1 — THE RESTORE BEFORE THE BOOT: `PKG-FRESH-1:` STOP before D2 (fence 1 breached, no form) → the restore ruled (11:17; R2 by name 11:33) → R3 `via=tailnet hs-dev-1` → D2 FAIL, the cold start (IR-148) → W1 + D2b PASS 6/6, the fleet's Core back 12:00:49 CT; PKG-FRESH-1 INTAKEN (STOPPED at A3; P1–P5 not measured; P6 PASS; P7 two surfaces); the metering class ANSWERED 3/3 (IR-137); IR-147 observed; three lessons; the H10 `COLD-BOOT:`; AMD-103 drafted v1, under review; `HIVE: LANDED ba7923d`; Sat 2026-10-10 ~12:1x CT (instrument 2026-10-10T17:18:49Z). Order: the b1 card → LIVE-RENDER-1 → AMD-103's edits → `AMD-103:` → ≈ 21:00 the soak)

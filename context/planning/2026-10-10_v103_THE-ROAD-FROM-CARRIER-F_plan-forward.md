@@ -3,7 +3,7 @@ file: context/planning/2026-10-10_v103_THE-ROAD-FROM-CARRIER-F_plan-forward.md
 purpose: Nick's ask at 08:31 CT ("while I run that, I need you to very carefully deliberate and decide on how we proceed from here"), answered at v103's close: the road from `CARRIER: f` (his four amendments and one correction) to the recovery card's third state on silicon before the freeze. It holds AMD-103's drafting brief, the FE note, AVAIL-API-1's cut and the rig through Oct 23. It names three findings in the source that change details, not direction, and the five words that are Nick's.
 audience: Nick (§0, §8, §9) · the v104 hub (§3 is AMD-103's drafting brief; §8 is its order) · every hub to the freeze (§5–§6)
 state-type: planning (one cut; LIVE until AVAIL-API-1 lands or moves post-run)
-status: FILED v103 beat 3, the close (Sat 2026-10-10 ~09:0x CT; instrument 2026-10-10T14:07:49Z). Written BEFORE PKG-FRESH-1's return was read, so P12′ (§2 F2) is a prediction of record.
+status: FILED v103 beat 3, the close (Sat 2026-10-10 ~09:0x CT; instrument 2026-10-10T14:07:49Z); §5's and §8's dates RE-CUT v106 beat 2 (Sun 2026-10-11 ~09:1x CT; D-v106-14/15) by `context/planning/2026-10-11_v106_PLAN-REVIEW_from-the-soak-to-the-run.md` §4 — AVAIL-API-1 cut Sun 10-11 (was Mon), the lane Sun pm (was Tue–Thu), target landed Tue 10-13 (was Fri 10-16); every rig date unchanged. Written BEFORE PKG-FRESH-1's return was read, so P12′ (§2 F2) is a prediction of record.
 -->
 
 # The road from `CARRIER: f` — how we proceed (Sat 2026-10-10)

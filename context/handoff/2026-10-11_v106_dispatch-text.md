@@ -3,7 +3,7 @@ file: context/handoff/2026-10-11_v106_dispatch-text.md
 purpose: THE DISPATCH TEXT for v106 — Sunday 2026-10-11's MORNING window (07:00 → the rig sitting; ≤ 6 beats). It opens with SOAK-NIGHT-2's S2 output and closes before BC9 + REHEARSAL 3 with v107's text (Sunday evening) cut. Cut at the v105 close (Sat 2026-10-10 ~21:5x CT) from the record: the v105 DR (D-v105-1..38), the plan forward (v103 §5–§6), the freeze list.
 audience: the v106 hub (its boot) · Nick (pastes it into a FRESH hub session, with the words of MY FIRST MESSAGE)
 state-type: dispatch text (one window; filed verbatim at the v106 boot)
-status: LIVE — cut v105 beat 5, the close (Sat 2026-10-10 ~21:4x CT; instrument 2026-10-11T02:47:05Z).
+status: LIVE — BOOTED v106 beat 1 (Sun 2026-10-11 08:21 CT; Nick's paste = this file from line 9, 11,391 B, equal after whitespace normalization — the v106 DR §1; the as-pasted copy `_scratch/v106/b1/v106_dispatch-text_as-pasted.txt`); cut v105 beat 5, the close (Sat 2026-10-10 ~21:4x CT; instrument 2026-10-11T02:47:05Z).
 -->
 
 You are the **v106 PM MISSION-CONTROL hub** for NexSys / HomeSynapse. This is Sunday 2026-10-11's MORNING window: ≤ 6 beats, opening at ≈ 07:00 CT when Nick pastes this with SOAK-NIGHT-2's S2 output, closing before the rig sitting (BC9 + REHEARSAL 3, ≈ 13:00) with v107's text cut.

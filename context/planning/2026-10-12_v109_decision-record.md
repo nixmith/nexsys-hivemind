@@ -3,7 +3,7 @@ file: context/planning/2026-10-12_v109_decision-record.md
 purpose: The v109 hub window's decision record — Nick's words verbatim, the facts at the instrument, the decisions by beat (D-v109-n). The window opened on Nick's paste of v109's text (Mon 2026-10-12 11:45 CT).
 audience: the hub (reads by id) · Nick
 state-type: decision record (one window)
-status: LIVE — v109 beat 1 (Mon 2026-10-12 ~12:1x CT; instrument 2026-10-12T17:13:11Z).
+status: LIVE — v109 beat 2 (Mon 2026-10-12 ~14:1x CT; instrument 2026-10-12T19:14:48Z). Prior: v109 beat 1 (Mon 2026-10-12 ~12:1x CT; instrument 2026-10-12T17:13:11Z).
 -->
 
 # v109 — the decision record
@@ -11,6 +11,31 @@ status: LIVE — v109 beat 1 (Mon 2026-10-12 ~12:1x CT; instrument 2026-10-12T17
 ## §1 Nick's words, verbatim
 - **Mon 11:45 CT** (with v109's text): `TIME: 11:45 CT` · `HIVE: LANDED cdf54e7` · `CAPACITY: Mon (today) 9, Tues 5` · `COMPARATOR-1:` · `OUTREACH-2: go | edits` · `BENCH-BOOT: mon19 · tue20 · wed21` · `DRY-RUN-1 (Mon): ready to dispatch upon your prompt`
 - **The dispatch text** = `handoff/2026-10-12_v109_dispatch-text.md` from line 9 (four distinctive lines matched at the bytes, b1); its status flips to FILED.
+- **Mon 13:02 CT:** `GRADER-S31-1: RETURNED ../nexsys-hivemind/context/audits/2026-10-12_GRADER-S31-1_return.md 7654 staged=3` (with the lane's summary, relayed) · "Next is the hub's two-layer intake, and then whatever you have deliberated and strategized what would be the best things to work on at this point."
+- **Mon 13:22 CT:** the b1 card's output — `head=2909dfd branch=main porcelain=1 locks=0 trailers=0` · `staged:  (expect 10)` (a second run; the first had landed `2909dfd` at 13:14).
+- **Mon 13:39 CT** (with the bench landing card's output, `ceb08c5`), verbatim:
+> v109’s plan, reviewed by me: sound, and I’d keep its order with two adjustments, which I want you to think critically about:
+>
+> * The bench landing card: yes, now — GRADER-S31-1 landed is BP10 for Saturday. Because the lane ran on a full disk, the card’s gates matter more than usual: the `write-tree` equality and `diff --cached --stat` against the return are the proof the index wasn’t half-written; the “three leftover git temp files” must be named by exact path in the card, and `git status` must read clean after. If the card has those, paste it.
+> * COMPARATOR-1: yes, now — one paste, runs alone, its return fills COMMERCIAL-1 §3; it’s two days late and costs you nothing.
+> * `TRIAGE: adopt` today: yes, cheap, frees Tuesday for D2.
+> * The unit cards’ dry-run and DOCS-3a: fine, but the dry-run should run after the restart, or it will hit the same ENOSPC.
+> * One thing v109 didn’t list that I’d add: BENCH-BOOT-1’s code half (the `run` subcommand + the `start/stop/restart` delegation in `bench.sh`, ≤ 60 lines, Python/shell — not Java, so the freeze doesn’t bar it). The record said “after GRADER-S31-1”, and that’s now. It’s the highest-value code available today: it makes Mon Oct 19’s sitting and dry-run #2 (“on `bench-boot`”) real instead of planned. One bench lane at a time, so it dispatches once the grader lands.
+>
+> Our afternoon, in order (time is minutes; lanes should be optimized and designed to run themselves):
+>
+> 1. The bench landing card → `BENCH: LANDED ceb08c5`.
+> 2. Paste COMPARATOR-1’s §8 line into a fresh Cowork conversation — provide me it.
+> 3. I will restart the Claude desktop app and restart everything, clear caches, etc. → `BRIDGE: up` to v109; v109 checks the disk.
+> 4. Read OUTREACH-2 → `OUTREACH-2: go | edits` — the only deadline (asks out Wednesday). I tend toward 'go' but also want to think more about how to have these conversations and I want to make sure my (Nick) understanding of your objectives here makes sense; I want to go based on your careful deliberation/design on this based on our short and longer-term objectives. I think this could be especially important for long-term testing for our product, commercially.
+> 5. While v109 does TRIAGE, the dry-runs and the BENCH-BOOT-1 charter: your no-word-due reads — COMMERCIAL-1’s brief and B-1’s stub. That’s the “planning” time.
+> 6. I have lately been thinking about what (if anything) would make the most sense to buy and test/work on for further developing the functionality and capabilities of our smart ecosystem, commercially. On that hardware question: my initial thought is don’t buy yet. Two things decide the next devices (there may be more or less, depending on your executive level strategy and reasoning) and they both land this week — the pilots’ answers (which device classes their households actually have) and tonight’s F1 number (`VOLUME:` / `KIT-STORAGE:`, the SSD). A read-only “device-coverage” research charter (the fleet’s 10 against the classes a pilot home brings; the cheapest unit per gap) is worth cutting, but after COMPARATOR-1 returns — one research lane at a time — so Tuesday.
+> 7. A housekeeping card at a quiet beat: the two lane branches and three worktrees, one gated paste.
+> 8. 18:55: the dry-run, in a fresh VM.
+>
+> What I think is worth refusing today, by rule: any Java change before the freeze (IR-177’s one build line included), any deploy but `37f05a9`, and any device purchase ahead of the pilots’ answers.
+> Process this information carefully and thoroughly, then determine what we do from here.
+- **Mon 14:07 CT:** `BRIDGE: up`.
 
 ## §2 The facts at the instrument (banked; no act)
 - **SHELL: up** — the device shell answered at 2026-10-12T16:45:40Z (v108's six beats ran without it, D-v108-16).
@@ -21,6 +46,9 @@ status: LIVE — v109 beat 1 (Mon 2026-10-12 ~12:1x CT; instrument 2026-10-12T17
 - **The grader's catalog:** 78 `EventTypes` constants at `176adad`; two are absent from `grader.py` — `probe_answered` (`:123`) and `availability_contract_declared` (`:129`), AVAIL-API-1 (`2a54145`); `2a54145` is under `176adad`, `e11ae20` and `ba08dd8`, not under the Pi's `37f05a9`.
 - **The selftests at `32bac40` on the device VM:** verify72h 48/0 · `test_engine.py` 42/**13** on the first run, 42/0 on the re-run · digest 54/0 · `bench.sh` 27/0; porcelain 0 after.
 - **The read set trimmed (disclosed):** (e) the v108 DR, (f) the plan's §3 and (g) the lessons were not read at the boot — v109's text carries D-v108-29..35, the calendar and the 10-12 lesson; the plan review's line 70 was read for the charter.
+- **`HIVE: LANDED 2909dfd`** — by the instrument at 18:22:34Z (Nick's card ran at 13:14 CT): 10 paths (8 M · 2 A), pushed, 0 trailers. The 13:22 paste was a second run, stopped at its HEAD gate.
+- **`BENCH: LANDED ceb08c5`** — by the instrument at 18:42:08Z: the intake audit §6.
+- **The VM after the desktop restart (19:08Z):** `/sessions` 100 % (1.1 MB free; ≈ 500 old session folders, unreadable); `/tmp` 3.8 GB free. The five HEADs: core `176adad` · hivemind `2909dfd` · skills `e9a77a8` · bench `ceb08c5` · docs `e2a5844`; all clean but the hivemind's one untracked return.
 
 ## §3 The decisions (beat 1, Mon 2026-10-12 ~12:1x CT)
 - **D-v109-1 — the boot:** PASS after one reconcile (C12: HERO-U3's instruction → EXECUTED); `SHELL: up` said first; the window's ONE deliverable is beat 1's (no return on disk → GRADER-S31-1 chartered).
@@ -31,3 +59,13 @@ status: LIVE — v109 beat 1 (Mon 2026-10-12 ~12:1x CT; instrument 2026-10-12T17
 - **D-v109-6 — `DRY-RUN-1`:** at ≈ 19:00 CT as cut — the packet is DISPATCH-READY and D2 is +24 h at the hour (Tuesday ≈ 19:00 CT); a scheduled send hands it at 18:55 CT (the time-gated act, §0 (i)); the line back goes to whichever hub is open.
 - **D-v109-7 — the words:** `OUTREACH-2:` and `BENCH-BOOT:` came back as the template — open, not assumed; `COMPARATOR-1:` blank — not counted running (the cap reads 1 with GRADER-S31-1, 2 if it is). `CAPACITY: Mon 9` → GRADER-S31-1 runs this afternoon (the plan's `tue`, pulled forward as v109's text allows).
 - **D-v109-8 — the acts in order:** the dispatch line → `GRADER-S31-1: running` → the b1 card → `HIVE: LANDED <sha>` · b2: the two unit cards' stub-ssh dry-runs (row ii — the shell is up) and GRADER-S31-1's intake when it returns · the close before 19:00 CT.
+
+## §3b Beat 2 (Mon 2026-10-12 ~14:1x CT): `2909dfd`; GRADER-S31-1 INTAKEN ACCEPT and LANDED `ceb08c5` (BP10); the afternoon re-planned on Nick's review; the bridge back after the restart, the disk still full
+- **D-v109-9 — the b1 card:** `2909dfd` (13:14 CT; verified at the instrument). The 13:22 re-run stopped at its first gate, which is what the gate is for.
+- **D-v109-10 — GRADER-S31-1 INTAKEN ACCEPT** (`audits/2026-10-12_v109-b2_GRADER-S31-1_intake_two-layer_audit.md`): the four suites re-run on the staged tree; the rule read at the bytes; eight fixtures built by hand, 8 of 8; `matched-in-window` and the two `opaque` placements ACCEPTED; IR-180's cell; IR-181; IR-182.
+- **D-v109-11 — `BENCH: LANDED ceb08c5`** is BP10 (verified: the audit §6). IR-88 and IR-179 FIXED on bench `main`, closing at BP10 and SOAK-NIGHT-3's first real read. The card's selftest line crashed on the desk's cp1252 pipe → IR-183; from this beat every desk card runs python as `PYTHONIOENCODING=utf-8 python3 -B …`.
+- **D-v109-12 — Nick's landing-card rules, adopted for every landing card:** deletions by exact path, never a glob; `git status` clean as the card's last read; the lane's return records `git write-tree` of its staged index, and the card asserts `HEAD^{tree}` equals it. The full-disk premise corrected: the repos live on the host disk through the mount (1.2 TB free); the full volume is the VM's `/sessions`, which held only `TMPDIR`; the temp objects came from the no-delete rule (git links a temp object, then cannot unlink it).
+- **D-v109-13 — the afternoon (Nick's 13:39 review, two hub adjustments):** COMPARATOR-1 is dispatched after the restart, not before (a desktop restart cuts a running lane's folder link); its return grounds COMMERCIAL-1 §3 only through the license lines it meets (its charter §4), so COMMERCIAL-1's four market questions stay open. `TRIAGE: adopt` given → executed at b3. BENCH-BOOT-1's code half is chartered at b3 and dispatched (one bench lane; Python/shell, not barred by the freeze) with four constraints: no unit installed → `bench.sh start/stop/restart` behave as today byte for byte (BC10 pulls the bench two days before the Oct 19 sitting); BC10's bench pull names its sha; the UTF-8 rider (IR-183); the return records `git write-tree`. The unit cards' stub-ssh dry-run follows the code's landing; DOCS-3a if a beat has the hour.
+- **D-v109-14 — hardware:** no device purchase before the pilots' answers (Nick's rule, adopted). The SSD is decided by F1's number, not by the pilots: `KIT-STORAGE:` is asked Tuesday after F1, because PI-2 (Tue Oct 20) and the run depend on it and an order needs shipping days. The device-coverage research charter is cut Tuesday with a slot for the pilots' answers and dispatched after COMPARATOR-1 returns (one research lane at a time).
+- **D-v109-15 — the disk:** the restart did not free `/sessions` (≈ 500 old session folders, unreadable from any session) → IR-181; the hub and every lane `export TMPDIR=/tmp`; COMPARATOR-1's paste carries that line.
+- **D-v109-16 — the housekeeping card** at a quiet beat: three lane branches (`j3/ir-46-95-119` and `avail-api-1/amd-103` in core; `grader-s31-1/timeout-cause` in bench) and three worktrees (`homesynapse-core-hero-u3`, `nexsys-hivemind-br2`, `nexsys-hivemind-renderer`), each removal gated on merged (`-d`, never `-D`) and clean. Refused today, by rule: any Java change before the freeze (IR-177 included), any deploy but `37f05a9`, any device purchase ahead of the pilots' answers.

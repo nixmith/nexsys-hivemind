@@ -1,0 +1,11 @@
+<!--
+file: context/handoff/archive/operator-brief-DONE-v106-v107-rotated-2026-10-12.md
+purpose: The operator brief's §DONE ledger lines for the CLOSED windows v106 and v107 (Sun 2026-10-11), rotated VERBATIM out of context/handoff/OPERATOR-BRIEF_for-Nick.md at v108 beat 3 (D-v108-17; the form of D-v102-12) to keep the brief under its 12,288-byte cap. The lines are the record; nothing here is edited.
+audience: anyone reading the past of the operator queue (the DRs carry the decisions: planning/2026-10-11_v106_decision-record.md · planning/2026-10-11_v107_decision-record.md)
+state-type: archive (rotated ledger lines; append-only by rotation)
+status: ROTATED v108 beat 3 (Mon 2026-10-12 ~07:0x CT; instrument 2026-10-12T12:04:36Z)
+-->
+
+# Operator brief §DONE — v106–v107, rotated verbatim
+
+**v106 (Sun 10-11 08:20 →):** b1 the boot; S2 adjudicated; HERO-U2c dispatched (D-v106-1..11) → `0445eef` · b2 the plan review (12..18) → `dba134d` · b3 Nick's rulings; HERO-U2c intaken; Q9–Q12 (19..26) → core `9cf0ed9` + `8162b49` · b4 AVAIL-API-1 DRAFT v1 in two trees + the brief (27..31) → `63bf16e` · b5 THE CLOSE: REVIEW-AA1 in 12 min → 20 edits → AVAIL-API-1 FILED, its §14 line 12:2x; BC9 re-stamped; v107's text; six beats rotated (32..39) → `ed3d4c8`. **v107 (Sun 10-11 16:50 →):** b1 the boot; BC9 intaken two-layer, §P adjudicated (P1a untested → H10-6; P1b the denial half on silicon; P2's second arm refuted; IR-117 closed; IR-163..165; the lesson); BC9's card EXECUTED; AVAIL-API-1 RETURNED (its intake b2) (D-v107-1..14) → `b6f0115` · b2 AVAIL-API-1 intaken two-layer (LANDING-READY; the seven deviations accepted; IR-166..170); the two-card landing rehearsed; AVAIL-API-1 LANDED in two commits with a verdict each (T-A `74d3926` · T-B `2a54145`); the instruction EXECUTED; Nick's 17:29 ruling (ADMIT-CARD (b) on three conditions; IR-115's clock) and his 17:36 ask (COMMERCIAL-1) (15..23) → `df5017e` · b3 DRY-RUN #1's packet FILED (both arms dry-run; the gate); Nick's 17:58/18:06 reads RULED (the calendar; `RESTART:` spent; b4 cut; the adoption = v108 b1; the one checkout; the binary rollback's row); the week by id (24..34) → `5f951d7` · b4 HERO-U3's + COMPARATOR-1's charters; the two acts (35..38) → `f25d1e1` · b5 THE CLOSE: the deliverable MET; v108's text; the lesson; six beats rotated (39..44) → the close card `fa140ab`.

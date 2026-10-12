@@ -22,8 +22,8 @@
 # template is removed here in the same edit. Every day-name below is written from the calendar (D-v107-25), never inherited.
 # ---- snapshot-digest
 beat:
-  label: "v109 b3"
-  headline: "BENCH-BOOT-1 CHARTERED; the OUTREACH-2 note filed; TRIAGE was done at v103"
+  label: "v109 b4"
+  headline: "v109 CLOSED at b4 — COMPARATOR-1 intaken; OUTREACH-2 LIVE; v110's text on disk"
 shas:
   core: "176adad"
   core_note: "(J3 T-B over T-A `e11ae20` over `ba08dd8`; **`CI: green` each**; the Pi `37f05a9` until BC10)"
@@ -31,8 +31,8 @@ shas:
   bench_note: "(GRADER-S31-1; BP9 + BP10 ride BC10)"
   docs: "e2a5844"
   skills: "e9a77a8"
-  hivemind: "109e075"
-  hivemind_note: "the b3 card pending"
+  hivemind: "fdce2d0"
+  hivemind_note: "the close card pending"
 pi:
   host: "hs-dev-1"
   running: "37f05a9"
@@ -45,37 +45,37 @@ notes:
   - "**J3 LANDED Mon 09:3x** — `e11ae20` (T-A) · `176adad` (T-B), `CI: green` each; IR-46 · 95 · 119 CLOSED; **Fri Oct 16 the go/no-go per tree.**"
   - "**DRY-RUN #1 ≈ 19:00 CT** · Tue D2."
   - "**Sat Oct 17 BC10** · Sun Oct 18 the rollback + BC9b · Tue Oct 20 PI-2 · Oct 22–23 dry-run #2 → the freeze · Oct 30 – Nov 2 the run."
-  - "**v109: GRADER-S31-1 LANDED `ceb08c5` (BP10); BENCH-BOOT-1 CHARTERED (b3)**; COMPARATOR-1 running; the OUTREACH-2 note awaits Nick's word."
+  - "**v109 CLOSED at b4** — GRADER-S31-1 LANDED `ceb08c5` (BP10); COMPARATOR-1 intaken; OUTREACH-2 LIVE v2; BENCH-BOOT-1 running → v110."
 fleet:
   registry: "10"
   on_air: "9"
 open_irs:
   - "IR-148 (FIXED on `main`)"
   - "149"
-  - "153–183 (46 · 95 · 119 CLOSED at `e11ae20` / `176adad`)"
+  - "153–184 (46 · 95 · 119 CLOSED at `e11ae20` / `176adad`)"
   - "142 (BP9)"
   - "143–147"
   - "140"
   - "141"
 next_acts:
-  - "BENCH-BOOT-1's paste"
-  - "the b3 card"
-  - "`OUTREACH-2:` after the note"
+  - "the close card"
   - "dry-run #1 ≈ 19:00 CT"
-  - "v110 at the close"
+  - "v110 (its text on disk)"
+  - "BENCH-BOOT-1's intake (v110 b1)"
+  - "the outreach calls by Wed"
 open_risks: "eleven — OR-COLD-BOOT-REGISTRY · OR-HUE-REPORTING-DEAD · OR-S31-INTERMITTENT · OR-NIGHTLY-0902-S31 · FAILCHAN · BUS-SILENT-DROP · ADOPT-AWAKE · METERING-VOLUME · three standing — + IR-29..174 + one fence. Standing: D4 · no batched pushes · the rig exclusive · FENCE-BUS · the S31 hands-off · no public name before its protocol row · the hub never commits or pushes · every card gated · the restore before any gap · no ungrepped premise · `--no-optional-locks` · every edited row by its id · the amendment quotes the principle · cards named by hostname; the dongle in only after the identity gate."
 # ---- brief-status
-status: "LIVE at v109 beat 3 (Mon 2026-10-12 ~14:5x CT; instrument 2026-10-12T19:55:22Z): BENCH-BOOT-1 CHARTERED; TRIAGE found executed at v103 b2; the OUTREACH-2 note filed; COMPARATOR-1 running; §NEXT holds BENCH-BOOT-1, the b3 card, OUTREACH-2, dry-run #1."
+status: "CLOSED at v109 beat 4 (Mon 2026-10-12 ~15:5x CT; instrument 2026-10-12T20:50:46Z): COMPARATOR-1 intaken; OUTREACH-2 LIVE v2; v110's text filed; v108's six beats rotated; §NEXT holds the close card, dry-run #1, then v110's paste."
 # ---- brief-digest (the Pi's host and sha are the snapshot's pi.host and pi.running)
 brief:
-  beat: "v109 b3"
-  ct: "Mon 2026-10-12 ~14:5x CT"
+  beat: "v109 b4"
+  ct: "Mon 2026-10-12 ~15:5x CT"
   pi_note: "since Sat 12:00:49 CT; bench `cddac94`; the nightly ≈ 03:30 CT"
   notes:
-    - "Monday afternoon: GRADER-S31-1 landed on the bench as `ceb08c5` (BP10 for Saturday). COMPARATOR-1 is running (its cap is 21:00 CT). BENCH-BOOT-1 — the code the Oct 19 sitting installs — is chartered and ready to paste."
-    - "`TRIAGE: adopt` turned out to be done already (v103, Oct 10); the one row left whose reading was in is retired, and IR-56's read rides Tuesday's D2. The OUTREACH-2 note is on disk for your read: the hub recommends `go with edits A–E`. Dry-run #1 at ≈ 19:00 CT."
+    - "Monday: v109 chartered GRADER-S31-1 at 12:1x; it came back in 25 minutes and landed on the bench as `ceb08c5` (BP10), with the grader's catalog fix BC10 needed. COMPARATOR-1 ran and was intaken: the availability record is missing in the sources checked; Home Assistant records some non-firings; the field records dispatch, not confirmation."
+    - "The close: OUTREACH-2 is LIVE with edits A–E (fill §3's slots; the calls by Wednesday). BENCH-BOOT-1 is still running — its return goes to v110 (its text is on disk; paste it tonight after the dry-run, or Tuesday). Dry-run #1 at ≈ 19:00 CT; a scheduled message hands it to you at 18:55."
   week:
-    - "**Mon Oct 12** **GRADER-S31-1 LANDED `ceb08c5`**; COMPARATOR-1 + BENCH-BOOT-1 running; **dry-run #1 ≈ 19:00 CT**"
+    - "**Mon Oct 12** **GRADER-S31-1 LANDED `ceb08c5`**; COMPARATOR-1 intaken; v109 CLOSED; **dry-run #1 ≈ 19:00 CT**"
     - "**Tue Oct 13** D2 (+ IR-56's 90-s read); `KIT-STORAGE:` after F1; BENCH-BOOT-1's intake; the device-coverage charter"
     - "**Wed Oct 14** PKG-FRESH-1b; the asks out"
     - "**Thu Oct 15** the BC9b card"
@@ -86,14 +86,14 @@ brief:
     - "Oct 22–23 dry-run #2 → the freeze"
     - "Oct 30 – Nov 2 the run"
   yours:
-    - "BENCH-BOOT-1's line → `BENCH-BOOT-1: running`; the b3 card → `HIVE: LANDED <sha>`"
-    - "`OUTREACH-2: go with edits A–E | go | edits` after the hub's note (the asks out by Wed Oct 14)"
+    - "the close card → `HIVE: LANDED <sha>`; then v110's text into a FRESH hub session with MY FIRST MESSAGE's words"
+    - "OUTREACH-2's §3 slots, then the two calls by Wed Oct 14 → `OUTREACH: <who> · yes | maybe | no`"
     - "`BENCH-BOOT: mon19 · tue20 · wed21`"
     - "`BRIDGE: up`"
     - "counsel"
 week_ruling: "by id; every day-name from the calendar"
 # ---- brief-held
-held_as_of: "v109 b3, Mon 2026-10-12 ~14:5x CT"
+held_as_of: "v109 b4, Mon 2026-10-12 ~15:5x CT"
 held:
   - lane: "**The rig (EXCLUSIVE): THE FLEET 10 in the registry, 9 ON THE AIR** — the Hue dark (arm (a)); **THE PI (hs-dev-1) AT `37f05a9` BY SHA since Sat 12:00:49 CT; bench `cddac94`**"
     state: "**BC9 + REHEARSAL 3 EXECUTED Sun** (the admit half → BC9b Sun Oct 18; IR-117 CLOSED)"
@@ -106,7 +106,7 @@ held:
     next: "HERO-U3-W at BC10 (one real v1.1.7 capture; v117 re-pinned) + the r1 rider (IR-174); the worktree removed at a later card; **B-1 STUB FILED b5** (`instructions/2026-10-12_design-lane_B-1_…`; the full charter on the written opinion; `B-1: go`)"
   - lane: "**The bench lane — `ceb08c5` on `main` (GRADER-S31-1 over BENCH-142 + 142b)**; the Pi at `cddac94`"
     state: "**GRADER-S31-1 LANDED `ceb08c5` (Mon 13:3x; INTAKEN ACCEPT v109 b2)** — a timeout's cause + AVAIL-API-1's two types in the whitelist (IR-88 · IR-179 FIXED on main); BP9 + BP10 ride BC10"
-    next: "**BENCH-BOOT-1 CHARTERED b3, DISPATCH-READY** (`instructions/2026-10-12_bench-lane_BENCH-BOOT-1_…`: `run`; the delegation keyed on the enabled link, loud without a bus; the new-log wait; the UTF-8 rider) → `BENCH-BOOT-1: running` → the intake → the unit cards' dry-run; SOAK-NIGHT-3 (P-GS1); IR-146 · IR-180..183"
+    next: "**BENCH-BOOT-1 RUNNING since Mon 15:01** (`instructions/2026-10-12_bench-lane_BENCH-BOOT-1_…`; its relayed progress in the v109 DR §2) → v110 b1's intake → its landing card (Nick's rules) → the unit cards' dry-run; SOAK-NIGHT-3 (P-GS1); IR-146 · IR-180..184"
   - lane: "**The hivemind lane — THE RENDERER ADOPTED at v108 b1** (BEAT-RENDERER-2 `7a0288c`; v4 `bc10cd3f…`)"
     state: "`state.yaml` v3; `--check` 7 MATCH at every beat; **the shell UP again at v109 b1**; `/sessions` full → `TMPDIR=/tmp` (IR-181)"
     next: "`--check` at every boot; edit `state.yaml`, never a region; two prunable worktrees (`-br2`, `-renderer`) at a later card"
@@ -118,25 +118,23 @@ held:
     next: "passive"
   - lane: "**Company — CLEAR stands; the application COMMISSIONED, NOT FILED; the `.com` OWNED; FIN-1 recorded; PI-2 Tue Oct 20**"
     state: "`ATTORNEY-DRAFT: sent <n>` · `TM:` · `OUTREACH:` · `RENAME:` (held) · `ACCOUNT-2:` (held)"
-    next: "**OUTREACH-2 DRAFTED b4 + the hub's note v109 b3** (`strategy/2026-10-12_OUTREACH-2_…`; the note's rec: go with edits A–E; `OUTREACH-2: go` → the two asks out by Wed Oct 14 → `OUTREACH: <who> · yes, maybe or no`) · **COMMERCIAL-1 FILED b4** (`strategy/2026-10-12_COMMERCIAL-1_…`; A1–A7; the open-core line; five H10 words at the Dec re-read); **COMPARATOR-1 running** (14:38; cap 21:00 CT; its license lines → COMMERCIAL-1 §3); PILOT-TELEMETRY-1 post-run"
+    next: "**OUTREACH-2 LIVE v2 — edits A–E (v109 b4)** (`strategy/2026-10-12_OUTREACH-2_…`; Nick's §3 slots → the two asks out by Wed Oct 14 → `OUTREACH: <who> · yes, maybe or no`) · **COMMERCIAL-1 FILED b4** (`strategy/2026-10-12_COMMERCIAL-1_…`; A1–A7; the open-core line; five H10 words at the Dec re-read); **COMPARATOR-1 INTAKEN v109 b4** (IR-138 · IR-184; no license line — COMMERCIAL-1 §3 unpinned); PILOT-TELEMETRY-1 post-run"
   - lane: "**The plan of record + the DRs**"
     state: "THE PLAN REVIEW (v106 b2/b3) + THE FREEZE LIST (v101 §3 as amended D-v106-15); the run Oct 30 – Nov 2"
     next: "**`TRIAGE: adopt` EXECUTED at v103 b2 (D-v103-14)** — v109 b3 retired IR-118 on its reading; IR-56's 90-s read rides D2; **the two unit cards DRAFTED b5** (`instructions/2026-10-12_unit-cards_…`: `BENCH-BOOT: mon19 · tue20 · wed21`; `KIT-STORAGE:` open; LIVE after the stub-ssh dry-run); the H10 words when they gate an act"
   - lane: "The landed lanes"
     state: "W-SKILLS-10 `e9a77a8`"
     next: "TR-1b after the run"
-closed_windows: "v81–v106 — their DRs (v99–v106 in `planning/`; v81–v98 under `archive/decision-records/`). **v107 (Sun; D-v107-1..44):** `b6f0115` · `df5017e` · `5f951d7` · `f25d1e1` · the close card `fa140ab`. **v108 (Sun 19:04 → Mon ~10:2x; CLOSED at b6; D-v108-1..35):** b1 THE ADOPTION `bc3cd5c` · b2 `708d446` · b3 `78e93f9` · b4 `98f9e82` · b5 J3 INTAKEN `150f29b` · b6 THE CLOSE — J3 LANDED `e11ae20` · `176adad`; v109's text; six rotated → the close card `cdf54e7`."
+closed_windows: "v81–v106 — their DRs (v99–v106 in `planning/`; v81–v98 under `archive/decision-records/`). **v107 (Sun; D-v107-1..44):** `b6f0115` · `df5017e` · `5f951d7` · `f25d1e1` · the close card `fa140ab`. **v108 (Sun 19:04 → Mon ~10:2x; CLOSED at b6; D-v108-1..35):** b1 THE ADOPTION `bc3cd5c` · b2 `708d446` · b3 `78e93f9` · b4 `98f9e82` · b5 J3 INTAKEN `150f29b` · b6 THE CLOSE — J3 LANDED `e11ae20` · `176adad`; v109's text; six rotated → the close card `cdf54e7`. **v109 (Mon 11:45 → the close; D-v109-1..28):** b1 GRADER-S31-1 chartered `2909dfd` · b2 its intake; LANDED `ceb08c5` → `109e075` · b3 BENCH-BOOT-1 chartered; TRIAGE found done → `fdce2d0` · b4 THE CLOSE — COMPARATOR-1 intaken; OUTREACH-2 LIVE; v110's text; six rotated → the close card."
 # ---- brief-words
 words:
   open:
-    - "`COMPARATOR-1: RETURNED <path> <bytes>` (by 21:00 CT)"
-    - "**`BENCH-BOOT-1: running`**, then `BENCH-BOOT-1: RETURNED <path> <bytes> staged=<n> tree=<sha>`"
-    - "**`HIVE: LANDED <sha>`** (the b3 card)"
-    - "**`OUTREACH-2: go with edits A–E | go | edits`** (the hub's note); then `OUTREACH: <who> · yes | maybe | no · <one sentence>`"
+    - "**`HIVE: LANDED <sha>`** (the close card) → v110's first message: `TIME:` · `HIVE:` · `CAPACITY:` · `BENCH-BOOT-1: RETURNED … tree=<sha>` · `DRY-RUN-1 (Mon):` · `OUTREACH:`"
+    - "`OUTREACH: <who> · yes | maybe | no · <one sentence>` (the calls by Wed Oct 14)"
     - "`BENCH-BOOT: mon19 · tue20 · wed21`"
     - "`BRIDGE: up`"
     - "the H10 words `BACKUP-NIGHTLY:` · `DRY2-PASS:` (then `VOLUME:` · `KIT-STORAGE:` after F1's number)"
     - "Mon evening `DRY-RUN-1 (Mon): <the provisional line>`"
     - "`REMOTE:` · `FINALS:` · `DISCOVERY:` · `ATTORNEY-DRAFT:` · `TAILSCALE:` · `OUTREACH:`"
   given:
-    - "Monday 14:44 — `HIVE: LANDED 109e075` (re-pushed; the first push timed out at GitHub). 14:38 — `COMPARATOR-1: running`. 14:07 — `BRIDGE: up`. Earlier — the v109 DR §1 (13:39, your plan review, verbatim); v108's — the v108 DR §1"
+    - "Monday 15:38 — `OUTREACH-2: go with edits A–E` · `COMPARATOR-1: RETURNED … 14992` · `HIVE: LANDED fdce2d0` · BENCH-BOOT-1's progress (relayed). 15:01 — `BENCH-BOOT-1: running`. Earlier — the v109 DR §1; v108's — the v108 DR §1"

@@ -22,17 +22,17 @@
 # template is removed here in the same edit. Every day-name below is written from the calendar (D-v107-25), never inherited.
 # ---- snapshot-digest
 beat:
-  label: "v108 b5"
-  headline: "J3 INTAKEN LANDING-READY — the landing cards on `J3: land`; B-1's stub + the unit cards; the close next"
+  label: "v108 b6"
+  headline: "J3 LANDED `176adad`; v108 CLOSED at b6 — v109's text on disk"
 shas:
-  core: "ba08dd8"
-  core_note: "(HERO-U3 over `2a54145`; **`CI: green`**; the Pi `37f05a9` until BC10)"
+  core: "176adad"
+  core_note: "(J3 T-B over T-A `e11ae20` over `ba08dd8`; **`CI: green` each**; the Pi `37f05a9` until BC10)"
   bench: "32bac40"
   bench_note: "(BP9 rides BC10)"
   docs: "e2a5844"
   skills: "e9a77a8"
-  hivemind: "98f9e82"
-  hivemind_note: "the b5 card pending"
+  hivemind: "150f29b"
+  hivemind_note: "the close card pending"
 pi:
   host: "hs-dev-1"
   running: "37f05a9"
@@ -42,42 +42,41 @@ pi:
     - "BC9 EXECUTED Sun; BC9b Sun Oct 18"
 notes:
   - "**THE RENDERER ADOPTED** (b1; `--check` at every boot)."
-  - "**J3 RETURNED 07:5x, INTAKEN LANDING-READY b5** — **Card A → `CI: green` → Card B on `J3: land`**; **Fri Oct 16 the go/no-go per tree.**"
+  - "**J3 LANDED Mon 09:3x** — `e11ae20` (T-A) · `176adad` (T-B), `CI: green` each; IR-46 · 95 · 119 CLOSED; **Fri Oct 16 the go/no-go per tree.**"
   - "**DRY-RUN #1 ≈ 19:00 CT** · Tue D2."
   - "**Sat Oct 17 BC10** · Sun Oct 18 the rollback + BC9b · Tue Oct 20 PI-2 · Oct 22–23 dry-run #2 → the freeze · Oct 30 – Nov 2 the run."
-  - "**OUTREACH-2 · COMMERCIAL-1 · B-1's stub · the unit cards** on disk; **COMPARATOR-1** on Nick's line."
+  - "**v108 CLOSED at b6; v109's text on disk** — b1 the returns' intake, else GRADER-S31-1; OUTREACH-2 · the unit cards await Nick's words."
 fleet:
   registry: "10"
   on_air: "9"
 open_irs:
   - "IR-148 (FIXED on `main`)"
   - "149"
-  - "153–178 (46 · 95 · 119 CLOSING at J3's shas)"
+  - "153–178 (46 · 95 · 119 CLOSED at `e11ae20` / `176adad`)"
   - "142 (BP9)"
   - "143–147"
   - "140"
   - "141"
 next_acts:
-  - "`J3: land` → Card A → `CI: green` → Card B"
-  - "the b5 card"
+  - "the close card → v109 (its text on disk)"
   - "`OUTREACH-2: go`"
   - "COMPARATOR-1's line"
-  - "the close"
+  - "GRADER-S31-1 (v109 b1)"
   - "dry-run #1's intake"
 open_risks: "eleven — OR-COLD-BOOT-REGISTRY · OR-HUE-REPORTING-DEAD · OR-S31-INTERMITTENT · OR-NIGHTLY-0902-S31 · FAILCHAN · BUS-SILENT-DROP · ADOPT-AWAKE · METERING-VOLUME · three standing — + IR-29..174 + one fence. Standing: D4 · no batched pushes · the rig exclusive · FENCE-BUS · the S31 hands-off · no public name before its protocol row · the hub never commits or pushes · every card gated · the restore before any gap · no ungrepped premise · `--no-optional-locks` · every edited row by its id · the amendment quotes the principle · cards named by hostname; the dongle in only after the identity gate."
 # ---- brief-status
-status: "LIVE — edited at v108 beat 5 (Mon 2026-10-12 ~08:5x CT; instrument 2026-10-12T13:52:33Z): J3 intaken LANDING-READY at the bytes; the two landing cards cut (A on `J3: land`, B on A's green); B-1's stub and the unit cards drafted; §NEXT holds the word, Card A, then the b5 card."
+status: "CLOSED at v108 beat 6 (Mon 2026-10-12 ~10:1x CT; instrument 2026-10-12T15:14:01Z): J3 LANDED on `main` in two commits with a CI verdict each (`e11ae20` · `176adad`); v109's text filed; six beats rotated; §NEXT holds the close card, then v109's paste."
 # ---- brief-digest (the Pi's host and sha are the snapshot's pi.host and pi.running)
 brief:
-  beat: "v108 b5"
-  ct: "Mon 2026-10-12 ~08:5x CT"
+  beat: "v108 b6"
+  ct: "Mon 2026-10-12 ~10:1x CT"
   pi_note: "since Sat 12:00:49 CT; bench `cddac94`; the nightly ≈ 03:30 CT"
   notes:
-    - "Monday opened with HERO-U3 on `main` (`ba08dd8`) and J3 dispatched at 07:00 after its independent review; OUTREACH-2 and COMMERCIAL-1 drafted while it ran."
-    - "Beat 4, while J3 runs: the ask for two households is drafted for your read (September's gate; no 'first'; a page on what the pilots feed back), and COMMERCIAL-1 is a brief in H10 form after the strategy layer was read — seven guarded assets with a posture each, the open-core line in one sentence, the comparator's questions, and the order: nothing commercial before the written opinion and the pilot's record. Beat 5: J3 came back at 07:5x (two trees, zero commits, your `check` green); I read it at the bytes where the landing is decided. Four [REVIEW] rows, all ACCEPT — two my own premise misses. The landing is two cards: A on your `J3: land`, B on A's green; Friday's word stays per tree. B-1's stub and the unit cards are drafts. Beat 6 is the close."
+    - "Monday: HERO-U3 landed at 06:52, J3 dispatched at 07:00 after its independent review, returned at 07:5x, read at the bytes, and landed in two commits by 09:34 with CI green on each — three days ahead of its Thursday deadline. OUTREACH-2, COMMERCIAL-1, B-1's stub and the two unit cards are on disk for your reads."
+    - "The close: v108 did its one deliverable at beat 1 (the renderer owns the five regions; `--check` at every boot) and then everything the plan had for the week's Java work. v109's text is on disk — paste it into a fresh hub session when you are ready; its first beat intakes whatever has come back (dry-run #1's line, COMPARATOR-1) or charters GRADER-S31-1. The Java domain stays closed by rule until the freeze; Friday's go/no-go is per tree."
   week:
-    - "**Mon Oct 12** **J3 RETURNED + INTAKEN; the landing cards**; OUTREACH-2 ✓ · COMMERCIAL-1 ✓ · B-1's stub ✓ · the unit cards ✓; v109's text; **dry-run #1 ≈ 19:00 CT**"
-    - "**Tue Oct 13** D2; GRADER-S31-1; `TRIAGE: adopt`; Card B if pending"
+    - "**Mon Oct 12** **J3 LANDED `176adad`**; v108 CLOSED; v109 on your paste; **dry-run #1 ≈ 19:00 CT**"
+    - "**Tue Oct 13** D2; GRADER-S31-1; `TRIAGE: adopt`"
     - "**Wed Oct 14** PKG-FRESH-1b; the asks out"
     - "**Thu Oct 15** the BC9b card"
     - "**Fri Oct 16** the go/no-go per tree → BC10's card"
@@ -87,8 +86,7 @@ brief:
     - "Oct 22–23 dry-run #2 → the freeze"
     - "Oct 30 – Nov 2 the run"
   yours:
-    - "**`J3: land | hold`** → Card A → `CORE: LANDED` · `CI:` → Card B"
-    - "the b5 card"
+    - "the close card → `HIVE: LANDED <sha>`; then v109's text into a FRESH hub session with MY FIRST MESSAGE's words"
     - "`OUTREACH-2: go | edits` (the asks out by Wed Oct 14)"
     - "`BENCH-BOOT: mon19 · tue20 · wed21`"
     - "COMPARATOR-1's §8 line (any hour)"
@@ -96,13 +94,13 @@ brief:
     - "counsel"
 week_ruling: "by id; every day-name from the calendar"
 # ---- brief-held
-held_as_of: "v108 b5, Mon 2026-10-12 ~08:5x CT"
+held_as_of: "v108 b6, Mon 2026-10-12 ~10:1x CT"
 held:
   - lane: "**The rig (EXCLUSIVE): THE FLEET 10 in the registry, 9 ON THE AIR** — the Hue dark (arm (a)); **THE PI (hs-dev-1) AT `37f05a9` BY SHA since Sat 12:00:49 CT; bench `cddac94`**"
     state: "**BC9 + REHEARSAL 3 EXECUTED Sun** (the admit half → BC9b Sun Oct 18; IR-117 CLOSED)"
     next: "**Mon Oct 12 ≈ 19:00 CT DRY-RUN #1** (the packet WHOLE; D0a–D1; **Tue Oct 13 D2**) · Wed Oct 14 PKG-FRESH-1b · **Sat Oct 17 BC10** (BACKUP-1 first; deploy `main`; one cold start; `issues=0`; one evidence line per unit; BP9; STARTER-1 LAST) → SOAK-NIGHT-3 · **Sun Oct 18** the binary rollback + BC9b · Tue Oct 20 PI-2"
-  - lane: "**The Java slot — J3 RETURNED Mon 07:5x, INTAKEN LANDING-READY b5** (`j3/ir-46-95-119` over `ba08dd8`; T-A `2ecb7f6…` 6 M · T-B `f3da209…` 21 M; `check` green twice; the audit `audits/2026-10-12_v108-b5_J3_…`)"
-    state: "**THE LANDING: Card A** (T-A → C1 on `main`) on **`J3: land`** → `CI: green` → **Card B** (T-B → C2; the branch ff'd); D-1..D-4 ACCEPT (D-2, D-3 the hub's premise misses, owned)"
+  - lane: "**The Java slot — J3 LANDED Mon 09:3x: `e11ae20` (T-A, the loop survives) · `176adad` (T-B, the skip is counted), `CI: green` each** (the audit `audits/2026-10-12_v108-b5_J3_…`; IR-46 · 95 · 119 CLOSED)"
+    state: "FREE and CLOSED BY RULE — no Java lane before the freeze; the lane branches `j3/…` and `avail-api-1/…` deletable at a quiet card"
     next: "**Fri Oct 16 the go/no-go per tree** (C1 = T-A alone is a legal deploy) → BC10's lines (F-6 · F-7); IR-175..178; the two lane branches deletable later; IR-147 post-run"
   - lane: "**The web-ui slot — HERO-U3 LANDED `ba08dd8`, `CI: green` (Mon 06:52 CT)** — the recovery card's S3 column on v1.1.7; the intake `audits/2026-10-11_v108-b2_HERO-U3_intake_two-layer_audit.md`"
     state: "**FREE**; the worktree `../homesynapse-core-hero-u3` stays until a later card removes it"
@@ -128,12 +126,11 @@ held:
   - lane: "The landed lanes"
     state: "W-SKILLS-10 `e9a77a8`"
     next: "TR-1b after the run"
-closed_windows: "v81–v106 — their DRs (v99–v106 in `planning/`; v81–v98 under `archive/decision-records/`). **v107 (Sun; D-v107-1..44):** `b6f0115` · `df5017e` · `5f951d7` · `f25d1e1` · the close card `fa140ab`. **v108 (Sun 19:04 → Mon; ≤ 6 beats; closes at b6):** b1 THE ADOPTION (D-v108-1..7) `bc3cd5c` · b2 J3 v1 + REVIEW-J3; HERO-U3 intaken (8..12) `708d446` · b3 HERO-U3 LANDED; J3 v2 dispatched (13..17) `78e93f9` · b4 OUTREACH-2 + COMMERCIAL-1 (18..21) `98f9e82` · b5 J3 INTAKEN; the landing cards; B-1's stub; the unit cards (22..28) → the b5 card."
+closed_windows: "v81–v106 — their DRs (v99–v106 in `planning/`; v81–v98 under `archive/decision-records/`). **v107 (Sun; D-v107-1..44):** `b6f0115` · `df5017e` · `5f951d7` · `f25d1e1` · the close card `fa140ab`. **v108 (Sun 19:04 → Mon ~10:2x; CLOSED at b6; D-v108-1..35):** b1 THE ADOPTION `bc3cd5c` · b2 `708d446` · b3 `78e93f9` · b4 `98f9e82` · b5 J3 INTAKEN `150f29b` · b6 THE CLOSE — J3 LANDED `e11ae20` · `176adad`; v109's text; six rotated → the close card."
 # ---- brief-words
 words:
   open:
-    - "**`J3: land | hold`** (lean `land`) → Card A → **`CORE: LANDED <C1>`** · **`CI: green | red`** → Card B → `CORE: LANDED <C2>` · `CI:`"
-    - "**`HIVE: LANDED <sha>`** (the b5 card)"
+    - "**`HIVE: LANDED <sha>`** (the close card) → v109's first message: `TIME:` · `HIVE:` · `CAPACITY:` · `COMPARATOR-1:` · `OUTREACH-2:` · `BENCH-BOOT:` · `DRY-RUN-1 (Mon):` if it ran"
     - "**`OUTREACH-2: go | edits`**; then `OUTREACH: <who> · yes | maybe | no · <one sentence>`"
     - "`BENCH-BOOT: mon19 · tue20 · wed21`"
     - "`BRIDGE: up`"
@@ -142,4 +139,4 @@ words:
     - "Mon evening `DRY-RUN-1 (Mon): <the provisional line>`"
     - "`REMOTE:` · `FINALS:` · `DISCOVERY:` · `ATTORNEY-DRAFT:` · `TAILSCALE:` · `OUTREACH:`"
   given:
-    - "Monday 08:27 — **`J3: RETURNED audits/2026-10-12_J3_return.md 16285`** + your `check` green (1m 49s) · `HIVE: LANDED 98f9e82` (the b4 card) · 'take your time … determine how we proceed' · 08:33 'mind the context; plan the next session'. 07:07 `HIVE: LANDED 78e93f9` · 07:01 `HIVE: LANDED 708d446` · **`J3: running`** 07:00 · 06:52 **`CORE: LANDED ba08dd8` · `CI: green`** (HERO-U3). Sunday's — the v108 DR §1. Sunday 16:50–18:4x — the v107 DR"
+    - "Monday 10:05 — `HIVE: LANDED 150f29b` (the b5 card) · 'determine how we proceed'. 09:34 — **`CORE: LANDED 176adad` · `CI: green`** (Card B). 09:29 — **`CORE: LANDED e11ae20` · `CI: green`** (Card A; `J3: land` by the paste). 08:27 — `J3: RETURNED … 16285` + your `check` green · `HIVE: LANDED 98f9e82` · 08:33 'mind the context'. 07:07 `HIVE: LANDED 78e93f9` · 07:01 `HIVE: LANDED 708d446` · `J3: running` 07:00 · 06:52 `CORE: LANDED ba08dd8` · `CI: green` (HERO-U3). Sunday's — the v108 DR §1"

@@ -3,7 +3,7 @@ file: context/instructions/2026-10-11_frontend-lane_HERO-U3_recovery-card-on-the
 purpose: HERO-U3 — the recovery card's S3 column on the LIVE record: the mirror bump v1.1.6 → v1.1.7 (the eleven AVAIL-API-1 keys beside `availability` and `meta.recoveryViewPosition`, as core `2a54145` serializes them), the §3 decision function's S3 cells with their null arms, the contract sentence per class, the L2 detail line, R6 from the core's own bound — never a bound computed in the dashboard. SPEC §11 row 4. A CODING charter (build mode), run in its OWN WORKTREE of homesynapse-core so the main checkout's porcelain stays empty for J3 (D-v107-30). The web-ui path-domain's one lane (D4).
 audience: the HERO-U3 lane (a fresh Cowork conversation; the nexsys-frontend skill in build mode) · Nick (the worktree card, then the §9 line; the landing card after the intake) · the hub (the intake, two layers; the landing — a fast-forward merge of the lane's branch)
 state-type: coding charter (frontend; one lane)
-status: DISPATCH-READY — cut v107 beat 4 (Sun 2026-10-11 ~18:3x CT; instrument 2026-10-11T23:31:18Z) at core `main` = `2a54145` (AVAIL-API-1 T-B; CI green). Flips to EXECUTED at the hub's intake of the return.
+status: EXECUTED — intaken LANDING-READY v108 b2; LANDED `ba08dd8` (`CI: green`, Mon 06:52 CT, v108 b3); flipped at v109 b1 (Check 12). Was: DISPATCH-READY — cut v107 beat 4 (Sun 2026-10-11 ~18:3x CT; instrument 2026-10-11T23:31:18Z) at core `main` = `2a54145` (AVAIL-API-1 T-B; CI green). Flips to EXECUTED at the hub's intake of the return.
 -->
 
 # HERO-U3 — the recovery card on the live record (v1.1.7)

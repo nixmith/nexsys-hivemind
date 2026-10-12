@@ -3,7 +3,7 @@ file: context/handoff/2026-10-12_v109_dispatch-text.md
 purpose: THE DISPATCH TEXT for v109 — the window after v108's close (it opens when Nick opens it: Monday 2026-10-12 afternoon or Tuesday 2026-10-13; ≤ 6 beats). Its first beat intakes whatever lane return is on disk and charters GRADER-S31-1; its close cuts v110's text. Cut at v108 beat 6, the close, right after J3 landed on `main` in two commits with a CI verdict each.
 audience: the v109 hub (its boot) · Nick (pastes it into a FRESH hub session, with the words of MY FIRST MESSAGE)
 state-type: dispatch text (one window; filed verbatim at the v109 boot)
-status: LIVE — cut v108 beat 6, the close (Mon 2026-10-12 ~10:1x CT).
+status: FILED — pasted whole by Nick at 11:45 CT into the v109 hub (this file from line 9; four lines matched at the bytes, v109 b1, 2026-10-12T17:13:11Z). Was: LIVE — cut v108 beat 6, the close (Mon 2026-10-12 ~10:1x CT).
 -->
 
 You are the **v109 PM MISSION-CONTROL hub** for NexSys / HomeSynapse. This window opens when Nick pastes this — Monday afternoon or Tuesday — and runs ≤ 6 beats; a Monday window closes before the 19:00 CT rig sitting (dry-run #1 runs in its own guide session and its D0a–D1 line is intaken by whichever hub is open when it lands); v110's text is cut at the close. **The context window is a constraint Nick named (Mon 08:33): keep every beat's reads to what the beat decides, close on time, and leave the next hub a spine, not a chat.**

@@ -3,7 +3,7 @@ file: context/handoff/2026-10-12_v110_dispatch-text.md
 purpose: THE DISPATCH TEXT for v110 — the window after v109's close (it opens when Nick opens it: Monday evening after dry-run #1's D1, or Tuesday 2026-10-13; ≤ 6 beats). Its first beat intakes the returns on disk — BENCH-BOOT-1 first (a slot-releasing landing), then DRY-RUN-1's provisional line — and then amends D2's card with IR-56's read. Cut at v109 beat 4, the close.
 audience: the v110 hub (its boot) · Nick (pastes it into a FRESH hub session, with the words of MY FIRST MESSAGE)
 state-type: dispatch text (one window; filed verbatim at the v110 boot)
-status: LIVE — cut v109 beat 4, the close (Mon 2026-10-12 ~15:5x CT).
+status: EXECUTED — pasted by Nick Mon 2026-10-12 18:17 CT (v110 opened; its DR `planning/2026-10-12_v110_decision-record.md`; his addendum re-orders the window — the DR §1). Was: LIVE — cut v109 beat 4, the close (Mon 2026-10-12 ~15:5x CT).
 -->
 
 You are the **v110 PM MISSION-CONTROL hub** for NexSys / HomeSynapse. This window opens when Nick pastes this — Monday evening after dry-run #1's D0a–D1, or Tuesday — and runs ≤ 6 beats; Tuesday's D2 (≈ 19:00 CT) runs in the dry-run's own guide session, and its line is intaken by whichever hub is open when it lands. **The context window is a constraint Nick names every day: keep each beat's reads to what it decides, close on time, and leave the next hub a spine, not a chat.**

@@ -3,7 +3,7 @@ file: context/planning/2026-10-12_v110_decision-record.md
 purpose: v110's decision record — Nick's words verbatim (§1: his first message and his 7,725-B addendum), the facts at the instrument (§2), the decisions by beat (§3 →). v110 opened Mon 2026-10-12 18:17 CT on v110's text (`handoff/2026-10-12_v110_dispatch-text.md`); its order is the addendum's §E.
 audience: the v110 hub · every hub after it (a v110 ruling is cited by its D-v110-n) · Nick
 state-type: decision record
-status: LIVE — v110 beat 2 (Mon 2026-10-12 ~20:5x CT; instrument 2026-10-13T01:54:34Z): dry-run #1's Monday half intaken; the window open; D2 20:04 CT; D-v110-11..18. Prior: v110 beat 1 (Mon 2026-10-12 ~18:3x CT; instrument 2026-10-12T23:35:17Z): the boot; BENCH-BOOT-1 INTAKEN ACCEPT; its landing card handed; the addendum filed.
+status: LIVE — v110 beat 3 (Tue 2026-10-13 ~16:5x CT; instrument 2026-10-13T21:53:36Z): HORIZON-1 intaken; the mandate banked; D-v110-19..26. Prior: v110 beat 2 (Mon 2026-10-12 ~20:5x CT; instrument 2026-10-13T01:54:34Z): dry-run #1's Monday half intaken; the window open; D2 20:04 CT; D-v110-11..18. Prior: v110 beat 1 (Mon 2026-10-12 ~18:3x CT; instrument 2026-10-12T23:35:17Z): the boot; BENCH-BOOT-1 INTAKEN ACCEPT; its landing card handed; the addendum filed.
 -->
 # v110 — decision record
 
@@ -116,6 +116,63 @@ status: LIVE — v110 beat 2 (Mon 2026-10-12 ~20:5x CT; instrument 2026-10-13T01
   - ≤ 6 beats;
   - your text's laws stand.
 
+## §1b Nick's words, Tuesday 2026-10-13 16:3x CT — the mandate and six rulings (4,232 B, md5 `acbbc77d625a…`; the copy `_scratch/v110/b3/nick_mandate_2026-10-13.md`), verbatim
+
+`KIT-STORAGE: a`
+
+Good intake — thank you for second-checking the dry-run at the bytes.
+
+From here I want you to take the wheel:
+- You decide the order, what's in this window and what moves to v111, and which lanes run.
+- Bring me one act at a time: a card, a word, or a rig step — one action, one line back.
+- Stop for me only on what's truly mine: money, legal, hardware, anything that goes outside the company, and anything that can't be undone.
+- Be ambitious: everything freeze-safe that can move forward should be moving.
+- This mandate carries into v111's text.
+
+**My words and rulings:**
+
+1. **`KIT-STORAGE: a`** — order the SSD and adapter now for PI-2. It's kit, not a coverage device, so my purchase rule doesn't block it. Two additions:
+   - Check whether PI-2's Zigbee coordinator is in hand. If it isn't, put the same model on the same order; it's kit too. Either way, its firmware probe goes in PI-2's card before Oct 20: reflash 7.4.5.0 if it reports v14.
+   - When PI-2 first boots on the SSD, capture boot-to-ready, memory (RSS) and the replay rate. That's the SD-vs-SSD measurement you named, and also RUNTIME-1's first data point, pulled forward at no cost.
+
+2. **The rollback rule (D-v110-16) — I'm ruling it now, not Friday:**
+   - The run's rollback target is never `37f05a9`; the oldest acceptable is `ba08dd8`.
+   - The exact sha follows Friday's tree word.
+   - Sunday's rehearsal carries the pre-warm block and reads the margin.
+
+3. **The pre-warm is a contingency, not architecture.**
+   - After BC10, measure whether a cold boot still needs it. If not, keep IR-189's pre-warm for rollback only, and say so in the record.
+   - More broadly: a boot that scales with the whole store will beat any fixed gate eventually. I want boot cost as a function of store size after BC10 — measured at BC10's cold start and at Sunday's rehearsal — and fed into SCHEMA-1's snapshot and retention rule.
+
+4. **IR-191 is the most important number in your report.** 57% of all commands ever sent timed out their confirmation, and "did it actually confirm" is the edge COMPARATOR-1 and HORIZON-1 both say we have left. Before I give N3 (GATE-2's stance), break that 57% down:
+   - by cause (the landed classifier: bench, device, unattributed — idempotent sends included);
+   - by device and by command class;
+   - over time — getting better or worse?
+   - in plain words: what the hero claim can honestly say today.
+   
+   Make that GATE-2's first step, and put it in front of me with the options by Thursday.
+
+5. **N1 is mine.** I'll write to counsel tomorrow about the name's filing receipt and the two instruments (the IP assignment, the written consent), and bring back the answer. OUTREACH-2 is mine too: I'll fill §3's slots and make the calls by Wednesday.
+
+6. **Accepted:** IR-188..191 and the in-sitting rulings (D-v110-11, -12). Dry-run #2's packet carries IR-190's three fixes, plus the pre-warm.
+
+**The rest of the window.**
+
+Your plan — b3 HORIZON-1 → b4 the unit cards + BC10's card → b5 the deliberation + pass 3's outline → b6 the close — is right in substance. But don't compress b3 or b5 to finish before the 19:40 D2 hand-off. If it doesn't all fit with quality, close at a clean point and carry b5 to v111. I'd rather have the deliberation done well than done tonight. Your call.
+
+**For b3:**
+- Rule on HORIZON-1 and the v109 analysis with equal suspicion.
+- Fit the session map to my real hours (~30 h/week now, 40–60 from December): sessions replace rows, they don't pile on.
+- Then charter the first lanes you judge highest-leverage and freeze-safe. I'd expect GATE-2's evidence lane first, then SCHEMA-1 and LICENSE-1 (both by Nov 2) — but it's your call.
+
+**For b5:**
+- Test §C (Rust and the runtime) against the evidence, today's replay and boot numbers included, and give me the language/runtime position you'd defend.
+- Pass 3's outline should make the next seven weeks and 2027 concrete enough that I can see what we're building toward.
+
+Keep the process light while you do it: one fact in one place, fewer and denser artifacts. And tell me when you disagree with me.
+
+CAPACITY: Tue <hours left> · Wed <hours>
+
 ## §2 The facts at the instrument (banked; no act)
 - **The boot (23:18:21Z = 18:18 CT):** the shell UP; `/sessions` 9.8 G, 9.0 M free (IR-181; `TMPDIR=/tmp` on every call). The read-set ≈ 35 KB. HEADs: core `176adad` · docs `e2a5844` · hivemind `e6a7ecc` (`??` ×3: the BENCH-BOOT-1 return, the HORIZON-1 return, the v109 pass-1 analysis) · skills `e9a77a8` · bench `ceb08c5` + 6 staged on `bench-boot-1/run-and-delegation`; push counts 0; no locks. Check 9 28/28; Check 12 0 · 0 · 0; `render_state.py --check` 7 MATCH. PASS.
 - **BENCH-BOOT-1's return** (8,017 B; md5 `e7f044c92e29…`): the lane's `write-tree` `a17a7754d4c12f27ad48d9f14ebdb1e5ccb8f9e9` = the hub's own; the four suites on the staged tree 57/0 · 42/0 · 54/0 · 42/0 (the hub, device shell, Python 3.10.12); row 7 `1 0 0 0`; RED re-run 42/12 (12, not 13: the hub's copy kept the unit file, so r9 is green); the delegation against the hub's own stubs (seven scenarios) holds — the audit §2.
@@ -143,3 +200,13 @@ status: LIVE — v110 beat 2 (Mon 2026-10-12 ~20:5x CT; instrument 2026-10-13T01
 - **D-v110-16 — the rollback target, for Friday's go/no-go (the hub's recommendation; Nick rules Friday):** the run's rollback binary must be a post-REGISTRY-COLD-1 build (`ba08dd8` at the oldest), never `37f05a9` — its warm margin expires ≈ Oct 22 and its cold boot fails today; Sun Oct 18's binary-rollback rehearsal carries the pre-warm (D-v110-12's block) and reads `projection_live − Loaded` as the margin. BC10's one cold start (IR-113/123's reading) is also IR-148's "after" — the card names it.
 - **D-v110-17 — `KIT-STORAGE:` asked Tuesday, in H10 form** (F1's number is in: volume does not gate — 941 MB against 101 GB free, ≈ 48 MB/day; the SD's read speed does — 30 MB/s on the pre-warm, the cold-boot replay's floor; PI-2 Tue Oct 20): (a) order the SSD + adapter now for PI-2 — the one measurement of SD vs SSD on the same binary, and a cold-boot-tolerant second Pi; (b) SD only, the SSD deferred to the pilots' answers; (c) not yet, until Friday. The hub's rec: (a) — refutable by the pilot-class answer "the household board is SD-only".
 - **D-v110-18 — Tuesday's order** (Nick's §E; ≤ 6 beats; his 5 h): the b1 and b2 cards first (desk pastes; b2's gate reads b1's subject) → b3 the HORIZON-1 intake (its own beat; two layers; the v109 analysis read as critically as the return) → b4 (iv) the unit cards LIVE on the re-cut (IR-185..187; the stub-ssh dry-run against `6a40a10`) + (vi) BC10's card drafted (BACKUP-1 one-step; the deploy sha per the Fri word; the cold start = IR-148's "after"; the evidence lines by id) → b5 the deliberation (§B–§D) and pass 3's outline → b6 THE CLOSE with v111's text and the two measures (cards handed so far: 2 — the bench landing, b1; b2's makes 3). D2's line (≈ 20:10 CT) → v111 beat 1.
+
+## §3c Beat 3 (Tue 2026-10-13 ~16:5x CT): the b2 defect owned; Nick's mandate and rulings banked; the kit order; HORIZON-1 INTAKEN — the ruling, the rows, the fitted map, the first charters
+- **D-v110-19 — the b2 ordering defect:** beat 2's splice wrote into files holding beat 1's unlanded edits; `99c65df` carries both beats' spine under beat 1's subject; the four remaining files landed as `391f015`. The law in pm-lessons 2026-10-13; nothing lost but the shape.
+- **D-v110-20 — Nick's mandate (Tue 16:3x CT; his words in §1 of this DR, carried into v111's text):** the hub decides the order, the window's contents and the lanes; one act at a time; stops only for money, legal, hardware, anything outside the company and anything irreversible; ambitious — everything freeze-safe moves. His rulings banked: `KIT-STORAGE: a` (+ the coordinator on the same order; PI-2's first SSD boot measures boot-to-ready, RSS and the replay rate = RUNTIME-1's first point) · D-v110-16 ruled now (never `37f05a9`; `ba08dd8` the oldest; the exact sha on Friday's word; Sunday's rehearsal carries the pre-warm and reads the margin) · the pre-warm is a contingency, not architecture — after BC10, measure whether a cold boot still needs it; boot cost as a function of store size measured at BC10's cold start and Sunday's rehearsal → SCHEMA-1 · IR-191's breakdown is GATE-2's first step, options by Thursday · N1 and OUTREACH-2 are his this week · IR-188..191 and D-v110-11/12 accepted · dry-run #2's packet carries IR-190's three fixes + the pre-warm · b3 and b5 not compressed; b5 may carry to v111.
+- **D-v110-21 — the kit order (Nick's money, handed as one act):** the Pi 5's SSD on PCIe (the official SSD Kit 256 GB or the M.2 HAT+ + a 2242 NVMe; the 27 W PSU if PI-2's kit lacks it); one SONOFF Dongle Plus-MG24 (the rig's SKU; v14 expected → the reflash is PI-2's card's expected step, IR-202); nothing else before the households' answers. Word: `KIT-ORDER: placed … · ETA …`.
+- **D-v110-22 — HORIZON-1 INTAKEN** (`audits/2026-10-13_v110-b3_HORIZON-1_intake_two-layer_audit.md`): ACCEPT the return and the v109 analysis, each corrected — F2's growth 3–9× low against the measured 17.5 GB/yr at the rig's posture; F3 misses AMD-47's value upcaster and `DegradedEvent`; F6's "no transport" rules out the in-JVM datagram, not `NotifyAccess=all` + `systemd-notify`; F13 recounted 614/702 = 87 %; F16 is EU/UK law on a US pre-pilot. Against v109: the process remedy is PROCESS-2's, not this fortnight's; ACK-1 ranks first and lands in January, not between the freeze lift and the first installs. 24 ACCEPTED · 5 CORRECTED · 9 DEFERRED · 0 REJECTED.
+- **D-v110-23 — the rows IR-192..202** (one per lane or rule): TAIL-1 · SCHEMA-1 · RESTORE-1 · ACK-1 · HYGIENE-1 · APPLIANCE-1 (the transport) · AVAIL-2 · the latest-run projection · LICENSE-1 · POSTURE-1 · the kit firmware policy. Two lessons (the splice waits for the landing; md5 after every copy).
+- **D-v110-24 — the map fitted** (the audit §4): eleven sessions, ≈ 29 of Nick's hours over nine weeks (≈ 3.2 h/week inside THE HORIZON's 30); they REPLACE: B3's grader re-cut ← GATE-2 · one R6 evening ← TAIL-1's trial · J8's fixes window ← HYGIENE-1 · two of J9's five December briefs ← ACK-1 + RESTORE-1 · C8's inputs ← ROADMAP-1; AVAIL-2 after the run; POSTURE-1 Dec; the Q1 lanes named in ROADMAP-1. RUNTIME-1 is measurement at no cost (PI-2's SSD boot; BC10's cold start; Sunday's rehearsal); its ADR is pass 3's.
+- **D-v110-25 — the first charters:** GATE-2 DISPATCH-READY (`instructions/2026-10-13_bench-lane_GATE-2_…`; the dispatch line handed; return Thu 12:00 CT) · SCHEMA-1 DISPATCH-READY (`instructions/2026-10-13_research-lane_SCHEMA-1_…`; return Oct 25; the AMD after Nov 2) · LICENSE-1 cut when SCHEMA-1 returns (one research lane at a time), ruled by Nov 2 · the API's public-or-internal ruling by Dec 14 (IR-196).
+- **D-v110-26 — the window from here:** after D2's line (→ v111), b4 = the unit cards LIVE (their §A.2 re-cut passed the stub-ssh dry-run against `6a40a10` Monday night) + BC10's card drafted + PI-2's card gains the probe/reflash block; b5 = the deliberation (§C against the evidence — IR-197's transport finding is its first exhibit) and pass 3's outline; the close with v111's text and the two measures (cards handed: 5 — the bench landing, b1, b2, b2-files, the kit order; the GATE-2 dispatch is a lane, not a card).

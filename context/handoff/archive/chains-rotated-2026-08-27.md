@@ -1245,3 +1245,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## ## chain segment rotated 2026-10-12 (v110 beat 2) — v109 b4, verbatim
 
 2026-10-12 (v109 beat 4, THE CLOSE — `HIVE: LANDED fdce2d0`; **COMPARATOR-1 INTAKEN ACCEPT** (R1 re-fetched at the pinned revisions; IR-138: the availability record missing in the sources checked; IR-184: the hero narrowed — Home Assistant records some non-firings, the field records dispatch, not confirmation; 0 license lines); **OUTREACH-2 LIVE v2** on `go with edits A–E`; BENCH-BOOT-1 running → v110; two lessons; the deliverable MET at b1 and beyond (GRADER-S31-1 LANDED `ceb08c5`); **v110's text FILED**; v108's six beats ROTATED; D-v109-20..28; v109 CLOSES; Mon 2026-10-12 ~15:5x CT (instrument 2026-10-12T20:50:46Z). Next: the close card → ≈ 19:00 CT dry-run #1 → v110 on Nick's paste)
+
+## ## chain segment rotated 2026-10-13 (v110 beat 3) — v110 b1, verbatim
+
+2026-10-12 (v110 beat 1 — `HIVE: LANDED e6a7ecc`; the boot PASS (7 MATCH); **BENCH-BOOT-1 INTAKEN ACCEPT** at the bytes (the tree `a17a7754…`; 57/0 · 42/0 · 54/0 · 42/0; row 7 `1 0 0 0` → IR-183 widened; the stub delegation holds; IR-185..187) → its landing card in Nick's form; Nick's addendum filed, its order adopted; D-v110-1..9; Mon 2026-10-12 ~18:3x CT (instrument 2026-10-12T23:35:17Z). Next: `BENCH: LANDED` → ≈ 19:00 CT dry-run #1's line → the b1 card → (ii) D2 + IR-56 → the HORIZON-1 intake)

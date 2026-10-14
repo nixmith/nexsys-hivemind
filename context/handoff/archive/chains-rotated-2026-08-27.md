@@ -1249,3 +1249,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## ## chain segment rotated 2026-10-13 (v110 beat 3) — v110 b1, verbatim
 
 2026-10-12 (v110 beat 1 — `HIVE: LANDED e6a7ecc`; the boot PASS (7 MATCH); **BENCH-BOOT-1 INTAKEN ACCEPT** at the bytes (the tree `a17a7754…`; 57/0 · 42/0 · 54/0 · 42/0; row 7 `1 0 0 0` → IR-183 widened; the stub delegation holds; IR-185..187) → its landing card in Nick's form; Nick's addendum filed, its order adopted; D-v110-1..9; Mon 2026-10-12 ~18:3x CT (instrument 2026-10-12T23:35:17Z). Next: `BENCH: LANDED` → ≈ 19:00 CT dry-run #1's line → the b1 card → (ii) D2 + IR-56 → the HORIZON-1 intake)
+
+## ## chain segment rotated 2026-10-13 (v110 beat 4) — v110 b2, verbatim
+
+2026-10-12 (v110 beat 2 — **DRY-RUN-1 (Mon) INTAKEN; the window OPEN 20:03:53 CT** on the pre-warmed relaunch (P2″ failed as written; D-v110-11 the one-step backup; D-v110-12 the contingency); K-4 PASS; BACKUP-1 Part 0 DONE; IR-148 sharpened (`37f05a9`'s warm margin expires ≈ Oct 22; the fix in every Friday candidate); IR-188..191; **D2 Tue 20:04 CT** with the amended card (IR-56's lines; the slots filled); `KIT-STORAGE:` H10; D-v110-11..18; Mon 2026-10-12 ~20:5x CT (instrument 2026-10-13T01:54:34Z). Next: the b1 + b2 cards → `KIT-STORAGE:` → b3 HORIZON-1 → b4 (iv)+(vi) → b5 → the close; D2's line → v111)

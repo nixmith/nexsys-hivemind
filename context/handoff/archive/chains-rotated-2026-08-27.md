@@ -1253,3 +1253,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## ## chain segment rotated 2026-10-13 (v110 beat 4) — v110 b2, verbatim
 
 2026-10-12 (v110 beat 2 — **DRY-RUN-1 (Mon) INTAKEN; the window OPEN 20:03:53 CT** on the pre-warmed relaunch (P2″ failed as written; D-v110-11 the one-step backup; D-v110-12 the contingency); K-4 PASS; BACKUP-1 Part 0 DONE; IR-148 sharpened (`37f05a9`'s warm margin expires ≈ Oct 22; the fix in every Friday candidate); IR-188..191; **D2 Tue 20:04 CT** with the amended card (IR-56's lines; the slots filled); `KIT-STORAGE:` H10; D-v110-11..18; Mon 2026-10-12 ~20:5x CT (instrument 2026-10-13T01:54:34Z). Next: the b1 + b2 cards → `KIT-STORAGE:` → b3 HORIZON-1 → b4 (iv)+(vi) → b5 → the close; D2's line → v111)
+
+## ## chain segment rotated 2026-10-14 (v111 beat 1) — v110 b3, verbatim
+
+2026-10-13 (v110 beat 3 — **HORIZON-1 INTAKEN, pass 2** (24 ACCEPTED · 5 CORRECTED · 9 DEFERRED; F2's growth 17.5 GB/yr at the rig's posture; F6 has a transport; IR-192..202; the map fitted to ≈ 29 of Nick's hours); **GATE-2 DISPATCHED** (Thu 12:00) · **SCHEMA-1 DISPATCH-READY** (Oct 25); Nick's mandate banked (the hub decides; one act; the stops); `KIT-STORAGE: a` → the kit order; the b2 defect owned (`391f015`); D-v110-19..26; Tue 2026-10-13 ~16:5x CT (instrument 2026-10-13T21:53:36Z). Next: `GATE-2: running` → SCHEMA-1's dispatch → the b3 card → 20:04 D2 (→ v111) → b4 → b5 → the close)

@@ -53,7 +53,7 @@ HELD_KEYS = ("lane", "state", "next")
 def _lib():
     spec = importlib.util.spec_from_file_location("splice_lib_v2", LIBP); lib = importlib.util.module_from_spec(spec); spec.loader.exec_module(lib)
     assert lib.lib_md5() == LIB_V2_MD5, lib.lib_md5(); return lib
-lib = _lib(); SNAP_CAP, BRIEF_CAP = lib.SNAP_CAP, lib.BRIEF_CAP
+lib = _lib(); SNAP_CAP, BRIEF_CAP = lib.SNAP_CAP, 14336   # D-v111-39 (v111 b5, 2026-10-15): the brief's cap 12 KB → 14 KB by a named edit (D-v110-7's rule) — splice_lib_v5 carries the same number; the v67 prompt §1.2(d)/§1b.3 re-cut to match
 nb, rd, wr = lib.nbytes, lib.rd, lib.wr
 
 def _utf8_stdout():

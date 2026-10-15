@@ -3,7 +3,7 @@ file: context/planning/2026-10-14_v111_decision-record.md
 purpose: v111's decision record — §1 the dispatch text and Nick's first message verbatim; §2 the facts at the instrument (once); §3 the decisions, one id per choice (D-v110-7's rules: one fact one place; ids for choices only; one audit per return).
 audience: the hub (every beat) · Nick (§3 by id)
 state-type: decision record
-status: LIVE — v111 beat 1 (Wed 2026-10-14 ~07:1x CT; instrument 2026-10-14T12:14:54Z)
+status: LIVE — v111 beat 2 (Thu 2026-10-15 ~06:0x CT; instrument 2026-10-15T11:09:47Z); beat 1 Wed 2026-10-14 ~07:1x CT
 -->
 
 # v111 — decision record
@@ -80,6 +80,35 @@ logical_time / node_id: Keep them reserved and written 0 for a future multi-hub 
 SD vs SSD: with retention, an SD card is big enough at every posture. Card wear is the real limit, and it hasn’t been measured, so the SSD-at-kit decision stands. The return proposes one read-only bench reading to measure it.
 ```
 
+### §1c Nick's words, Thu 2026-10-15 05:50 CT — beat 1 accepted; the order for b2–b5; the five SCHEMA-1 checks (verbatim, 5,214 B; the copy `_scratch/v111/b2/nick_review_2026-10-15.txt`)
+```
+```markdown
+   028dbed..05c1515  main -> main
+05c1515 (HEAD -> main, origin/main) hivemind: v111 beat 1 — dry-run #1 complete: D2 intaken at the bytes; IR-56 closed on sample 7; R4 passed; the growth figure corrected
+```
+
+
+1. Beat 1 (D2) — ACCEPTED as filed, with two notes. The du correction is right: the span is D0a→D2 (24.19 h), 48.4 MB/day, 504 B/row — v110’s 49.6 was a close-time glance marked as not an intake; the 17.5 GB/yr ruling stands at 17.8. IR-203 (P5″ reworded on the class’s limit) is the right shape — one timeout in 1,136 that never named the device dark is the household sentence holding, not a failure. IR-56 CLOSED on sample 7 is correct, but say in its closing cell what stays open: the silent-resume class (IR-128’s reading — the detector is the link/report layer) lives in IR-198 (AVAIL-2); closing the row closes the instrument, not the class. As an aside: I am very impressed with your critiquing and ability to consider our views and objectives from different perspectives, allowing us to refine and improve our own designs, strategies, and implementations — keep this up.
+
+2. Beat 2 TODAY (Thursday, time now is 05:50 CT) — GATE-2’s intake, then the N3 options. The charter’s §0.5 is the law: layer 2 is the hub RE-RUNNING the lane’s SQL on the desk copy (`~/hs-bench/backups/…2026-10-12.db`, `mode=ro`), not re-reading its tables. A 30-KB return in ≈ 3 hours earns suspicion at three points: that `timeout_causes()` at `:814` was called, not re-implemented; that idempotent sends are `bench`’s named subclass, not `device`’s; that the weekly series carries the regimes (the Hue dark; the S31 off from 09-20). Then the H10 to me (Nick) in the charter’s three options with what each would have done to the soak nights — N3 is his by Oct 22. The landing card (`staged=3` on `gate-2/evidence`, tree `7dc6041…`) in his form: the one deletion by exact path if any, `HEAD^{tree}` asserted.
+
+3. Beat 3 — SCHEMA-1’s intake, with these five verifications before any rule becomes a row:
+
+* (a) The J3 T-B claim is the one that matters this week. “`automation_completed` gained its eighth component and is still written at v1, against the ratified doc’s additive-bump rule” — verify at `176adad`: the codec’s version for that type, and doc 01’s exact sentence. If it holds, it is an input to Friday’s go/no-go per tree, not a post-run note: deploying T-B writes v1 rows in a new shape on the run’s store; the options are the C1 word (T-A `e11ae20` alone) or T-B accepted with the bump owed post-run (Jackson’s zero-fill is the de facto upcaster for v1-with-7 vs v1-with-8). Put it beside the Fri word; Nick rules.
+* (b) “26 call sites in 18 files” — one grep, pasted, before the number is written anywhere.
+* (c) “45 s warm replay of the settled store” — the lane must name WHICH projection walks from 0 at boot on `176adad`. D2’s own nightly line shows the state projection loading from a checkpoint at position 1,907,319 (`projectionVersion=5`), and the registry rebuild is fixed. If no projection walks from 0, rule 3 is about the explain projection’s per-poll scans (F18 / IR-199), not boot — a different row and a different date.
+* (d) Retention by deletion is a one-way door for the thesis (“the promise is the log”; THE HORIZON J1 “the on-disk format one-way”). Chains-90 / `state_changed`-90 / `state_reported`-7 is a coherent proposal and its price (≈ 2 GB settled) is attractive, but a 7-day reporting history changes what the record can answer a household — that is Nick’s call under his mandate (irreversible), an H10 at this intake with “keep everything + storage” as one option, never adopted by the hub. The two hazards the lane found in the unenforced policy (the registry at NORMAL priority; a command’s timed-out ending as DIAGNOSTIC) are real rows regardless — nothing enforces them today, so nothing is live; they bind whoever implements retention.
+* (e) `clock_status` as a new event type — cheap and honest; note its cost: the catalog, the grader’s whitelist (GRADER-S31-1’s form), the explain projection’s indifference to it. Post-run.
+* Rule 5 and the SD-wear reading: accept; the wear measurement is a read-only bench line (`/proc/diskstats` write sectors per day on the rig), not a lane.
+
+
+4. Then BC10’s card for Friday’s re-stamp — now with three inputs to the per-tree word: the J3 C1 option, the IR-148 fix (in every candidate), and 3(a) if it holds; BACKUP-1 first in the one-step form; one cold start as IR-148’s “after”; the pre-warm block on standby, not in the card’s path.
+
+5. Order and budget: beat 2 (GATE-2 + N3’s options by noon) → beat 3 (SCHEMA-1, the five checks, the retention H10) → BC10’s card → PI-2’s probe/reflash block → the deliberation and pass 3’s outline as the window allows; close on a clean point. Each intake its own beat, each two layers, the splice never into a tree holding an unlanded beat.
+
+Determine carefully how we should proceed and work from here. Take your time processing all information and thinking strategically, and about how we can most impactfully use our time and efforts.
+```
+
 ## §2 The facts at the instrument (banked once; the beat blocks point here)
 - The boot (Wed 2026-10-14 ~06:5x CT; `date -u` 2026-10-14T11:57:49Z): SHELL up; `/sessions` → `TMPDIR=/tmp` (IR-181). The read set 33.6 KB (the v67 prompt 14.1; the chain 1.6; the b4 beat 1.6; the snapshot 3.4; the brief 11.9; the DR §3 b1 by range; the plan's headings). The preflight: C1–C12 PASS (C7: the one module without a MODULE_CONTEXT is `spike/wal-validation`; C9 28/28 identical at the bytes; C11 deferred to SCHEMA-1's round-trip at beat 3; C12 0/0/0 — the two LIVE instructions are GATE-2's and SCHEMA-1's charters). The renderer `--check` 7 MATCH.
 - The HEADs: core `176adad` (0/0) · hivemind `028dbed` (porcelain 2: the two `??` returns; 0 ahead) · skills `e9a77a8` · bench `6a40a10` on **`gate-2/evidence`** with the lane's three files staged (`A tools/verify72h/breakdown.py` · `M tools/verify72h/grader.py` · `M tools/verify72h/test_verify72h.py`; the tree claim `7dc60418…` read at beat 2) · docs `e2a5844`. No push count anywhere.
@@ -96,3 +125,12 @@ SD vs SSD: with retention, an SD card is big enough at every posture. Card wear 
 - **D-v111-7 — the words:** `DRY2-PASS:` and `BACKUP-NIGHTLY:` do not gate an act this beat and are not asked; `VOLUME:` is not gated (R4). `CAPACITY:` is not asked — the hub decides the order (the mandate); Nick's word, if given, trims the window.
 - **D-v111-8 — the order after this beat:** b2 GATE-2's intake (the hub re-runs its SQL on the desk copy; the landing card; the N3 options) → b3 SCHEMA-1's intake (every cited line re-read at `176adad`; every price re-done) → LICENSE-1 cut → b4 BC10's card draft + PI-2's card LIVE + the claims caveats → b5 the deliberation → the close. The v111 dispatch text's `status:` set EXECUTED (the archive convention, C12).
 - **D-v111-9 — the card:** `_scratch/v111/b1/card_b1.txt`, gated on `028dbed`; 10 files (3 new, 7 modified; the census computed from porcelain); the two lane returns stay `??` until beats 2 and 3. This record carries the trailer-grep string once, inside Nick's pasted card (§1b) — the card-grep exemption; the splice asserts exactly one occurrence here and zero everywhere else.
+
+## §3b Beat 2 (Thu 2026-10-15 ~06:0x CT): GATE-2 INTAKEN ACCEPT → LANDED `5cf3bd0`; N3's H10; the register rows
+- **D-v111-10 — the landing:** `BENCH: LANDED 5cf3bd0` (Thu 06:03 CT); the commit's tree = the lane's `7dc6041853131e9ac89e1b9023b8848e1b45c6e2`; parent `6a40a10`; ff-only onto `main`; porcelain 0; no deletion (D9's six `tmp_obj_*` are not locks, left).
+- **D-v111-11 — INTAKEN ACCEPT** (`audits/2026-10-15_v111-b2_GATE-2_intake_two-layer_audit.md`): the charter's §6 met line by line; layer 2 the hub's own SQL on the copy by folder grant from the desk VM — every number equal (the md5; 1,714 timeouts = HUE 1,671 + S31 43 on 1,714 distinct commands; T3's issued and confirmed columns by the primary chain; 0 of 764 since the Hue's last row 2026-07-19T00:49:15Z; the S31 32/32 since 09-27; SN1 82,938 rows / 3 starts / 49.4 MB/day, SN2 41,257 / 3 / 46.7, the last 24 h 95,611 / 47.9); the staged tree by `git archive` 10/0 and 63/0 here; the red-first re-executed (63/5 at `6a40a10`'s grader); `constants.yaml` `9b0af47b3376` in both trees. Nick's three points hold at the bytes (the audit §2.4).
+- **D-v111-12 — the deviations:** D1–D6 ACCEPT; D7–D11 INFO. The charter's own miss owned: the copy ends at 1,876,566, before dry-run #1's window (POS1b 1,877,415) — the lane's §0.8 correction stands; that window is the D2 intake's (b1), not the copy's.
+- **D-v111-13 — the register:** IR-204 (`bench` on a stale prior — a vocabulary change, ruled with N3) · IR-205 (level/colour expectations in `constants.yaml`) · IR-206 (two identify commands never terminated — a core read, post-run) · IR-207 ((viii)'s class; the hero must not read COMPLETED as acted) · IR-208 (`--declared-restarts` in export.py — (b)'s prerequisite) · IR-209 (the README paragraph; the S31's two `device` classes; B3's store instrument at BC10). OR-HUE-REPORTING-DEAD gains its measured start (07-19T00:49:15Z). IR-56's cell amended on Nick's note: the row closed is the instrument; the silent-resume class stays open in IR-198 (AVAIL-2; IR-128's reading — the detector is the link/report layer).
+- **D-v111-14 — N3's H10 filed** (the audit §5): (a) gate · (b) the red line · (c) bookkeeping as landed; the hub recommends (c) for the run and (b)'s red line set at the post-run intake from the run's own 72 h; refutable-by Nick wanting a fitness PASS/FAIL out of the run for the households — then (b)'s one bench lane before Oct 22. Nick's word by Oct 22; not blocking.
+- **D-v111-15 — the lanes:** the bench lane FREE (`gate-2/evidence` merged; deletable at the housekeeping card with the others); no lane opened; the next bench work rides N3's word (IR-208 if (b)) or post-run (IR-183's tool half + IR-189 + IR-209).
+- **D-v111-16 — the card:** `_scratch/v111/b2/card_b2.txt`, gated on `05c1515`; 9 files (2 new — the audit and the GATE-2 return now staged; 7 modified). Beat 3 opens on SCHEMA-1 with Nick's five checks, (a) first.

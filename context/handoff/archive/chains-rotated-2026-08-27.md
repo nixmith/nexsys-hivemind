@@ -1257,3 +1257,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## ## chain segment rotated 2026-10-14 (v111 beat 1) — v110 b3, verbatim
 
 2026-10-13 (v110 beat 3 — **HORIZON-1 INTAKEN, pass 2** (24 ACCEPTED · 5 CORRECTED · 9 DEFERRED; F2's growth 17.5 GB/yr at the rig's posture; F6 has a transport; IR-192..202; the map fitted to ≈ 29 of Nick's hours); **GATE-2 DISPATCHED** (Thu 12:00) · **SCHEMA-1 DISPATCH-READY** (Oct 25); Nick's mandate banked (the hub decides; one act; the stops); `KIT-STORAGE: a` → the kit order; the b2 defect owned (`391f015`); D-v110-19..26; Tue 2026-10-13 ~16:5x CT (instrument 2026-10-13T21:53:36Z). Next: `GATE-2: running` → SCHEMA-1's dispatch → the b3 card → 20:04 D2 (→ v111) → b4 → b5 → the close)
+
+## ## chain segment rotated 2026-10-15 (v111 beat 2) — v110 b4, verbatim
+
+2026-10-13 (v110 beat 4, THE CLOSE — `HIVE: LANDED bfb1b70`; the unit cards' §A.2 LIVE (the stub dry-run record filed; §B → v111); **v111's text FILED**; the deliverable adjudicated (MET at b1; the HORIZON-1 ruling and the fitted map MET; pass 3's outline → v111 by design, D-v110-29); the measures 3/4 · 7 cards; D-v110-27..33; v110 CLOSES at four beats on the context constraint; Tue 2026-10-13 ~19:4x CT (instrument 2026-10-14T00:45:40Z). Next: the close card → 20:04 D2 → v111 on Nick's paste (its beat 1 = D2's intake))

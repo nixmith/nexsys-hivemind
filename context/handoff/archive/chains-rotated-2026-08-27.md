@@ -1285,3 +1285,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-17 (v112 beat 1) — v111 b6, verbatim
 
 2026-10-15 (v111 beat 6 — **BENCH-HYGIENE-1 LANDED `7e03c81` = BP11** (ACCEPT; the RED re-run against the parent); Nick's review ruled (the six gaps; `KIT-DONGLE: both`; `N3:` by Oct 20; the deliberation Sun Oct 18 at v112); IR-216; D-v111-40..47; Thu 2026-10-15 ~10:4x CT (instrument 2026-10-15T15:45:31Z). Next: the b6 card → `KIT-ORDER:` + B.7 → b7 the close (v112's text))
+
+## chain segment rotated 2026-10-17 (v112 beat 2) — v111 b7, verbatim
+
+2026-10-16 (v111 beat 7 — **THE CLOSE**: v112's text filed (`handoff/2026-10-16_v112_dispatch-text.md`; v112 opens TONIGHT on Friday's word → BC10 DISPATCH-READY before Sat 09:00; LICENSE-1's intake its b2); the deliverable MET; 6/6 spine-touching, 9 cards; the lock lesson; the archive's ten headings corrected; D-v111-48..55; Fri 2026-10-16 ~19:4x CT (instrument 2026-10-17T00:48:43Z). Next: the close card → v112's paste tonight)

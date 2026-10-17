@@ -3,7 +3,7 @@ file: context/planning/2026-10-16_v112_decision-record.md
 purpose: The v112 PM MISSION-CONTROL window's decision record — Nick's dispatch text and words verbatim (§1), the facts read at the instrument (§2), the decisions per beat (§3 onward). The spine's beat blocks point here.
 audience: Nick · the hub · v113
 state-type: decision record (appended per beat)
-status: LIVE — v112 beat 1 (Sat 2026-10-17 ~07:4x CT; instrument 2026-10-17T12:42:35Z)
+status: LIVE — v112 beat 2 (Sat 2026-10-17 ~07:5x CT; instrument 2026-10-17T12:54:26Z)
 -->
 
 # v112 — decision record (opened Fri 2026-10-16 20:57 CT)
@@ -82,3 +82,10 @@ Time now: 07:36 CT on Saturday — I have 12+ hours to work today.
 - **D-v112-5 — Check 12's hygiene:** GATE-2's, SCHEMA-1's and BENCH-HYGIENE-1's charters → `status: EXECUTED` (their returns intaken at v111 b2 · b3 · b6); LICENSE-1's flips at its intake (b2).
 - **D-v112-6 — the order of the window:** b2 LICENSE-1's intake (Saturday, after BC10's line); then HERO-U4's charter (web-ui, on BC10's capture), the SCHEMA-1 AMD draft, PI-2's §B dry-run → LIVE before Tuesday; Sunday the deliberation + pass 3's outline, then the rollback + BC9b card. `KIT-ORDER:` reminded (it was not in the first message).
 - **D-v112-7 — the b1 card** (`_scratch/v112/b1/card_b1.txt`; gated on `5b54f2e`; 13 staged) → `HIVE: LANDED <sha>`; then BC10 at 09:00 (Nick pastes the card whole into a fresh Cowork conversation).
+
+## §3b Beat 2 (Sat 2026-10-17 ~07:5x CT): LICENSE-1 INTAKEN ACCEPT → the H10 to Nick (`LICENSE:` by Nov 2); BC10-F filed
+- **D-v112-8 — `HIVE: LANDED 8fb69a6`** (Nick, Sat 07:44 CT) = the instrument (`origin/main..HEAD` 0; porcelain = LICENSE-1's return).
+- **D-v112-9 — BC10-F, the failure arm, cut and HELD** (`instructions/2026-10-17_bench-card_BENCH-CORE-10-F_…`, 5,717 B, md5 `db336ab3…`): F1 one pre-warmed warm start of `176adad`; F2 on the hub's word only — `37f05a9` restored by sha (the old install tree from C1's backup, pre-warmed; the failed tree RENAMED, never removed), the live store kept, the backup untouched. Its stub-ssh dry-run (`_scratch/v111/bc10/bc10f_dry-run.sh`): COMPLETE — no FAIL on both arms (warm holds · both fail → F2 up, `degraded=2` read, the backup intact). It runs only on C3's STOP.
+- **D-v112-10 — LICENSE-1 INTAKEN ACCEPT** (`audits/2026-10-17_v112-b2_LICENSE-1_intake_two-layer_audit.md`; the return md5 `ab2dda14…`, staged in this beat): layer 2 held at every re-read — the two DRAFTs at the file, the greps at `176adad`, every load-bearing clause at its URL, two precedents, the direct dependency set re-derived. The H10 (the audit §0) goes to Nick: the PM recommendation (b) with the consent scoped to named repositories BEFORE signing, FSL-1.1-ALv2 for the engine, a DCO on the core; `LICENSE:` by Nov 2. The docs follow COMMERCIAL-1 A4 (Apache 2.0) unless Nick says CC BY 4.0.
+- **D-v112-11 — the register:** IR-217 (the consent's scope) · IR-218 (the pilot's licensing critical path: the flip before the first outside install) · IR-219 (the `.deb`'s third-party terms). The research lane is FREE; AVAIL-2 is next (one research lane at a time).
+- **D-v112-12 — the second check Nick asked for (forward):** counsel (N1) is now on the critical path of the first outside install (IR-218); `KIT-ORDER:` is on PI-2's (Tue Oct 20 needs the SSD kit in hand).

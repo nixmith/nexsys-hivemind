@@ -22,17 +22,17 @@
 # template is removed here in the same edit. Every day-name below is written from the calendar (D-v107-25), never inherited.
 # ---- snapshot-digest
 beat:
-  label: "v112 b5"
-  headline: "HERO-U4 INTAKEN — landing-ready; AVAIL-2 ready; the AMD draft filed; RETENTION → (c′)"
+  label: "v112 b6"
+  headline: "THE CLOSE — HERO-U4 LANDED `e84b6bf`; AVAIL-2 running; the outline; v113's text"
 shas:
-  core: "176adad"
-  core_note: "(J3 T-B over T-A `e11ae20` over `ba08dd8`; **`CI: green` each**; on the Pi since BC10)"
+  core: "e84b6bf"
+  core_note: "(HERO-U4 over J3 T-B `176adad` — the Pi's, BY SHA — over T-A `e11ae20`; **`CI: green` each**)"
   bench: "7e03c81"
   bench_note: "(BP11 over GATE-2 `5cf3bd0`; on the Pi since BC10)"
   docs: "e2a5844"
   skills: "e9a77a8"
-  hivemind: "7543093"
-  hivemind_note: "b5 pending"
+  hivemind: "3d7c4be"
+  hivemind_note: "the close pending"
 pi:
   host: "hs-dev-1"
   running: "176adad"
@@ -41,9 +41,9 @@ pi:
     - "bench `7e03c81`"
     - "SOAK-NIGHT-3 on `bench-2026-10-17-111625.log`"
 notes:
-  - "**BC10 DONE (v112 b3): `176adad` UP** — IR-148's after 0.584 s cold on 2.32 M events (bar 20.4 s); BACKUP-1 36 s, md5 both sides; DV-1 → IR-220."
+  - "**BC10 DONE (v112 b3): `176adad` UP** — IR-148 CLOSED (0.584 s cold on 2.32 M events)."
   - "**SOAK-NIGHT-3 tonight** · **Sun BC11** (the rollback) · PI-2 on the kit (the fresh image + BC9b) · Oct 22–23 dry-run #2 → the freeze · Oct 30 – Nov 2 the run."
-  - "**v112:** b1 BC10 re-stamped · b2 LICENSE-1 → `LICENSE:` Nov 2 · b3 BC10 INTAKEN · b4 BC11 cut · b5 HERO-U4 intaken; AVAIL-2, the AMD draft, PI-2's inventory."
+  - "**v112 CLOSED at b6:** BC10 · LICENSE-1 · BC11 cut · HERO-U4 LANDED `e84b6bf` · AVAIL-2 running · the outline · v113's text."
 fleet:
   registry: "10"
   on_air: "9"
@@ -57,39 +57,39 @@ open_irs:
   - "140"
   - "141"
 next_acts:
-  - "the b5 card"
-  - "HERO-U4's landing · AVAIL-2's paste · b6 (the close) · **Sun BC11** · `KIT-ORDER:` · `N3:` by Oct 20"
+  - "the close card"
+  - "Sun: v113 on its text — SKILLS-1 · CONTEXT-1 · **BC11** · the deliberation · PI-2 DRAFT-3"
 open_risks: "eleven — OR-COLD-BOOT-REGISTRY · OR-HUE-REPORTING-DEAD · OR-S31-INTERMITTENT · OR-NIGHTLY-0902-S31 · FAILCHAN · BUS-SILENT-DROP · ADOPT-AWAKE · METERING-VOLUME · three standing — + IR-29..225 + one fence. Standing: D4 · no batched pushes · the rig exclusive · FENCE-BUS · the S31 hands-off · no public name before its protocol row · the hub never commits or pushes · every card gated · the restore before any gap · no ungrepped premise · `--no-optional-locks` · every edited row by its id · the amendment quotes the principle · cards named by hostname; the dongle in only after the identity gate."
 # ---- brief-status
-status: "LIVE — v112 beat 5 (Sat 2026-10-17 ~15:1x CT; instrument 2026-10-17T20:14:05Z): HERO-U4 intaken — landing-ready (the card dry-run); AVAIL-2 dispatch-ready; the SCHEMA-1 AMD draft and PI-2's inventory filed; RETENTION → (c′). §NEXT holds the b5 card, then HERO-U4's landing. Prior: v112 beat 4 — BC11 dispatch-ready (the chain before it: this file's git history)."
+status: "CLOSED — v112 beat 6, the close (Sat 2026-10-17 ~15:5x CT; instrument 2026-10-17T20:52:39Z): HERO-U4 LANDED `e84b6bf` (CI green); AVAIL-2 running; the deliberation's outline filed; v113's text filed. §NEXT holds the close card, then v113's text in a fresh session Sunday. Prior: v112 beat 5 (the chain before it: this file's git history)."
 # ---- brief-digest (the Pi's host and sha are the snapshot's pi.host and pi.running)
 brief:
-  beat: "v112 b5"
-  ct: "Sat 2026-10-17 ~15:1x CT"
+  beat: "v112 b6"
+  ct: "Sat 2026-10-17 ~15:5x CT"
   pi_note: "since Sat 10:16:26 CT (BC10); bench `7e03c81`; the nightly ≈ 03:30 CT"
   notes:
-    - "HERO-U4 passed its review (tests re-run on a copy; the real capture pinned; the copy audited) — its landing is next. AVAIL-2 is ready. My RETENTION recommendation is corrected: INV-RF-05 needs a default storage bound (b5 §7)."
-    - "**Next: the b5 card**, HERO-U4's landing, AVAIL-2's paste; b6 closes v112 tonight. Sunday: BC11 (≈ 60 min, before 21:30). **`KIT-ORDER:`** this week · `N3:` by Oct 20."
+    - "v112 closes here: HERO-U4 is on `main` (`e84b6bf`, green), AVAIL-2 researches until Wednesday, and the deliberation's outline is filed. Sunday opens v113 on its text: your two sessions (skills; the record's cleanup), BC11, the deliberation."
+    - "**Next: the close card**; then Sunday, a fresh session on `handoff/2026-10-17_v113_dispatch-text.md`. BC11 any time that ends before 21:30. **`KIT-ORDER:`** this week · `N3:` by Oct 20."
   week:
     - "**Mon Oct 12** GRADER-S31-1 `ceb08c5`; BENCH-BOOT-1 `6a40a10`; dry-run #1 opened 20:03:53 CT"
     - "**Tue Oct 13** `KIT-STORAGE: a`; HORIZON-1 RULED; GATE-2 + SCHEMA-1 dispatched; §A.2 LIVE; v110 CLOSED at b4; D2 RAN 19:42"
     - "**Wed Oct 14** DRY-RUN #1 COMPLETE (b1; IR-56 CLOSED); PKG-FRESH-1b; the asks out"
     - "**Thu Oct 15** GATE-2 LANDED `5cf3bd0` (b2; N3's H10); SCHEMA-1 INTAKEN (b3; RETENTION H10); BH-1 DISPATCHED, BC10 DRAFTED (b4); the map, LICENSE-1 CUT (b5); **BH-1 LANDED `7e03c81`** (b6)"
     - "**Fri Oct 16** v111 CLOSED at b7; v112 opened 20:57"
-    - "**Sat Oct 17** the word 07:36 → **BC10 DONE** (`176adad` up; IR-148 CLOSED); HERO-U4 intaken; BC11 cut; AVAIL-2 ready; PKG-FRESH-1b + BC9b → PI-2"
+    - "**Sat Oct 17** the word 07:36 → **BC10 DONE** (`176adad` up; IR-148 CLOSED); HERO-U4 LANDED `e84b6bf`; BC11 cut; AVAIL-2 running; v112 CLOSED"
     - "**Sun Oct 18** BC11 (the rollback)"
     - "PI-2 on the kit (≈ Nov 10)"
     - "Oct 22–23 dry-run #2 → the freeze"
     - "Oct 30 – Nov 2 the run"
   yours:
-    - "the b5 card → `HIVE: LANDED` · **HERO-U4's landing** · AVAIL-2 · **Sun BC11** · **`KIT-ORDER: placed … · ETA …`** (open) · `FLASHER:` (B.7) · `N3:` by Oct 20 · **`LICENSE:` Nov 2** · `RETENTION:` Nov 2 · the calls · N1 (counsel: the pilot's long pole)"
+    - "the close card → `HIVE: LANDED` · **v113's text (Sun)** · **BC11** · **`KIT-ORDER: placed … · ETA …`** (open) · `FLASHER:` (B.7) · `N3:` by Oct 20 · **`LICENSE:` Nov 2** · `RETENTION:` Nov 2 · the calls · N1 (counsel: the pilot's long pole)"
     - "the two OUTREACH-2 calls → `OUTREACH: <who> · yes | maybe | no`"
     - "`BENCH-BOOT: mon19 · tue20 · wed21`"
     - "`BRIDGE: up`"
     - "counsel"
 week_ruling: "by id; every day-name from the calendar"
 # ---- brief-held
-held_as_of: "v112 b5, Sat 2026-10-17 ~15:1x CT"
+held_as_of: "v112 b6 (the close), Sat 2026-10-17 ~15:5x CT"
 held:
   - lane: "**The rig (EXCLUSIVE): THE FLEET 10 in the registry, 9 ON THE AIR** — the Hue dark (arm (a)); **THE PI (hs-dev-1) AT `176adad` BY SHA since BC10 (Sat 10:16:26 CT); bench `7e03c81`**"
     state: "**BC10 DONE** (v112 b3: IR-148 CLOSED — 0.584 s cold; BACKUP-1 36 s; boot-health 7/7 on its own restart, DV-1 → IR-220); **SOAK-NIGHT-3 tonight** on `bench-2026-10-17-111625.log`"
@@ -97,15 +97,15 @@ held:
   - lane: "**The Java slot — J3 LANDED: `e11ae20` (T-A) · `176adad` (T-B), `CI: green` each** (IR-46 · 95 · 119 CLOSED)"
     state: "FREE and CLOSED BY RULE — no Java lane before the freeze; the lane branches `j3/…` and `avail-api-1/…` deletable at a quiet card"
     next: "**`176adad` DEPLOYED (BC10)** — F-6 0/0/0 and F-7 0 keys at the first read (no run yet); IR-214's bump post-run; IR-175..178; IR-147 post-run; the run's rollback `e11ae20` (BC11 Sun) · `ba08dd8` (one reader with it: a zigbee-side failure only)"
-  - lane: "**The web-ui slot — HERO-U3 LANDED `ba08dd8`, `CI: green`** (the S3 column on v1.1.7)"
-    state: "**HERO-U4 INTAKEN ACCEPT — LANDING-READY** (v112 b5: the tests re-run on a copy; the landing card dry-run COMPLETE); the `-hero-u3` worktree stays until the housekeeping card"
-    next: "the landing card → `CORE: LANDED` · `CI: green` (web-ui only; the Pi stays `176adad` by sha) → HERO-U5 (IR-225 first; O-3 · O-4 · O-9; IR-224's web-ui half after the freeze); **B-1 STUB FILED** (`instructions/2026-10-12_design-lane_B-1_…`; `B-1: go` on the written opinion)"
+  - lane: "**The web-ui slot — HERO-U4 LANDED `e84b6bf`, `CI: green`** (the real wire; the honest hero)"
+    state: "**FREE** — HERO-U5 next (IR-225 first: the offline string; then O-3 · O-4 · O-9); the `-hero-u3` and `-hero-u4` worktrees to the housekeeping card"
+    next: "HERO-U5's charter (v113; behind CI, no rig) · IR-224's web-ui half after the freeze; **B-1 STUB FILED** (`instructions/2026-10-12_design-lane_B-1_…`; `B-1: go` on the written opinion)"
   - lane: "**The bench lane — `7e03c81` on `main`** (BP11); the Pi at `7e03c81` (BC10's pull); **FREE**"
     state: "**BENCH-HYGIENE-1 INTAKEN ACCEPT → LANDED `7e03c81` (v111 b6**; the audit `audits/2026-10-15_v111-b6_BENCH-HYGIENE-1_…`); GATE-2 `5cf3bd0`; BENCH-BOOT-1 `6a40a10`"
     next: "BP11 ON THE PI (BC10's pull) · `N3:` by **Oct 20** (the b2 audit §5; (b) → the bars land Oct 20–21 as a card off a landing-ready branch; (c) none) · IR-216 · IR-220 at the next touch; **§A.2 LIVE** (`BENCH-BOOT:` picks the evening after BC10's pull); post-run IR-209; SOAK-NIGHT-3"
   - lane: "**The hivemind lane — the renderer** (v4 `bc10cd3f…`)"
     state: "`state.yaml` v3; `--check` 7 MATCH at the boot; the shell UP; `/sessions` 9.0 M free → `TMPDIR=/tmp` (IR-181); the device runs read-only git verbs only (D-v110-6)"
-    next: "a beat's splice runs `--probe` on its temp state BEFORE beat() (D-v110-10); two prunable worktrees (`-br2`, `-renderer`) at a later card"
+    next: "a beat's splice runs `--probe` on its temp state BEFORE beat() (D-v110-10); two prunable worktrees (`-br2`, `-renderer`) at a later card · **SKILLS-1** · **CONTEXT-1** (Nick, 15:43): v113 charters both"
   - lane: "**The docs lane — `e2a5844`: AMD-103 RATIFIED, FILED**"
     state: "AMD-102 and AMD-103 filed"
     next: "the SCHEMA-1 AMD DRAFT (`planning/2026-10-17_AMD-SCHEMA-1_draft.md`; after Nov 2 + `RETENTION:`) · the briefs lane (ACK-1 · RESTORE-1 · TAIL-1) in v113 · DOCS-3 after the freeze list (AMD-103 §2's folds; the freeze doc's v1.1.6/v1.1.7, I-14); DOCS-3a = the J3 fold (Doc 07 §3.9; the SUPERSEDED MC sentences, F-5) — row (viii)"
@@ -119,8 +119,8 @@ held:
     state: "THE PLAN REVIEW (v106 b2/b3) + THE FREEZE LIST (v101 §3 as amended D-v106-15); **THE SESSION MAP** (the v111 DR §3e); the run Oct 30 – Nov 2"
     next: "IR-56 CLOSED at D2 (sample 7); the unit cards' §A.2 LIVE, §B DRAFT (PI-2's card before Oct 20); the H10 words when they gate an act"
   - lane: "**The research lane — HORIZON-1 RULED v110 b3** (`audits/2026-10-13_v110-b3_HORIZON-1_…`; IR-192..202; the map §4)"
-    state: "**LICENSE-1 INTAKEN ACCEPT (v112 b2)** → the H10 (the b2 audit §0; `LICENSE:` by Nov 2; (b) with the consent scoped first — IR-217); SCHEMA-1 INTAKEN (its AMD DRAFT filed b5); **AVAIL-2 DISPATCH-READY** (b5; returns Wed Oct 21 18:00)"
-    next: "AVAIL-2's paste → its intake (Q1 → dry-run #2's packet) · the flip card after Nov 2 (the return §5 + IR-219) · ROADMAP-1 = pass 3 (Dec 1) · POSTURE-1 · PROCESS-2 after the run"
+    state: "**LICENSE-1 INTAKEN ACCEPT (v112 b2)** → the H10 (the b2 audit §0; `LICENSE:` by Nov 2; (b) with the consent scoped first — IR-217); SCHEMA-1 INTAKEN (its AMD DRAFT filed b5); **AVAIL-2 RUNNING** (Sat 15:47; returns Wed Oct 21 18:00)"
+    next: "AVAIL-2's intake (Q1 → dry-run #2's packet) · the flip card after Nov 2 (the return §5 + IR-219) · ROADMAP-1 = pass 3 (Dec 1) · POSTURE-1 · PROCESS-2 after the run"
   - lane: "The landed lanes"
     state: "W-SKILLS-10 `e9a77a8`"
     next: "TR-1b after the run"
@@ -128,11 +128,11 @@ closed_windows: "v81–v106 — their DRs (v99–v106 in `planning/`; v81–v98 
 # ---- brief-words
 words:
   open:
-    - "**`HIVE: LANDED <sha>`** (the b5 card) · **`CORE: LANDED <sha> · CI: green | red`** (HERO-U4) · `AVAIL-2: running` · **`BC11: …`** (Sun) · **`KIT-ORDER: placed <items> · ETA <date>`** (open since Thu) · `FLASHER: <version> · <image> · <sha256 first 12>` (B.7) · **`N3: a | b | c`** by Oct 20 (the b2 audit §5) · **`RETENTION: a | b | c | c′ | d`** by Nov 2 (the b3 audit §5; c′ = the v112 b5 audit §7) · **`LICENSE: a | b | c`** by Nov 2 (the v112 b2 audit §0) · `N1:`"
+    - "**`HIVE: LANDED <sha>`** (the close card) · **`BC11: …`** (Sun) · `AVAIL-2: RETURNED <path> <bytes>` (Wed) · **`KIT-ORDER: placed <items> · ETA <date>`** (open since Thu) · `FLASHER: <version> · <image> · <sha256 first 12>` (B.7) · **`N3: a | b | c`** by Oct 20 (the b2 audit §5) · **`RETENTION: a | b | c | c′ | d`** by Nov 2 (the b3 audit §5; c′ = the v112 b5 audit §7) · **`LICENSE: a | b | c`** by Nov 2 (the v112 b2 audit §0) · `N1:`"
     - "`OUTREACH: <who> · yes | maybe | no · <one sentence>` (the calls by Wed Oct 14)"
     - "`BENCH-BOOT: mon19 · tue20 · wed21`"
     - "`BRIDGE: up`"
     - "the H10 words `BACKUP-NIGHTLY:` · `DRY2-PASS:` · `VOLUME:` (not gated: 941 MB against 101 GB free)"
     - "`REMOTE:` · `FINALS:` · `DISCOVERY:` · `ATTORNEY-DRAFT:` · `TAILSCALE:` · `OUTREACH:`"
   given:
-    - "Fri 19:32 — `HIVE: LANDED fc4b76b` + \"It is now Friday, October 16 …\" (the v111 DR §1f); **Fri 20:57 — v112's text + the R&D guide (the v112 DR §1a–§1b); Sat 07:36 — `J3-TREE: T-B` + `GO` (§1c); 07:44 — `HIVE: LANDED 8fb69a6`; 09:30 — `HIVE: LANDED ee20fe3`; 10:36 — BC10's line + the cold log kept (§1d); 13:36 — `HIVE: LANDED f9ab3ed` + \"Determine how we proceed …\"; 13:42 — the worktree; 14:40 — `HERO-U4: RETURNED` (§1e); 14:48 — `HIVE: LANDED 7543093` + \"Take your time …\" (§1f)**. Earlier — every word since Mon Oct 12 in the v110 and v111 DRs §1; before them the v109 DR §1"
+    - "Fri 19:32 — `HIVE: LANDED fc4b76b` + \"It is now Friday, October 16 …\" (the v111 DR §1f); **Fri 20:57 — v112's text + the R&D guide (the v112 DR §1a–§1b); Sat 07:36 — `J3-TREE: T-B` + `GO` (§1c); 07:44 — `HIVE: LANDED 8fb69a6`; 09:30 — `HIVE: LANDED ee20fe3`; 10:36 — BC10's line + the cold log kept (§1d); 13:36 — `HIVE: LANDED f9ab3ed` + \"Determine how we proceed …\"; 13:42 — the worktree; 14:40 — `HERO-U4: RETURNED` (§1e); 14:48 — `HIVE: LANDED 7543093` + \"Take your time …\" (§1f); 15:34 — `HIVE: LANDED 3d7c4be` + \"… keep up the excellent work\"; 15:43 — `CORE: LANDED e84b6bf`, CI green + the two sessions; 15:47 — `AVAIL-2: running` (§1g)**. Earlier — every word since Mon Oct 12 in the v110 and v111 DRs §1; before them the v109 DR §1"

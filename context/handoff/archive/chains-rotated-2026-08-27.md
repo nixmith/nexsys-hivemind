@@ -1301,3 +1301,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-17 (v112 beat 5) — v112 b3, verbatim
 
 2026-10-17 (v112 beat 3 — **BC10 INTAKEN ACCEPT**: `176adad` up; IR-148 CLOSED on the rig (0.584 s cold on 2.32 M events); DV-1 the hub's miss (IR-220); HERO-U4 DISPATCH-READY; D-v112-13..18; Sat 2026-10-17 ~10:4x CT (instrument 2026-10-17T15:44:06Z). Next: the b3 card → HERO-U4's worktree card → SOAK-NIGHT-3 → Sunday's card)
+
+## chain segment rotated 2026-10-17 (v112 beat 6) — v112 b4, verbatim
+
+2026-10-17 (v112 beat 4 — **BC11 DISPATCH-READY** (Sun, before 21:30): `e11ae20` cold by sha on T-B's store, back to `176adad` by its own tree; six cuts at the second check; BC9b → PI-2; HERO-U4 RETURNED; D-v112-19..25; Sat 2026-10-17 ~14:4x CT (instrument 2026-10-17T19:42:13Z). Next: the b4 card → Sunday's BC11 → `KIT-ORDER:`)

@@ -3,7 +3,7 @@ file: context/instructions/2026-10-17_research-lane_AVAIL-2_the-silent-device_ch
 purpose: AVAIL-2 (= HORIZON-1 R2; IR-198) — an accrual (φ) estimator against the fixed limits, a suspicion level for availability and confirmation, the silent-resume class (IR-128; IR-56's closing cell). Feeds the run's keep rows, the pilot's kit and caveat, the v1.2 design.
 audience: the AVAIL-2 lane (a FRESH Cowork conversation) · the hub (intake) · Nick (dispatch)
 state-type: lane charter (research)
-status: DISPATCH-READY — cut v112 b5 (Sat 2026-10-17 ~15:xx CT) at core `176adad`, bench `7e03c81`, docs `e2a5844`; drafted with a hub-side helper, §0b rows 1–4 re-run by the hub (`176adad` · `110 120 135 142 697` · `53 192 210 835` · `62 85`); the conflicts it found are the cut audit's (`audits/2026-10-17_v112-b5_HERO-U4_intake_and_three-filings_audit.md` §4); return by Wed 2026-10-21 18:00 CT; flips to EXECUTED at the hub's intake
+status: DISPATCHED Sat 2026-10-17 15:47 CT (`AVAIL-2: running`; the paste carried the VM line — v112 b6) — cut v112 b5 (Sat 2026-10-17 ~15:xx CT) at core `176adad`, bench `7e03c81`, docs `e2a5844`; drafted with a hub-side helper, §0b rows 1–4 re-run by the hub (`176adad` · `110 120 135 142 697` · `53 192 210 835` · `62 85`); the conflicts it found are the cut audit's (`audits/2026-10-17_v112-b5_HERO-U4_intake_and_three-filings_audit.md` §4); return by Wed 2026-10-21 18:00 CT; flips to EXECUTED at the hub's intake
 -->
 # AVAIL-2 — the silent device: the accrual estimator, the suspicion level, the silent resume
 

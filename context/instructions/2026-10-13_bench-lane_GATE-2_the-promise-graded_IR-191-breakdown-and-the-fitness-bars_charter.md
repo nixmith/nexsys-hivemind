@@ -3,7 +3,7 @@ file: context/instructions/2026-10-13_bench-lane_GATE-2_the-promise-graded_IR-19
 purpose: GATE-2 — the grader learns to grade the PROMISE, not only the bookkeeping (HORIZON-1 F31; the v109 analysis A4; Nick's ruling of Tue 2026-10-13: IR-191's breakdown is GATE-2's first step, the options in front of him by Thursday). A desk lane in `nexsys-bench`: the all-time 57 % of commands that timed out their confirmation, broken down by cause (the landed classifier), by device and command class, and over time; in plain words what the hero can say today; then the candidate fitness bars as pre-registrations, dry-run on the corpus. No rig. The copy on the desk is the store; the live store is never read.
 audience: the GATE-2 lane (Claude Code in `~/Desktop/Code/ClaudeFolder/nexsys-bench`) · the hub (its intake) · Nick (N3 — GATE-2's stance — by Oct 22)
 state-type: lane charter
-status: DISPATCH-READY — cut v110 beat 3 (Tue 2026-10-13 ~16:5x CT) at bench `6a40a10` and core `176adad`; the Pi untouched; return by Thu 2026-10-15 12:00 CT
+status: EXECUTED — returned, intaken ACCEPT and landed `5cf3bd0` at v111 b2 (marked v112 b1, Check 12); was DISPATCH-READY — cut v110 beat 3 (Tue 2026-10-13 ~16:5x CT) at bench `6a40a10` and core `176adad`; the Pi untouched; return by Thu 2026-10-15 12:00 CT
 -->
 # GATE-2 — the promise graded: IR-191's breakdown, then the fitness bars
 

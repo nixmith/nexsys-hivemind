@@ -3,7 +3,7 @@ file: context/instructions/2026-10-15_bench-lane_BENCH-HYGIENE-1_tools-utf8_pre-
 purpose: BENCH-HYGIENE-1 — four small, freeze-safe bench instruments the run needs and the record already owes: IR-183's tool half (the verify72h tools print UTF-8 from their own entry), IR-189's pre-warm as a SEPARATE subcommand a card may call (never inside `do_start` or the unit — the Oct 19 sitting's §A.2 was dry-run against `5cf3bd0`'s start path), IR-213's SD-wear line in the nightly digest (bytes written per event), IR-190's boot-timing read from a log's own stamps (the instrument every cold start, rehearsal and dry-run #2 reads), and one pin: the grader reads an `automation_completed` row that carries J3 T-B's eighth component unchanged (IR-214; the run's store will hold such rows). Lands before BC10's pull so Saturday's Pi runs it (BP11).
 audience: the BENCH-HYGIENE-1 lane (Claude Code in `~/Desktop/Code/ClaudeFolder/nexsys-bench`) · the hub (its intake, v111 b5 or v112 b1) · Nick (one paste; the landing card by evening)
 state-type: lane charter
-status: DISPATCH-READY — cut v111 beat 4 (Thu 2026-10-15 ~06:5x CT) at bench `5cf3bd0` (GATE-2 over BENCH-BOOT-1 `6a40a10`) and core `176adad`; the Pi untouched; return by Thu 2026-10-15 18:00 CT
+status: EXECUTED — returned, intaken ACCEPT and landed `7e03c81` = BP11 at v111 b6 (marked v112 b1, Check 12); was DISPATCH-READY — cut v111 beat 4 (Thu 2026-10-15 ~06:5x CT) at bench `5cf3bd0` (GATE-2 over BENCH-BOOT-1 `6a40a10`) and core `176adad`; the Pi untouched; return by Thu 2026-10-15 18:00 CT
 -->
 # BENCH-HYGIENE-1 — the tools print UTF-8; `bench.sh pre-warm`; the SD-wear line; the boot-timing read; the T-B pin
 

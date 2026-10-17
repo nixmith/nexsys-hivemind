@@ -3,7 +3,7 @@ file: context/instructions/2026-10-13_research-lane_SCHEMA-1_the-event-contract_
 purpose: SCHEMA-1 — the event contract written BEFORE the first post-run unit that changes an event (HORIZON-1 D3; Nick's ruling: by Nov 2, not Oct 20 — the frozen build writes PI-2's bytes whatever this says). One page of rules + one test design, no Java inside the freeze: the envelope's version and the PAYLOAD upcaster rule (beside AMD-47's value upcaster and the DegradedEvent fallback), retention by correlation chain priced against the MEASURED rate and the reporting posture, the snapshot rule (boot cost as a function of store size — Nick's §3 of 2026-10-13), the clock-quality question after a power cut (HORIZON-1 A2), the reservation of `logical_time` / `node_id` (R8). A research lane (a fresh Cowork conversation with `ClaudeFolder` connected); its return feeds a docs amendment the hub cuts after the freeze.
 audience: the SCHEMA-1 lane · the hub (its intake; the AMD it cuts) · the post-run coder units that change an event (TAIL-1, ACK-1, RESTORE-1)
 state-type: lane charter (research → docs)
-status: DISPATCH-READY — cut v110 beat 3 (Tue 2026-10-13 ~17:0x CT) at core `176adad`, docs `e2a5844`; return by Sun 2026-10-25 (the freeze week); nothing lands before Nov 2
+status: EXECUTED — returned twelve days early and intaken ACCEPT at v111 b3 (the AMD after Nov 2) (marked v112 b1, Check 12); was DISPATCH-READY — cut v110 beat 3 (Tue 2026-10-13 ~17:0x CT) at core `176adad`, docs `e2a5844`; return by Sun 2026-10-25 (the freeze week); nothing lands before Nov 2
 -->
 # SCHEMA-1 — the event contract: version · upcaster · retention · snapshot · clock
 

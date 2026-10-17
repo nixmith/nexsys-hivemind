@@ -1281,3 +1281,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-16 (v111 beat 7) — v111 b5, verbatim
 
 2026-10-15 (v111 beat 5 — **THE SESSION MAP** (D-v111-33; the law of every return D-v111-32); **LICENSE-1 CUT**; PI-2's §B DRAFT-2; the claims caveats §0 5–7; **`KIT-DONGLE:` H10** (no 7.4.x MG24 image nameable — both, else mg21); the brief's cap 12 → 14 KB (D-v111-39); D-v111-31..39; Thu 2026-10-15 ~07:1x CT (instrument 2026-10-15T12:13:18Z). Next: the b5 card → LICENSE-1's paste → `KIT-DONGLE:` → b6 the deliberation + the close)
+
+## chain segment rotated 2026-10-17 (v112 beat 1) — v111 b6, verbatim
+
+2026-10-15 (v111 beat 6 — **BENCH-HYGIENE-1 LANDED `7e03c81` = BP11** (ACCEPT; the RED re-run against the parent); Nick's review ruled (the six gaps; `KIT-DONGLE: both`; `N3:` by Oct 20; the deliberation Sun Oct 18 at v112); IR-216; D-v111-40..47; Thu 2026-10-15 ~10:4x CT (instrument 2026-10-15T15:45:31Z). Next: the b6 card → `KIT-ORDER:` + B.7 → b7 the close (v112's text))

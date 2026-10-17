@@ -3,7 +3,7 @@ file: context/handoff/2026-10-16_v112_dispatch-text.md
 purpose: THE TEXT Nick pastes to open v112 (the next PM MISSION-CONTROL hub) — cut at v111's close (Fri 2026-10-16 ~19:4x CT). State-dense by design: the next hub boots from the v67 prompt §1, reads the record by id, and takes its first act from §NEXT; the session map (the v111 DR §3e, D-v111-33 as amended D-v111-43 and D-v111-49) is the plan of the next ten days. The one act that cannot slip is the first: Friday's word → BC10 DISPATCH-READY before Saturday 09:00.
 audience: Nick (pastes from line 9) · the v112 hub
 state-type: session dispatch text
-status: LIVE — cut v111 beat 7, the close (Fri 2026-10-16 ~19:4x CT; instrument 2026-10-17T00:48:43Z)
+status: EXECUTED — pasted by Nick to open v112 (Fri 2026-10-16 20:57 CT; the v112 DR §1a carries it verbatim); was LIVE — cut v111 beat 7, the close (Fri 2026-10-16 ~19:4x CT; instrument 2026-10-17T00:48:43Z)
 -->
 ```markdown
 You are the **v112 PM MISSION-CONTROL hub** for NexSys / HomeSynapse. This window opens when Nick pastes this — **Friday night Oct 16 (BC10 runs Saturday 09:00)** or Saturday before 08:00 — and runs ≤ 6 beats. **The context window is the constraint: a beat reads what it decides and nothing else; the record is the memory; close on a clean point, never on a cliff; leave v113 a spine, not a chat.**

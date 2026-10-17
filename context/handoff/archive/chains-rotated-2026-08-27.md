@@ -1297,3 +1297,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-17 (v112 beat 4) — v112 b2, verbatim
 
 2026-10-17 (v112 beat 2 — **LICENSE-1 INTAKEN ACCEPT** → the H10 to Nick (`LICENSE:` by Nov 2; (b) with the consent scoped before signing); BC10-F filed and held (dry-run COMPLETE, both arms); IR-217..219; D-v112-8..12; Sat 2026-10-17 ~07:5x CT (instrument 2026-10-17T12:54:26Z). Next: the b2 card → BC10 09:00 → b3 BC10's intake)
+
+## chain segment rotated 2026-10-17 (v112 beat 5) — v112 b3, verbatim
+
+2026-10-17 (v112 beat 3 — **BC10 INTAKEN ACCEPT**: `176adad` up; IR-148 CLOSED on the rig (0.584 s cold on 2.32 M events); DV-1 the hub's miss (IR-220); HERO-U4 DISPATCH-READY; D-v112-13..18; Sat 2026-10-17 ~10:4x CT (instrument 2026-10-17T15:44:06Z). Next: the b3 card → HERO-U4's worktree card → SOAK-NIGHT-3 → Sunday's card)

@@ -3,7 +3,7 @@ file: context/planning/2026-10-16_v112_decision-record.md
 purpose: The v112 PM MISSION-CONTROL window's decision record — Nick's dispatch text and words verbatim (§1), the facts read at the instrument (§2), the decisions per beat (§3 onward). The spine's beat blocks point here.
 audience: Nick · the hub · v113
 state-type: decision record (appended per beat)
-status: LIVE — v112 beat 2 (Sat 2026-10-17 ~07:5x CT; instrument 2026-10-17T12:54:26Z)
+status: LIVE — v112 beat 3 (Sat 2026-10-17 ~10:4x CT; instrument 2026-10-17T15:44:06Z)
 -->
 
 # v112 — decision record (opened Fri 2026-10-16 20:57 CT)
@@ -65,6 +65,38 @@ As we proceed forward, based on these assumptions and decisions we are making/de
 
 Time now: 07:36 CT on Saturday — I have 12+ hours to work today.
 
+### §1d Nick's words, Sat 2026-10-17 (verbatim): the b1 and b2 landings; BC10's one line and the cold log kept
+
+**Sat 07:44 CT:**
+
+b1 card:
+
+```markdown
+   5b54f2e..8fb69a6  main -> main
+8fb69a6 (HEAD -> main, origin/main) hivemind: v112 beat 1 — BC10 DISPATCH-READY on J3-TREE T-B + GO; two dead instruments re-cut; the stub-ssh dry-run COMPLETE; the R&D guide filed
+```
+
+**Sat 09:30 CT:**
+
+b2 card done, by the way:
+
+```markdown
+   8fb69a6..ee20fe3  main -> main
+ee20fe3 (HEAD -> main, origin/main) hivemind: v112 beat 2 — LICENSE-1 intaken ACCEPT, the H10 to Nick; BC10-F, the failure arm, filed and held; IR-217..219
+```
+
+**Sat 10:36 CT:**
+
+BC10: 176adad (T-B) · BP 7e03c81 48/66/44/54/10 · BACKUP-1 copy=1163702272 md5-match=yes integrity=ok backup=20261017T151006Z · COLD cached 2077440→354640 kB · boot Loaded=+1.415 rebuilt ms=512 projection_live=+1.999 network_resumed=+13.867 startup_failed=none · issues=0 · boot-health PASS 7/7 (on the restart's WARM boot, DV-1) · AVAIL-API-1 keys ok probe_answered=2 · F-6 0 · 0/0/0 · F-7 keys=0 · IR-115 0 · IR-166 13 lines · HERO-U3-W rows=10 md5=559ac60dc338 · STARTER-1 NOT-RUN · BOOT0 bench-2026-10-17-111625.log (the running boot; the cold boot is -111535, Pi only, DV-1) · RETURNED _scratch/v111/bc10/2026-10-17_BENCH-CORE-10_outputs.txt 5387
+
+
+```markdown
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/nexsys-hivemind (main)
+$ D=~/Desktop/Code/ClaudeFolder/_scratch/v111/bc10; scp -q pi:hs-bench/bench-2026-10-17-111535.log "$D/" && echo "kept bench-2026-10-17-111535.log $(wc -c < "$D/bench-2026-10-17-111535.log") B md5=$(md5sum "$D/bench-2026-10-17-111535.log" | cut -c1-32)"
+kept bench-2026-10-17-111535.log 16161 B md5=2d2242241273161f93da651700efb3fc
+
+```
+
 ## §2 The facts at the instrument (v112 beat 1)
 
 - **The five HEADs** (one call, 2026-10-17T01:59:18Z): core `176adad` · bench `7e03c81` · docs `e2a5844` · skills `e9a77a8` · hivemind `5b54f2e` (v111's close card, 20:00:22 CT; `origin/main..HEAD` = 0 in all five); porcelain 0 in four and 1 in the hivemind (LICENSE-1's return, untracked); no live `.git/*.lock`.
@@ -89,3 +121,11 @@ Time now: 07:36 CT on Saturday — I have 12+ hours to work today.
 - **D-v112-10 — LICENSE-1 INTAKEN ACCEPT** (`audits/2026-10-17_v112-b2_LICENSE-1_intake_two-layer_audit.md`; the return md5 `ab2dda14…`, staged in this beat): layer 2 held at every re-read — the two DRAFTs at the file, the greps at `176adad`, every load-bearing clause at its URL, two precedents, the direct dependency set re-derived. The H10 (the audit §0) goes to Nick: the PM recommendation (b) with the consent scoped to named repositories BEFORE signing, FSL-1.1-ALv2 for the engine, a DCO on the core; `LICENSE:` by Nov 2. The docs follow COMMERCIAL-1 A4 (Apache 2.0) unless Nick says CC BY 4.0.
 - **D-v112-11 — the register:** IR-217 (the consent's scope) · IR-218 (the pilot's licensing critical path: the flip before the first outside install) · IR-219 (the `.deb`'s third-party terms). The research lane is FREE; AVAIL-2 is next (one research lane at a time).
 - **D-v112-12 — the second check Nick asked for (forward):** counsel (N1) is now on the critical path of the first outside install (IR-218); `KIT-ORDER:` is on PI-2's (Tue Oct 20 needs the SSD kit in hand).
+
+## §3c Beat 3 (Sat 2026-10-17 ~10:4x CT): BC10 INTAKEN ACCEPT — `176adad` up, IR-148 CLOSED on the rig; DV-1 the hub's miss (IR-220); HERO-U4 DISPATCH-READY
+- **D-v112-13 — `HIVE: LANDED ee20fe3`** (Nick, 09:30 CT) = the instrument; b1 `8fb69a6` and b2 `ee20fe3` both on `main` (§1d).
+- **D-v112-14 — BC10 INTAKEN ACCEPT** (`audits/2026-10-17_v112-b3_BC10_intake_two-layer_audit.md`): every §P PASS; the cold boot of `176adad` on a dropped cache: `projection_live − Loaded` **0.584 s** against the bar of 20.4 s (warm 0.131 s a minute later) — IR-148 CLOSED on the rig; IR-189 answered (no pre-warm after the fix); IR-179 CLOSED on the Pi. BACKUP-1 in 36 s with md5 both sides = the restore point of record. The card → EXECUTED; BC10-F → RETIRED, never run.
+- **D-v112-15 — DV-1, the hub's miss:** boot-health's stimulus is `bench: restart`; the stub did not restart and the gate did not grep side effects — IR-220 and pm-lessons 2026-10-17 ("a stub is the verb it stands for"). The cold evidence stands (read before the restart); boot-health's 7/7 is the warm boot's.
+- **D-v112-16 — SOAK-NIGHT-3 opens on `bench-2026-10-17-111625.log`** (the running boot, 10:16:26 CT): the nightly ≈ 03:30 CT its first restart; the morning reads the digest and the wear rows (IR-213, IR-216).
+- **D-v112-17 — HERO-U4 DISPATCH-READY** (`instructions/2026-10-17_frontend-lane_HERO-U4_the-real-wire-and-the-honest-hero_coding-charter.md`, 14,310 B): R1 the real wire (the capture `559ac60d…` → a REAL-PAYLOAD fixture; v117 VERIFIED) · R2 IR-174's three rulings · R3 IR-207's rider (`commandCount` beside the status; COMPLETED never read as acted) · R4 the hero's strings against the claims register §0 5–7; a worktree at `176adad`; web-ui only; the freeze names the run's tree.
+- **D-v112-18 — PKG-FRESH-1b folded into PI-2** (the hub's call at 08:2x CT under D-v111-43 (1), Nick's override `FRESH-1b: sat` not given): the fresh image and the timed `apt install` rehearsed on PI-2's first, radio-less boot; hs-dev-1 stays closed through SOAK-NIGHT-3 → dry-run #2.

@@ -3,7 +3,7 @@ file: context/planning/2026-10-16_v112_decision-record.md
 purpose: The v112 PM MISSION-CONTROL window's decision record — Nick's dispatch text and words verbatim (§1), the facts read at the instrument (§2), the decisions per beat (§3 onward). The spine's beat blocks point here.
 audience: Nick · the hub · v113
 state-type: decision record (appended per beat)
-status: LIVE — v112 beat 3 (Sat 2026-10-17 ~10:4x CT; instrument 2026-10-17T15:44:06Z)
+status: LIVE — v112 beat 4 (Sat 2026-10-17 ~14:4x CT; instrument 2026-10-17T19:42:13Z)
 -->
 
 # v112 — decision record (opened Fri 2026-10-16 20:57 CT)
@@ -97,6 +97,26 @@ kept bench-2026-10-17-111535.log 16161 B md5=2d2242241273161f93da651700efb3fc
 
 ```
 
+### §1e Nick's words, Sat 2026-10-17 (verbatim): the b3 landing; HERO-U4's worktree and its lane
+- **Sat 13:36 CT** — the b3 card's landing, pasted, then the ask:
+```
+   ee20fe3..f9ab3ed  main -> main
+f9ab3ed (HEAD -> main, origin/main) hivemind: v112 beat 3 — BC10 intaken ACCEPT: 176adad up, IR-148 closed on the rig at 0.584 s cold; DV-1 and IR-220; HERO-U4 dispatch-ready
+```
+"Determine howe we proceed and what we work on from here — including any/all Cowork or Code dispatches."
+- **Sat 13:42 CT** — HERO-U4 Act 1, pasted whole:
+```
+Nick@DESKTOP-SRK0P9D MINGW64 ~/Desktop/Code/ClaudeFolder/nexsys-hivemind (main)
+$ cd ~/Desktop/Code/ClaudeFolder/homesynapse-core && [ "$(git --no-optional-locks rev-parse --short HEAD)" = 176adad ] && [ "$(git --no-optional-locks status --porcelain | wc -l)" -eq 0 ] && git worktree add ../homesynapse-core-hero-u4 -b hero-u4/real-wire-honest-hero 176adad && git -C ../homesynapse-core-hero-u4 --no-optional-locks log -1 --oneline && git worktree list
+Preparing worktree (new branch 'hero-u4/real-wire-honest-hero')
+HEAD is now at 176adad feat(event-model,automation,persistence): J3 T-B — the skip is counted: automation_completed carries skipped_unavailable as its eighth, additive component; a command action that issued nothing completes skipped; the count rides the executor's locals through the run manager
+176adad (HEAD -> hero-u4/real-wire-honest-hero, origin/main, main, j3/ir-46-95-119) feat(event-model,automation,persistence): J3 T-B — the skip is counted: automation_completed carries skipped_unavailable as its eighth, additive component; a command action that issued nothing completes skipped; the count rides the executor's locals through the run manager
+C:/Users/Nick/Desktop/Code/ClaudeFolder/homesynapse-core          176adad [main]
+C:/Users/Nick/Desktop/Code/ClaudeFolder/homesynapse-core-hero-u3  ba08dd8 [hero-u3/recovery-card-live]
+C:/Users/Nick/Desktop/Code/ClaudeFolder/homesynapse-core-hero-u4  176adad [hero-u4/real-wire-honest-hero]
+```
+- **Sat 14:40 CT** — the lane's close, pasted: `HERO-U4: RETURNED nexsys-hivemind/context/audits/2026-10-17_HERO-U4_return.md 11968`
+
 ## §2 The facts at the instrument (v112 beat 1)
 
 - **The five HEADs** (one call, 2026-10-17T01:59:18Z): core `176adad` · bench `7e03c81` · docs `e2a5844` · skills `e9a77a8` · hivemind `5b54f2e` (v111's close card, 20:00:22 CT; `origin/main..HEAD` = 0 in all five); porcelain 0 in four and 1 in the hivemind (LICENSE-1's return, untracked); no live `.git/*.lock`.
@@ -129,3 +149,12 @@ kept bench-2026-10-17-111535.log 16161 B md5=2d2242241273161f93da651700efb3fc
 - **D-v112-16 — SOAK-NIGHT-3 opens on `bench-2026-10-17-111625.log`** (the running boot, 10:16:26 CT): the nightly ≈ 03:30 CT its first restart; the morning reads the digest and the wear rows (IR-213, IR-216).
 - **D-v112-17 — HERO-U4 DISPATCH-READY** (`instructions/2026-10-17_frontend-lane_HERO-U4_the-real-wire-and-the-honest-hero_coding-charter.md`, 14,310 B): R1 the real wire (the capture `559ac60d…` → a REAL-PAYLOAD fixture; v117 VERIFIED) · R2 IR-174's three rulings · R3 IR-207's rider (`commandCount` beside the status; COMPLETED never read as acted) · R4 the hero's strings against the claims register §0 5–7; a worktree at `176adad`; web-ui only; the freeze names the run's tree.
 - **D-v112-18 — PKG-FRESH-1b folded into PI-2** (the hub's call at 08:2x CT under D-v111-43 (1), Nick's override `FRESH-1b: sat` not given): the fresh image and the timed `apt install` rehearsed on PI-2's first, radio-less boot; hs-dev-1 stays closed through SOAK-NIGHT-3 → dry-run #2.
+
+## §3d Beat 4 (Sat 2026-10-17 ~14:4x CT): BC11 DISPATCH-READY — the rollback rehearsal, second-checked (six cuts); BC9b → PI-2's MG21; HERO-U4 RETURNED
+- **D-v112-19 — `HIVE: LANDED f9ab3ed` (Nick, 13:36 CT; b3 on `main`, 12 files, pushed) · the worktree (13:42; `176adad` on `hero-u4/real-wire-honest-hero`) · `HERO-U4: RETURNED … 11968` (14:40)** = the instrument (§1e).
+- **D-v112-20 — BC11 DISPATCH-READY** (`instructions/2026-10-18_bench-card_BENCH-CORE-11_the-rollback-rehearsal_e11ae20-and-back_operator-session-prompt.md`, 22,699 B): Sun Oct 18, any time that ends before 21:30 CT (≈ 60 min; no hands) — SOAK-NIGHT-3's morning (the digest, the first wear row); BACKUP-1 first with the T-B install tree kept beside it; `e11ae20` built and cold-started BY SHA on T-B's store (the run's rollback margin, D-v110-16; its read of T-B's rows through the run history); back to `176adad` from its own tree, cold (IR-148's "after", n = 2). The stub-ssh dry-run on the final bytes COMPLETE (`audits/2026-10-17_v112-b4_BC11_cut_dry-run_audit.md`).
+- **D-v112-21 — the second check, on the hub's own card** (Nick's Sat 07:36 ask): six cuts before it left the hub (the audit §2) — the codec's own degrade line (CF-1); P4 fenced by Part A's log, not the date (CF-2); a STOP on `RESTORE-FAILED` (CF-3); the run history read, so P2's decode is exercised (CF-4); the build window read (CF-5); no fetch (CF-6) — and HERO-U4 Act 1's dry-run before its hand (the audit §7); and the hub's miss in HERO-U4's charter: §0 and §9 did not carry HERO-U3's D-1 · D-2 · O3 (the worktree's Windows gitdir; npm outside the mount, which refuses deletes) — the lane's paste carried them at the hand (13:4x CT) and §9 now holds the paste as dispatched (the audit §8). pm-lessons 2026-10-17 ("count at the emitter").
+- **D-v112-22 — BC9b folds into PI-2's MG21 first pairing** (the hub's call under the mandate; Nick's override `BC9b: sun`, not asked): hs-dev-1's fleet of record stays 10 into the freeze and the run (an adopt → 11, or a joined-unadopted device, would move the premise dry-run #2's packet is cut from); Sunday keeps one purpose and no hardware act; the MG21's first pairing is already a corpus entry before any household (D-v111-44), and J2's scoped admit (`device_join … USE_PRECONFIGURED_KEY → device_announce → device_proposed`) and J2a's boot-listed interview ride it. The cost: J2's rows on silicon move from Sunday to PI-2's date, which `KIT-ORDER:` gates — no premise of the run (it pairs nothing), one of the first household's (Nov 19–25), which PI-2 precedes.
+- **D-v112-23 — the forward facts for the run** (the audit §6): the two slots are one reader (`ba08dd8` answers a zigbee-side failure only; a decode failure of T-B's rows has no slot answer — P2's second arm); IR-221 (the in-place rollback under `bench-boot`) → Monday's sitting reads BC11's P5 before the unit is enabled for the run.
+- **D-v112-24 — the order from here** (Nick, 13:36: "Determine how we proceed and what we work on from here — including any/all Cowork or Code dispatches"): re-cut at 14:1x CT on D-v112-25: v112 owes the deliberation's outline and its close tonight, so Sunday opens a fresh v113 on its text; PI-2's §B cannot go LIVE before the kit and three rulings, so v112 files DRAFT-2's defects and v113 cuts DRAFT-3 before Tuesday. Nick's acts, one at a time: the b4 card → the b5 card (HERO-U4's intake, two layers; the SCHEMA-1 AMD draft with the hub's notes and the RETENTION correction; PI-2's inventory, verified) → HERO-U4's landing card (core: the lane's commit, the fast-forward, `frontend.yml`) → the b6 card (the outline + v113's text: the close) → AVAIL-2's paste if its charter makes the window, else v113's first dispatch. Sunday: BC11 in its own Cowork session (ends before 21:30); v113 intakes BC11 and SOAK-NIGHT-3, cuts PI-2's §B DRAFT-3, then the deliberation. Dispatches: Cowork — HERO-U4 (RETURNED 14:40, 50 min after its paste; its intake b5), BC11 (Sun), AVAIL-2 (research); Code — none before the freeze (Java CLOSED BY RULE; the bench lane idle: IR-216 at the next touch, no bench card before the run under `N3: c`); the docs lane (ACK-1 · RESTORE-1 · TAIL-1) opens in v113, after the AMD draft.
+- **D-v112-25 — PI-2's §B DRAFT-2 is NOT RUNNABLE as drafted** (the hub-side inventory for DRAFT-3, re-read at the bytes): B.3(1) carries hs-dev-1's "network parameters, so the fleet re-adopts without a re-join" (the unit cards §B.3) — the network's identity lives under `data/zigbee/` (`Main.java:104` at `176adad`) and `NetworkFormation.resume()` re-forms a STORED network on a coordinator whose NVRAM is blank (`NetworkFormation.java:281–298`, `zigbee.network_restored_from_parameters`): a blank MG21 meeting a copy of those files becomes a second coordinator on hs-dev-1's network (channel 20, the run's fleet) — IR-222. Eight more defects for DRAFT-3 (the restore paths; three checks that cannot read true; the LAN opt-in inert at `176adad`; B.6's first-boot EXPECTED; the mask against the timed install; the channel; the scoped admit's order against `adopt_devices`; the `.deb` artifact's 7-day retention, `install-smoke.yml:167`) — the inventory filed at b5 once every row is re-read. KIT-ORDER and three rulings gate LIVE.

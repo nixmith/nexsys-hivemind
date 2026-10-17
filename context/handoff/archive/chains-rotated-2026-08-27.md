@@ -1293,3 +1293,7 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 ## chain segment rotated 2026-10-17 (v112 beat 3) — v112 b1, verbatim
 
 2026-10-17 (v112 beat 1 — **BC10 DISPATCH-READY** on `J3-TREE: T-B` + `GO` (Nick, Sat 07:36 CT; `176adad`); the re-stamp re-cut two dead instruments at the source; the stub-ssh dry-run COMPLETE; the R&D guide filed; Check 12's three charters EXECUTED; D-v112-1..7; Sat 2026-10-17 ~07:4x CT (instrument 2026-10-17T12:42:35Z). Next: the b1 card → BC10 Sat 09:00 → b2 LICENSE-1's intake)
+
+## chain segment rotated 2026-10-17 (v112 beat 4) — v112 b2, verbatim
+
+2026-10-17 (v112 beat 2 — **LICENSE-1 INTAKEN ACCEPT** → the H10 to Nick (`LICENSE:` by Nov 2; (b) with the consent scoped before signing); BC10-F filed and held (dry-run COMPLETE, both arms); IR-217..219; D-v112-8..12; Sat 2026-10-17 ~07:5x CT (instrument 2026-10-17T12:54:26Z). Next: the b2 card → BC10 09:00 → b3 BC10's intake)

@@ -1238,42 +1238,46 @@ Prior: 2026-09-11 (v69 beat 2 — beat 1 landed `19dd310` by Nick's hands; PROTE
 
 2026-10-12 (v109 beat 2 — `HIVE: LANDED 2909dfd`; **GRADER-S31-1 INTAKEN ACCEPT and LANDED `ceb08c5`** (BP10; the suites, the rule and eight hand-built fixtures at the bytes; `matched-in-window` + `opaque` ACCEPT); the desk's selftest line crashed on cp1252 → IR-183; Nick's card rules adopted (exact-path deletes, clean status, `write-tree`); the afternoon re-planned on his 13:39 review — COMPARATOR-1 after the restart, `TRIAGE: adopt` and BENCH-BOOT-1's code half at b3, no device purchase before the pilots, the SSD by F1; `/sessions` still full → IR-181; D-v109-9..16; Mon 2026-10-12 ~14:1x CT (instrument 2026-10-12T19:14:48Z). Next: COMPARATOR-1's paste → the b2 card → b3)
 
-## ## chain segment rotated 2026-10-12 (v110 beat 1) — v109 b3, verbatim
+## chain segment rotated 2026-10-12 (v110 beat 1) — v109 b3, verbatim
 
 2026-10-12 (v109 beat 3 — `HIVE: LANDED 109e075` (re-pushed after a GitHub timeout); **BENCH-BOOT-1 CHARTERED DISPATCH-READY** at `ceb08c5` (`run`; the delegation keyed on the enabled link, loud without a bus; the new-log wait; the UTF-8 rider); `TRIAGE: adopt` found executed at v103 b2 (D-v103-14) — IR-118 retired on its reading, IR-56's 90-s read routed to D2; the OUTREACH-2 note (edits A–E; the rec: go with edits); D-v109-17..19; Mon 2026-10-12 ~14:5x CT (instrument 2026-10-12T19:55:22Z). Next: BENCH-BOOT-1's paste → the b3 card → `OUTREACH-2:` → the close)
 
-## ## chain segment rotated 2026-10-12 (v110 beat 2) — v109 b4, verbatim
+## chain segment rotated 2026-10-12 (v110 beat 2) — v109 b4, verbatim
 
 2026-10-12 (v109 beat 4, THE CLOSE — `HIVE: LANDED fdce2d0`; **COMPARATOR-1 INTAKEN ACCEPT** (R1 re-fetched at the pinned revisions; IR-138: the availability record missing in the sources checked; IR-184: the hero narrowed — Home Assistant records some non-firings, the field records dispatch, not confirmation; 0 license lines); **OUTREACH-2 LIVE v2** on `go with edits A–E`; BENCH-BOOT-1 running → v110; two lessons; the deliverable MET at b1 and beyond (GRADER-S31-1 LANDED `ceb08c5`); **v110's text FILED**; v108's six beats ROTATED; D-v109-20..28; v109 CLOSES; Mon 2026-10-12 ~15:5x CT (instrument 2026-10-12T20:50:46Z). Next: the close card → ≈ 19:00 CT dry-run #1 → v110 on Nick's paste)
 
-## ## chain segment rotated 2026-10-13 (v110 beat 3) — v110 b1, verbatim
+## chain segment rotated 2026-10-13 (v110 beat 3) — v110 b1, verbatim
 
 2026-10-12 (v110 beat 1 — `HIVE: LANDED e6a7ecc`; the boot PASS (7 MATCH); **BENCH-BOOT-1 INTAKEN ACCEPT** at the bytes (the tree `a17a7754…`; 57/0 · 42/0 · 54/0 · 42/0; row 7 `1 0 0 0` → IR-183 widened; the stub delegation holds; IR-185..187) → its landing card in Nick's form; Nick's addendum filed, its order adopted; D-v110-1..9; Mon 2026-10-12 ~18:3x CT (instrument 2026-10-12T23:35:17Z). Next: `BENCH: LANDED` → ≈ 19:00 CT dry-run #1's line → the b1 card → (ii) D2 + IR-56 → the HORIZON-1 intake)
 
-## ## chain segment rotated 2026-10-13 (v110 beat 4) — v110 b2, verbatim
+## chain segment rotated 2026-10-13 (v110 beat 4) — v110 b2, verbatim
 
 2026-10-12 (v110 beat 2 — **DRY-RUN-1 (Mon) INTAKEN; the window OPEN 20:03:53 CT** on the pre-warmed relaunch (P2″ failed as written; D-v110-11 the one-step backup; D-v110-12 the contingency); K-4 PASS; BACKUP-1 Part 0 DONE; IR-148 sharpened (`37f05a9`'s warm margin expires ≈ Oct 22; the fix in every Friday candidate); IR-188..191; **D2 Tue 20:04 CT** with the amended card (IR-56's lines; the slots filled); `KIT-STORAGE:` H10; D-v110-11..18; Mon 2026-10-12 ~20:5x CT (instrument 2026-10-13T01:54:34Z). Next: the b1 + b2 cards → `KIT-STORAGE:` → b3 HORIZON-1 → b4 (iv)+(vi) → b5 → the close; D2's line → v111)
 
-## ## chain segment rotated 2026-10-14 (v111 beat 1) — v110 b3, verbatim
+## chain segment rotated 2026-10-14 (v111 beat 1) — v110 b3, verbatim
 
 2026-10-13 (v110 beat 3 — **HORIZON-1 INTAKEN, pass 2** (24 ACCEPTED · 5 CORRECTED · 9 DEFERRED; F2's growth 17.5 GB/yr at the rig's posture; F6 has a transport; IR-192..202; the map fitted to ≈ 29 of Nick's hours); **GATE-2 DISPATCHED** (Thu 12:00) · **SCHEMA-1 DISPATCH-READY** (Oct 25); Nick's mandate banked (the hub decides; one act; the stops); `KIT-STORAGE: a` → the kit order; the b2 defect owned (`391f015`); D-v110-19..26; Tue 2026-10-13 ~16:5x CT (instrument 2026-10-13T21:53:36Z). Next: `GATE-2: running` → SCHEMA-1's dispatch → the b3 card → 20:04 D2 (→ v111) → b4 → b5 → the close)
 
-## ## chain segment rotated 2026-10-15 (v111 beat 2) — v110 b4, verbatim
+## chain segment rotated 2026-10-15 (v111 beat 2) — v110 b4, verbatim
 
 2026-10-13 (v110 beat 4, THE CLOSE — `HIVE: LANDED bfb1b70`; the unit cards' §A.2 LIVE (the stub dry-run record filed; §B → v111); **v111's text FILED**; the deliverable adjudicated (MET at b1; the HORIZON-1 ruling and the fitted map MET; pass 3's outline → v111 by design, D-v110-29); the measures 3/4 · 7 cards; D-v110-27..33; v110 CLOSES at four beats on the context constraint; Tue 2026-10-13 ~19:4x CT (instrument 2026-10-14T00:45:40Z). Next: the close card → 20:04 D2 → v111 on Nick's paste (its beat 1 = D2's intake))
 
-## ## chain segment rotated 2026-10-15 (v111 beat 3) — v111 b1, verbatim
+## chain segment rotated 2026-10-15 (v111 beat 3) — v111 b1, verbatim
 
 2026-10-14 (v111 beat 1 — **DRY-RUN #1 COMPLETE** (D2 intaken; IR-56 CLOSED on sample 7; R4 PASS ×44; the nightly warm 29.9 s to the radio; 48.4 MB/day); `HIVE: LANDED 028dbed`; D-v111-1..9; Wed 2026-10-14 ~07:1x CT (instrument 2026-10-14T12:14:54Z). Next: the b1 card → b2 GATE-2's intake → b3 SCHEMA-1's → BC10's draft)
 
-## ## chain segment rotated 2026-10-15 (v111 beat 4) — v111 b2, verbatim
+## chain segment rotated 2026-10-15 (v111 beat 4) — v111 b2, verbatim
 
 2026-10-15 (v111 beat 2 — **GATE-2 INTAKEN ACCEPT → LANDED `5cf3bd0`** (the 57 % is the Hue's; the fitness block additive; N3's H10 filed — (c) recommended); IR-204..209; D-v111-10..16; Thu 2026-10-15 ~06:0x CT (instrument 2026-10-15T11:09:47Z). Next: the b2 card → b3 SCHEMA-1's intake (the five checks; the retention H10) → BC10's draft)
 
-## ## chain segment rotated 2026-10-15 (v111 beat 5) — v111 b3, verbatim
+## chain segment rotated 2026-10-15 (v111 beat 5) — v111 b3, verbatim
 
 2026-10-15 (v111 beat 3 — **SCHEMA-1 INTAKEN ACCEPT** (the five checks held; J3 T-B beside Friday's word; the RETENTION H10 — (c) recommended; IR-210..215); `HIVE: LANDED 9ab4e5b`; D-v111-17..24; Thu 2026-10-15 ~06:2x CT (instrument 2026-10-15T11:21:27Z). Next: the b3 card → b4 BC10's card + LICENSE-1's charter → PI-2 → the deliberation)
 
-## ## chain segment rotated 2026-10-15 (v111 beat 6) — v111 b4, verbatim
+## chain segment rotated 2026-10-15 (v111 beat 6) — v111 b4, verbatim
 
 2026-10-15 (v111 beat 4 — **BENCH-HYGIENE-1 DISPATCHED** (06:50; BP11 by tonight); **BC10 DRAFTED** in both forms; the v110 note agreed on T-B and (c), the pre-warm kept out of the start path; IR-183/189/190/213/214 → the lane; D-v111-25..30; Thu 2026-10-15 ~06:5x CT (instrument 2026-10-15T11:58:39Z). Next: the b4 card → b5 LICENSE-1 + PI-2's card + the caveats → b6 the deliberation → the close)
+
+## chain segment rotated 2026-10-16 (v111 beat 7) — v111 b5, verbatim
+
+2026-10-15 (v111 beat 5 — **THE SESSION MAP** (D-v111-33; the law of every return D-v111-32); **LICENSE-1 CUT**; PI-2's §B DRAFT-2; the claims caveats §0 5–7; **`KIT-DONGLE:` H10** (no 7.4.x MG24 image nameable — both, else mg21); the brief's cap 12 → 14 KB (D-v111-39); D-v111-31..39; Thu 2026-10-15 ~07:1x CT (instrument 2026-10-15T12:13:18Z). Next: the b5 card → LICENSE-1's paste → `KIT-DONGLE:` → b6 the deliberation + the close)
